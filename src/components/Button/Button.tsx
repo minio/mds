@@ -21,6 +21,7 @@ import { ButtonProps } from "./Button.types";
 
 const CustomButton = styled.button<ButtonProps>`
   border-radius: 3px;
+  cursor: pointer;
   width: ${(props) => (props.fullWidth ? "100%" : "initial")};
   height: 39px;
   font-family: "Lato", sans-serif;
@@ -96,6 +97,7 @@ const CustomButton = styled.button<ButtonProps>`
     }
   }
   &:disabled {
+    cursor: not-allowed;
     background-color: ${({ theme, ...restProps }) =>
       get(
         theme,
