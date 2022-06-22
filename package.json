@@ -47,5 +47,10 @@
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "resolutions": {
+    "@storybook/**/glob-parent": "^5.1.2",
+    "@storybook/**/trim": "^0.0.3",
+    "@storybook/**/trim-newlines": "^3.0.1"
+  }
 }
