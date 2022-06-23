@@ -19,7 +19,7 @@ describe("Running Test for Button", () => {
       <Button id="second-button" label="One Test Label" icon={<TestIcon />} />
     );
     expect(screen.getByRole("button").innerHTML).toContain(
-      'One Test Label<span class="buttonIcon"><svg xmlns="http://www.w3.org/2000/svg" class="min-icon" fill="currentcolor" viewBox="0 0 256 256"><g><circle cx="128" cy="128" r="128"></circle></g></svg></span>'
+      '<span class=\"button-label\">One Test Label</span><span class=\"buttonIcon\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"min-icon\" fill=\"currentcolor\" viewBox=\"0 0 256 256\"><g><circle cx=\"128\" cy=\"128\" r=\"128\"></circle></g></svg></span>'
     );
   });
   test("Button contains icon at the start", () => {
@@ -32,7 +32,7 @@ describe("Running Test for Button", () => {
       />
     );
     expect(screen.getByRole("button").innerHTML).toContain(
-      '<span class="buttonIcon"><svg xmlns="http://www.w3.org/2000/svg" class="min-icon" fill="currentcolor" viewBox="0 0 256 256"><g><circle cx="128" cy="128" r="128"></circle></g></svg></span>One Test Label'
+      '<span class=\"buttonIcon\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"min-icon\" fill=\"currentcolor\" viewBox=\"0 0 256 256\"><g><circle cx=\"128\" cy=\"128\" r=\"128\"></circle></g></svg></span><span class=\"button-label\">One Test Label</span>'
     );
   });
 });
