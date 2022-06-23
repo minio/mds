@@ -20,8 +20,21 @@ import styled from "styled-components";
 import { ButtonProps } from "./Button.types";
 
 const CustomButton = styled.button<ButtonProps>`
-  border-radius: 3px;
-  width: ${(props) => (props.fullWidth ? "100%" : "initial")};
+  ${({
+    theme,
+    fullWidth,
+    variant,
+    iconLocation,
+    icon,
+    label,
+    collapseOnSmall,
+  }) => {
+    const neatVariant = variant || "regular";
+
+    return `
+ border-radius: 3px;
+  cursor: pointer;
+  width: ${fullWidth ? "100%" : "initial"};
   height: 39px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
@@ -31,205 +44,99 @@ const CustomButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   margin: 0 6px;
-  padding: ${(props) =>
-    !props.label || props.label.trim() === "" ? "0 14px" : "0 25px"};
+  padding: ${!label || label.trim() === "" ? "0 14px" : "0 25px"};
   transition: all 0.2s linear;
-  background-color: ${({ theme, ...restProps }) =>
-    get(
+    background-color: ${get(
       theme,
-      `buttons.${
-        restProps.variant ? restProps.variant : "regular"
-      }.enabled.background`,
+      `buttons.${neatVariant}.enabled.background`,
       "#fff"
     )};
-  border: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.enabled.border`,
-        "#000"
-      )}
+
+  border: ${get(theme, `buttons.${neatVariant}.enabled.border`, "#000")}
     1px solid;
-  color: ${({ theme, ...restProps }) =>
-    get(
-      theme,
-      `buttons.${
-        restProps.variant ? restProps.variant : "regular"
-      }.enabled.text`,
-      "#000"
-    )};
-  & .buttonIcon {
-    ${(props) =>
-      !props.label || props.label.trim() === ""
+  color: ${get(theme, `buttons.${neatVariant}.enabled.text`, "#000")};
+  & .button-label {
+    ${
+      !label || !icon
         ? `
         margin-right: 0;
         margin-left: 0;
     `
         : `
-        margin-right: ${props.iconLocation === "end" ? "0" : "10px"};
-        margin-left: ${props.iconLocation === "start" ? "0" : "10px"};
-    `}
-
+        margin-left: ${iconLocation === "end" ? "0" : "10px"};
+        margin-right: ${iconLocation === "start" ? "0" : "10px"};
+    `
+    }
+  }
+  & .buttonIcon {
     display: block;
     height: 14px;
 
     & > svg {
-      fill: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.enabled.text`,
-          "#000"
-        )};
-      color: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.enabled.text`,
-          "#000"
-        )};
+      fill: ${get(theme, `buttons.${neatVariant}.enabled.text`, "#000")};
+      color: ${get(theme, `buttons.${neatVariant}.enabled.text`, "#000")};
       width: 14px;
       height: 14px;
     }
   }
   &:disabled {
-    background-color: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.disabled.background`,
-        "#fff"
-      )};
-    border: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.disabled.border`,
-          "#000"
-        )}
+    cursor: not-allowed;
+    background-color: ${get(
+      theme,
+      `buttons.${neatVariant}.disabled.background`,
+      "#fff"
+    )};
+    border: ${get(theme, `buttons.${neatVariant}.disabled.border`, "#000")}
       1px solid;
-    color: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.disabled.text`,
-        "#000"
-      )};
+    color: ${get(theme, `buttons.${neatVariant}.disabled.text`, "#000")};
     & .buttonIcon > svg {
-      fill: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.disabled.text`,
-          "#000"
-        )};
-      color: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.disabled.text`,
-          "#000"
-        )};
+      fill: ${get(theme, `buttons.${neatVariant}.disabled.text`, "#000")};
+      color: ${get(theme, `buttons.${neatVariant}.disabled.text`, "#000")};
     }
   }
   &:hover:not(:disabled) {
-    background-color: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.hover.background`,
-        "#fff"
-      )};
-    border: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.hover.border`,
-          "#000"
-        )}
+    background-color: ${get(
+      theme,
+      `buttons.${neatVariant}.hover.background`,
+      "#fff"
+    )};
+    border: ${get(theme, `buttons.${neatVariant}.hover.border`, "#000")}
       1px solid;
-    color: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.hover.text`,
-        "#000"
-      )};
+    color: ${get(theme, `buttons.${neatVariant}.hover.text`, "#000")};
     & .buttonIcon > svg {
-      fill: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.hover.text`,
-          "#000"
-        )};
-      color: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.hover.text`,
-          "#000"
-        )};
+      fill: ${get(theme, `buttons.${neatVariant}.hover.text`, "#000")};
+      color: ${get(theme, `buttons.${neatVariant}.hover.text`, "#000")};
     }
   }
   &:active:not(:disabled) {
-    background-color: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.pressed.background`,
-        "#fff"
-      )};
-    border: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.pressed.border`,
-          "#000"
-        )}
+    background-color: ${get(
+      theme,
+      `buttons.${neatVariant}.pressed.background`,
+      "#fff"
+    )};
+    border: ${get(theme, `buttons.${neatVariant}.pressed.border`, "#000")}
       1px solid;
-    color: ${({ theme, ...restProps }) =>
-      get(
-        theme,
-        `buttons.${
-          restProps.variant ? restProps.variant : "regular"
-        }.pressed.text`,
-        "#000"
-      )};
+    color: ${get(theme, `buttons.${neatVariant}.pressed.text`, "#000")};
     & .buttonIcon > svg {
-      fill: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.pressed.text`,
-          "#000"
-        )};
-      color: ${({ theme, ...restProps }) =>
-        get(
-          theme,
-          `buttons.${
-            restProps.variant ? restProps.variant : "regular"
-          }.pressed.text`,
-          "#000"
-        )};
+      fill: ${get(theme, `buttons.${neatVariant}.pressed.text`, "#000")};
+      color: ${get(theme, `buttons.${neatVariant}.pressed.text`, "#000")};
     }
   }
+
+  ${
+    collapseOnSmall && icon && label && label.trim() !== ""
+      ? `
+    @media (max-width: 768px) {
+    padding: 0 14px;
+    & .button-label {
+      display: none;
+    }
+  }
+    `
+      : ""
+  }
+ `;
+  }}
 `;
 
 const Button: FC<ButtonProps> = ({
@@ -240,6 +147,7 @@ const Button: FC<ButtonProps> = ({
   onClick,
   disabled,
   fullWidth,
+  collapseOnSmall = true,
   ...props
 }) => {
   let iconToPlace: React.ReactNode = null;
@@ -256,10 +164,12 @@ const Button: FC<ButtonProps> = ({
       iconLocation={iconLocation}
       label={label}
       fullWidth={fullWidth}
+      collapseOnSmall={collapseOnSmall}
+      icon={iconToPlace}
       {...props}
     >
       {icon && iconLocation === "start" && iconToPlace}
-      {label}
+      <span className={"button-label"}>{label}</span>
       {icon && iconLocation === "end" && iconToPlace}
     </CustomButton>
   );

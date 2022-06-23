@@ -25,5 +25,6 @@ export interface ButtonProps {
   iconLocation?: "start" | "end";
   fullWidth?: boolean;
   disabled?: boolean;
+  collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
