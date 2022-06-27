@@ -19,9 +19,9 @@ import { Meta, Story } from "@storybook/react";
 
 import Button from "./Button";
 import { ButtonProps } from "./Button.types";
-import { ThemeProvider } from "styled-components";
-import { lightTheme } from "../../global/themes";
+
 import TestIcon from "../../utils/TestIcon";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
   title: "MDS/Button",
@@ -30,9 +30,9 @@ export default {
 } as Meta<typeof Button>;
 
 const Template: Story<ButtonProps> = (args) => (
-  <ThemeProvider theme={lightTheme}>
+  <StoryThemeProvider>
     <Button {...args} onClick={() => alert("You clicked me!")} />
-  </ThemeProvider>
+  </StoryThemeProvider>
 );
 
 export const Default = Template.bind({});
