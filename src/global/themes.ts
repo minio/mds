@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-const lightColors = {
+export const lightColors = {
   white: "#fff",
   mainGrey: "#5B5C5C",
   disabledGrey: "#E6EBEB",
@@ -27,6 +27,23 @@ const lightColors = {
   mainRed: "#C51B3F",
   hoverRed: "#FCF2F4",
   lightRed: "#C83B51",
+  divisorColor: "#E3E3E3",
+};
+
+export const darkColors = {
+  dark: "#19202A",
+  mainGrey: "#A2ADC0",
+  disabledGrey: "#494A4D",
+  hoverGrey: "#4B586A",
+  borderPressedGrey: "#707988",
+  pressedGrey: "#333D4B",
+  mainWhite: "#E6ECEC",
+  disabledWhite: "#B5BCBD",
+  hoverWhite: "#EFEDED",
+  pressedWhite: "#C3CBCB",
+  mainRed: "#FF3958",
+  hoverRed: "#4B586A",
+  divisorColor: "#E3E3E3",
 };
 
 export const lightTheme = {
@@ -114,5 +131,85 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  bgColor: "#181F2A",
+  bgColor: darkColors.dark,
+  buttons: {
+    regular: {
+      enabled: {
+        border: darkColors.mainGrey,
+        text: darkColors.mainGrey,
+        background: darkColors.dark,
+        iconColor: darkColors.mainGrey,
+      },
+      disabled: {
+        border: darkColors.disabledGrey,
+        text: darkColors.mainGrey,
+        background: darkColors.dark,
+        iconColor: darkColors.mainGrey,
+      },
+      hover: {
+        border: darkColors.mainGrey,
+        text: darkColors.mainGrey,
+        background: darkColors.hoverGrey,
+        iconColor: darkColors.mainGrey,
+      },
+      pressed: {
+        border: darkColors.borderPressedGrey,
+        text: darkColors.borderPressedGrey,
+        background: darkColors.pressedGrey,
+        iconColor: darkColors.borderPressedGrey,
+      },
+    },
+    callAction: {
+      enabled: {
+        border: darkColors.mainWhite,
+        text: darkColors.dark,
+        background: darkColors.mainWhite,
+        iconColor: darkColors.dark,
+      },
+      disabled: {
+        border: darkColors.disabledWhite,
+        text: darkColors.dark,
+        background: darkColors.disabledWhite,
+        iconColor: darkColors.dark,
+      },
+      hover: {
+        border: darkColors.hoverWhite,
+        text: darkColors.dark,
+        background: darkColors.hoverWhite,
+        iconColor: darkColors.dark,
+      },
+      pressed: {
+        border: darkColors.pressedWhite,
+        text: darkColors.dark,
+        background: darkColors.pressedWhite,
+        iconColor: darkColors.dark,
+      },
+    },
+    secondary: {
+      enabled: {
+        border: darkColors.mainRed,
+        text: darkColors.mainRed,
+        background: darkColors.dark,
+        iconColor: darkColors.mainRed,
+      },
+      disabled: {
+        border: darkColors.disabledGrey,
+        text: darkColors.mainGrey,
+        background: darkColors.dark,
+        iconColor: darkColors.mainGrey,
+      },
+      hover: {
+        border: darkColors.mainRed,
+        text: darkColors.mainRed,
+        background: darkColors.hoverRed,
+        iconColor: darkColors.mainRed,
+      },
+      pressed: {
+        border: darkColors.mainRed,
+        text: darkColors.dark,
+        background: darkColors.mainRed,
+        iconColor: darkColors.dark,
+      },
+    },
+  },
 };
