@@ -32,7 +32,7 @@
     "@types/react": "^18.0.14",
     "@types/styled-components": "^5.1.25",
     "babel-loader": "^8.2.5",
-    "jest": "^28.1.1",
+    "jest": "^28.1.2",
     "jest-environment-jsdom": "^28.1.1",
     "lodash": "^4.17.21",
     "prettier": "^2.7.1",
