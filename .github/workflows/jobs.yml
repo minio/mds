@@ -2,8 +2,8 @@ name: Workflow
 
 on:
   pull_request:
-    types:
-      - opened
+    branches:
+      - master
   push:
     branches:
       - master
