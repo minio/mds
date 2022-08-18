@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rollup -c",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook -o docs-build",
     "test": "jest"
   },
   "devDependencies": {
@@ -18,13 +18,13 @@
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
-    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
     "@storybook/builder-webpack4": "^6.5.10",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.10",
+    "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -53,6 +53,8 @@
   "resolutions": {
     "@storybook/**/glob-parent": "^5.1.2",
     "@storybook/**/trim": "^0.0.3",
-    "@storybook/**/trim-newlines": "^3.0.1"
+    "@storybook/**/trim-newlines": "^3.0.1",
+    "@storybook/**/terser": "^5.14.2",
+    "rollup-plugin-terser/terser": "^5.14.2"
   }
 }
