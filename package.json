@@ -22,7 +22,7 @@
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
-    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.10",
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
@@ -38,7 +38,7 @@
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rollup": "^2.77.0",
+    "rollup": "^2.78.0",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
@@ -47,7 +47,7 @@
     "ts-jest": "^28.0.7",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "yarn-audit-fix": "^9.3.2"
+    "yarn-audit-fix": "^9.3.5"
   },
   "dependencies": {},
   "resolutions": {
