@@ -17,6 +17,7 @@
 import { MouseEventHandler, ReactNode } from "react";
 
 export interface ButtonProps {
+  type?: "submit" | "reset" | "button" | string;
   id: string;
   name?: string;
   label?: string;
