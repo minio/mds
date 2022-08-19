@@ -12,6 +12,11 @@
     "build-storybook": "build-storybook",
     "test": "jest"
   },
+  "types": "dist/mds.d.ts",
+  "dependencies": {
+    "@types/styled-components": "^5.1.25",
+    "styled-components": "^5.3.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@babel/preset-typescript": "^7.18.6",
@@ -49,7 +54,6 @@
     "typescript": "^4.7.4",
     "yarn-audit-fix": "^9.3.5"
   },
-  "dependencies": {},
   "resolutions": {
     "@storybook/**/glob-parent": "^5.1.2",
     "@storybook/**/trim": "^0.0.3",

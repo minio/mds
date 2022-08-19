@@ -32,7 +32,7 @@ const CustomButton = styled.button<ButtonProps>`
     const neatVariant = variant || "regular";
 
     return `
- border-radius: 3px;
+  border-radius: 3px;
   cursor: pointer;
   width: ${fullWidth ? "100%" : "initial"};
   height: 39px;
@@ -43,7 +43,7 @@ const CustomButton = styled.button<ButtonProps>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 0 6px;
+  margin: 0;
   padding: ${!label || label.trim() === "" ? "0 14px" : "0 25px"};
   transition: all 0.2s linear;
     background-color: ${get(
