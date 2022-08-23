@@ -23,7 +23,7 @@
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
     "@storybook/builder-webpack4": "^6.5.10",
-    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.10",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
@@ -44,7 +44,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "storybook-dark-mode": "^1.1.0",
     "styled-components": "^5.3.5",
-    "ts-jest": "^28.0.7",
+    "ts-jest": "^28.0.8",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
     "yarn-audit-fix": "^9.3.5"
