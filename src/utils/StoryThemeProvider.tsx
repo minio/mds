@@ -15,13 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
-import { addDecorator } from "@storybook/react";
 import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
-
 import addons from "@storybook/addons";
 
-import { lightTheme, darkTheme } from "../global/themes";
+import ThemeHandler from "../components/ThemeHandler/ThemeHandler";
 
 interface IStoryThemeProvider {
   children: React.ReactNode;
@@ -38,11 +35,7 @@ const StoryThemeProvider = ({ children }: IStoryThemeProvider) => {
     return () => channel.off(DARK_MODE_EVENT_NAME, setDark);
   }, [channel, setDark]);
 
-  return (
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeHandler darkMode={isDark}>{children}</ThemeHandler>;
 };
 
 export default StoryThemeProvider;
