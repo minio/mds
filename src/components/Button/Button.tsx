@@ -148,6 +148,7 @@ const Button: FC<ButtonProps> = ({
   disabled,
   fullWidth,
   collapseOnSmall = true,
+  type,
   ...props
 }) => {
   let iconToPlace: React.ReactNode = null;
@@ -166,6 +167,7 @@ const Button: FC<ButtonProps> = ({
       fullWidth={fullWidth}
       collapseOnSmall={collapseOnSmall}
       icon={iconToPlace}
+      type={type || "button"}
       {...props}
     >
       {icon && iconLocation === "start" && iconToPlace}
