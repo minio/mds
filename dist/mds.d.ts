@@ -1,4 +1,4 @@
-import { ReactNode, MouseEventHandler, FC } from 'react';
+import React, { ReactNode, MouseEventHandler, FC } from "react";
 
 interface ButtonProps {
   id: string;
@@ -13,7 +13,9 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-declare const Button: FC<ButtonProps>;
+declare const Button: FC<
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 interface ThemeHandlerProps {
   darkMode?: boolean;

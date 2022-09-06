@@ -1,4 +1,4 @@
-# MinIO Design Sytem
+# MinIO Design System
 
 The MinIO Design System is a design specification for all UI elements used in MinIO products.
 

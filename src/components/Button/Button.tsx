@@ -19,7 +19,9 @@ import get from "lodash/get";
 import styled from "styled-components";
 import { ButtonProps } from "./Button.types";
 
-const CustomButton = styled.button<ButtonProps>`
+const CustomButton = styled.button<
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+>`
   ${({
     theme,
     fullWidth,
@@ -139,7 +141,9 @@ const CustomButton = styled.button<ButtonProps>`
   }}
 `;
 
-const Button: FC<ButtonProps> = ({
+const Button: FC<
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = ({
   label,
   variant = "regular",
   icon,
