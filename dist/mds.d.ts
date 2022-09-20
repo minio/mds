@@ -1,4 +1,5 @@
 import React, { ReactNode, MouseEventHandler, FC } from "react";
+import * as styled_components from "styled-components";
 
 interface ButtonProps {
   id: string;
@@ -24,4 +25,9 @@ interface ThemeHandlerProps {
 
 declare const ThemeHandler: FC<ThemeHandlerProps>;
 
-export { Button, ThemeHandler };
+declare const GlobalStyles: styled_components.GlobalStyleComponent<
+  {},
+  styled_components.DefaultTheme
+>;
+
+export { Button, GlobalStyles, ThemeHandler };

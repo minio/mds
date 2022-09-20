@@ -1,5 +1,8 @@
 export declare const lightColors: {
   white: string;
+  defaultFontColor: string;
+  bulletColor: string;
+  borderColor: string;
   mainGrey: string;
   disabledGrey: string;
   hoverGrey: string;
@@ -15,6 +18,9 @@ export declare const lightColors: {
 };
 export declare const darkColors: {
   dark: string;
+  defaultFontColor: string;
+  bulletColor: string;
+  borderColor: string;
   mainGrey: string;
   disabledGrey: string;
   hoverGrey: string;
@@ -30,6 +36,9 @@ export declare const darkColors: {
 };
 export declare const lightTheme: {
   bgColor: string;
+  fontColor: string;
+  borderColor: string;
+  bulletColor: string;
   buttons: {
     regular: {
       enabled: {
@@ -113,6 +122,9 @@ export declare const lightTheme: {
 };
 export declare const darkTheme: {
   bgColor: string;
+  fontColor: string;
+  borderColor: string;
+  bulletColor: string;
   buttons: {
     regular: {
       enabled: {

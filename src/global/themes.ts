@@ -16,6 +16,9 @@
 
 export const lightColors = {
   white: "#fff",
+  defaultFontColor: "#000",
+  bulletColor: "#2781B0",
+  borderColor: "#E2E2E2",
   mainGrey: "#5B5C5C",
   disabledGrey: "#E6EBEB",
   hoverGrey: "#E6EAEB",
@@ -32,6 +35,9 @@ export const lightColors = {
 
 export const darkColors = {
   dark: "#19202A",
+  defaultFontColor: "#8E98A9",
+  bulletColor: "#4B586A",
+  borderColor: "#8E98A9",
   mainGrey: "#A2ADC0",
   disabledGrey: "#494A4D",
   hoverGrey: "#4B586A",
@@ -48,6 +54,9 @@ export const darkColors = {
 
 export const lightTheme = {
   bgColor: lightColors.white,
+  fontColor: lightColors.defaultFontColor,
+  borderColor: lightColors.borderColor,
+  bulletColor: lightColors.bulletColor,
   buttons: {
     regular: {
       enabled: {
@@ -132,6 +141,9 @@ export const lightTheme = {
 
 export const darkTheme = {
   bgColor: darkColors.dark,
+  fontColor: darkColors.defaultFontColor,
+  borderColor: darkColors.borderColor,
+  bulletColor: darkColors.bulletColor,
   buttons: {
     regular: {
       enabled: {
