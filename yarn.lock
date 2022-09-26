@@ -2942,7 +2942,7 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
-"@types/semver@^7.3.11":
+"@types/semver@^7.3.12":
   version "7.3.12"
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.12.tgz#920447fdd78d76b19de0438b7f60df3c4a80bf1c"
   integrity sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==
@@ -5895,7 +5895,7 @@ find-up@^5.0.0:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
 
-find-up@^6.1.0, find-up@^6.3.0:
+find-up@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-6.3.0.tgz#2abab3d3280b2dc7ac10199ef324c4e002c8c790"
   integrity sha512-v2ZsoEuVHYy8ZIlYqwPe/39Cy+cFDzp4dXPaxNvkEuouymu+2Jbz0PxpKarJHYJTmv2HWT3O382qY8l4jMWthw==
@@ -9099,12 +9099,12 @@ pkg-dir@^5.0.0:
   dependencies:
     find-up "^5.0.0"
 
-pkg-dir@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-6.0.1.tgz#8ec964cecaef98a2bdb9c164733f90a5bcd2352d"
-  integrity sha512-C9R+PTCKGA32HG0n5I4JMYkdLL58ZpayVuncQHQrGeKa8o26A4o2x0u6BKekHG+Au0jv5ZW7Xfq1Cj6lm9Ag4w==
+pkg-dir@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-7.0.0.tgz#8f0c08d6df4476756c5ff29b3282d0bab7517d11"
+  integrity sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==
   dependencies:
-    find-up "^6.1.0"
+    find-up "^6.3.0"
 
 pnp-webpack-plugin@1.6.4:
   version "1.6.4"
@@ -11703,15 +11703,15 @@ yargs@^17.3.1:
     y18n "^5.0.5"
     yargs-parser "^21.0.0"
 
-yarn-audit-fix@^9.3.5:
-  version "9.3.5"
-  resolved "https://registry.yarnpkg.com/yarn-audit-fix/-/yarn-audit-fix-9.3.5.tgz#3a0e9356c5b741a6aa50039af4cebfa9308c71d9"
-  integrity sha512-2bnEkix8of4qrkWMsKlIWPdIqY6YGFdR5rsrBNycNbGlSZRMaWddKiJgoOSowyNuMpB5ElHOlA1hSlxF4/7waQ==
+yarn-audit-fix@^9.3.6:
+  version "9.3.6"
+  resolved "https://registry.yarnpkg.com/yarn-audit-fix/-/yarn-audit-fix-9.3.6.tgz#f3b0d1405e953df13c4f8f068eb6ba595d120697"
+  integrity sha512-JeU1VRsMdGrTd/nUuS72HJhbcp4sfY9SPDMDP9pTpytrFBLM6NAcxSxdQOPUOZMm6Ze0v5jHSkZaOfToEVcdiQ==
   dependencies:
     "@types/find-cache-dir" "^3.2.1"
     "@types/fs-extra" "^9.0.13"
     "@types/lodash-es" "^4.17.6"
-    "@types/semver" "^7.3.11"
+    "@types/semver" "^7.3.12"
     "@types/yarnpkg__lockfile" "^1.1.5"
     "@yarnpkg/lockfile" "^1.1.0"
     chalk "^5.0.1"
@@ -11722,7 +11722,7 @@ yarn-audit-fix@^9.3.5:
     globby "^13.1.2"
     js-yaml "^4.1.0"
     lodash-es "^4.17.21"
-    pkg-dir "^6.0.1"
+    pkg-dir "^7.0.0"
     semver "^7.3.7"
     synp "^1.9.10"
     tslib "^2.4.0"
