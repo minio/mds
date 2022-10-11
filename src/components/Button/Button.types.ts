@@ -27,4 +27,9 @@ export interface ButtonProps {
   disabled?: boolean;
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  children?: ReactNode | string;
+}
+
+export interface ConstructProps {
+  parentChildren: ReactNode | string | undefined;
 }
