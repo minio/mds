@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { ButtonProps } from "./Button.types";
+import { ButtonProps, ConstructProps } from "./Button.types";
 
 const CustomButton = styled.button<
-  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps & ConstructProps
 >`
   ${({
     theme,
@@ -30,9 +30,9 @@ const CustomButton = styled.button<
     icon,
     label,
     collapseOnSmall,
+    parentChildren,
   }) => {
     const neatVariant = variant || "regular";
-
     return `
   border-radius: 3px;
   cursor: pointer;
@@ -46,7 +46,10 @@ const CustomButton = styled.button<
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: ${!label || label.trim() === "" ? "0 14px" : "0 25px"};
+  position: relative;
+  padding: ${
+    (!label || label.trim() === "") && !parentChildren ? "0 14px" : "0 25px"
+  };
   transition: all 0.2s linear;
     background-color: ${get(
       theme,
@@ -58,8 +61,9 @@ const CustomButton = styled.button<
     1px solid;
   color: ${get(theme, `buttons.${neatVariant}.enabled.text`, "#000")};
   & .button-label {
+  white-space: ${fullWidth ? "normal" : "nowrap"};
     ${
-      !label || !icon
+      (!label && !parentChildren) || !icon
         ? `
         margin-right: 0;
         margin-left: 0;
@@ -126,7 +130,9 @@ const CustomButton = styled.button<
   }
 
   ${
-    collapseOnSmall && icon && label && label.trim() !== ""
+    collapseOnSmall &&
+    icon &&
+    ((label && label.trim() !== "") || parentChildren)
       ? `
     @media (max-width: 768px) {
     padding: 0 14px;
@@ -142,7 +148,7 @@ const CustomButton = styled.button<
 `;
 
 const Button: FC<
-  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps
 > = ({
   label,
   variant = "regular",
@@ -152,6 +158,7 @@ const Button: FC<
   disabled,
   fullWidth,
   collapseOnSmall = true,
+  children,
   ...props
 }) => {
   let iconToPlace: React.ReactNode = null;
@@ -170,11 +177,18 @@ const Button: FC<
       fullWidth={fullWidth}
       collapseOnSmall={collapseOnSmall}
       icon={iconToPlace}
+      parentChildren={children || null}
       {...props}
     >
-      {icon && iconLocation === "start" && iconToPlace}
-      <span className={"button-label"}>{label}</span>
-      {icon && iconLocation === "end" && iconToPlace}
+      <Fragment>
+        {icon && iconLocation === "start" && iconToPlace}
+        <span className={"button-label"}>
+          {children}
+          {children && label ? " " : ""}
+          {label}
+        </span>
+        {icon && iconLocation === "end" && iconToPlace}
+      </Fragment>
     </CustomButton>
   );
 };

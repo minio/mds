@@ -32,6 +32,8 @@ export default {
 const Template: Story<ButtonProps> = (args) => (
   <StoryThemeProvider>
     <Button {...args} onClick={() => alert("You clicked me!")} />
+    <br />
+    <Button {...args}>With Children</Button>
   </StoryThemeProvider>
 );
 
