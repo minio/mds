@@ -12,6 +12,7 @@ interface ButtonProps {
   disabled?: boolean;
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  children?: ReactNode | string;
 }
 
 declare const Button: FC<
