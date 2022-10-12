@@ -39,6 +39,7 @@ export declare const lightTheme: {
   fontColor: string;
   borderColor: string;
   bulletColor: string;
+  logoColor: string;
   buttons: {
     regular: {
       enabled: {
@@ -125,6 +126,7 @@ export declare const darkTheme: {
   fontColor: string;
   borderColor: string;
   bulletColor: string;
+  logoColor: string;
   buttons: {
     regular: {
       enabled: {

@@ -57,6 +57,7 @@ export const lightTheme = {
   fontColor: lightColors.defaultFontColor,
   borderColor: lightColors.borderColor,
   bulletColor: lightColors.bulletColor,
+  logoColor: lightColors.mainRed,
   buttons: {
     regular: {
       enabled: {
@@ -144,6 +145,7 @@ export const darkTheme = {
   fontColor: darkColors.defaultFontColor,
   borderColor: darkColors.borderColor,
   bulletColor: darkColors.bulletColor,
+  logoColor: darkColors.mainRed,
   buttons: {
     regular: {
       enabled: {
