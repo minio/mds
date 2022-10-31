@@ -31,6 +31,8 @@ export const lightColors = {
   hoverRed: "#FCF2F4",
   lightRed: "#C83B51",
   divisorColor: "#E3E3E3",
+  disabledBGGrey: "#D5D7D7",
+  disabledInnerGrey: "#B4B4B4",
 };
 
 export const darkColors = {
@@ -50,6 +52,8 @@ export const darkColors = {
   mainRed: "#FF3958",
   hoverRed: "#4B586A",
   divisorColor: "#E3E3E3",
+  disabledBGGrey: "#616A7C",
+  disabledInnerGrey: "#3A3F4A",
 };
 
 export const lightTheme = {
@@ -67,10 +71,10 @@ export const lightTheme = {
         iconColor: lightColors.mainGrey,
       },
       disabled: {
-        border: lightColors.disabledGrey,
-        text: lightColors.pressedGrey,
-        background: lightColors.white,
-        iconColor: lightColors.mainGrey,
+        border: lightColors.disabledInnerGrey,
+        text: lightColors.disabledInnerGrey,
+        background: lightColors.disabledBGGrey,
+        iconColor: lightColors.disabledInnerGrey,
       },
       hover: {
         border: lightColors.mainGrey,
@@ -119,10 +123,10 @@ export const lightTheme = {
         iconColor: lightColors.mainRed,
       },
       disabled: {
-        border: lightColors.disabledGrey,
-        text: lightColors.mainGrey,
-        background: lightColors.white,
-        iconColor: lightColors.mainGrey,
+        border: lightColors.disabledInnerGrey,
+        text: lightColors.disabledInnerGrey,
+        background: lightColors.disabledBGGrey,
+        iconColor: lightColors.disabledInnerGrey,
       },
       hover: {
         border: lightColors.lightRed,
@@ -155,10 +159,10 @@ export const darkTheme = {
         iconColor: darkColors.mainGrey,
       },
       disabled: {
-        border: darkColors.disabledGrey,
-        text: darkColors.mainGrey,
-        background: darkColors.dark,
-        iconColor: darkColors.mainGrey,
+        border: darkColors.disabledInnerGrey,
+        text: darkColors.disabledInnerGrey,
+        background: darkColors.disabledBGGrey,
+        iconColor: darkColors.disabledInnerGrey,
       },
       hover: {
         border: darkColors.mainGrey,
@@ -207,10 +211,10 @@ export const darkTheme = {
         iconColor: darkColors.mainRed,
       },
       disabled: {
-        border: darkColors.disabledGrey,
-        text: darkColors.mainGrey,
-        background: darkColors.dark,
-        iconColor: darkColors.mainGrey,
+        border: darkColors.disabledInnerGrey,
+        text: darkColors.disabledInnerGrey,
+        background: darkColors.disabledBGGrey,
+        iconColor: darkColors.disabledInnerGrey,
       },
       hover: {
         border: darkColors.mainRed,
