@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
 export interface ThemeHandlerProps {
-  darkMode?: boolean;
-  children: ReactNode;
+    darkMode?: boolean;
+    children: ReactNode;
 }
