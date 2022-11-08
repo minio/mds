@@ -14,11 +14,26 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*Basics*/
-export { default as ThemeHandler } from "./ThemeHandler/ThemeHandler";
-export { default as GlobalStyles } from "./GlobalStyles/GlobalStyles";
+import React, { SVGProps } from "react";
+import styled from "styled-components";
+import get from "lodash/get";
+import { LogoBaseProps } from "./LogoBase.types";
 
-/*MDS Components*/
-export { default as Button } from "./Button/Button";
-export { default as ApplicationLogo } from "./ApplicationLogo/ApplicationLogo";
-export { default as ThemedLogo } from "./ThemedLogo/ThemedLogo";
+const LogoBase = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
+  let mainColor = get(props, "theme.logoLabelColor", "#000");
+
+  if (props.inverse) {
+    mainColor = get(props, "theme.logoLabelInverse", "#fff");
+  }
+
+  return {
+    "& .minioSection": {
+      fill: get(props, `theme.logoColor`, "#C51C3F"),
+    },
+    "& .minioApplicationName": {
+      fill: mainColor,
+    },
+  };
+});
+
+export default LogoBase;
