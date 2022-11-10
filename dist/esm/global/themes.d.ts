@@ -17,6 +17,8 @@ export declare const lightColors: {
   divisorColor: string;
   disabledBGGrey: string;
   disabledInnerGrey: string;
+  logoLabel: string;
+  logoLabelInverse: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -37,6 +39,8 @@ export declare const darkColors: {
   divisorColor: string;
   disabledBGGrey: string;
   disabledInnerGrey: string;
+  logoLabel: string;
+  logoLabelInverse: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -44,6 +48,8 @@ export declare const lightTheme: {
   borderColor: string;
   bulletColor: string;
   logoColor: string;
+  logoLabelColor: string;
+  logoLabelInverse: string;
   buttons: {
     regular: {
       enabled: {
@@ -131,6 +137,8 @@ export declare const darkTheme: {
   borderColor: string;
   bulletColor: string;
   logoColor: string;
+  logoLabelColor: string;
+  logoLabelInverse: string;
   buttons: {
     regular: {
       enabled: {

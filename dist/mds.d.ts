@@ -1,5 +1,17 @@
-import React, { ReactNode, MouseEventHandler, FC } from "react";
+import React, { ReactNode, FC, MouseEventHandler, SVGProps } from "react";
 import * as styled_components from "styled-components";
+
+interface ThemeHandlerProps {
+  darkMode?: boolean;
+  children: ReactNode;
+}
+
+declare const ThemeHandler: FC<ThemeHandlerProps>;
+
+declare const GlobalStyles: styled_components.GlobalStyleComponent<
+  {},
+  styled_components.DefaultTheme
+>;
 
 interface ButtonProps {
   id: string;
@@ -19,16 +31,14 @@ declare const Button: FC<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
-interface ThemeHandlerProps {
-  darkMode?: boolean;
-  children: ReactNode;
+interface ApplicationLogoProps {
+  applicationName: "console" | "operator" | "directpv" | "kes" | "subnet";
+  subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
+  inverse?: boolean;
 }
 
-declare const ThemeHandler: FC<ThemeHandlerProps>;
+declare const ApplicationLogo: FC<ApplicationLogoProps>;
 
-declare const GlobalStyles: styled_components.GlobalStyleComponent<
-  {},
-  styled_components.DefaultTheme
->;
+declare const ThemedLogo: FC<SVGProps<any>>;
 
-export { Button, GlobalStyles, ThemeHandler };
+export { ApplicationLogo, Button, GlobalStyles, ThemeHandler, ThemedLogo };

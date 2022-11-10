@@ -33,6 +33,8 @@ export const lightColors = {
   divisorColor: "#E3E3E3",
   disabledBGGrey: "#D5D7D7",
   disabledInnerGrey: "#B4B4B4",
+  logoLabel: "#000000",
+  logoLabelInverse: "#fff",
 };
 
 export const darkColors = {
@@ -54,6 +56,8 @@ export const darkColors = {
   divisorColor: "#E3E3E3",
   disabledBGGrey: "#616A7C",
   disabledInnerGrey: "#3A3F4A",
+  logoLabel: "#A3B7D9",
+  logoLabelInverse: "#fff",
 };
 
 export const lightTheme = {
@@ -62,6 +66,8 @@ export const lightTheme = {
   borderColor: lightColors.borderColor,
   bulletColor: lightColors.bulletColor,
   logoColor: lightColors.mainRed,
+  logoLabelColor: lightColors.logoLabel,
+  logoLabelInverse: lightColors.logoLabelInverse,
   buttons: {
     regular: {
       enabled: {
@@ -150,6 +156,8 @@ export const darkTheme = {
   borderColor: darkColors.borderColor,
   bulletColor: darkColors.bulletColor,
   logoColor: darkColors.mainRed,
+  logoLabelColor: darkColors.logoLabel,
+  logoLabelInverse: darkColors.logoLabelInverse,
   buttons: {
     regular: {
       enabled: {
