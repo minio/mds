@@ -14,26 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-export const breakPoints = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 };
+import { ReactNode } from "react";
+import { ApplicationLogoProps } from "../ApplicationLogo/ApplicationLogo.types";
 
-export const fractionToPerc = (fraction: "auto" | number | boolean) => {
-  if (fraction === "auto" || (typeof fraction === "boolean" && fraction)) {
-    return "100%";
-  } else if (fraction === false) {
-    return "initial";
-  }
-
-  let fr = Math.floor(fraction);
-
-  if (fr > 12) {
-    fr = 12;
-    console.warn("Grid fraction cannot be greater than 12");
-  } else if (fr < 1) {
-    fr = 1;
-    console.warn("Grid fraction cannot be smaller than 1");
-  }
-
-  const percCalculate = (fr * 100) / 12;
-
-  return `${percCalculate}%`;
-};
+export interface LoginWrapperProps {
+  logoProps: ApplicationLogoProps;
+  form: ReactNode;
+  formFooter?: ReactNode;
+  promoHeader?: ReactNode;
+  promoInfo?: ReactNode;
+}

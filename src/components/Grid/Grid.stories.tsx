@@ -115,7 +115,7 @@ const Template: Story<GridProps> = (args) => (
         xs = auto, sm = 2, md = 1
       </Grid>
     </Grid>
-    <Grid container>
+    <Grid container sx={{ marginBottom: 15 }}>
       <Grid item xs={6} md={1} sx={{ backgroundColor: "#abc" }}>
         xs = 6 <br /> md = 1
       </Grid>
@@ -151,6 +151,45 @@ const Template: Story<GridProps> = (args) => (
       </Grid>
       <Grid item xs={6} md={1} sx={{ backgroundColor: "#c27", color: "#fff" }}>
         xs = 6 <br /> md = 1
+      </Grid>
+    </Grid>
+    <Grid container sx={{ marginBottom: 15 }}>
+      <Grid item xs={"hidden"} sm={12} sx={{ backgroundColor: "#abc" }}>
+        Hidden on extra small screens
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={"hidden"}
+        sx={{ backgroundColor: "#c0f", color: "#fff" }}
+      >
+        Hidden on small screens
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        md={"hidden"}
+        sx={{ backgroundColor: "#123", color: "#fff" }}
+      >
+        Hidden on medium screens
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        lg={"hidden"}
+        sx={{ backgroundColor: "#500", color: "#fff" }}
+      >
+        Hidden on large screens
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        xl={"hidden"}
+        sx={{ backgroundColor: "#972", color: "#fff" }}
+      >
+        Hidden on extra large screens
       </Grid>
     </Grid>
   </StoryThemeProvider>

@@ -46,11 +46,11 @@ type ConditionalProps =
       direction?: never;
       columnSpacing?: never;
       rowSpacing?: never;
-      xs?: "auto" | number | boolean;
-      sm?: "auto" | number | boolean;
-      md?: "auto" | number | boolean;
-      lg?: "auto" | number | boolean;
-      xl?: "auto" | number | boolean;
+      xs?: "auto" | "hidden" | number | boolean;
+      sm?: "auto" | "hidden" | number | boolean;
+      md?: "auto" | "hidden" | number | boolean;
+      lg?: "auto" | "hidden" | number | boolean;
+      xl?: "auto" | "hidden" | number | boolean;
     };
 
 export type GridProps = GridCommonProps & ConditionalProps;
