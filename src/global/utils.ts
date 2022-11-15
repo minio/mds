@@ -14,12 +14,28 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*Basics*/
-export { default as ThemeHandler } from "./ThemeHandler/ThemeHandler";
-export { default as GlobalStyles } from "./GlobalStyles/GlobalStyles";
+export const breakPoints = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 };
 
-/*MDS Components*/
-export { default as Button } from "./Button/Button";
-export { default as ApplicationLogo } from "./ApplicationLogo/ApplicationLogo";
-export { default as ThemedLogo } from "./ThemedLogo/ThemedLogo";
-export { default as Grid } from "./Grid/Grid";
+export const fractionToPerc = (fraction: "auto" | number | boolean) => {
+  if (fraction === "auto" || (typeof fraction === "boolean" && fraction)) {
+    return "100%";
+  } else if (fraction === false) {
+    return "initial";
+  }
+
+  let fr = Math.floor(fraction);
+
+  console.log(fr);
+
+  if (fr > 12) {
+    fr = 12;
+    console.warn("Grid fraction cannot be greater than 12");
+  } else if (fr < 1) {
+    fr = 1;
+    console.warn("Grid fraction cannot be smaller than 1");
+  }
+
+  const percCalculate = (fr * 100) / 12;
+
+  return `${percCalculate}%`;
+};
