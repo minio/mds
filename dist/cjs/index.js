@@ -1,55 +1,57 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: !0 });
-var t = require("react"),
-  a = require("styled-components");
-function e(t) {
-  return t && "object" == typeof t && "default" in t ? t : { default: t };
+var e = require("react"),
+  t = require("styled-components");
+function a(e) {
+  return e && "object" == typeof e && "default" in e ? e : { default: e };
 }
-var n = e(t),
-  r = e(a),
+var n = a(e),
+  r = a(t),
   o = "#fff",
-  l = "#5B5C5C",
-  c = "#E7EAEB",
+  l = "#2781B0",
+  c = "#5B5C5C",
+  i = "#E7EAEB",
   s = "#07193E",
-  i = "#0D2453",
-  f = "#05132F",
+  f = "#0D2453",
+  m = "#05132F",
   h = "#C51B3F",
-  m = "#D5D7D7",
-  d = "#B4B4B4",
-  u = "#19202A",
-  v = "#A2ADC0",
-  p = "#707988",
-  b = "#E6ECEC",
-  g = "#B5BCBD",
-  Z = "#EFEDED",
-  V = "#C3CBCB",
-  A = "#FF3958",
-  H = "#616A7C",
-  E = "#3A3F4A",
-  y = {
+  d = "#D5D7D7",
+  u = "#B4B4B4",
+  v = "#181F2A",
+  p = "#A2ADC0",
+  b = "#707988",
+  g = "#E6ECEC",
+  Z = "#B5BCBD",
+  V = "#EFEDED",
+  E = "#C3CBCB",
+  x = "#FF3958",
+  A = "#616A7C",
+  H = "#3A3F4A",
+  y = "#A3B7D9",
+  w = {
     bgColor: o,
     fontColor: "#000",
     borderColor: "#E2E2E2",
-    bulletColor: "#2781B0",
+    bulletColor: l,
     logoColor: h,
     logoLabelColor: "#000000",
     logoLabelInverse: "#fff",
     buttons: {
       regular: {
-        enabled: { border: l, text: l, background: o, iconColor: l },
-        disabled: { border: d, text: d, background: m, iconColor: d },
-        hover: { border: l, text: l, background: "#E6EAEB", iconColor: l },
-        pressed: { border: l, text: l, background: "#D5D7D8", iconColor: l },
+        enabled: { border: c, text: c, background: o, iconColor: c },
+        disabled: { border: u, text: u, background: d, iconColor: u },
+        hover: { border: c, text: c, background: "#E6EAEB", iconColor: c },
+        pressed: { border: c, text: c, background: "#D5D7D8", iconColor: c },
       },
       callAction: {
         enabled: { border: s, text: o, background: s, iconColor: o },
-        disabled: { border: c, text: l, background: c, iconColor: l },
-        hover: { border: i, text: o, background: i, iconColor: o },
-        pressed: { border: f, text: o, background: f, iconColor: o },
+        disabled: { border: i, text: c, background: i, iconColor: c },
+        hover: { border: f, text: o, background: f, iconColor: o },
+        pressed: { border: m, text: o, background: m, iconColor: o },
       },
       secondary: {
         enabled: { border: h, text: h, background: o, iconColor: h },
-        disabled: { border: d, text: d, background: m, iconColor: d },
+        disabled: { border: u, text: u, background: d, iconColor: u },
         hover: {
           border: "#C83B51",
           text: h,
@@ -59,50 +61,66 @@ var n = e(t),
         pressed: { border: h, text: o, background: h, iconColor: o },
       },
     },
+    login: {
+      formBG: "#fff",
+      bgFilter: "none",
+      promoHeader: o,
+      promoText: "#A6DFEF",
+      footerElements: l,
+      footerDivider: "#F2F2F2",
+    },
   },
-  w = {
-    bgColor: u,
+  M = {
+    bgColor: v,
     fontColor: "#8E98A9",
     borderColor: "#8E98A9",
     bulletColor: "#4B586A",
-    logoColor: A,
-    logoLabelColor: "#A3B7D9",
+    logoColor: x,
+    logoLabelColor: y,
     logoLabelInverse: "#fff",
     buttons: {
       regular: {
-        enabled: { border: v, text: v, background: u, iconColor: v },
-        disabled: { border: E, text: E, background: H, iconColor: E },
-        hover: { border: v, text: v, background: "#4B586A", iconColor: v },
-        pressed: { border: p, text: p, background: "#333D4B", iconColor: p },
+        enabled: { border: p, text: p, background: v, iconColor: p },
+        disabled: { border: H, text: H, background: A, iconColor: H },
+        hover: { border: p, text: p, background: "#4B586A", iconColor: p },
+        pressed: { border: b, text: b, background: "#333D4B", iconColor: b },
       },
       callAction: {
-        enabled: { border: b, text: u, background: b, iconColor: u },
-        disabled: { border: g, text: u, background: g, iconColor: u },
-        hover: { border: Z, text: u, background: Z, iconColor: u },
-        pressed: { border: V, text: u, background: V, iconColor: u },
+        enabled: { border: g, text: v, background: g, iconColor: v },
+        disabled: { border: Z, text: v, background: Z, iconColor: v },
+        hover: { border: V, text: v, background: V, iconColor: v },
+        pressed: { border: E, text: v, background: E, iconColor: v },
       },
       secondary: {
-        enabled: { border: A, text: A, background: u, iconColor: A },
-        disabled: { border: E, text: E, background: H, iconColor: E },
-        hover: { border: A, text: A, background: "#4B586A", iconColor: A },
-        pressed: { border: A, text: u, background: A, iconColor: u },
+        enabled: { border: x, text: x, background: v, iconColor: x },
+        disabled: { border: H, text: H, background: A, iconColor: H },
+        hover: { border: x, text: x, background: "#4B586A", iconColor: x },
+        pressed: { border: x, text: v, background: x, iconColor: v },
       },
     },
+    login: {
+      formBG: "#283140",
+      bgFilter: "grayscale(50%)",
+      promoHeader: y,
+      promoText: y,
+      footerElements: "#85B3EE",
+      footerDivider: "#545D6A",
+    },
   },
-  L = function () {
+  C = function () {
     return (
-      (L =
+      (C =
         Object.assign ||
-        function (t) {
-          for (var a, e = 1, n = arguments.length; e < n; e++)
-            for (var r in (a = arguments[e]))
-              Object.prototype.hasOwnProperty.call(a, r) && (t[r] = a[r]);
-          return t;
+        function (e) {
+          for (var t, a = 1, n = arguments.length; a < n; a++)
+            for (var r in (t = arguments[a]))
+              Object.prototype.hasOwnProperty.call(t, r) && (e[r] = t[r]);
+          return e;
         }),
-      L.apply(this, arguments)
+      C.apply(this, arguments)
     );
   };
-var M =
+var S =
     "undefined" != typeof globalThis
       ? globalThis
       : "undefined" != typeof window
@@ -112,110 +130,110 @@ var M =
       : "undefined" != typeof self
       ? self
       : {},
-  x = Array.isArray,
-  C = "object" == typeof M && M && M.Object === Object && M,
-  S = "object" == typeof self && self && self.Object === Object && self,
-  _ = C || S || Function("return this")(),
-  N = _.Symbol,
-  k = N,
-  B = Object.prototype,
-  j = B.hasOwnProperty,
-  O = B.toString,
-  q = k ? k.toStringTag : void 0;
-var z = function (t) {
-    var a = j.call(t, q),
-      e = t[q];
+  N = Array.isArray,
+  I = "object" == typeof S && S && S.Object === Object && S,
+  L = "object" == typeof self && self && self.Object === Object && self,
+  _ = I || L || Function("return this")(),
+  k = _.Symbol,
+  B = k,
+  j = Object.prototype,
+  O = j.hasOwnProperty,
+  z = j.toString,
+  q = B ? B.toStringTag : void 0;
+var F = function (e) {
+    var t = O.call(e, q),
+      a = e[q];
     try {
-      t[q] = void 0;
+      e[q] = void 0;
       var n = !0;
-    } catch (t) {}
-    var r = O.call(t);
-    return n && (a ? (t[q] = e) : delete t[q]), r;
+    } catch (e) {}
+    var r = z.call(e);
+    return n && (t ? (e[q] = a) : delete e[q]), r;
   },
-  I = Object.prototype.toString;
-var F = z,
-  P = function (t) {
-    return I.call(t);
+  P = Object.prototype.toString;
+var D = F,
+  T = function (e) {
+    return P.call(e);
   },
-  D = N ? N.toStringTag : void 0;
-var T = function (t) {
-  return null == t
-    ? void 0 === t
+  W = k ? k.toStringTag : void 0;
+var G = function (e) {
+  return null == e
+    ? void 0 === e
       ? "[object Undefined]"
       : "[object Null]"
-    : D && D in Object(t)
-    ? F(t)
-    : P(t);
+    : W && W in Object(e)
+    ? D(e)
+    : T(e);
 };
-var W = T,
-  $ = function (t) {
-    return null != t && "object" == typeof t;
+var R = G,
+  $ = function (e) {
+    return null != e && "object" == typeof e;
   };
-var R = function (t) {
-    return "symbol" == typeof t || ($(t) && "[object Symbol]" == W(t));
+var U = function (e) {
+    return "symbol" == typeof e || ($(e) && "[object Symbol]" == R(e));
   },
-  G = x,
-  U = R,
-  J = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
-  K = /^\w*$/;
-var Q = function (t, a) {
-  if (G(t)) return !1;
-  var e = typeof t;
+  X = N,
+  J = U,
+  K = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
+  Q = /^\w*$/;
+var Y = function (e, t) {
+  if (X(e)) return !1;
+  var a = typeof e;
   return (
-    !("number" != e && "symbol" != e && "boolean" != e && null != t && !U(t)) ||
-    K.test(t) ||
-    !J.test(t) ||
-    (null != a && t in Object(a))
+    !("number" != a && "symbol" != a && "boolean" != a && null != e && !J(e)) ||
+    Q.test(e) ||
+    !K.test(e) ||
+    (null != t && e in Object(t))
   );
 };
-var X = function (t) {
-    var a = typeof t;
-    return null != t && ("object" == a || "function" == a);
+var ee = function (e) {
+    var t = typeof e;
+    return null != e && ("object" == t || "function" == t);
   },
-  Y = T,
-  tt = X;
-var at,
-  et = function (t) {
-    if (!tt(t)) return !1;
-    var a = Y(t);
+  te = G,
+  ae = ee;
+var ne,
+  re = function (e) {
+    if (!ae(e)) return !1;
+    var t = te(e);
     return (
-      "[object Function]" == a ||
-      "[object GeneratorFunction]" == a ||
-      "[object AsyncFunction]" == a ||
-      "[object Proxy]" == a
+      "[object Function]" == t ||
+      "[object GeneratorFunction]" == t ||
+      "[object AsyncFunction]" == t ||
+      "[object Proxy]" == t
     );
   },
-  nt = _["__core-js_shared__"],
-  rt = (at = /[^.]+$/.exec((nt && nt.keys && nt.keys.IE_PROTO) || ""))
-    ? "Symbol(src)_1." + at
+  oe = _["__core-js_shared__"],
+  le = (ne = /[^.]+$/.exec((oe && oe.keys && oe.keys.IE_PROTO) || ""))
+    ? "Symbol(src)_1." + ne
     : "";
-var ot = function (t) {
-    return !!rt && rt in t;
+var ce = function (e) {
+    return !!le && le in e;
   },
-  lt = Function.prototype.toString;
-var ct = et,
-  st = ot,
-  it = X,
-  ft = function (t) {
-    if (null != t) {
+  ie = Function.prototype.toString;
+var se = re,
+  fe = ce,
+  me = ee,
+  he = function (e) {
+    if (null != e) {
       try {
-        return lt.call(t);
-      } catch (t) {}
+        return ie.call(e);
+      } catch (e) {}
       try {
-        return t + "";
-      } catch (t) {}
+        return e + "";
+      } catch (e) {}
     }
     return "";
   },
-  ht = /^\[object .+?Constructor\]$/,
-  mt = Function.prototype,
-  dt = Object.prototype,
-  ut = mt.toString,
-  vt = dt.hasOwnProperty,
-  pt = RegExp(
+  de = /^\[object .+?Constructor\]$/,
+  ue = Function.prototype,
+  ve = Object.prototype,
+  pe = ue.toString,
+  be = ve.hasOwnProperty,
+  ge = RegExp(
     "^" +
-      ut
-        .call(vt)
+      pe
+        .call(be)
         .replace(/[\\^$.*+?()[\]{}|]/g, "\\$&")
         .replace(
           /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
@@ -223,496 +241,482 @@ var ct = et,
         ) +
       "$"
   );
-var bt = function (t) {
-    return !(!it(t) || st(t)) && (ct(t) ? pt : ht).test(ft(t));
+var Ze = function (e) {
+    return !(!me(e) || fe(e)) && (se(e) ? ge : de).test(he(e));
   },
-  gt = function (t, a) {
-    return null == t ? void 0 : t[a];
+  Ve = function (e, t) {
+    return null == e ? void 0 : e[t];
   };
-var Zt = function (t, a) {
-    var e = gt(t, a);
-    return bt(e) ? e : void 0;
+var Ee = function (e, t) {
+    var a = Ve(e, t);
+    return Ze(a) ? a : void 0;
   },
-  Vt = Zt(Object, "create"),
-  At = Vt;
-var Ht = function () {
-  (this.__data__ = At ? At(null) : {}), (this.size = 0);
+  xe = Ee(Object, "create"),
+  Ae = xe;
+var He = function () {
+  (this.__data__ = Ae ? Ae(null) : {}), (this.size = 0);
 };
-var Et = function (t) {
-    var a = this.has(t) && delete this.__data__[t];
-    return (this.size -= a ? 1 : 0), a;
+var ye = function (e) {
+    var t = this.has(e) && delete this.__data__[e];
+    return (this.size -= t ? 1 : 0), t;
   },
-  yt = Vt,
-  wt = Object.prototype.hasOwnProperty;
-var Lt = function (t) {
-    var a = this.__data__;
-    if (yt) {
-      var e = a[t];
-      return "__lodash_hash_undefined__" === e ? void 0 : e;
+  we = xe,
+  Me = Object.prototype.hasOwnProperty;
+var Ce = function (e) {
+    var t = this.__data__;
+    if (we) {
+      var a = t[e];
+      return "__lodash_hash_undefined__" === a ? void 0 : a;
     }
-    return wt.call(a, t) ? a[t] : void 0;
+    return Me.call(t, e) ? t[e] : void 0;
   },
-  Mt = Vt,
-  xt = Object.prototype.hasOwnProperty;
-var Ct = Vt;
-var St = Ht,
-  _t = Et,
-  Nt = Lt,
-  kt = function (t) {
+  Se = xe,
+  Ne = Object.prototype.hasOwnProperty;
+var Ie = xe;
+var Le = He,
+  _e = ye,
+  ke = Ce,
+  Be = function (e) {
+    var t = this.__data__;
+    return Se ? void 0 !== t[e] : Ne.call(t, e);
+  },
+  je = function (e, t) {
     var a = this.__data__;
-    return Mt ? void 0 !== a[t] : xt.call(a, t);
-  },
-  Bt = function (t, a) {
-    var e = this.__data__;
     return (
-      (this.size += this.has(t) ? 0 : 1),
-      (e[t] = Ct && void 0 === a ? "__lodash_hash_undefined__" : a),
+      (this.size += this.has(e) ? 0 : 1),
+      (a[e] = Ie && void 0 === t ? "__lodash_hash_undefined__" : t),
       this
     );
   };
-function jt(t) {
-  var a = -1,
-    e = null == t ? 0 : t.length;
-  for (this.clear(); ++a < e; ) {
-    var n = t[a];
+function Oe(e) {
+  var t = -1,
+    a = null == e ? 0 : e.length;
+  for (this.clear(); ++t < a; ) {
+    var n = e[t];
     this.set(n[0], n[1]);
   }
 }
-(jt.prototype.clear = St),
-  (jt.prototype.delete = _t),
-  (jt.prototype.get = Nt),
-  (jt.prototype.has = kt),
-  (jt.prototype.set = Bt);
-var Ot = jt;
-var qt = function () {
+(Oe.prototype.clear = Le),
+  (Oe.prototype.delete = _e),
+  (Oe.prototype.get = ke),
+  (Oe.prototype.has = Be),
+  (Oe.prototype.set = je);
+var ze = Oe;
+var qe = function () {
   (this.__data__ = []), (this.size = 0);
 };
-var zt = function (t, a) {
-  return t === a || (t != t && a != a);
+var Fe = function (e, t) {
+  return e === t || (e != e && t != t);
 };
-var It = function (t, a) {
-    for (var e = t.length; e--; ) if (zt(t[e][0], a)) return e;
+var Pe = function (e, t) {
+    for (var a = e.length; a--; ) if (Fe(e[a][0], t)) return a;
     return -1;
   },
-  Ft = It,
-  Pt = Array.prototype.splice;
-var Dt = It;
-var Tt = It;
-var Wt = It;
-var $t = qt,
-  Rt = function (t) {
-    var a = this.__data__,
-      e = Ft(a, t);
+  De = Pe,
+  Te = Array.prototype.splice;
+var We = Pe;
+var Ge = Pe;
+var Re = Pe;
+var $e = qe,
+  Ue = function (e) {
+    var t = this.__data__,
+      a = De(t, e);
     return (
-      !(e < 0) &&
-      (e == a.length - 1 ? a.pop() : Pt.call(a, e, 1), --this.size, !0)
+      !(a < 0) &&
+      (a == t.length - 1 ? t.pop() : Te.call(t, a, 1), --this.size, !0)
     );
   },
-  Gt = function (t) {
+  Xe = function (e) {
+    var t = this.__data__,
+      a = We(t, e);
+    return a < 0 ? void 0 : t[a][1];
+  },
+  Je = function (e) {
+    return Ge(this.__data__, e) > -1;
+  },
+  Ke = function (e, t) {
     var a = this.__data__,
-      e = Dt(a, t);
-    return e < 0 ? void 0 : a[e][1];
-  },
-  Ut = function (t) {
-    return Tt(this.__data__, t) > -1;
-  },
-  Jt = function (t, a) {
-    var e = this.__data__,
-      n = Wt(e, t);
-    return n < 0 ? (++this.size, e.push([t, a])) : (e[n][1] = a), this;
+      n = Re(a, e);
+    return n < 0 ? (++this.size, a.push([e, t])) : (a[n][1] = t), this;
   };
-function Kt(t) {
-  var a = -1,
-    e = null == t ? 0 : t.length;
-  for (this.clear(); ++a < e; ) {
-    var n = t[a];
+function Qe(e) {
+  var t = -1,
+    a = null == e ? 0 : e.length;
+  for (this.clear(); ++t < a; ) {
+    var n = e[t];
     this.set(n[0], n[1]);
   }
 }
-(Kt.prototype.clear = $t),
-  (Kt.prototype.delete = Rt),
-  (Kt.prototype.get = Gt),
-  (Kt.prototype.has = Ut),
-  (Kt.prototype.set = Jt);
-var Qt = Kt,
-  Xt = Zt(_, "Map"),
-  Yt = Ot,
-  ta = Qt,
-  aa = Xt;
-var ea = function (t) {
-  var a = typeof t;
-  return "string" == a || "number" == a || "symbol" == a || "boolean" == a
-    ? "__proto__" !== t
-    : null === t;
+(Qe.prototype.clear = $e),
+  (Qe.prototype.delete = Ue),
+  (Qe.prototype.get = Xe),
+  (Qe.prototype.has = Je),
+  (Qe.prototype.set = Ke);
+var Ye = Qe,
+  et = Ee(_, "Map"),
+  tt = ze,
+  at = Ye,
+  nt = et;
+var rt = function (e) {
+  var t = typeof e;
+  return "string" == t || "number" == t || "symbol" == t || "boolean" == t
+    ? "__proto__" !== e
+    : null === e;
 };
-var na = function (t, a) {
-    var e = t.__data__;
-    return ea(a) ? e["string" == typeof a ? "string" : "hash"] : e.map;
+var ot = function (e, t) {
+    var a = e.__data__;
+    return rt(t) ? a["string" == typeof t ? "string" : "hash"] : a.map;
   },
-  ra = na;
-var oa = na;
-var la = na;
-var ca = na;
-var sa = function () {
+  lt = ot;
+var ct = ot;
+var it = ot;
+var st = ot;
+var ft = function () {
     (this.size = 0),
       (this.__data__ = {
-        hash: new Yt(),
-        map: new (aa || ta)(),
-        string: new Yt(),
+        hash: new tt(),
+        map: new (nt || at)(),
+        string: new tt(),
       });
   },
-  ia = function (t) {
-    var a = ra(this, t).delete(t);
-    return (this.size -= a ? 1 : 0), a;
+  mt = function (e) {
+    var t = lt(this, e).delete(e);
+    return (this.size -= t ? 1 : 0), t;
   },
-  fa = function (t) {
-    return oa(this, t).get(t);
+  ht = function (e) {
+    return ct(this, e).get(e);
   },
-  ha = function (t) {
-    return la(this, t).has(t);
+  dt = function (e) {
+    return it(this, e).has(e);
   },
-  ma = function (t, a) {
-    var e = ca(this, t),
-      n = e.size;
-    return e.set(t, a), (this.size += e.size == n ? 0 : 1), this;
+  ut = function (e, t) {
+    var a = st(this, e),
+      n = a.size;
+    return a.set(e, t), (this.size += a.size == n ? 0 : 1), this;
   };
-function da(t) {
-  var a = -1,
-    e = null == t ? 0 : t.length;
-  for (this.clear(); ++a < e; ) {
-    var n = t[a];
+function vt(e) {
+  var t = -1,
+    a = null == e ? 0 : e.length;
+  for (this.clear(); ++t < a; ) {
+    var n = e[t];
     this.set(n[0], n[1]);
   }
 }
-(da.prototype.clear = sa),
-  (da.prototype.delete = ia),
-  (da.prototype.get = fa),
-  (da.prototype.has = ha),
-  (da.prototype.set = ma);
-var ua = da;
-function va(t, a) {
-  if ("function" != typeof t || (null != a && "function" != typeof a))
+(vt.prototype.clear = ft),
+  (vt.prototype.delete = mt),
+  (vt.prototype.get = ht),
+  (vt.prototype.has = dt),
+  (vt.prototype.set = ut);
+var pt = vt;
+function bt(e, t) {
+  if ("function" != typeof e || (null != t && "function" != typeof t))
     throw new TypeError("Expected a function");
-  var e = function () {
+  var a = function () {
     var n = arguments,
-      r = a ? a.apply(this, n) : n[0],
-      o = e.cache;
+      r = t ? t.apply(this, n) : n[0],
+      o = a.cache;
     if (o.has(r)) return o.get(r);
-    var l = t.apply(this, n);
-    return (e.cache = o.set(r, l) || o), l;
+    var l = e.apply(this, n);
+    return (a.cache = o.set(r, l) || o), l;
   };
-  return (e.cache = new (va.Cache || ua)()), e;
+  return (a.cache = new (bt.Cache || pt)()), a;
 }
-va.Cache = ua;
-var pa = va;
-var ba =
+bt.Cache = pt;
+var gt = bt;
+var Zt =
     /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
-  ga = /\\(\\)?/g,
-  Za = (function (t) {
-    var a = pa(t, function (t) {
-        return 500 === e.size && e.clear(), t;
+  Vt = /\\(\\)?/g,
+  Et = (function (e) {
+    var t = gt(e, function (e) {
+        return 500 === a.size && a.clear(), e;
       }),
-      e = a.cache;
-    return a;
-  })(function (t) {
-    var a = [];
+      a = t.cache;
+    return t;
+  })(function (e) {
+    var t = [];
     return (
-      46 === t.charCodeAt(0) && a.push(""),
-      t.replace(ba, function (t, e, n, r) {
-        a.push(n ? r.replace(ga, "$1") : e || t);
+      46 === e.charCodeAt(0) && t.push(""),
+      e.replace(Zt, function (e, a, n, r) {
+        t.push(n ? r.replace(Vt, "$1") : a || e);
       }),
-      a
+      t
     );
   });
-var Va = function (t, a) {
-    for (var e = -1, n = null == t ? 0 : t.length, r = Array(n); ++e < n; )
-      r[e] = a(t[e], e, t);
+var xt = function (e, t) {
+    for (var a = -1, n = null == e ? 0 : e.length, r = Array(n); ++a < n; )
+      r[a] = t(e[a], a, e);
     return r;
   },
-  Aa = x,
-  Ha = R,
-  Ea = N ? N.prototype : void 0,
-  ya = Ea ? Ea.toString : void 0;
-var wa = function t(a) {
-    if ("string" == typeof a) return a;
-    if (Aa(a)) return Va(a, t) + "";
-    if (Ha(a)) return ya ? ya.call(a) : "";
-    var e = a + "";
-    return "0" == e && 1 / a == -Infinity ? "-0" : e;
-  },
-  La = wa;
-var Ma = x,
-  xa = Q,
-  Ca = Za,
-  Sa = function (t) {
-    return null == t ? "" : La(t);
-  };
-var _a = R;
-var Na = function (t, a) {
-    return Ma(t) ? t : xa(t, a) ? [t] : Ca(Sa(t));
-  },
-  ka = function (t) {
-    if ("string" == typeof t || _a(t)) return t;
+  At = N,
+  Ht = U,
+  yt = k ? k.prototype : void 0,
+  wt = yt ? yt.toString : void 0;
+var Mt = function e(t) {
+    if ("string" == typeof t) return t;
+    if (At(t)) return xt(t, e) + "";
+    if (Ht(t)) return wt ? wt.call(t) : "";
     var a = t + "";
     return "0" == a && 1 / t == -Infinity ? "-0" : a;
-  };
-var Ba = function (t, a) {
-  for (var e = 0, n = (a = Na(a, t)).length; null != t && e < n; )
-    t = t[ka(a[e++])];
-  return e && e == n ? t : void 0;
-};
-var ja,
-  Oa,
-  qa,
-  za = function (t, a, e) {
-    var n = null == t ? void 0 : Ba(t, a);
-    return void 0 === n ? e : n;
   },
-  Ia = require("../assets/fonts/Lato/Lato-Black.woff"),
-  Fa = require("../assets/fonts/Lato/Lato-BlackItalic.woff"),
-  Pa = require("../assets/fonts/Lato/Lato-Bold.woff"),
-  Da = require("../assets/fonts/Lato/Lato-BoldItalic.woff"),
-  Ta = require("../assets/fonts/Lato/Lato-Hairline.woff"),
-  Wa = require("../assets/fonts/Lato/Lato-HairlineItalic.woff"),
-  $a = require("../assets/fonts/Lato/Lato-Italic.woff"),
-  Ra = require("../assets/fonts/Lato/Lato-Light.woff"),
-  Ga = require("../assets/fonts/Lato/Lato-LightItalic.woff"),
-  Ua = require("../assets/fonts/Lato/Lato-Regular.woff"),
-  Ja = require("../assets/fonts/Lato/Lato-Thin.woff"),
-  Ka = require("../assets/fonts/Lato/Lato-Black.woff2"),
-  Qa = require("../assets/fonts/Lato/Lato-BlackItalic.woff2"),
-  Xa = require("../assets/fonts/Lato/Lato-Bold.woff2"),
-  Ya = require("../assets/fonts/Lato/Lato-BoldItalic.woff2"),
-  te = require("../assets/fonts/Lato/Lato-Hairline.woff2"),
-  ae = require("../assets/fonts/Lato/Lato-HairlineItalic.woff2"),
-  ee = require("../assets/fonts/Lato/Lato-Italic.woff2"),
-  ne = require("../assets/fonts/Lato/Lato-Light.woff2"),
-  re = require("../assets/fonts/Lato/Lato-LightItalic.woff2"),
-  oe = require("../assets/fonts/Lato/Lato-Regular.woff2"),
-  le = require("../assets/fonts/Lato/Lato-Thin.woff2"),
-  ce = a.createGlobalStyle(
-    qa ||
-      ((ja = ["\n    ", "\n"]),
-      (Oa = ["\n    ", "\n"]),
+  Ct = Mt;
+var St = N,
+  Nt = Y,
+  It = Et,
+  Lt = function (e) {
+    return null == e ? "" : Ct(e);
+  };
+var _t = U;
+var kt = function (e, t) {
+    return St(e) ? e : Nt(e, t) ? [e] : It(Lt(e));
+  },
+  Bt = function (e) {
+    if ("string" == typeof e || _t(e)) return e;
+    var t = e + "";
+    return "0" == t && 1 / e == -Infinity ? "-0" : t;
+  };
+var jt = function (e, t) {
+  for (var a = 0, n = (t = kt(t, e)).length; null != e && a < n; )
+    e = e[Bt(t[a++])];
+  return a && a == n ? e : void 0;
+};
+var Ot,
+  zt,
+  qt,
+  Ft = function (e, t, a) {
+    var n = null == e ? void 0 : jt(e, t);
+    return void 0 === n ? a : n;
+  },
+  Pt = require("../assets/fonts/Inter/Inter-Black.woff"),
+  Dt = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
+  Tt = require("../assets/fonts/Inter/Inter-Bold.woff"),
+  Wt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
+  Gt = require("../assets/fonts/Inter/Inter-Italic.woff"),
+  Rt = require("../assets/fonts/Inter/Inter-Light.woff"),
+  $t = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
+  Ut = require("../assets/fonts/Inter/Inter-Regular.woff"),
+  Xt = require("../assets/fonts/Inter/Inter-Thin.woff"),
+  Jt = require("../assets/fonts/Inter/Inter-Black.woff2"),
+  Kt = require("../assets/fonts/Inter/Inter-BlackItalic.woff2"),
+  Qt = require("../assets/fonts/Inter/Inter-Bold.woff2"),
+  Yt = require("../assets/fonts/Inter/Inter-BoldItalic.woff2"),
+  ea = require("../assets/fonts/Inter/Inter-Italic.woff2"),
+  ta = require("../assets/fonts/Inter/Inter-Light.woff2"),
+  aa = require("../assets/fonts/Inter/Inter-LightItalic.woff2"),
+  na = require("../assets/fonts/Inter/Inter-Regular.woff2"),
+  ra = require("../assets/fonts/Inter/Inter-Thin.woff2"),
+  oa = t.createGlobalStyle(
+    qt ||
+      ((Ot = ["\n    ", "\n"]),
+      (zt = ["\n    ", "\n"]),
       Object.defineProperty
-        ? Object.defineProperty(ja, "raw", { value: Oa })
-        : (ja.raw = Oa),
-      (qa = ja)),
-    function (t) {
-      var a = t.theme;
-      return '\n    /* Fonts */\n    @font-face {\n      font-family: "Lato";\n      src: url('
-        .concat(Qa, ') format("woff2"),\n        url(')
+        ? Object.defineProperty(Ot, "raw", { value: zt })
+        : (Ot.raw = zt),
+      (qt = Ot)),
+    function (e) {
+      var t = e.theme;
+      return '\n    /* Fonts */\n    @font-face {\n      font-family: "Inter";\n      src: url('
+        .concat(Kt, ') format("woff2"),\n        url(')
         .concat(
-          Fa,
-          ') format("woff");\n      font-weight: 900;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
+          Dt,
+          ') format("woff");\n      font-weight: 900;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(Xa, ') format("woff2"),\n        url(')
+        .concat(Qt, ') format("woff2"),\n        url(')
         .concat(
-          Pa,
-          ') format("woff");\n      font-weight: bold;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
+          Tt,
+          ') format("woff");\n      font-weight: bold;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(Ya, ') format("woff2"),\n        url(')
+        .concat(Yt, ') format("woff2"),\n        url(')
         .concat(
-          Da,
-          ') format("woff");\n      font-weight: bold;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
+          Wt,
+          ') format("woff");\n      font-weight: bold;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(ne, ') format("woff2"),\n        url(')
+        .concat(ta, ') format("woff2"),\n        url(')
         .concat(
-          Ra,
-          ') format("woff");\n      font-weight: 300;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
+          Rt,
+          ') format("woff");\n      font-weight: 300;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(Ka, ') format("woff2"),\n        url(')
+        .concat(Jt, ') format("woff2"),\n        url(')
         .concat(
-          Ia,
-          ') format("woff");\n      font-weight: 900;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
+          Pt,
+          ') format("woff");\n      font-weight: 900;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(ee, ') format("woff2"),\n        url(')
+        .concat(ea, ') format("woff2"),\n        url(')
         .concat(
-          $a,
-          ') format("woff");\n      font-weight: normal;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato Hairline";\n      src: url('
+          Gt,
+          ') format("woff");\n      font-weight: normal;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(te, ') format("woff2"),\n        url(')
+        .concat(na, ') format("woff2"),\n        url(')
         .concat(
-          Ta,
-          ') format("woff");\n      font-weight: 300;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
+          Ut,
+          ') format("woff");\n      font-weight: normal;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(oe, ') format("woff2"),\n        url(')
+        .concat(aa, ') format("woff2"),\n        url(')
         .concat(
-          Ua,
-          ') format("woff");\n      font-weight: normal;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato Hairline";\n      src: url('
+          $t,
+          ') format("woff");\n      font-weight: 300;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(ae, ') format("woff2"),\n        url(')
+        .concat(ra, ') format("woff2"),\n        url(')
         .concat(
-          Wa,
-          ') format("woff");\n      font-weight: 300;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
-        )
-        .concat(re, ') format("woff2"),\n        url(')
-        .concat(
-          Ga,
-          ') format("woff");\n      font-weight: 300;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Lato";\n      src: url('
-        )
-        .concat(le, ') format("woff2"),\n        url(')
-        .concat(
-          Ja,
+          Xt,
           ') format("woff");\n      font-weight: 100;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    /* Main Page styling */\n    \n    *, *::before, *::after {\n       box-sizing: inherit;\n       outline:0;\n    }\n    \n    html {\n        box-sizing: border-box;\n        -webkit-text-size-adjust: 100%;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n    }\n    \n    body {\n        background-color: '
         )
-        .concat(za(a, "bgColor", "#fff"), ";\n        color: ")
+        .concat(Ft(t, "bgColor", "#fff"), ";\n        color: ")
         .concat(
-          za(a, "fontColor", "#000"),
-          ";\n        height: 100vh;\n        width: 100vw;\n        font-family: 'Lato', sans-serif;\n        margin: 0;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 1.5;\n        transition: background-color 0s\n    }\n    \n    fieldset, section {\n        border: 1px solid "
+          Ft(t, "fontColor", "#000"),
+          ";\n        height: 100vh;\n        width: 100vw;\n        font-family: 'Inter', sans-serif;\n        margin: 0;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 1.5;\n        transition: background-color 0s\n    }\n    \n    fieldset, section {\n        border: 1px solid "
         )
         .concat(
-          za(a, "borderColor", "#E2E2E2"),
+          Ft(t, "borderColor", "#E2E2E2"),
           ";\n        border-radius: 3px;\n        background-color: transparent;\n        padding: 25px;\n    }\n    \n    hr {\n        border-top: 0;\n        border-left: 0;\n        borderR-right: 0;\n        border-color: "
         )
         .concat(
-          za(a, "borderColor", "#E2E2E2"),
+          Ft(t, "borderColor", "#E2E2E2"),
           ";\n        background-color: transparent;\n    }\n    \n    ul {\n        padding-left: 20px;\n        list-style: none;\n        \n        li:not([class*=\"Mui\"])::before {\n          content: '￭';\n          color: "
         )
         .concat(
-          za(a, "bulletColor", "#2781B0"),
+          Ft(t, "bulletColor", "#2781B0"),
           ';\n          font-size: 20px;\n          display: inline-block;\n          width: 1em;\n          margin-left: -1em;\n        }\n        \n        ul {\n          list-style: none;\n          li:not([class*="Mui"])::before {\n            content: "￮";\n            color: '
         )
         .concat(
-          za(a, "bulletColor", "#2781B0"),
+          Ft(t, "bulletColor", "#2781B0"),
           ",\n            font-size: 20px;\n            display: inline-block;\n            width: 1em;\n            margin-left: -1em;\n          }\n        }\n      }\n      \n    button:active, button:focus, input: active, input:focus {\n        outline: 0;\n    }\n    \n    .min-icon {\n        width: 26px;\n    }\n    \n    #root: {\n        height: 100%;\n        width: 100%;\n        display: flex;\n        flex-flow: column;\n        align-items: stretch;\n      }\n    \n    #preload {\n      display: none;\n    }\n    \n    #loader-block {\n      display: flex;\n      flex-direction: column;\n      width: 100%;\n      height: 100vh;\n      justify-content: center;\n      align-items: center;\n    }\n    "
         );
     }
   ),
-  se = r.default.button(function (t) {
-    var a = t.theme,
-      e = t.fullWidth,
-      n = t.variant,
-      r = t.iconLocation,
-      o = t.icon,
-      l = t.label,
-      c = t.collapseOnSmall,
-      s = t.parentChildren,
-      i = n || "regular",
+  la = r.default.button(function (e) {
+    var t = e.theme,
+      a = e.fullWidth,
+      n = e.variant,
+      r = e.iconLocation,
+      o = e.icon,
+      l = e.label,
+      c = e.collapseOnSmall,
+      i = e.parentChildren,
+      s = n || "regular",
       f =
-        (l || s) && o
+        (l || i) && o
           ? {
               marginLeft: "end" === r ? "0" : "10px",
               marginRight: "start" === r ? "0" : "10px",
             }
           : { marginRight: 0, marginLeft: 0 },
-      h = {};
+      m = {};
     return (
       c &&
         o &&
-        ((l && "" !== l.trim()) || s) &&
-        (h = {
+        ((l && "" !== l.trim()) || i) &&
+        (m = {
           "@media (max-width: 768px)": {
             padding: "0 14px",
             "& .button-label": { display: "none" },
           },
         }),
-      L(
+      C(
         {
           borderRadius: "3px",
           cursor: "pointer",
-          width: e ? "100%" : "initial",
+          width: a ? "100%" : "initial",
           height: "39px",
-          fontFamily: "'Lato', sans-serif",
-          fontWeight: "bold",
+          fontFamily: "'Inter', sans-serif",
+          fontWeight: "400",
           fontSize: "14px",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
           margin: 0,
-          padding: (l && "" !== l.trim()) || s ? "0 25px" : "0 14px",
+          padding: (l && "" !== l.trim()) || i ? "0 25px" : "0 14px",
           transition: "all 0.2s linear",
-          backgroundColor: za(
-            a,
-            "buttons.".concat(i, ".enabled.background"),
+          backgroundColor: Ft(
+            t,
+            "buttons.".concat(s, ".enabled.background"),
             "#fff"
           ),
-          borderColor: za(a, "buttons.".concat(i, ".enabled.border"), "#000"),
+          borderColor: Ft(t, "buttons.".concat(s, ".enabled.border"), "#000"),
           borderWidth: "1px",
           borderStyle: "solid",
-          color: za(a, "buttons.".concat(i, ".enabled.text"), "#000"),
-          "& .button-label": L({ whiteSpace: e ? "normal" : "nowrap" }, f),
+          color: Ft(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+          "& .button-label": C({ whiteSpace: a ? "normal" : "nowrap" }, f),
           "& .buttonIcon": {
             display: "block",
             height: "14px",
             "& > svg": {
-              fill: za(a, "buttons.".concat(i, ".enabled.text"), "#000"),
-              color: za(a, "buttons.".concat(i, ".enabled.text"), "#000"),
+              fill: Ft(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+              color: Ft(t, "buttons.".concat(s, ".enabled.text"), "#000"),
               width: "14px",
               height: "14px",
             },
           },
           "&:disabled": {
             cursor: "not-allowed",
-            backgroundColor: za(
-              a,
-              "buttons.".concat(i, ".disabled.background"),
+            backgroundColor: Ft(
+              t,
+              "buttons.".concat(s, ".disabled.background"),
               "#fff"
             ),
-            borderColor: za(
-              a,
-              "buttons.".concat(i, ".disabled.border"),
+            borderColor: Ft(
+              t,
+              "buttons.".concat(s, ".disabled.border"),
               "#000"
             ),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: za(a, "buttons.".concat(i, ".disabled.text"), "#000"),
+            color: Ft(t, "buttons.".concat(s, ".disabled.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: za(a, "buttons.".concat(i, ".disabled.text"), "#000"),
-              color: za(a, "buttons.".concat(i, ".disabled.text"), "#000"),
+              fill: Ft(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+              color: Ft(t, "buttons.".concat(s, ".disabled.text"), "#000"),
             },
           },
           "&:hover:not(:disabled)": {
-            backgroundColor: za(
-              a,
-              "buttons.".concat(i, ".hover.background"),
+            backgroundColor: Ft(
+              t,
+              "buttons.".concat(s, ".hover.background"),
               "#fff"
             ),
-            borderColor: za(a, "buttons.".concat(i, ".hover.border"), "#000"),
+            borderColor: Ft(t, "buttons.".concat(s, ".hover.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: za(a, "buttons.".concat(i, ".hover.text"), "#000"),
+            color: Ft(t, "buttons.".concat(s, ".hover.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: za(a, "buttons.".concat(i, ".hover.text"), "#000"),
-              color: za(a, "buttons.".concat(i, ".hover.text"), "#000"),
+              fill: Ft(t, "buttons.".concat(s, ".hover.text"), "#000"),
+              color: Ft(t, "buttons.".concat(s, ".hover.text"), "#000"),
             },
           },
           "&:active:not(:disabled)": {
-            backgroundColor: za(
-              a,
-              "buttons.".concat(i, ".pressed.background"),
+            backgroundColor: Ft(
+              t,
+              "buttons.".concat(s, ".pressed.background"),
               "#fff"
             ),
-            border: za(a, "buttons.".concat(i, ".pressed.border"), "#000"),
+            border: Ft(t, "buttons.".concat(s, ".pressed.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: za(a, "buttons.".concat(i, ".pressed.text"), "#000"),
+            color: Ft(t, "buttons.".concat(s, ".pressed.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: za(a, "buttons.".concat(i, ".pressed.text"), "#000"),
-              color: za(a, "buttons.".concat(i, ".pressed.text"), "#000"),
+              fill: Ft(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+              color: Ft(t, "buttons.".concat(s, ".pressed.text"), "#000"),
             },
           },
         },
-        h
+        m
       )
     );
   }),
-  ie = r.default.svg(function (t) {
-    var a = za(t, "theme.logoLabelColor", "#000");
+  ca = r.default.svg(function (e) {
+    var t = Ft(e, "theme.logoLabelColor", "#000");
     return (
-      t.inverse && (a = za(t, "theme.logoLabelInverse", "#fff")),
+      e.inverse && (t = Ft(e, "theme.logoLabelInverse", "#fff")),
       {
-        "& .minioSection": { fill: za(t, "theme.logoColor", "#C51C3F") },
-        "& .minioApplicationName": { fill: a },
+        "& .minioSection": { fill: Ft(e, "theme.logoColor", "#C51C3F") },
+        "& .minioApplicationName": { fill: t },
       }
     );
   }),
-  fe = function (t) {
-    var a = t.inverse;
+  ia = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.538 50.008", inverse: a },
+      ca,
+      { viewBox: "0 0 184.538 50.008", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -779,11 +783,11 @@ var ja,
       )
     );
   },
-  he = function (t) {
-    var a = t.inverse;
+  sa = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.45 54.229", inverse: a },
+      ca,
+      { viewBox: "0 0 184.45 54.229", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -868,11 +872,11 @@ var ja,
       )
     );
   },
-  me = function (t) {
-    var a = t.inverse;
+  fa = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.45 50.008", inverse: a },
+      ca,
+      { viewBox: "0 0 184.45 50.008", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -939,11 +943,11 @@ var ja,
       )
     );
   },
-  de = function (t) {
-    var a = t.inverse;
+  ma = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.538 50.008", inverse: a },
+      ca,
+      { viewBox: "0 0 154.498 50.008", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(27.666 -11)" },
@@ -997,11 +1001,11 @@ var ja,
       )
     );
   },
-  ue = function (t) {
-    var a = t.inverse;
+  ha = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.538 50.008", inverse: a },
+      ca,
+      { viewBox: "0 0 184.538 50.008", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(26.456 -11)" },
@@ -1055,11 +1059,11 @@ var ja,
       )
     );
   },
-  ve = function (t) {
-    var a = t.inverse;
+  da = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.538 50.008", inverse: a },
+      ca,
+      { viewBox: "0 0 184.538 50.008", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(26.059 -11)" },
@@ -1113,11 +1117,11 @@ var ja,
       )
     );
   },
-  pe = function (t) {
-    var a = t.inverse;
+  ua = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.538 50.008", inverse: a },
+      ca,
+      { viewBox: "0 0 184.538 50.008", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(27.622 -11)" },
@@ -1171,11 +1175,11 @@ var ja,
       )
     );
   },
-  be = function (t) {
-    var a = t.inverse;
+  va = function (e) {
+    var t = e.inverse;
     return n.default.createElement(
-      ie,
-      { viewBox: "0 0 184.45 54.229", inverse: a },
+      ca,
+      { viewBox: "0 0 184.45 54.229", inverse: t },
       n.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -1237,64 +1241,222 @@ var ja,
       )
     );
   },
-  ge = r.default.svg(function (t) {
-    return { fill: za(t, "theme.logoColor", "#C51C3F") };
-  });
-(exports.ApplicationLogo = function (t) {
-  var a = t.applicationName,
-    e = t.subVariant,
-    r = void 0 === e ? "simple" : e,
-    o = t.inverse;
-  switch (a) {
-    case "console":
-      switch (r) {
-        case "standard":
-          return n.default.createElement(fe, { inverse: !!o });
-        case "enterprise":
-          return n.default.createElement(me, { inverse: !!o });
-        case "AGPL":
-          return n.default.createElement(he, { inverse: !!o });
-        default:
-          return n.default.createElement(be, { inverse: !!o });
-      }
-    case "directpv":
-      return n.default.createElement(ue, { inverse: !!o });
-    case "subnet":
-      return n.default.createElement(pe, { inverse: !!o });
-    case "kes":
-      return n.default.createElement(ve, { inverse: !!o });
-    case "operator":
-      return n.default.createElement(de, { inverse: !!o });
-  }
-}),
-  (exports.Button = function (a) {
-    var e = a.label,
-      r = a.variant,
-      o = void 0 === r ? "regular" : r,
-      l = a.icon,
-      c = a.iconLocation,
-      s = void 0 === c ? "end" : c,
-      i = a.onClick,
-      f = a.disabled,
-      h = a.fullWidth,
-      m = a.collapseOnSmall,
-      d = void 0 === m || m,
-      u = a.children,
-      v = (function (t, a) {
-        var e = {};
-        for (var n in t)
-          Object.prototype.hasOwnProperty.call(t, n) &&
-            a.indexOf(n) < 0 &&
-            (e[n] = t[n]);
-        if (null != t && "function" == typeof Object.getOwnPropertySymbols) {
-          var r = 0;
-          for (n = Object.getOwnPropertySymbols(t); r < n.length; r++)
-            a.indexOf(n[r]) < 0 &&
-              Object.prototype.propertyIsEnumerable.call(t, n[r]) &&
-              (e[n[r]] = t[n[r]]);
+  pa = function (e) {
+    var t = e.applicationName,
+      a = e.subVariant,
+      r = void 0 === a ? "simple" : a,
+      o = e.inverse;
+    switch (t) {
+      case "console":
+        switch (r) {
+          case "standard":
+            return n.default.createElement(ia, { inverse: !!o });
+          case "enterprise":
+            return n.default.createElement(fa, { inverse: !!o });
+          case "AGPL":
+            return n.default.createElement(sa, { inverse: !!o });
+          default:
+            return n.default.createElement(va, { inverse: !!o });
         }
-        return e;
-      })(a, [
+      case "directpv":
+        return n.default.createElement(ha, { inverse: !!o });
+      case "subnet":
+        return n.default.createElement(ua, { inverse: !!o });
+      case "kes":
+        return n.default.createElement(da, { inverse: !!o });
+      case "operator":
+        return n.default.createElement(ma, { inverse: !!o });
+    }
+  },
+  ba = r.default.svg(function (e) {
+    return { fill: Ft(e, "theme.logoColor", "#C51C3F") };
+  }),
+  ga = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
+  Za = function (e) {
+    if ("auto" === e || ("boolean" == typeof e && e)) return "100%";
+    if (!1 === e) return "initial";
+    var t = Math.floor(e);
+    return (
+      t > 12
+        ? ((t = 12), console.warn("Grid fraction cannot be greater than 12"))
+        : t < 1 &&
+          ((t = 1), console.warn("Grid fraction cannot be smaller than 1")),
+      "".concat((100 * t) / 12, "%")
+    );
+  },
+  Va = r.default.div(function (e) {
+    var t = { boxSizing: "border-box" };
+    if (e.container)
+      t = {
+        display: "flex",
+        flexWrap: e.wrap || "wrap",
+        flexDirection: e.direction || "row",
+        columnGap: "".concat(e.columnSpacing, "px") || 0,
+        rowGap: "".concat(e.rowSpacing, "px") || 0,
+        boxSizing: "content-box",
+      };
+    else if (e.item) {
+      var a = Object.keys(ga);
+      a.forEach(function (n, r) {
+        var o,
+          l,
+          c = Ft(e, n, !1);
+        if (!!c) {
+          var i = {};
+          if (
+            ("number" == typeof c &&
+              (i = { flexBasis: Za(Ft(e, n, 12)), width: Za(Ft(e, n, 12)) }),
+            "hidden" === c)
+          ) {
+            var s = "";
+            a[r + 1] &&
+              (s = "and (max-width:  ".concat(Ft(ga, a[r + 1], 0), "px)")),
+              (t = C(
+                C({}, t),
+                (((o = {})[
+                  "@media (min-width: ".concat(Ft(ga, n, 0), "px) ").concat(s)
+                ] = { display: "none" }),
+                o)
+              ));
+          }
+          t = C(
+            C({}, t),
+            (((l = {})["@media (min-width: ".concat(Ft(ga, n, 0), "px)")] = C(
+              { flexGrow: "1" },
+              i
+            )),
+            l)
+          );
+        }
+      });
+    }
+    return C(C({}, t), e.sx);
+  }),
+  Ea = function (e) {
+    return n.default.createElement(Va, C({}, e), e.children);
+  },
+  xa = require("../assets/background/LoginBG.png"),
+  Aa = r.default.div(function (e) {
+    var t,
+      a = e.theme;
+    return {
+      "& .mainContainer": { height: "100vh" },
+      "& .decorationPanel": {
+        "&::before": {
+          content: "' '",
+          width: "100%",
+          height: "100%",
+          display: "block",
+          position: "absolute",
+          zIndex: 1,
+          backgroundImage: "url(".concat(xa, ")"),
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "bottom center",
+          backgroundClip: "border-box",
+          backgroundSize: "cover",
+          filter: Ft(a, "login.bgFilter", "none"),
+        },
+        position: "relative",
+        "& .promoContainer": {
+          zIndex: 100,
+          width: "80%",
+          maxWidth: "687px",
+          position: "absolute",
+          top: "190px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          "& .promoHeader": {
+            color: Ft(a, "login.promoHeader", "#fff"),
+            fontSize: "50px",
+            textAlign: "left",
+            fontWeight: "900",
+            lineHeight: "60px",
+          },
+          "& .promoInfo": {
+            marginTop: "31px",
+            maxWidth: "542px",
+            color: Ft(a, "login.promoText", "#fff"),
+            fontSize: "16px",
+            textAlign: "left",
+            fontWeight: "300",
+            lineHeight: "30px",
+            textShadow: "0 0 5ppx #000",
+          },
+        },
+      },
+      "& .formPanel":
+        ((t = {
+          maxWidth: "495px",
+          backgroundColor: Ft(a, "login.formBG", "#fff"),
+        }),
+        (t[
+          "@media (min-width: "
+            .concat(Ft(ga, "xs", 0), "px) and (max-width: ")
+            .concat(Ft(ga, "md", 0), "px)")
+        ] = { maxWidth: "100%" }),
+        (t["& .logoContainer"] = {
+          display: "flex",
+          height: "215px",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 3px 10px 2px #00000010",
+          "& svg": { width: "325px" },
+        }),
+        (t["& .formContainer"] = {
+          marginTop: "40px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          minHeight: "calc(100vh - 260px)",
+          "& .form": { width: "328px" },
+          "& .footer": {
+            width: "328px",
+            marginTop: "50px",
+            borderTop: "".concat(
+              Ft(a, "login.footerDivider", "#f2f2f2"),
+              " 1px solid"
+            ),
+            paddingTop: "35px",
+            textAlign: "center",
+          },
+          "& .footer, & .footer a": {
+            color: Ft(a, "login.footerElements", "#000"),
+            fontSize: "12px",
+            textDecoration: "none",
+          },
+        }),
+        t),
+    };
+  });
+(exports.ApplicationLogo = pa),
+  (exports.Button = function (t) {
+    var a = t.label,
+      r = t.variant,
+      o = void 0 === r ? "regular" : r,
+      l = t.icon,
+      c = t.iconLocation,
+      i = void 0 === c ? "end" : c,
+      s = t.onClick,
+      f = t.disabled,
+      m = t.fullWidth,
+      h = t.collapseOnSmall,
+      d = void 0 === h || h,
+      u = t.children,
+      v = (function (e, t) {
+        var a = {};
+        for (var n in e)
+          Object.prototype.hasOwnProperty.call(e, n) &&
+            t.indexOf(n) < 0 &&
+            (a[n] = e[n]);
+        if (null != e && "function" == typeof Object.getOwnPropertySymbols) {
+          var r = 0;
+          for (n = Object.getOwnPropertySymbols(e); r < n.length; r++)
+            t.indexOf(n[r]) < 0 &&
+              Object.prototype.propertyIsEnumerable.call(e, n[r]) &&
+              (a[n[r]] = e[n[r]]);
+        }
+        return a;
+      })(t, [
         "label",
         "variant",
         "icon",
@@ -1310,15 +1472,15 @@ var ja,
       l &&
         (p = n.default.createElement("span", { className: "buttonIcon" }, l)),
       n.default.createElement(
-        se,
-        L(
+        la,
+        C(
           {
-            onClick: i,
+            onClick: s,
             disabled: f || !1,
             variant: o || "regular",
-            iconLocation: s || "end",
-            label: e || "",
-            fullWidth: h || !1,
+            iconLocation: i || "end",
+            label: a || "",
+            fullWidth: m || !1,
             collapseOnSmall: !!d,
             icon: p,
             parentChildren: u || null,
@@ -1326,33 +1488,106 @@ var ja,
           v
         ),
         n.default.createElement(
-          t.Fragment,
+          e.Fragment,
           null,
-          l && "start" === s && p,
+          l && "start" === i && p,
           n.default.createElement(
             "span",
             { className: "button-label" },
             u,
-            u && e ? " " : "",
-            e
+            u && a ? " " : "",
+            a
           ),
-          l && "end" === s && p
+          l && "end" === i && p
         )
       )
     );
   }),
-  (exports.GlobalStyles = ce),
-  (exports.ThemeHandler = function (t) {
-    var e = t.darkMode,
-      r = void 0 !== e && e,
-      o = t.children;
-    return n.default.createElement(a.ThemeProvider, { theme: r ? w : y }, o);
-  }),
-  (exports.ThemedLogo = function (t) {
-    var a = t.width;
+  (exports.GlobalStyles = oa),
+  (exports.Grid = Ea),
+  (exports.LoginWrapper = function (e) {
+    var t = e.logoProps,
+      a = e.form,
+      r = e.formFooter,
+      o = e.promoInfo,
+      l = e.promoHeader;
     return n.default.createElement(
-      ge,
-      { viewBox: "0 0 162.612 24.465", width: a },
+      Aa,
+      null,
+      n.default.createElement(
+        Ea,
+        { container: !0, className: "mainContainer", wrap: "nowrap" },
+        n.default.createElement(
+          Ea,
+          {
+            item: !0,
+            xs: "hidden",
+            sm: "hidden",
+            md: !0,
+            className: "decorationPanel",
+          },
+          (o || l) &&
+            n.default.createElement(
+              Ea,
+              { container: !0 },
+              n.default.createElement(
+                Ea,
+                { item: !0, className: "promoContainer" },
+                n.default.createElement(
+                  Ea,
+                  { item: !0, className: "promoHeader" },
+                  l
+                ),
+                n.default.createElement(
+                  Ea,
+                  { item: !0, className: "promoInfo" },
+                  o
+                )
+              )
+            )
+        ),
+        n.default.createElement(
+          Ea,
+          { item: !0, xs: 12, className: "formPanel" },
+          n.default.createElement(
+            Ea,
+            { container: !0 },
+            n.default.createElement(
+              Ea,
+              { item: !0, xs: 12, className: "logoContainer" },
+              n.default.createElement(pa, C({}, t))
+            ),
+            n.default.createElement(
+              Ea,
+              { item: !0, xs: 12, className: "formContainer" },
+              n.default.createElement(
+                Ea,
+                { item: !0, xs: !0, className: "form" },
+                a
+              ),
+              r &&
+                n.default.createElement(
+                  Ea,
+                  { item: !0, xs: !0, className: "footer" },
+                  r
+                )
+            )
+          )
+        )
+      )
+    );
+  }),
+  (exports.ThemeHandler = function (e) {
+    var a = e.darkMode,
+      r = void 0 !== a && a,
+      o = e.children;
+    return n.default.createElement(t.ThemeProvider, { theme: r ? M : w }, o);
+  }),
+  (exports.ThemedLogo = function (e) {
+    var t = e.width;
+    return n.default.createElement(
+      ba,
+      { viewBox: "0 0 162.612 24.465", width: t },
       n.default.createElement("path", {
         d: "M52.751.414h9.108v23.63h-9.108zM41.711.74l-18.488 9.92a.919.919 0 0 1-.856 0L3.879.74A2.808 2.808 0 0 0 2.558.414h-.023A2.4 2.4 0 0 0 0 2.641v21.376h9.1V13.842a.918.918 0 0 1 1.385-.682l10.361 5.568a3.634 3.634 0 0 0 3.336.028l10.933-5.634a.917.917 0 0 1 1.371.69v10.205h9.1V2.641A2.4 2.4 0 0 0 43.055.414h-.023a2.808 2.808 0 0 0-1.321.326zm65.564-.326h-9.237v10.755a.913.913 0 0 1-1.338.706L72.762.675a2.824 2.824 0 0 0-1.191-.261h-.016a2.4 2.4 0 0 0-2.535 2.227v21.377h9.163V13.275a.914.914 0 0 1 1.337-.707l24.032 11.2a2.813 2.813 0 0 0 1.188.26 2.4 2.4 0 0 0 2.535-2.227zm7.161 23.63V.414h4.191v23.63zm28.856.421c-11.274 0-19.272-4.7-19.272-12.232C124.02 4.741 132.066 0 143.292 0s19.32 4.7 19.32 12.233-7.902 12.232-19.32 12.232zm0-21.333c-8.383 0-14.84 3.217-14.84 9.1 0 5.926 6.457 9.1 14.84 9.1s14.887-3.174 14.887-9.1c0-5.883-6.504-9.1-14.887-9.1z",
       })

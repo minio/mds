@@ -1,5 +1,6 @@
 import React, { ReactNode, FC, MouseEventHandler, SVGProps } from "react";
 import * as styled_components from "styled-components";
+import { CSSObject, CSSProperties } from "styled-components";
 
 interface ThemeHandlerProps {
   darkMode?: boolean;
@@ -41,4 +42,60 @@ declare const ApplicationLogo: FC<ApplicationLogoProps>;
 
 declare const ThemedLogo: FC<SVGProps<any>>;
 
-export { ApplicationLogo, Button, GlobalStyles, ThemeHandler, ThemedLogo };
+interface GridCommonProps {
+  children?: ReactNode;
+  sx?: CSSObject;
+  className?: string;
+  style?: CSSProperties;
+  id?: string;
+}
+declare type ConditionalProps =
+  | {
+      container?: boolean;
+      item?: never;
+      wrap?: "nowrap" | "wrap-reverse" | "wrap";
+      direction?: "column-reverse" | "column" | "row-reverse" | "row";
+      columnSpacing?: number;
+      rowSpacing?: number;
+      xs?: never;
+      sm?: never;
+      md?: never;
+      lg?: never;
+      xl?: never;
+    }
+  | {
+      container?: never;
+      item?: boolean;
+      wrap?: never;
+      direction?: never;
+      columnSpacing?: never;
+      rowSpacing?: never;
+      xs?: "auto" | "hidden" | number | boolean;
+      sm?: "auto" | "hidden" | number | boolean;
+      md?: "auto" | "hidden" | number | boolean;
+      lg?: "auto" | "hidden" | number | boolean;
+      xl?: "auto" | "hidden" | number | boolean;
+    };
+declare type GridProps = GridCommonProps & ConditionalProps;
+
+declare const Grid: FC<GridProps>;
+
+interface LoginWrapperProps {
+  logoProps: ApplicationLogoProps;
+  form: ReactNode;
+  formFooter?: ReactNode;
+  promoHeader?: ReactNode;
+  promoInfo?: ReactNode;
+}
+
+declare const LoginWrapper: FC<LoginWrapperProps>;
+
+export {
+  ApplicationLogo,
+  Button,
+  GlobalStyles,
+  Grid,
+  LoginWrapper,
+  ThemeHandler,
+  ThemedLogo,
+};

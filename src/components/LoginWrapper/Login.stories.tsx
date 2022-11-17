@@ -89,5 +89,9 @@ Default.args = {
       />
     </Fragment>
   ),
-  formFooter: <Fragment>Documentation│GitHub│Support│Download</Fragment>,
+  formFooter: (
+    <Fragment>
+      Documentation│<a href={"#"}>GitHub</a>│Support│Download
+    </Fragment>
+  ),
 };

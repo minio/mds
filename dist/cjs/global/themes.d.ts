@@ -1,5 +1,6 @@
 export declare const lightColors: {
   white: string;
+  sectionOneBG: string;
   defaultFontColor: string;
   bulletColor: string;
   borderColor: string;
@@ -19,9 +20,12 @@ export declare const lightColors: {
   disabledInnerGrey: string;
   logoLabel: string;
   logoLabelInverse: string;
+  promoBlue: string;
+  footerDivider: string;
 };
 export declare const darkColors: {
   dark: string;
+  sectionOneBG: string;
   defaultFontColor: string;
   bulletColor: string;
   borderColor: string;
@@ -41,6 +45,8 @@ export declare const darkColors: {
   disabledInnerGrey: string;
   logoLabel: string;
   logoLabelInverse: string;
+  footerDivider: string;
+  footerColor: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -130,6 +136,14 @@ export declare const lightTheme: {
       };
     };
   };
+  login: {
+    formBG: string;
+    bgFilter: string;
+    promoHeader: string;
+    promoText: string;
+    footerElements: string;
+    footerDivider: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -218,5 +232,13 @@ export declare const darkTheme: {
         iconColor: string;
       };
     };
+  };
+  login: {
+    formBG: string;
+    bgFilter: string;
+    promoHeader: string;
+    promoText: string;
+    footerElements: string;
+    footerDivider: string;
   };
 };

@@ -19,6 +19,7 @@ import get from "lodash/get";
 import styled from "styled-components";
 import { ApplicationLogo, Grid } from "../index";
 import { LoginWrapperProps } from "./LoginWrapper.types";
+import { breakPoints } from "../../global/utils";
 
 const bgImage = require("../assets/background/LoginBG.png");
 
@@ -66,10 +67,20 @@ const CustomLogin = styled.div(({ theme }) => {
           textAlign: "left",
           fontWeight: "300",
           lineHeight: "30px",
+          textShadow: "0 0 5ppx #000",
         },
       },
     },
     "& .formPanel": {
+      maxWidth: "495px",
+      backgroundColor: get(theme, "login.formBG", "#fff"),
+      [`@media (min-width: ${get(
+        breakPoints,
+        "xs",
+        0
+      )}px) and (max-width: ${get(breakPoints, "md", 0)}px)`]: {
+        maxWidth: "100%",
+      },
       "& .logoContainer": {
         display: "flex",
         height: "215px",
@@ -85,11 +96,11 @@ const CustomLogin = styled.div(({ theme }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        minHeight: "calc(100vh - 260px)",
         "& .form": {
           width: "328px",
         },
         "& .footer": {
-          color: get(theme, "login.footerElements", "#000"),
           width: "328px",
           marginTop: "50px",
           borderTop: `${get(
@@ -99,11 +110,13 @@ const CustomLogin = styled.div(({ theme }) => {
           )} 1px solid`,
           paddingTop: "35px",
           textAlign: "center",
+        },
+        "& .footer, & .footer a": {
+          color: get(theme, "login.footerElements", "#000"),
           fontSize: "12px",
+          textDecoration: "none",
         },
       },
-      maxWidth: "495px",
-      backgroundColor: get(theme, "login.formBG", "#fff"),
     },
   };
 });
