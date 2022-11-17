@@ -16,6 +16,7 @@
 
 export const lightColors = {
   white: "#fff",
+  sectionOneBG: "#fff",
   defaultFontColor: "#000",
   bulletColor: "#2781B0",
   borderColor: "#E2E2E2",
@@ -35,10 +36,13 @@ export const lightColors = {
   disabledInnerGrey: "#B4B4B4",
   logoLabel: "#000000",
   logoLabelInverse: "#fff",
+  promoBlue: "#A6DFEF",
+  footerDivider: "#F2F2F2",
 };
 
 export const darkColors = {
-  dark: "#19202A",
+  dark: "#181F2A",
+  sectionOneBG: "#283140",
   defaultFontColor: "#8E98A9",
   bulletColor: "#4B586A",
   borderColor: "#8E98A9",
@@ -58,6 +62,8 @@ export const darkColors = {
   disabledInnerGrey: "#3A3F4A",
   logoLabel: "#A3B7D9",
   logoLabelInverse: "#fff",
+  footerDivider: "#545D6A",
+  footerColor: "#85B3EE",
 };
 
 export const lightTheme = {
@@ -148,6 +154,14 @@ export const lightTheme = {
       },
     },
   },
+  login: {
+    formBG: lightColors.sectionOneBG,
+    bgFilter: "none",
+    promoHeader: lightColors.white,
+    promoText: lightColors.promoBlue,
+    footerElements: lightColors.bulletColor,
+    footerDivider: lightColors.footerDivider,
+  },
 };
 
 export const darkTheme = {
@@ -237,5 +251,13 @@ export const darkTheme = {
         iconColor: darkColors.dark,
       },
     },
+  },
+  login: {
+    formBG: darkColors.sectionOneBG,
+    bgFilter: "grayscale(50%)",
+    promoHeader: darkColors.logoLabel,
+    promoText: darkColors.logoLabel,
+    footerElements: darkColors.footerColor,
+    footerDivider: darkColors.footerDivider,
   },
 };

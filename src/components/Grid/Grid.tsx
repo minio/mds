@@ -35,15 +35,40 @@ const CustomDiv = styled.div<GridProps>((props) => {
       boxSizing: "content-box",
     };
   } else if (props.item) {
-    Object.keys(breakPoints).forEach((item) => {
-      const breakpointExists = !!get(props, item, false);
+    const brPoints = Object.keys(breakPoints);
+
+    brPoints.forEach((item, index) => {
+      const gridBRElement = get(props, item, false);
+
+      const breakpointExists = !!gridBRElement;
 
       if (breakpointExists) {
         let extraWidthBlock = {};
 
-        if (typeof get(props, item, false) === "number") {
+        if (typeof gridBRElement === "number") {
           extraWidthBlock = {
             flexBasis: fractionToPerc(get(props, item, 12)),
+            width: fractionToPerc(get(props, item, 12)),
+          };
+        }
+
+        if (gridBRElement === "hidden") {
+          let maxWidth = "";
+
+          if (brPoints[index + 1]) {
+            maxWidth = `and (max-width:  ${get(
+              breakPoints,
+              brPoints[index + 1],
+              0
+            )}px)`;
+          }
+
+          constructProps = {
+            ...constructProps,
+            [`@media (min-width: ${get(breakPoints, item, 0)}px) ${maxWidth}`]:
+              {
+                display: "none",
+              },
           };
         }
 

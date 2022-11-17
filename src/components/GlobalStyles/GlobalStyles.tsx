@@ -18,127 +18,105 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import get from "lodash/get";
 
-const LatoBlackWoff = require("../assets/fonts/Lato/Lato-Black.woff");
-const LatoBlackItalicWoff = require("../assets/fonts/Lato/Lato-BlackItalic.woff");
-const LatoBoldWoff = require("../assets/fonts/Lato/Lato-Bold.woff");
-const LatoBoldItalicWoff = require("../assets/fonts/Lato/Lato-BoldItalic.woff");
-const LatoHairlineWoff = require("../assets/fonts/Lato/Lato-Hairline.woff");
-const LatoHairlineItalicWoff = require("../assets/fonts/Lato/Lato-HairlineItalic.woff");
-const LatoItalicWoff = require("../assets/fonts/Lato/Lato-Italic.woff");
-const LatoLightWoff = require("../assets/fonts/Lato/Lato-Light.woff");
-const LatoLightItalicWoff = require("../assets/fonts/Lato/Lato-LightItalic.woff");
-const LatoRegularWoff = require("../assets/fonts/Lato/Lato-Regular.woff");
-const LatoThinWoff = require("../assets/fonts/Lato/Lato-Thin.woff");
-const LatoBlackWoff2 = require("../assets/fonts/Lato/Lato-Black.woff2");
-const LatoBlackItalicWoff2 = require("../assets/fonts/Lato/Lato-BlackItalic.woff2");
-const LatoBoldWoff2 = require("../assets/fonts/Lato/Lato-Bold.woff2");
-const LatoBoldItalicWoff2 = require("../assets/fonts/Lato/Lato-BoldItalic.woff2");
-const LatoHairlineWoff2 = require("../assets/fonts/Lato/Lato-Hairline.woff2");
-const LatoHairlineItalicWoff2 = require("../assets/fonts/Lato/Lato-HairlineItalic.woff2");
-const LatoItalicWoff2 = require("../assets/fonts/Lato/Lato-Italic.woff2");
-const LatoLightWoff2 = require("../assets/fonts/Lato/Lato-Light.woff2");
-const LatoLightItalicWoff2 = require("../assets/fonts/Lato/Lato-LightItalic.woff2");
-const LatoRegularWoff2 = require("../assets/fonts/Lato/Lato-Regular.woff2");
-const LatoThinWoff2 = require("../assets/fonts/Lato/Lato-Thin.woff2");
+const InterBlackWoff = require("../assets/fonts/Inter/Inter-Black.woff");
+const InterBlackItalicWoff = require("../assets/fonts/Inter/Inter-BlackItalic.woff");
+const InterBoldWoff = require("../assets/fonts/Inter/Inter-Bold.woff");
+const InterBoldItalicWoff = require("../assets/fonts/Inter/Inter-BoldItalic.woff");
+const InterItalicWoff = require("../assets/fonts/Inter/Inter-Italic.woff");
+const InterLightWoff = require("../assets/fonts/Inter/Inter-Light.woff");
+const InterLightItalicWoff = require("../assets/fonts/Inter/Inter-LightItalic.woff");
+const InterRegularWoff = require("../assets/fonts/Inter/Inter-Regular.woff");
+const InterThinWoff = require("../assets/fonts/Inter/Inter-Thin.woff");
+const InterBlackWoff2 = require("../assets/fonts/Inter/Inter-Black.woff2");
+const InterBlackItalicWoff2 = require("../assets/fonts/Inter/Inter-BlackItalic.woff2");
+const InterBoldWoff2 = require("../assets/fonts/Inter/Inter-Bold.woff2");
+const InterBoldItalicWoff2 = require("../assets/fonts/Inter/Inter-BoldItalic.woff2");
+const InterItalicWoff2 = require("../assets/fonts/Inter/Inter-Italic.woff2");
+const InterLightWoff2 = require("../assets/fonts/Inter/Inter-Light.woff2");
+const InterLightItalicWoff2 = require("../assets/fonts/Inter/Inter-LightItalic.woff2");
+const InterRegularWoff2 = require("../assets/fonts/Inter/Inter-Regular.woff2");
+const InterThinWoff2 = require("../assets/fonts/Inter/Inter-Thin.woff2");
 
 const GlobalStyles = createGlobalStyle`
     ${({ theme }) => {
       return `
     /* Fonts */
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoBlackItalicWoff2}) format("woff2"),
-        url(${LatoBlackItalicWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterBlackItalicWoff2}) format("woff2"),
+        url(${InterBlackItalicWoff}) format("woff");
       font-weight: 900;
       font-style: italic;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoBoldWoff2}) format("woff2"),
-        url(${LatoBoldWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterBoldWoff2}) format("woff2"),
+        url(${InterBoldWoff}) format("woff");
       font-weight: bold;
       font-style: normal;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoBoldItalicWoff2}) format("woff2"),
-        url(${LatoBoldItalicWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterBoldItalicWoff2}) format("woff2"),
+        url(${InterBoldItalicWoff}) format("woff");
       font-weight: bold;
       font-style: italic;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoLightWoff2}) format("woff2"),
-        url(${LatoLightWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterLightWoff2}) format("woff2"),
+        url(${InterLightWoff}) format("woff");
       font-weight: 300;
       font-style: normal;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoBlackWoff2}) format("woff2"),
-        url(${LatoBlackWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterBlackWoff2}) format("woff2"),
+        url(${InterBlackWoff}) format("woff");
       font-weight: 900;
       font-style: normal;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoItalicWoff2}) format("woff2"),
-        url(${LatoItalicWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterItalicWoff2}) format("woff2"),
+        url(${InterItalicWoff}) format("woff");
       font-weight: normal;
       font-style: italic;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato Hairline";
-      src: url(${LatoHairlineWoff2}) format("woff2"),
-        url(${LatoHairlineWoff}) format("woff");
-      font-weight: 300;
-      font-style: normal;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: "Lato";
-      src: url(${LatoRegularWoff2}) format("woff2"),
-        url(${LatoRegularWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterRegularWoff2}) format("woff2"),
+        url(${InterRegularWoff}) format("woff");
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato Hairline";
-      src: url(${LatoHairlineItalicWoff2}) format("woff2"),
-        url(${LatoHairlineItalicWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterLightItalicWoff2}) format("woff2"),
+        url(${InterLightItalicWoff}) format("woff");
       font-weight: 300;
       font-style: italic;
       font-display: swap;
     }
     
     @font-face {
-      font-family: "Lato";
-      src: url(${LatoLightItalicWoff2}) format("woff2"),
-        url(${LatoLightItalicWoff}) format("woff");
-      font-weight: 300;
-      font-style: italic;
-      font-display: swap;
-    }
-    
-    @font-face {
-      font-family: "Lato";
-      src: url(${LatoThinWoff2}) format("woff2"),
-        url(${LatoThinWoff}) format("woff");
+      font-family: "Inter";
+      src: url(${InterThinWoff2}) format("woff2"),
+        url(${InterThinWoff}) format("woff");
       font-weight: 100;
       font-style: normal;
       font-display: swap;
@@ -163,7 +141,7 @@ const GlobalStyles = createGlobalStyle`
         color: ${get(theme, "fontColor", "#000")};
         height: 100vh;
         width: 100vw;
-        font-family: 'Lato', sans-serif;
+        font-family: 'Inter', sans-serif;
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
