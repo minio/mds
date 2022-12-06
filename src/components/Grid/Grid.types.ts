@@ -14,15 +14,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { ReactNode } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 import { CSSObject, CSSProperties } from "styled-components";
 
-interface GridCommonProps {
+interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   sx?: CSSObject;
-  className?: string;
-  style?: CSSProperties;
-  id?: string;
 }
 
 type ConditionalProps =

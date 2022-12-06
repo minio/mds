@@ -46,10 +46,15 @@ const Template: Story<GridProps> = (args) => (
         xs={12}
         md={6}
         sx={{ backgroundColor: "#abc", border: "#fff 1px solid", padding: 5 }}
+        onClick={() => {
+          alert("You clicked me!");
+        }}
       >
         xs = 12
         <br />
         md = 6
+        <br />
+        CLICK ME!
       </Grid>
       <Grid
         item
