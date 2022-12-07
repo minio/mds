@@ -38,6 +38,7 @@ export const lightColors = {
   logoLabelInverse: "#fff",
   promoBlue: "#A6DFEF",
   footerDivider: "#F2F2F2",
+  promoBG: "#000110",
 };
 
 export const darkColors = {
@@ -64,6 +65,7 @@ export const darkColors = {
   logoLabelInverse: "#fff",
   footerDivider: "#545D6A",
   footerColor: "#85B3EE",
+  promoBG: "#000106",
 };
 
 export const lightTheme = {
@@ -157,6 +159,7 @@ export const lightTheme = {
   login: {
     formBG: lightColors.sectionOneBG,
     bgFilter: "none",
+    promoBG: lightColors.promoBG,
     promoHeader: lightColors.white,
     promoText: lightColors.promoBlue,
     footerElements: lightColors.bulletColor,
@@ -254,6 +257,7 @@ export const darkTheme = {
   },
   login: {
     formBG: darkColors.sectionOneBG,
+    promoBG: darkColors.promoBG,
     bgFilter: "grayscale(50%)",
     promoHeader: darkColors.logoLabel,
     promoText: darkColors.logoLabel,
