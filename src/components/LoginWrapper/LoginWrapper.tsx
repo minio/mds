@@ -17,11 +17,13 @@
 import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { ApplicationLogo, Grid } from "../index";
+import ApplicationLogo from "../ApplicationLogo/ApplicationLogo";
+import Grid from "../Grid/Grid";
 import { LoginWrapperProps } from "./LoginWrapper.types";
 import { breakPoints } from "../../global/utils";
+import bgVideo from "../assets/video/videoBG.mp4";
 
-const bgImage = require("../assets/background/LoginBG.png");
+const poster = require("../assets/background/loginAnimationPoster.png");
 
 const CustomLogin = styled.div(({ theme }) => {
   return {
@@ -29,21 +31,47 @@ const CustomLogin = styled.div(({ theme }) => {
       height: "100vh",
     },
     "& .decorationPanel": {
-      "&::before": {
-        content: "' '",
-        width: "100%",
-        height: "100%",
-        display: "block",
-        position: "absolute",
-        zIndex: 1,
-        backgroundImage: `url(${bgImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "bottom center",
-        backgroundClip: "border-box",
-        backgroundSize: "cover",
-        filter: get(theme, "login.bgFilter", "none"),
-      },
       position: "relative",
+      backgroundColor: get(theme, "login.promoBG", "#000110"),
+      "& .videoContainer": {
+        width: "100%",
+        height: "auto",
+        minHeight: 200,
+        position: "absolute",
+        bottom: "0",
+        right: 0,
+        filter: get(theme, "login.bgFilter", "none"),
+        "&:before": {
+          position: "absolute",
+          width: "100%",
+          height: 60,
+          display: "block",
+          content: "' '",
+          background:
+            "linear-gradient(to bottom, rgba(0,1,16,1) 0%,rgba(0,0,0,0.02) 100%)",
+          top: 0,
+        },
+        "&:after": {
+          position: "absolute",
+          width: 120,
+          height: "100%",
+          display: "block",
+          content: "' '",
+          background:
+            "linear-gradient(to right, rgba(0,1,16,1) 0%,rgba(0,0,0,0.02) 100%)",
+          top: 0,
+        },
+        "& .videoBG": {
+          width: "100%",
+        },
+      },
+      "& .bgExtend": {
+        backgroundImage:
+          "linear-gradient(45deg,rgba(172,223,234,0) 0,#7fc0e4 100%)",
+        position: "absolute",
+        width: 500,
+        left: 0,
+      },
       "& .promoContainer": {
         zIndex: 100,
         width: "80%",
@@ -144,6 +172,19 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
               </Grid>
             </Grid>
           )}
+          <Grid item className={"videoContainer"}>
+            <video
+              autoPlay
+              playsInline
+              muted
+              loop
+              disablePictureInPicture
+              poster={poster}
+              className={"videoBG"}
+            >
+              <source src={bgVideo} type={"video/mp4"} />
+            </video>
+          </Grid>
         </Grid>
         <Grid item xs={12} className={"formPanel"}>
           <Grid container>

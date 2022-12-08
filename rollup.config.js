@@ -5,6 +5,7 @@ import dts from "rollup-plugin-dts";
 import { terser } from "rollup-plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import copy from "rollup-plugin-copy";
+import files from "rollup-plugin-import-file";
 
 const packageJson = require("./package.json");
 
@@ -31,6 +32,11 @@ export default [
       terser(),
       copy({
         targets: [{ src: "src/components/assets", dest: "dist" }],
+      }),
+      files({
+        output: "dist/assets/video",
+        extensions: /\.(mp4)$/,
+        hash: true,
       }),
     ],
     external: ["react", "react-dom", "styled-components"],

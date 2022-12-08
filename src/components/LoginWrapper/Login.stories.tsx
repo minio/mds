@@ -48,13 +48,7 @@ const demoInputStyles = {
 };
 
 Default.args = {
-  promoHeader: (
-    <Fragment>
-      Multi-Cloud
-      <br />
-      Object Store
-    </Fragment>
-  ),
+  promoHeader: <Fragment>Multi-Cloud Object&nbsp;Store</Fragment>,
   promoInfo: (
     <Fragment>
       MinIO offers high-performance, S3 compatible object storage. <br />
