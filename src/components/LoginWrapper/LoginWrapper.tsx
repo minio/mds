@@ -21,8 +21,8 @@ import ApplicationLogo from "../ApplicationLogo/ApplicationLogo";
 import Grid from "../Grid/Grid";
 import { LoginWrapperProps } from "./LoginWrapper.types";
 import { breakPoints } from "../../global/utils";
-import bgVideo from "../assets/video/videoBG.mp4";
 
+const bgVideo = require("../assets/video/videoBG.mp4");
 const poster = require("../assets/background/loginAnimationPoster.png");
 
 const CustomLogin = styled.div(({ theme }) => {
