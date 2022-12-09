@@ -22,6 +22,7 @@ export declare const lightColors: {
   logoLabelInverse: string;
   promoBlue: string;
   footerDivider: string;
+  promoBG: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -47,6 +48,7 @@ export declare const darkColors: {
   logoLabelInverse: string;
   footerDivider: string;
   footerColor: string;
+  promoBG: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -139,6 +141,7 @@ export declare const lightTheme: {
   login: {
     formBG: string;
     bgFilter: string;
+    promoBG: string;
     promoHeader: string;
     promoText: string;
     footerElements: string;
@@ -235,6 +238,7 @@ export declare const darkTheme: {
   };
   login: {
     formBG: string;
+    promoBG: string;
     bgFilter: string;
     promoHeader: string;
     promoText: string;

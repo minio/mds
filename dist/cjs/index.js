@@ -17,15 +17,15 @@ var n = a(e),
   h = "#C51B3F",
   d = "#D5D7D7",
   u = "#B4B4B4",
-  v = "#181F2A",
-  p = "#A2ADC0",
-  b = "#707988",
-  g = "#E6ECEC",
+  p = "#181F2A",
+  v = "#A2ADC0",
+  g = "#707988",
+  b = "#E6ECEC",
   Z = "#B5BCBD",
   V = "#EFEDED",
   E = "#C3CBCB",
-  x = "#FF3958",
-  A = "#616A7C",
+  A = "#FF3958",
+  x = "#616A7C",
   H = "#3A3F4A",
   y = "#A3B7D9",
   w = {
@@ -64,6 +64,7 @@ var n = a(e),
     login: {
       formBG: "#fff",
       bgFilter: "none",
+      promoBG: "#000110",
       promoHeader: o,
       promoText: "#A6DFEF",
       footerElements: l,
@@ -71,35 +72,36 @@ var n = a(e),
     },
   },
   M = {
-    bgColor: v,
+    bgColor: p,
     fontColor: "#8E98A9",
     borderColor: "#8E98A9",
     bulletColor: "#4B586A",
-    logoColor: x,
+    logoColor: A,
     logoLabelColor: y,
     logoLabelInverse: "#fff",
     buttons: {
       regular: {
-        enabled: { border: p, text: p, background: v, iconColor: p },
-        disabled: { border: H, text: H, background: A, iconColor: H },
-        hover: { border: p, text: p, background: "#4B586A", iconColor: p },
-        pressed: { border: b, text: b, background: "#333D4B", iconColor: b },
+        enabled: { border: v, text: v, background: p, iconColor: v },
+        disabled: { border: H, text: H, background: x, iconColor: H },
+        hover: { border: v, text: v, background: "#4B586A", iconColor: v },
+        pressed: { border: g, text: g, background: "#333D4B", iconColor: g },
       },
       callAction: {
-        enabled: { border: g, text: v, background: g, iconColor: v },
-        disabled: { border: Z, text: v, background: Z, iconColor: v },
-        hover: { border: V, text: v, background: V, iconColor: v },
-        pressed: { border: E, text: v, background: E, iconColor: v },
+        enabled: { border: b, text: p, background: b, iconColor: p },
+        disabled: { border: Z, text: p, background: Z, iconColor: p },
+        hover: { border: V, text: p, background: V, iconColor: p },
+        pressed: { border: E, text: p, background: E, iconColor: p },
       },
       secondary: {
-        enabled: { border: x, text: x, background: v, iconColor: x },
-        disabled: { border: H, text: H, background: A, iconColor: H },
-        hover: { border: x, text: x, background: "#4B586A", iconColor: x },
-        pressed: { border: x, text: v, background: x, iconColor: v },
+        enabled: { border: A, text: A, background: p, iconColor: A },
+        disabled: { border: H, text: H, background: x, iconColor: H },
+        hover: { border: A, text: A, background: "#4B586A", iconColor: A },
+        pressed: { border: A, text: p, background: A, iconColor: p },
       },
     },
     login: {
       formBG: "#283140",
+      promoBG: "#000106",
       bgFilter: "grayscale(50%)",
       promoHeader: y,
       promoText: y,
@@ -132,9 +134,9 @@ var S =
       : {},
   N = Array.isArray,
   I = "object" == typeof S && S && S.Object === Object && S,
-  L = "object" == typeof self && self && self.Object === Object && self,
-  _ = I || L || Function("return this")(),
-  k = _.Symbol,
+  _ = "object" == typeof self && self && self.Object === Object && self,
+  L = I || _ || Function("return this")(),
+  k = L.Symbol,
   B = k,
   j = Object.prototype,
   O = j.hasOwnProperty,
@@ -152,25 +154,25 @@ var F = function (e) {
   },
   P = Object.prototype.toString;
 var D = F,
-  T = function (e) {
+  G = function (e) {
     return P.call(e);
   },
-  W = k ? k.toStringTag : void 0;
-var G = function (e) {
+  T = k ? k.toStringTag : void 0;
+var W = function (e) {
   return null == e
     ? void 0 === e
       ? "[object Undefined]"
       : "[object Null]"
-    : W && W in Object(e)
+    : T && T in Object(e)
     ? D(e)
-    : T(e);
+    : G(e);
 };
-var R = G,
-  $ = function (e) {
+var $ = W,
+  R = function (e) {
     return null != e && "object" == typeof e;
   };
 var U = function (e) {
-    return "symbol" == typeof e || ($(e) && "[object Symbol]" == R(e));
+    return "symbol" == typeof e || (R(e) && "[object Symbol]" == $(e));
   },
   X = N,
   J = U,
@@ -190,7 +192,7 @@ var ee = function (e) {
     var t = typeof e;
     return null != e && ("object" == t || "function" == t);
   },
-  te = G,
+  te = W,
   ae = ee;
 var ne,
   re = function (e) {
@@ -203,7 +205,7 @@ var ne,
       "[object Proxy]" == t
     );
   },
-  oe = _["__core-js_shared__"],
+  oe = L["__core-js_shared__"],
   le = (ne = /[^.]+$/.exec((oe && oe.keys && oe.keys.IE_PROTO) || ""))
     ? "Symbol(src)_1." + ne
     : "";
@@ -227,13 +229,13 @@ var se = re,
   },
   de = /^\[object .+?Constructor\]$/,
   ue = Function.prototype,
-  ve = Object.prototype,
-  pe = ue.toString,
-  be = ve.hasOwnProperty,
-  ge = RegExp(
+  pe = Object.prototype,
+  ve = ue.toString,
+  ge = pe.hasOwnProperty,
+  be = RegExp(
     "^" +
-      pe
-        .call(be)
+      ve
+        .call(ge)
         .replace(/[\\^$.*+?()[\]{}|]/g, "\\$&")
         .replace(
           /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
@@ -242,7 +244,7 @@ var se = re,
       "$"
   );
 var Ze = function (e) {
-    return !(!me(e) || fe(e)) && (se(e) ? ge : de).test(he(e));
+    return !(!me(e) || fe(e)) && (se(e) ? be : de).test(he(e));
   },
   Ve = function (e, t) {
     return null == e ? void 0 : e[t];
@@ -251,16 +253,16 @@ var Ee = function (e, t) {
     var a = Ve(e, t);
     return Ze(a) ? a : void 0;
   },
-  xe = Ee(Object, "create"),
-  Ae = xe;
+  Ae = Ee(Object, "create"),
+  xe = Ae;
 var He = function () {
-  (this.__data__ = Ae ? Ae(null) : {}), (this.size = 0);
+  (this.__data__ = xe ? xe(null) : {}), (this.size = 0);
 };
 var ye = function (e) {
     var t = this.has(e) && delete this.__data__[e];
     return (this.size -= t ? 1 : 0), t;
   },
-  we = xe,
+  we = Ae,
   Me = Object.prototype.hasOwnProperty;
 var Ce = function (e) {
     var t = this.__data__;
@@ -270,11 +272,11 @@ var Ce = function (e) {
     }
     return Me.call(t, e) ? t[e] : void 0;
   },
-  Se = xe,
+  Se = Ae,
   Ne = Object.prototype.hasOwnProperty;
-var Ie = xe;
-var Le = He,
-  _e = ye,
+var Ie = Ae;
+var _e = He,
+  Le = ye,
   ke = Ce,
   Be = function (e) {
     var t = this.__data__;
@@ -296,8 +298,8 @@ function Oe(e) {
     this.set(n[0], n[1]);
   }
 }
-(Oe.prototype.clear = Le),
-  (Oe.prototype.delete = _e),
+(Oe.prototype.clear = _e),
+  (Oe.prototype.delete = Le),
   (Oe.prototype.get = ke),
   (Oe.prototype.has = Be),
   (Oe.prototype.set = je);
@@ -313,30 +315,30 @@ var Pe = function (e, t) {
     return -1;
   },
   De = Pe,
-  Te = Array.prototype.splice;
+  Ge = Array.prototype.splice;
+var Te = Pe;
 var We = Pe;
-var Ge = Pe;
-var Re = Pe;
-var $e = qe,
+var $e = Pe;
+var Re = qe,
   Ue = function (e) {
     var t = this.__data__,
       a = De(t, e);
     return (
       !(a < 0) &&
-      (a == t.length - 1 ? t.pop() : Te.call(t, a, 1), --this.size, !0)
+      (a == t.length - 1 ? t.pop() : Ge.call(t, a, 1), --this.size, !0)
     );
   },
   Xe = function (e) {
     var t = this.__data__,
-      a = We(t, e);
+      a = Te(t, e);
     return a < 0 ? void 0 : t[a][1];
   },
   Je = function (e) {
-    return Ge(this.__data__, e) > -1;
+    return We(this.__data__, e) > -1;
   },
   Ke = function (e, t) {
     var a = this.__data__,
-      n = Re(a, e);
+      n = $e(a, e);
     return n < 0 ? (++this.size, a.push([e, t])) : (a[n][1] = t), this;
   };
 function Qe(e) {
@@ -347,13 +349,13 @@ function Qe(e) {
     this.set(n[0], n[1]);
   }
 }
-(Qe.prototype.clear = $e),
+(Qe.prototype.clear = Re),
   (Qe.prototype.delete = Ue),
   (Qe.prototype.get = Xe),
   (Qe.prototype.has = Je),
   (Qe.prototype.set = Ke);
 var Ye = Qe,
-  et = Ee(_, "Map"),
+  et = Ee(L, "Map"),
   tt = ze,
   at = Ye,
   nt = et;
@@ -394,7 +396,7 @@ var ft = function () {
       n = a.size;
     return a.set(e, t), (this.size += a.size == n ? 0 : 1), this;
   };
-function vt(e) {
+function pt(e) {
   var t = -1,
     a = null == e ? 0 : e.length;
   for (this.clear(); ++t < a; ) {
@@ -402,13 +404,13 @@ function vt(e) {
     this.set(n[0], n[1]);
   }
 }
-(vt.prototype.clear = ft),
-  (vt.prototype.delete = mt),
-  (vt.prototype.get = ht),
-  (vt.prototype.has = dt),
-  (vt.prototype.set = ut);
-var pt = vt;
-function bt(e, t) {
+(pt.prototype.clear = ft),
+  (pt.prototype.delete = mt),
+  (pt.prototype.get = ht),
+  (pt.prototype.has = dt),
+  (pt.prototype.set = ut);
+var vt = pt;
+function gt(e, t) {
   if ("function" != typeof e || (null != t && "function" != typeof t))
     throw new TypeError("Expected a function");
   var a = function () {
@@ -419,15 +421,15 @@ function bt(e, t) {
     var l = e.apply(this, n);
     return (a.cache = o.set(r, l) || o), l;
   };
-  return (a.cache = new (bt.Cache || pt)()), a;
+  return (a.cache = new (gt.Cache || vt)()), a;
 }
-bt.Cache = pt;
-var gt = bt;
+gt.Cache = vt;
+var bt = gt;
 var Zt =
     /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
   Vt = /\\(\\)?/g,
   Et = (function (e) {
-    var t = gt(e, function (e) {
+    var t = bt(e, function (e) {
         return 500 === a.size && a.clear(), e;
       }),
       a = t.cache;
@@ -442,18 +444,18 @@ var Zt =
       t
     );
   });
-var xt = function (e, t) {
+var At = function (e, t) {
     for (var a = -1, n = null == e ? 0 : e.length, r = Array(n); ++a < n; )
       r[a] = t(e[a], a, e);
     return r;
   },
-  At = N,
+  xt = N,
   Ht = U,
   yt = k ? k.prototype : void 0,
   wt = yt ? yt.toString : void 0;
 var Mt = function e(t) {
     if ("string" == typeof t) return t;
-    if (At(t)) return xt(t, e) + "";
+    if (xt(t)) return At(t, e) + "";
     if (Ht(t)) return wt ? wt.call(t) : "";
     var a = t + "";
     return "0" == a && 1 / t == -Infinity ? "-0" : a;
@@ -462,15 +464,15 @@ var Mt = function e(t) {
 var St = N,
   Nt = Y,
   It = Et,
-  Lt = function (e) {
+  _t = function (e) {
     return null == e ? "" : Ct(e);
   };
-var _t = U;
+var Lt = U;
 var kt = function (e, t) {
-    return St(e) ? e : Nt(e, t) ? [e] : It(Lt(e));
+    return St(e) ? e : Nt(e, t) ? [e] : It(_t(e));
   },
   Bt = function (e) {
-    if ("string" == typeof e || _t(e)) return e;
+    if ("string" == typeof e || Lt(e)) return e;
     var t = e + "";
     return "0" == t && 1 / e == -Infinity ? "-0" : t;
   };
@@ -488,11 +490,11 @@ var Ot,
   },
   Pt = require("../assets/fonts/Inter/Inter-Black.woff"),
   Dt = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
-  Tt = require("../assets/fonts/Inter/Inter-Bold.woff"),
-  Wt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
-  Gt = require("../assets/fonts/Inter/Inter-Italic.woff"),
-  Rt = require("../assets/fonts/Inter/Inter-Light.woff"),
-  $t = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
+  Gt = require("../assets/fonts/Inter/Inter-Bold.woff"),
+  Tt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
+  Wt = require("../assets/fonts/Inter/Inter-Italic.woff"),
+  $t = require("../assets/fonts/Inter/Inter-Light.woff"),
+  Rt = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
   Ut = require("../assets/fonts/Inter/Inter-Regular.woff"),
   Xt = require("../assets/fonts/Inter/Inter-Thin.woff"),
   Jt = require("../assets/fonts/Inter/Inter-Black.woff2"),
@@ -522,17 +524,17 @@ var Ot,
         )
         .concat(Qt, ') format("woff2"),\n        url(')
         .concat(
-          Tt,
+          Gt,
           ') format("woff");\n      font-weight: bold;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(Yt, ') format("woff2"),\n        url(')
         .concat(
-          Wt,
+          Tt,
           ') format("woff");\n      font-weight: bold;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ta, ') format("woff2"),\n        url(')
         .concat(
-          Rt,
+          $t,
           ') format("woff");\n      font-weight: 300;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(Jt, ') format("woff2"),\n        url(')
@@ -542,7 +544,7 @@ var Ot,
         )
         .concat(ea, ') format("woff2"),\n        url(')
         .concat(
-          Gt,
+          Wt,
           ') format("woff");\n      font-weight: normal;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(na, ') format("woff2"),\n        url(')
@@ -552,7 +554,7 @@ var Ot,
         )
         .concat(aa, ') format("woff2"),\n        url(')
         .concat(
-          $t,
+          Rt,
           ') format("woff");\n      font-weight: 300;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ra, ') format("woff2"),\n        url(')
@@ -1175,7 +1177,7 @@ var Ot,
       )
     );
   },
-  va = function (e) {
+  pa = function (e) {
     var t = e.inverse;
     return n.default.createElement(
       ca,
@@ -1241,7 +1243,7 @@ var Ot,
       )
     );
   },
-  pa = function (e) {
+  va = function (e) {
     var t = e.applicationName,
       a = e.subVariant,
       r = void 0 === a ? "simple" : a,
@@ -1256,7 +1258,7 @@ var Ot,
           case "AGPL":
             return n.default.createElement(sa, { inverse: !!o });
           default:
-            return n.default.createElement(va, { inverse: !!o });
+            return n.default.createElement(pa, { inverse: !!o });
         }
       case "directpv":
         return n.default.createElement(ha, { inverse: !!o });
@@ -1268,10 +1270,10 @@ var Ot,
         return n.default.createElement(ma, { inverse: !!o });
     }
   },
-  ba = r.default.svg(function (e) {
+  ga = r.default.svg(function (e) {
     return { fill: Ft(e, "theme.logoColor", "#C51C3F") };
   }),
-  ga = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
+  ba = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
   Za = function (e) {
     if ("auto" === e || ("boolean" == typeof e && e)) return "100%";
     if (!1 === e) return "initial";
@@ -1296,7 +1298,7 @@ var Ot,
         boxSizing: "content-box",
       };
     else if (e.item) {
-      var a = Object.keys(ga);
+      var a = Object.keys(ba);
       a.forEach(function (n, r) {
         var o,
           l,
@@ -1310,18 +1312,18 @@ var Ot,
           ) {
             var s = "";
             a[r + 1] &&
-              (s = "and (max-width:  ".concat(Ft(ga, a[r + 1], 0), "px)")),
+              (s = "and (max-width:  ".concat(Ft(ba, a[r + 1], 0), "px)")),
               (t = C(
                 C({}, t),
                 (((o = {})[
-                  "@media (min-width: ".concat(Ft(ga, n, 0), "px) ").concat(s)
+                  "@media (min-width: ".concat(Ft(ba, n, 0), "px) ").concat(s)
                 ] = { display: "none" }),
                 o)
               ));
           }
           t = C(
             C({}, t),
-            (((l = {})["@media (min-width: ".concat(Ft(ga, n, 0), "px)")] = C(
+            (((l = {})["@media (min-width: ".concat(Ft(ba, n, 0), "px)")] = C(
               { flexGrow: "1" },
               i
             )),
@@ -1335,28 +1337,53 @@ var Ot,
   Ea = function (e) {
     return n.default.createElement(Va, C({}, e), e.children);
   },
-  xa = require("../assets/background/LoginBG.png"),
-  Aa = r.default.div(function (e) {
+  Aa = require("../assets/video/videoBG.mp4"),
+  xa = require("../assets/background/loginAnimationPoster.png"),
+  Ha = r.default.div(function (e) {
     var t,
       a = e.theme;
     return {
       "& .mainContainer": { height: "100vh" },
       "& .decorationPanel": {
-        "&::before": {
-          content: "' '",
-          width: "100%",
-          height: "100%",
-          display: "block",
-          position: "absolute",
-          zIndex: 1,
-          backgroundImage: "url(".concat(xa, ")"),
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom center",
-          backgroundClip: "border-box",
-          backgroundSize: "cover",
-          filter: Ft(a, "login.bgFilter", "none"),
-        },
         position: "relative",
+        backgroundColor: Ft(a, "login.promoBG", "#000110"),
+        "& .videoContainer": {
+          width: "100%",
+          height: "auto",
+          minHeight: 200,
+          position: "absolute",
+          bottom: "0",
+          right: 0,
+          filter: Ft(a, "login.bgFilter", "none"),
+          "&:before": {
+            position: "absolute",
+            width: "100%",
+            height: 60,
+            display: "block",
+            content: "' '",
+            background:
+              "linear-gradient(to bottom, rgba(0,1,16,1) 0%,rgba(0,0,0,0.02) 100%)",
+            top: 0,
+          },
+          "&:after": {
+            position: "absolute",
+            width: 120,
+            height: "100%",
+            display: "block",
+            content: "' '",
+            background:
+              "linear-gradient(to right, rgba(0,1,16,1) 0%,rgba(0,0,0,0.02) 100%)",
+            top: 0,
+          },
+          "& .videoBG": { width: "100%" },
+        },
+        "& .bgExtend": {
+          backgroundImage:
+            "linear-gradient(45deg,rgba(172,223,234,0) 0,#7fc0e4 100%)",
+          position: "absolute",
+          width: 500,
+          left: 0,
+        },
         "& .promoContainer": {
           zIndex: 100,
           width: "80%",
@@ -1391,8 +1418,8 @@ var Ot,
         }),
         (t[
           "@media (min-width: "
-            .concat(Ft(ga, "xs", 0), "px) and (max-width: ")
-            .concat(Ft(ga, "md", 0), "px)")
+            .concat(Ft(ba, "xs", 0), "px) and (max-width: ")
+            .concat(Ft(ba, "md", 0), "px)")
         ] = { maxWidth: "100%" }),
         (t["& .logoContainer"] = {
           display: "flex",
@@ -1428,7 +1455,7 @@ var Ot,
         t),
     };
   });
-(exports.ApplicationLogo = pa),
+(exports.ApplicationLogo = va),
   (exports.Button = function (t) {
     var a = t.label,
       r = t.variant,
@@ -1442,7 +1469,7 @@ var Ot,
       h = t.collapseOnSmall,
       d = void 0 === h || h,
       u = t.children,
-      v = (function (e, t) {
+      p = (function (e, t) {
         var a = {};
         for (var n in e)
           Object.prototype.hasOwnProperty.call(e, n) &&
@@ -1467,10 +1494,10 @@ var Ot,
         "collapseOnSmall",
         "children",
       ]),
-      p = null;
+      v = null;
     return (
       l &&
-        (p = n.default.createElement("span", { className: "buttonIcon" }, l)),
+        (v = n.default.createElement("span", { className: "buttonIcon" }, l)),
       n.default.createElement(
         la,
         C(
@@ -1482,15 +1509,15 @@ var Ot,
             label: a || "",
             fullWidth: m || !1,
             collapseOnSmall: !!d,
-            icon: p,
+            icon: v,
             parentChildren: u || null,
           },
-          v
+          p
         ),
         n.default.createElement(
           e.Fragment,
           null,
-          l && "start" === i && p,
+          l && "start" === i && v,
           n.default.createElement(
             "span",
             { className: "button-label" },
@@ -1498,7 +1525,7 @@ var Ot,
             u && a ? " " : "",
             a
           ),
-          l && "end" === i && p
+          l && "end" === i && v
         )
       )
     );
@@ -1512,7 +1539,7 @@ var Ot,
       o = e.promoInfo,
       l = e.promoHeader;
     return n.default.createElement(
-      Aa,
+      Ha,
       null,
       n.default.createElement(
         Ea,
@@ -1544,7 +1571,24 @@ var Ot,
                   o
                 )
               )
+            ),
+          n.default.createElement(
+            Ea,
+            { item: !0, className: "videoContainer" },
+            n.default.createElement(
+              "video",
+              {
+                autoPlay: !0,
+                playsInline: !0,
+                muted: !0,
+                loop: !0,
+                disablePictureInPicture: !0,
+                poster: xa,
+                className: "videoBG",
+              },
+              n.default.createElement("source", { src: Aa, type: "video/mp4" })
             )
+          )
         ),
         n.default.createElement(
           Ea,
@@ -1555,7 +1599,7 @@ var Ot,
             n.default.createElement(
               Ea,
               { item: !0, xs: 12, className: "logoContainer" },
-              n.default.createElement(pa, C({}, t))
+              n.default.createElement(va, C({}, t))
             ),
             n.default.createElement(
               Ea,
@@ -1586,7 +1630,7 @@ var Ot,
   (exports.ThemedLogo = function (e) {
     var t = e.width;
     return n.default.createElement(
-      ba,
+      ga,
       { viewBox: "0 0 162.612 24.465", width: t },
       n.default.createElement("path", {
         d: "M52.751.414h9.108v23.63h-9.108zM41.711.74l-18.488 9.92a.919.919 0 0 1-.856 0L3.879.74A2.808 2.808 0 0 0 2.558.414h-.023A2.4 2.4 0 0 0 0 2.641v21.376h9.1V13.842a.918.918 0 0 1 1.385-.682l10.361 5.568a3.634 3.634 0 0 0 3.336.028l10.933-5.634a.917.917 0 0 1 1.371.69v10.205h9.1V2.641A2.4 2.4 0 0 0 43.055.414h-.023a2.808 2.808 0 0 0-1.321.326zm65.564-.326h-9.237v10.755a.913.913 0 0 1-1.338.706L72.762.675a2.824 2.824 0 0 0-1.191-.261h-.016a2.4 2.4 0 0 0-2.535 2.227v21.377h9.163V13.275a.914.914 0 0 1 1.337-.707l24.032 11.2a2.813 2.813 0 0 0 1.188.26 2.4 2.4 0 0 0 2.535-2.227zm7.161 23.63V.414h4.191v23.63zm28.856.421c-11.274 0-19.272-4.7-19.272-12.232C124.02 4.741 132.066 0 143.292 0s19.32 4.7 19.32 12.233-7.902 12.232-19.32 12.232zm0-21.333c-8.383 0-14.84 3.217-14.84 9.1 0 5.926 6.457 9.1 14.84 9.1s14.887-3.174 14.887-9.1c0-5.883-6.504-9.1-14.887-9.1z",

@@ -1,6 +1,12 @@
-import React, { ReactNode, FC, MouseEventHandler, SVGProps } from "react";
+import React, {
+  ReactNode,
+  FC,
+  MouseEventHandler,
+  SVGProps,
+  HTMLAttributes,
+} from "react";
 import * as styled_components from "styled-components";
-import { CSSObject, CSSProperties } from "styled-components";
+import { CSSObject } from "styled-components";
 
 interface ThemeHandlerProps {
   darkMode?: boolean;
@@ -42,14 +48,11 @@ declare const ApplicationLogo: FC<ApplicationLogoProps>;
 
 declare const ThemedLogo: FC<SVGProps<any>>;
 
-interface GridCommonProps {
+interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   sx?: CSSObject;
-  className?: string;
-  style?: CSSProperties;
-  id?: string;
 }
-declare type ConditionalProps =
+type ConditionalProps =
   | {
       container?: boolean;
       item?: never;
@@ -76,7 +79,7 @@ declare type ConditionalProps =
       lg?: "auto" | "hidden" | number | boolean;
       xl?: "auto" | "hidden" | number | boolean;
     };
-declare type GridProps = GridCommonProps & ConditionalProps;
+type GridProps = GridCommonProps & ConditionalProps;
 
 declare const Grid: FC<GridProps>;
 

@@ -15,8 +15,8 @@ var o = "#fff",
   u = "#B4B4B4",
   v = "#181F2A",
   p = "#A2ADC0",
-  b = "#707988",
-  g = "#E6ECEC",
+  g = "#707988",
+  b = "#E6ECEC",
   Z = "#B5BCBD",
   V = "#EFEDED",
   E = "#C3CBCB",
@@ -60,6 +60,7 @@ var o = "#fff",
     login: {
       formBG: "#fff",
       bgFilter: "none",
+      promoBG: "#000110",
       promoHeader: o,
       promoText: "#A6DFEF",
       footerElements: l,
@@ -79,10 +80,10 @@ var o = "#fff",
         enabled: { border: p, text: p, background: v, iconColor: p },
         disabled: { border: x, text: x, background: H, iconColor: x },
         hover: { border: p, text: p, background: "#4B586A", iconColor: p },
-        pressed: { border: b, text: b, background: "#333D4B", iconColor: b },
+        pressed: { border: g, text: g, background: "#333D4B", iconColor: g },
       },
       callAction: {
-        enabled: { border: g, text: v, background: g, iconColor: v },
+        enabled: { border: b, text: v, background: b, iconColor: v },
         disabled: { border: Z, text: v, background: Z, iconColor: v },
         hover: { border: V, text: v, background: V, iconColor: v },
         pressed: { border: E, text: v, background: E, iconColor: v },
@@ -96,6 +97,7 @@ var o = "#fff",
     },
     login: {
       formBG: "#283140",
+      promoBG: "#000106",
       bgFilter: "grayscale(50%)",
       promoHeader: y,
       promoText: y,
@@ -142,7 +144,7 @@ var N =
   z = O.hasOwnProperty,
   q = O.toString,
   F = j ? j.toStringTag : void 0;
-var D = function (e) {
+var P = function (e) {
     var t = z.call(e, F),
       a = e[F];
     try {
@@ -152,27 +154,27 @@ var D = function (e) {
     var r = q.call(e);
     return n && (t ? (e[F] = a) : delete e[F]), r;
   },
-  P = Object.prototype.toString;
-var T = D,
-  W = function (e) {
-    return P.call(e);
+  D = Object.prototype.toString;
+var G = P,
+  T = function (e) {
+    return D.call(e);
   },
-  G = B ? B.toStringTag : void 0;
-var R = function (e) {
+  W = B ? B.toStringTag : void 0;
+var $ = function (e) {
   return null == e
     ? void 0 === e
       ? "[object Undefined]"
       : "[object Null]"
-    : G && G in Object(e)
-    ? T(e)
-    : W(e);
+    : W && W in Object(e)
+    ? G(e)
+    : T(e);
 };
-var $ = R,
+var R = $,
   U = function (e) {
     return null != e && "object" == typeof e;
   };
 var X = function (e) {
-    return "symbol" == typeof e || (U(e) && "[object Symbol]" == $(e));
+    return "symbol" == typeof e || (U(e) && "[object Symbol]" == R(e));
   },
   J = I,
   K = X,
@@ -192,7 +194,7 @@ var te = function (e) {
     var t = typeof e;
     return null != e && ("object" == t || "function" == t);
   },
-  ae = R,
+  ae = $,
   ne = te;
 var re,
   oe = function (e) {
@@ -230,12 +232,12 @@ var me = oe,
   ue = /^\[object .+?Constructor\]$/,
   ve = Function.prototype,
   pe = Object.prototype,
-  be = ve.toString,
-  ge = pe.hasOwnProperty,
+  ge = ve.toString,
+  be = pe.hasOwnProperty,
   Ze = RegExp(
     "^" +
-      be
-        .call(ge)
+      ge
+        .call(be)
         .replace(/[\\^$.*+?()[\]{}|]/g, "\\$&")
         .replace(
           /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
@@ -307,38 +309,38 @@ var qe = ze;
 var Fe = function () {
   (this.__data__ = []), (this.size = 0);
 };
-var De = function (e, t) {
+var Pe = function (e, t) {
   return e === t || (e != e && t != t);
 };
-var Pe = function (e, t) {
-    for (var a = e.length; a--; ) if (De(e[a][0], t)) return a;
+var De = function (e, t) {
+    for (var a = e.length; a--; ) if (Pe(e[a][0], t)) return a;
     return -1;
   },
-  Te = Pe,
-  We = Array.prototype.splice;
-var Ge = Pe;
-var Re = Pe;
-var $e = Pe;
+  Ge = De,
+  Te = Array.prototype.splice;
+var We = De;
+var $e = De;
+var Re = De;
 var Ue = Fe,
   Xe = function (e) {
     var t = this.__data__,
-      a = Te(t, e);
+      a = Ge(t, e);
     return (
       !(a < 0) &&
-      (a == t.length - 1 ? t.pop() : We.call(t, a, 1), --this.size, !0)
+      (a == t.length - 1 ? t.pop() : Te.call(t, a, 1), --this.size, !0)
     );
   },
   Je = function (e) {
     var t = this.__data__,
-      a = Ge(t, e);
+      a = We(t, e);
     return a < 0 ? void 0 : t[a][1];
   },
   Ke = function (e) {
-    return Re(this.__data__, e) > -1;
+    return $e(this.__data__, e) > -1;
   },
   Qe = function (e, t) {
     var a = this.__data__,
-      n = $e(a, e);
+      n = Re(a, e);
     return n < 0 ? (++this.size, a.push([e, t])) : (a[n][1] = t), this;
   };
 function Ye(e) {
@@ -409,8 +411,8 @@ function pt(e) {
   (pt.prototype.get = dt),
   (pt.prototype.has = ut),
   (pt.prototype.set = vt);
-var bt = pt;
-function gt(e, t) {
+var gt = pt;
+function bt(e, t) {
   if ("function" != typeof e || (null != t && "function" != typeof t))
     throw new TypeError("Expected a function");
   var a = function () {
@@ -421,10 +423,10 @@ function gt(e, t) {
     var l = e.apply(this, n);
     return (a.cache = o.set(r, l) || o), l;
   };
-  return (a.cache = new (gt.Cache || bt)()), a;
+  return (a.cache = new (bt.Cache || gt)()), a;
 }
-gt.Cache = bt;
-var Zt = gt;
+bt.Cache = gt;
+var Zt = bt;
 var Vt =
     /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
   Et = /\\(\\)?/g,
@@ -484,16 +486,16 @@ var Ot = function (e, t) {
 var zt,
   qt,
   Ft,
-  Dt = function (e, t, a) {
+  Pt = function (e, t, a) {
     var n = null == e ? void 0 : Ot(e, t);
     return void 0 === n ? a : n;
   },
-  Pt = require("../assets/fonts/Inter/Inter-Black.woff"),
-  Tt = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
-  Wt = require("../assets/fonts/Inter/Inter-Bold.woff"),
-  Gt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
-  Rt = require("../assets/fonts/Inter/Inter-Italic.woff"),
-  $t = require("../assets/fonts/Inter/Inter-Light.woff"),
+  Dt = require("../assets/fonts/Inter/Inter-Black.woff"),
+  Gt = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
+  Tt = require("../assets/fonts/Inter/Inter-Bold.woff"),
+  Wt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
+  $t = require("../assets/fonts/Inter/Inter-Italic.woff"),
+  Rt = require("../assets/fonts/Inter/Inter-Light.woff"),
   Ut = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
   Xt = require("../assets/fonts/Inter/Inter-Regular.woff"),
   Jt = require("../assets/fonts/Inter/Inter-Thin.woff"),
@@ -519,32 +521,32 @@ var zt,
       return '\n    /* Fonts */\n    @font-face {\n      font-family: "Inter";\n      src: url('
         .concat(Qt, ') format("woff2"),\n        url(')
         .concat(
-          Tt,
+          Gt,
           ') format("woff");\n      font-weight: 900;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(Yt, ') format("woff2"),\n        url(')
         .concat(
-          Wt,
+          Tt,
           ') format("woff");\n      font-weight: bold;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ea, ') format("woff2"),\n        url(')
         .concat(
-          Gt,
+          Wt,
           ') format("woff");\n      font-weight: bold;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(aa, ') format("woff2"),\n        url(')
         .concat(
-          $t,
+          Rt,
           ') format("woff");\n      font-weight: 300;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(Kt, ') format("woff2"),\n        url(')
         .concat(
-          Pt,
+          Dt,
           ') format("woff");\n      font-weight: 900;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ta, ') format("woff2"),\n        url(')
         .concat(
-          Rt,
+          $t,
           ') format("woff");\n      font-weight: normal;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ra, ') format("woff2"),\n        url(')
@@ -562,25 +564,25 @@ var zt,
           Jt,
           ') format("woff");\n      font-weight: 100;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    /* Main Page styling */\n    \n    *, *::before, *::after {\n       box-sizing: inherit;\n       outline:0;\n    }\n    \n    html {\n        box-sizing: border-box;\n        -webkit-text-size-adjust: 100%;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n    }\n    \n    body {\n        background-color: '
         )
-        .concat(Dt(t, "bgColor", "#fff"), ";\n        color: ")
+        .concat(Pt(t, "bgColor", "#fff"), ";\n        color: ")
         .concat(
-          Dt(t, "fontColor", "#000"),
+          Pt(t, "fontColor", "#000"),
           ";\n        height: 100vh;\n        width: 100vw;\n        font-family: 'Inter', sans-serif;\n        margin: 0;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 1.5;\n        transition: background-color 0s\n    }\n    \n    fieldset, section {\n        border: 1px solid "
         )
         .concat(
-          Dt(t, "borderColor", "#E2E2E2"),
+          Pt(t, "borderColor", "#E2E2E2"),
           ";\n        border-radius: 3px;\n        background-color: transparent;\n        padding: 25px;\n    }\n    \n    hr {\n        border-top: 0;\n        border-left: 0;\n        borderR-right: 0;\n        border-color: "
         )
         .concat(
-          Dt(t, "borderColor", "#E2E2E2"),
+          Pt(t, "borderColor", "#E2E2E2"),
           ";\n        background-color: transparent;\n    }\n    \n    ul {\n        padding-left: 20px;\n        list-style: none;\n        \n        li:not([class*=\"Mui\"])::before {\n          content: '￭';\n          color: "
         )
         .concat(
-          Dt(t, "bulletColor", "#2781B0"),
+          Pt(t, "bulletColor", "#2781B0"),
           ';\n          font-size: 20px;\n          display: inline-block;\n          width: 1em;\n          margin-left: -1em;\n        }\n        \n        ul {\n          list-style: none;\n          li:not([class*="Mui"])::before {\n            content: "￮";\n            color: '
         )
         .concat(
-          Dt(t, "bulletColor", "#2781B0"),
+          Pt(t, "bulletColor", "#2781B0"),
           ",\n            font-size: 20px;\n            display: inline-block;\n            width: 1em;\n            margin-left: -1em;\n          }\n        }\n      }\n      \n    button:active, button:focus, input: active, input:focus {\n        outline: 0;\n    }\n    \n    .min-icon {\n        width: 26px;\n    }\n    \n    #root: {\n        height: 100%;\n        width: 100%;\n        display: flex;\n        flex-flow: column;\n        align-items: stretch;\n      }\n    \n    #preload {\n      display: none;\n    }\n    \n    #loader-block {\n      display: flex;\n      flex-direction: column;\n      width: 100%;\n      height: 100vh;\n      justify-content: center;\n      align-items: center;\n    }\n    "
         );
     }
@@ -629,74 +631,74 @@ var zt,
           margin: 0,
           padding: (l && "" !== l.trim()) || i ? "0 25px" : "0 14px",
           transition: "all 0.2s linear",
-          backgroundColor: Dt(
+          backgroundColor: Pt(
             t,
             "buttons.".concat(s, ".enabled.background"),
             "#fff"
           ),
-          borderColor: Dt(t, "buttons.".concat(s, ".enabled.border"), "#000"),
+          borderColor: Pt(t, "buttons.".concat(s, ".enabled.border"), "#000"),
           borderWidth: "1px",
           borderStyle: "solid",
-          color: Dt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+          color: Pt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
           "& .button-label": S({ whiteSpace: a ? "normal" : "nowrap" }, m),
           "& .buttonIcon": {
             display: "block",
             height: "14px",
             "& > svg": {
-              fill: Dt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
-              color: Dt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+              fill: Pt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+              color: Pt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
               width: "14px",
               height: "14px",
             },
           },
           "&:disabled": {
             cursor: "not-allowed",
-            backgroundColor: Dt(
+            backgroundColor: Pt(
               t,
               "buttons.".concat(s, ".disabled.background"),
               "#fff"
             ),
-            borderColor: Dt(
+            borderColor: Pt(
               t,
               "buttons.".concat(s, ".disabled.border"),
               "#000"
             ),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: Dt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+            color: Pt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: Dt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
-              color: Dt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+              fill: Pt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+              color: Pt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
             },
           },
           "&:hover:not(:disabled)": {
-            backgroundColor: Dt(
+            backgroundColor: Pt(
               t,
               "buttons.".concat(s, ".hover.background"),
               "#fff"
             ),
-            borderColor: Dt(t, "buttons.".concat(s, ".hover.border"), "#000"),
+            borderColor: Pt(t, "buttons.".concat(s, ".hover.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: Dt(t, "buttons.".concat(s, ".hover.text"), "#000"),
+            color: Pt(t, "buttons.".concat(s, ".hover.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: Dt(t, "buttons.".concat(s, ".hover.text"), "#000"),
-              color: Dt(t, "buttons.".concat(s, ".hover.text"), "#000"),
+              fill: Pt(t, "buttons.".concat(s, ".hover.text"), "#000"),
+              color: Pt(t, "buttons.".concat(s, ".hover.text"), "#000"),
             },
           },
           "&:active:not(:disabled)": {
-            backgroundColor: Dt(
+            backgroundColor: Pt(
               t,
               "buttons.".concat(s, ".pressed.background"),
               "#fff"
             ),
-            border: Dt(t, "buttons.".concat(s, ".pressed.border"), "#000"),
+            border: Pt(t, "buttons.".concat(s, ".pressed.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: Dt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+            color: Pt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: Dt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
-              color: Dt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+              fill: Pt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+              color: Pt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
             },
           },
         },
@@ -778,11 +780,11 @@ var zt,
     );
   },
   sa = a.svg(function (e) {
-    var t = Dt(e, "theme.logoLabelColor", "#000");
+    var t = Pt(e, "theme.logoLabelColor", "#000");
     return (
-      e.inverse && (t = Dt(e, "theme.logoLabelInverse", "#fff")),
+      e.inverse && (t = Pt(e, "theme.logoLabelInverse", "#fff")),
       {
-        "& .minioSection": { fill: Dt(e, "theme.logoColor", "#C51C3F") },
+        "& .minioSection": { fill: Pt(e, "theme.logoColor", "#C51C3F") },
         "& .minioApplicationName": { fill: t },
       }
     );
@@ -1250,7 +1252,7 @@ var zt,
       )
     );
   },
-  ba = function (t) {
+  ga = function (t) {
     var a = t.inverse;
     return e.createElement(
       sa,
@@ -1316,7 +1318,7 @@ var zt,
       )
     );
   },
-  ga = function (t) {
+  ba = function (t) {
     var a = t.applicationName,
       n = t.subVariant,
       r = void 0 === n ? "simple" : n,
@@ -1331,7 +1333,7 @@ var zt,
           case "AGPL":
             return e.createElement(ha, { inverse: !!o });
           default:
-            return e.createElement(ba, { inverse: !!o });
+            return e.createElement(ga, { inverse: !!o });
         }
       case "directpv":
         return e.createElement(ua, { inverse: !!o });
@@ -1344,7 +1346,7 @@ var zt,
     }
   },
   Za = a.svg(function (e) {
-    return { fill: Dt(e, "theme.logoColor", "#C51C3F") };
+    return { fill: Pt(e, "theme.logoColor", "#C51C3F") };
   }),
   Va = function (t) {
     var a = t.width;
@@ -1385,28 +1387,28 @@ var zt,
       a.forEach(function (n, r) {
         var o,
           l,
-          c = Dt(e, n, !1);
+          c = Pt(e, n, !1);
         if (!!c) {
           var i = {};
           if (
             ("number" == typeof c &&
-              (i = { flexBasis: Aa(Dt(e, n, 12)), width: Aa(Dt(e, n, 12)) }),
+              (i = { flexBasis: Aa(Pt(e, n, 12)), width: Aa(Pt(e, n, 12)) }),
             "hidden" === c)
           ) {
             var s = "";
             a[r + 1] &&
-              (s = "and (max-width:  ".concat(Dt(Ea, a[r + 1], 0), "px)")),
+              (s = "and (max-width:  ".concat(Pt(Ea, a[r + 1], 0), "px)")),
               (t = S(
                 S({}, t),
                 (((o = {})[
-                  "@media (min-width: ".concat(Dt(Ea, n, 0), "px) ").concat(s)
+                  "@media (min-width: ".concat(Pt(Ea, n, 0), "px) ").concat(s)
                 ] = { display: "none" }),
                 o)
               ));
           }
           t = S(
             S({}, t),
-            (((l = {})["@media (min-width: ".concat(Dt(Ea, n, 0), "px)")] = S(
+            (((l = {})["@media (min-width: ".concat(Pt(Ea, n, 0), "px)")] = S(
               { flexGrow: "1" },
               i
             )),
@@ -1420,28 +1422,53 @@ var zt,
   xa = function (t) {
     return e.createElement(Ha, S({}, t), t.children);
   },
-  ya = require("../assets/background/LoginBG.png"),
-  wa = a.div(function (e) {
+  ya = require("../assets/video/videoBG.mp4"),
+  wa = require("../assets/background/loginAnimationPoster.png"),
+  Ma = a.div(function (e) {
     var t,
       a = e.theme;
     return {
       "& .mainContainer": { height: "100vh" },
       "& .decorationPanel": {
-        "&::before": {
-          content: "' '",
-          width: "100%",
-          height: "100%",
-          display: "block",
-          position: "absolute",
-          zIndex: 1,
-          backgroundImage: "url(".concat(ya, ")"),
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom center",
-          backgroundClip: "border-box",
-          backgroundSize: "cover",
-          filter: Dt(a, "login.bgFilter", "none"),
-        },
         position: "relative",
+        backgroundColor: Pt(a, "login.promoBG", "#000110"),
+        "& .videoContainer": {
+          width: "100%",
+          height: "auto",
+          minHeight: 200,
+          position: "absolute",
+          bottom: "0",
+          right: 0,
+          filter: Pt(a, "login.bgFilter", "none"),
+          "&:before": {
+            position: "absolute",
+            width: "100%",
+            height: 60,
+            display: "block",
+            content: "' '",
+            background:
+              "linear-gradient(to bottom, rgba(0,1,16,1) 0%,rgba(0,0,0,0.02) 100%)",
+            top: 0,
+          },
+          "&:after": {
+            position: "absolute",
+            width: 120,
+            height: "100%",
+            display: "block",
+            content: "' '",
+            background:
+              "linear-gradient(to right, rgba(0,1,16,1) 0%,rgba(0,0,0,0.02) 100%)",
+            top: 0,
+          },
+          "& .videoBG": { width: "100%" },
+        },
+        "& .bgExtend": {
+          backgroundImage:
+            "linear-gradient(45deg,rgba(172,223,234,0) 0,#7fc0e4 100%)",
+          position: "absolute",
+          width: 500,
+          left: 0,
+        },
         "& .promoContainer": {
           zIndex: 100,
           width: "80%",
@@ -1451,7 +1478,7 @@ var zt,
           left: "50%",
           transform: "translateX(-50%)",
           "& .promoHeader": {
-            color: Dt(a, "login.promoHeader", "#fff"),
+            color: Pt(a, "login.promoHeader", "#fff"),
             fontSize: "50px",
             textAlign: "left",
             fontWeight: "900",
@@ -1460,7 +1487,7 @@ var zt,
           "& .promoInfo": {
             marginTop: "31px",
             maxWidth: "542px",
-            color: Dt(a, "login.promoText", "#fff"),
+            color: Pt(a, "login.promoText", "#fff"),
             fontSize: "16px",
             textAlign: "left",
             fontWeight: "300",
@@ -1472,12 +1499,12 @@ var zt,
       "& .formPanel":
         ((t = {
           maxWidth: "495px",
-          backgroundColor: Dt(a, "login.formBG", "#fff"),
+          backgroundColor: Pt(a, "login.formBG", "#fff"),
         }),
         (t[
           "@media (min-width: "
-            .concat(Dt(Ea, "xs", 0), "px) and (max-width: ")
-            .concat(Dt(Ea, "md", 0), "px)")
+            .concat(Pt(Ea, "xs", 0), "px) and (max-width: ")
+            .concat(Pt(Ea, "md", 0), "px)")
         ] = { maxWidth: "100%" }),
         (t["& .logoContainer"] = {
           display: "flex",
@@ -1498,14 +1525,14 @@ var zt,
             width: "328px",
             marginTop: "50px",
             borderTop: "".concat(
-              Dt(a, "login.footerDivider", "#f2f2f2"),
+              Pt(a, "login.footerDivider", "#f2f2f2"),
               " 1px solid"
             ),
             paddingTop: "35px",
             textAlign: "center",
           },
           "& .footer, & .footer a": {
-            color: Dt(a, "login.footerElements", "#000"),
+            color: Pt(a, "login.footerElements", "#000"),
             fontSize: "12px",
             textDecoration: "none",
           },
@@ -1513,14 +1540,14 @@ var zt,
         t),
     };
   }),
-  Ma = function (t) {
+  Ca = function (t) {
     var a = t.logoProps,
       n = t.form,
       r = t.formFooter,
       o = t.promoInfo,
       l = t.promoHeader;
     return e.createElement(
-      wa,
+      Ma,
       null,
       e.createElement(
         xa,
@@ -1544,7 +1571,24 @@ var zt,
                 e.createElement(xa, { item: !0, className: "promoHeader" }, l),
                 e.createElement(xa, { item: !0, className: "promoInfo" }, o)
               )
+            ),
+          e.createElement(
+            xa,
+            { item: !0, className: "videoContainer" },
+            e.createElement(
+              "video",
+              {
+                autoPlay: !0,
+                playsInline: !0,
+                muted: !0,
+                loop: !0,
+                disablePictureInPicture: !0,
+                poster: wa,
+                className: "videoBG",
+              },
+              e.createElement("source", { src: ya, type: "video/mp4" })
             )
+          )
         ),
         e.createElement(
           xa,
@@ -1555,7 +1599,7 @@ var zt,
             e.createElement(
               xa,
               { item: !0, xs: 12, className: "logoContainer" },
-              e.createElement(ga, S({}, a))
+              e.createElement(ba, S({}, a))
             ),
             e.createElement(
               xa,
@@ -1574,11 +1618,11 @@ var zt,
     );
   };
 export {
-  ga as ApplicationLogo,
+  ba as ApplicationLogo,
   ia as Button,
   la as GlobalStyles,
   xa as Grid,
-  Ma as LoginWrapper,
+  Ca as LoginWrapper,
   C as ThemeHandler,
   Va as ThemedLogo,
 };
