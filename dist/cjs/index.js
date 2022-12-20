@@ -24,8 +24,8 @@ var n = a(e),
   Z = "#B5BCBD",
   V = "#EFEDED",
   E = "#C3CBCB",
-  A = "#FF3958",
-  x = "#616A7C",
+  x = "#FF3958",
+  A = "#616A7C",
   H = "#3A3F4A",
   y = "#A3B7D9",
   w = {
@@ -76,13 +76,13 @@ var n = a(e),
     fontColor: "#8E98A9",
     borderColor: "#8E98A9",
     bulletColor: "#4B586A",
-    logoColor: A,
+    logoColor: x,
     logoLabelColor: y,
     logoLabelInverse: "#fff",
     buttons: {
       regular: {
         enabled: { border: v, text: v, background: p, iconColor: v },
-        disabled: { border: H, text: H, background: x, iconColor: H },
+        disabled: { border: H, text: H, background: A, iconColor: H },
         hover: { border: v, text: v, background: "#4B586A", iconColor: v },
         pressed: { border: g, text: g, background: "#333D4B", iconColor: g },
       },
@@ -93,10 +93,10 @@ var n = a(e),
         pressed: { border: E, text: p, background: E, iconColor: p },
       },
       secondary: {
-        enabled: { border: A, text: A, background: p, iconColor: A },
-        disabled: { border: H, text: H, background: x, iconColor: H },
-        hover: { border: A, text: A, background: "#4B586A", iconColor: A },
-        pressed: { border: A, text: p, background: A, iconColor: p },
+        enabled: { border: x, text: x, background: p, iconColor: x },
+        disabled: { border: H, text: H, background: A, iconColor: H },
+        hover: { border: x, text: x, background: "#4B586A", iconColor: x },
+        pressed: { border: x, text: p, background: x, iconColor: p },
       },
     },
     login: {
@@ -253,16 +253,16 @@ var Ee = function (e, t) {
     var a = Ve(e, t);
     return Ze(a) ? a : void 0;
   },
-  Ae = Ee(Object, "create"),
-  xe = Ae;
+  xe = Ee(Object, "create"),
+  Ae = xe;
 var He = function () {
-  (this.__data__ = xe ? xe(null) : {}), (this.size = 0);
+  (this.__data__ = Ae ? Ae(null) : {}), (this.size = 0);
 };
 var ye = function (e) {
     var t = this.has(e) && delete this.__data__[e];
     return (this.size -= t ? 1 : 0), t;
   },
-  we = Ae,
+  we = xe,
   Me = Object.prototype.hasOwnProperty;
 var Ce = function (e) {
     var t = this.__data__;
@@ -272,9 +272,9 @@ var Ce = function (e) {
     }
     return Me.call(t, e) ? t[e] : void 0;
   },
-  Se = Ae,
+  Se = xe,
   Ne = Object.prototype.hasOwnProperty;
-var Ie = Ae;
+var Ie = xe;
 var _e = He,
   Le = ye,
   ke = Ce,
@@ -444,18 +444,18 @@ var Zt =
       t
     );
   });
-var At = function (e, t) {
+var xt = function (e, t) {
     for (var a = -1, n = null == e ? 0 : e.length, r = Array(n); ++a < n; )
       r[a] = t(e[a], a, e);
     return r;
   },
-  xt = N,
+  At = N,
   Ht = U,
   yt = k ? k.prototype : void 0,
   wt = yt ? yt.toString : void 0;
 var Mt = function e(t) {
     if ("string" == typeof t) return t;
-    if (xt(t)) return At(t, e) + "";
+    if (At(t)) return xt(t, e) + "";
     if (Ht(t)) return wt ? wt.call(t) : "";
     var a = t + "";
     return "0" == a && 1 / t == -Infinity ? "-0" : a;
@@ -1337,8 +1337,8 @@ var Ot,
   Ea = function (e) {
     return n.default.createElement(Va, C({}, e), e.children);
   },
-  Aa = require("../assets/video/videoBG.mp4"),
-  xa = require("../assets/background/loginAnimationPoster.png"),
+  xa = require("../assets/video/videoBG.mp4"),
+  Aa = require("../assets/background/loginAnimationPoster.png"),
   Ha = r.default.div(function (e) {
     var t,
       a = e.theme;
@@ -1403,17 +1403,23 @@ var Ot,
             marginTop: "31px",
             maxWidth: "542px",
             color: Ft(a, "login.promoText", "#fff"),
-            fontSize: "16px",
+            fontSize: "18px",
             textAlign: "left",
             fontWeight: "300",
             lineHeight: "30px",
             textShadow: "0 0 5ppx #000",
+            "& a": {
+              color: Ft(a, "login.promoText", "#fff"),
+              textDecoration: "none",
+              fontWeight: "bold",
+              "&:hover": { textDecoration: "underline" },
+            },
           },
         },
       },
       "& .formPanel":
         ((t = {
-          maxWidth: "495px",
+          maxWidth: "520px",
           backgroundColor: Ft(a, "login.formBG", "#fff"),
         }),
         (t[
@@ -1430,25 +1436,27 @@ var Ot,
           "& svg": { width: "325px" },
         }),
         (t["& .formContainer"] = {
-          marginTop: "40px",
+          paddingTop: "40px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          minHeight: "calc(100vh - 260px)",
-          "& .form": { width: "328px" },
+          minHeight: "calc(100vh - 215px)",
+          "& .form": { width: "328px", flexGrow: "1", height: "100%" },
           "& .footer": {
+            display: "flex",
             width: "328px",
-            marginTop: "50px",
             borderTop: "".concat(
               Ft(a, "login.footerDivider", "#f2f2f2"),
               " 1px solid"
             ),
-            paddingTop: "35px",
+            padding: "35px 0",
             textAlign: "center",
+            alignItems: "flex-end",
+            justifyContent: "center",
           },
           "& .footer, & .footer a": {
             color: Ft(a, "login.footerElements", "#000"),
-            fontSize: "12px",
+            fontSize: "14px",
             textDecoration: "none",
           },
         }),
@@ -1583,10 +1591,10 @@ var Ot,
                 muted: !0,
                 loop: !0,
                 disablePictureInPicture: !0,
-                poster: xa,
+                poster: Aa,
                 className: "videoBG",
               },
-              n.default.createElement("source", { src: Aa, type: "video/mp4" })
+              n.default.createElement("source", { src: xa, type: "video/mp4" })
             )
           )
         ),
