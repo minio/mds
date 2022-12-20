@@ -21,8 +21,8 @@ var o = "#fff",
   V = "#EFEDED",
   E = "#C3CBCB",
   A = "#FF3958",
-  H = "#616A7C",
-  x = "#3A3F4A",
+  x = "#616A7C",
+  H = "#3A3F4A",
   y = "#A3B7D9",
   w = {
     bgColor: o,
@@ -78,7 +78,7 @@ var o = "#fff",
     buttons: {
       regular: {
         enabled: { border: p, text: p, background: v, iconColor: p },
-        disabled: { border: x, text: x, background: H, iconColor: x },
+        disabled: { border: H, text: H, background: x, iconColor: H },
         hover: { border: p, text: p, background: "#4B586A", iconColor: p },
         pressed: { border: g, text: g, background: "#333D4B", iconColor: g },
       },
@@ -90,7 +90,7 @@ var o = "#fff",
       },
       secondary: {
         enabled: { border: A, text: A, background: v, iconColor: A },
-        disabled: { border: x, text: x, background: H, iconColor: x },
+        disabled: { border: H, text: H, background: x, iconColor: H },
         hover: { border: A, text: A, background: "#4B586A", iconColor: A },
         pressed: { border: A, text: v, background: A, iconColor: v },
       },
@@ -144,7 +144,7 @@ var N =
   z = O.hasOwnProperty,
   q = O.toString,
   F = j ? j.toStringTag : void 0;
-var P = function (e) {
+var D = function (e) {
     var t = z.call(e, F),
       a = e[F];
     try {
@@ -154,20 +154,20 @@ var P = function (e) {
     var r = q.call(e);
     return n && (t ? (e[F] = a) : delete e[F]), r;
   },
-  D = Object.prototype.toString;
-var G = P,
-  T = function (e) {
-    return D.call(e);
+  P = Object.prototype.toString;
+var G = D,
+  W = function (e) {
+    return P.call(e);
   },
-  W = B ? B.toStringTag : void 0;
+  T = B ? B.toStringTag : void 0;
 var $ = function (e) {
   return null == e
     ? void 0 === e
       ? "[object Undefined]"
       : "[object Null]"
-    : W && W in Object(e)
+    : T && T in Object(e)
     ? G(e)
-    : T(e);
+    : W(e);
 };
 var R = $,
   U = function (e) {
@@ -255,16 +255,16 @@ var Ae = function (e, t) {
     var a = Ee(e, t);
     return Ve(a) ? a : void 0;
   },
-  He = Ae(Object, "create"),
-  xe = He;
+  xe = Ae(Object, "create"),
+  He = xe;
 var ye = function () {
-  (this.__data__ = xe ? xe(null) : {}), (this.size = 0);
+  (this.__data__ = He ? He(null) : {}), (this.size = 0);
 };
 var we = function (e) {
     var t = this.has(e) && delete this.__data__[e];
     return (this.size -= t ? 1 : 0), t;
   },
-  Me = He,
+  Me = xe,
   Ce = Object.prototype.hasOwnProperty;
 var Se = function (e) {
     var t = this.__data__;
@@ -274,9 +274,9 @@ var Se = function (e) {
     }
     return Ce.call(t, e) ? t[e] : void 0;
   },
-  Ne = He,
+  Ne = xe,
   Ie = Object.prototype.hasOwnProperty;
-var _e = He;
+var _e = xe;
 var Le = ye,
   ke = we,
   Be = Se,
@@ -309,30 +309,30 @@ var qe = ze;
 var Fe = function () {
   (this.__data__ = []), (this.size = 0);
 };
-var Pe = function (e, t) {
+var De = function (e, t) {
   return e === t || (e != e && t != t);
 };
-var De = function (e, t) {
-    for (var a = e.length; a--; ) if (Pe(e[a][0], t)) return a;
+var Pe = function (e, t) {
+    for (var a = e.length; a--; ) if (De(e[a][0], t)) return a;
     return -1;
   },
-  Ge = De,
-  Te = Array.prototype.splice;
-var We = De;
-var $e = De;
-var Re = De;
+  Ge = Pe,
+  We = Array.prototype.splice;
+var Te = Pe;
+var $e = Pe;
+var Re = Pe;
 var Ue = Fe,
   Xe = function (e) {
     var t = this.__data__,
       a = Ge(t, e);
     return (
       !(a < 0) &&
-      (a == t.length - 1 ? t.pop() : Te.call(t, a, 1), --this.size, !0)
+      (a == t.length - 1 ? t.pop() : We.call(t, a, 1), --this.size, !0)
     );
   },
   Je = function (e) {
     var t = this.__data__,
-      a = We(t, e);
+      a = Te(t, e);
     return a < 0 ? void 0 : t[a][1];
   },
   Ke = function (e) {
@@ -446,18 +446,18 @@ var Vt =
       t
     );
   });
-var Ht = function (e, t) {
+var xt = function (e, t) {
     for (var a = -1, n = null == e ? 0 : e.length, r = Array(n); ++a < n; )
       r[a] = t(e[a], a, e);
     return r;
   },
-  xt = I,
+  Ht = I,
   yt = X,
   wt = B ? B.prototype : void 0,
   Mt = wt ? wt.toString : void 0;
 var Ct = function e(t) {
     if ("string" == typeof t) return t;
-    if (xt(t)) return Ht(t, e) + "";
+    if (Ht(t)) return xt(t, e) + "";
     if (yt(t)) return Mt ? Mt.call(t) : "";
     var a = t + "";
     return "0" == a && 1 / t == -Infinity ? "-0" : a;
@@ -486,14 +486,14 @@ var Ot = function (e, t) {
 var zt,
   qt,
   Ft,
-  Pt = function (e, t, a) {
+  Dt = function (e, t, a) {
     var n = null == e ? void 0 : Ot(e, t);
     return void 0 === n ? a : n;
   },
-  Dt = require("../assets/fonts/Inter/Inter-Black.woff"),
+  Pt = require("../assets/fonts/Inter/Inter-Black.woff"),
   Gt = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
-  Tt = require("../assets/fonts/Inter/Inter-Bold.woff"),
-  Wt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
+  Wt = require("../assets/fonts/Inter/Inter-Bold.woff"),
+  Tt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
   $t = require("../assets/fonts/Inter/Inter-Italic.woff"),
   Rt = require("../assets/fonts/Inter/Inter-Light.woff"),
   Ut = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
@@ -526,12 +526,12 @@ var zt,
         )
         .concat(Yt, ') format("woff2"),\n        url(')
         .concat(
-          Tt,
+          Wt,
           ') format("woff");\n      font-weight: bold;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ea, ') format("woff2"),\n        url(')
         .concat(
-          Wt,
+          Tt,
           ') format("woff");\n      font-weight: bold;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(aa, ') format("woff2"),\n        url(')
@@ -541,7 +541,7 @@ var zt,
         )
         .concat(Kt, ') format("woff2"),\n        url(')
         .concat(
-          Dt,
+          Pt,
           ') format("woff");\n      font-weight: 900;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
         .concat(ta, ') format("woff2"),\n        url(')
@@ -564,25 +564,25 @@ var zt,
           Jt,
           ') format("woff");\n      font-weight: 100;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    /* Main Page styling */\n    \n    *, *::before, *::after {\n       box-sizing: inherit;\n       outline:0;\n    }\n    \n    html {\n        box-sizing: border-box;\n        -webkit-text-size-adjust: 100%;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n    }\n    \n    body {\n        background-color: '
         )
-        .concat(Pt(t, "bgColor", "#fff"), ";\n        color: ")
+        .concat(Dt(t, "bgColor", "#fff"), ";\n        color: ")
         .concat(
-          Pt(t, "fontColor", "#000"),
+          Dt(t, "fontColor", "#000"),
           ";\n        height: 100vh;\n        width: 100vw;\n        font-family: 'Inter', sans-serif;\n        margin: 0;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 1.5;\n        transition: background-color 0s\n    }\n    \n    fieldset, section {\n        border: 1px solid "
         )
         .concat(
-          Pt(t, "borderColor", "#E2E2E2"),
+          Dt(t, "borderColor", "#E2E2E2"),
           ";\n        border-radius: 3px;\n        background-color: transparent;\n        padding: 25px;\n    }\n    \n    hr {\n        border-top: 0;\n        border-left: 0;\n        borderR-right: 0;\n        border-color: "
         )
         .concat(
-          Pt(t, "borderColor", "#E2E2E2"),
+          Dt(t, "borderColor", "#E2E2E2"),
           ";\n        background-color: transparent;\n    }\n    \n    ul {\n        padding-left: 20px;\n        list-style: none;\n        \n        li:not([class*=\"Mui\"])::before {\n          content: '￭';\n          color: "
         )
         .concat(
-          Pt(t, "bulletColor", "#2781B0"),
+          Dt(t, "bulletColor", "#2781B0"),
           ';\n          font-size: 20px;\n          display: inline-block;\n          width: 1em;\n          margin-left: -1em;\n        }\n        \n        ul {\n          list-style: none;\n          li:not([class*="Mui"])::before {\n            content: "￮";\n            color: '
         )
         .concat(
-          Pt(t, "bulletColor", "#2781B0"),
+          Dt(t, "bulletColor", "#2781B0"),
           ",\n            font-size: 20px;\n            display: inline-block;\n            width: 1em;\n            margin-left: -1em;\n          }\n        }\n      }\n      \n    button:active, button:focus, input: active, input:focus {\n        outline: 0;\n    }\n    \n    .min-icon {\n        width: 26px;\n    }\n    \n    #root: {\n        height: 100%;\n        width: 100%;\n        display: flex;\n        flex-flow: column;\n        align-items: stretch;\n      }\n    \n    #preload {\n      display: none;\n    }\n    \n    #loader-block {\n      display: flex;\n      flex-direction: column;\n      width: 100%;\n      height: 100vh;\n      justify-content: center;\n      align-items: center;\n    }\n    "
         );
     }
@@ -631,74 +631,74 @@ var zt,
           margin: 0,
           padding: (l && "" !== l.trim()) || i ? "0 25px" : "0 14px",
           transition: "all 0.2s linear",
-          backgroundColor: Pt(
+          backgroundColor: Dt(
             t,
             "buttons.".concat(s, ".enabled.background"),
             "#fff"
           ),
-          borderColor: Pt(t, "buttons.".concat(s, ".enabled.border"), "#000"),
+          borderColor: Dt(t, "buttons.".concat(s, ".enabled.border"), "#000"),
           borderWidth: "1px",
           borderStyle: "solid",
-          color: Pt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+          color: Dt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
           "& .button-label": S({ whiteSpace: a ? "normal" : "nowrap" }, m),
           "& .buttonIcon": {
             display: "block",
             height: "14px",
             "& > svg": {
-              fill: Pt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
-              color: Pt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+              fill: Dt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
+              color: Dt(t, "buttons.".concat(s, ".enabled.text"), "#000"),
               width: "14px",
               height: "14px",
             },
           },
           "&:disabled": {
             cursor: "not-allowed",
-            backgroundColor: Pt(
+            backgroundColor: Dt(
               t,
               "buttons.".concat(s, ".disabled.background"),
               "#fff"
             ),
-            borderColor: Pt(
+            borderColor: Dt(
               t,
               "buttons.".concat(s, ".disabled.border"),
               "#000"
             ),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: Pt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+            color: Dt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: Pt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
-              color: Pt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+              fill: Dt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
+              color: Dt(t, "buttons.".concat(s, ".disabled.text"), "#000"),
             },
           },
           "&:hover:not(:disabled)": {
-            backgroundColor: Pt(
+            backgroundColor: Dt(
               t,
               "buttons.".concat(s, ".hover.background"),
               "#fff"
             ),
-            borderColor: Pt(t, "buttons.".concat(s, ".hover.border"), "#000"),
+            borderColor: Dt(t, "buttons.".concat(s, ".hover.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: Pt(t, "buttons.".concat(s, ".hover.text"), "#000"),
+            color: Dt(t, "buttons.".concat(s, ".hover.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: Pt(t, "buttons.".concat(s, ".hover.text"), "#000"),
-              color: Pt(t, "buttons.".concat(s, ".hover.text"), "#000"),
+              fill: Dt(t, "buttons.".concat(s, ".hover.text"), "#000"),
+              color: Dt(t, "buttons.".concat(s, ".hover.text"), "#000"),
             },
           },
           "&:active:not(:disabled)": {
-            backgroundColor: Pt(
+            backgroundColor: Dt(
               t,
               "buttons.".concat(s, ".pressed.background"),
               "#fff"
             ),
-            border: Pt(t, "buttons.".concat(s, ".pressed.border"), "#000"),
+            border: Dt(t, "buttons.".concat(s, ".pressed.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: Pt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+            color: Dt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: Pt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
-              color: Pt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+              fill: Dt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
+              color: Dt(t, "buttons.".concat(s, ".pressed.text"), "#000"),
             },
           },
         },
@@ -780,11 +780,11 @@ var zt,
     );
   },
   sa = a.svg(function (e) {
-    var t = Pt(e, "theme.logoLabelColor", "#000");
+    var t = Dt(e, "theme.logoLabelColor", "#000");
     return (
-      e.inverse && (t = Pt(e, "theme.logoLabelInverse", "#fff")),
+      e.inverse && (t = Dt(e, "theme.logoLabelInverse", "#fff")),
       {
-        "& .minioSection": { fill: Pt(e, "theme.logoColor", "#C51C3F") },
+        "& .minioSection": { fill: Dt(e, "theme.logoColor", "#C51C3F") },
         "& .minioApplicationName": { fill: t },
       }
     );
@@ -1346,7 +1346,7 @@ var zt,
     }
   },
   Za = a.svg(function (e) {
-    return { fill: Pt(e, "theme.logoColor", "#C51C3F") };
+    return { fill: Dt(e, "theme.logoColor", "#C51C3F") };
   }),
   Va = function (t) {
     var a = t.width;
@@ -1371,7 +1371,7 @@ var zt,
       "".concat((100 * t) / 12, "%")
     );
   },
-  Ha = a.div(function (e) {
+  xa = a.div(function (e) {
     var t = { boxSizing: "border-box" };
     if (e.container)
       t = {
@@ -1387,28 +1387,28 @@ var zt,
       a.forEach(function (n, r) {
         var o,
           l,
-          c = Pt(e, n, !1);
+          c = Dt(e, n, !1);
         if (!!c) {
           var i = {};
           if (
             ("number" == typeof c &&
-              (i = { flexBasis: Aa(Pt(e, n, 12)), width: Aa(Pt(e, n, 12)) }),
+              (i = { flexBasis: Aa(Dt(e, n, 12)), width: Aa(Dt(e, n, 12)) }),
             "hidden" === c)
           ) {
             var s = "";
             a[r + 1] &&
-              (s = "and (max-width:  ".concat(Pt(Ea, a[r + 1], 0), "px)")),
+              (s = "and (max-width:  ".concat(Dt(Ea, a[r + 1], 0), "px)")),
               (t = S(
                 S({}, t),
                 (((o = {})[
-                  "@media (min-width: ".concat(Pt(Ea, n, 0), "px) ").concat(s)
+                  "@media (min-width: ".concat(Dt(Ea, n, 0), "px) ").concat(s)
                 ] = { display: "none" }),
                 o)
               ));
           }
           t = S(
             S({}, t),
-            (((l = {})["@media (min-width: ".concat(Pt(Ea, n, 0), "px)")] = S(
+            (((l = {})["@media (min-width: ".concat(Dt(Ea, n, 0), "px)")] = S(
               { flexGrow: "1" },
               i
             )),
@@ -1419,8 +1419,8 @@ var zt,
     }
     return S(S({}, t), e.sx);
   }),
-  xa = function (t) {
-    return e.createElement(Ha, S({}, t), t.children);
+  Ha = function (t) {
+    return e.createElement(xa, S({}, t), t.children);
   },
   ya = require("../assets/video/videoBG.mp4"),
   wa = require("../assets/background/loginAnimationPoster.png"),
@@ -1431,7 +1431,7 @@ var zt,
       "& .mainContainer": { height: "100vh" },
       "& .decorationPanel": {
         position: "relative",
-        backgroundColor: Pt(a, "login.promoBG", "#000110"),
+        backgroundColor: Dt(a, "login.promoBG", "#000110"),
         "& .videoContainer": {
           width: "100%",
           height: "auto",
@@ -1439,7 +1439,7 @@ var zt,
           position: "absolute",
           bottom: "0",
           right: 0,
-          filter: Pt(a, "login.bgFilter", "none"),
+          filter: Dt(a, "login.bgFilter", "none"),
           "&:before": {
             position: "absolute",
             width: "100%",
@@ -1478,7 +1478,7 @@ var zt,
           left: "50%",
           transform: "translateX(-50%)",
           "& .promoHeader": {
-            color: Pt(a, "login.promoHeader", "#fff"),
+            color: Dt(a, "login.promoHeader", "#fff"),
             fontSize: "50px",
             textAlign: "left",
             fontWeight: "900",
@@ -1487,24 +1487,30 @@ var zt,
           "& .promoInfo": {
             marginTop: "31px",
             maxWidth: "542px",
-            color: Pt(a, "login.promoText", "#fff"),
-            fontSize: "16px",
+            color: Dt(a, "login.promoText", "#fff"),
+            fontSize: "18px",
             textAlign: "left",
             fontWeight: "300",
             lineHeight: "30px",
             textShadow: "0 0 5ppx #000",
+            "& a": {
+              color: Dt(a, "login.promoText", "#fff"),
+              textDecoration: "none",
+              fontWeight: "bold",
+              "&:hover": { textDecoration: "underline" },
+            },
           },
         },
       },
       "& .formPanel":
         ((t = {
-          maxWidth: "495px",
-          backgroundColor: Pt(a, "login.formBG", "#fff"),
+          maxWidth: "520px",
+          backgroundColor: Dt(a, "login.formBG", "#fff"),
         }),
         (t[
           "@media (min-width: "
-            .concat(Pt(Ea, "xs", 0), "px) and (max-width: ")
-            .concat(Pt(Ea, "md", 0), "px)")
+            .concat(Dt(Ea, "xs", 0), "px) and (max-width: ")
+            .concat(Dt(Ea, "md", 0), "px)")
         ] = { maxWidth: "100%" }),
         (t["& .logoContainer"] = {
           display: "flex",
@@ -1515,25 +1521,27 @@ var zt,
           "& svg": { width: "325px" },
         }),
         (t["& .formContainer"] = {
-          marginTop: "40px",
+          paddingTop: "40px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          minHeight: "calc(100vh - 260px)",
-          "& .form": { width: "328px" },
+          minHeight: "calc(100vh - 215px)",
+          "& .form": { width: "328px", flexGrow: "1", height: "100%" },
           "& .footer": {
+            display: "flex",
             width: "328px",
-            marginTop: "50px",
             borderTop: "".concat(
-              Pt(a, "login.footerDivider", "#f2f2f2"),
+              Dt(a, "login.footerDivider", "#f2f2f2"),
               " 1px solid"
             ),
-            paddingTop: "35px",
+            padding: "35px 0",
             textAlign: "center",
+            alignItems: "flex-end",
+            justifyContent: "center",
           },
           "& .footer, & .footer a": {
-            color: Pt(a, "login.footerElements", "#000"),
-            fontSize: "12px",
+            color: Dt(a, "login.footerElements", "#000"),
+            fontSize: "14px",
             textDecoration: "none",
           },
         }),
@@ -1550,10 +1558,10 @@ var zt,
       Ma,
       null,
       e.createElement(
-        xa,
+        Ha,
         { container: !0, className: "mainContainer", wrap: "nowrap" },
         e.createElement(
-          xa,
+          Ha,
           {
             item: !0,
             xs: "hidden",
@@ -1563,17 +1571,17 @@ var zt,
           },
           (o || l) &&
             e.createElement(
-              xa,
+              Ha,
               { container: !0 },
               e.createElement(
-                xa,
+                Ha,
                 { item: !0, className: "promoContainer" },
-                e.createElement(xa, { item: !0, className: "promoHeader" }, l),
-                e.createElement(xa, { item: !0, className: "promoInfo" }, o)
+                e.createElement(Ha, { item: !0, className: "promoHeader" }, l),
+                e.createElement(Ha, { item: !0, className: "promoInfo" }, o)
               )
             ),
           e.createElement(
-            xa,
+            Ha,
             { item: !0, className: "videoContainer" },
             e.createElement(
               "video",
@@ -1591,23 +1599,23 @@ var zt,
           )
         ),
         e.createElement(
-          xa,
+          Ha,
           { item: !0, xs: 12, className: "formPanel" },
           e.createElement(
-            xa,
+            Ha,
             { container: !0 },
             e.createElement(
-              xa,
+              Ha,
               { item: !0, xs: 12, className: "logoContainer" },
               e.createElement(ba, S({}, a))
             ),
             e.createElement(
-              xa,
+              Ha,
               { item: !0, xs: 12, className: "formContainer" },
-              e.createElement(xa, { item: !0, xs: !0, className: "form" }, n),
+              e.createElement(Ha, { item: !0, xs: !0, className: "form" }, n),
               r &&
                 e.createElement(
-                  xa,
+                  Ha,
                   { item: !0, xs: !0, className: "footer" },
                   r
                 )
@@ -1621,7 +1629,7 @@ export {
   ba as ApplicationLogo,
   ia as Button,
   la as GlobalStyles,
-  xa as Grid,
+  Ha as Grid,
   Ca as LoginWrapper,
   C as ThemeHandler,
   Va as ThemedLogo,
