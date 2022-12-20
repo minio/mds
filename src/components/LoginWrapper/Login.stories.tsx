@@ -55,7 +55,7 @@ Default.args = {
       Native to Kubernetes, MinIO is the only object storage suite available on
       every public cloud, every Kubernetes distribution, the private cloud and
       the edge. MinIO is software-defined and is 100% open source under GNU AGPL
-      v3.
+      v3. <a href={"#"}>link</a>
     </Fragment>
   ),
   logoProps: {
