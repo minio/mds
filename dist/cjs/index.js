@@ -1394,7 +1394,7 @@ var Ot,
           transform: "translateX(-50%)",
           "& .promoHeader": {
             color: Ft(a, "login.promoHeader", "#fff"),
-            fontSize: "50px",
+            fontSize: "46px",
             textAlign: "left",
             fontWeight: "900",
             lineHeight: "60px",
