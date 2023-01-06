@@ -5,19 +5,19 @@ var e = require("react"),
 function t(e) {
   return e && "object" == typeof e && "default" in e ? e : { default: e };
 }
-function l(e) {
+function n(e) {
   if (e && e.__esModule) return e;
   var a = Object.create(null);
   return (
     e &&
       Object.keys(e).forEach(function (t) {
         if ("default" !== t) {
-          var l = Object.getOwnPropertyDescriptor(e, t);
+          var n = Object.getOwnPropertyDescriptor(e, t);
           Object.defineProperty(
             a,
             t,
-            l.get
-              ? l
+            n.get
+              ? n
               : {
                   enumerable: !0,
                   get: function () {
@@ -31,14 +31,14 @@ function l(e) {
     Object.freeze(a)
   );
 }
-var n = t(e),
-  r = l(e),
+var l = t(e),
+  r = n(e),
   c = t(a),
   o = "#fff",
   m = "#2781B0",
   i = "#5B5C5C",
-  h = "#E7EAEB",
-  d = "#07193E",
+  d = "#E7EAEB",
+  h = "#07193E",
   s = "#0D2453",
   f = "#05132F",
   p = "#C51B3F",
@@ -50,12 +50,12 @@ var n = t(e),
   x = "#E6ECEC",
   M = "#B5BCBD",
   Z = "#EFEDED",
-  _ = "#C3CBCB",
-  H = "#FF3958",
-  z = "#616A7C",
-  V = "#3A3F4A",
-  A = "#A3B7D9",
-  C = {
+  C = "#C3CBCB",
+  _ = "#FF3958",
+  H = "#616A7C",
+  z = "#3A3F4A",
+  V = "#A3B7D9",
+  A = {
     bgColor: o,
     fontColor: "#000",
     borderColor: "#E2E2E2",
@@ -63,6 +63,7 @@ var n = t(e),
     logoColor: p,
     logoLabelColor: "#000000",
     logoLabelInverse: "#fff",
+    loaderColor: "#113053",
     buttons: {
       regular: {
         enabled: { border: i, text: i, background: o, iconColor: i },
@@ -71,8 +72,8 @@ var n = t(e),
         pressed: { border: i, text: i, background: "#D5D7D8", iconColor: i },
       },
       callAction: {
-        enabled: { border: d, text: o, background: d, iconColor: o },
-        disabled: { border: h, text: i, background: h, iconColor: i },
+        enabled: { border: h, text: o, background: h, iconColor: o },
+        disabled: { border: d, text: i, background: d, iconColor: i },
         hover: { border: s, text: o, background: s, iconColor: o },
         pressed: { border: f, text: o, background: f, iconColor: o },
       },
@@ -103,13 +104,14 @@ var n = t(e),
     fontColor: "#8E98A9",
     borderColor: "#8E98A9",
     bulletColor: "#4B586A",
-    logoColor: H,
-    logoLabelColor: A,
+    logoColor: _,
+    logoLabelColor: V,
     logoLabelInverse: "#fff",
+    loaderColor: "#8E98A9",
     buttons: {
       regular: {
         enabled: { border: g, text: g, background: E, iconColor: g },
-        disabled: { border: V, text: V, background: z, iconColor: V },
+        disabled: { border: z, text: z, background: H, iconColor: z },
         hover: { border: g, text: g, background: "#4B586A", iconColor: g },
         pressed: { border: w, text: w, background: "#333D4B", iconColor: w },
       },
@@ -117,21 +119,21 @@ var n = t(e),
         enabled: { border: x, text: E, background: x, iconColor: E },
         disabled: { border: M, text: E, background: M, iconColor: E },
         hover: { border: Z, text: E, background: Z, iconColor: E },
-        pressed: { border: _, text: E, background: _, iconColor: E },
+        pressed: { border: C, text: E, background: C, iconColor: E },
       },
       secondary: {
-        enabled: { border: H, text: H, background: E, iconColor: H },
-        disabled: { border: V, text: V, background: z, iconColor: V },
-        hover: { border: H, text: H, background: "#4B586A", iconColor: H },
-        pressed: { border: H, text: E, background: H, iconColor: E },
+        enabled: { border: _, text: _, background: E, iconColor: _ },
+        disabled: { border: z, text: z, background: H, iconColor: z },
+        hover: { border: _, text: _, background: "#4B586A", iconColor: _ },
+        pressed: { border: _, text: E, background: _, iconColor: E },
       },
     },
     login: {
       formBG: "#283140",
       promoBG: "#000106",
       bgFilter: "grayscale(50%)",
-      promoHeader: A,
-      promoText: A,
+      promoHeader: V,
+      promoText: V,
       footerElements: "#85B3EE",
       footerDivider: "#545D6A",
     },
@@ -141,15 +143,23 @@ var n = t(e),
       (T =
         Object.assign ||
         function (e) {
-          for (var a, t = 1, l = arguments.length; t < l; t++)
-            for (var n in (a = arguments[t]))
-              Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]);
+          for (var a, t = 1, n = arguments.length; t < n; t++)
+            for (var l in (a = arguments[t]))
+              Object.prototype.hasOwnProperty.call(a, l) && (e[l] = a[l]);
           return e;
         }),
       T.apply(this, arguments)
     );
   };
-var b =
+function b(e, a) {
+  return (
+    Object.defineProperty
+      ? Object.defineProperty(e, "raw", { value: a })
+      : (e.raw = a),
+    e
+  );
+}
+var P =
     "undefined" != typeof globalThis
       ? globalThis
       : "undefined" != typeof window
@@ -159,71 +169,71 @@ var b =
       : "undefined" != typeof self
       ? self
       : {},
-  P = Array.isArray,
-  I = "object" == typeof b && b && b.Object === Object && b,
-  N = "object" == typeof self && self && self.Object === Object && self,
-  B = I || N || Function("return this")(),
-  R = B.Symbol,
-  y = R,
-  G = Object.prototype,
-  S = G.hasOwnProperty,
-  k = G.toString,
-  F = y ? y.toStringTag : void 0;
-var q = function (e) {
-    var a = S.call(e, F),
-      t = e[F];
+  I = Array.isArray,
+  N = "object" == typeof P && P && P.Object === Object && P,
+  B = "object" == typeof self && self && self.Object === Object && self,
+  R = N || B || Function("return this")(),
+  y = R.Symbol,
+  G = y,
+  k = Object.prototype,
+  S = k.hasOwnProperty,
+  F = k.toString,
+  q = G ? G.toStringTag : void 0;
+var O = function (e) {
+    var a = S.call(e, q),
+      t = e[q];
     try {
-      e[F] = void 0;
-      var l = !0;
+      e[q] = void 0;
+      var n = !0;
     } catch (e) {}
-    var n = k.call(e);
-    return l && (a ? (e[F] = t) : delete e[F]), n;
+    var l = F.call(e);
+    return n && (a ? (e[q] = t) : delete e[q]), l;
   },
-  O = Object.prototype.toString;
-var D = q,
-  j = function (e) {
-    return O.call(e);
+  D = Object.prototype.toString;
+var j = O,
+  U = function (e) {
+    return D.call(e);
   },
-  U = R ? R.toStringTag : void 0;
-var W = function (e) {
+  W = y ? y.toStringTag : void 0;
+var Q = function (e) {
   return null == e
     ? void 0 === e
       ? "[object Undefined]"
       : "[object Null]"
-    : U && U in Object(e)
-    ? D(e)
-    : j(e);
+    : W && W in Object(e)
+    ? j(e)
+    : U(e);
 };
-var Q = W,
-  $ = function (e) {
+var $ = Q,
+  Y = function (e) {
     return null != e && "object" == typeof e;
   };
-var Y = function (e) {
-    return "symbol" == typeof e || ($(e) && "[object Symbol]" == Q(e));
+var X = function (e) {
+    return "symbol" == typeof e || (Y(e) && "[object Symbol]" == $(e));
   },
-  X = P,
-  K = Y,
-  J = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
-  ee = /^\w*$/;
-var ae = function (e, a) {
-  if (X(e)) return !1;
+  K = I,
+  J = X,
+  ee = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
+  ae = /^\w*$/;
+var te = function (e, a) {
+  if (K(e)) return !1;
   var t = typeof e;
   return (
-    !("number" != t && "symbol" != t && "boolean" != t && null != e && !K(e)) ||
-    ee.test(e) ||
-    !J.test(e) ||
+    !("number" != t && "symbol" != t && "boolean" != t && null != e && !J(e)) ||
+    ae.test(e) ||
+    !ee.test(e) ||
     (null != a && e in Object(a))
   );
 };
-var te = function (e) {
+var ne = function (e) {
     var a = typeof e;
     return null != e && ("object" == a || "function" == a);
   },
-  le = W,
-  ne = te;
-var re,
-  ce = function (e) {
-    if (!ne(e)) return !1;
+  le = Q,
+  re = ne;
+var ce,
+  oe = function (e) {
+    if (!re(e)) return !1;
     var a = le(e);
     return (
       "[object Function]" == a ||
@@ -232,18 +242,18 @@ var re,
       "[object Proxy]" == a
     );
   },
-  oe = B["__core-js_shared__"],
-  me = (re = /[^.]+$/.exec((oe && oe.keys && oe.keys.IE_PROTO) || ""))
-    ? "Symbol(src)_1." + re
+  me = R["__core-js_shared__"],
+  ie = (ce = /[^.]+$/.exec((me && me.keys && me.keys.IE_PROTO) || ""))
+    ? "Symbol(src)_1." + ce
     : "";
-var ie = function (e) {
-    return !!me && me in e;
+var de = function (e) {
+    return !!ie && ie in e;
   },
   he = Function.prototype.toString;
-var de = ce,
-  se = ie,
-  fe = te,
-  pe = function (e) {
+var se = oe,
+  fe = de,
+  pe = ne,
+  ue = function (e) {
     if (null != e) {
       try {
         return he.call(e);
@@ -254,15 +264,15 @@ var de = ce,
     }
     return "";
   },
-  ue = /^\[object .+?Constructor\]$/,
-  ve = Function.prototype,
-  Ee = Object.prototype,
-  ge = ve.toString,
-  we = Ee.hasOwnProperty,
-  xe = RegExp(
+  ve = /^\[object .+?Constructor\]$/,
+  Ee = Function.prototype,
+  ge = Object.prototype,
+  we = Ee.toString,
+  xe = ge.hasOwnProperty,
+  Me = RegExp(
     "^" +
-      ge
-        .call(we)
+      we
+        .call(xe)
         .replace(/[\\^$.*+?()[\]{}|]/g, "\\$&")
         .replace(
           /hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g,
@@ -270,15 +280,15 @@ var de = ce,
         ) +
       "$"
   );
-var Me = function (e) {
-    return !(!fe(e) || se(e)) && (de(e) ? xe : ue).test(pe(e));
+var Ze = function (e) {
+    return !(!pe(e) || fe(e)) && (se(e) ? Me : ve).test(ue(e));
   },
-  Ze = function (e, a) {
+  Ce = function (e, a) {
     return null == e ? void 0 : e[a];
   };
 var _e = function (e, a) {
-    var t = Ze(e, a);
-    return Me(t) ? t : void 0;
+    var t = Ce(e, a);
+    return Ze(t) ? t : void 0;
   },
   He = _e(Object, "create"),
   ze = He;
@@ -289,31 +299,31 @@ var Ae = function (e) {
     var a = this.has(e) && delete this.__data__[e];
     return (this.size -= a ? 1 : 0), a;
   },
-  Ce = He,
-  Le = Object.prototype.hasOwnProperty;
-var Te = function (e) {
+  Le = He,
+  Te = Object.prototype.hasOwnProperty;
+var be = function (e) {
     var a = this.__data__;
-    if (Ce) {
+    if (Le) {
       var t = a[e];
       return "__lodash_hash_undefined__" === t ? void 0 : t;
     }
-    return Le.call(a, e) ? a[e] : void 0;
+    return Te.call(a, e) ? a[e] : void 0;
   },
-  be = He,
-  Pe = Object.prototype.hasOwnProperty;
-var Ie = He;
-var Ne = Ve,
-  Be = Ae,
-  Re = Te,
-  ye = function (e) {
+  Pe = He,
+  Ie = Object.prototype.hasOwnProperty;
+var Ne = He;
+var Be = Ve,
+  Re = Ae,
+  ye = be,
+  Ge = function (e) {
     var a = this.__data__;
-    return be ? void 0 !== a[e] : Pe.call(a, e);
+    return Pe ? void 0 !== a[e] : Ie.call(a, e);
   },
-  Ge = function (e, a) {
+  ke = function (e, a) {
     var t = this.__data__;
     return (
       (this.size += this.has(e) ? 0 : 1),
-      (t[e] = Ie && void 0 === a ? "__lodash_hash_undefined__" : a),
+      (t[e] = Ne && void 0 === a ? "__lodash_hash_undefined__" : a),
       this
     );
   };
@@ -321,142 +331,142 @@ function Se(e) {
   var a = -1,
     t = null == e ? 0 : e.length;
   for (this.clear(); ++a < t; ) {
-    var l = e[a];
-    this.set(l[0], l[1]);
+    var n = e[a];
+    this.set(n[0], n[1]);
   }
 }
-(Se.prototype.clear = Ne),
-  (Se.prototype.delete = Be),
-  (Se.prototype.get = Re),
-  (Se.prototype.has = ye),
-  (Se.prototype.set = Ge);
-var ke = Se;
-var Fe = function () {
+(Se.prototype.clear = Be),
+  (Se.prototype.delete = Re),
+  (Se.prototype.get = ye),
+  (Se.prototype.has = Ge),
+  (Se.prototype.set = ke);
+var Fe = Se;
+var qe = function () {
   (this.__data__ = []), (this.size = 0);
 };
-var qe = function (e, a) {
+var Oe = function (e, a) {
   return e === a || (e != e && a != a);
 };
-var Oe = function (e, a) {
-    for (var t = e.length; t--; ) if (qe(e[t][0], a)) return t;
+var De = function (e, a) {
+    for (var t = e.length; t--; ) if (Oe(e[t][0], a)) return t;
     return -1;
   },
-  De = Oe,
-  je = Array.prototype.splice;
-var Ue = Oe;
-var We = Oe;
-var Qe = Oe;
-var $e = Fe,
-  Ye = function (e) {
-    var a = this.__data__,
-      t = De(a, e);
-    return (
-      !(t < 0) &&
-      (t == a.length - 1 ? a.pop() : je.call(a, t, 1), --this.size, !0)
-    );
-  },
+  je = De,
+  Ue = Array.prototype.splice;
+var We = De;
+var Qe = De;
+var $e = De;
+var Ye = qe,
   Xe = function (e) {
     var a = this.__data__,
-      t = Ue(a, e);
-    return t < 0 ? void 0 : a[t][1];
+      t = je(a, e);
+    return (
+      !(t < 0) &&
+      (t == a.length - 1 ? a.pop() : Ue.call(a, t, 1), --this.size, !0)
+    );
   },
   Ke = function (e) {
-    return We(this.__data__, e) > -1;
+    var a = this.__data__,
+      t = We(a, e);
+    return t < 0 ? void 0 : a[t][1];
   },
-  Je = function (e, a) {
+  Je = function (e) {
+    return Qe(this.__data__, e) > -1;
+  },
+  ea = function (e, a) {
     var t = this.__data__,
-      l = Qe(t, e);
-    return l < 0 ? (++this.size, t.push([e, a])) : (t[l][1] = a), this;
+      n = $e(t, e);
+    return n < 0 ? (++this.size, t.push([e, a])) : (t[n][1] = a), this;
   };
-function ea(e) {
+function aa(e) {
   var a = -1,
     t = null == e ? 0 : e.length;
   for (this.clear(); ++a < t; ) {
-    var l = e[a];
-    this.set(l[0], l[1]);
+    var n = e[a];
+    this.set(n[0], n[1]);
   }
 }
-(ea.prototype.clear = $e),
-  (ea.prototype.delete = Ye),
-  (ea.prototype.get = Xe),
-  (ea.prototype.has = Ke),
-  (ea.prototype.set = Je);
-var aa = ea,
-  ta = _e(B, "Map"),
-  la = ke,
-  na = aa,
-  ra = ta;
-var ca = function (e) {
+(aa.prototype.clear = Ye),
+  (aa.prototype.delete = Xe),
+  (aa.prototype.get = Ke),
+  (aa.prototype.has = Je),
+  (aa.prototype.set = ea);
+var ta = aa,
+  na = _e(R, "Map"),
+  la = Fe,
+  ra = ta,
+  ca = na;
+var oa = function (e) {
   var a = typeof e;
   return "string" == a || "number" == a || "symbol" == a || "boolean" == a
     ? "__proto__" !== e
     : null === e;
 };
-var oa = function (e, a) {
+var ma = function (e, a) {
     var t = e.__data__;
-    return ca(a) ? t["string" == typeof a ? "string" : "hash"] : t.map;
+    return oa(a) ? t["string" == typeof a ? "string" : "hash"] : t.map;
   },
-  ma = oa;
-var ia = oa;
-var ha = oa;
-var da = oa;
-var sa = function () {
+  ia = ma;
+var da = ma;
+var ha = ma;
+var sa = ma;
+var fa = function () {
     (this.size = 0),
       (this.__data__ = {
         hash: new la(),
-        map: new (ra || na)(),
+        map: new (ca || ra)(),
         string: new la(),
       });
   },
-  fa = function (e) {
-    var a = ma(this, e).delete(e);
+  pa = function (e) {
+    var a = ia(this, e).delete(e);
     return (this.size -= a ? 1 : 0), a;
   },
-  pa = function (e) {
-    return ia(this, e).get(e);
-  },
   ua = function (e) {
+    return da(this, e).get(e);
+  },
+  va = function (e) {
     return ha(this, e).has(e);
   },
-  va = function (e, a) {
-    var t = da(this, e),
-      l = t.size;
-    return t.set(e, a), (this.size += t.size == l ? 0 : 1), this;
+  Ea = function (e, a) {
+    var t = sa(this, e),
+      n = t.size;
+    return t.set(e, a), (this.size += t.size == n ? 0 : 1), this;
   };
-function Ea(e) {
+function ga(e) {
   var a = -1,
     t = null == e ? 0 : e.length;
   for (this.clear(); ++a < t; ) {
-    var l = e[a];
-    this.set(l[0], l[1]);
+    var n = e[a];
+    this.set(n[0], n[1]);
   }
 }
-(Ea.prototype.clear = sa),
-  (Ea.prototype.delete = fa),
-  (Ea.prototype.get = pa),
-  (Ea.prototype.has = ua),
-  (Ea.prototype.set = va);
-var ga = Ea;
-function wa(e, a) {
+(ga.prototype.clear = fa),
+  (ga.prototype.delete = pa),
+  (ga.prototype.get = ua),
+  (ga.prototype.has = va),
+  (ga.prototype.set = Ea);
+var wa = ga;
+function xa(e, a) {
   if ("function" != typeof e || (null != a && "function" != typeof a))
     throw new TypeError("Expected a function");
   var t = function () {
-    var l = arguments,
-      n = a ? a.apply(this, l) : l[0],
+    var n = arguments,
+      l = a ? a.apply(this, n) : n[0],
       r = t.cache;
-    if (r.has(n)) return r.get(n);
-    var c = e.apply(this, l);
-    return (t.cache = r.set(n, c) || r), c;
+    if (r.has(l)) return r.get(l);
+    var c = e.apply(this, n);
+    return (t.cache = r.set(l, c) || r), c;
   };
-  return (t.cache = new (wa.Cache || ga)()), t;
+  return (t.cache = new (xa.Cache || wa)()), t;
 }
-wa.Cache = ga;
-var xa = wa;
-var Ma =
+xa.Cache = wa;
+var Ma = xa;
+var Za =
     /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g,
-  Za = /\\(\\)?/g,
+  Ca = /\\(\\)?/g,
   _a = (function (e) {
-    var a = xa(e, function (e) {
+    var a = Ma(e, function (e) {
         return 500 === t.size && t.clear(), e;
       }),
       t = a.cache;
@@ -465,176 +475,180 @@ var Ma =
     var a = [];
     return (
       46 === e.charCodeAt(0) && a.push(""),
-      e.replace(Ma, function (e, t, l, n) {
-        a.push(l ? n.replace(Za, "$1") : t || e);
+      e.replace(Za, function (e, t, n, l) {
+        a.push(n ? l.replace(Ca, "$1") : t || e);
       }),
       a
     );
   });
 var Ha = function (e, a) {
-    for (var t = -1, l = null == e ? 0 : e.length, n = Array(l); ++t < l; )
-      n[t] = a(e[t], t, e);
-    return n;
+    for (var t = -1, n = null == e ? 0 : e.length, l = Array(n); ++t < n; )
+      l[t] = a(e[t], t, e);
+    return l;
   },
-  za = P,
-  Va = Y,
-  Aa = R ? R.prototype : void 0,
-  Ca = Aa ? Aa.toString : void 0;
-var La = function e(a) {
+  za = I,
+  Va = X,
+  Aa = y ? y.prototype : void 0,
+  La = Aa ? Aa.toString : void 0;
+var Ta = function e(a) {
     if ("string" == typeof a) return a;
     if (za(a)) return Ha(a, e) + "";
-    if (Va(a)) return Ca ? Ca.call(a) : "";
+    if (Va(a)) return La ? La.call(a) : "";
     var t = a + "";
     return "0" == t && 1 / a == -Infinity ? "-0" : t;
   },
-  Ta = La;
-var ba = P,
-  Pa = ae,
-  Ia = _a,
-  Na = function (e) {
-    return null == e ? "" : Ta(e);
+  ba = Ta;
+var Pa = I,
+  Ia = te,
+  Na = _a,
+  Ba = function (e) {
+    return null == e ? "" : ba(e);
   };
-var Ba = Y;
-var Ra = function (e, a) {
-    return ba(e) ? e : Pa(e, a) ? [e] : Ia(Na(e));
+var Ra = X;
+var ya = function (e, a) {
+    return Pa(e) ? e : Ia(e, a) ? [e] : Na(Ba(e));
   },
-  ya = function (e) {
-    if ("string" == typeof e || Ba(e)) return e;
+  Ga = function (e) {
+    if ("string" == typeof e || Ra(e)) return e;
     var a = e + "";
     return "0" == a && 1 / e == -Infinity ? "-0" : a;
   };
-var Ga = function (e, a) {
-  for (var t = 0, l = (a = Ra(a, e)).length; null != e && t < l; )
-    e = e[ya(a[t++])];
-  return t && t == l ? e : void 0;
+var ka = function (e, a) {
+  for (var t = 0, n = (a = ya(a, e)).length; null != e && t < n; )
+    e = e[Ga(a[t++])];
+  return t && t == n ? e : void 0;
 };
 var Sa,
-  ka,
   Fa,
-  qa = function (e, a, t) {
-    var l = null == e ? void 0 : Ga(e, a);
-    return void 0 === l ? t : l;
+  qa,
+  Oa,
+  Da,
+  ja,
+  Ua,
+  Wa,
+  Qa,
+  $a,
+  Ya,
+  Xa,
+  Ka,
+  Ja = function (e, a, t) {
+    var n = null == e ? void 0 : ka(e, a);
+    return void 0 === n ? t : n;
   },
-  Oa = require("../assets/fonts/Inter/Inter-Black.woff"),
-  Da = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
-  ja = require("../assets/fonts/Inter/Inter-Bold.woff"),
-  Ua = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
-  Wa = require("../assets/fonts/Inter/Inter-Italic.woff"),
-  Qa = require("../assets/fonts/Inter/Inter-Light.woff"),
-  $a = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
-  Ya = require("../assets/fonts/Inter/Inter-Regular.woff"),
-  Xa = require("../assets/fonts/Inter/Inter-Thin.woff"),
-  Ka = require("../assets/fonts/Inter/Inter-Black.woff2"),
-  Ja = require("../assets/fonts/Inter/Inter-BlackItalic.woff2"),
-  et = require("../assets/fonts/Inter/Inter-Bold.woff2"),
-  at = require("../assets/fonts/Inter/Inter-BoldItalic.woff2"),
-  tt = require("../assets/fonts/Inter/Inter-Italic.woff2"),
-  lt = require("../assets/fonts/Inter/Inter-Light.woff2"),
-  nt = require("../assets/fonts/Inter/Inter-LightItalic.woff2"),
-  rt = require("../assets/fonts/Inter/Inter-Regular.woff2"),
-  ct = require("../assets/fonts/Inter/Inter-Thin.woff2"),
-  ot = a.createGlobalStyle(
-    Fa ||
-      ((Sa = ["\n    ", "\n"]),
-      (ka = ["\n    ", "\n"]),
-      Object.defineProperty
-        ? Object.defineProperty(Sa, "raw", { value: ka })
-        : (Sa.raw = ka),
-      (Fa = Sa)),
+  et = require("../assets/fonts/Inter/Inter-Black.woff"),
+  at = require("../assets/fonts/Inter/Inter-BlackItalic.woff"),
+  tt = require("../assets/fonts/Inter/Inter-Bold.woff"),
+  nt = require("../assets/fonts/Inter/Inter-BoldItalic.woff"),
+  lt = require("../assets/fonts/Inter/Inter-Italic.woff"),
+  rt = require("../assets/fonts/Inter/Inter-Light.woff"),
+  ct = require("../assets/fonts/Inter/Inter-LightItalic.woff"),
+  ot = require("../assets/fonts/Inter/Inter-Regular.woff"),
+  mt = require("../assets/fonts/Inter/Inter-Thin.woff"),
+  it = require("../assets/fonts/Inter/Inter-Black.woff2"),
+  dt = require("../assets/fonts/Inter/Inter-BlackItalic.woff2"),
+  ht = require("../assets/fonts/Inter/Inter-Bold.woff2"),
+  st = require("../assets/fonts/Inter/Inter-BoldItalic.woff2"),
+  ft = require("../assets/fonts/Inter/Inter-Italic.woff2"),
+  pt = require("../assets/fonts/Inter/Inter-Light.woff2"),
+  ut = require("../assets/fonts/Inter/Inter-LightItalic.woff2"),
+  vt = require("../assets/fonts/Inter/Inter-Regular.woff2"),
+  Et = require("../assets/fonts/Inter/Inter-Thin.woff2"),
+  gt = a.createGlobalStyle(
+    Sa || (Sa = b(["\n    ", "\n"], ["\n    ", "\n"])),
     function (e) {
       var a = e.theme;
       return '\n    /* Fonts */\n    @font-face {\n      font-family: "Inter";\n      src: url('
-        .concat(Ja, ') format("woff2"),\n        url(')
+        .concat(dt, ') format("woff2"),\n        url(')
         .concat(
-          Da,
+          at,
           ') format("woff");\n      font-weight: 900;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(et, ') format("woff2"),\n        url(')
+        .concat(ht, ') format("woff2"),\n        url(')
         .concat(
-          ja,
+          tt,
           ') format("woff");\n      font-weight: bold;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(at, ') format("woff2"),\n        url(')
+        .concat(st, ') format("woff2"),\n        url(')
         .concat(
-          Ua,
+          nt,
           ') format("woff");\n      font-weight: bold;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(lt, ') format("woff2"),\n        url(')
+        .concat(pt, ') format("woff2"),\n        url(')
         .concat(
-          Qa,
+          rt,
           ') format("woff");\n      font-weight: 300;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(Ka, ') format("woff2"),\n        url(')
+        .concat(it, ') format("woff2"),\n        url(')
         .concat(
-          Oa,
+          et,
           ') format("woff");\n      font-weight: 900;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(tt, ') format("woff2"),\n        url(')
+        .concat(ft, ') format("woff2"),\n        url(')
         .concat(
-          Wa,
+          lt,
           ') format("woff");\n      font-weight: normal;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(rt, ') format("woff2"),\n        url(')
+        .concat(vt, ') format("woff2"),\n        url(')
         .concat(
-          Ya,
+          ot,
           ') format("woff");\n      font-weight: normal;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(nt, ') format("woff2"),\n        url(')
+        .concat(ut, ') format("woff2"),\n        url(')
         .concat(
-          $a,
+          ct,
           ') format("woff");\n      font-weight: 300;\n      font-style: italic;\n      font-display: swap;\n    }\n    \n    @font-face {\n      font-family: "Inter";\n      src: url('
         )
-        .concat(ct, ') format("woff2"),\n        url(')
+        .concat(Et, ') format("woff2"),\n        url(')
         .concat(
-          Xa,
+          mt,
           ') format("woff");\n      font-weight: 100;\n      font-style: normal;\n      font-display: swap;\n    }\n    \n    /* Main Page styling */\n    \n    *, *::before, *::after {\n       box-sizing: inherit;\n       outline:0;\n    }\n    \n    html {\n        box-sizing: border-box;\n        -webkit-text-size-adjust: 100%;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n    }\n    \n    body {\n        background-color: '
         )
-        .concat(qa(a, "bgColor", "#fff"), ";\n        color: ")
+        .concat(Ja(a, "bgColor", "#fff"), ";\n        color: ")
         .concat(
-          qa(a, "fontColor", "#000"),
+          Ja(a, "fontColor", "#000"),
           ";\n        height: 100vh;\n        width: 100vw;\n        font-family: 'Inter', sans-serif;\n        margin: 0;\n        -webkit-font-smoothing: antialiased;\n        -moz-osx-font-smoothing: grayscale;\n        font-weight: 400;\n        font-size: 14px;\n        line-height: 1.5;\n        transition: background-color 0s\n    }\n    \n    fieldset, section {\n        border: 1px solid "
         )
         .concat(
-          qa(a, "borderColor", "#E2E2E2"),
+          Ja(a, "borderColor", "#E2E2E2"),
           ";\n        border-radius: 3px;\n        background-color: transparent;\n        padding: 25px;\n    }\n    \n    hr {\n        border-top: 0;\n        border-left: 0;\n        borderR-right: 0;\n        border-color: "
         )
         .concat(
-          qa(a, "borderColor", "#E2E2E2"),
+          Ja(a, "borderColor", "#E2E2E2"),
           ";\n        background-color: transparent;\n    }\n    \n    ul {\n        padding-left: 20px;\n        list-style: none;\n        \n        li:not([class*=\"Mui\"])::before {\n          content: '￭';\n          color: "
         )
         .concat(
-          qa(a, "bulletColor", "#2781B0"),
+          Ja(a, "bulletColor", "#2781B0"),
           ';\n          font-size: 20px;\n          display: inline-block;\n          width: 1em;\n          margin-left: -1em;\n        }\n        \n        ul {\n          list-style: none;\n          li:not([class*="Mui"])::before {\n            content: "￮";\n            color: '
         )
         .concat(
-          qa(a, "bulletColor", "#2781B0"),
+          Ja(a, "bulletColor", "#2781B0"),
           ",\n            font-size: 20px;\n            display: inline-block;\n            width: 1em;\n            margin-left: -1em;\n          }\n        }\n      }\n      \n    button:active, button:focus, input: active, input:focus {\n        outline: 0;\n    }\n    \n    .min-icon {\n        width: 26px;\n    }\n    \n    #root: {\n        height: 100%;\n        width: 100%;\n        display: flex;\n        flex-flow: column;\n        align-items: stretch;\n      }\n    \n    #preload {\n      display: none;\n    }\n    \n    #loader-block {\n      display: flex;\n      flex-direction: column;\n      width: 100%;\n      height: 100vh;\n      justify-content: center;\n      align-items: center;\n    }\n    "
         );
     }
   ),
-  mt = c.default.button(function (e) {
+  wt = c.default.button(function (e) {
     var a = e.theme,
       t = e.fullWidth,
-      l = e.variant,
-      n = e.iconLocation,
+      n = e.variant,
+      l = e.iconLocation,
       r = e.icon,
       c = e.label,
       o = e.collapseOnSmall,
       m = e.parentChildren,
-      i = l || "regular",
-      h =
+      i = n || "regular",
+      d =
         (c || m) && r
           ? {
-              marginLeft: "end" === n ? "0" : "10px",
-              marginRight: "start" === n ? "0" : "10px",
+              marginLeft: "end" === l ? "0" : "10px",
+              marginRight: "start" === l ? "0" : "10px",
             }
           : { marginRight: 0, marginLeft: 0 },
-      d = {};
+      h = {};
     return (
       o &&
         r &&
         ((c && "" !== c.trim()) || m) &&
-        (d = {
+        (h = {
           "@media (max-width: 768px)": {
             padding: "0 14px",
             "& .button-label": { display: "none" },
@@ -656,145 +670,145 @@ var Sa,
           margin: 0,
           padding: (c && "" !== c.trim()) || m ? "0 25px" : "0 14px",
           transition: "all 0.2s linear",
-          backgroundColor: qa(
+          backgroundColor: Ja(
             a,
             "buttons.".concat(i, ".enabled.background"),
             "#fff"
           ),
-          borderColor: qa(a, "buttons.".concat(i, ".enabled.border"), "#000"),
+          borderColor: Ja(a, "buttons.".concat(i, ".enabled.border"), "#000"),
           borderWidth: "1px",
           borderStyle: "solid",
-          color: qa(a, "buttons.".concat(i, ".enabled.text"), "#000"),
-          "& .button-label": T({ whiteSpace: t ? "normal" : "nowrap" }, h),
+          color: Ja(a, "buttons.".concat(i, ".enabled.text"), "#000"),
+          "& .button-label": T({ whiteSpace: t ? "normal" : "nowrap" }, d),
           "& .buttonIcon": {
             display: "block",
             height: "14px",
             "& > svg": {
-              fill: qa(a, "buttons.".concat(i, ".enabled.text"), "#000"),
-              color: qa(a, "buttons.".concat(i, ".enabled.text"), "#000"),
+              fill: Ja(a, "buttons.".concat(i, ".enabled.text"), "#000"),
+              color: Ja(a, "buttons.".concat(i, ".enabled.text"), "#000"),
               width: "14px",
               height: "14px",
             },
           },
           "&:disabled": {
             cursor: "not-allowed",
-            backgroundColor: qa(
+            backgroundColor: Ja(
               a,
               "buttons.".concat(i, ".disabled.background"),
               "#fff"
             ),
-            borderColor: qa(
+            borderColor: Ja(
               a,
               "buttons.".concat(i, ".disabled.border"),
               "#000"
             ),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: qa(a, "buttons.".concat(i, ".disabled.text"), "#000"),
+            color: Ja(a, "buttons.".concat(i, ".disabled.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: qa(a, "buttons.".concat(i, ".disabled.text"), "#000"),
-              color: qa(a, "buttons.".concat(i, ".disabled.text"), "#000"),
+              fill: Ja(a, "buttons.".concat(i, ".disabled.text"), "#000"),
+              color: Ja(a, "buttons.".concat(i, ".disabled.text"), "#000"),
             },
           },
           "&:hover:not(:disabled)": {
-            backgroundColor: qa(
+            backgroundColor: Ja(
               a,
               "buttons.".concat(i, ".hover.background"),
               "#fff"
             ),
-            borderColor: qa(a, "buttons.".concat(i, ".hover.border"), "#000"),
+            borderColor: Ja(a, "buttons.".concat(i, ".hover.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: qa(a, "buttons.".concat(i, ".hover.text"), "#000"),
+            color: Ja(a, "buttons.".concat(i, ".hover.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: qa(a, "buttons.".concat(i, ".hover.text"), "#000"),
-              color: qa(a, "buttons.".concat(i, ".hover.text"), "#000"),
+              fill: Ja(a, "buttons.".concat(i, ".hover.text"), "#000"),
+              color: Ja(a, "buttons.".concat(i, ".hover.text"), "#000"),
             },
           },
           "&:active:not(:disabled)": {
-            backgroundColor: qa(
+            backgroundColor: Ja(
               a,
               "buttons.".concat(i, ".pressed.background"),
               "#fff"
             ),
-            border: qa(a, "buttons.".concat(i, ".pressed.border"), "#000"),
+            border: Ja(a, "buttons.".concat(i, ".pressed.border"), "#000"),
             borderWeight: "1px",
             borderStyle: "solid",
-            color: qa(a, "buttons.".concat(i, ".pressed.text"), "#000"),
+            color: Ja(a, "buttons.".concat(i, ".pressed.text"), "#000"),
             "& .buttonIcon > svg": {
-              fill: qa(a, "buttons.".concat(i, ".pressed.text"), "#000"),
-              color: qa(a, "buttons.".concat(i, ".pressed.text"), "#000"),
+              fill: Ja(a, "buttons.".concat(i, ".pressed.text"), "#000"),
+              color: Ja(a, "buttons.".concat(i, ".pressed.text"), "#000"),
             },
           },
         },
-        d
+        h
       )
     );
   }),
-  it = c.default.svg(function (e) {
-    var a = qa(e, "theme.logoLabelColor", "#000");
+  xt = c.default.svg(function (e) {
+    var a = Ja(e, "theme.logoLabelColor", "#000");
     return (
-      e.inverse && (a = qa(e, "theme.logoLabelInverse", "#fff")),
+      e.inverse && (a = Ja(e, "theme.logoLabelInverse", "#fff")),
       {
-        "& .minioSection": { fill: qa(e, "theme.logoColor", "#C51C3F") },
+        "& .minioSection": { fill: Ja(e, "theme.logoColor", "#C51C3F") },
         "& .minioApplicationName": { fill: a },
       }
     );
   }),
-  ht = function (e) {
+  Mt = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.538 50.008", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-995 -63.754)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(1025.5 81.887)" },
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(0 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0)" },
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M10.338-17.825A8.815,8.815,0,0,0,1.15-8.75,8.815,8.815,0,0,0,10.338.325a8.825,8.825,0,0,0,9.2-9.075A8.825,8.825,0,0,0,10.338-17.825Zm0,3.35a5.4,5.4,0,0,1,5.55,5.725,5.4,5.4,0,0,1-5.55,5.725A5.41,5.41,0,0,1,4.788-8.75,5.41,5.41,0,0,1,10.338-14.475ZM22.05-17.5V0h7.575c4.2,0,6.588-1.65,6.588-5.013A4.2,4.2,0,0,0,33.3-8.938a3.9,3.9,0,0,0,2.537-3.713c0-3.337-2.562-4.85-6.638-4.85Zm7.4,10.225c1.925,0,3.138.45,3.138,2.088,0,1.675-1.212,2.125-3.138,2.125l-3.913-.013v-4.2Zm-.35-7.15c1.725,0,3.1.375,3.1,2.025,0,1.7-1.35,2.063-3.087,2.063H25.538v-4.088ZM48.788-17.5H45.3V-6.7c0,2.525-1.1,3.675-2.95,3.675a4.214,4.214,0,0,1-3.4-1.625L36.925-2.113A6.9,6.9,0,0,0,42.513.313c3.65,0,6.275-2.3,6.275-6.688ZM65.113-3.2H55.525V-7.225h9.05v-3.2h-9.05V-14.3h9.487v-3.2H52.037V0H65.113ZM76.3-17.825A8.794,8.794,0,0,0,67.113-8.75,8.794,8.794,0,0,0,76.3.325a8.713,8.713,0,0,0,7.387-3.7l-2.85-2.05a5.355,5.355,0,0,1-4.562,2.4A5.4,5.4,0,0,1,70.75-8.75a5.411,5.411,0,0,1,5.525-5.725A5.237,5.237,0,0,1,80.8-12.063l3-1.838A8.5,8.5,0,0,0,76.3-17.825Zm22.9.325H84.863v3.262h5.425V0h3.487V-14.238H99.2Zm19.787,1.738a10.5,10.5,0,0,0-6.25-1.925c-3.6,0-6.475,1.812-6.475,5.037,0,2.688,1.938,4.125,5.138,4.488l1.987.225c2.913.325,4.438,1.25,4.438,3.15,0,2.363-2.337,3.525-5.3,3.525a10.115,10.115,0,0,1-5.925-1.95L105.762-2A11.524,11.524,0,0,0,112.537.188c3.775,0,6.875-1.7,6.875-5.1,0-2.913-2.262-4.138-5.375-4.488l-1.912-.212c-2.988-.338-4.275-1.4-4.275-3.138,0-2.187,2.063-3.488,4.875-3.488a9.323,9.323,0,0,1,5.475,1.713ZM135.025-17.5H120.888v1.45h6.3V0h1.525V-16.05h6.313Zm9.875-.2a8.672,8.672,0,0,0-8.963,8.95A8.672,8.672,0,0,0,144.9.2a8.672,8.672,0,0,0,8.962-8.95A8.672,8.672,0,0,0,144.9-17.7Zm0,1.475a7.174,7.174,0,0,1,7.363,7.475A7.174,7.174,0,0,1,144.9-1.275a7.177,7.177,0,0,1-7.375-7.475A7.177,7.177,0,0,1,144.9-16.225ZM157.413-17.5V0h1.525V-7.763h2.675L168.138,0h1.9l-6.625-7.763h.688c3.725,0,6.025-1.862,6.025-4.875,0-3.1-2.175-4.863-6.037-4.863Zm6.663,1.438c2.875,0,4.475,1.188,4.475,3.425s-1.575,3.488-4.475,3.488h-5.138v-6.913ZM185.6-1.438H175.075V-8.1h10.138V-9.525H175.075v-6.538h10.438V-17.5H173.55V0H185.6Z",
                   transform: "translate(0 32.612)",
                   className: "minioApplicationName",
                 }),
-                n.default.createElement(
+                l.default.createElement(
                   "g",
                   { transform: "translate(2.003)" },
-                  n.default.createElement(
+                  l.default.createElement(
                     "g",
                     { transform: "translate(0 0.129)" },
-                    n.default.createElement("rect", {
+                    l.default.createElement("rect", {
                       width: "2.49",
                       height: "7.352",
                       transform: "translate(14.42)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M237.8,365.332l-5.053,3.086a.226.226,0,0,1-.235,0l-5.053-3.086a.694.694,0,0,0-.362-.1H227.1a.693.693,0,0,0-.693.693v6.65h2.489v-3.165a.249.249,0,0,1,.379-.212l2.832,1.733a.886.886,0,0,0,.912.009L236,369.184a.249.249,0,0,1,.374.215v3.174h2.488v-6.65a.693.693,0,0,0-.692-.693h-.006A.694.694,0,0,0,237.8,365.332Z",
                       transform: "translate(-226.403 -365.23)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M257.822,365.23H255.3v3.346a.249.249,0,0,1-.366.22l-6.543-3.485a.7.7,0,0,0-.326-.081h0a.693.693,0,0,0-.693.693v6.651h2.5v-3.343a.249.249,0,0,1,.365-.22L256.8,372.5a.692.692,0,0,0,.325.081h0a.693.693,0,0,0,.693-.693Z",
                       transform: "translate(-228.498 -365.23)",
                       className: "minioSection",
                     })
                   ),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M261.159,372.582V365.23H262.3v7.352Z",
                     transform: "translate(-229.877 -365.101)",
                     className: "minioSection",
                   }),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M269.337,372.7c-3.082,0-5.268-1.462-5.268-3.805s2.2-3.806,5.268-3.806,5.281,1.462,5.281,3.806S272.458,372.7,269.337,372.7Zm0-6.637c-2.292,0-4.056,1-4.056,2.832s1.765,2.831,4.056,2.831,4.07-.988,4.07-2.831S271.628,366.062,269.337,366.062Z",
                     transform: "translate(-230.168 -365.087)",
                     className: "minioSection",
@@ -804,7 +818,7 @@ var Sa,
             )
           )
         ),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M5.344-6a1.226,1.226,0,0,0-.57-.922A2.188,2.188,0,0,0,3.547-7.25a2.317,2.317,0,0,0-.928.172A1.468,1.468,0,0,0,2-6.605a1.126,1.126,0,0,0-.221.684.957.957,0,0,0,.154.549,1.3,1.3,0,0,0,.4.379,2.686,2.686,0,0,0,.508.246q.266.1.488.154l.813.219a7.221,7.221,0,0,1,.7.227,3.309,3.309,0,0,1,.738.393,2.04,2.04,0,0,1,.584.635,1.824,1.824,0,0,1,.23.949A2.115,2.115,0,0,1,6.053-1a2.329,2.329,0,0,1-.984.832A3.618,3.618,0,0,1,3.5.141,3.653,3.653,0,0,1,2.014-.137,2.355,2.355,0,0,1,1.029-.91a2.2,2.2,0,0,1-.4-1.152h1a1.236,1.236,0,0,0,.307.748,1.608,1.608,0,0,0,.68.438A2.7,2.7,0,0,0,3.5-.734a2.6,2.6,0,0,0,1-.182,1.687,1.687,0,0,0,.7-.508,1.2,1.2,0,0,0,.258-.764.938.938,0,0,0-.223-.648,1.634,1.634,0,0,0-.586-.406,6.157,6.157,0,0,0-.785-.273L2.875-3.8a3.666,3.666,0,0,1-1.484-.77A1.69,1.69,0,0,1,.844-5.875a1.942,1.942,0,0,1,.365-1.174,2.417,2.417,0,0,1,.984-.781,3.331,3.331,0,0,1,1.385-.279,3.269,3.269,0,0,1,1.375.275,2.409,2.409,0,0,1,.955.752A1.875,1.875,0,0,1,6.281-6Zm3.3-1.141V-8h6v.859H12.131V0h-.969V-7.141ZM16.638,0H15.622l2.938-8h1L22.5,0H21.481L19.091-6.734h-.062Zm.375-3.125h4.094v.859H17.013ZM31.191-8V0h-.937L25.894-6.281h-.078V0h-.969V-8h.938l4.375,6.3h.078V-8ZM36.7,0H34.228V-8h2.578a3.918,3.918,0,0,1,1.992.479,3.16,3.16,0,0,1,1.27,1.371,4.771,4.771,0,0,1,.441,2.135,4.8,4.8,0,0,1-.445,2.15,3.159,3.159,0,0,1-1.3,1.383A4.14,4.14,0,0,1,36.7,0ZM35.2-.859h1.438a3.209,3.209,0,0,0,1.645-.383,2.359,2.359,0,0,0,.973-1.09,4.054,4.054,0,0,0,.32-1.684,4.035,4.035,0,0,0-.316-1.67,2.347,2.347,0,0,0-.945-1.078,3,3,0,0,0-1.566-.377H35.2ZM43.188,0H42.172l2.938-8h1l2.938,8H48.031L45.641-6.734h-.062Zm.375-3.125h4.094v.859H43.563ZM51.4,0V-8h2.7a3.277,3.277,0,0,1,1.539.318,2.054,2.054,0,0,1,.891.873,2.69,2.69,0,0,1,.289,1.262,2.643,2.643,0,0,1-.289,1.254,2.026,2.026,0,0,1-.887.857,3.3,3.3,0,0,1-1.527.311H51.928V-4h2.156a2.415,2.415,0,0,0,1.033-.187,1.194,1.194,0,0,0,.57-.533,1.787,1.787,0,0,0,.178-.826,1.856,1.856,0,0,0-.18-.84,1.235,1.235,0,0,0-.574-.557,2.345,2.345,0,0,0-1.043-.2h-1.7V0Zm3.766-3.594L57.131,0H56.006L54.069-3.594ZM62,0H59.528V-8h2.578a3.918,3.918,0,0,1,1.992.479,3.16,3.16,0,0,1,1.27,1.371,4.771,4.771,0,0,1,.441,2.135,4.8,4.8,0,0,1-.445,2.15,3.159,3.159,0,0,1-1.3,1.383A4.14,4.14,0,0,1,62,0ZM60.5-.859h1.438a3.209,3.209,0,0,0,1.645-.383,2.359,2.359,0,0,0,.973-1.09,4.055,4.055,0,0,0,.32-1.684,4.035,4.035,0,0,0-.316-1.67,2.347,2.347,0,0,0-.945-1.078,3,3,0,0,0-1.566-.377H60.5ZM72.728,0V-8H73.7V-.859h3.719V0Zm8.256-8V0h-.969V-8Zm9.475,2.5h-.969a2.034,2.034,0,0,0-.3-.734,2.072,2.072,0,0,0-.516-.533,2.24,2.24,0,0,0-.67-.326,2.668,2.668,0,0,0-.766-.109,2.431,2.431,0,0,0-1.314.367,2.536,2.536,0,0,0-.934,1.082A4.007,4.007,0,0,0,84.647-4a4.007,4.007,0,0,0,.346,1.754,2.536,2.536,0,0,0,.934,1.082A2.431,2.431,0,0,0,87.241-.8a2.668,2.668,0,0,0,.766-.109,2.24,2.24,0,0,0,.67-.326,2.06,2.06,0,0,0,.516-.535,2.053,2.053,0,0,0,.3-.732h.969a3.227,3.227,0,0,1-.4,1.1,2.973,2.973,0,0,1-.719.822,3.129,3.129,0,0,1-.963.514,3.614,3.614,0,0,1-1.139.176,3.353,3.353,0,0,1-1.82-.5,3.431,3.431,0,0,1-1.254-1.422A4.874,4.874,0,0,1,83.709-4a4.874,4.874,0,0,1,.457-2.187A3.431,3.431,0,0,1,85.42-7.609a3.353,3.353,0,0,1,1.82-.5,3.614,3.614,0,0,1,1.139.176,3.129,3.129,0,0,1,.963.514,2.984,2.984,0,0,1,.719.82A3.208,3.208,0,0,1,90.459-5.5ZM93.122,0V-8H97.95v.859H94.091v2.7H97.7v.859H94.091V-.859h3.922V0Zm14.022-8V0h-.937l-4.359-6.281h-.078V0H100.8V-8h.938l4.375,6.3h.078V-8Zm7.412,2a1.226,1.226,0,0,0-.57-.922,2.188,2.188,0,0,0-1.227-.328,2.317,2.317,0,0,0-.928.172,1.468,1.468,0,0,0-.617.473,1.126,1.126,0,0,0-.221.684.957.957,0,0,0,.154.549,1.3,1.3,0,0,0,.4.379,2.686,2.686,0,0,0,.508.246q.266.1.488.154l.813.219a7.22,7.22,0,0,1,.7.227,3.309,3.309,0,0,1,.738.393,2.04,2.04,0,0,1,.584.635,1.824,1.824,0,0,1,.23.949A2.115,2.115,0,0,1,115.265-1a2.329,2.329,0,0,1-.984.832,3.618,3.618,0,0,1-1.568.309,3.653,3.653,0,0,1-1.486-.277,2.355,2.355,0,0,1-.984-.773,2.2,2.2,0,0,1-.4-1.152h1a1.236,1.236,0,0,0,.307.748,1.608,1.608,0,0,0,.68.438,2.7,2.7,0,0,0,.889.143,2.6,2.6,0,0,0,1-.182,1.687,1.687,0,0,0,.7-.508,1.2,1.2,0,0,0,.258-.764.938.938,0,0,0-.223-.648,1.634,1.634,0,0,0-.586-.406,6.157,6.157,0,0,0-.785-.273l-.984-.281a3.666,3.666,0,0,1-1.484-.77,1.69,1.69,0,0,1-.547-1.309,1.942,1.942,0,0,1,.365-1.174,2.417,2.417,0,0,1,.984-.781,3.331,3.331,0,0,1,1.385-.279,3.269,3.269,0,0,1,1.375.275,2.409,2.409,0,0,1,.955.752A1.875,1.875,0,0,1,115.494-6ZM118.3,0V-8h4.828v.859h-3.859v2.7h3.609v.859h-3.609V-.859h3.922V0Z",
           transform: "translate(93 68)",
           className: "minioApplicationName",
@@ -812,60 +826,60 @@ var Sa,
       )
     );
   },
-  dt = function (e) {
+  Zt = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.45 54.229", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-995 -63.754)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(1025.5 81.887)" },
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(0 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0)" },
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M10.338-17.825A8.815,8.815,0,0,0,1.15-8.75,8.815,8.815,0,0,0,10.338.325a8.825,8.825,0,0,0,9.2-9.075A8.825,8.825,0,0,0,10.338-17.825Zm0,3.35a5.4,5.4,0,0,1,5.55,5.725,5.4,5.4,0,0,1-5.55,5.725A5.41,5.41,0,0,1,4.788-8.75,5.41,5.41,0,0,1,10.338-14.475ZM22.05-17.5V0h7.575c4.2,0,6.588-1.65,6.588-5.013A4.2,4.2,0,0,0,33.3-8.938a3.9,3.9,0,0,0,2.537-3.713c0-3.337-2.562-4.85-6.638-4.85Zm7.4,10.225c1.925,0,3.138.45,3.138,2.088,0,1.675-1.212,2.125-3.138,2.125l-3.913-.013v-4.2Zm-.35-7.15c1.725,0,3.1.375,3.1,2.025,0,1.7-1.35,2.063-3.087,2.063H25.538v-4.088ZM48.788-17.5H45.3V-6.7c0,2.525-1.1,3.675-2.95,3.675a4.214,4.214,0,0,1-3.4-1.625L36.925-2.113A6.9,6.9,0,0,0,42.513.313c3.65,0,6.275-2.3,6.275-6.688ZM65.113-3.2H55.525V-7.225h9.05v-3.2h-9.05V-14.3h9.487v-3.2H52.037V0H65.113ZM76.3-17.825A8.794,8.794,0,0,0,67.113-8.75,8.794,8.794,0,0,0,76.3.325a8.713,8.713,0,0,0,7.387-3.7l-2.85-2.05a5.355,5.355,0,0,1-4.562,2.4A5.4,5.4,0,0,1,70.75-8.75a5.411,5.411,0,0,1,5.525-5.725A5.237,5.237,0,0,1,80.8-12.063l3-1.838A8.5,8.5,0,0,0,76.3-17.825Zm22.9.325H84.863v3.262h5.425V0h3.487V-14.238H99.2Zm19.787,1.738a10.5,10.5,0,0,0-6.25-1.925c-3.6,0-6.475,1.812-6.475,5.037,0,2.688,1.938,4.125,5.138,4.488l1.987.225c2.913.325,4.438,1.25,4.438,3.15,0,2.363-2.337,3.525-5.3,3.525a10.115,10.115,0,0,1-5.925-1.95L105.762-2A11.524,11.524,0,0,0,112.537.188c3.775,0,6.875-1.7,6.875-5.1,0-2.913-2.262-4.138-5.375-4.488l-1.912-.212c-2.988-.338-4.275-1.4-4.275-3.138,0-2.187,2.063-3.488,4.875-3.488a9.323,9.323,0,0,1,5.475,1.713ZM135.025-17.5H120.888v1.45h6.3V0h1.525V-16.05h6.313Zm9.875-.2a8.672,8.672,0,0,0-8.963,8.95A8.672,8.672,0,0,0,144.9.2a8.672,8.672,0,0,0,8.962-8.95A8.672,8.672,0,0,0,144.9-17.7Zm0,1.475a7.174,7.174,0,0,1,7.363,7.475A7.174,7.174,0,0,1,144.9-1.275a7.177,7.177,0,0,1-7.375-7.475A7.177,7.177,0,0,1,144.9-16.225ZM157.413-17.5V0h1.525V-7.763h2.675L168.138,0h1.9l-6.625-7.763h.688c3.725,0,6.025-1.862,6.025-4.875,0-3.1-2.175-4.863-6.037-4.863Zm6.663,1.438c2.875,0,4.475,1.188,4.475,3.425s-1.575,3.488-4.475,3.488h-5.138v-6.913ZM185.6-1.438H175.075V-8.1h10.138V-9.525H175.075v-6.538h10.438V-17.5H173.55V0H185.6Z",
                   transform: "translate(0 32.612)",
                   className: "minioApplicationName",
                 }),
-                n.default.createElement(
+                l.default.createElement(
                   "g",
                   { transform: "translate(2.003)" },
-                  n.default.createElement(
+                  l.default.createElement(
                     "g",
                     { transform: "translate(0 0.129)" },
-                    n.default.createElement("rect", {
+                    l.default.createElement("rect", {
                       width: "2.49",
                       height: "7.352",
                       transform: "translate(14.42)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M237.8,365.332l-5.053,3.086a.226.226,0,0,1-.235,0l-5.053-3.086a.694.694,0,0,0-.362-.1H227.1a.693.693,0,0,0-.693.693v6.65h2.489v-3.165a.249.249,0,0,1,.379-.212l2.832,1.733a.886.886,0,0,0,.912.009L236,369.184a.249.249,0,0,1,.374.215v3.174h2.488v-6.65a.693.693,0,0,0-.692-.693h-.006A.694.694,0,0,0,237.8,365.332Z",
                       transform: "translate(-226.403 -365.23)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M257.822,365.23H255.3v3.346a.249.249,0,0,1-.366.22l-6.543-3.485a.7.7,0,0,0-.326-.081h0a.693.693,0,0,0-.693.693v6.651h2.5v-3.343a.249.249,0,0,1,.365-.22L256.8,372.5a.692.692,0,0,0,.325.081h0a.693.693,0,0,0,.693-.693Z",
                       transform: "translate(-228.498 -365.23)",
                       className: "minioSection",
                     })
                   ),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M261.159,372.582V365.23H262.3v7.352Z",
                     transform: "translate(-229.877 -365.101)",
                     className: "minioSection",
                   }),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M269.337,372.7c-3.082,0-5.268-1.462-5.268-3.805s2.2-3.806,5.268-3.806,5.281,1.462,5.281,3.806S272.458,372.7,269.337,372.7Zm0-6.637c-2.292,0-4.056,1-4.056,2.832s1.765,2.831,4.056,2.831,4.07-.988,4.07-2.831S271.628,366.062,269.337,366.062Z",
                     transform: "translate(-230.168 -365.087)",
                     className: "minioSection",
@@ -874,18 +888,18 @@ var Sa,
               )
             )
           ),
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(1168.671 120.754)" },
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(-65 0)" },
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M106.959,1769.479l-3.274,14.286h31.641a2.814,2.814,0,0,1-2.121-1.012,2.15,2.15,0,0,1-.209-.356c-.038-.092-.073-.185-.109-.28a2.832,2.832,0,0,1-.115-.985,7.182,7.182,0,0,1,1.312-3.389,18.271,18.271,0,0,1,3.616-3.945c.343-.284.7-.566,1.068-.839.458-.337.92-.648,1.383-.938a17.592,17.592,0,0,1,4.907-2.2,18.957,18.957,0,0,0-4.651,2.351l-.171.118a20.8,20.8,0,0,0-2.389,1.924c-2.254,2.119-3.445,4.315-2.9,5.6a1.6,1.6,0,0,0,.138.253c.582.856,2.024,1,3.851.544.124-.031.249-.067.377-.1a14.878,14.878,0,0,0,1.842-.677c.153-.068.309-.137.465-.212l.047-.023c2.015-1,3.563-2.153,3.9-2.845a.43.43,0,0,0,.041-.379c-.239-.485-1.912-.157-3.939.72-.163.07-.328.143-.494.221.136-.125.277-.252.421-.377.23-.2.468-.391.721-.582a14.277,14.277,0,0,1,1.191-.812c1.847-1.394,2.781-2.712,2.586-3.2a.343.343,0,0,0-.235-.194,3.4,3.4,0,0,0-1.942.374,14.514,14.514,0,0,0-2.333,1.25l-.112.073-.021.012-.394.262.226-.415a7.126,7.126,0,0,1,1.565-1.853,11.116,11.116,0,0,1,1.686-1.206c.233-.136.465-.262.7-.376s.476-.22.709-.312a8.2,8.2,0,0,1,1.98-.649c-.051,0-1.677.175-1.677.175H106.959Zm25.5.021a19.123,19.123,0,0,0,.8,5.76q.165.612.362,1.242.123.388.253.765c-.051.075-.1.149-.15.224a7.909,7.909,0,0,0-1.339,3.277,20.169,20.169,0,0,1-.712-3.562q-.059-.546-.091-1.08a15.688,15.688,0,0,1,.877-6.625Zm-15.424,1.833h3.533a1.217,1.217,0,0,1,.691.168.394.394,0,0,1,.185.435l-.415,1.874h-1.227l.4-1.824h-3.071L116.03,1777l-.4,1.815H118.7l0-.011.615-2.778h-1.442l.138-.626h2.668l-.765,3.466a.488.488,0,0,1-.053.138.765.765,0,0,1-.327.294,1.621,1.621,0,0,1-.765.168h-3.477a1.214,1.214,0,0,1-.691-.168.388.388,0,0,1-.185-.432l1.533-6.928a.664.664,0,0,1,.377-.435c.008,0,.016,0,.024-.009a1.6,1.6,0,0,1,.688-.159Zm5.454,0h4.38a1.215,1.215,0,0,1,.688.168.392.392,0,0,1,.188.435l-.818,3.695a.663.663,0,0,1-.38.433,1.612,1.612,0,0,1-.762.171h-3.183l-.615,2.774-.1.456h-1.2l.091-.412Zm6.051,0h1.2l-1.359,6.14-.3,1.341h2.871c.03.22.065.437.1.65h-4.319l.341-1.542Zm-5,.653-.8,3.6h2.992l.794-3.6Zm-6.38,8.485h.035a.85.85,0,0,1,.359.07.428.428,0,0,1,.221.218.532.532,0,0,1,.029.315l-.009.044h-.344l0-.041a.271.271,0,0,0-.032-.188l-.015-.018a.2.2,0,0,0-.029-.024.426.426,0,0,0-.221-.047.511.511,0,0,0-.291.068.258.258,0,0,0-.118.153.113.113,0,0,0,.024.109l0,0a.81.81,0,0,0,.291.1,2,2,0,0,1,.38.12.448.448,0,0,1,.218.209.458.458,0,0,1,.024.291.665.665,0,0,1-.156.291.789.789,0,0,1-.3.212,1,1,0,0,1-.382.076.955.955,0,0,1-.412-.076.473.473,0,0,1-.238-.244.6.6,0,0,1-.029-.356l.009-.041h.338l0,.041a.373.373,0,0,0,.021.189.23.23,0,0,0,.118.112.543.543,0,0,0,.235.047.649.649,0,0,0,.224-.038.4.4,0,0,0,.156-.094.261.261,0,0,0,.068-.126.138.138,0,0,0-.009-.1.214.214,0,0,0-.109-.08l-.288-.085a1.274,1.274,0,0,1-.332-.118.411.411,0,0,1-.18-.194.418.418,0,0,1-.015-.256.622.622,0,0,1,.144-.28.72.72,0,0,1,.288-.2A1.01,1.01,0,0,1,117.169,1780.47Zm3.089.006c.019,0,.036,0,.056,0l.212.023.071.006-.1.262-.021.041-.162-.015a.186.186,0,0,0-.106.023l-.006.006-.012.012a.279.279,0,0,0-.044.112l-.012.047h.253l-.065.292h-.247l-.25,1.121h-.341s.222-1,.25-1.121h-.2l.065-.292h.194c.009-.04.024-.091.024-.091a.717.717,0,0,1,.071-.209.441.441,0,0,1,.162-.159.491.491,0,0,1,.209-.059Zm.815.015-.112.5h.221l-.065.292H120.9c-.018.081-.159.709-.159.709s-.012.076-.012.1c0,0,0,0,0,0s0,0,0,0h0l.035,0,.162-.012-.018.262,0,.047-.232.026a.375.375,0,0,1-.209-.047.209.209,0,0,1-.094-.135.221.221,0,0,1-.006-.047,1.206,1.206,0,0,1,.035-.239s.124-.554.15-.671h-.162l.065-.292h.162c.015-.068.068-.3.068-.3l.274-.144.112-.059Zm-10.841.011h1.324l-.074.329h-.968l-.1.436h.838l-.074.329h-.838c-.018.082-.179.809-.179.809h-.356Zm1.774.465a.331.331,0,0,1,.041,0,.4.4,0,0,1,.238.079l.047.032-.182.3-.05-.035a.214.214,0,0,0-.118-.036.185.185,0,0,0-.1.036.258.258,0,0,0-.088.1.93.93,0,0,0-.088.241l-.159.724H111.2l.315-1.413h.318s-.011.043-.015.059c.015-.012.031-.027.044-.035A.358.358,0,0,1,112.006,1780.968Zm1.012,0c.021,0,.041,0,.062,0a.5.5,0,0,1,.432.2.545.545,0,0,1,.091.317,1.064,1.064,0,0,1-.026.227l-.026.1h-.959c0,.02,0,.041,0,.059a.28.28,0,0,0,.047.173.216.216,0,0,0,.053.053.261.261,0,0,0,.144.038.339.339,0,0,0,.188-.056.5.5,0,0,0,.153-.167h.365l-.032.07a.806.806,0,0,1-.288.329.779.779,0,0,1-.427.121.531.531,0,0,1-.459-.2.644.644,0,0,1-.065-.536.975.975,0,0,1,.3-.541.76.76,0,0,1,.45-.191Zm1.533,0c.021,0,.041,0,.062,0a.5.5,0,0,1,.432.2.545.545,0,0,1,.091.317,1.04,1.04,0,0,1-.026.224l-.026.106h-.959l0,.038s0,.012,0,.018v0c0,.013,0,.028,0,.041a.254.254,0,0,0,.044.132.227.227,0,0,0,.015.021.239.239,0,0,0,.182.071.336.336,0,0,0,.188-.056.5.5,0,0,0,.153-.167h.368l-.035.07a.806.806,0,0,1-.288.329.779.779,0,0,1-.427.121.49.49,0,0,1-.55-.52c0-.02,0-.041,0-.062a1.067,1.067,0,0,1,.024-.153.975.975,0,0,1,.3-.541A.768.768,0,0,1,114.551,1780.968Zm4.175,0c.021,0,.04,0,.062,0a.523.523,0,0,1,.444.2.627.627,0,0,1,.071.529,1.086,1.086,0,0,1-.171.415.811.811,0,0,1-.644.326.516.516,0,0,1-.444-.2.528.528,0,0,1-.094-.321,1.011,1.011,0,0,1,.026-.227.925.925,0,0,1,.341-.568.794.794,0,0,1,.409-.153Zm5.169,0c.025,0,.048,0,.074,0a.748.748,0,0,1,.282.041.31.31,0,0,1,.159.124.337.337,0,0,1,.044.179l-.035.215-.065.291a3.187,3.187,0,0,0-.071.377.377.377,0,0,0,.015.135l.024.077h-.347l-.015-.045a.417.417,0,0,1-.006-.07,1.03,1.03,0,0,1-.191.1.83.83,0,0,1-.271.047.446.446,0,0,1-.35-.123.313.313,0,0,1-.079-.218.474.474,0,0,1,.012-.1.492.492,0,0,1,.091-.2.55.55,0,0,1,.159-.141.71.71,0,0,1,.191-.077l.209-.035a2.331,2.331,0,0,0,.368-.068.185.185,0,0,1,.006-.021.188.188,0,0,0,0-.129l-.006-.006-.012-.012a.29.29,0,0,0-.177-.041.391.391,0,0,0-.206.044.382.382,0,0,0-.127.159h-.356l.032-.071a.75.75,0,0,1,.156-.241.648.648,0,0,1,.247-.144A.974.974,0,0,1,123.895,1780.968Zm1.492,0a.331.331,0,0,1,.041,0,.4.4,0,0,1,.241.079l.044.032-.182.3-.05-.035a.207.207,0,0,0-.115-.036.2.2,0,0,0-.106.036.259.259,0,0,0-.085.1.965.965,0,0,0-.088.241l-.162.724h-.341l.315-1.413h.318s-.008.043-.012.059a.536.536,0,0,1,.044-.035A.342.342,0,0,1,125.386,1780.968Zm1.009,0c.02,0,.041,0,.062,0a.5.5,0,0,1,.432.2.538.538,0,0,1,.091.317,1.077,1.077,0,0,1-.029.227l-.024.1h-.959c0,.02-.006.041-.006.059a.286.286,0,0,0,.047.173.251.251,0,0,0,.018.021l.012.012a.246.246,0,0,0,.171.059.339.339,0,0,0,.188-.056.508.508,0,0,0,.153-.167h.368l-.035.07a.813.813,0,0,1-.288.329.779.779,0,0,1-.427.121.525.525,0,0,1-.456-.2.647.647,0,0,1-.068-.536.972.972,0,0,1,.3-.541A.77.77,0,0,1,126.4,1780.968Zm-5.151.026h.35s.043.838.044.85c.014-.03.025-.055.026-.059l.385-.792h.321s.029.828.029.833l.438-.833h.347l-.765,1.413h-.315s-.03-.766-.032-.809l-.394.809h-.324Zm-8.22.268a.374.374,0,0,0-.224.088.433.433,0,0,0-.121.167h.58c0-.01,0-.023,0-.032a.244.244,0,0,0-.026-.123.207.207,0,0,0-.194-.1Zm1.533,0a.374.374,0,0,0-.224.088.443.443,0,0,0-.121.167h.58c0-.01,0-.023,0-.032a.234.234,0,0,0-.026-.123.244.244,0,0,0-.029-.038.219.219,0,0,0-.165-.062Zm11.856,0a.381.381,0,0,0-.232.088.454.454,0,0,0-.121.167h.577c0-.01,0-.023,0-.032a.234.234,0,0,0-.027-.123.21.21,0,0,0-.194-.1Zm-7.708.006a.39.39,0,0,0-.218.106.637.637,0,0,0-.174.341.779.779,0,0,0-.021.168.289.289,0,0,0,.038.159.316.316,0,0,0,.024.03.229.229,0,0,0,.174.068.372.372,0,0,0,.259-.109.654.654,0,0,0,.174-.347.419.419,0,0,0-.018-.317.213.213,0,0,0-.194-.1C118.734,1781.267,118.72,1781.266,118.705,1781.267Zm5.316.515a2.16,2.16,0,0,1-.288.056.968.968,0,0,0-.188.042.208.208,0,0,0-.079.056.173.173,0,0,0-.041.077.2.2,0,0,0,0,.032s0,0,0,0,0,.007,0,.009a.113.113,0,0,0,0,.015l0,.006a.087.087,0,0,0,0,.009l.006.009.009.012a.185.185,0,0,0,.138.038.465.465,0,0,0,.212-.047.409.409,0,0,0,.156-.135A.545.545,0,0,0,124.021,1781.782Zm-17.969-2.359,7.9-8.152h1.289l-1.906,8.152H112.27l.541-2.347H109.5l-2.249,2.347h-1.2m4.254-3.186h2.707l.5-2.047q.3-1.217.582-2.029-.559.7-1.479,1.662l-2.309,2.413",
                 transform: "translate(-103.684 -1768.875)",
                 className: "minioApplicationName",
               }),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M627.829,1776.9a3.183,3.183,0,0,1-2.4-1.149,2.464,2.464,0,0,1-.241-.411c-.045-.107-.084-.207-.123-.307l.439-.17c.038.1.075.193.114.287a2,2,0,0,0,.19.323,2.685,2.685,0,0,0,2.04.958h1.032a9.027,9.027,0,0,0,1-.141,12.945,12.945,0,0,0,1.935-.55c.524-.191,1.054-.415,1.575-.666a22.265,22.265,0,0,0,3.559-2.154c.377-.278.756-.574,1.124-.881q.494-.411.947-.834a9.057,9.057,0,0,0,1.807-2.317c.348-.7.407-1.259.167-1.576a.989.989,0,0,0-.749-.326l-.622-.048.5-.375c1.786-1.34,2.8-2.927,2.457-3.858a1,1,0,0,0-.638-.59,2.032,2.032,0,0,0-.516-.106h-.549a8.415,8.415,0,0,0-2.824.8l-.207-.423a8.932,8.932,0,0,1,3.014-.845h.585a2.509,2.509,0,0,1,.656.133,1.455,1.455,0,0,1,.921.871c.387,1.063-.5,2.665-2.216,4.081a1.2,1.2,0,0,1,.564.4,1.959,1.959,0,0,1-.121,2.07,9.408,9.408,0,0,1-1.9,2.449q-.466.435-.97.854c-.376.313-.761.615-1.146.9a22.77,22.77,0,0,1-3.635,2.2c-.535.257-1.079.487-1.617.683a13.4,13.4,0,0,1-2.006.569,9.406,9.406,0,0,1-1.07.148Z",
                 transform: "translate(-596.283 -1761.542)",
                 className: "minioApplicationName",
@@ -893,7 +907,7 @@ var Sa,
             )
           )
         ),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M.969,0V-8h.969V-.859H5.656V0ZM9.225-8V0H8.256V-8ZM18.7-5.5h-.969a2.034,2.034,0,0,0-.3-.734,2.072,2.072,0,0,0-.516-.533,2.24,2.24,0,0,0-.67-.326,2.668,2.668,0,0,0-.766-.109,2.431,2.431,0,0,0-1.314.367,2.536,2.536,0,0,0-.934,1.082A4.007,4.007,0,0,0,12.887-4a4.007,4.007,0,0,0,.346,1.754,2.536,2.536,0,0,0,.934,1.082A2.431,2.431,0,0,0,15.481-.8a2.668,2.668,0,0,0,.766-.109,2.24,2.24,0,0,0,.67-.326,2.06,2.06,0,0,0,.516-.535,2.053,2.053,0,0,0,.3-.732H18.7a3.227,3.227,0,0,1-.4,1.1,2.973,2.973,0,0,1-.719.822,3.129,3.129,0,0,1-.963.514,3.614,3.614,0,0,1-1.139.176,3.353,3.353,0,0,1-1.82-.5,3.431,3.431,0,0,1-1.254-1.422A4.874,4.874,0,0,1,11.95-4a4.874,4.874,0,0,1,.457-2.187,3.431,3.431,0,0,1,1.254-1.422,3.353,3.353,0,0,1,1.82-.5,3.614,3.614,0,0,1,1.139.176,3.129,3.129,0,0,1,.963.514,2.984,2.984,0,0,1,.719.82A3.208,3.208,0,0,1,18.7-5.5ZM21.362,0V-8h4.828v.859H22.331v2.7h3.609v.859H22.331V-.859h3.922V0ZM35.384-8V0h-.937L30.087-6.281h-.078V0h-.969V-8h.938l4.375,6.3h.078V-8ZM42.8-6a1.226,1.226,0,0,0-.57-.922A2.188,2.188,0,0,0,41-7.25a2.317,2.317,0,0,0-.928.172,1.468,1.468,0,0,0-.617.473,1.126,1.126,0,0,0-.221.684.957.957,0,0,0,.154.549,1.3,1.3,0,0,0,.4.379,2.686,2.686,0,0,0,.508.246q.266.1.488.154l.813.219a7.221,7.221,0,0,1,.7.227,3.309,3.309,0,0,1,.738.393,2.04,2.04,0,0,1,.584.635,1.824,1.824,0,0,1,.23.949A2.115,2.115,0,0,1,43.506-1a2.329,2.329,0,0,1-.984.832,3.618,3.618,0,0,1-1.568.309,3.653,3.653,0,0,1-1.486-.277,2.355,2.355,0,0,1-.984-.773,2.2,2.2,0,0,1-.4-1.152h1a1.236,1.236,0,0,0,.307.748,1.608,1.608,0,0,0,.68.438,2.7,2.7,0,0,0,.889.143,2.6,2.6,0,0,0,1-.182,1.687,1.687,0,0,0,.7-.508,1.2,1.2,0,0,0,.258-.764.938.938,0,0,0-.223-.648,1.634,1.634,0,0,0-.586-.406,6.157,6.157,0,0,0-.785-.273L40.328-3.8a3.666,3.666,0,0,1-1.484-.77A1.69,1.69,0,0,1,38.3-5.875a1.942,1.942,0,0,1,.365-1.174,2.417,2.417,0,0,1,.984-.781,3.331,3.331,0,0,1,1.385-.279,3.269,3.269,0,0,1,1.375.275,2.409,2.409,0,0,1,.955.752A1.875,1.875,0,0,1,43.734-6Zm3.741,6V-8h4.828v.859H47.506v2.7h3.609v.859H47.506V-.859h3.922V0Z",
           transform: "translate(164 68)",
           className: "minioApplicationName",
@@ -901,60 +915,60 @@ var Sa,
       )
     );
   },
-  st = function (e) {
+  Ct = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.45 50.008", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-995 -63.754)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(1025.5 81.887)" },
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(0 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0)" },
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M10.338-17.825A8.815,8.815,0,0,0,1.15-8.75,8.815,8.815,0,0,0,10.338.325a8.825,8.825,0,0,0,9.2-9.075A8.825,8.825,0,0,0,10.338-17.825Zm0,3.35a5.4,5.4,0,0,1,5.55,5.725,5.4,5.4,0,0,1-5.55,5.725A5.41,5.41,0,0,1,4.788-8.75,5.41,5.41,0,0,1,10.338-14.475ZM22.05-17.5V0h7.575c4.2,0,6.588-1.65,6.588-5.013A4.2,4.2,0,0,0,33.3-8.938a3.9,3.9,0,0,0,2.537-3.713c0-3.337-2.562-4.85-6.638-4.85Zm7.4,10.225c1.925,0,3.138.45,3.138,2.088,0,1.675-1.212,2.125-3.138,2.125l-3.913-.013v-4.2Zm-.35-7.15c1.725,0,3.1.375,3.1,2.025,0,1.7-1.35,2.063-3.087,2.063H25.538v-4.088ZM48.788-17.5H45.3V-6.7c0,2.525-1.1,3.675-2.95,3.675a4.214,4.214,0,0,1-3.4-1.625L36.925-2.113A6.9,6.9,0,0,0,42.513.313c3.65,0,6.275-2.3,6.275-6.688ZM65.113-3.2H55.525V-7.225h9.05v-3.2h-9.05V-14.3h9.487v-3.2H52.037V0H65.113ZM76.3-17.825A8.794,8.794,0,0,0,67.113-8.75,8.794,8.794,0,0,0,76.3.325a8.713,8.713,0,0,0,7.387-3.7l-2.85-2.05a5.355,5.355,0,0,1-4.562,2.4A5.4,5.4,0,0,1,70.75-8.75a5.411,5.411,0,0,1,5.525-5.725A5.237,5.237,0,0,1,80.8-12.063l3-1.838A8.5,8.5,0,0,0,76.3-17.825Zm22.9.325H84.863v3.262h5.425V0h3.487V-14.238H99.2Zm19.787,1.738a10.5,10.5,0,0,0-6.25-1.925c-3.6,0-6.475,1.812-6.475,5.037,0,2.688,1.938,4.125,5.138,4.488l1.987.225c2.913.325,4.438,1.25,4.438,3.15,0,2.363-2.337,3.525-5.3,3.525a10.115,10.115,0,0,1-5.925-1.95L105.762-2A11.524,11.524,0,0,0,112.537.188c3.775,0,6.875-1.7,6.875-5.1,0-2.913-2.262-4.138-5.375-4.488l-1.912-.212c-2.988-.338-4.275-1.4-4.275-3.138,0-2.187,2.063-3.488,4.875-3.488a9.323,9.323,0,0,1,5.475,1.713ZM135.025-17.5H120.888v1.45h6.3V0h1.525V-16.05h6.313Zm9.875-.2a8.672,8.672,0,0,0-8.963,8.95A8.672,8.672,0,0,0,144.9.2a8.672,8.672,0,0,0,8.962-8.95A8.672,8.672,0,0,0,144.9-17.7Zm0,1.475a7.174,7.174,0,0,1,7.363,7.475A7.174,7.174,0,0,1,144.9-1.275a7.177,7.177,0,0,1-7.375-7.475A7.177,7.177,0,0,1,144.9-16.225ZM157.413-17.5V0h1.525V-7.763h2.675L168.138,0h1.9l-6.625-7.763h.688c3.725,0,6.025-1.862,6.025-4.875,0-3.1-2.175-4.863-6.037-4.863Zm6.663,1.438c2.875,0,4.475,1.188,4.475,3.425s-1.575,3.488-4.475,3.488h-5.138v-6.913ZM185.6-1.438H175.075V-8.1h10.138V-9.525H175.075v-6.538h10.438V-17.5H173.55V0H185.6Z",
                   transform: "translate(0 32.612)",
                   className: "minioApplicationName",
                 }),
-                n.default.createElement(
+                l.default.createElement(
                   "g",
                   { transform: "translate(2.003)" },
-                  n.default.createElement(
+                  l.default.createElement(
                     "g",
                     { transform: "translate(0 0.129)" },
-                    n.default.createElement("rect", {
+                    l.default.createElement("rect", {
                       width: "2.49",
                       height: "7.352",
                       transform: "translate(14.42)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M237.8,365.332l-5.053,3.086a.226.226,0,0,1-.235,0l-5.053-3.086a.694.694,0,0,0-.362-.1H227.1a.693.693,0,0,0-.693.693v6.65h2.489v-3.165a.249.249,0,0,1,.379-.212l2.832,1.733a.886.886,0,0,0,.912.009L236,369.184a.249.249,0,0,1,.374.215v3.174h2.488v-6.65a.693.693,0,0,0-.692-.693h-.006A.694.694,0,0,0,237.8,365.332Z",
                       transform: "translate(-226.403 -365.23)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M257.822,365.23H255.3v3.346a.249.249,0,0,1-.366.22l-6.543-3.485a.7.7,0,0,0-.326-.081h0a.693.693,0,0,0-.693.693v6.651h2.5v-3.343a.249.249,0,0,1,.365-.22L256.8,372.5a.692.692,0,0,0,.325.081h0a.693.693,0,0,0,.693-.693Z",
                       transform: "translate(-228.498 -365.23)",
                       className: "minioSection",
                     })
                   ),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M261.159,372.582V365.23H262.3v7.352Z",
                     transform: "translate(-229.877 -365.101)",
                     className: "minioSection",
                   }),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M269.337,372.7c-3.082,0-5.268-1.462-5.268-3.805s2.2-3.806,5.268-3.806,5.281,1.462,5.281,3.806S272.458,372.7,269.337,372.7Zm0-6.637c-2.292,0-4.056,1-4.056,2.832s1.765,2.831,4.056,2.831,4.07-.988,4.07-2.831S271.628,366.062,269.337,366.062Z",
                     transform: "translate(-230.168 -365.087)",
                     className: "minioSection",
@@ -964,7 +978,7 @@ var Sa,
             )
           )
         ),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M.969,0V-8H5.8v.859H1.938v2.7H5.547v.859H1.938V-.859H5.859V0ZM14.991-8V0h-.937L9.694-6.281H9.616V0H8.647V-8h.938l4.375,6.3h.078V-8Zm2.6.859V-8h6v.859H21.075V0h-.969V-7.141ZM26.191,0V-8h4.828v.859H27.159v2.7h3.609v.859H27.159V-.859h3.922V0Zm7.678,0V-8h2.7a3.277,3.277,0,0,1,1.539.318A2.054,2.054,0,0,1,39-6.809a2.69,2.69,0,0,1,.289,1.262A2.643,2.643,0,0,1,39-4.293a2.026,2.026,0,0,1-.887.857,3.3,3.3,0,0,1-1.527.311H34.4V-4h2.156a2.415,2.415,0,0,0,1.033-.187,1.194,1.194,0,0,0,.57-.533,1.787,1.787,0,0,0,.178-.826,1.856,1.856,0,0,0-.18-.84,1.235,1.235,0,0,0-.574-.557,2.345,2.345,0,0,0-1.043-.2h-1.7V0Zm3.766-3.594L39.6,0H38.478L36.541-3.594ZM42,0V-8h2.7a3.116,3.116,0,0,1,1.541.338,2.141,2.141,0,0,1,.889.912,2.809,2.809,0,0,1,.289,1.281,2.849,2.849,0,0,1-.287,1.285,2.149,2.149,0,0,1-.885.92,3.057,3.057,0,0,1-1.531.342H42.781v-.859h1.906A2.084,2.084,0,0,0,45.723-4a1.337,1.337,0,0,0,.568-.6,2.013,2.013,0,0,0,.178-.861,2,2,0,0,0-.178-.859,1.3,1.3,0,0,0-.572-.6,2.173,2.173,0,0,0-1.047-.217h-1.7V0Zm8.084,0V-8h2.7a3.277,3.277,0,0,1,1.539.318,2.054,2.054,0,0,1,.891.873,2.69,2.69,0,0,1,.289,1.262,2.643,2.643,0,0,1-.289,1.254,2.026,2.026,0,0,1-.887.857,3.3,3.3,0,0,1-1.527.311H50.616V-4h2.156a2.415,2.415,0,0,0,1.033-.187,1.194,1.194,0,0,0,.57-.533,1.787,1.787,0,0,0,.178-.826,1.856,1.856,0,0,0-.18-.84,1.235,1.235,0,0,0-.574-.557,2.345,2.345,0,0,0-1.043-.2h-1.7V0ZM53.85-3.594,55.819,0H54.694L52.756-3.594ZM59.184-8V0h-.969V-8ZM66.6-6a1.226,1.226,0,0,0-.57-.922A2.188,2.188,0,0,0,64.8-7.25a2.318,2.318,0,0,0-.928.172,1.468,1.468,0,0,0-.617.473,1.126,1.126,0,0,0-.221.684.957.957,0,0,0,.154.549,1.3,1.3,0,0,0,.4.379,2.686,2.686,0,0,0,.508.246q.266.1.488.154l.813.219a7.22,7.22,0,0,1,.7.227,3.308,3.308,0,0,1,.738.393,2.04,2.04,0,0,1,.584.635,1.824,1.824,0,0,1,.23.949A2.115,2.115,0,0,1,67.306-1a2.329,2.329,0,0,1-.984.832,3.618,3.618,0,0,1-1.568.309,3.653,3.653,0,0,1-1.486-.277,2.355,2.355,0,0,1-.984-.773,2.2,2.2,0,0,1-.4-1.152h1a1.236,1.236,0,0,0,.307.748,1.608,1.608,0,0,0,.68.438,2.7,2.7,0,0,0,.889.143,2.6,2.6,0,0,0,1-.182,1.687,1.687,0,0,0,.7-.508,1.2,1.2,0,0,0,.258-.764.938.938,0,0,0-.223-.648,1.634,1.634,0,0,0-.586-.406,6.157,6.157,0,0,0-.785-.273L64.128-3.8a3.666,3.666,0,0,1-1.484-.77A1.69,1.69,0,0,1,62.1-5.875a1.942,1.942,0,0,1,.365-1.174,2.417,2.417,0,0,1,.984-.781,3.331,3.331,0,0,1,1.385-.279,3.269,3.269,0,0,1,1.375.275,2.409,2.409,0,0,1,.955.752A1.875,1.875,0,0,1,67.534-6Zm3.741,6V-8h4.828v.859H71.306v2.7h3.609v.859H71.306V-.859h3.922V0ZM82.209,0V-8h.969V-.859H86.9V0Zm8.256-8V0H89.5V-8Zm9.475,2.5h-.969a2.034,2.034,0,0,0-.3-.734,2.072,2.072,0,0,0-.516-.533,2.24,2.24,0,0,0-.67-.326,2.668,2.668,0,0,0-.766-.109,2.431,2.431,0,0,0-1.314.367,2.536,2.536,0,0,0-.934,1.082A4.007,4.007,0,0,0,94.128-4a4.007,4.007,0,0,0,.346,1.754,2.536,2.536,0,0,0,.934,1.082A2.431,2.431,0,0,0,96.722-.8a2.668,2.668,0,0,0,.766-.109,2.24,2.24,0,0,0,.67-.326,2.06,2.06,0,0,0,.516-.535,2.053,2.053,0,0,0,.3-.732h.969a3.227,3.227,0,0,1-.4,1.1,2.973,2.973,0,0,1-.719.822,3.129,3.129,0,0,1-.963.514,3.614,3.614,0,0,1-1.139.176,3.353,3.353,0,0,1-1.82-.5,3.431,3.431,0,0,1-1.254-1.422A4.874,4.874,0,0,1,93.191-4a4.874,4.874,0,0,1,.457-2.187A3.431,3.431,0,0,1,94.9-7.609a3.353,3.353,0,0,1,1.82-.5,3.614,3.614,0,0,1,1.139.176,3.129,3.129,0,0,1,.963.514,2.984,2.984,0,0,1,.719.82A3.208,3.208,0,0,1,99.941-5.5ZM102.6,0V-8h4.828v.859h-3.859v2.7h3.609v.859h-3.609V-.859h3.922V0Zm14.022-8V0h-.937l-4.359-6.281h-.078V0h-.969V-8h.938l4.375,6.3h.078V-8Zm7.412,2a1.226,1.226,0,0,0-.57-.922,2.188,2.188,0,0,0-1.227-.328,2.317,2.317,0,0,0-.928.172,1.468,1.468,0,0,0-.617.473,1.126,1.126,0,0,0-.221.684.957.957,0,0,0,.154.549,1.3,1.3,0,0,0,.4.379,2.686,2.686,0,0,0,.508.246q.266.1.488.154l.813.219a7.22,7.22,0,0,1,.7.227,3.309,3.309,0,0,1,.738.393,2.04,2.04,0,0,1,.584.635,1.824,1.824,0,0,1,.23.949A2.115,2.115,0,0,1,124.746-1a2.329,2.329,0,0,1-.984.832,3.618,3.618,0,0,1-1.568.309,3.653,3.653,0,0,1-1.486-.277,2.355,2.355,0,0,1-.984-.773,2.2,2.2,0,0,1-.4-1.152h1a1.236,1.236,0,0,0,.307.748,1.608,1.608,0,0,0,.68.438,2.7,2.7,0,0,0,.889.143,2.6,2.6,0,0,0,1-.182,1.687,1.687,0,0,0,.7-.508,1.2,1.2,0,0,0,.258-.764.938.938,0,0,0-.223-.648,1.634,1.634,0,0,0-.586-.406,6.157,6.157,0,0,0-.785-.273l-.984-.281a3.666,3.666,0,0,1-1.484-.77,1.69,1.69,0,0,1-.547-1.309,1.942,1.942,0,0,1,.365-1.174,2.417,2.417,0,0,1,.984-.781,3.331,3.331,0,0,1,1.385-.279,3.269,3.269,0,0,1,1.375.275,2.409,2.409,0,0,1,.955.752A1.875,1.875,0,0,1,124.975-6Zm3.741,6V-8h4.828v.859h-3.859v2.7h3.609v.859h-3.609V-.859h3.922V0Z",
           transform: "translate(83 68)",
           className: "minioApplicationName",
@@ -972,54 +986,54 @@ var Sa,
       )
     );
   },
-  ft = function (e) {
+  _t = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 154.498 50.008", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(27.666 -11)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-29 11)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(0 0)" },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               d: "M11.992-20.677A10.225,10.225,0,0,0,1.334-10.15,10.225,10.225,0,0,0,11.992.377,10.237,10.237,0,0,0,22.664-10.15,10.237,10.237,0,0,0,11.992-20.677Zm0,3.886A6.268,6.268,0,0,1,18.43-10.15a6.268,6.268,0,0,1-6.438,6.641A6.276,6.276,0,0,1,5.554-10.15,6.276,6.276,0,0,1,11.992-16.791ZM33.887-7.424c4.814,0,7.4-2.523,7.4-6.424,0-3.929-2.581-6.453-7.424-6.453h-8.28V0h4.046V-7.424Zm-.1-9.15c2.2,0,3.35.914,3.35,2.726s-1.146,2.726-3.35,2.726H29.624v-5.452ZM59.174-3.712H48.053V-8.381h10.5v-3.712h-10.5v-4.5H59.059V-20.3H44.007V0H59.174ZM62.6-20.3V0h4.045V-8.077h1.189L73.747,0h4.9L72.4-8.135c3.9-.377,6.221-2.654,6.221-5.989,0-3.886-2.6-6.177-7.438-6.177Zm8.512,3.726c2.146,0,3.35.769,3.35,2.451,0,1.711-1.146,2.523-3.35,2.523H66.642v-4.974ZM92.278-20.3h-4.93L79.445,0h4.22l1.769-4.727H94.09L95.86,0h4.321Zm-2.508,4L92.7-8.454H86.826Zm25.288-4H98.426v3.785h6.293V0h4.045V-16.516h6.293Zm11.136-.377A10.225,10.225,0,0,0,115.536-10.15,10.225,10.225,0,0,0,126.194.377,10.237,10.237,0,0,0,136.866-10.15,10.237,10.237,0,0,0,126.194-20.677Zm0,3.886a6.268,6.268,0,0,1,6.438,6.641,6.268,6.268,0,0,1-6.438,6.641,6.276,6.276,0,0,1-6.438-6.641A6.276,6.276,0,0,1,126.194-16.791ZM139.78-20.3V0h4.046V-8.077h1.189L150.931,0h4.9l-6.25-8.135c3.9-.377,6.221-2.654,6.221-5.989,0-3.886-2.6-6.177-7.439-6.177Zm8.512,3.726c2.146,0,3.35.769,3.35,2.451,0,1.711-1.146,2.523-3.35,2.523h-4.466v-4.974Z",
               transform: "translate(0 37.951)",
               className: "minioApplicationName",
             }),
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(2.356 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0.151)" },
-                n.default.createElement("rect", {
+                l.default.createElement("rect", {
                   width: "2.928",
                   height: "8.645",
                   transform: "translate(16.956)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M239.81,365.349l-5.942,3.629a.265.265,0,0,1-.276,0l-5.942-3.629a.816.816,0,0,0-.425-.119h-.007a.815.815,0,0,0-.815.815v7.82h2.926v-3.722a.293.293,0,0,1,.446-.25l3.33,2.037a1.042,1.042,0,0,0,1.072.011l3.515-2.062a.293.293,0,0,1,.44.253v3.733h2.925v-7.82a.814.814,0,0,0-.814-.815h-.007A.816.816,0,0,0,239.81,365.349Z",
                   transform: "translate(-226.403 -365.23)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M259.662,365.23h-2.969v3.935a.293.293,0,0,1-.431.258l-7.694-4.1a.818.818,0,0,0-.383-.1h-.005a.815.815,0,0,0-.815.815v7.821h2.945v-3.931a.293.293,0,0,1,.43-.258l7.725,4.1a.814.814,0,0,0,.382.1h0a.815.815,0,0,0,.815-.815Z",
                   transform: "translate(-225.18 -365.23)",
                   className: "minioSection",
                 })
               ),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M261.159,373.875V365.23h1.347v8.646Z",
                 transform: "translate(-224.375 -365.079)",
                 className: "minioSection",
               }),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M270.264,374.038c-3.624,0-6.195-1.719-6.195-4.475s2.587-4.476,6.195-4.476,6.21,1.719,6.21,4.476S273.934,374.038,270.264,374.038Zm0-7.8c-2.695,0-4.77,1.177-4.77,3.33s2.075,3.329,4.77,3.329,4.786-1.162,4.786-3.329S272.958,366.233,270.264,366.233Z",
                 transform: "translate(-224.205 -365.087)",
                 className: "minioSection",
@@ -1030,54 +1044,54 @@ var Sa,
       )
     );
   },
-  pt = function (e) {
+  Ht = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.538 50.008", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(26.456 -11)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-29 11)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(0 0)" },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               d: "M2.544-22.4V0h9.232c7.008,0,11.632-4.448,11.632-11.2S18.784-22.4,11.776-22.4Zm9.184,4.176c4.72,0,7.008,2.912,7.008,7.024,0,4.064-2.288,7.024-7.008,7.024H7.008V-18.224ZM31.088-22.4H26.624V0h4.464Zm4.288,0V0H39.84V-8.912h1.312L47.68,0h5.408l-6.9-8.976c4.3-.416,6.864-2.928,6.864-6.608,0-4.288-2.864-6.816-8.208-6.816Zm9.392,4.112c2.368,0,3.7.848,3.7,2.7,0,1.888-1.264,2.784-3.7,2.784H39.84v-5.488ZM73.072-4.1H60.8V-9.248H72.384v-4.1H60.8V-18.3H72.944v-4.1H56.336V0H73.072Zm14.32-18.72c-6.9,0-11.76,4.88-11.76,11.616S80.5.416,87.392.416A11.153,11.153,0,0,0,96.848-4.32L93.2-6.944a6.855,6.855,0,0,1-5.84,3.072c-3.952,0-7.056-2.832-7.072-7.328,0-4.352,3.008-7.328,7.072-7.328a6.7,6.7,0,0,1,5.792,3.088l3.84-2.352A10.88,10.88,0,0,0,87.392-22.816ZM116.7-22.4H98.352v4.176H105.3V0h4.464V-18.224H116.7ZM128.08-9.12c4.944,0,7.92-2.448,7.92-6.64s-2.976-6.64-7.92-6.64h-8.32V0h1.952V-9.12Zm-.048-11.44c3.744,0,5.936,1.632,5.936,4.8s-2.192,4.784-5.936,4.784h-6.32V-20.56Zm30.4-1.84h-2.016l-8.4,20.464L139.632-22.4h-2.08L146.784,0H149.2Z",
               transform: "translate(0 42.065)",
               className: "minioApplicationName",
             }),
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(2.649 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0.17)" },
-                n.default.createElement("rect", {
+                l.default.createElement("rect", {
                   width: "3.292",
                   height: "9.721",
                   transform: "translate(19.066)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M241.479,365.364l-6.681,4.081a.3.3,0,0,1-.311,0l-6.681-4.081a.917.917,0,0,0-.478-.134h-.008a.917.917,0,0,0-.916.916v8.793h3.29v-4.185a.329.329,0,0,1,.5-.281l3.744,2.291a1.172,1.172,0,0,0,1.206.012l3.952-2.318a.329.329,0,0,1,.5.284v4.2h3.289v-8.793a.916.916,0,0,0-.915-.916h-.008A.917.917,0,0,0,241.479,365.364Z",
                   transform: "translate(-226.403 -365.23)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M261.192,365.23h-3.338v4.425a.329.329,0,0,1-.484.29l-8.652-4.608a.919.919,0,0,0-.431-.107h-.006a.917.917,0,0,0-.916.916v8.795h3.312v-4.42a.329.329,0,0,1,.483-.29l8.686,4.607a.916.916,0,0,0,.43.107h0a.917.917,0,0,0,.916-.916Z",
                   transform: "translate(-222.419 -365.23)",
                   className: "minioSection",
                 })
               ),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M261.159,374.952V365.23h1.515v9.722Z",
                 transform: "translate(-219.797 -365.06)",
                 className: "minioSection",
               }),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M271.034,375.151c-4.075,0-6.965-1.933-6.965-5.032,0-3.082,2.908-5.033,6.965-5.033s6.983,1.933,6.983,5.033S275.162,375.151,271.034,375.151Zm0-8.776c-3.03,0-5.364,1.323-5.364,3.744,0,2.437,2.334,3.744,5.364,3.744s5.382-1.307,5.382-3.744C276.416,367.7,274.064,366.376,271.034,366.376Z",
                 transform: "translate(-219.244 -365.087)",
                 className: "minioSection",
@@ -1088,54 +1102,54 @@ var Sa,
       )
     );
   },
-  ut = function (e) {
+  zt = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.538 50.008", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(26.059 -11)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-29 11)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(0 0)" },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               d: "M19.7,0h6.7L14.726-13.265,25.586-25.9H19.111l-8.566,10.49H8.1V-25.9H2.942V0H8.1V-10.656H10.49ZM47.712-4.736H33.522v-5.957H46.916v-4.736H33.522v-5.735H47.564V-25.9h-19.2V0H47.712ZM72.039-23.588a18.223,18.223,0,0,0-9.9-2.757c-5.513,0-10.323,2.812-10.323,8.214,0,4.681,3.33,6.7,7.9,7.419l1.646.259c3.607.574,5.495,1.24,5.495,3.034,0,2-2.22,3.127-5.088,3.127a13.674,13.674,0,0,1-8.251-2.794L50.838-2.923C53.613-.685,57.831.463,61.753.463c5.568,0,10.6-2.72,10.6-8.436,0-4.514-3.626-6.494-8.251-7.252l-1.462-.241c-3.108-.518-5.347-1.092-5.347-3,0-1.961,2.054-3.108,4.958-3.108a13.919,13.919,0,0,1,7.345,2.2Z",
               transform: "translate(0 49.495)",
               className: "minioApplicationName",
             }),
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(3.025 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0.194)" },
-                n.default.createElement("rect", {
+                l.default.createElement("rect", {
                   width: "3.76",
                   height: "11.103",
                   transform: "translate(21.776)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M243.621,365.383l-7.631,4.661a.34.34,0,0,1-.355,0l-7.631-4.661a1.048,1.048,0,0,0-.546-.153h-.009a1.047,1.047,0,0,0-1.047,1.046V376.32h3.758v-4.78a.376.376,0,0,1,.572-.321l4.276,2.616a1.338,1.338,0,0,0,1.377.014L240.9,371.2a.376.376,0,0,1,.565.325v4.794h3.757V366.276a1.046,1.046,0,0,0-1.045-1.046h-.01A1.047,1.047,0,0,0,243.621,365.383Z",
                   transform: "translate(-226.403 -365.23)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M263.158,365.23h-3.813v5.053a.376.376,0,0,1-.553.332l-9.881-5.263a1.051,1.051,0,0,0-.492-.122h-.007a1.047,1.047,0,0,0-1.047,1.046v10.045h3.783v-5.048a.376.376,0,0,1,.552-.332l9.921,5.262a1.046,1.046,0,0,0,.491.122h0a1.047,1.047,0,0,0,1.047-1.047Z",
                   transform: "translate(-218.873 -365.23)",
                   className: "minioSection",
                 })
               ),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M261.159,376.333v-11.1h1.73v11.1Z",
                 transform: "translate(-213.918 -365.036)",
                 className: "minioSection",
               }),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M272.024,376.582c-4.654,0-7.955-2.207-7.955-5.747,0-3.52,3.322-5.748,7.955-5.748S280,367.294,280,370.835,276.738,376.582,272.024,376.582Zm0-10.023c-3.461,0-6.126,1.511-6.126,4.276,0,2.784,2.665,4.276,6.126,4.276s6.146-1.492,6.146-4.276C278.171,368.07,275.485,366.559,272.024,366.559Z",
                 transform: "translate(-212.873 -365.087)",
                 className: "minioSection",
@@ -1146,54 +1160,54 @@ var Sa,
       )
     );
   },
-  vt = function (e) {
+  Vt = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.538 50.008", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(27.622 -11)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-29 11)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(0 0)" },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               d: "M17.995-18.488a14.283,14.283,0,0,0-7.758-2.161c-4.321,0-8.091,2.2-8.091,6.438,0,3.668,2.61,5.249,6.192,5.814l1.29.2c2.828.45,4.307.972,4.307,2.378,0,1.566-1.74,2.451-3.988,2.451A10.718,10.718,0,0,1,3.48-5.554l-2.1,3.263A14.124,14.124,0,0,0,9.933.363c4.365,0,8.309-2.132,8.309-6.612,0-3.538-2.842-5.09-6.467-5.684l-1.146-.188c-2.436-.406-4.191-.856-4.191-2.349,0-1.537,1.609-2.436,3.886-2.436a10.91,10.91,0,0,1,5.757,1.726ZM38.353-20.3h-4.06V-8.309c0,3.335-1.885,4.8-4.684,4.8s-4.684-1.465-4.684-4.8V-20.3h-4.06V-8.106c0,5.612,3.582,8.468,8.744,8.468s8.743-2.857,8.743-8.468Zm3.654,0V0h8.787c4.872,0,7.642-1.914,7.642-5.815a4.874,4.874,0,0,0-3.379-4.553A4.528,4.528,0,0,0,58-14.674c0-3.871-2.972-5.626-7.7-5.626ZM50.59-8.439c2.233,0,3.64.522,3.64,2.421,0,1.943-1.407,2.465-3.64,2.465l-4.538-.015V-8.439Zm-.406-8.294c2,0,3.6.435,3.6,2.349,0,1.972-1.566,2.393-3.582,2.393H46.052v-4.741ZM79.5-20.3h-4.06V-6.743L65.134-20.3H61.349V0h4.045l.015-13.558L75.7,0h3.8ZM98.557-3.712H87.435V-8.381h10.5v-3.712h-10.5v-4.5H98.441V-20.3H83.39V0H98.557ZM116.769-20.3H100.137v3.785h6.293V0h4.045V-16.516h6.293Z",
               transform: "translate(0 38.028)",
               className: "minioApplicationName",
             }),
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(2.376 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0.153)" },
-                n.default.createElement("rect", {
+                l.default.createElement("rect", {
                   width: "2.953",
                   height: "8.72",
                   transform: "translate(17.103)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M239.926,365.35l-5.993,3.661a.267.267,0,0,1-.279,0l-5.993-3.661a.823.823,0,0,0-.429-.12h-.007a.822.822,0,0,0-.822.822v7.888h2.952v-3.754a.3.3,0,0,1,.449-.252l3.358,2.055a1.051,1.051,0,0,0,1.081.011l3.545-2.08a.3.3,0,0,1,.444.255v3.765h2.951v-7.888a.821.821,0,0,0-.821-.822h-.007A.823.823,0,0,0,239.926,365.35Z",
                   transform: "translate(-226.403 -365.23)",
                   className: "minioSection",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M259.769,365.23h-2.994V369.2a.3.3,0,0,1-.434.26l-7.761-4.133a.825.825,0,0,0-.386-.1h-.005a.822.822,0,0,0-.822.822v7.889h2.971v-3.965a.3.3,0,0,1,.433-.26l7.792,4.132a.822.822,0,0,0,.385.1h0a.822.822,0,0,0,.822-.822Z",
                   transform: "translate(-224.988 -365.23)",
                   className: "minioSection",
                 })
               ),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M261.159,373.95v-8.72h1.359v8.72Z",
                 transform: "translate(-224.056 -365.077)",
                 className: "minioSection",
               }),
-              n.default.createElement("path", {
+              l.default.createElement("path", {
                 d: "M270.317,374.115c-3.655,0-6.248-1.734-6.248-4.513s2.609-4.515,6.248-4.515,6.264,1.734,6.264,4.515S274.019,374.115,270.317,374.115Zm0-7.872c-2.718,0-4.811,1.187-4.811,3.358s2.093,3.358,4.811,3.358,4.827-1.172,4.827-3.358S273.035,366.243,270.317,366.243Z",
                 transform: "translate(-223.86 -365.087)",
                 className: "minioSection",
@@ -1204,60 +1218,60 @@ var Sa,
       )
     );
   },
-  Et = function (e) {
+  At = function (e) {
     var a = e.inverse;
-    return n.default.createElement(
-      it,
+    return l.default.createElement(
+      xt,
       { viewBox: "0 0 184.45 54.229", inverse: a },
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-995 -63.754)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(1025.5 81.887)" },
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { transform: "translate(0 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { transform: "translate(0 0)" },
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   d: "M10.338-17.825A8.815,8.815,0,0,0,1.15-8.75,8.815,8.815,0,0,0,10.338.325a8.825,8.825,0,0,0,9.2-9.075A8.825,8.825,0,0,0,10.338-17.825Zm0,3.35a5.4,5.4,0,0,1,5.55,5.725,5.4,5.4,0,0,1-5.55,5.725A5.41,5.41,0,0,1,4.788-8.75,5.41,5.41,0,0,1,10.338-14.475ZM22.05-17.5V0h7.575c4.2,0,6.588-1.65,6.588-5.013A4.2,4.2,0,0,0,33.3-8.938a3.9,3.9,0,0,0,2.537-3.713c0-3.337-2.562-4.85-6.638-4.85Zm7.4,10.225c1.925,0,3.138.45,3.138,2.088,0,1.675-1.212,2.125-3.138,2.125l-3.913-.013v-4.2Zm-.35-7.15c1.725,0,3.1.375,3.1,2.025,0,1.7-1.35,2.063-3.087,2.063H25.538v-4.088ZM48.788-17.5H45.3V-6.7c0,2.525-1.1,3.675-2.95,3.675a4.214,4.214,0,0,1-3.4-1.625L36.925-2.113A6.9,6.9,0,0,0,42.513.313c3.65,0,6.275-2.3,6.275-6.688ZM65.113-3.2H55.525V-7.225h9.05v-3.2h-9.05V-14.3h9.487v-3.2H52.037V0H65.113ZM76.3-17.825A8.794,8.794,0,0,0,67.113-8.75,8.794,8.794,0,0,0,76.3.325a8.713,8.713,0,0,0,7.387-3.7l-2.85-2.05a5.355,5.355,0,0,1-4.562,2.4A5.4,5.4,0,0,1,70.75-8.75a5.411,5.411,0,0,1,5.525-5.725A5.237,5.237,0,0,1,80.8-12.063l3-1.838A8.5,8.5,0,0,0,76.3-17.825Zm22.9.325H84.863v3.262h5.425V0h3.487V-14.238H99.2Zm19.787,1.738a10.5,10.5,0,0,0-6.25-1.925c-3.6,0-6.475,1.812-6.475,5.037,0,2.688,1.938,4.125,5.138,4.488l1.987.225c2.913.325,4.438,1.25,4.438,3.15,0,2.363-2.337,3.525-5.3,3.525a10.115,10.115,0,0,1-5.925-1.95L105.762-2A11.524,11.524,0,0,0,112.537.188c3.775,0,6.875-1.7,6.875-5.1,0-2.913-2.262-4.138-5.375-4.488l-1.912-.212c-2.988-.338-4.275-1.4-4.275-3.138,0-2.187,2.063-3.488,4.875-3.488a9.323,9.323,0,0,1,5.475,1.713ZM135.025-17.5H120.888v1.45h6.3V0h1.525V-16.05h6.313Zm9.875-.2a8.672,8.672,0,0,0-8.963,8.95A8.672,8.672,0,0,0,144.9.2a8.672,8.672,0,0,0,8.962-8.95A8.672,8.672,0,0,0,144.9-17.7Zm0,1.475a7.174,7.174,0,0,1,7.363,7.475A7.174,7.174,0,0,1,144.9-1.275a7.177,7.177,0,0,1-7.375-7.475A7.177,7.177,0,0,1,144.9-16.225ZM157.413-17.5V0h1.525V-7.763h2.675L168.138,0h1.9l-6.625-7.763h.688c3.725,0,6.025-1.862,6.025-4.875,0-3.1-2.175-4.863-6.037-4.863Zm6.663,1.438c2.875,0,4.475,1.188,4.475,3.425s-1.575,3.488-4.475,3.488h-5.138v-6.913ZM185.6-1.438H175.075V-8.1h10.138V-9.525H175.075v-6.538h10.438V-17.5H173.55V0H185.6Z",
                   transform: "translate(0 32.612)",
                   className: "minioApplicationName",
                 }),
-                n.default.createElement(
+                l.default.createElement(
                   "g",
                   { transform: "translate(2.003)" },
-                  n.default.createElement(
+                  l.default.createElement(
                     "g",
                     { transform: "translate(0 0.129)" },
-                    n.default.createElement("rect", {
+                    l.default.createElement("rect", {
                       width: "2.49",
                       height: "7.352",
                       transform: "translate(14.42)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M237.8,365.332l-5.053,3.086a.226.226,0,0,1-.235,0l-5.053-3.086a.694.694,0,0,0-.362-.1H227.1a.693.693,0,0,0-.693.693v6.65h2.489v-3.165a.249.249,0,0,1,.379-.212l2.832,1.733a.886.886,0,0,0,.912.009L236,369.184a.249.249,0,0,1,.374.215v3.174h2.488v-6.65a.693.693,0,0,0-.692-.693h-.006A.694.694,0,0,0,237.8,365.332Z",
                       transform: "translate(-226.403 -365.23)",
                       className: "minioSection",
                     }),
-                    n.default.createElement("path", {
+                    l.default.createElement("path", {
                       d: "M257.822,365.23H255.3v3.346a.249.249,0,0,1-.366.22l-6.543-3.485a.7.7,0,0,0-.326-.081h0a.693.693,0,0,0-.693.693v6.651h2.5v-3.343a.249.249,0,0,1,.365-.22L256.8,372.5a.692.692,0,0,0,.325.081h0a.693.693,0,0,0,.693-.693Z",
                       transform: "translate(-228.498 -365.23)",
                       className: "minioSection",
                     })
                   ),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M261.159,372.582V365.23H262.3v7.352Z",
                     transform: "translate(-229.877 -365.101)",
                     className: "minioSection",
                   }),
-                  n.default.createElement("path", {
+                  l.default.createElement("path", {
                     d: "M269.337,372.7c-3.082,0-5.268-1.462-5.268-3.805s2.2-3.806,5.268-3.806,5.281,1.462,5.281,3.806S272.458,372.7,269.337,372.7Zm0-6.637c-2.292,0-4.056,1-4.056,2.832s1.765,2.831,4.056,2.831,4.07-.988,4.07-2.831S271.628,366.062,269.337,366.062Z",
                     transform: "translate(-230.168 -365.087)",
                     className: "minioSection",
@@ -1270,38 +1284,38 @@ var Sa,
       )
     );
   },
-  gt = function (e) {
+  Lt = function (e) {
     var a = e.applicationName,
       t = e.subVariant,
-      l = void 0 === t ? "simple" : t,
+      n = void 0 === t ? "simple" : t,
       r = e.inverse;
     switch (a) {
       case "console":
-        switch (l) {
+        switch (n) {
           case "standard":
-            return n.default.createElement(ht, { inverse: !!r });
+            return l.default.createElement(Mt, { inverse: !!r });
           case "enterprise":
-            return n.default.createElement(st, { inverse: !!r });
+            return l.default.createElement(Ct, { inverse: !!r });
           case "AGPL":
-            return n.default.createElement(dt, { inverse: !!r });
+            return l.default.createElement(Zt, { inverse: !!r });
           default:
-            return n.default.createElement(Et, { inverse: !!r });
+            return l.default.createElement(At, { inverse: !!r });
         }
       case "directpv":
-        return n.default.createElement(pt, { inverse: !!r });
+        return l.default.createElement(Ht, { inverse: !!r });
       case "subnet":
-        return n.default.createElement(vt, { inverse: !!r });
+        return l.default.createElement(Vt, { inverse: !!r });
       case "kes":
-        return n.default.createElement(ut, { inverse: !!r });
+        return l.default.createElement(zt, { inverse: !!r });
       case "operator":
-        return n.default.createElement(ft, { inverse: !!r });
+        return l.default.createElement(_t, { inverse: !!r });
     }
   },
-  wt = c.default.svg(function (e) {
-    return { fill: qa(e, "theme.logoColor", "#C51C3F") };
+  Tt = c.default.svg(function (e) {
+    return { fill: Ja(e, "theme.logoColor", "#C51C3F") };
   }),
-  xt = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
-  Mt = function (e) {
+  bt = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
+  Pt = function (e) {
     if ("auto" === e || ("boolean" == typeof e && e)) return "100%";
     if (!1 === e) return "initial";
     var a = Math.floor(e);
@@ -1313,7 +1327,7 @@ var Sa,
       "".concat((100 * a) / 12, "%")
     );
   },
-  Zt = c.default.div(function (e) {
+  It = c.default.div(function (e) {
     var a = { boxSizing: "border-box" };
     if (e.container)
       a = {
@@ -1325,32 +1339,32 @@ var Sa,
         boxSizing: "content-box",
       };
     else if (e.item) {
-      var t = Object.keys(xt);
-      t.forEach(function (l, n) {
+      var t = Object.keys(bt);
+      t.forEach(function (n, l) {
         var r,
           c,
-          o = qa(e, l, !1);
+          o = Ja(e, n, !1);
         if (!!o) {
           var m = {};
           if (
             ("number" == typeof o &&
-              (m = { flexBasis: Mt(qa(e, l, 12)), width: Mt(qa(e, l, 12)) }),
+              (m = { flexBasis: Pt(Ja(e, n, 12)), width: Pt(Ja(e, n, 12)) }),
             "hidden" === o)
           ) {
             var i = "";
-            t[n + 1] &&
-              (i = "and (max-width:  ".concat(qa(xt, t[n + 1], 0), "px)")),
+            t[l + 1] &&
+              (i = "and (max-width:  ".concat(Ja(bt, t[l + 1], 0), "px)")),
               (a = T(
                 T({}, a),
                 (((r = {})[
-                  "@media (min-width: ".concat(qa(xt, l, 0), "px) ").concat(i)
+                  "@media (min-width: ".concat(Ja(bt, n, 0), "px) ").concat(i)
                 ] = { display: "none" }),
                 r)
               ));
           }
           a = T(
             T({}, a),
-            (((c = {})["@media (min-width: ".concat(qa(xt, l, 0), "px)")] = T(
+            (((c = {})["@media (min-width: ".concat(Ja(bt, n, 0), "px)")] = T(
               { flexGrow: "1" },
               m
             )),
@@ -1361,19 +1375,19 @@ var Sa,
     }
     return T(T({}, a), e.sx);
   }),
-  _t = function (e) {
-    return n.default.createElement(Zt, T({}, e), e.children);
+  Nt = function (e) {
+    return l.default.createElement(It, T({}, e), e.children);
   },
-  Ht = require("../assets/video/videoBG.mp4"),
-  zt = require("../assets/background/loginAnimationPoster.png"),
-  Vt = c.default.div(function (e) {
+  Bt = require("../assets/video/videoBG.mp4"),
+  Rt = require("../assets/background/loginAnimationPoster.png"),
+  yt = c.default.div(function (e) {
     var a,
       t = e.theme;
     return {
       "& .mainContainer": { height: "100vh" },
       "& .decorationPanel": {
         position: "relative",
-        backgroundColor: qa(t, "login.promoBG", "#000110"),
+        backgroundColor: Ja(t, "login.promoBG", "#000110"),
         "& .videoContainer": {
           width: "100%",
           height: "auto",
@@ -1381,7 +1395,7 @@ var Sa,
           position: "absolute",
           bottom: "0",
           right: 0,
-          filter: qa(t, "login.bgFilter", "none"),
+          filter: Ja(t, "login.bgFilter", "none"),
           "&:before": {
             position: "absolute",
             width: "100%",
@@ -1420,7 +1434,7 @@ var Sa,
           left: "50%",
           transform: "translateX(-50%)",
           "& .promoHeader": {
-            color: qa(t, "login.promoHeader", "#fff"),
+            color: Ja(t, "login.promoHeader", "#fff"),
             fontSize: "46px",
             textAlign: "left",
             fontWeight: "900",
@@ -1429,14 +1443,14 @@ var Sa,
           "& .promoInfo": {
             marginTop: "31px",
             maxWidth: "542px",
-            color: qa(t, "login.promoText", "#fff"),
+            color: Ja(t, "login.promoText", "#fff"),
             fontSize: "18px",
             textAlign: "left",
             fontWeight: "300",
             lineHeight: "30px",
             textShadow: "0 0 5ppx #000",
             "& a": {
-              color: qa(t, "login.promoText", "#fff"),
+              color: Ja(t, "login.promoText", "#fff"),
               textDecoration: "none",
               fontWeight: "bold",
               "&:hover": { textDecoration: "underline" },
@@ -1447,12 +1461,12 @@ var Sa,
       "& .formPanel":
         ((a = {
           maxWidth: "520px",
-          backgroundColor: qa(t, "login.formBG", "#fff"),
+          backgroundColor: Ja(t, "login.formBG", "#fff"),
         }),
         (a[
           "@media (min-width: "
-            .concat(qa(xt, "xs", 0), "px) and (max-width: ")
-            .concat(qa(xt, "md", 0), "px)")
+            .concat(Ja(bt, "xs", 0), "px) and (max-width: ")
+            .concat(Ja(bt, "md", 0), "px)")
         ] = { maxWidth: "100%" }),
         (a["& .logoContainer"] = {
           display: "flex",
@@ -1473,7 +1487,7 @@ var Sa,
             display: "flex",
             width: "328px",
             borderTop: "".concat(
-              qa(t, "login.footerDivider", "#f2f2f2"),
+              Ja(t, "login.footerDivider", "#f2f2f2"),
               " 1px solid"
             ),
             padding: "35px 0",
@@ -1482,14 +1496,187 @@ var Sa,
             justifyContent: "center",
           },
           "& .footer, & .footer a": {
-            color: qa(t, "login.footerElements", "#000"),
+            color: Ja(t, "login.footerElements", "#000"),
             fontSize: "14px",
             textDecoration: "none",
           },
         }),
         a),
     };
-  });
+  }),
+  Gt = a.keyframes(
+    Fa ||
+      (Fa = b(
+        [
+          "0% {\n            transform: translate(139.785027px, 140.086989px) rotate(45.236493deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        10% {\n            transform: translate(139.785027px, 140.086989px) rotate(-197.740907deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        20% {\n            transform: translate(139.785027px, 140.086989px) rotate(-108.6deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        30% {\n            transform: translate(139.785027px, 140.086989px) rotate(-17.484014deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        33.333333% {\n            transform: translate(139.785027px, 140.086989px) rotate(-17.48deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        43.333333% {\n            transform: translate(139.785027px, 140.086989px) rotate(160.887995deg);\n    }\n        100% {\n            transform: translate(139.785027px, 140.086989px) rotate(160.887995deg);\n    }",
+        ],
+        [
+          "0% {\n            transform: translate(139.785027px, 140.086989px) rotate(45.236493deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        10% {\n            transform: translate(139.785027px, 140.086989px) rotate(-197.740907deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        20% {\n            transform: translate(139.785027px, 140.086989px) rotate(-108.6deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        30% {\n            transform: translate(139.785027px, 140.086989px) rotate(-17.484014deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        33.333333% {\n            transform: translate(139.785027px, 140.086989px) rotate(-17.48deg);\n        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n    }\n        43.333333% {\n            transform: translate(139.785027px, 140.086989px) rotate(160.887995deg);\n    }\n        100% {\n            transform: translate(139.785027px, 140.086989px) rotate(160.887995deg);\n    }",
+        ]
+      ))
+  ),
+  kt = a.keyframes(
+    qa ||
+      (qa = b(
+        [
+          "\n0% {\n            transform: scale(1, 0.995019);\n        }\n        33.333333% {\n            transform: scale(1, 0.995019);\n            animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n        }\n        43.333333% {\n            transform: scale(0.101121, 0.102033);\n            animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n        }\n        50% {\n            transform: scale(0.1, 0.1);\n            animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n        }\n        60% {\n            transform: scale(1, 1);\n        }\n        100% {\n            transform: scale(1, 1);\n        }\n",
+        ],
+        [
+          "\n0% {\n            transform: scale(1, 0.995019);\n        }\n        33.333333% {\n            transform: scale(1, 0.995019);\n            animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n        }\n        43.333333% {\n            transform: scale(0.101121, 0.102033);\n            animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n        }\n        50% {\n            transform: scale(0.1, 0.1);\n            animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n        }\n        60% {\n            transform: scale(1, 1);\n        }\n        100% {\n            transform: scale(1, 1);\n        }\n",
+        ]
+      ))
+  ),
+  St = a.keyframes(
+    Oa ||
+      (Oa = b(
+        [
+          "\n0% {\n            opacity: 1;\n        }\n        6.666667% {\n            opacity: 1;\n        }\n        10% {\n            opacity: 0;\n        }\n        13.333333% {\n            opacity: 0;\n        }\n        20% {\n            opacity: 1;\n        }\n        30% {\n            opacity: 1;\n        }\n        36.666667% {\n            opacity: 1;\n        }\n        40% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 0;\n        }\n",
+        ],
+        [
+          "\n0% {\n            opacity: 1;\n        }\n        6.666667% {\n            opacity: 1;\n        }\n        10% {\n            opacity: 0;\n        }\n        13.333333% {\n            opacity: 0;\n        }\n        20% {\n            opacity: 1;\n        }\n        30% {\n            opacity: 1;\n        }\n        36.666667% {\n            opacity: 1;\n        }\n        40% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 0;\n        }\n",
+        ]
+      ))
+  ),
+  Ft = a.keyframes(
+    Da ||
+      (Da = b(
+        [
+          '\n0% {\n            d: path(\n                "M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        10% {\n            d: path(\n                "M85.4,249.8C85.4,249.8,85.399999,249.800001,85.399999,249.800001C85.399999,249.800001,85.4,249.800002,85.4,249.800002C85.4,249.800002,90.484102,251.966034,95.043213,248.269966C100.484052,243.859082,98.694728,236.722769,97.073675,234.469349C95.517658,232.306335,94.559418,231.751273,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        20% {\n            d: path(\n                "M85.4,249.8C85.4,249.8,85.399999,249.800001,85.399999,249.800001C85.399999,249.800001,85.4,249.800002,85.4,249.800002C85.4,249.800002,90.484102,251.966034,95.043213,248.269966C100.484052,243.859082,98.694728,236.722769,97.073675,234.469349C95.517658,232.306335,94.559418,231.751273,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        30% {\n            d: path(\n                "M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M84.281285,246.076032C107.50521,254.051555,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,86.465691,239.82846,53.85604,207.193233C41.31604,204.283233,32.439249,213.928672,40.474905,219.54755C40.474905,219.54755,61.310295,238.187372,84.281285,246.076032Z"\n            );\n        }\n        100% {\n            d: path(\n                "M84.281285,246.076032C107.50521,254.051555,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,86.465691,239.82846,53.85604,207.193233C41.31604,204.283233,32.439249,213.928672,40.474905,219.54755C40.474905,219.54755,61.310295,238.187372,84.281285,246.076032Z"\n            );\n        }\n',
+        ],
+        [
+          '\n0% {\n            d: path(\n                "M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        10% {\n            d: path(\n                "M85.4,249.8C85.4,249.8,85.399999,249.800001,85.399999,249.800001C85.399999,249.800001,85.4,249.800002,85.4,249.800002C85.4,249.800002,90.484102,251.966034,95.043213,248.269966C100.484052,243.859082,98.694728,236.722769,97.073675,234.469349C95.517658,232.306335,94.559418,231.751273,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        20% {\n            d: path(\n                "M85.4,249.8C85.4,249.8,85.399999,249.800001,85.399999,249.800001C85.399999,249.800001,85.4,249.800002,85.4,249.800002C85.4,249.800002,90.484102,251.966034,95.043213,248.269966C100.484052,243.859082,98.694728,236.722769,97.073675,234.469349C95.517658,232.306335,94.559418,231.751273,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        30% {\n            d: path(\n                "M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M84.281285,246.076032C107.50521,254.051555,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,86.465691,239.82846,53.85604,207.193233C41.31604,204.283233,32.439249,213.928672,40.474905,219.54755C40.474905,219.54755,61.310295,238.187372,84.281285,246.076032Z"\n            );\n        }\n        100% {\n            d: path(\n                "M84.281285,246.076032C107.50521,254.051555,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,86.465691,239.82846,53.85604,207.193233C41.31604,204.283233,32.439249,213.928672,40.474905,219.54755C40.474905,219.54755,61.310295,238.187372,84.281285,246.076032Z"\n            );\n        }\n',
+        ]
+      ))
+  ),
+  qt = a.keyframes(
+    ja ||
+      (ja = b(
+        [
+          '\n    0% {\n            d: path(\n                "M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z"\n            );\n        }\n        10% {\n            d: path(\n                "M250.887564,168.08137C250.887564,168.081368,250.887563,168.081375,250.887563,168.081375C250.887563,168.081375,253.7831,157.676613,244.778825,154.781475C235.762034,151.882313,232.694053,158.881918,231.752888,162.486547C231.017121,165.304508,231.564293,168.517464,232.231509,169.666243C233.407087,171.690293,235.517449,173.828597,238.467701,174.606956C241.339242,175.364549,245.542656,175.427978,248.770823,172.704057C248.770823,172.704057,250.400569,171.202441,250.887564,168.08137Z"\n            );\n        }\n        20% {\n            d: path(\n                "M250.887564,168.08137C250.887564,168.081368,250.887563,168.081375,250.887563,168.081375C250.887563,168.081375,253.7831,157.676613,244.778825,154.781475C235.762034,151.882313,232.694053,158.881918,231.752888,162.486547C231.017121,165.304508,231.564293,168.517464,232.231509,169.666243C233.407087,171.690293,235.517449,173.828597,238.467701,174.606956C241.339242,175.364549,245.542656,175.427978,248.770823,172.704057C248.770823,172.704057,250.400569,171.202441,250.887564,168.08137Z"\n            );\n        }\n        30% {\n            d: path(\n                "M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M241.985702,180.287452C255.201364,145.393106,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,189.760952,38.146938,199.370952,46.756938C229.706596,66.855753,234.126292,101.544407,234.194759,127.574104C235.798839,155.047874,216.192342,185.901625,205.13,201.21C199.980012,208.336696,214.039151,220.128533,219.270001,215.35C219.270001,215.35,237.299554,192.660656,241.985702,180.287452Z"\n            );\n        }\n        100% {\n            d: path(\n                "M241.985702,180.287452C255.201364,145.393106,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,189.760952,38.146938,199.370952,46.756938C229.706596,66.855753,234.126292,101.544407,234.194759,127.574104C235.798839,155.047874,216.192342,185.901625,205.13,201.21C199.980012,208.336696,214.039151,220.128533,219.270001,215.35C219.270001,215.35,237.299554,192.660656,241.985702,180.287452Z"\n            );\n        }\n',
+        ],
+        [
+          '\n    0% {\n            d: path(\n                "M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z"\n            );\n        }\n        10% {\n            d: path(\n                "M250.887564,168.08137C250.887564,168.081368,250.887563,168.081375,250.887563,168.081375C250.887563,168.081375,253.7831,157.676613,244.778825,154.781475C235.762034,151.882313,232.694053,158.881918,231.752888,162.486547C231.017121,165.304508,231.564293,168.517464,232.231509,169.666243C233.407087,171.690293,235.517449,173.828597,238.467701,174.606956C241.339242,175.364549,245.542656,175.427978,248.770823,172.704057C248.770823,172.704057,250.400569,171.202441,250.887564,168.08137Z"\n            );\n        }\n        20% {\n            d: path(\n                "M250.887564,168.08137C250.887564,168.081368,250.887563,168.081375,250.887563,168.081375C250.887563,168.081375,253.7831,157.676613,244.778825,154.781475C235.762034,151.882313,232.694053,158.881918,231.752888,162.486547C231.017121,165.304508,231.564293,168.517464,232.231509,169.666243C233.407087,171.690293,235.517449,173.828597,238.467701,174.606956C241.339242,175.364549,245.542656,175.427978,248.770823,172.704057C248.770823,172.704057,250.400569,171.202441,250.887564,168.08137Z"\n            );\n        }\n        30% {\n            d: path(\n                "M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M241.985702,180.287452C255.201364,145.393106,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,189.760952,38.146938,199.370952,46.756938C229.706596,66.855753,234.126292,101.544407,234.194759,127.574104C235.798839,155.047874,216.192342,185.901625,205.13,201.21C199.980012,208.336696,214.039151,220.128533,219.270001,215.35C219.270001,215.35,237.299554,192.660656,241.985702,180.287452Z"\n            );\n        }\n        100% {\n            d: path(\n                "M241.985702,180.287452C255.201364,145.393106,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,189.760952,38.146938,199.370952,46.756938C229.706596,66.855753,234.126292,101.544407,234.194759,127.574104C235.798839,155.047874,216.192342,185.901625,205.13,201.21C199.980012,208.336696,214.039151,220.128533,219.270001,215.35C219.270001,215.35,237.299554,192.660656,241.985702,180.287452Z"\n            );\n        }\n',
+        ]
+      ))
+  ),
+  Ot = a.keyframes(
+    Ua ||
+      (Ua = b(
+        [
+          '\n0% {\n            d: path(\n                "M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z"\n            );\n        }\n        10% {\n            d: path(\n                "M171.58686,7.8192C164.834536,7.661923,162.882928,13.414575,162.613915,14.669774C162.613914,14.669774,161.858025,17.37084,162.366976,18.743708C162.782522,19.864622,163.527502,21.022768,164.723558,21.957074C165.842173,22.830886,168.859974,24.254302,168.859974,24.254302C168.859974,24.254302,168.859968,24.254306,168.859967,24.254304C181.289967,27.534304,184.046866,11.109212,171.586866,7.819212C171.586866,7.819212,171.58686,7.8192,171.58686,7.8192Z"\n            );\n        }\n        20% {\n            d: path(\n                "M171.58686,7.8192C164.834536,7.661923,162.882928,13.414575,162.613915,14.669774C162.613914,14.669774,161.858025,17.37084,162.366976,18.743708C162.782522,19.864622,163.527502,21.022768,164.723558,21.957074C165.842173,22.830886,168.859974,24.254302,168.859974,24.254302C168.859974,24.254302,168.859968,24.254306,168.859967,24.254304C181.289967,27.534304,184.046866,11.109212,171.586866,7.819212C171.586866,7.819212,171.58686,7.8192,171.58686,7.8192Z"\n            );\n        }\n        30% {\n            d: path(\n                "M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M154.601291,1.547478C127.732134,-3.659063,101.676041,0.16217,89.834975,4.047622C73.018778,9.565582,43.015709,29.967817,36.85,38.21C28.01,47.52,41.568561,62.002759,50.57,52.76C67.005248,35.884138,77.788003,22.937369,100.935291,18.024709C148.028227,8.029949,175.904245,24.591662,199.370952,46.756938C210.775532,51.88401,219.463487,39.878796,215.289997,35.759998C189.664787,10.470596,154.601291,1.547478,154.601291,1.547478Z"\n            );\n        }\n        100% {\n            d: path(\n                "M154.601291,1.547478C127.732134,-3.659063,101.676041,0.16217,89.834975,4.047622C73.018778,9.565582,43.015709,29.967817,36.85,38.21C28.01,47.52,41.568561,62.002759,50.57,52.76C67.005248,35.884138,77.788003,22.937369,100.935291,18.024709C148.028227,8.029949,175.904245,24.591662,199.370952,46.756938C210.775532,51.88401,219.463487,39.878796,215.289997,35.759998C189.664787,10.470596,154.601291,1.547478,154.601291,1.547478Z"\n            );\n        }\n',
+        ],
+        [
+          '\n0% {\n            d: path(\n                "M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z"\n            );\n        }\n        10% {\n            d: path(\n                "M171.58686,7.8192C164.834536,7.661923,162.882928,13.414575,162.613915,14.669774C162.613914,14.669774,161.858025,17.37084,162.366976,18.743708C162.782522,19.864622,163.527502,21.022768,164.723558,21.957074C165.842173,22.830886,168.859974,24.254302,168.859974,24.254302C168.859974,24.254302,168.859968,24.254306,168.859967,24.254304C181.289967,27.534304,184.046866,11.109212,171.586866,7.819212C171.586866,7.819212,171.58686,7.8192,171.58686,7.8192Z"\n            );\n        }\n        20% {\n            d: path(\n                "M171.58686,7.8192C164.834536,7.661923,162.882928,13.414575,162.613915,14.669774C162.613914,14.669774,161.858025,17.37084,162.366976,18.743708C162.782522,19.864622,163.527502,21.022768,164.723558,21.957074C165.842173,22.830886,168.859974,24.254302,168.859974,24.254302C168.859974,24.254302,168.859968,24.254306,168.859967,24.254304C181.289967,27.534304,184.046866,11.109212,171.586866,7.819212C171.586866,7.819212,171.58686,7.8192,171.58686,7.8192Z"\n            );\n        }\n        30% {\n            d: path(\n                "M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M154.601291,1.547478C127.732134,-3.659063,101.676041,0.16217,89.834975,4.047622C73.018778,9.565582,43.015709,29.967817,36.85,38.21C28.01,47.52,41.568561,62.002759,50.57,52.76C67.005248,35.884138,77.788003,22.937369,100.935291,18.024709C148.028227,8.029949,175.904245,24.591662,199.370952,46.756938C210.775532,51.88401,219.463487,39.878796,215.289997,35.759998C189.664787,10.470596,154.601291,1.547478,154.601291,1.547478Z"\n            );\n        }\n        100% {\n            d: path(\n                "M154.601291,1.547478C127.732134,-3.659063,101.676041,0.16217,89.834975,4.047622C73.018778,9.565582,43.015709,29.967817,36.85,38.21C28.01,47.52,41.568561,62.002759,50.57,52.76C67.005248,35.884138,77.788003,22.937369,100.935291,18.024709C148.028227,8.029949,175.904245,24.591662,199.370952,46.756938C210.775532,51.88401,219.463487,39.878796,215.289997,35.759998C189.664787,10.470596,154.601291,1.547478,154.601291,1.547478Z"\n            );\n        }\n',
+        ]
+      ))
+  ),
+  Dt = a.keyframes(
+    Wa ||
+      (Wa = b(
+        [
+          '\n0% {\n            d: path(\n                "M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z"\n            );\n        }\n        3.333333% {\n            d: path(\n                "M4.90273,88.748028C1.236063,104.534694,0.694614,122.375568,4.181281,138.328902C7.119767,155.82704,18.329955,178.442148,31.722495,188.944182C39.448991,194.869945,48.960631,181.919808,35.808325,167.974185C27.053341,155.46954,26.778713,144.786038,23.180834,130.168643C19.139468,114.899686,18.114526,100.786543,20.952073,87.411869C21.572437,79.045425,6.897064,77.595457,4.916661,86.915441L4.90273,88.748028Z"\n            );\n        }\n        10% {\n            d: path(\n                "M3.04819,95.324083C3.04819,95.324083,5.563842,99.566705,5.563842,99.566705C5.563842,99.566705,11.253926,104.287825,15.031546,103.153927C19.091035,103.791214,24.274539,98.764542,25.851733,95.404259C27.275674,92.370488,25.596139,87.698114,24.002501,85.705929C20.798403,80.519057,13.463578,80.659628,12.636219,80.655608C8.65731,80.636275,3.191193,86.96637,3.089982,89.826322L3.04819,95.324083Z"\n            );\n        }\n        20% {\n            d: path(\n                "M3.04819,95.324083C3.04819,95.324083,5.563842,99.566705,5.563842,99.566705C5.563842,99.566705,11.253926,104.287825,15.031546,103.153927C19.091035,103.791214,24.274539,98.764542,25.851733,95.404259C27.275674,92.370488,25.596139,87.698114,24.002501,85.705929C20.798403,80.519057,13.463578,80.659628,12.636219,80.655608C8.65731,80.636275,3.191193,86.96637,3.089982,89.826322L3.04819,95.324083Z"\n            );\n        }\n        30% {\n            d: path(\n                "M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M36.436007,38.11681C-7.498754,85.801617,-0.826469,134.911183,5.658972,158.164678C15.873566,192.855226,35.43893,215.965329,40.28,219.33C49.84,227.9,63.271136,215.585685,53.661136,206.975685C38.384036,191.128398,25.999041,166.121323,22.77,152.4C12.429986,121.009925,27.020185,73.061168,50.245766,52.61587C65.058304,39.576508,51.054205,23.186387,36.436019,38.116819L36.436007,38.11681Z"\n            );\n        }\n        100% {\n            d: path(\n                "M36.436007,38.11681C-7.498754,85.801617,-0.826469,134.911183,5.658972,158.164678C15.873566,192.855226,35.43893,215.965329,40.28,219.33C49.84,227.9,63.271136,215.585685,53.661136,206.975685C38.384036,191.128398,25.999041,166.121323,22.77,152.4C12.429986,121.009925,27.020185,73.061168,50.245766,52.61587C65.058304,39.576508,51.054205,23.186387,36.436019,38.116819L36.436007,38.11681Z"\n            );\n        }\n',
+        ],
+        [
+          '\n0% {\n            d: path(\n                "M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z"\n            );\n        }\n        3.333333% {\n            d: path(\n                "M4.90273,88.748028C1.236063,104.534694,0.694614,122.375568,4.181281,138.328902C7.119767,155.82704,18.329955,178.442148,31.722495,188.944182C39.448991,194.869945,48.960631,181.919808,35.808325,167.974185C27.053341,155.46954,26.778713,144.786038,23.180834,130.168643C19.139468,114.899686,18.114526,100.786543,20.952073,87.411869C21.572437,79.045425,6.897064,77.595457,4.916661,86.915441L4.90273,88.748028Z"\n            );\n        }\n        10% {\n            d: path(\n                "M3.04819,95.324083C3.04819,95.324083,5.563842,99.566705,5.563842,99.566705C5.563842,99.566705,11.253926,104.287825,15.031546,103.153927C19.091035,103.791214,24.274539,98.764542,25.851733,95.404259C27.275674,92.370488,25.596139,87.698114,24.002501,85.705929C20.798403,80.519057,13.463578,80.659628,12.636219,80.655608C8.65731,80.636275,3.191193,86.96637,3.089982,89.826322L3.04819,95.324083Z"\n            );\n        }\n        20% {\n            d: path(\n                "M3.04819,95.324083C3.04819,95.324083,5.563842,99.566705,5.563842,99.566705C5.563842,99.566705,11.253926,104.287825,15.031546,103.153927C19.091035,103.791214,24.274539,98.764542,25.851733,95.404259C27.275674,92.370488,25.596139,87.698114,24.002501,85.705929C20.798403,80.519057,13.463578,80.659628,12.636219,80.655608C8.65731,80.636275,3.191193,86.96637,3.089982,89.826322L3.04819,95.324083Z"\n            );\n        }\n        30% {\n            d: path(\n                "M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z"\n            );\n        }\n        33.333333% {\n            d: path(\n                "M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z"\n            );\n        }\n        43.333333% {\n            d: path(\n                "M36.436007,38.11681C-7.498754,85.801617,-0.826469,134.911183,5.658972,158.164678C15.873566,192.855226,35.43893,215.965329,40.28,219.33C49.84,227.9,63.271136,215.585685,53.661136,206.975685C38.384036,191.128398,25.999041,166.121323,22.77,152.4C12.429986,121.009925,27.020185,73.061168,50.245766,52.61587C65.058304,39.576508,51.054205,23.186387,36.436019,38.116819L36.436007,38.11681Z"\n            );\n        }\n        100% {\n            d: path(\n                "M36.436007,38.11681C-7.498754,85.801617,-0.826469,134.911183,5.658972,158.164678C15.873566,192.855226,35.43893,215.965329,40.28,219.33C49.84,227.9,63.271136,215.585685,53.661136,206.975685C38.384036,191.128398,25.999041,166.121323,22.77,152.4C12.429986,121.009925,27.020185,73.061168,50.245766,52.61587C65.058304,39.576508,51.054205,23.186387,36.436019,38.116819L36.436007,38.11681Z"\n            );\n        }\n',
+        ]
+      ))
+  ),
+  jt = a.keyframes(
+    Qa ||
+      (Qa = b(
+        [
+          "\n0% {\n            transform: translate(139.784999px, 140.086986px) scale(1, 1);\n    }\n        30% {\n            transform: translate(139.784999px, 140.086986px) scale(1, 1);\n    }\n        43.333333% {\n            transform: translate(139.784999px, 140.086986px) scale(0.102813, 0.102813);\n    }\n        50% {\n            transform: translate(139.784999px, 140.086986px) scale(0.102813, 0.102813);\n    }\n        60% {\n            transform: translate(139.784999px, 140.086986px) scale(1.001075, 1.001075);\n    }\n        100% {\n            transform: translate(139.784999px, 140.086986px) scale(1.001075, 1.001075);\n    }\n",
+        ],
+        [
+          "\n0% {\n            transform: translate(139.784999px, 140.086986px) scale(1, 1);\n    }\n        30% {\n            transform: translate(139.784999px, 140.086986px) scale(1, 1);\n    }\n        43.333333% {\n            transform: translate(139.784999px, 140.086986px) scale(0.102813, 0.102813);\n    }\n        50% {\n            transform: translate(139.784999px, 140.086986px) scale(0.102813, 0.102813);\n    }\n        60% {\n            transform: translate(139.784999px, 140.086986px) scale(1.001075, 1.001075);\n    }\n        100% {\n            transform: translate(139.784999px, 140.086986px) scale(1.001075, 1.001075);\n    }\n",
+        ]
+      ))
+  ),
+  Ut = a.keyframes(
+    $a ||
+      ($a = b(
+        [
+          "\n0% {\n            opacity: 0;\n        }\n        30% {\n            opacity: 0;\n        }\n        36.666667% {\n            opacity: 0;\n        }\n        40% {\n            opacity: 1;\n        }\n        100% {\n            opacity: 1;\n        }\n",
+        ],
+        [
+          "\n0% {\n            opacity: 0;\n        }\n        30% {\n            opacity: 0;\n        }\n        36.666667% {\n            opacity: 0;\n        }\n        40% {\n            opacity: 1;\n        }\n        100% {\n            opacity: 1;\n        }\n",
+        ]
+      ))
+  ),
+  Wt = a.keyframes(
+    Ya ||
+      (Ya = b(
+        [
+          "0% {\n            transform: translate(139.785004px, 140.086979px) rotate(0deg);\n    }\n        10% {\n            transform: translate(139.785004px, 140.086979px) rotate(0deg);\n    }\n        20% {\n            transform: translate(139.785004px, 140.086979px) rotate(90.041277deg);\n    }\n        100% {\n            transform: translate(139.785004px, 140.086979px) rotate(90.041277deg);\n    }",
+        ],
+        [
+          "0% {\n            transform: translate(139.785004px, 140.086979px) rotate(0deg);\n    }\n        10% {\n            transform: translate(139.785004px, 140.086979px) rotate(0deg);\n    }\n        20% {\n            transform: translate(139.785004px, 140.086979px) rotate(90.041277deg);\n    }\n        100% {\n            transform: translate(139.785004px, 140.086979px) rotate(90.041277deg);\n    }",
+        ]
+      ))
+  ),
+  Qt = a.keyframes(
+    Xa ||
+      (Xa = b(
+        [
+          "\n0% {\n            opacity: 0;\n        }\n        6.666667% {\n            opacity: 0;\n        }\n        10% {\n            opacity: 1;\n        }\n        13.333333% {\n            opacity: 1;\n        }\n        20% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 0;\n        }\n",
+        ],
+        [
+          "\n0% {\n            opacity: 0;\n        }\n        6.666667% {\n            opacity: 0;\n        }\n        10% {\n            opacity: 1;\n        }\n        13.333333% {\n            opacity: 1;\n        }\n        20% {\n            opacity: 0;\n        }\n        100% {\n            opacity: 0;\n        }\n",
+        ]
+      ))
+  ),
+  $t = c.default.svg(
+    { width: 40, height: 40 },
+    a.css(
+      Ka ||
+        (Ka = b(
+          [
+            "\n    path {\n      fill: ",
+            ";\n    }\n    #section1 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section2 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section3 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section4 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section5 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section6 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section7 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section8 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section9 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section10 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section11 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n  ",
+          ],
+          [
+            "\n    path {\n      fill: ",
+            ";\n    }\n    #section1 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section2 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section3 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section4 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section5 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section6 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section7 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section8 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section9 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section10 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n    #section11 {\n      animation: ",
+            " 3000ms linear infinite normal forwards;\n    }\n  ",
+          ]
+        )),
+      function (e) {
+        return Ja(e, "theme.loaderColor", "#113053");
+      },
+      Gt,
+      kt,
+      St,
+      Ft,
+      qt,
+      Ot,
+      Dt,
+      jt,
+      Ut,
+      Wt,
+      Qt
+    )
+  );
 (exports.AGPLV3DarkLogo = function (e) {
   return r.createElement(
     "svg",
@@ -2074,9 +2261,9 @@ var Sa,
       )
     );
   }),
-  (exports.ApplicationLogo = gt),
+  (exports.ApplicationLogo = Lt),
   (exports.ArrowIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -2087,24 +2274,24 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "defs",
         null,
-        n.default.createElement(
+        l.default.createElement(
           "clipPath",
           { id: "prefix__a" },
-          n.default.createElement("path", { d: "M0 0h256v256H0z" })
+          l.default.createElement("path", { d: "M0 0h256v256H0z" })
         )
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { clipPath: "url(#prefix__a)" },
-        n.default.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
-        n.default.createElement("path", {
+        l.default.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
+        l.default.createElement("path", {
           "data-name": "arrow-icn",
           d: "M19.795 108.063c-26.394 0-26.394 40.032 0 40.032h167.688l-22.739 22.669c-18.656 18.622 9.725 46.922 28.382 28.316l56.877-56.732a19.991 19.991 0 000-28.548l-56.877-56.716c-18.656-18.6-47.038 9.684-28.382 28.3l22.739 22.68H19.795z",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           "data-name": "Rect\\xE1ngulo 863",
           fill: "none",
           d: "M0 0h256v256H0z",
@@ -2149,7 +2336,7 @@ var Sa,
     );
   }),
   (exports.ArrowRightLink = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -2160,7 +2347,7 @@ var Sa,
         e,
         { viewBox: "0 0 12.621 7.619" }
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         d: "M2.82.976A.989.989,0,0,1,4.8.976V9.243L5.919,8.122a.989.989,0,0,1,1.4,1.4l-2.8,2.8a.989.989,0,0,1-1.411,0L.3,9.521a.989.989,0,0,1,1.4-1.4L2.82,9.243V.976Z",
         transform: "translate(0 7.619) rotate(-90)",
         fill: "#2781b0",
@@ -2222,7 +2409,7 @@ var Sa,
     );
   }),
   (exports.AzureTierIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -2233,13 +2420,13 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { id: "azure-logo-color", transform: "translate(-437.603 -471.382)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { id: "layer1-1", transform: "translate(437.603 471.382)" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             id: "path21",
             d: "M459.411,505.944c6.055-1.07,11.056-1.953,11.115-1.965l.1-.024-5.717-6.8c-3.143-3.74-5.717-6.815-5.717-6.831,0-.032,5.9-16.291,5.936-16.347.012-.019,4.03,6.919,9.738,16.812,5.347,9.266,9.755,16.9,9.8,16.975l.075.132-18.168,0-18.169,0S459.411,505.944,459.411,505.944ZM437.6,503.868c0-.008,2.693-4.686,5.987-10.391l5.987-10.375,6.978-5.856c3.839-3.219,6.986-5.86,7-5.864a1.448,1.448,0,0,1-.112.282c-.075.159-3.485,7.471-7.574,16.247l-7.44,15.957-5.41.008C440.037,503.884,437.6,503.88,437.6,503.868Z",
             transform: "translate(-437.603 -471.382)",
@@ -2250,7 +2437,7 @@ var Sa,
     );
   }),
   (exports.AzureTierIconXs = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -2261,13 +2448,13 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { id: "azure-logo-gray", transform: "translate(-437.603 -471.382)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { id: "layer1-1", transform: "translate(437.603 471.382)" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             id: "path21",
             d: "M447.781,487.513l5.188-.917.049-.011-2.668-3.173c-1.467-1.746-2.668-3.181-2.668-3.188s2.756-7.6,2.771-7.63c.006-.009,1.881,3.229,4.545,7.847l4.572,7.923.035.062-8.479,0-8.48,0S447.781,487.513,447.781,487.513Zm-10.178-.969s1.257-2.187,2.794-4.85l2.794-4.842,3.257-2.733c1.792-1.5,3.261-2.735,3.266-2.737a.672.672,0,0,1-.052.132c-.035.074-1.627,3.487-3.535,7.583l-3.472,7.448-2.525,0C438.739,486.551,437.6,486.55,437.6,486.544Z",
             transform: "translate(-437.603 -471.382)",
@@ -2302,7 +2489,7 @@ var Sa,
     );
   }),
   (exports.BackIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -2313,8 +2500,8 @@ var Sa,
         e,
         { viewBox: "0 0 18 12" }
       ),
-      n.default.createElement("defs", null),
-      n.default.createElement(
+      l.default.createElement("defs", null),
+      l.default.createElement(
         "g",
         {
           id: "Page-1",
@@ -2323,10 +2510,10 @@ var Sa,
           fill: "none",
           fillRule: "evenodd",
         },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { fill: "currentcolor", id: "Fill-2" },
-          n.default.createElement("polygon", {
+          l.default.createElement("polygon", {
             points:
               "17.9999987 4.99999934 3.82999951 4.99999934 7.40999918 1.4099994 5.99999946 -3.60000001e-07 -1.80000029e-07 5.99999928 5.99999946 11.9999989 7.40999918 10.5899991 3.82999951 6.99999922 17.9999987 6.99999922",
           })
@@ -2695,29 +2882,29 @@ var Sa,
   }),
   (exports.Button = function (a) {
     var t = a.label,
-      l = a.variant,
-      r = void 0 === l ? "regular" : l,
+      n = a.variant,
+      r = void 0 === n ? "regular" : n,
       c = a.icon,
       o = a.iconLocation,
       m = void 0 === o ? "end" : o,
       i = a.onClick,
-      h = a.disabled,
-      d = a.fullWidth,
+      d = a.disabled,
+      h = a.fullWidth,
       s = a.collapseOnSmall,
       f = void 0 === s || s,
       p = a.children,
       u = (function (e, a) {
         var t = {};
-        for (var l in e)
-          Object.prototype.hasOwnProperty.call(e, l) &&
-            a.indexOf(l) < 0 &&
-            (t[l] = e[l]);
+        for (var n in e)
+          Object.prototype.hasOwnProperty.call(e, n) &&
+            a.indexOf(n) < 0 &&
+            (t[n] = e[n]);
         if (null != e && "function" == typeof Object.getOwnPropertySymbols) {
-          var n = 0;
-          for (l = Object.getOwnPropertySymbols(e); n < l.length; n++)
-            a.indexOf(l[n]) < 0 &&
-              Object.prototype.propertyIsEnumerable.call(e, l[n]) &&
-              (t[l[n]] = e[l[n]]);
+          var l = 0;
+          for (n = Object.getOwnPropertySymbols(e); l < n.length; l++)
+            a.indexOf(n[l]) < 0 &&
+              Object.prototype.propertyIsEnumerable.call(e, n[l]) &&
+              (t[n[l]] = e[n[l]]);
         }
         return t;
       })(a, [
@@ -2734,28 +2921,28 @@ var Sa,
       v = null;
     return (
       c &&
-        (v = n.default.createElement("span", { className: "buttonIcon" }, c)),
-      n.default.createElement(
-        mt,
+        (v = l.default.createElement("span", { className: "buttonIcon" }, c)),
+      l.default.createElement(
+        wt,
         T(
           {
             onClick: i,
-            disabled: h || !1,
+            disabled: d || !1,
             variant: r || "regular",
             iconLocation: m || "end",
             label: t || "",
-            fullWidth: d || !1,
+            fullWidth: h || !1,
             collapseOnSmall: !!f,
             icon: v,
             parentChildren: p || null,
           },
           u
         ),
-        n.default.createElement(
+        l.default.createElement(
           e.Fragment,
           null,
           c && "start" === m && v,
-          n.default.createElement(
+          l.default.createElement(
             "span",
             { className: "button-label" },
             p,
@@ -3530,7 +3717,7 @@ var Sa,
     );
   }),
   (exports.ConsoleAgpl = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -3538,23 +3725,23 @@ var Sa,
         viewBox: "0 0 61.059 25.5334",
         xmlns: "http://www.w3.org/2000/svg",
       }),
-      n.default.createElement("defs", null),
-      n.default.createElement(
+      l.default.createElement("defs", null),
+      l.default.createElement(
         "g",
         null,
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M59.8021 17.9708C59.7771 17.9708 58.9617 18.0678 58.9617 18.0678L52.2703 18.0678C52.2563 19.0171 52.3861 19.9705 52.6582 20.8801C52.7117 21.0793 52.7558 21.2904 52.8198 21.4943C52.8596 21.6203 52.9068 21.7269 52.9491 21.8499L52.8844 21.9792C52.5505 22.4551 52.3312 22.9893 52.2379 23.5632C52.0705 22.9965 51.9455 22.4051 51.8823 21.8176C51.8632 21.6403 51.8605 21.4737 51.85 21.3004C51.7591 20.2068 51.898 19.1001 52.2703 18.0678L39.8572 18.0678L38.2409 25.0178L53.6603 25.0178C53.2607 25.012 52.8818 24.8399 52.6258 24.5329C52.5865 24.4785 52.5571 24.4322 52.5289 24.3713L52.4642 24.2097C52.4175 24.0539 52.3896 23.8872 52.3996 23.7248C52.4675 23.129 52.6951 22.5624 53.0461 22.0762C53.5355 21.353 54.1461 20.7194 54.824 20.169C54.9933 20.0275 55.1639 19.8797 55.3412 19.7487L56.02 19.2962C56.757 18.8181 57.5651 18.4622 58.4121 18.2294C57.6081 18.505 56.8157 18.8769 56.117 19.3608C56.089 19.3795 56.0796 19.4053 56.0524 19.4255C55.642 19.7086 55.2528 20.0225 54.8886 20.3629C53.7914 21.3948 53.203 22.4854 53.4663 23.1106C53.485 23.1536 53.5049 23.1686 53.531 23.2076C53.8144 23.624 54.5162 23.7218 55.4058 23.4985C55.4663 23.4832 55.5374 23.4514 55.5998 23.4339C55.9055 23.3439 56.2137 23.24 56.5049 23.1106L56.7312 23.0136L56.7312 22.9813C57.7116 22.4958 58.4752 21.9282 58.6384 21.5913C58.6741 21.5357 58.694 21.4916 58.6707 21.4297C58.5542 21.1936 57.7179 21.3573 56.7312 21.7853L56.5049 21.8822C56.5721 21.82 56.6294 21.7483 56.6989 21.6883C56.8109 21.5919 56.9308 21.4903 57.0545 21.3973C57.2411 21.2558 57.4363 21.1314 57.6363 21.0094C58.5356 20.3308 58.9919 19.6957 58.897 19.4578C58.8756 19.4101 58.8509 19.3727 58.8 19.3608C58.4738 19.3263 58.1205 19.4016 57.8303 19.5548C57.4338 19.7227 57.0583 19.8996 56.6989 20.1366L56.6342 20.2013L56.4403 20.3306L56.5696 20.1366C56.7701 19.7945 57.0094 19.4865 57.3131 19.2315C57.5681 19.0107 57.862 18.787 58.1535 18.6173C58.2656 18.5512 58.3636 18.5114 58.4768 18.4557C58.5899 18.4001 58.7188 18.3389 58.8324 18.2941C59.139 18.1481 59.4686 18.0347 59.8021 17.9708ZM43.2514 18.9406L43.8656 18.9406L42.9605 22.9166L42.4433 22.9166L42.7019 21.7529L41.0856 21.7529L39.9865 22.9166L39.4046 22.9166L43.2514 18.9406ZM44.7384 18.9729L44.7707 18.9729L46.484 18.9729C46.6016 18.966 46.7058 18.9776 46.8072 19.0376C46.8812 19.0803 46.9246 19.1809 46.9042 19.2639L46.7102 20.169L46.0961 20.169L46.29 19.2962L44.803 19.2962L44.2535 21.7206L44.0595 22.6257L45.5788 22.6257L45.5788 22.5934L45.8698 21.268L45.1586 21.268L45.2233 20.9448L46.5163 20.9448L46.1607 22.6257C46.1556 22.6493 46.1403 22.6694 46.1284 22.6904C46.0904 22.7525 46.0326 22.8208 45.9668 22.852C45.8508 22.9093 45.7405 22.9205 45.6112 22.9166L43.8979 22.9166C43.7803 22.9236 43.6761 22.912 43.5747 22.852C43.5006 22.81 43.4565 22.7082 43.4777 22.6257L44.2212 19.2639C44.2469 19.169 44.325 19.0768 44.4151 19.0376C44.5108 18.9915 44.6325 18.9774 44.7384 18.9729ZM47.4214 18.9729L49.5549 18.9729C49.6726 18.966 49.7767 18.9776 49.8782 19.0376C49.9533 19.0794 49.9956 19.1803 49.9751 19.2639L49.5872 21.0741C49.5605 21.1692 49.4844 21.2301 49.3933 21.268C49.2783 21.3257 49.1339 21.3682 49.0054 21.365L47.4537 21.365L47.1628 22.6904L47.1305 22.9166L46.5486 22.9166L46.5809 22.7227L47.4214 18.9729ZM50.363 18.9729L50.9449 18.9729L50.2661 21.9469L50.1368 22.6257L51.5268 22.6257C51.5413 22.7329 51.5731 22.8124 51.5914 22.9166L49.4903 22.9166L49.6519 22.1732L50.363 18.9729ZM47.9386 19.2962L47.5507 21.0418L49.0054 21.0418L49.3933 19.2962L47.9386 19.2962ZM43.3161 19.3608C43.1345 19.5882 42.9037 19.8565 42.6049 20.169L41.4735 21.365L42.7988 21.365L43.0251 20.3629C43.1247 19.9683 43.2267 19.625 43.3161 19.3608ZM41.4412 23.4339L42.0877 23.4339L42.0554 23.5955L41.5705 23.5955L41.5381 23.8218L41.926 23.8218L41.8937 23.9834L41.5058 23.9834L41.4088 24.3713L41.2472 24.3713L41.4412 23.4339ZM44.803 23.4339L44.8354 23.4339C44.8954 23.4324 44.9419 23.4421 44.997 23.4662C45.0449 23.4868 45.1051 23.5155 45.1263 23.5632C45.1465 23.6117 45.1372 23.6734 45.1263 23.7248L44.9647 23.7248C44.9709 23.693 44.9487 23.6557 44.9323 23.6278C44.928 23.6235 44.9374 23.5989 44.9323 23.5955C44.8992 23.5783 44.8403 23.5609 44.803 23.5632C44.7535 23.5598 44.7167 23.603 44.6737 23.6278C44.6456 23.6443 44.6178 23.661 44.6091 23.6925C44.6035 23.711 44.6286 23.7103 44.6414 23.7248C44.685 23.7505 44.7206 23.7821 44.7707 23.7894C44.8348 23.8026 44.9046 23.8283 44.9647 23.8541C45.0107 23.8748 45.0391 23.9059 45.0616 23.9511C45.0808 23.9959 45.0733 24.0331 45.0616 24.0804C45.049 24.1332 45.0334 24.2017 44.997 24.242C44.9575 24.2872 44.9232 24.3164 44.8677 24.339C44.8085 24.3636 44.7378 24.3713 44.6737 24.3713C44.6049 24.3738 44.543 24.3661 44.4798 24.339C44.4276 24.3152 44.3731 24.2623 44.3505 24.2097C44.3281 24.1547 44.3375 24.1059 44.3505 24.048L44.3505 24.0157L44.5121 24.0157L44.5121 24.048C44.5073 24.0793 44.5007 24.1156 44.5121 24.145C44.524 24.1696 44.5516 24.1668 44.5768 24.1773C44.6128 24.1934 44.6343 24.2108 44.6737 24.2097C44.7109 24.21 44.7681 24.2223 44.803 24.2097C44.8312 24.2004 44.8467 24.166 44.8677 24.145C44.8842 24.1279 44.895 24.1036 44.9 24.0804C44.905 24.0638 44.9077 24.0636 44.9 24.048C44.8868 24.0303 44.8566 24.0222 44.8354 24.0157L44.7061 23.9511C44.6498 23.9394 44.5954 23.9129 44.5444 23.8864C44.5056 23.8653 44.4653 23.8621 44.4474 23.8218C44.4321 23.7821 44.4368 23.7336 44.4474 23.6925C44.4587 23.6417 44.4773 23.5695 44.5121 23.5308C44.5503 23.4877 44.6197 23.4863 44.6737 23.4662C44.7246 23.4471 44.7488 23.4353 44.803 23.4339ZM46.3223 23.4339L46.3547 23.4339L46.4516 23.4339L46.484 23.4339L46.4193 23.5632L46.4193 23.5955L46.3547 23.5632C46.3367 23.5619 46.3057 23.5866 46.29 23.5955C46.279 23.6119 46.2607 23.6406 46.2577 23.6601L46.387 23.6601L46.3547 23.8218L46.2254 23.8218L46.0961 24.3713L45.9344 24.3713L46.0637 23.8218L45.9668 23.8218L45.9991 23.6601L46.0961 23.6601C46.1005 23.6407 46.0961 23.6278 46.0961 23.6278C46.1022 23.5924 46.1117 23.5627 46.1284 23.5308C46.1477 23.4992 46.193 23.4843 46.2254 23.4662C46.2567 23.4494 46.2868 23.4358 46.3223 23.4339ZM46.7102 23.4339L46.6779 23.6601L46.7749 23.6601L46.7426 23.8218L46.6456 23.8218L46.5486 24.1773C46.5486 24.1773 46.5486 24.2 46.5486 24.2097L46.5809 24.2097L46.6456 24.2097L46.6456 24.339L46.6456 24.3713L46.5163 24.3713C46.4809 24.3737 46.4502 24.3563 46.4193 24.339C46.3956 24.3243 46.3926 24.3016 46.387 24.2743C46.3852 24.2669 46.3872 24.2497 46.387 24.242C46.3888 24.2028 46.3774 24.1831 46.387 24.145L46.4516 23.8218L46.387 23.8218L46.4193 23.6601L46.484 23.6601L46.5163 23.5308L46.6779 23.4662L46.7102 23.4339ZM42.0554 23.6601L42.217 23.6601L42.217 23.6925C42.2244 23.6869 42.243 23.6966 42.2493 23.6925C42.2709 23.6794 42.2888 23.6631 42.314 23.6601C42.3557 23.6598 42.4096 23.6679 42.4433 23.6925L42.4756 23.7248L42.3786 23.8541L42.3463 23.8541C42.3294 23.843 42.3018 23.8219 42.2816 23.8218C42.2636 23.8223 42.2639 23.8434 42.2493 23.8541C42.2311 23.8659 42.1946 23.8672 42.1847 23.8864C42.1651 23.9234 42.1612 23.9749 42.1523 24.0157L42.0877 24.3713L41.926 24.3713L42.0554 23.6601ZM42.7988 23.6601L42.8312 23.6601C42.9134 23.6547 42.976 23.6909 43.0251 23.7571C43.0556 23.8028 43.0913 23.8638 43.0898 23.9187C43.0895 23.9565 43.0658 23.9789 43.0574 24.0157L43.0574 24.0804L42.5726 24.0804C42.5726 24.0901 42.5726 24.1037 42.5726 24.1127C42.5707 24.1426 42.5883 24.1525 42.6049 24.1773C42.6119 24.1874 42.6272 24.2026 42.6372 24.2097C42.6583 24.2225 42.6771 24.2427 42.7019 24.242C42.7348 24.2424 42.7714 24.2279 42.7988 24.2097C42.8297 24.1886 42.8452 24.1452 42.8635 24.1127L43.0574 24.1127L43.0251 24.145C42.9939 24.2103 42.9564 24.2671 42.8958 24.3067C42.8338 24.3459 42.7753 24.3723 42.7019 24.3713C42.6156 24.3783 42.5293 24.3423 42.4756 24.2743C42.4271 24.1961 42.4147 24.1032 42.4433 24.0157C42.4621 23.9143 42.4966 23.8269 42.5726 23.7571C42.6334 23.7029 42.7176 23.666 42.7988 23.6601ZM43.5423 23.6601L43.5747 23.6601C43.6569 23.6547 43.7195 23.6909 43.7686 23.7571C43.7991 23.8028 43.8348 23.8638 43.8333 23.9187C43.8329 23.9555 43.8093 23.98 43.8009 24.0157L43.8009 24.0804L43.3484 24.0804L43.3484 24.1127C43.3494 24.1357 43.3355 24.1583 43.3484 24.1773C43.3505 24.1809 43.3458 24.2065 43.3484 24.2097C43.3717 24.2333 43.4122 24.2438 43.4454 24.242C43.4783 24.2424 43.5149 24.2279 43.5423 24.2097C43.5733 24.1888 43.5888 24.1453 43.607 24.1127L43.8009 24.1127L43.7686 24.145C43.7374 24.2103 43.6999 24.2671 43.6393 24.3067C43.5772 24.3459 43.5188 24.3723 43.4454 24.3713C43.3146 24.3878 43.1709 24.3081 43.1544 24.1773C43.1529 24.162 43.1529 24.1281 43.1544 24.1127C43.1537 24.1026 43.1537 24.0904 43.1544 24.0804C43.1565 24.0552 43.1811 24.0403 43.1867 24.0157C43.2051 23.9145 43.2406 23.827 43.3161 23.7571C43.3772 23.7025 43.4606 23.6664 43.5423 23.6601ZM45.5788 23.6601L45.6112 23.6601C45.6947 23.6546 45.7855 23.6915 45.8375 23.7571C45.8868 23.8336 45.8973 23.929 45.8698 24.0157C45.8565 24.0881 45.8142 24.1488 45.7728 24.2097C45.6987 24.3091 45.5735 24.3707 45.4495 24.3713C45.3657 24.3771 45.3068 24.341 45.2556 24.2743C45.2237 24.2287 45.1889 24.1683 45.1909 24.1127C45.191 24.075 45.2147 24.0525 45.2233 24.0157C45.2425 23.9061 45.297 23.793 45.3849 23.7248C45.443 23.6818 45.5068 23.666 45.5788 23.6601ZM46.8072 23.6601L46.9689 23.6601L47.0012 24.048L47.1951 23.6601L47.3568 23.6601L47.3568 24.0804C47.3612 24.0722 47.583 23.6601 47.583 23.6601L47.7447 23.6601L47.3568 24.3713L47.2275 24.3713L47.1951 23.9834L47.0012 24.3713L46.8395 24.3713L46.8072 23.6601ZM48.1002 23.6601L48.1326 23.6601C48.1793 23.6581 48.2177 23.6771 48.2619 23.6925C48.2937 23.7033 48.3406 23.729 48.3589 23.7571C48.374 23.7837 48.36 23.7912 48.3589 23.8218L48.3589 23.9187L48.3265 24.0804C48.3114 24.1407 48.3019 24.2126 48.2942 24.2743C48.2926 24.2965 48.2879 24.3177 48.2942 24.339L48.2942 24.3713L48.1326 24.3713L48.1326 24.339C48.1308 24.3276 48.1325 24.3182 48.1326 24.3067C48.1034 24.3256 48.068 24.3264 48.0356 24.339C47.9932 24.3539 47.9512 24.3712 47.9063 24.3713C47.8434 24.3771 47.7901 24.3506 47.7447 24.3067C47.7192 24.2773 47.6785 24.2485 47.68 24.2097C47.6801 24.1933 47.7087 24.161 47.7123 24.145C47.7198 24.1101 47.7228 24.1086 47.7447 24.0804C47.7657 24.0526 47.7793 24.001 47.8093 23.9834C47.8382 23.9665 47.8738 23.9589 47.9063 23.9511L48.0033 23.9511C48.0637 23.9449 48.1386 23.9347 48.1972 23.9187C48.198 23.9153 48.196 23.8897 48.1972 23.8864C48.2046 23.866 48.2046 23.8422 48.1972 23.8218C48.1715 23.8061 48.1303 23.8192 48.1002 23.8218C48.0656 23.8195 48.034 23.8056 48.0033 23.8218C47.9762 23.8415 47.9518 23.8879 47.9386 23.9187L47.777 23.9187L47.777 23.8864C47.7941 23.8429 47.8095 23.7911 47.8416 23.7571C47.876 23.725 47.9261 23.7066 47.9709 23.6925C48.0098 23.6795 48.0593 23.6626 48.1002 23.6601ZM48.5851 23.6601L48.7468 23.6601L48.7468 23.6925C48.7678 23.6793 48.7867 23.663 48.8114 23.6601L48.8437 23.6601C48.8858 23.6598 48.9066 23.6678 48.9407 23.6925L48.973 23.7248L48.8761 23.8541C48.8596 23.843 48.8312 23.8219 48.8114 23.8218C48.7929 23.8224 48.7619 23.8435 48.7468 23.8541C48.7292 23.8662 48.724 23.8674 48.7144 23.8864C48.695 23.9234 48.6912 23.9749 48.6821 24.0157L48.5851 24.3713L48.4235 24.3713L48.5851 23.6601ZM49.2963 23.6601L49.3286 23.6601C49.4108 23.6547 49.5058 23.6909 49.5549 23.7571C49.5856 23.8027 49.589 23.8638 49.5872 23.9187C49.5866 23.9565 49.596 23.979 49.5872 24.0157L49.5549 24.0804L49.1023 24.0804C49.1023 24.0901 49.1023 24.1037 49.1023 24.1127C49.1008 24.1425 49.1183 24.1524 49.1347 24.1773C49.1373 24.1809 49.1316 24.2065 49.1347 24.2097C49.1577 24.2294 49.2014 24.2433 49.2316 24.242C49.2646 24.2424 49.2689 24.2279 49.2963 24.2097C49.327 24.1885 49.3749 24.1451 49.3933 24.1127L49.5549 24.1127L49.5549 24.145C49.5236 24.2102 49.4538 24.2671 49.3933 24.3067C49.3312 24.3459 49.2728 24.3723 49.1993 24.3713C49.1137 24.3782 49.0259 24.3421 48.973 24.2743C48.9244 24.1962 48.9129 24.1035 48.9407 24.0157C48.9589 23.9145 49.0268 23.827 49.1023 23.7571C49.1639 23.7021 49.214 23.6661 49.2963 23.6601ZM42.7988 23.7894C42.7587 23.7913 42.7325 23.8281 42.7019 23.8541C42.6761 23.8761 42.6499 23.8873 42.6372 23.9187L42.9281 23.9187C42.9293 23.8979 42.9055 23.8726 42.8958 23.8541C42.8762 23.8212 42.837 23.7863 42.7988 23.7894ZM43.5423 23.7894C43.5022 23.7913 43.476 23.8281 43.4454 23.8541C43.4197 23.8763 43.3936 23.8874 43.3807 23.9187L43.6716 23.9187C43.6748 23.8898 43.6597 23.8425 43.6393 23.8218C43.6179 23.801 43.5721 23.7878 43.5423 23.7894ZM49.3286 23.7894C49.2875 23.7908 49.2308 23.8277 49.1993 23.8541C49.1739 23.8765 49.1478 23.8875 49.1347 23.9187L49.4256 23.9187C49.4269 23.8979 49.4355 23.8725 49.4256 23.8541C49.4057 23.8214 49.3667 23.7866 49.3286 23.7894ZM45.5788 23.8218C45.5389 23.8275 45.4786 23.8261 45.4495 23.8541C45.405 23.8996 45.3952 23.9528 45.3849 24.0157C45.3786 24.0424 45.353 24.0853 45.3526 24.1127C45.348 24.1466 45.3612 24.185 45.3849 24.2097C45.4071 24.232 45.4504 24.2434 45.4819 24.242C45.5293 24.2415 45.5776 24.2108 45.6112 24.1773C45.6558 24.1308 45.6655 24.0794 45.6758 24.0157C45.6934 23.9651 45.6989 23.9025 45.6758 23.8541C45.6553 23.8223 45.6166 23.8192 45.5788 23.8218ZM48.1649 24.048C48.1188 24.0603 48.0506 24.0744 48.0033 24.0804C47.9718 24.084 47.9364 24.1029 47.9063 24.1127C47.8919 24.1188 47.8842 24.1332 47.874 24.145C47.8644 24.1556 47.8773 24.1634 47.874 24.1773C47.874 24.1796 47.874 24.2074 47.874 24.2097C47.893 24.2247 47.9146 24.2451 47.9386 24.242C47.9743 24.2426 48.0035 24.2253 48.0356 24.2097C48.0657 24.1944 48.1136 24.1729 48.1326 24.145C48.1501 24.1185 48.1578 24.0791 48.1649 24.048Z",
           fillRule: "evenodd",
           opacity: "1",
           stroke: "none",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M53.6132 25.2529C53.1607 25.2456 52.734 25.0409 52.445 24.6927C52.3995 24.6299 52.3602 24.5628 52.3277 24.4925L52.268 24.3431L52.4816 24.2602L52.5372 24.4002C52.5631 24.4554 52.5941 24.5081 52.6299 24.5575C52.8767 24.8509 53.2398 25.0214 53.6233 25.0239L54.126 25.0239C54.289 25.0102 54.4511 24.9874 54.6115 24.9556C54.9321 24.891 55.2472 24.8014 55.5538 24.6878C55.8089 24.5952 56.067 24.4858 56.3206 24.3636C56.9298 24.0688 57.5101 23.7176 58.0539 23.3145C58.2406 23.1771 58.4231 23.0341 58.6014 22.8854C58.7617 22.752 58.9155 22.6163 59.0626 22.4783C59.4153 22.1526 59.7126 21.7715 59.9426 21.35C60.1121 21.0094 60.1409 20.7368 60.024 20.5825C59.931 20.4794 59.7979 20.4215 59.6591 20.4238L59.3562 20.4007L59.5993 20.218C60.4688 19.5656 60.9614 18.7928 60.7945 18.3394C60.7402 18.2012 60.6258 18.0954 60.4837 18.0522C60.4025 18.0243 60.318 18.007 60.2324 18.0007L59.9653 18.0007C59.4877 18.0486 59.0223 18.1801 58.5902 18.3891L58.4894 18.1829C58.9506 17.9606 59.4475 17.8215 59.9571 17.7721L60.2421 17.7721C60.3509 17.7793 60.4583 17.8011 60.5614 17.8367C60.7677 17.9024 60.9327 18.0586 61.0096 18.261C61.1963 18.779 60.7679 19.5588 59.9306 20.2479C60.0394 20.2851 60.1348 20.3534 60.2051 20.4444C60.3799 20.6752 60.3594 21.0236 60.1461 21.4527C59.906 21.8986 59.5937 22.3016 59.2217 22.6453C59.0704 22.7864 58.913 22.925 58.7497 23.0609C58.5682 23.2126 58.382 23.3585 58.1913 23.4987C57.6358 23.91 57.043 24.2685 56.4207 24.5694C56.1637 24.6939 55.9011 24.8048 55.633 24.9022C55.3151 25.0199 54.9886 25.1127 54.6563 25.1797C54.4842 25.2138 54.3103 25.238 54.1353 25.2521L53.6132 25.2529Z",
           fillRule: "evenodd",
           opacity: "1",
           stroke: "none",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M8.15618 8.48408L7.27643 9.07687C6.70239 8.2369 5.74428 7.74207 4.72705 7.76023C3.8493 7.73512 3.00087 8.07735 2.3862 8.70446C1.77154 9.33157 1.44637 10.1867 1.48906 11.0638C1.44637 11.9408 1.77154 12.7959 2.3862 13.423C3.00087 14.0502 3.8493 14.3924 4.72705 14.3673C5.74244 14.3901 6.70017 13.8967 7.27097 13.0566L8.13235 13.6851C7.35121 14.7828 6.07371 15.4181 4.72705 15.3786C3.56744 15.423 2.44152 14.9835 1.61865 14.1653C0.795772 13.347 0.349968 12.2236 0.387884 11.0638C0.349967 9.90391 0.795772 8.78048 1.61864 7.96222C2.44152 7.14396 3.56744 6.70448 4.72705 6.74892C6.09323 6.69543 7.39008 7.35165 8.15618 8.48408ZM18.0826 11.0638C18.1206 12.2236 17.6748 13.347 16.8519 14.1653C16.029 14.9835 14.9031 15.423 13.7435 15.3786C12.5839 15.4229 11.4582 14.9833 10.6354 14.1651C9.81264 13.3469 9.3669 12.2235 9.40481 11.0638C9.36675 9.90396 9.81244 8.78052 10.6352 7.96224C11.458 7.14397 12.5839 6.70447 13.7435 6.74892C14.9031 6.70448 16.029 7.14396 16.8519 7.96222C17.6748 8.78048 18.1206 9.90391 18.0826 11.0638ZM10.506 11.0638C10.4632 11.9408 10.7882 12.7959 11.4028 13.423C12.0174 14.0501 12.8658 14.3924 13.7435 14.3673C14.6212 14.3924 15.4696 14.0501 16.0842 13.423C16.6988 12.7959 17.0238 11.9408 16.981 11.0638C17.0238 10.1867 16.6988 9.33161 16.0842 8.70448C15.4696 8.07736 14.6212 7.73511 13.7435 7.76023C12.8658 7.73511 12.0174 8.07736 11.4028 8.70448C10.7882 9.33161 10.4632 10.1867 10.506 11.0638ZM27.0628 15.2589L26.1111 15.2589L21.0471 8.67572L21.0411 15.253L19.9876 15.253L19.9876 6.86856L20.9393 6.86856L26.0083 13.4518L26.0083 6.87452L27.0618 6.87452L27.0628 15.2589ZM34.918 8.52628C34.1876 8.02402 33.3221 7.75486 32.4356 7.75427C31.2089 7.75427 30.3351 8.30486 30.3351 9.20844C30.3351 9.96854 30.9755 10.3578 32.2321 10.5132L32.9689 10.603C34.3868 10.7768 35.6002 11.3512 35.6002 12.8292C35.6002 14.4993 34.0859 15.3726 32.2738 15.3726C31.083 15.3817 29.9222 14.999 28.9703 14.2834L29.5447 13.4458C30.3277 14.0477 31.2877 14.3737 32.2753 14.3732C33.5259 14.3732 34.5094 13.8644 34.5094 12.9191C34.5094 12.1411 33.8094 11.7702 32.5047 11.6084L31.7267 11.5126C30.3445 11.3453 29.2443 10.7048 29.2443 9.27447C29.2443 7.65845 30.6806 6.75487 32.4461 6.75487C33.5227 6.73597 34.5781 7.05625 35.4626 7.67037L34.918 8.52628ZM45.6999 11.0638C45.7378 12.2236 45.292 13.347 44.4691 14.1653C43.6463 14.9835 42.5203 15.423 41.3607 15.3786C40.2012 15.4229 39.0754 14.9833 38.2526 14.1651C37.4299 13.3469 36.9841 12.2235 37.0221 11.0638C36.984 9.90396 37.4297 8.78052 38.2525 7.96224C39.0753 7.14397 40.2012 6.70447 41.3607 6.74892C42.5203 6.70448 43.6463 7.14396 44.4691 7.96222C45.292 8.78048 45.7378 9.90391 45.6999 11.0638ZM38.1232 11.0638C38.0805 11.9407 38.4056 12.7958 39.0202 13.4229C39.6348 14.0499 40.4831 14.3922 41.3607 14.3673C42.2384 14.3924 43.0868 14.0501 43.7014 13.423C44.316 12.7959 44.641 11.9408 44.5982 11.0638C44.641 10.1867 44.316 9.33161 43.7014 8.70448C43.0868 8.07736 42.2384 7.73511 41.3607 7.76023C40.4831 7.73526 39.6348 8.07756 39.0202 8.70465C38.4056 9.33174 38.0805 10.1868 38.1232 11.0638ZM53.4592 15.253L47.6058 15.253L47.6058 6.87452L48.6594 6.87452L48.6594 14.2536L53.4592 14.2536L53.4592 15.253ZM60.8383 15.253L54.8896 15.253L54.8896 6.87452L60.7787 6.87452L60.7787 7.86151L55.9431 7.86151L55.9431 10.537L60.6233 10.537L60.6233 11.5299L55.9431 11.5299L55.9431 14.265L60.8383 14.265L60.8383 15.253ZM7.78532 0.655715L9.06423 0.655715L9.06423 4.40259L7.78532 4.40259L7.78532 0.655715ZM6.24675 0.690964L3.6502 2.2767C3.61342 2.29958 3.56683 2.29958 3.53005 2.2767L0.933506 0.690964C0.877247 0.657914 0.813072 0.640755 0.747826 0.641317L0.744847 0.641317C0.54825 0.641317 0.388877 0.80069 0.388877 0.997287L0.388877 4.40507L1.6668 4.40507L1.6668 2.78806C1.66688 2.74183 1.69188 2.69922 1.7322 2.6766C1.77252 2.65397 1.8219 2.65482 1.86141 2.67884L3.31657 3.56901C3.46003 3.65676 3.64013 3.65848 3.78524 3.57348L5.32033 2.67288C5.35988 2.64981 5.40874 2.6496 5.44849 2.67234C5.48823 2.69508 5.51281 2.73731 5.51296 2.7831L5.51296 4.40507L6.79138 4.40507L6.79138 0.997287C6.79138 0.80069 6.63201 0.641317 6.43541 0.641317L6.43243 0.641317C6.36717 0.640679 6.30298 0.657844 6.24675 0.690964ZM15.4548 0.654722L14.1575 0.654722L14.1575 2.374C14.1576 2.41897 14.134 2.46065 14.0955 2.48383C14.0569 2.50701 14.0091 2.50829 13.9694 2.4872L10.6078 0.696425C10.5562 0.669136 10.4988 0.654822 10.4404 0.654722C10.2439 0.654722 10.0845 0.814095 10.0845 1.01069L10.0845 4.40259L11.3713 4.40259L11.3713 2.71061C11.3715 2.66574 11.3951 2.62421 11.4336 2.60115C11.4721 2.5781 11.5199 2.57687 11.5595 2.59791L14.9355 4.38819C14.9869 4.4154 15.0442 4.42955 15.1023 4.4294C15.1968 4.42953 15.2874 4.39207 15.3542 4.32528C15.421 4.2585 15.4584 4.16788 15.4583 4.07343L15.4583 0.654722L15.4548 0.654722ZM16.4929 4.4016L16.4929 0.654722L17.0887 0.654722L17.0887 4.4016L16.4929 4.4016ZM20.5129 4.48401C18.9296 4.48401 17.8066 3.73285 17.8066 2.52841C17.8066 1.32397 18.9366 0.572804 20.5129 0.572804C22.0892 0.572804 23.2266 1.32397 23.2266 2.52841C23.2266 3.73285 22.1165 4.48401 20.5129 4.48401ZM20.5129 1.07325C19.3357 1.07325 18.4277 1.58759 18.4277 2.52841C18.4277 3.46922 19.3342 3.98307 20.5129 3.98307C21.6915 3.98307 22.604 3.47568 22.604 2.52841C22.604 1.58114 21.6905 1.07325 20.5129 1.07325Z",
           fillRule: "evenodd",
           opacity: "1",
@@ -3564,7 +3751,7 @@ var Sa,
     );
   }),
   (exports.ConsoleEnterprise = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -3574,14 +3761,14 @@ var Sa,
         height: "28.546",
         viewBox: "0 0 121.755 28.546",
       }),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-1.655)" },
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M12.537-8.4H4.594v-4.437h7.593v-1.612H4.594v-4.34H12.44v-1.6H2.886V-6.8h9.651ZM27.5-20.4H25.79V-9.725l-8.224-10.68H16.022V-6.8h1.709l.01-10.671,8.214,10.68H27.5Zm13.312,0H29.829v1.621H34.47V-6.8h1.709V-18.774h4.631ZM52.782-8.4H44.84v-4.437h7.593v-1.612H44.84v-4.34h7.845v-1.6H43.131V-6.8h9.651ZM56.268-20.4V-6.8h1.709v-5.865h1.592L64.239-6.8h2.117l-4.787-5.865h.107c2.913,0,4.748-1.515,4.748-3.874,0-2.476-1.689-3.855-4.758-3.855Zm5.36,1.6c1.971,0,3.02.748,3.02,2.253,0,1.524-1.019,2.321-3.02,2.321H57.977v-4.573ZM74.609-12.24c3.068,0,4.806-1.534,4.806-4.078S77.677-20.4,74.609-20.4H69.444V-6.8h1.709V-12.24Zm-.039-6.544c2.01,0,3.068.816,3.068,2.466s-1.058,2.466-3.068,2.466H71.153v-4.932ZM82.328-20.4V-6.8h1.709v-5.865h1.592L90.3-6.8h2.117l-4.787-5.865h.107c2.913,0,4.748-1.515,4.748-3.874,0-2.476-1.689-3.855-4.758-3.855Zm5.36,1.6c1.971,0,3.02.748,3.02,2.253,0,1.524-1.02,2.321-3.02,2.321H84.037v-4.573Zm9.525-1.6H95.5V-6.8h1.709ZM110.835-19.1a8.323,8.323,0,0,0-4.894-1.486c-2.864,0-5.195,1.466-5.195,4.088,0,2.321,1.787,3.359,4.029,3.631l1.262.155c2.117.262,3.253.864,3.253,2.126,0,1.534-1.592,2.359-3.622,2.359a7.261,7.261,0,0,1-4.428-1.5l-.932,1.359a8.808,8.808,0,0,0,5.36,1.767c2.942,0,5.4-1.418,5.4-4.127,0-2.4-1.971-3.33-4.272-3.612l-1.194-.146c-2.039-.252-3.078-.884-3.078-2.117,0-1.466,1.418-2.359,3.408-2.359a7.113,7.113,0,0,1,4.029,1.253ZM123.817-8.4h-7.942v-4.437h7.593v-1.612h-7.593v-4.34h7.845v-1.6h-9.554V-6.8h9.651Z",
           transform: "translate(-0.407 35.155)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M15.34.122H17.7V7.1H15.34Zm-2.865.1L7.68,3.147a.214.214,0,0,1-.223,0L2.662.218a.66.66,0,0,0-.344-.1H2.313a.659.659,0,0,0-.658.658V7.091H4.017v-3a.236.236,0,0,1,.36-.2L7.063,5.53a.841.841,0,0,0,.865.009l2.836-1.664a.239.239,0,0,1,.236,0,.234.234,0,0,1,.12.2V7.089h2.361V.778a.656.656,0,0,0-.657-.658h-.006a.656.656,0,0,0-.344.1Zm17.009-.1h-2.4V3.3a.234.234,0,0,1-.115.2.237.237,0,0,1-.232.006L20.531.2a.663.663,0,0,0-.309-.077h0a.659.659,0,0,0-.658.658V7.092h2.377V3.919a.236.236,0,0,1,.347-.208l6.235,3.307a.656.656,0,0,0,.308.077h0a.659.659,0,0,0,.658-.658ZM31.342,7.1V.122H32.43V7.1Zm7.485.125c-2.925,0-5-1.387-5-3.611S35.916,0,38.827,0,43.84,1.387,43.84,3.613s-2.05,3.611-5.012,3.611Zm0-6.3c-2.175,0-3.85.95-3.85,2.687S36.652,6.3,38.827,6.3s3.862-.937,3.862-2.687S41,.925,38.827.925Z",
           transform: "translate(0)",
         })
@@ -3634,7 +3821,7 @@ var Sa,
     );
   }),
   (exports.ConsoleLogo = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -3642,14 +3829,14 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 121.755 29.822",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         className: "prefix__a",
         d: "M15.647 15.935l-1.772 1.194a6.088 6.088 0 00-5.135-2.652 6.348 6.348 0 00-6.522 6.654 6.348 6.348 0 006.522 6.654 6.031 6.031 0 005.124-2.64l1.735 1.266a8.126 8.126 0 01-6.859 3.411A8.422 8.422 0 010 21.131a8.422 8.422 0 018.74-8.691 7.963 7.963 0 016.907 3.495zM35.641 21.131a8.422 8.422 0 01-8.74 8.691 8.422 8.422 0 01-8.739-8.691 8.421 8.421 0 018.739-8.691 8.422 8.422 0 018.74 8.691zm-15.261 0a6.347 6.347 0 006.521 6.654 6.347 6.347 0 006.521-6.654 6.347 6.347 0 00-6.521-6.654 6.347 6.347 0 00-6.521 6.654zM53.729 29.581h-1.917l-10.2-13.26-.012 13.248h-2.122V12.681h1.917l10.21 13.26V12.693h2.122zM69.551 16.02a8.835 8.835 0 00-5-1.555c-2.471 0-4.231 1.109-4.231 2.929 0 1.531 1.29 2.315 3.821 2.628l1.484.181c2.856.35 5.3 1.507 5.3 4.484 0 3.364-3.05 5.123-6.7 5.123a10.935 10.935 0 01-6.654-2.194l1.157-1.687a9.018 9.018 0 005.5 1.868c2.519 0 4.5-1.025 4.5-2.929 0-1.567-1.41-2.314-4.038-2.64l-1.567-.193c-2.784-.337-5-1.627-5-4.508 0-3.255 2.893-5.075 6.449-5.075a10.336 10.336 0 016.076 1.844zM91.268 21.131a8.422 8.422 0 01-8.74 8.691 8.422 8.422 0 01-8.739-8.691 8.421 8.421 0 018.739-8.691 8.422 8.422 0 018.74 8.691zm-15.261 0a6.348 6.348 0 006.521 6.654 6.347 6.347 0 006.521-6.654 6.347 6.347 0 00-6.521-6.654 6.348 6.348 0 00-6.521 6.654zM106.897 29.569h-11.79V12.693h2.122v14.863h9.668zM121.76 29.569h-11.982V12.693h11.862v1.988h-9.74v5.389h9.427v2H111.9v5.509h9.86zM14.9.167h2.576v7.547H14.9zM11.801.238l-5.23 3.194a.229.229 0 01-.242 0L1.099.238a.726.726 0 00-.374-.1H.719a.717.717 0 00-.717.717v6.864h2.574V4.462a.258.258 0 01.392-.22l2.931 1.793a.919.919 0 00.944.009L9.935 4.23a.258.258 0 01.388.222v3.267h2.575V.855a.717.717 0 00-.717-.717h-.006a.723.723 0 00-.374.1zM30.348.165h-2.613v3.463a.258.258 0 01-.379.228L20.585.249a.723.723 0 00-.337-.084.717.717 0 00-.717.717v6.832h2.592V4.306a.258.258 0 01.379-.227l6.8 3.606a.714.714 0 00.336.083.716.716 0 00.717-.717V.165zM32.439 7.712V.165h1.2v7.547zM40.536 7.878c-3.189 0-5.451-1.513-5.451-3.939S37.361 0 40.536 0s5.466 1.513 5.466 3.939-2.236 3.939-5.466 3.939zm0-6.87c-2.371 0-4.2 1.036-4.2 2.931s1.826 2.93 4.2 2.93 4.212-1.022 4.212-2.93-1.84-2.931-4.212-2.931z",
       })
     );
   }),
   (exports.ConsoleStandard = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -3659,14 +3846,14 @@ var Sa,
         height: "29.822",
         viewBox: "0 0 113.208 29.822",
       }),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-1.655)" },
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M12.721-19.038A8.7,8.7,0,0,0,7.609-20.59c-2.992,0-5.427,1.532-5.427,4.27,0,2.424,1.866,3.51,4.209,3.794l1.319.162c2.211.274,3.4.9,3.4,2.221,0,1.6-1.664,2.465-3.783,2.465A7.586,7.586,0,0,1,2.7-9.25L1.726-7.83a9.2,9.2,0,0,0,5.6,1.846c3.073,0,5.64-1.481,5.64-4.311,0-2.505-2.059-3.479-4.463-3.773L7.254-14.22c-2.13-.264-3.215-.923-3.215-2.211,0-1.532,1.481-2.465,3.56-2.465a7.431,7.431,0,0,1,4.209,1.308Zm13.338-1.349H14.587v1.694h4.849V-6.187h1.785V-18.693h4.838Zm7.668,0H31.506l-5.772,14.2h1.856l1.552-3.875H36.03l1.562,3.875h1.917Zm-1.136,1.765,2.759,6.867H29.822Zm21.281-1.765H52.087V-9.24L43.5-20.4H41.883V-6.187h1.785l.01-11.147L52.259-6.176h1.613Zm4.047,0v14.2h5.417c4.585,0,7.526-2.779,7.526-7.1s-2.942-7.1-7.526-7.1Zm5.417,1.694c3.723,0,5.65,2.171,5.65,5.406,0,3.215-1.927,5.406-5.65,5.406H59.7V-18.693Zm16.686-1.694H77.8l-5.772,14.2h1.856l1.552-3.875h6.887l1.562,3.875H85.8Zm-1.136,1.765,2.759,6.867H76.117Zm9.291-1.765v14.2h1.785v-6.127h1.664L96.5-6.187h2.211l-5-6.127h.112c3.043,0,4.96-1.582,4.96-4.047,0-2.587-1.765-4.027-4.97-4.027Zm5.6,1.674c2.059,0,3.155.781,3.155,2.353,0,1.592-1.065,2.424-3.155,2.424H89.962v-4.777Zm8.165-1.674v14.2h5.417c4.585,0,7.526-2.779,7.526-7.1s-2.942-7.1-7.526-7.1Zm5.417,1.694c3.723,0,5.65,2.171,5.65,5.406,0,3.215-1.927,5.406-5.65,5.406h-3.631V-18.693Z",
           transform: "translate(-0.021 35.806)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M15.951.127h2.468V7.417H15.951Zm-2.993.1L7.949,3.288a.224.224,0,0,1-.233,0L2.707.228a.69.69,0,0,0-.359-.1H2.342a.688.688,0,0,0-.687.687V7.407H4.122V4.269a.247.247,0,0,1,.376-.21L7.305,5.777a.879.879,0,0,0,.9.009l2.963-1.738a.249.249,0,0,1,.246,0,.245.245,0,0,1,.125.212V7.406H14.01V.813a.686.686,0,0,0-.686-.687h-.006a.686.686,0,0,0-.359.1Zm17.769-.1h-2.5V3.445a.245.245,0,0,1-.12.211.248.248,0,0,1-.243.006L21.374.208a.693.693,0,0,0-.323-.08h0a.688.688,0,0,0-.687.687V7.409h2.483V4.094a.247.247,0,0,1,.362-.218L29.719,7.33a.686.686,0,0,0,.322.08h0a.688.688,0,0,0,.687-.687Zm1.941,7.289V.127h1.136V7.417Zm7.819.13c-3.056,0-5.223-1.449-5.223-3.773S37.447,0,40.488,0s5.236,1.449,5.236,3.774-2.141,3.773-5.236,3.773Zm0-6.58c-2.272,0-4.022.992-4.022,2.807s1.749,2.807,4.022,2.807,4.035-.979,4.035-2.807S42.761.967,40.488.967Z",
           transform: "translate(0)",
         })
@@ -4191,7 +4378,7 @@ var Sa,
     );
   }),
   (exports.DiagnosticsIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -4202,24 +4389,24 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "defs",
         null,
-        n.default.createElement(
+        l.default.createElement(
           "clipPath",
           { id: "prefix__a" },
-          n.default.createElement("path", { d: "M0 0h256v256H0z" })
+          l.default.createElement("path", { d: "M0 0h256v256H0z" })
         )
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { clipPath: "url(#prefix__a)" },
-        n.default.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
-        n.default.createElement("path", {
+        l.default.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
+        l.default.createElement("path", {
           "data-name": "Uni\\xF3n 17",
           d: "M.449 128.494A128.188 128.188 0 0 1 128.494.45h10.6v52.857a76.1 76.1 0 0 1 46.531 25.151 75.572 75.572 0 0 1 13.854 22.845 75.251 75.251 0 0 1 5.039 27.189 76.11 76.11 0 0 1-76.023 76.022 76.1 76.1 0 0 1-76.012-76.022 75.291 75.291 0 0 1 5.037-27.189 75.678 75.678 0 0 1 13.85-22.845 76.135 76.135 0 0 1 46.555-25.151v-31.18a106.369 106.369 0 0 0-19.6 3.814 106.378 106.378 0 0 0-18.193 7.25 107.579 107.579 0 0 0-16.385 10.312A108.253 108.253 0 0 0 49.54 56.524a108.229 108.229 0 0 0-11.676 15.37 107.348 107.348 0 0 0-8.787 17.356 106.17 106.17 0 0 0-7.459 39.244 107.008 107.008 0 0 0 106.877 106.892 107.017 107.017 0 0 0 106.9-106.892 10.5 10.5 0 0 1 3.1-7.479 10.49 10.49 0 0 1 7.475-3.1 10.593 10.593 0 0 1 10.584 10.58 128.2 128.2 0 0 1-128.057 128.057A128.2 128.2 0 0 1 .449 128.494Zm99.967-47.048a55.106 55.106 0 0 0-14.062 12.016 54.643 54.643 0 0 0-9.336 16.083 54.492 54.492 0 0 0-3.379 18.95 54.464 54.464 0 0 0 4.316 21.333 54.924 54.924 0 0 0 5.068 9.317 55.648 55.648 0 0 0 6.7 8.12 55.546 55.546 0 0 0 8.125 6.7 54.955 54.955 0 0 0 9.316 5.068 54.353 54.353 0 0 0 21.328 4.316 54.917 54.917 0 0 0 54.854-54.857 54.492 54.492 0 0 0-3.379-18.95 54.614 54.614 0 0 0-9.326-16.083 55.144 55.144 0 0 0-14.049-12.016 54.571 54.571 0 0 0-17.5-6.723v30.482a25.816 25.816 0 0 1 10.824 9.254 25.366 25.366 0 0 1 4.211 14.035 25.433 25.433 0 0 1-2.014 9.982 25.524 25.524 0 0 1-5.494 8.145 25.5 25.5 0 0 1-8.145 5.493 25.518 25.518 0 0 1-9.982 2.015 25.477 25.477 0 0 1-9.973-2.015 25.621 25.621 0 0 1-8.148-5.493 25.538 25.538 0 0 1-5.488-8.145 25.522 25.522 0 0 1-2.016-9.982 25.393 25.393 0 0 1 4.207-14.035 25.82 25.82 0 0 1 10.848-9.254V74.72a54.537 54.537 0 0 0-17.508 6.73Z",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           "data-name": "Rect\\xE1ngulo 878",
           fill: "none",
           d: "M0 0h256v256H0z",
@@ -4260,7 +4447,7 @@ var Sa,
     );
   }),
   (exports.DisabledIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -4271,10 +4458,10 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         null,
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7232",
           "data-name": "Trazado 7232",
           d: "M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0m3.235,5.4L8.965,8.174,10.949,10.6a.857.857,0,0,1-1.327,1.086h0L7.857,9.528,6.092,11.686A.857.857,0,0,1,4.765,10.6L6.749,8.174,4.479,5.4A.857.857,0,0,1,5.806,4.314L7.857,6.821l2.05-2.506A.857.857,0,1,1,11.235,5.4",
@@ -4763,7 +4950,7 @@ var Sa,
     );
   }),
   (exports.EditorThemeSwitchIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -4774,7 +4961,7 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_7002",
         "data-name": "Trazado 7002",
         d: "M8.577,3a5.447,5.447,0,1,0,5.144,4.037,8.109,8.109,0,0,1-.951.783,6.211,6.211,0,0,1-2.174,1,2.252,2.252,0,0,1-2.143-.373,2.252,2.252,0,0,1-.373-2.143,6.234,6.234,0,0,1,1-2.174,8.085,8.085,0,0,1,.783-.951A5.483,5.483,0,0,0,8.577,3Zm2.961,8.536a4.343,4.343,0,0,0,1.228-2.42c-1.934,1.115-3.964,1.225-5.083.106s-1.009-3.149.106-5.083a4.362,4.362,0,1,0,3.75,7.4Z",
@@ -4821,7 +5008,7 @@ var Sa,
     );
   }),
   (exports.EnabledIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -4832,10 +5019,10 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         null,
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0m4.575,5.769-.005.005L7.837,11.69a.89.89,0,0,1-.635.284H7.185a.889.889,0,0,1-.628-.26h0L3.421,8.577a.889.889,0,1,1,1.2-1.31q.028.025.053.053L7.16,9.8l4.117-5.246.024-.026h0a.889.889,0,0,1,1.275,1.24",
         })
       )
@@ -5786,7 +5973,7 @@ var Sa,
     );
   }),
   (exports.FilterIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -5799,13 +5986,13 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         {
           id: "filter-icon.a949c200",
           transform: "translate(-231.827 -340.123)",
         },
-        n.default.createElement("line", {
+        l.default.createElement("line", {
           id: "Línea_659",
           "data-name": "Línea 659",
           x2: "14",
@@ -5814,14 +6001,14 @@ var Sa,
           stroke: "#434343",
           strokeWidth: "1",
         }),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           {
             id: "Grupo_2472",
             "data-name": "Grupo 2472",
             transform: "translate(240.693 344.614)",
           },
-          n.default.createElement("circle", {
+          l.default.createElement("circle", {
             id: "Elipse_611",
             "data-name": "Elipse 611",
             cx: "2.053",
@@ -5830,7 +6017,7 @@ var Sa,
             transform: "translate(0 0)",
             fill: "#fff",
           }),
-          n.default.createElement("circle", {
+          l.default.createElement("circle", {
             id: "Elipse_612",
             "data-name": "Elipse 612",
             cx: "1.597",
@@ -5842,7 +6029,7 @@ var Sa,
             strokeWidth: "1",
           })
         ),
-        n.default.createElement("line", {
+        l.default.createElement("line", {
           id: "Línea_660",
           "data-name": "Línea 660",
           x2: "14",
@@ -5851,14 +6038,14 @@ var Sa,
           stroke: "#434343",
           strokeWidth: "1",
         }),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           {
             id: "Grupo_2473",
             "data-name": "Grupo 2473",
             transform: "translate(232.394 340.167)",
           },
-          n.default.createElement("circle", {
+          l.default.createElement("circle", {
             id: "Elipse_613",
             "data-name": "Elipse 613",
             cx: "2.053",
@@ -5867,7 +6054,7 @@ var Sa,
             transform: "translate(0 0)",
             fill: "#fff",
           }),
-          n.default.createElement("circle", {
+          l.default.createElement("circle", {
             id: "Elipse_614",
             "data-name": "Elipse 614",
             cx: "1.597",
@@ -5879,7 +6066,7 @@ var Sa,
             strokeWidth: "1",
           })
         ),
-        n.default.createElement("line", {
+        l.default.createElement("line", {
           id: "Línea_661",
           "data-name": "Línea 661",
           x2: "14",
@@ -5888,14 +6075,14 @@ var Sa,
           stroke: "#434343",
           strokeWidth: "1",
         }),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           {
             id: "Grupo_2474",
             "data-name": "Grupo 2474",
             transform: "translate(235.161 349.061)",
           },
-          n.default.createElement("circle", {
+          l.default.createElement("circle", {
             id: "Elipse_615",
             "data-name": "Elipse 615",
             cx: "2.053",
@@ -5904,7 +6091,7 @@ var Sa,
             transform: "translate(0 0)",
             fill: "#fff",
           }),
-          n.default.createElement("circle", {
+          l.default.createElement("circle", {
             id: "Elipse_616",
             "data-name": "Elipse 616",
             cx: "1.597",
@@ -6028,9 +6215,9 @@ var Sa,
       )
     );
   }),
-  (exports.GlobalStyles = ot),
+  (exports.GlobalStyles = gt),
   (exports.GoogleTierIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -6041,31 +6228,31 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { id: "google-cloud-logo-color", transform: "translate(-526 -141)" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           {
             id: "Grupo_1820",
             "data-name": "Grupo 1820",
             transform: "translate(526 141)",
           },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             id: "Trazado_6946",
             "data-name": "Trazado 6946",
             d: "M78,40.648h1.288l3.671-3.671.18-1.559A16.5,16.5,0,0,0,56.295,43.47a1.988,1.988,0,0,1,1.288-.076l7.343-1.212s.373-.619.568-.581a9.159,9.159,0,0,1,12.535-.953Z",
             transform: "translate(-51.201 -31.287)",
             fill: "#ea4335",
           }),
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             id: "Trazado_6947",
             "data-name": "Trazado 6947",
             d: "M238.1,84.8a16.527,16.527,0,0,0-4.985-8.037l-5.152,5.152a9.161,9.161,0,0,1,3.362,7.267V90.1a4.587,4.587,0,0,1,0,9.173h-9.173l-.915.928v5.5l.915.915h9.173A11.932,11.932,0,0,0,238.1,84.8Z",
             transform: "translate(-201.103 -72.617)",
             fill: "#4285f4",
           }),
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             id: "Trazado_6948",
             "data-name": "Trazado 6948",
             d: "M12.273,142.319a11.928,11.928,0,0,0-7.2,21.384l5.319-5.319a4.586,4.586,0,1,1,6.067-6.067L21.779,147a11.9,11.9,0,0,0-9.505-4.678Z",
@@ -6077,7 +6264,7 @@ var Sa,
     );
   }),
   (exports.GoogleTierIconXs = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -6088,36 +6275,36 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         {
           id: "Grupo_2504",
           "data-name": "Grupo 2504",
           transform: "translate(-492.881 -516.58)",
         },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           {
             id: "google-cloud-logo-color",
             transform: "translate(492.881 516.58)",
           },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { id: "Grupo_1820", "data-name": "Grupo 1820" },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               id: "Trazado_6946",
               "data-name": "Trazado 6946",
               d: "M67.542,36.137h.667l1.9-1.9.093-.808A8.55,8.55,0,0,0,56.3,37.6a1.03,1.03,0,0,1,.667-.039l3.8-.628s.193-.321.294-.3a4.745,4.745,0,0,1,6.494-.494Z",
               transform: "translate(-53.656 -31.287)",
             }),
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               id: "Trazado_6947",
               "data-name": "Trazado 6947",
               d: "M229.968,80.926a8.562,8.562,0,0,0-2.582-4.164l-2.669,2.669a4.746,4.746,0,0,1,1.742,3.765v.474a2.376,2.376,0,0,1,0,4.752h-4.752l-.474.481v2.85l.474.474h4.752a6.182,6.182,0,0,0,3.51-11.3Z",
               transform: "translate(-210.804 -74.614)",
               fill: "#6b8295",
             }),
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               id: "Trazado_6948",
               "data-name": "Trazado 6948",
               d: "M6.558,142.319A6.18,6.18,0,0,0,2.828,153.4l2.756-2.756A2.376,2.376,0,1,1,8.727,147.5l2.756-2.756a6.166,6.166,0,0,0-4.924-2.423Z",
@@ -6129,7 +6316,7 @@ var Sa,
       )
     );
   }),
-  (exports.Grid = _t),
+  (exports.Grid = Nt),
   (exports.GroupsIcon = function (e) {
     return r.createElement(
       "svg",
@@ -6244,7 +6431,7 @@ var Sa,
     );
   }),
   (exports.HardBucketQuotaIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -6255,46 +6442,46 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { id: "hardquota-icn", transform: "translate(-98.002 -28.027)" },
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7233",
           "data-name": "Trazado 7233",
           d: "M344.76,203.93l2.664-2.664,8.15,8.15-2.664,2.664Z",
           transform: "translate(-228.962 -160.744)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7234",
           "data-name": "Trazado 7234",
           d: "M464.768,316.895a1.11,1.11,0,0,0-1.575,0l-2.827,2.827h0a1.111,1.111,0,0,0,0,1.575l5.182,5.182a1.114,1.114,0,0,0,.787.327,1.1,1.1,0,0,0,.808-.327l2.827-2.827a1.11,1.11,0,0,0,0-1.575Z",
           transform: "translate(-335.926 -267.73)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7235",
           "data-name": "Trazado 7235",
           d: "M235.486,84.317l-5.408-5.408a2.141,2.141,0,0,1-.157-.174L222.2,86.45c.061.052.121.105.178.161l5.4,5.4c.057.057.109.117.161.178l7.718-7.718a2.2,2.2,0,0,1-.178-.157Z",
           transform: "translate(-115.243 -47.051)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7236",
           "data-name": "Trazado 7236",
           d: "M337.566,36.693a1.912,1.912,0,0,0,2.706-2.7l-5.408-5.4a1.91,1.91,0,1,0-2.7,2.7Z",
           transform: "translate(-216.754)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7237",
           "data-name": "Trazado 7237",
           d: "M174.741,188.807a1.912,1.912,0,1,0-2.7,2.706l5.408,5.392a1.911,1.911,0,1,0,2.7-2.7Z",
           transform: "translate(-68.177 -148.665)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7238",
           "data-name": "Trazado 7238",
           d: "M143.562,432.083a3.239,3.239,0,0,1,.525.048v-.565a2.383,2.383,0,0,0-2.379-2.383h-15.63a2.383,2.383,0,0,0-2.379,2.383v.565a3.245,3.245,0,0,1,.525-.048Z",
           transform: "translate(-23.844 -372.224)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           id: "Trazado_7239",
           "data-name": "Trazado 7239",
           d: "M122.1,482.968a2.379,2.379,0,0,0-2.379-2.379H100.381A2.379,2.379,0,0,0,98,482.968V484.3h24.1Z",
@@ -6792,7 +6979,7 @@ var Sa,
     );
   }),
   (exports.LambdaNotificationsIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -6800,7 +6987,7 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 10 10",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         d: "M0,0v10l2.8-2.2H10V0H0z M6.6,6L5.6,6.4l-0.8-2l-1.5,2L2.5,5.9l1.9-2.6L4.1,2.4H3.2v-1h1.5l1.4,3.7l0.9-0.4\n\tl0.4,0.9L6.6,6z",
       })
     );
@@ -6959,6 +7146,104 @@ var Sa,
       })
     );
   }),
+  (exports.Loader = function (e) {
+    return l.default.createElement(
+      $t,
+      T(
+        {
+          viewBox: "0 0 280 280",
+          shapeRendering: "geometricPrecision",
+          textRendering: "geometricPrecision",
+          className: "min-loader",
+        },
+        e
+      ),
+      l.default.createElement(
+        "g",
+        {
+          id: "section1",
+          transform: "translate(139.785027,140.086989) rotate(45.236493)",
+        },
+        l.default.createElement(
+          "g",
+          { id: "section2", transform: "scale(1,0.995019)" },
+          l.default.createElement(
+            "g",
+            { id: "section3", transform: "translate(-127.784998,-128.086989)" },
+            l.default.createElement(
+              "g",
+              null,
+              l.default.createElement("path", {
+                id: "section4",
+                d: "M85.4,249.8c23.68,5.5,48.32,7.57,72.25,2.34c24-5.25,45.3-18.59,61.62-36.79c8.57-9.56-5.53-23.75-14.14-14.14-14.23,15.89-31.86,27.05-52.79,31.65-20.31,4.46-41.55,2.33-61.61-2.34-12.54-2.91-17.88,16.36-5.33,19.28c0,0,0,0,0,0Z",
+              })
+            ),
+            l.default.createElement(
+              "g",
+              null,
+              l.default.createElement("path", {
+                id: "section5",
+                d: "M249.74,169.63c5.5-23.68,7.57-48.32,2.34-72.25-5.25-24-18.59-45.3-36.79-61.62-9.56-8.57-23.75,5.53-14.14,14.14c15.89,14.23,27.05,31.86,31.65,52.79c4.46,20.31,2.33,41.55-2.34,61.61-2.92,12.54,16.36,17.88,19.28,5.33c0,0,0,0,0,0Z",
+              })
+            ),
+            l.default.createElement(
+              "g",
+              null,
+              l.default.createElement("path", {
+                id: "section6",
+                d: "M171.68,7.71c-23.51-6.2-48.07-8.99-72.15-4.46C75.39,7.79,53.7,20.49,36.85,38.21c-8.84,9.31,4.83,23.9,13.72,14.55c14.7-15.46,32.65-26.1,53.7-30.08c20.43-3.86,41.6-1.1,61.52,4.15c12.43,3.28,18.35-15.83,5.89-19.12c0,0,0,0,0,0Z",
+              })
+            ),
+            l.default.createElement(
+              "g",
+              null,
+              l.default.createElement("path", {
+                id: "section7",
+                d: "M5.83,85.46c-5.5,23.68-7.57,48.32-2.34,72.25c5.25,24,18.59,45.3,36.79,61.62c9.56,8.57,23.75-5.53,14.14-14.14-15.89-14.23-27.05-31.86-31.65-52.79-4.46-20.31-2.33-41.55,2.34-61.61C28.03,78.25,8.75,72.91,5.83,85.46v0Z",
+                transform: "translate(.194904 0.217549)",
+              })
+            )
+          )
+        )
+      ),
+      l.default.createElement(
+        "g",
+        {
+          id: "section8",
+          transform: "translate(139.784999,140.086986) scale(1,1)",
+        },
+        l.default.createElement(
+          "g",
+          {
+            id: "section9",
+            transform: "translate(-127.999996,-128.000003)",
+            opacity: "0",
+          },
+          l.default.createElement("path", {
+            d: "M234.23,128c0-58.67-47.56-106.23-106.23-106.23s-106.23,47.56-106.23,106.23s47.56,106.23,106.23,106.23c58.64-.06,106.17-47.59,106.23-106.23m21.25,0c0,70.4-57.07,127.48-127.48,127.48s-127.48-57.08-127.48-127.48s57.08-127.48,127.48-127.48s127.48,57.08,127.48,127.48Z",
+          })
+        )
+      ),
+      l.default.createElement(
+        "g",
+        {
+          id: "section10",
+          transform: "translate(139.785004,140.086979) rotate(0)",
+        },
+        l.default.createElement(
+          "g",
+          {
+            id: "section11",
+            transform: "translate(-127.999968,-127.995139)",
+            opacity: "0",
+          },
+          l.default.createElement("path", {
+            d: "M128,0.47h.33c.36,0,.73,0,1.09.01h.17c5.45.09,9.79,4.57,9.73,10.02-.07,5.51-4.57,9.93-10.07,9.91h-1.24c-5.51-.04-9.96-4.51-9.96-10.02-.01-5.45,4.39-9.88,9.84-9.91h.11ZM245.62,118.39h.03c5.45.01,9.86,4.42,9.88,9.87c0,.04,0,.08,0,.12v0c0,.12,0,.24,0,.36v0c0,.01,0,.03,0,.04v.09c0,.37,0,.73-.01,1.09-.11,5.45-4.6,9.78-10.05,9.7-5.51-.08-9.92-4.6-9.88-10.1l.01-1.24c.06-5.49,4.52-9.92,10.02-9.93ZM126.01,235.58h.12l1.24.01c5.51.07,9.93,4.57,9.9,10.08-.04,5.48-4.51,9.89-9.99,9.85-.01,0-.02,0-.03,0h-.46-.19l-.82-.01h-.12c-5.45-.12-9.77-4.63-9.67-10.07.09-5.47,4.55-9.85,10.02-9.86ZM10.4,115.63h.2c5.51.12,9.89,4.65,9.82,10.16l-.02,1.24c-.09,5.5-4.59,9.91-10.1,9.88-5.45-.04-9.85-4.47-9.83-9.93c0-.04,0-.08,0-.12v0c0-.36,0-.73.01-1.09v-.09v0c0-.13,0-.27.01-.41.14-5.37,4.54-9.64,9.91-9.64Z",
+          })
+        )
+      )
+    );
+  }),
   (exports.LockIcon = function (e) {
     return r.createElement(
       "svg",
@@ -7003,17 +7288,17 @@ var Sa,
   (exports.LoginWrapper = function (e) {
     var a = e.logoProps,
       t = e.form,
-      l = e.formFooter,
+      n = e.formFooter,
       r = e.promoInfo,
       c = e.promoHeader;
-    return n.default.createElement(
-      Vt,
+    return l.default.createElement(
+      yt,
       null,
-      n.default.createElement(
-        _t,
+      l.default.createElement(
+        Nt,
         { container: !0, className: "mainContainer", wrap: "nowrap" },
-        n.default.createElement(
-          _t,
+        l.default.createElement(
+          Nt,
           {
             item: !0,
             xs: "hidden",
@@ -7022,28 +7307,28 @@ var Sa,
             className: "decorationPanel",
           },
           (r || c) &&
-            n.default.createElement(
-              _t,
+            l.default.createElement(
+              Nt,
               { container: !0 },
-              n.default.createElement(
-                _t,
+              l.default.createElement(
+                Nt,
                 { item: !0, className: "promoContainer" },
-                n.default.createElement(
-                  _t,
+                l.default.createElement(
+                  Nt,
                   { item: !0, className: "promoHeader" },
                   c
                 ),
-                n.default.createElement(
-                  _t,
+                l.default.createElement(
+                  Nt,
                   { item: !0, className: "promoInfo" },
                   r
                 )
               )
             ),
-          n.default.createElement(
-            _t,
+          l.default.createElement(
+            Nt,
             { item: !0, className: "videoContainer" },
-            n.default.createElement(
+            l.default.createElement(
               "video",
               {
                 autoPlay: !0,
@@ -7051,37 +7336,37 @@ var Sa,
                 muted: !0,
                 loop: !0,
                 disablePictureInPicture: !0,
-                poster: zt,
+                poster: Rt,
                 className: "videoBG",
               },
-              n.default.createElement("source", { src: Ht, type: "video/mp4" })
+              l.default.createElement("source", { src: Bt, type: "video/mp4" })
             )
           )
         ),
-        n.default.createElement(
-          _t,
+        l.default.createElement(
+          Nt,
           { item: !0, xs: 12, className: "formPanel" },
-          n.default.createElement(
-            _t,
+          l.default.createElement(
+            Nt,
             { container: !0 },
-            n.default.createElement(
-              _t,
+            l.default.createElement(
+              Nt,
               { item: !0, xs: 12, className: "logoContainer" },
-              n.default.createElement(gt, T({}, a))
+              l.default.createElement(Lt, T({}, a))
             ),
-            n.default.createElement(
-              _t,
+            l.default.createElement(
+              Nt,
               { item: !0, xs: 12, className: "formContainer" },
-              n.default.createElement(
-                _t,
+              l.default.createElement(
+                Nt,
                 { item: !0, xs: !0, className: "form" },
                 t
               ),
-              l &&
-                n.default.createElement(
-                  _t,
+              n &&
+                l.default.createElement(
+                  Nt,
                   { item: !0, xs: !0, className: "footer" },
-                  l
+                  n
                 )
             )
           )
@@ -7410,7 +7695,7 @@ var Sa,
     );
   }),
   (exports.MinIOTierIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -7421,7 +7706,7 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "minio-logo-color",
         d: "M50.1,20.478q-1.908-3.154-3.826-6.3c-.664-1.088-1.339-2.171-2.012-3.254l-.266-.393a4.682,4.682,0,0,0-6-1.913,4.208,4.208,0,0,0-1.936,5.674,10.029,10.029,0,0,0,1.714,2.129c1.924,2.044,3.91,4.031,5.818,6.089a6.008,6.008,0,0,1-2.092,9.664l-.128.052V22.652A31.007,31.007,0,0,0,32.4,29.6a30.255,30.255,0,0,0-7.034,13.992l6.481-3.3c2.155-1.1,4.295-2.172,6.532-3.308V55.447l2.984,3.027V35.425s.068-.032.292-.152a24.676,24.676,0,0,0,2.614-1.448,8.834,8.834,0,0,0,1.3-13.358c-2.216-2.318-4.443-4.626-6.656-6.946a1.424,1.424,0,0,1,0-2.128,1.47,1.47,0,0,1,2.138.12c.308.311,2.386,2.506,3.127,3.283q2.808,2.941,5.625,5.872a4.005,4.005,0,0,0,.311.266l.117-.069A1.864,1.864,0,0,0,50.1,20.478ZM38.375,33.551a.538.538,0,0,1-.273.364c-1.186.629-2.382,1.241-3.577,1.855C33.109,36.5,31.69,37.223,30.17,38a28.176,28.176,0,0,1,8.16-10.112l.053-.044C38.386,29.7,38.392,31.7,38.375,33.551Z",
         transform: "translate(-25.369 -8.153)",
@@ -7430,7 +7715,7 @@ var Sa,
     );
   }),
   (exports.MinIOTierIconXs = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -7441,7 +7726,7 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "minio-logo-color",
         d: "M36.179,13.541q-.834-1.379-1.673-2.755c-.29-.476-.585-.949-.88-1.422l-.116-.172a2.047,2.047,0,0,0-2.624-.836,1.84,1.84,0,0,0-.846,2.481,4.385,4.385,0,0,0,.749.931c.841.894,1.709,1.762,2.544,2.662a2.626,2.626,0,0,1-.915,4.225l-.056.023V14.492a13.556,13.556,0,0,0-3.918,3.036,13.227,13.227,0,0,0-3.075,6.117L28.2,22.2c.942-.479,1.878-.95,2.856-1.446V28.83l1.3,1.323V20.076s.03-.014.127-.067a10.787,10.787,0,0,0,1.143-.633,3.862,3.862,0,0,0,.567-5.84c-.969-1.013-1.942-2.022-2.91-3.037a.623.623,0,0,1,0-.93.643.643,0,0,1,.935.053c.135.136,1.043,1.1,1.367,1.435q1.228,1.286,2.459,2.567a1.752,1.752,0,0,0,.136.116l.051-.03A.815.815,0,0,0,36.179,13.541Zm-5.124,5.715a.235.235,0,0,1-.119.159c-.519.275-1.042.543-1.564.811l-1.9.976a12.318,12.318,0,0,1,3.568-4.421l.023-.019C31.06,17.572,31.063,18.448,31.055,19.257Z",
         transform: "translate(-25.369 -8.153)",
@@ -7568,7 +7853,7 @@ var Sa,
     );
   }),
   (exports.NetworkGetIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -7579,14 +7864,14 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         d: "M7.5,0h0A7.5,7.5,0,0,0,0,7.5H0A7.5,7.5,0,0,0,7.5,15h0a7.5,7.5,0,0,0,0-15M9.978,9.776l-1.9,1.9a.819.819,0,0,1-1.166,0h0L5.022,9.776a.773.773,0,0,1-.186-.864.875.875,0,0,1,.779-.541.793.793,0,0,1,.565.247l.5.5V3.9a.818.818,0,0,1,1.636,0V9.119l.5-.5a.79.79,0,0,1,.564-.248.872.872,0,0,1,.779.541.772.772,0,0,1-.185.864",
         transform: "translate(15 15) rotate(180)",
       })
     );
   }),
   (exports.NetworkPutIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -7597,13 +7882,13 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         d: "M7.5,0h0A7.5,7.5,0,0,0,0,7.5H0A7.5,7.5,0,0,0,7.5,15h0a7.5,7.5,0,0,0,0-15M9.978,9.776l-1.9,1.9a.819.819,0,0,1-1.166,0h0L5.023,9.776a.773.773,0,0,1-.186-.864.875.875,0,0,1,.779-.541.793.793,0,0,1,.565.247l.5.5V3.9a.818.818,0,0,1,1.636,0V9.119l.5-.5a.79.79,0,0,1,.564-.248.872.872,0,0,1,.779.541.772.772,0,0,1-.185.864",
       })
     );
   }),
   (exports.NewAccountIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -7613,25 +7898,25 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 16.409 13.096",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_391",
         "data-name": "Trazado 391",
         d: "M-4332.855-1143.481a3.023,3.023,0,0,0,2.958-3.078,3.023,3.023,0,0,0-2.958-3.078,3.023,3.023,0,0,0-2.958,3.078A3.023,3.023,0,0,0-4332.855-1143.481Zm0-5.194a2.078,2.078,0,0,1,2.03,2.116,2.077,2.077,0,0,1-2.03,2.116,2.075,2.075,0,0,1-2.028-2.116A2.076,2.076,0,0,1-4332.855-1148.675Z",
         transform: "translate(4339.12 1149.637)",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_392",
         "data-name": "Trazado 392",
         d: "M-4337.952-1130.053a1.374,1.374,0,0,0,1.252.775h4.993a1.354,1.354,0,0,0,1.25-.786,1.675,1.675,0,0,0-.164-1.686,4.521,4.521,0,0,0-1.7-1.405,4.361,4.361,0,0,0-2.125-.438,4.483,4.483,0,0,0-3.318,1.808c-.026.035-.051.071-.075.106A1.641,1.641,0,0,0-4337.952-1130.053Zm6.663-.437a.426.426,0,0,1-.417.25h-4.993a.453.453,0,0,1-.427-.254.64.64,0,0,1,.053-.632h0c.017-.027.037-.054.057-.08a3.539,3.539,0,0,1,2.622-1.424c.056,0,.113,0,.168,0a3.606,3.606,0,0,1,2.864,1.466A.686.686,0,0,1-4331.29-1130.49Z",
         transform: "translate(4340.467 1140.236)",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_393",
         "data-name": "Trazado 393",
         d: "M-4329.387-1146.951h-3.506a.476.476,0,0,0-.477.476.477.477,0,0,0,.477.476h3.506a1.047,1.047,0,0,1,1.046,1.045v7.99a1.047,1.047,0,0,1-1.046,1.045H-4341.8a1.047,1.047,0,0,1-1.046-1.045v-7.99A1.048,1.048,0,0,1-4341.8-1146a.476.476,0,0,0,.476-.476.476.476,0,0,0-.476-.476,2,2,0,0,0-2,2v7.99a2,2,0,0,0,2,2h12.412a2,2,0,0,0,2-2v-7.99A2,2,0,0,0-4329.387-1146.951Z",
         transform: "translate(4343.797 1148.063)",
       }),
-      n.default.createElement("rect", {
+      l.default.createElement("rect", {
         id: "Rectángulo_809",
         "data-name": "Rectángulo 809",
         width: "3.266",
@@ -7639,7 +7924,7 @@ var Sa,
         rx: "1.024",
         transform: "translate(11.002 3.376)",
       }),
-      n.default.createElement("rect", {
+      l.default.createElement("rect", {
         id: "Rectángulo_810",
         "data-name": "Rectángulo 810",
         width: "3.266",
@@ -7647,7 +7932,7 @@ var Sa,
         rx: "0.668",
         transform: "translate(11.002 7.328)",
       }),
-      n.default.createElement("rect", {
+      l.default.createElement("rect", {
         id: "Rectángulo_811",
         "data-name": "Rectángulo 811",
         width: "3.266",
@@ -8522,7 +8807,7 @@ var Sa,
     );
   }),
   (exports.OperatorLogo = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -8530,13 +8815,13 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 606.583 134.691",
       }),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { id: "prefix__Layer_2", "data-name": "Layer 2" },
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { id: "prefix__Layer_1-2", "data-name": "Layer 1" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             className: "prefix__cls-1",
             d: "M79.695 95.063c0 23.03-16.763 39.628-39.848 39.628C16.763 134.69 0 118.092 0 95.063s16.763-39.628 39.847-39.628c23.085 0 39.848 16.599 39.848 39.628zm-69.582 0c0 18.083 12.806 30.339 29.734 30.339 16.929 0 29.735-12.256 29.735-30.34 0-18.081-12.806-30.338-29.735-30.338-16.928 0-29.734 12.257-29.734 30.339zM106.895 102.758v30.779H97.22V56.589h29.24c17.368 0 27.206 8.685 27.206 23.084 0 14.4-9.838 23.085-27.206 23.085zm0-37.045v27.921h19.346c11.377 0 17.368-4.617 17.368-13.96 0-9.344-5.99-13.96-17.368-13.96zM224.784 133.537h-54.632V56.589h54.082v9.07h-44.409v24.567h42.98v9.124h-42.98v25.118h44.96zM275.07 56.59c17.368 0 26.931 7.804 26.931 21.82 0 13.355-10.387 21.93-26.876 21.93h-.604l27.096 33.197h-11.982l-26.437-33.198h-9.013v33.198h-9.674V56.589zm-20.885 9.069v25.886h20.665c11.322 0 17.093-4.506 17.093-13.135 0-8.52-5.935-12.751-17.093-12.751zM384.716 133.537h-10.388l-8.464-20.996h-37.32l-8.409 20.996h-10.058l31.274-76.948h12.036zm-52.49-30.174h29.955l-14.95-37.21zM445.114 65.768h-26.217v67.769h-9.673V65.768h-26.272v-9.179h62.162zM531.566 95.063c0 23.03-16.763 39.628-39.847 39.628s-39.848-16.599-39.848-39.628 16.764-39.628 39.848-39.628 39.847 16.599 39.847 39.628zm-69.582 0c0 18.083 12.807 30.339 29.735 30.339 16.928 0 29.735-12.256 29.735-30.34 0-18.081-12.807-30.338-29.735-30.338-16.928 0-29.735 12.257-29.735 30.339zM579.652 56.59c17.368 0 26.931 7.804 26.931 21.82 0 13.355-10.388 21.93-26.876 21.93h-.605l27.096 33.197h-11.981l-26.437-33.198h-9.014v33.198h-9.673V56.589zm-20.886 9.069v25.886h20.666c11.322 0 17.093-4.506 17.093-13.135 0-8.52-5.936-12.751-17.093-12.751zM72.292.762h11.75v34.419h-11.75zM58.159 1.087l-23.85 14.566a1.06 1.06 0 01-1.106 0L9.352 1.087a3.272 3.272 0 00-1.705-.48h-.03a3.27 3.27 0 00-3.27 3.27v31.304H16.09V20.327a1.175 1.175 0 011.787-1.002l13.366 8.177a4.188 4.188 0 004.304.04l14.104-8.273a1.174 1.174 0 011.769 1.013v14.9h11.742V3.876a3.27 3.27 0 00-3.27-3.27h-.03a3.266 3.266 0 00-1.703.48zM142.742.753h-11.916v15.794a1.175 1.175 0 01-1.727 1.037L98.22 1.137A3.268 3.268 0 0096.68.753h-.02a3.27 3.27 0 00-3.27 3.27v31.158h11.82V19.64a1.174 1.174 0 011.725-1.038l31.004 16.445a3.27 3.27 0 001.533.381 3.27 3.27 0 003.27-3.27V.753zM152.279 35.173V.753h5.463v34.42zM189.208 35.926c-14.545 0-24.863-6.9-24.863-17.963C164.345 6.962 174.725 0 189.208 0c14.482 0 24.924 6.899 24.924 17.963s-10.194 17.963-24.924 17.963zm0-31.327c-10.815 0-19.145 4.724-19.145 13.364 0 8.702 8.33 13.363 19.145 13.363s19.206-4.662 19.206-13.363c0-8.64-8.392-13.364-19.206-13.364z",
           })
@@ -8545,7 +8830,7 @@ var Sa,
     );
   }),
   (exports.PasswordKeyIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -8556,7 +8841,7 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         d: "M141.421,148.182a4.5,4.5,0,0,0-4.3,5.805l-5.188,5.195v3h3l5.187-5.2a4.5,4.5,0,0,0,5.8-3.936,4.39,4.39,0,0,0-.823-3A4.492,4.492,0,0,0,141.421,148.182Zm.5,5a1,1,0,1,1,1-1A1,1,0,0,1,141.92,153.182Z",
         transform: "translate(-131.934 -148.182)",
       })
@@ -9140,7 +9425,7 @@ var Sa,
     );
   }),
   (exports.ReportedUsageFullIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -9151,13 +9436,13 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "defs",
         null,
-        n.default.createElement(
+        l.default.createElement(
           "clipPath",
           { id: "rep-quota-clip-path" },
-          n.default.createElement("rect", {
+          l.default.createElement("rect", {
             id: "Rectángulo_959",
             "data-name": "Rectángulo 959",
             width: "37",
@@ -9166,13 +9451,13 @@ var Sa,
           })
         )
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         {
           id: "reported-usage-icn-full",
           transform: "translate(-0.213 -0.213)",
         },
-        n.default.createElement("rect", {
+        l.default.createElement("rect", {
           id: "Rectángulo_869",
           "data-name": "Rectángulo 869",
           width: "37",
@@ -9180,14 +9465,14 @@ var Sa,
           transform: "translate(0.213 0.213)",
           fill: "none",
         }),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           {
             id: "Grupo_2317",
             "data-name": "Grupo 2317",
             transform: "translate(0.213 0.213)",
           },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             {
               id: "Grupo_2316",
@@ -9195,7 +9480,7 @@ var Sa,
               transform: "translate(0 0)",
               clipPath: "url(#rep-quota-clip-path)",
             },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               id: "Trazado_7046",
               "data-name": "Trazado 7046",
               d: "M18.5,0A18.5,18.5,0,1,0,37,18.5,18.5,18.5,0,0,0,18.5,0m0,18.5V4.756A13.757,13.757,0,0,1,32.238,18.5H18.5Z",
@@ -9266,7 +9551,7 @@ var Sa,
     );
   }),
   (exports.S3TierIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -9277,84 +9562,84 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6934",
         "data-name": "Trazado 6934",
         d: "M2.663,53.686,0,55.018V78.391l2.663,1.324.016-.019V53.7l-.016-.018",
         transform: "translate(0 -46.754)",
         fill: "#8c3123",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6935",
         "data-name": "Trazado 6935",
         d: "M34.876,76.323,20.624,79.715V53.686L34.876,57V76.323",
         transform: "translate(-17.961 -46.754)",
         fill: "#e05243",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6936",
         "data-name": "Trazado 6936",
         d: "M81.178,125.086l6.045.77.038-.088.034-9.913-.072-.077-6.045.758v8.55",
         transform: "translate(-70.696 -100.829)",
         fill: "#8c3123",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6937",
         "data-name": "Trazado 6937",
         d: "M128,76.361l13.864,3.362.022-.035V53.709l-.022-.023L128,57.043V76.361",
         transform: "translate(-111.469 -46.754)",
         fill: "#8c3123",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6938",
         "data-name": "Trazado 6938",
         d: "M134.043,125.086l-6.047.77V115.778l6.047.758v8.55",
         transform: "translate(-111.469 -100.829)",
         fill: "#e05243",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6939",
         "data-name": "Trazado 6939",
         d: "M93.27,78.958l-6.047,1.1-6.045-1.1,6.038-1.583,6.055,1.583",
         transform: "translate(-70.696 -67.384)",
         fill: "#5e1f18",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6940",
         "data-name": "Trazado 6940",
         d: "M93.27,212.319l-6.047-1.109-6.045,1.109L87.216,214l6.054-1.685",
         transform: "translate(-70.696 -183.938)",
         fill: "#f2b0a9",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6941",
         "data-name": "Trazado 6941",
         d: "M81.178,11.573l6.045-1.5.049-.015V.04L87.223,0,81.178,3.023v8.55",
         transform: "translate(-70.696)",
         fill: "#8c3123",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6942",
         "data-name": "Trazado 6942",
         d: "M134.043,11.573,128,10.077V0l6.047,3.023v8.55",
         transform: "translate(-111.469)",
         fill: "#e05243",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6943",
         "data-name": "Trazado 6943",
         d: "M87.219,231.378l-6.046-3.022v-8.55l6.046,1.5.089.1-.024,9.8-.065.174",
         transform: "translate(-70.692 -191.424)",
         fill: "#8c3123",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6944",
         "data-name": "Trazado 6944",
         d: "M128,231.378l6.046-3.022v-8.55L128,221.3v10.077",
         transform: "translate(-111.469 -191.424)",
         fill: "#e05243",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6945",
         "data-name": "Trazado 6945",
         d: "M235.367,53.686l2.664,1.332V78.391l-2.664,1.331V53.686",
@@ -9364,7 +9649,7 @@ var Sa,
     );
   }),
   (exports.S3TierIconXs = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -9375,80 +9660,80 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6934",
         "data-name": "Trazado 6934",
         d: "M1.477,53.686,0,54.417V67.239l1.477.726.009-.011V53.7l-.009-.01",
         transform: "translate(0 -49.842)",
         fill: "#6b8295",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6935",
         "data-name": "Trazado 6935",
         d: "M28.526,66.1l-7.9,1.861V53.686l7.9,1.821V66.1",
         transform: "translate(-19.147 -49.842)",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6936",
         "data-name": "Trazado 6936",
         d: "M81.178,120.939l3.352.427.021-.049.019-5.5-.04-.043-3.352.421v4.74",
         transform: "translate(-75.415 -107.566)",
         fill: "#6b8295",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6937",
         "data-name": "Trazado 6937",
         d: "M128,66.125l7.687,1.844.012-.019V53.7l-.012-.013L128,55.527v10.6",
         transform: "translate(-118.959 -49.842)",
         fill: "#6b8295",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6938",
         "data-name": "Trazado 6938",
         d: "M131.349,120.939l-3.353.427v-5.588l3.353.421v4.74",
         transform: "translate(-118.91 -107.566)",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6939",
         "data-name": "Trazado 6939",
         d: "M87.883,78.252l-3.353.611-3.352-.611,3.348-.877,3.357.877",
         transform: "translate(-75.429 -71.876)",
         fill: "#5a6e7e",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6940",
         "data-name": "Trazado 6940",
         d: "M87.883,211.825l-3.353-.615-3.352.615,3.348.934,3.357-.934",
         transform: "translate(-75.429 -196.201)",
         fill: "#9aafbf",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6941",
         "data-name": "Trazado 6941",
         d: "M81.178,6.417l3.352-.829.027-.008V.022L84.53,0,81.178,1.676V6.417",
         transform: "translate(-75.415)",
         fill: "#6b8295",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6942",
         "data-name": "Trazado 6942",
         d: "M131.349,6.417,128,5.587V0l3.353,1.676V6.417",
         transform: "translate(-118.91)",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6943",
         "data-name": "Trazado 6943",
         d: "M84.525,226.222l-3.352-1.676v-4.741l3.352.829.049.056-.013,5.434-.036.1",
         transform: "translate(-75.411 -204.222)",
         fill: "#6b8295",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6944",
         "data-name": "Trazado 6944",
         d: "M128,226.222l3.352-1.676v-4.741l-3.352.829v5.587",
         transform: "translate(-118.91 -204.222)",
       }),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Trazado_6945",
         "data-name": "Trazado 6945",
         d: "M235.367,53.686l1.477.731V67.239l-1.477.73V53.686",
@@ -9743,7 +10028,7 @@ var Sa,
     );
   }),
   (exports.ServiceAccountsIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -9751,19 +10036,19 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 10 9.5",
       }),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(231 719.516)" },
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M-125.5,7.984a4.5,4.5,0,0,1,4.5-4.5,4.5,4.5,0,0,1,4.5,4.5Z",
           transform: "translate(-105 -720)",
         }),
-        n.default.createElement("rect", {
+        l.default.createElement("rect", {
           width: "10",
           height: "1",
           transform: "translate(-231 -711.016)",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M-119.5.484h-3v1h1v1h1v-1h1Z",
           transform: "translate(-105 -720)",
         })
@@ -10065,7 +10350,7 @@ var Sa,
     );
   }),
   (exports.SuccessIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -10076,7 +10361,7 @@ var Sa,
         },
         e
       ),
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         id: "Intersección_8",
         "data-name": "Intersección 8",
         d: "M14368.751,22047.6a1.045,1.045,0,1,1,1.467-1.488l1.411,1.395,3.98-3.918h0c.008-.01.017-.018.025-.027a1.048,1.048,0,0,1,1.451,1.514l-5.456,5.361Z",
@@ -10272,16 +10557,16 @@ var Sa,
   }),
   (exports.ThemeHandler = function (e) {
     var t = e.darkMode,
-      l = void 0 !== t && t,
+      n = void 0 !== t && t,
       r = e.children;
-    return n.default.createElement(a.ThemeProvider, { theme: l ? L : C }, r);
+    return l.default.createElement(a.ThemeProvider, { theme: n ? L : A }, r);
   }),
   (exports.ThemedLogo = function (e) {
     var a = e.width;
-    return n.default.createElement(
-      wt,
+    return l.default.createElement(
+      Tt,
       { viewBox: "0 0 162.612 24.465", width: a },
-      n.default.createElement("path", {
+      l.default.createElement("path", {
         d: "M52.751.414h9.108v23.63h-9.108zM41.711.74l-18.488 9.92a.919.919 0 0 1-.856 0L3.879.74A2.808 2.808 0 0 0 2.558.414h-.023A2.4 2.4 0 0 0 0 2.641v21.376h9.1V13.842a.918.918 0 0 1 1.385-.682l10.361 5.568a3.634 3.634 0 0 0 3.336.028l10.933-5.634a.917.917 0 0 1 1.371.69v10.205h9.1V2.641A2.4 2.4 0 0 0 43.055.414h-.023a2.808 2.808 0 0 0-1.321.326zm65.564-.326h-9.237v10.755a.913.913 0 0 1-1.338.706L72.762.675a2.824 2.824 0 0 0-1.191-.261h-.016a2.4 2.4 0 0 0-2.535 2.227v21.377h9.163V13.275a.914.914 0 0 1 1.337-.707l24.032 11.2a2.813 2.813 0 0 0 1.188.26 2.4 2.4 0 0 0 2.535-2.227zm7.161 23.63V.414h4.191v23.63zm28.856.421c-11.274 0-19.272-4.7-19.272-12.232C124.02 4.741 132.066 0 143.292 0s19.32 4.7 19.32 12.233-7.902 12.232-19.32 12.232zm0-21.333c-8.383 0-14.84 3.217-14.84 9.1 0 5.926 6.457 9.1 14.84 9.1s14.887-3.174 14.887-9.1c0-5.883-6.504-9.1-14.887-9.1z",
       })
     );
@@ -10328,7 +10613,7 @@ var Sa,
     );
   }),
   (exports.TiersNotAvailableIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -10339,10 +10624,10 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { id: "Tiers-NotAvailable-icon", transform: "translate(-340 -149)" },
-        n.default.createElement("circle", {
+        l.default.createElement("circle", {
           id: "Elipse_594",
           "data-name": "Elipse 594",
           cx: "14",
@@ -10351,13 +10636,13 @@ var Sa,
           transform: "translate(340 149)",
           fill: "#c83b51",
         }),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { id: "Grupo_2399", "data-name": "Grupo 2399" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { id: "TiersIcon", transform: "translate(345 154)" },
-            n.default.createElement("rect", {
+            l.default.createElement("rect", {
               id: "Rectángulo_848",
               "data-name": "Rectángulo 848",
               width: "17.95",
@@ -10365,13 +10650,13 @@ var Sa,
               transform: "translate(0 0.021)",
               fill: "none",
             }),
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { id: "tiers-icn", transform: "translate(-0.001 0)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { id: "tiers" },
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   id: "Trazado_441",
                   "data-name": "Trazado 441",
                   d: "M13,3a.8.8,0,0,0-.392.092L4.374,7.482a.666.666,0,0,0,0,1.2l2.54,1.354-2.54,1.354a.666.666,0,0,0,0,1.2l2.54,1.353-2.54,1.354a.666.666,0,0,0,0,1.2l8.236,4.39a.8.8,0,0,0,.749,0l8.236-4.39a.666.666,0,0,0,0-1.2l-2.54-1.354,2.54-1.353a.666.666,0,0,0,0-1.2l-2.54-1.354L21.6,8.678a.666.666,0,0,0,0-1.2L13.36,3.092A.8.8,0,0,0,13,3ZM8.414,10.832l4.2,2.237a.8.8,0,0,0,.749,0l4.2-2.237,2.167,1.154-6.739,3.591L6.246,11.986Zm0,3.9,4.2,2.237a.8.8,0,0,0,.749,0l4.2-2.237,2.166,1.154-6.739,3.591L6.246,15.89Z",
@@ -10380,14 +10665,14 @@ var Sa,
               )
             )
           ),
-          n.default.createElement(
+          l.default.createElement(
             "g",
             {
               id: "Grupo_2398",
               "data-name": "Grupo 2398",
               transform: "translate(-3 5)",
             },
-            n.default.createElement("circle", {
+            l.default.createElement("circle", {
               id: "Elipse_593",
               "data-name": "Elipse 593",
               cx: "5",
@@ -10395,27 +10680,27 @@ var Sa,
               r: "5",
               transform: "translate(358 156)",
             }),
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               id: "Elipse_593_-_Contorno",
               "data-name": "Elipse 593 - Contorno",
               d: "M5,1A4,4,0,1,0,9,5,4,4,0,0,0,5,1M5,0A5,5,0,1,1,0,5,5,5,0,0,1,5,0Z",
               transform: "translate(358 156)",
               fill: "#c83b51",
             }),
-            n.default.createElement(
+            l.default.createElement(
               "g",
               { id: "Page-1", transform: "translate(361.707 159.513)" },
-              n.default.createElement(
+              l.default.createElement(
                 "g",
                 { id: "Fill-2", transform: "translate(0 0)" },
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   id: "Trazado_6970",
                   "data-name": "Trazado 6970",
                   d: "M2.978.3l-.3-.3L1.489,1.189.3,0,0,.3,1.189,1.489,0,2.678l.3.3L1.489,1.789,2.678,2.978l.3-.3L1.789,1.489Z",
                   transform: "translate(0 0)",
                   fill: "#c83b51",
                 }),
-                n.default.createElement("path", {
+                l.default.createElement("path", {
                   id: "Trazado_6970_-_Contorno",
                   "data-name": "Trazado 6970 - Contorno",
                   d: "M.3-.354,1.489.835,2.678-.354,3.331.3,2.142,1.489,3.331,2.678l-.653.653L1.489,2.142.3,3.331l-.653-.653L.835,1.489-.354.3Z",
@@ -10590,7 +10875,7 @@ var Sa,
     );
   }),
   (exports.TrashIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T(
         {
@@ -10601,28 +10886,28 @@ var Sa,
         },
         e
       ),
-      n.default.createElement(
+      l.default.createElement(
         "defs",
         null,
-        n.default.createElement(
+        l.default.createElement(
           "clipPath",
           { id: "prefix__a" },
-          n.default.createElement("path", { d: "M0 0h256v256H0z" })
+          l.default.createElement("path", { d: "M0 0h256v256H0z" })
         )
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { clipPath: "url(#prefix__a)" },
-        n.default.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
-        n.default.createElement(
+        l.default.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
+        l.default.createElement(
           "g",
           { "data-name": "Grupo 1557" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             "data-name": "Rect\\xE1ngulo 826",
             fill: "none",
             d: "M0 0h256v256H0z",
           }),
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             "data-name": "Uni\\xF3n 10",
             d: "M71.113 256a37.94 37.94 0 01-37.889-37.9V60.906a15.426 15.426 0 01-14.227-15.353V29.621a15.423 15.423 0 0115.4-15.4h41.541A15.378 15.378 0 0191.258.003h72.871a15.393 15.393 0 0115.334 14.218h41.531a15.423 15.423 0 0115.4 15.4v15.932a15.426 15.426 0 01-14.227 15.353V218.1a37.942 37.942 0 01-37.9 37.9zm-19.605-37.9a19.634 19.634 0 0019.605 19.614h113.164A19.637 19.637 0 00203.89 218.1V60.951H51.507zM218.117 38.6v-6.1h-56.893V18.278H94.177V32.5H37.286v6.1z",
           })
@@ -10631,7 +10916,7 @@ var Sa,
     );
   }),
   (exports.UploadFile = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -10639,14 +10924,14 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 13 12.996",
       }),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-63.686 -70.783)" },
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           className: "a",
           d: "M74.736,79.879v1.95h-9.1v-1.95h-1.95v3.9h13v-3.9Z",
         }),
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           className: "a",
           d: "M69.211,80.533h1.95V73.861h1.525l-2.5-3.078-2.5,3.078h1.525Z",
         })
@@ -10654,7 +10939,7 @@ var Sa,
     );
   }),
   (exports.UploadFolderIcon = function (e) {
-    return n.default.createElement(
+    return l.default.createElement(
       "svg",
       T({}, e, {
         className: "min-icon",
@@ -10662,47 +10947,47 @@ var Sa,
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "-1 -37.9 256 256",
       }),
-      n.default.createElement(
+      l.default.createElement(
         "defs",
         null,
-        n.default.createElement(
+        l.default.createElement(
           "clipPath",
           { id: "a" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             d: "M53.548,94.912v44.816c.43-.22.737-.378,1.517-.759a20.07,20.07,0,0,1,27.673,15.21c.1.677.115.688.163,1.1.063.567.084.968.108,1.463.01.21.068,1.914.072,2,.2,2.214.363,4.336.452,6.449.269,6.381.536,11,.957,15.5.6,6.412.964,12.128,1.066,17.7a19.838,19.838,0,0,1-.976,6.231c.683,6.455,1.592,14.938,1.752,16.438.014.128.023.253.036.38,3.927-.511,5.969-.716,8.382-.813,8.553-.344,16.809-.382,29.335-.235,1.42.017,2.559.021,5.094.054,10.044.13,14.46.163,19.906.127.93-.007,1.643,0,3.234,0,7.429.005,10.477-.237,12.174-.958-.178-1.123-.351-2.228-.614-3.558-.313-1.589-.586-2.862-1.264-5.979-2.292-10.53-3.161-15.585-3.414-22.508a68.539,68.539,0,0,1,2.764-23.067A29.713,29.713,0,0,1,164.278,159c.461-.922.889-1.737,1.372-2.547a22.021,22.021,0,0,1,1.987-2.836,19.87,19.87,0,0,1,3.776-3.5A19.984,19.984,0,0,1,192.33,125.6a20.223,20.223,0,0,1,9.195,3V94.912Z",
             fill: "none",
           })
         ),
-        n.default.createElement(
+        l.default.createElement(
           "clipPath",
           { id: "b" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             d: "M204.03,236.91c-.393.722-.717,1.447-1.156,2.168-.795,1.3-1.66,2.592-2.547,3.811h3.7Z",
             fill: "none",
           })
         )
       ),
-      n.default.createElement(
+      l.default.createElement(
         "g",
         { transform: "translate(-0.036 -24.789)" },
-        n.default.createElement("path", {
+        l.default.createElement("path", {
           d: "M239.185,72.637A29.456,29.456,0,0,0,209.767,43.6H128.581l-1.119-1.512c-5.078-6.886-12.756-17.3-26.1-17.3H49.394A29.455,29.455,0,0,0,19.972,54.21a19.778,19.778,0,0,0,.236,3.081V70.763A29.818,29.818,0,0,0,.036,98.947c0,.6.023,1.205.076,1.806L9.8,207.577A29.8,29.8,0,0,0,39.545,236.2h175.73A29.8,29.8,0,0,0,245.021,207.6L254.947,100.8q.088-.928.09-1.852A29.792,29.792,0,0,0,239.185,72.637ZM49.394,44.808h51.963c6.586,0,13.645,18.813,20.7,18.813h87.709a9.429,9.429,0,0,1,9.4,9.4v4.7H40.213V54.206h-.229A9.431,9.431,0,0,1,49.394,44.808ZM225.031,206.43a9.781,9.781,0,0,1-9.754,9.748H39.547a9.779,9.779,0,0,1-9.75-9.748L20.051,98.947A9.782,9.782,0,0,1,29.8,89.192H225.268a9.788,9.788,0,0,1,9.758,9.755Z",
         }),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { transform: "translate(-351.512 467)" },
-          n.default.createElement(
+          l.default.createElement(
             "g",
             { transform: "translate(352 -469)", clipPath: "url(#a)" },
-            n.default.createElement("path", {
+            l.default.createElement("path", {
               d: "M118.046,203.4c0,12.123,18.976,12.123,18.976,0V126.379l10.748,10.443c8.823,8.569,22.236-4.465,13.415-13.034L134.3,97.665a9.685,9.685,0,0,0-13.526,0L93.89,123.788c-8.82,8.568,4.592,21.6,13.415,13.034l10.745-10.443V203.4Z",
             })
           )
         ),
-        n.default.createElement(
+        l.default.createElement(
           "g",
           { clipPath: "url(#b)" },
-          n.default.createElement("path", {
+          l.default.createElement("path", {
             d: "M56.052,158.235c0-12.121,18.978-12.121,18.978,0v66.218H185.056V158.235c0-12.121,18.973-12.121,18.973,0v75.436a9.357,9.357,0,0,1-9.486,9.217h-129a9.357,9.357,0,0,1-9.486-9.217V158.235Zm64.5,45.162c0,12.123,18.976,12.123,18.976,0V126.379l10.748,10.443c8.823,8.569,22.236-4.465,13.415-13.034L136.8,97.665a9.685,9.685,0,0,0-13.526,0L96.394,123.788c-8.82,8.568,4.593,21.6,13.415,13.034l10.745-10.443V203.4Z",
           })
         )
