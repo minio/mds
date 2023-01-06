@@ -17,7 +17,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const ShowTextIcon = (props: SVGProps<SVGSVGElement>) => (
+const CollapseCaret = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`min-icon`}
@@ -49,4 +49,4 @@ const ShowTextIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default ShowTextIcon;
+export default CollapseCaret;

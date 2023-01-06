@@ -144,6 +144,18 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.BoxArrowDown />
+              <br />
+              BoxArrowDown
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.BoxArrowUp />
+              <br />
+              BoxArrowUp
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.BucketEncryptionIcon />
               <br />
               BucketEncryptionIcon
@@ -186,6 +198,12 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.CertificateIcon />
+              <br />
+              CertificateIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.ChangeAccessPolicyIcon />
               <br />
               ChangeAccessPolicyIcon
@@ -213,6 +231,12 @@ const Template: Story = (args) => {
               <cicons.ClustersIcon />
               <br />
               ClustersIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.CollapseCaret />
+              <br />
+              CollapseCaret
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
@@ -393,6 +417,12 @@ const Template: Story = (args) => {
               <cicons.EventSubscriptionIcon />
               <br />
               EventSubscriptionIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.ExpandCaret />
+              <br />
+              ExpandCaret
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
@@ -627,6 +657,12 @@ const Template: Story = (args) => {
               <cicons.LinkIcon />
               <br />
               LinkIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.LockFilledIcon />
+              <br />
+              LockFilledIcon
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
@@ -972,6 +1008,18 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.TierOfflineIcon />
+              <br />
+              TierOfflineIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.TierOnlineIcon />
+              <br />
+              TierOnlineIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.ToolsIcon />
               <br />
               ToolsIcon
@@ -1105,6 +1153,16 @@ const Template: Story = (args) => {
               <cicons.NetworkPutIcon />
               <br />
               NetworkPutIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.UserFilledIcon />
+              <br />
+              UserFilledIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.WarnFilledIcon />
+              <br />
+              WarnFilledIcon
             </Grid>
           </Grid>
           <h1>Menu Icons</h1>

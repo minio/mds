@@ -151,12 +151,12 @@ var B =
   y = "object" == typeof B && B && B.Object === Object && B,
   G = "object" == typeof self && self && self.Object === Object && self,
   S = y || G || Function("return this")(),
-  k = S.Symbol,
-  I = k,
+  I = S.Symbol,
+  k = I,
   q = Object.prototype,
   F = q.hasOwnProperty,
   O = q.toString,
-  j = I ? I.toStringTag : void 0;
+  j = k ? k.toStringTag : void 0;
 var D = function (e) {
     var a = F.call(e, j),
       t = e[j];
@@ -172,7 +172,7 @@ var W = D,
   $ = function (e) {
     return U.call(e);
   },
-  Q = k ? k.toStringTag : void 0;
+  Q = I ? I.toStringTag : void 0;
 var Y = function (e) {
   return null == e
     ? void 0 === e
@@ -297,8 +297,8 @@ var Ne = function (e) {
 var ye = Ve;
 var Ge = Le,
   Se = Te,
-  ke = Ne,
-  Ie = function (e) {
+  Ie = Ne,
+  ke = function (e) {
     var a = this.__data__;
     return Be ? void 0 !== a[e] : Re.call(a, e);
   },
@@ -320,8 +320,8 @@ function Fe(e) {
 }
 (Fe.prototype.clear = Ge),
   (Fe.prototype.delete = Se),
-  (Fe.prototype.get = ke),
-  (Fe.prototype.has = Ie),
+  (Fe.prototype.get = Ie),
+  (Fe.prototype.has = ke),
   (Fe.prototype.set = qe);
 var Oe = Fe;
 var je = function () {
@@ -471,7 +471,7 @@ var Va = function (e, a) {
   },
   Aa = R,
   La = J,
-  Ta = k ? k.prototype : void 0,
+  Ta = I ? I.prototype : void 0,
   ba = Ta ? Ta.toString : void 0;
 var Pa = function e(a) {
     if ("string" == typeof a) return a;
@@ -488,17 +488,17 @@ var Ba = R,
     return null == e ? "" : Na(e);
   };
 var Sa = J;
-var ka = function (e, a) {
+var Ia = function (e, a) {
     return Ba(e) ? e : Ra(e, a) ? [e] : ya(Ga(e));
   },
-  Ia = function (e) {
+  ka = function (e) {
     if ("string" == typeof e || Sa(e)) return e;
     var a = e + "";
     return "0" == a && 1 / e == -Infinity ? "-0" : a;
   };
 var qa = function (e, a) {
-  for (var t = 0, n = (a = ka(a, e)).length; null != e && t < n; )
-    e = e[Ia(a[t++])];
+  for (var t = 0, n = (a = Ia(a, e)).length; null != e && t < n; )
+    e = e[ka(a[t++])];
   return t && t == n ? e : void 0;
 };
 var Fa,
@@ -1441,8 +1441,8 @@ var Fa,
   St = function (e) {
     return a.createElement(Gt, P({}, e), e.children);
   },
-  kt = require("../assets/video/videoBG.mp4"),
-  It = require("../assets/background/loginAnimationPoster.png"),
+  It = require("../assets/video/videoBG.mp4"),
+  kt = require("../assets/background/loginAnimationPoster.png"),
   qt = n.div(function (e) {
     var a,
       t = e.theme;
@@ -1610,10 +1610,10 @@ var Fa,
                 muted: !0,
                 loop: !0,
                 disablePictureInPicture: !0,
-                poster: It,
+                poster: kt,
                 className: "videoBG",
               },
-              a.createElement("source", { src: kt, type: "video/mp4" })
+              a.createElement("source", { src: It, type: "video/mp4" })
             )
           )
         ),
@@ -3578,7 +3578,7 @@ var Fa,
       )
     );
   },
-  kn = function (a) {
+  In = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -3657,7 +3657,7 @@ var Fa,
       )
     );
   },
-  In = function (a) {
+  kn = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -6252,7 +6252,7 @@ var Fa,
       )
     );
   },
-  kl = function (a) {
+  Il = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -6289,7 +6289,7 @@ var Fa,
       )
     );
   },
-  Il = function (a) {
+  kl = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -8922,7 +8922,7 @@ var Fa,
       )
     );
   },
-  kr = function (e) {
+  Ir = function (e) {
     return a.createElement(
       "svg",
       P({}, e, {
@@ -8950,7 +8950,7 @@ var Fa,
       )
     );
   },
-  Ir = function (a) {
+  kr = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10447,6 +10447,375 @@ var Fa,
           xmlns: "http://www.w3.org/2000/svg",
           className: "min-icon",
           fill: "currentcolor",
+          viewBox: "0 0 15 15",
+        },
+        a
+      ),
+      e.createElement(
+        "g",
+        { id: "OpenListIcon-full", transform: "translate(4 4.984)" },
+        e.createElement(
+          "g",
+          {
+            id: "noun_chevron_2320228",
+            transform: "translate(0.167 4.016) rotate(-90)",
+          },
+          e.createElement("path", {
+            id: "Trazado_6842",
+            "data-name": "Trazado 6842",
+            d: "M.422,0a.433.433,0,0,0-.3.117.37.37,0,0,0,0,.557L2.983,3.325.126,5.986a.37.37,0,0,0,0,.557.443.443,0,0,0,.6,0L3.889,3.609a.373.373,0,0,0,.126-.274.344.344,0,0,0-.126-.274L.727.127A.443.443,0,0,0,.422,0Z",
+            transform: "translate(0 0)",
+          })
+        ),
+        e.createElement("rect", {
+          id: "Rectángulo_896",
+          "data-name": "Rectángulo 896",
+          width: "0.462",
+          height: "0.462",
+          transform: "translate(0 1.75)",
+          fill: "none",
+        })
+      )
+    );
+  },
+  bc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 15 15",
+        },
+        a
+      ),
+      e.createElement(
+        "g",
+        {
+          id: "Grupo_2449",
+          "data-name": "Grupo 2449",
+          transform: "translate(-140 -181)",
+        },
+        e.createElement(
+          "g",
+          { id: "OpenListIcon-full", transform: "translate(144 250.612)" },
+          e.createElement(
+            "g",
+            {
+              id: "noun_chevron_2320228",
+              transform: "translate(6.827 -63.612) rotate(90)",
+            },
+            e.createElement("path", {
+              id: "Trazado_6842",
+              "data-name": "Trazado 6842",
+              d: "M.422,6.661a.433.433,0,0,1-.3-.117.37.37,0,0,1,0-.557L2.983,3.335.126.675a.37.37,0,0,1,0-.557.443.443,0,0,1,.6,0L3.889,3.052a.373.373,0,0,1,.126.274.344.344,0,0,1-.126.274L.727,6.533a.443.443,0,0,1-.306.127Z",
+              transform: "translate(0 0)",
+            })
+          ),
+          e.createElement("rect", {
+            id: "Rectángulo_896",
+            "data-name": "Rectángulo 896",
+            width: "0.462",
+            height: "0.462",
+            transform: "translate(0 -61.808)",
+            fill: "none",
+          })
+        )
+      )
+    );
+  },
+  Pc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 256 256",
+        },
+        a
+      ),
+      e.createElement(
+        "defs",
+        null,
+        e.createElement(
+          "clipPath",
+          { id: "certificate_svg__a" },
+          e.createElement("path", {
+            "data-name": "Rect\\xE1ngulo 2156",
+            d: "M0 0h256v222.048H0z",
+          })
+        )
+      ),
+      e.createElement(
+        "g",
+        {
+          "data-name": "Grupo 4763",
+          transform: "translate(0 17)",
+          clipPath: "url(#certificate_svg__a)",
+        },
+        e.createElement("path", {
+          "data-name": "Trazado 8152",
+          d: "M240-.002H16a16 16 0 0 0-16 16v160a16 16 0 0 0 16 16h120l4.64-5.6 7.44-9.12A66.72 66.72 0 0 1 256 98.958v-82.96a16 16 0 0 0-16-16m-130.96 149.7H47.3a7.3 7.3 0 1 1 0-14.592h61.74a7.3 7.3 0 1 1 0 14.592m0-56H47.3a7.3 7.3 0 1 1 0-14.592h61.74a7.3 7.3 0 0 1 0 14.592m66.96-39.3a6.419 6.419 0 0 1-6.4 6.4H46.4a6.419 6.419 0 0 1-6.4-6.4v-1.792a6.419 6.419 0 0 1 6.4-6.4h123.2a6.419 6.419 0 0 1 6.4 6.4Z",
+        }),
+        e.createElement("path", {
+          "data-name": "Trazado 8153",
+          d: "M256 137.486a50.96 50.96 0 1 0-86.16 36.72l-15.52 18.96 7.2 28.88 29.28-35.68a50.018 50.018 0 0 0 28.4 0l29.28 35.68 7.2-28.88-15.52-18.96a50.75 50.75 0 0 0 15.84-36.72m-50.928 29.688a29.688 29.688 0 0 1-.072-59.376h.072a29.688 29.688 0 0 1 0 59.376",
+        })
+      ),
+      e.createElement("path", {
+        "data-name": "Rect\\xE1ngulo 2157",
+        fill: "none",
+        d: "M0 0h256v256H0z",
+      })
+    );
+  },
+  Nc = function (a) {
+    return e.createElement(
+      "svg",
+      {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "14",
+        height: "14",
+        viewBox: "0 0 14 14",
+      },
+      e.createElement("path", {
+        id: "online-icon",
+        d: "M7,14a7.052,7.052,0,0,1-1.411-.142,6.962,6.962,0,0,1-2.5-1.053A7.02,7.02,0,0,1,.55,9.725,6.965,6.965,0,0,1,.142,8.411a7.068,7.068,0,0,1,0-2.821A6.962,6.962,0,0,1,1.2,3.086,7.02,7.02,0,0,1,4.275.55,6.965,6.965,0,0,1,5.589.142a7.068,7.068,0,0,1,2.821,0,6.962,6.962,0,0,1,2.5,1.053,7.02,7.02,0,0,1,2.536,3.08,6.965,6.965,0,0,1,.408,1.314,7.068,7.068,0,0,1,0,2.821,6.962,6.962,0,0,1-1.053,2.5,7.02,7.02,0,0,1-3.08,2.536,6.965,6.965,0,0,1-1.314.408A7.052,7.052,0,0,1,7,14ZM3.958,6h0L2.953,7.008l3.016,3.016L10.995,5,9.99,3.992,5.969,8.013,3.958,6Z",
+        fill: "#4ccb92",
+      })
+    );
+  },
+  Bc = function (a) {
+    return e.createElement(
+      "svg",
+      {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "14",
+        height: "14",
+        viewBox: "0 0 14 14",
+      },
+      e.createElement("path", {
+        id: "offline-icon",
+        d: "M91.4,4.551l-.825-.825-2.44,2.439L85.7,3.726l-.825.825L87.312,6.99,84.873,9.429l.825.825,2.439-2.439,2.44,2.439.825-.825L88.961,6.99Zm-.155,9.44H85.027l-3.89-4.279V4.269L85.027-.01h6.219l3.89,4.279V9.711Z",
+        transform: "translate(-81.136 0.01)",
+        fill: "#c83b51",
+        "fill-rule": "evenodd",
+      })
+    );
+  },
+  Rc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          id: "WarnFilledIcon",
+          xmlns: "http://www.w3.org/2000/svg",
+          viewBox: "0 0 12 12",
+        },
+        a,
+        { className: "min-icon", fill: "currentcolor" }
+      ),
+      e.createElement(
+        "defs",
+        null,
+        e.createElement(
+          "clipPath",
+          { id: "clip-path" },
+          e.createElement("rect", {
+            id: "Rectangle_987",
+            "data-name": "Rectangle 987",
+            width: "12",
+            height: "12",
+          })
+        )
+      ),
+      e.createElement(
+        "g",
+        { id: "warning-icon-full", transform: "translate(-0.002 -0.003)" },
+        e.createElement(
+          "g",
+          {
+            id: "Group_2356",
+            "data-name": "Group 2356",
+            transform: "translate(0.002 0.003)",
+            "clip-path": "url(#clip-path)",
+          },
+          e.createElement("path", {
+            id: "Path_7081",
+            "data-name": "Path 7081",
+            d: "M6,0H6a6,6,0,1,0,6,6A6,6,0,0,0,6,0m.964,1.947L6.751,7.434H5.318L5.1,1.947ZM6.04,10.454a1.134,1.134,0,1,1,0-2.269,1.134,1.134,0,0,1,0,2.269",
+            transform: "translate(-0.002 -0.003)",
+          })
+        )
+      )
+    );
+  },
+  yc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 26 26",
+        },
+        a
+      ),
+      e.createElement(
+        "g",
+        {
+          id: "Group_2001",
+          "data-name": "Group 2001",
+          transform: "translate(1924 369) rotate(180)",
+        },
+        e.createElement("rect", {
+          id: "Rectangle_1114",
+          "data-name": "Rectangle 1114",
+          width: "26",
+          height: "26",
+          transform: "translate(1898 343)",
+          fill: "#e5e5e5",
+        }),
+        e.createElement(
+          "g",
+          {
+            id: "noun_chevron_2320228",
+            transform: "translate(1915.2 353.499) rotate(90)",
+          },
+          e.createElement("path", {
+            id: "Path_6842",
+            "data-name": "Path 6842",
+            d: "M.47,8a.464.464,0,0,1-.329-.141.468.468,0,0,1,0-.67L3.325,4.006.141.811a.468.468,0,0,1,0-.67.468.468,0,0,1,.67,0L4.335,3.665a.464.464,0,0,1,.141.329.427.427,0,0,1-.141.329L.811,7.847A.476.476,0,0,1,.47,8Z",
+            transform: "translate(0 0)",
+            fill: "#5e5e5e",
+          })
+        )
+      )
+    );
+  },
+  Gc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 26 26",
+        },
+        a
+      ),
+      e.createElement(
+        "g",
+        {
+          id: "Group_2476",
+          "data-name": "Group 2476",
+          transform: "translate(-1898 -343)",
+        },
+        e.createElement("rect", {
+          id: "Rectangle_1114",
+          "data-name": "Rectangle 1114",
+          width: "26",
+          height: "26",
+          transform: "translate(1898 343)",
+          fill: "#fbfafa",
+        }),
+        e.createElement(
+          "g",
+          {
+            id: "noun_chevron_2320228",
+            transform: "translate(1915.2 353.499) rotate(90)",
+          },
+          e.createElement("path", {
+            id: "Path_6842",
+            "data-name": "Path 6842",
+            d: "M.47,8a.464.464,0,0,1-.329-.141.468.468,0,0,1,0-.67L3.325,4.006.141.811a.468.468,0,0,1,0-.67.468.468,0,0,1,.67,0L4.335,3.665a.464.464,0,0,1,.141.329.427.427,0,0,1-.141.329L.811,7.847A.476.476,0,0,1,.47,8Z",
+            transform: "translate(0 0)",
+            fill: "#2781b0",
+          })
+        )
+      )
+    );
+  },
+  Sc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 9.008 12",
+        },
+        a
+      ),
+      e.createElement(
+        "defs",
+        null,
+        e.createElement(
+          "clipPath",
+          { id: "clip-path" },
+          e.createElement("rect", {
+            id: "Rectangle_991",
+            "data-name": "Rectangle 991",
+            width: "9.008",
+            height: "12",
+            fill: "#071d43",
+          })
+        )
+      ),
+      e.createElement(
+        "g",
+        { id: "Group_2365", "data-name": "Group 2365" },
+        e.createElement("path", {
+          id: "Path_7088",
+          "data-name": "Path 7088",
+          d: "M26.843,6.743a3.4,3.4,0,0,0,3.411-3.372,3.411,3.411,0,0,0-6.822,0,3.4,3.4,0,0,0,3.411,3.372",
+          transform: "translate(-22.334)",
+          fill: "#071d43",
+        }),
+        e.createElement("path", {
+          id: "Path_7089",
+          "data-name": "Path 7089",
+          d: "M8.639,157.057a5.164,5.164,0,0,0-1.957-1.538,5.438,5.438,0,0,0-1.083-.362,5.2,5.2,0,0,0-1.117-.123c-.075,0-.151,0-.225.005H4.231a4.928,4.928,0,0,0-.549.059,5.236,5.236,0,0,0-3.276,1.92c-.029.039-.059.078-.086.116h0a1.723,1.723,0,0,0-.134,1.784,1.583,1.583,0,0,0,.255.356,1.559,1.559,0,0,0,.337.267,1.613,1.613,0,0,0,.4.167,1.742,1.742,0,0,0,.449.058H7.389a1.747,1.747,0,0,0,.452-.058,1.593,1.593,0,0,0,.4-.169,1.524,1.524,0,0,0,.335-.271,1.548,1.548,0,0,0,.251-.361,1.761,1.761,0,0,0-.191-1.85",
+          transform: "translate(0.001 -147.766)",
+          fill: "#071d43",
+        })
+      )
+    );
+  },
+  Ic = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 12 12",
+        },
+        a
+      ),
+      e.createElement("path", {
+        id: "Path_7819",
+        "data-name": "Path 7819",
+        d: "M9.884,3.523H8.537V2.27A2.417,2.417,0,0,0,6,0,2.417,2.417,0,0,0,3.463,2.27V3.523H2.116A2.019,2.019,0,0,0,0,5.423V9.413a2.012,2.012,0,0,0,2.062,1.9L6,12l3.938-.688A2.012,2.012,0,0,0,12,9.413V5.423a2.019,2.019,0,0,0-2.116-1.9M6.5,7.658v.724a.474.474,0,0,1-.472.474H5.971A.474.474,0,0,1,5.5,8.381V7.658a.9.9,0,0,1-.394-.744h0a.894.894,0,1,1,1.4.744m.985-4.135H4.514V2.27A1.416,1.416,0,0,1,6,.94,1.416,1.416,0,0,1,7.486,2.27Z",
+        fill: "#071d43",
+      })
+    );
+  },
+  kc = function (a) {
+    return e.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
           viewBox: "0 0 12 12.001",
         },
         a
@@ -10458,7 +10827,7 @@ var Fa,
       })
     );
   },
-  bc = function (a) {
+  qc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10512,7 +10881,7 @@ var Fa,
       )
     );
   },
-  Pc = function (a) {
+  Fc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10536,7 +10905,7 @@ var Fa,
       )
     );
   },
-  Nc = function (a) {
+  Oc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10584,7 +10953,7 @@ var Fa,
       )
     );
   },
-  Bc = function (a) {
+  jc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10615,7 +10984,7 @@ var Fa,
       )
     );
   },
-  Rc = function (a) {
+  Dc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10687,7 +11056,7 @@ var Fa,
       )
     );
   },
-  yc = function (a) {
+  Uc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10744,7 +11113,7 @@ var Fa,
       )
     );
   },
-  Gc = function (a) {
+  Wc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10792,7 +11161,7 @@ var Fa,
       )
     );
   },
-  Sc = function (a) {
+  $c = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10814,7 +11183,7 @@ var Fa,
       })
     );
   },
-  kc = function (a) {
+  Qc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10868,7 +11237,7 @@ var Fa,
       )
     );
   },
-  Ic = function (a) {
+  Yc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10915,7 +11284,7 @@ var Fa,
       )
     );
   },
-  qc = function (a) {
+  Kc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -10963,7 +11332,7 @@ var Fa,
       )
     );
   },
-  Fc = function (a) {
+  Xc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11010,7 +11379,7 @@ var Fa,
       )
     );
   },
-  Oc = function (a) {
+  Jc = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11042,7 +11411,7 @@ var Fa,
       )
     );
   },
-  jc = function (a) {
+  em = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11084,7 +11453,7 @@ var Fa,
       )
     );
   },
-  Dc = function (a) {
+  am = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11126,7 +11495,7 @@ var Fa,
       )
     );
   },
-  Uc = function (a) {
+  tm = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11180,7 +11549,7 @@ var Fa,
       )
     );
   },
-  Wc = function (a) {
+  nm = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11221,7 +11590,7 @@ var Fa,
       )
     );
   },
-  $c = function (a) {
+  lm = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11275,7 +11644,7 @@ var Fa,
       )
     );
   },
-  Qc = function (a) {
+  rm = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11296,7 +11665,7 @@ var Fa,
       })
     );
   },
-  Yc = function (a) {
+  cm = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11370,7 +11739,7 @@ var Fa,
       )
     );
   },
-  Kc = function (a) {
+  mm = function (a) {
     return e.createElement(
       "svg",
       P(
@@ -11418,9 +11787,9 @@ export {
   Hc as AGPLV3DarkLogo,
   Mc as AGPLV3LightLogo,
   xc as AGPLV3Logo,
-  jc as AccessMenuIcon,
+  em as AccessMenuIcon,
   tl as AccountIcon,
-  Wc as AccountsMenuIcon,
+  nm as AccountsMenuIcon,
   nl as AddAccessRuleIcon,
   jl as AddFolderIcon,
   Bl as AddIcon,
@@ -11433,27 +11802,31 @@ export {
   Bn as ArrowIcon,
   Fn as ArrowRightIcon,
   tc as ArrowRightLink,
-  bc as AuditLogsMenuIcon,
+  qc as AuditLogsMenuIcon,
   yr as AzureTierIcon,
   xr as AzureTierIconXs,
   Ur as BackCaretIcon,
   rc as BackIcon,
   Sl as BackSettingsIcon,
+  Gc as BoxArrowDown,
+  yc as BoxArrowUp,
   Ql as BucketEncryptionIcon,
   jn as BucketQuotaIcon,
   Ar as BucketReplicationIcon,
   zr as BucketsIcon,
-  Yc as BucketsMenuIcon,
+  cm as BucketsMenuIcon,
   xt as Button,
   Sr as CalendarIcon,
   Pl as CallHomeFeatureIcon,
-  Qc as CallHomeMenuIcon,
+  rm as CallHomeMenuIcon,
   pc as CancelledIcon,
+  Pc as CertificateIcon,
   Hn as ChangeAccessPolicyIcon,
   jr as ChangePasswordIcon,
   Mn as CircleIcon,
   An as ClosePanelIcon,
   bn as ClustersIcon,
+  Tc as CollapseCaret,
   pr as CollapseIcon,
   tr as ComputerLineIcon,
   Gn as ConfigurationsListIcon,
@@ -11474,14 +11847,14 @@ export {
   cc as DeleteNonCurrentIcon,
   Kl as DiagnosticsFeatureIcon,
   ul as DiagnosticsIcon,
-  Oc as DiagnosticsMenuIcon,
+  Jc as DiagnosticsMenuIcon,
   rn as DisabledIcon,
   Yl as DocumentationIcon,
   ar as DownloadIcon,
   mr as DownloadStatIcon,
   Tl as DriveFormatErrorsIcon,
   hl as DrivesIcon,
-  Uc as DrivesMenuIcon,
+  tm as DrivesMenuIcon,
   un as EditIcon,
   fc as EditTagIcon,
   oc as EditTenantIcon,
@@ -11491,6 +11864,7 @@ export {
   ml as EnabledIcon,
   Cc as EnterpriseLightLogo,
   er as EventSubscriptionIcon,
+  bc as ExpandCaret,
   Lc as ExtraFeaturesIcon,
   ql as FileBookIcon,
   xn as FileCloudIcon,
@@ -11518,17 +11892,17 @@ export {
   Rl as GoogleTierIconXs,
   St as Grid,
   cr as GroupsIcon,
-  Rc as GroupsMenuIcon,
+  Dc as GroupsMenuIcon,
   qr as HardBucketQuotaIcon,
-  In as HealIcon,
-  Pc as HealthMenuIcon,
+  kn as HealIcon,
+  Fc as HealthMenuIcon,
   sl as HelpIcon,
   fn as HelpIconFilled,
   _r as HistoryIcon,
   Ul as IAMPoliciesIcon,
-  Sc as IdentityMenuIcon,
+  $c as IdentityMenuIcon,
   uc as InfoIcon,
-  Tc as InspectMenuIcon,
+  kc as InspectMenuIcon,
   gn as JSONIcon,
   zc as LDAPIcon,
   sn as LambdaBalloonIcon,
@@ -11536,23 +11910,24 @@ export {
   yl as LambdaNotificationsIcon,
   Kr as LegalHoldIcon,
   nc as LicenseDocIcon,
-  kl as LicenseIcon,
+  Il as LicenseIcon,
   Ll as LifecycleConfigIcon,
   vc as LinkIcon,
   an as Loader,
+  Ic as LockFilledIcon,
   Dr as LockIcon,
   Ft as LoginWrapper,
   Mr as LogoutIcon,
-  Ir as LogsIcon,
-  kc as LogsMenuIcon,
-  yc as MenuCollapsedIcon,
-  Nc as MenuExpandedIcon,
+  kr as LogsIcon,
+  Qc as LogsMenuIcon,
+  Uc as MenuCollapsedIcon,
+  Oc as MenuExpandedIcon,
   Yr as MetadataIcon,
-  Gc as MetricsMenuIcon,
+  Wc as MetricsMenuIcon,
   wl as MinIOTierIcon,
   Ln as MinIOTierIconXs,
   Pn as MirroringIcon,
-  Ic as MonitoringMenuIcon,
+  Yc as MonitoringMenuIcon,
   Cl as MultipleBucketsIcon,
   hc as NetworkGetIcon,
   dc as NetworkPutIcon,
@@ -11576,18 +11951,18 @@ export {
   Dn as OperatorLogo,
   Xl as PasswordKeyIcon,
   Ol as PerformanceFeatureIcon,
-  Fc as PerformanceMenuIcon,
+  Xc as PerformanceMenuIcon,
   el as PermissionIcon,
   On as PreviewIcon,
-  $c as ProfileMenuIcon,
+  lm as ProfileMenuIcon,
   Al as PrometheusErrorIcon,
   Yn as PrometheusIcon,
   br as RecoverIcon,
   _n as RedoIcon,
   hn as RefreshIcon,
-  Dc as RegisterMenuIcon,
+  am as RegisterMenuIcon,
   sc as RemoveAllIcon,
-  Il as RemoveIcon,
+  kl as RemoveIcon,
   fl as ReportedUsageFullIcon,
   Qn as ReportedUsageIcon,
   Xr as RetentionIcon,
@@ -11597,9 +11972,9 @@ export {
   lc as SelectAllIcon,
   Un as SelectMultipleIcon,
   Vn as ServersIcon,
-  kn as ServiceAccountCredentialsIcon,
+  In as ServiceAccountCredentialsIcon,
   Rn as ServiceAccountIcon,
-  kr as ServiceAccountsIcon,
+  Ir as ServiceAccountsIcon,
   Nr as SettingsIcon,
   vn as ShareIcon,
   mn as SpeedtestIcon,
@@ -11607,30 +11982,34 @@ export {
   Ac as StarIcon,
   on as StorageIcon,
   ic as SuccessIcon,
-  qc as SupportMenuIcon,
+  Kc as SupportMenuIcon,
   Zr as SyncIcon,
   Jr as TagsIcon,
   Er as TenantsIcon,
   il as TenantsOutlineIcon,
   b as ThemeHandler,
   Bt as ThemedLogo,
+  Bc as TierOfflineIcon,
+  Nc as TierOnlineIcon,
   ir as TiersIcon,
   Fl as TiersNotAvailableIcon,
   Nn as ToolsIcon,
   Cr as TotalObjectsIcon,
   Nl as TraceIcon,
-  Bc as TraceMenuIcon,
+  jc as TraceMenuIcon,
   Jl as TrashIcon,
   ur as UploadFile,
   or as UploadFolderIcon,
   Br as UploadIcon,
   Vr as UploadStatIcon,
   cl as UptimeIcon,
+  Sc as UserFilledIcon,
   Wl as UsersIcon,
-  Kc as UsersMenuIcon,
+  mm as UsersMenuIcon,
   bl as VerifiedIcon,
   dn as VersionIcon,
   Wr as VersionsIcon,
+  Rc as WarnFilledIcon,
   Zn as WarnIcon,
   Zl as WarpIcon,
   Sn as WatchIcon,
