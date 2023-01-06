@@ -93,6 +93,8 @@ interface LoginWrapperProps {
 
 declare const LoginWrapper: FC<LoginWrapperProps>;
 
+declare const Loader: FC<SVGProps<any>>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -740,6 +742,7 @@ export {
   LicenseIcon,
   LifecycleConfigIcon,
   LinkIcon,
+  Loader,
   LockIcon,
   LoginWrapper,
   LogoutIcon,

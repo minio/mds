@@ -23,6 +23,7 @@ export declare const lightColors: {
   promoBlue: string;
   footerDivider: string;
   promoBG: string;
+  loaderColor: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -49,6 +50,7 @@ export declare const darkColors: {
   footerDivider: string;
   footerColor: string;
   promoBG: string;
+  loaderColor: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -58,6 +60,7 @@ export declare const lightTheme: {
   logoColor: string;
   logoLabelColor: string;
   logoLabelInverse: string;
+  loaderColor: string;
   buttons: {
     regular: {
       enabled: {
@@ -156,6 +159,7 @@ export declare const darkTheme: {
   logoColor: string;
   logoLabelColor: string;
   logoLabelInverse: string;
+  loaderColor: string;
   buttons: {
     regular: {
       enabled: {
