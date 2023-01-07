@@ -93,6 +93,8 @@ interface LoginWrapperProps {
 
 declare const LoginWrapper: FC<LoginWrapperProps>;
 
+declare const Loader: FC<SVGProps<any>>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -559,6 +561,26 @@ declare const StarIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AccountIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
+declare const CollapseCaret: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const ExpandCaret: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const CertificateIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const TierOnlineIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const TierOfflineIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const WarnFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const BoxArrowUp: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const BoxArrowDown: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const UserFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const LockFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
 declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AuditLogsMenuIcon: (
@@ -640,6 +662,8 @@ export {
   BackCaretIcon,
   BackIcon,
   BackSettingsIcon,
+  BoxArrowDown,
+  BoxArrowUp,
   BucketEncryptionIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
@@ -650,11 +674,13 @@ export {
   CallHomeFeatureIcon,
   CallHomeMenuIcon,
   CancelledIcon,
+  CertificateIcon,
   ChangeAccessPolicyIcon,
   ChangePasswordIcon,
   CircleIcon,
   ClosePanelIcon,
   ClustersIcon,
+  CollapseCaret,
   CollapseIcon,
   ComputerLineIcon,
   ConfigurationsListIcon,
@@ -692,6 +718,7 @@ export {
   EnabledIcon,
   EnterpriseLightLogo,
   EventSubscriptionIcon,
+  ExpandCaret,
   AccountIcon as ExtraFeaturesIcon,
   FileBookIcon,
   FileCloudIcon,
@@ -740,6 +767,8 @@ export {
   LicenseIcon,
   LifecycleConfigIcon,
   LinkIcon,
+  Loader,
+  LockFilledIcon,
   LockIcon,
   LoginWrapper,
   LogoutIcon,
@@ -814,6 +843,8 @@ export {
   TenantsOutlineIcon,
   ThemeHandler,
   ThemedLogo,
+  TierOfflineIcon,
+  TierOnlineIcon,
   TiersIcon,
   TiersNotAvailableIcon,
   ToolsIcon,
@@ -826,11 +857,13 @@ export {
   UploadIcon,
   UploadStatIcon,
   UptimeIcon,
+  UserFilledIcon,
   UsersIcon,
   UsersMenuIcon,
   VerifiedIcon,
   VersionIcon,
   VersionsIcon,
+  WarnFilledIcon,
   WarnIcon,
   WarpIcon,
   WatchIcon,

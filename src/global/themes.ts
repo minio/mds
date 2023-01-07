@@ -39,6 +39,7 @@ export const lightColors = {
   promoBlue: "#A6DFEF",
   footerDivider: "#F2F2F2",
   promoBG: "#000110",
+  loaderColor: "#113053",
 };
 
 export const darkColors = {
@@ -66,6 +67,7 @@ export const darkColors = {
   footerDivider: "#545D6A",
   footerColor: "#85B3EE",
   promoBG: "#000106",
+  loaderColor: "#8E98A9",
 };
 
 export const lightTheme = {
@@ -76,6 +78,7 @@ export const lightTheme = {
   logoColor: lightColors.mainRed,
   logoLabelColor: lightColors.logoLabel,
   logoLabelInverse: lightColors.logoLabelInverse,
+  loaderColor: lightColors.loaderColor,
   buttons: {
     regular: {
       enabled: {
@@ -175,6 +178,7 @@ export const darkTheme = {
   logoColor: darkColors.mainRed,
   logoLabelColor: darkColors.logoLabel,
   logoLabelInverse: darkColors.logoLabelInverse,
+  loaderColor: darkColors.loaderColor,
   buttons: {
     regular: {
       enabled: {

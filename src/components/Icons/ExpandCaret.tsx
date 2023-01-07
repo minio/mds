@@ -17,7 +17,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const HideTextIcon = (props: SVGProps<SVGSVGElement>) => (
+const ExpandCaret = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`min-icon`}
@@ -51,4 +51,4 @@ const HideTextIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default HideTextIcon;
+export default ExpandCaret;

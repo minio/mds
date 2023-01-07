@@ -28,18 +28,13 @@ const CertificateIcon = (props: SVGProps<SVGSVGElement>) => {
     >
       <defs>
         <clipPath id="certificate_svg__a">
-          <path
-            data-name="Rect\xE1ngulo 2156"
-            fill="#07193e"
-            d="M0 0h256v222.048H0z"
-          />
+          <path data-name="Rect\xE1ngulo 2156" d="M0 0h256v222.048H0z" />
         </clipPath>
       </defs>
       <g
         data-name="Grupo 4763"
         transform="translate(0 17)"
         clipPath="url(#certificate_svg__a)"
-        fill="#07193e"
       >
         <path
           data-name="Trazado 8152"
