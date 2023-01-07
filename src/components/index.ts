@@ -27,5 +27,5 @@ export { default as LoginWrapper } from "./LoginWrapper/LoginWrapper";
 export { default as Loader } from "./Loader/Loader";
 
 /*Icons*/
-export * from "./IconLibrary";
-export * from "./IconLibrary/SidebarMenus";
+export * from "./Icons";
+export * from "./Icons/SidebarMenus";
