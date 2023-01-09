@@ -19,6 +19,7 @@ import { Meta, Story } from "@storybook/react";
 
 import * as cicons from "./";
 import * as micons from "./SidebarMenus";
+import * as ficons from "./FileIcons";
 import Grid from "../Grid/Grid";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
@@ -429,114 +430,6 @@ const Template: Story = (args) => {
               <cicons.ExtraFeaturesIcon />
               <br />
               ExtraFeaturesIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileBookIcon />
-              <br />
-              FileBookIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileCloudIcon />
-              <br />
-              FileCloudIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileCodeIcon />
-              <br />
-              FileCodeIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileConfigIcon />
-              <br />
-              FileConfigIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileDbIcon />
-              <br />
-              FileDbIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileFontIcon />
-              <br />
-              FileFontIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileImageIcon />
-              <br />
-              FileImageIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileLinkIcon />
-              <br />
-              FileLinkIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileLockIcon />
-              <br />
-              FileLockIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileMissingIcon />
-              <br />
-              FileMissingIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileMusicIcon />
-              <br />
-              FileMusicIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FilePdfIcon />
-              <br />
-              FilePdfIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FilePptIcon />
-              <br />
-              FilePptIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileTxtIcon />
-              <br />
-              FileTxtIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileVideoIcon />
-              <br />
-              FileVideoIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileWorldIcon />
-              <br />
-              FileWorldIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileXlsIcon />
-              <br />
-              FileXlsIcon
-            </Grid>
-
-            <Grid item xs={3} sm={2} md={1}>
-              <cicons.FileZipIcon />
-              <br />
-              FileZipIcon
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
@@ -1306,6 +1199,137 @@ const Template: Story = (args) => {
               <micons.UsersMenuIcon />
               <br />
               UsersMenuIcon
+            </Grid>
+          </Grid>
+          <h1>File Icons</h1>
+          <Grid
+            container
+            sx={{
+              padding: 4,
+              textAlign: "center",
+              "& .min-icon": {
+                color: color ? "red" : "black",
+              },
+            }}
+          >
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileBookIcon />
+              <br />
+              FileBookIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileCloudIcon />
+              <br />
+              FileCloudIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileCodeIcon />
+              <br />
+              FileCodeIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileConfigIcon />
+              <br />
+              FileConfigIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileDbIcon />
+              <br />
+              FileDbIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileFontIcon />
+              <br />
+              FileFontIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileImageIcon />
+              <br />
+              FileImageIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileLinkIcon />
+              <br />
+              FileLinkIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileLockIcon />
+              <br />
+              FileLockIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileMissingIcon />
+              <br />
+              FileMissingIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileMusicIcon />
+              <br />
+              FileMusicIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileNonType />
+              <br />
+              FileNonType
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FilePdfIcon />
+              <br />
+              FilePdfIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FilePptIcon />
+              <br />
+              FilePptIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileTxtIcon />
+              <br />
+              FileTxtIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileVideoIcon />
+              <br />
+              FileVideoIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileWorldIcon />
+              <br />
+              FileWorldIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileXlsIcon />
+              <br />
+              FileXlsIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FileZipIcon />
+              <br />
+              FileZipIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <ficons.FolderBrowserIcon />
+              <br />
+              FolderBrowserIcon
             </Grid>
           </Grid>
         </Grid>
