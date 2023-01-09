@@ -29,3 +29,4 @@ export { default as Loader } from "./Loader/Loader";
 /*Icons*/
 export * from "./Icons";
 export * from "./Icons/SidebarMenus";
+export * from "./Icons/FileIcons";

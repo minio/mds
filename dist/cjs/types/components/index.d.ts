@@ -8,3 +8,4 @@ export { default as LoginWrapper } from "./LoginWrapper/LoginWrapper";
 export { default as Loader } from "./Loader/Loader";
 export * from "./Icons";
 export * from "./Icons/SidebarMenus";
+export * from "./Icons/FileIcons";
