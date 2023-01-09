@@ -99,10 +99,6 @@ declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
 
-declare const FileLockIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileXlsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const DisabledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const FormatDrivesIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
@@ -119,13 +115,9 @@ declare const LambdaBalloonIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
 
-declare const FileZipIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const HelpIconFilled: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const ShareIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FolderIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const EditIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -137,8 +129,6 @@ declare const WarnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const CircleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const FileCloudIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const ObjectBrowserFolderIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -148,8 +138,6 @@ declare const RedoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 declare const ChangeAccessPolicyIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
-
-declare const FileMusicIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const ServersIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -195,8 +183,6 @@ declare const PreviewIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const BucketQuotaIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const OperatorLogo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const SelectMultipleIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -215,8 +201,6 @@ declare const ConfirmModalIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const NextArrowIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const FileConfigIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const PermissionIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const GoogleTierIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
@@ -226,10 +210,6 @@ declare const AccountIcon$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 declare const AddAccessRuleIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
-
-declare const FilePdfIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileFontIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const UptimeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -250,8 +230,6 @@ declare const CreateNewPathIcon: (
 ) => JSX.Element;
 
 declare const HelpIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileLinkIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const ReportedUsageFullIcon: (
   props: SVGProps<SVGSVGElement>
@@ -281,8 +259,6 @@ declare const MultipleBucketsIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
 
-declare const FileImageIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const AddMembersToGroupIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -290,8 +266,6 @@ declare const AddMembersToGroupIcon: (
 declare const OfflineRegistrationBackIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
-
-declare const ConsoleLogo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const PrometheusErrorIcon: (
   props: SVGProps<SVGSVGElement>
@@ -321,15 +295,11 @@ declare const LambdaNotificationsIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
 
-declare const FileWorldIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const BackSettingsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const LicenseIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const RemoveIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileBookIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const TiersNotAvailableIcon: (
   props: SVGProps<SVGSVGElement>
@@ -375,8 +345,6 @@ declare const ComputerLineIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AllBucketsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const FileMissingIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const LambdaIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const GroupsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
@@ -390,8 +358,6 @@ declare const TiersIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 declare const NewAccountIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const CreateGroupIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileCodeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const CollapseIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -441,17 +407,11 @@ declare const ObjectBrowserIcon: (
 
 declare const RecoverIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const FilePptIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const SettingsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const UploadIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const FileDbIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
 declare const AzureTierIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileTxtIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const CalendarIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -466,8 +426,6 @@ declare const HardBucketQuotaIcon: (
 ) => JSX.Element;
 
 declare const ConsoleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
-
-declare const FileVideoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const ChangePasswordIcon: (
   props: SVGProps<SVGSVGElement>
@@ -506,8 +464,6 @@ declare const BackIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 declare const DeleteNonCurrentIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
-
-declare const FilterIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const EditTenantIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -581,6 +537,10 @@ declare const UserFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const LockFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
+declare const FilterIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FolderIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
 declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AuditLogsMenuIcon: (
@@ -637,6 +597,48 @@ declare const BucketsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const UsersMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
+declare const FileConfigIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FilePdfIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileFontIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileLinkIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileImageIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileWorldIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileBookIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileMissingIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileCodeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FilePptIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileDbIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileTxtIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileVideoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileLockIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileXlsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileZipIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FolderBrowserIcon: (
+  props: SVGProps<SVGSVGElement>
+) => JSX.Element;
+
+declare const FileCloudIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileMusicIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FileNonType: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
 export {
   AGPLV3DarkLogo,
   AGPLV3LightLogo,
@@ -689,7 +691,6 @@ export {
   ConsoleAgpl,
   ConsoleEnterprise,
   ConsoleIcon,
-  ConsoleLogo,
   ConsoleStandard,
   CopyIcon,
   CreateGroupIcon,
@@ -731,6 +732,7 @@ export {
   FileLockIcon,
   FileMissingIcon,
   FileMusicIcon,
+  FileNonType,
   FilePdfIcon,
   FilePptIcon,
   FileTxtIcon,
@@ -739,6 +741,7 @@ export {
   FileXlsIcon,
   FileZipIcon,
   FilterIcon,
+  FolderBrowserIcon,
   FolderIcon,
   FormatDrivesIcon,
   GlobalStyles,
@@ -802,7 +805,6 @@ export {
   OnlineRegistrationIcon,
   OpenListIcon,
   OpenSourceIcon,
-  OperatorLogo,
   PasswordKeyIcon,
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
