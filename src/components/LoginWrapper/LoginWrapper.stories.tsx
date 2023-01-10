@@ -23,7 +23,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { Button, GlobalStyles } from "../index";
 
 export default {
-  title: "MDS/LoginWrapper",
+  title: "MDS/FullPage/LoginWrapper",
   component: LoginWrapper,
   argTypes: {},
 } as Meta<typeof LoginWrapper>;

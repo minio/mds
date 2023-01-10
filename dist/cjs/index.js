@@ -98,6 +98,7 @@ var l = t(e),
       footerElements: m,
       footerDivider: "#F2F2F2",
     },
+    pageHeader: { background: "#FFFFFF", border: "#E5E5E5", color: "#000000" },
   },
   L = {
     bgColor: E,
@@ -137,6 +138,7 @@ var l = t(e),
       footerElements: "#85B3EE",
       footerDivider: "#545D6A",
     },
+    pageHeader: { background: "#212936", border: "#191E28", color: "#E9F5F6" },
   },
   b = function () {
     return (
@@ -1676,7 +1678,60 @@ var Sa,
       Wt,
       Qt
     )
-  );
+  ),
+  Yt = c.default.div(function (e) {
+    var a = e.theme;
+    return {
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+      minHeight: 83,
+      backgroundColor: Ja(a, "pageHeader.background", "#fff"),
+      left: 0,
+      borderBottom: "1px solid ".concat(Ja(a, "pageHeader.border", "#E5E5E5")),
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      alignItems: "center",
+      "@media (max-width: 768px)": {
+        "& > div": { margin: "4px 0", padding: "0 20px," },
+      },
+    };
+  }),
+  Xt = c.default.div(function (e) {
+    var a = e.theme;
+    return {
+      color: Ja(a, "pageHeader.color", "#000"),
+      fontSize: 18,
+      fontWeight: 700,
+      paddingLeft: 20,
+      display: "flex",
+      flexGrow: 1,
+      marginRight: 10,
+      "& a": {
+        color: Ja(a, "pageHeader.color", "#000"),
+        textDecoration: "none",
+      },
+    };
+  }),
+  Kt = c.default.div(function () {
+    return {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexGrow: 1,
+      margin: "0 10px",
+    };
+  }),
+  Jt = c.default.div(function () {
+    return {
+      display: "flex",
+      justifyContent: "flex-end",
+      paddingRight: 20,
+      flexGrow: 1,
+      marginLeft: 10,
+      "& button": { marginLeft: 8 },
+    };
+  });
 (exports.AGPLV3DarkLogo = function (e) {
   return r.createElement(
     "svg",
@@ -8977,6 +9032,31 @@ var Sa,
         d: "M8.4,12.024,7.074,8.372a2.312,2.312,0,0,0,1.468-2.16,2.32,2.32,0,0,0-2.33-2.33,2.32,2.32,0,0,0-2.33,2.33,2.313,2.313,0,0,0,1.468,2.16L4.028,12.024A6.2,6.2,0,0,1,1.122,9.761,5.992,5.992,0,0,1,0,6.212,6.094,6.094,0,0,1,.491,3.8,6.079,6.079,0,0,1,3.8.491a6.177,6.177,0,0,1,4.829,0A6.079,6.079,0,0,1,11.933,3.8a6.094,6.094,0,0,1,.491,2.415A5.993,5.993,0,0,1,11.3,9.761,6.2,6.2,0,0,1,8.4,12.024Z",
         fill: "#fff",
       })
+    );
+  }),
+  (exports.PageHeader = function (e) {
+    var a = e.label,
+      t = e.middleComponent,
+      n = e.actions;
+    return l.default.createElement(
+      Yt,
+      { className: "page-header" },
+      l.default.createElement(
+        Nt,
+        { item: !0, xs: 12, sm: 12, md: t ? 4 : 6 },
+        l.default.createElement(Xt, null, a)
+      ),
+      t &&
+        l.default.createElement(
+          Nt,
+          { item: !0, xs: 12, sm: 12, md: 4 },
+          l.default.createElement(Kt, null, t)
+        ),
+      l.default.createElement(
+        Nt,
+        { item: !0, xs: 12, sm: 12, md: t ? 4 : 6 },
+        l.default.createElement(Jt, null, n)
+      )
     );
   }),
   (exports.PasswordKeyIcon = function (e) {

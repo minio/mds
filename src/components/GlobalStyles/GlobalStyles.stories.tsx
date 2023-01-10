@@ -24,7 +24,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import Button from "../Button/Button";
 
 export default {
-  title: "MDS/GlobalStyles",
+  title: "MDS/Global/GlobalStyles",
   component: GlobalStyles,
   argTypes: {},
 } as Meta<typeof GlobalStyles>;

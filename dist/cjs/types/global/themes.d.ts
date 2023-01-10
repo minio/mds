@@ -24,6 +24,9 @@ export declare const lightColors: {
   footerDivider: string;
   promoBG: string;
   loaderColor: string;
+  headerBG: string;
+  headerBorder: string;
+  headerColor: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -51,6 +54,9 @@ export declare const darkColors: {
   footerColor: string;
   promoBG: string;
   loaderColor: string;
+  headerBG: string;
+  headerBorder: string;
+  headerColor: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -150,6 +156,11 @@ export declare const lightTheme: {
     footerElements: string;
     footerDivider: string;
   };
+  pageHeader: {
+    background: string;
+    border: string;
+    color: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -248,5 +259,10 @@ export declare const darkTheme: {
     promoText: string;
     footerElements: string;
     footerDivider: string;
+  };
+  pageHeader: {
+    background: string;
+    border: string;
+    color: string;
   };
 };

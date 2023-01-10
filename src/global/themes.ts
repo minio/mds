@@ -40,6 +40,9 @@ export const lightColors = {
   footerDivider: "#F2F2F2",
   promoBG: "#000110",
   loaderColor: "#113053",
+  headerBG: "#FFFFFF",
+  headerBorder: "#E5E5E5",
+  headerColor: "#000000",
 };
 
 export const darkColors = {
@@ -68,6 +71,9 @@ export const darkColors = {
   footerColor: "#85B3EE",
   promoBG: "#000106",
   loaderColor: "#8E98A9",
+  headerBG: "#212936",
+  headerBorder: "#191E28",
+  headerColor: "#E9F5F6",
 };
 
 export const lightTheme = {
@@ -168,6 +174,11 @@ export const lightTheme = {
     footerElements: lightColors.bulletColor,
     footerDivider: lightColors.footerDivider,
   },
+  pageHeader: {
+    background: lightColors.headerBG,
+    border: lightColors.headerBorder,
+    color: lightColors.headerColor,
+  },
 };
 
 export const darkTheme = {
@@ -267,5 +278,10 @@ export const darkTheme = {
     promoText: darkColors.logoLabel,
     footerElements: darkColors.footerColor,
     footerDivider: darkColors.footerDivider,
+  },
+  pageHeader: {
+    background: darkColors.headerBG,
+    border: darkColors.headerBorder,
+    color: darkColors.headerColor,
   },
 };

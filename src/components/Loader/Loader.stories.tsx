@@ -22,7 +22,7 @@ import Loader from "./Loader";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
-  title: "MDS/Loader",
+  title: "MDS/Graphics/Loader",
   component: Loader,
   argTypes: {},
 } as Meta<typeof Loader>;

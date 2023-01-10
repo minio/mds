@@ -14,20 +14,23 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/*Basics*/
-export { default as ThemeHandler } from "./ThemeHandler/ThemeHandler";
-export { default as GlobalStyles } from "./GlobalStyles/GlobalStyles";
+import React from "react";
+import { Meta, Story } from "@storybook/react";
 
-/*MDS Components*/
-export { default as Button } from "./Button/Button";
-export { default as ApplicationLogo } from "./ApplicationLogo/ApplicationLogo";
-export { default as ThemedLogo } from "./ThemedLogo/ThemedLogo";
-export { default as Grid } from "./Grid/Grid";
-export { default as LoginWrapper } from "./LoginWrapper/LoginWrapper";
-export { default as Loader } from "./Loader/Loader";
-export { default as PageHeader } from "./PageHeader/PageHeader";
+import ThemedLogo from "./ThemedLogo";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
-/*Icons*/
-export * from "./Icons";
-export * from "./Icons/SidebarMenus";
-export * from "./Icons/FileIcons";
+export default {
+  title: "MDS/Graphics/ThemedLogo",
+  component: ThemedLogo,
+  argTypes: {},
+} as Meta<typeof ThemedLogo>;
+
+const Template: Story = () => (
+  <StoryThemeProvider>
+    <ThemedLogo />
+  </StoryThemeProvider>
+);
+
+export const Default = Template.bind({});
+Default.args = {};

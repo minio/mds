@@ -24,7 +24,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 
 export default {
-  title: "MDS/Grid",
+  title: "MDS/Layout/Grid",
   component: Grid,
   argTypes: {},
 } as Meta<typeof Grid>;
