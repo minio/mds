@@ -23,7 +23,7 @@ import { ApplicationLogoProps } from "./ApplicationLogo.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
-  title: "MDS/ApplicationLogo",
+  title: "MDS/Graphics/ApplicationLogo",
   component: ApplicationLogo,
   argTypes: {},
 } as Meta<typeof ApplicationLogo>;
@@ -37,4 +37,6 @@ const Template: Story<ApplicationLogoProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  applicationName: "console",
+};

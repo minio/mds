@@ -26,7 +26,7 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Button from "../Button/Button";
 
 export default {
-  title: "MDS/Icons",
+  title: "MDS/Graphics/Icons",
   component: Fragment,
   argTypes: {},
 } as Meta;

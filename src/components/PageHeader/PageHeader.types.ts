@@ -1,5 +1,5 @@
 // This file is part of MinIO Design System
-// Copyright (c) 2022 MinIO, Inc.
+// Copyright (c) 2023 MinIO, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -15,22 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
 
-import ThemedLogo from "./ThemedLogo";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-
-export default {
-  title: "MDS/ThemedLogo",
-  component: ThemedLogo,
-  argTypes: {},
-} as Meta<typeof ThemedLogo>;
-
-const Template: Story = () => (
-  <StoryThemeProvider>
-    <ThemedLogo />
-  </StoryThemeProvider>
-);
-
-export const Default = Template.bind({});
-Default.args = {};
+export interface PageHeaderProps {
+  label: React.ReactNode;
+  middleComponent?: React.ReactNode;
+  actions?: React.ReactNode;
+}

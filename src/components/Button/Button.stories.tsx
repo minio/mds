@@ -22,10 +22,9 @@ import { ButtonProps } from "./Button.types";
 
 import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import ThemedLogo from "../ThemedLogo/ThemedLogo";
 
 export default {
-  title: "MDS/Button",
+  title: "MDS/Forms/Button",
   component: Button,
   argTypes: {},
 } as Meta<typeof Button>;

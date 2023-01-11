@@ -95,6 +95,14 @@ declare const LoginWrapper: FC<LoginWrapperProps>;
 
 declare const Loader: FC<SVGProps<any>>;
 
+interface PageHeaderProps {
+  label: React.ReactNode;
+  middleComponent?: React.ReactNode;
+  actions?: React.ReactNode;
+}
+
+declare const PageHeader: FC<PageHeaderProps>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -805,6 +813,7 @@ export {
   OnlineRegistrationIcon,
   OpenListIcon,
   OpenSourceIcon,
+  PageHeader,
   PasswordKeyIcon,
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
