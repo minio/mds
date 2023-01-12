@@ -1,4 +1,5 @@
 import { MouseEventHandler, ReactNode } from "react";
+import { CSSObject } from "styled-components";
 export interface ButtonProps {
   id: string;
   name?: string;
@@ -11,6 +12,7 @@ export interface ButtonProps {
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
+  sx?: CSSObject;
 }
 export interface ConstructProps {
   parentChildren: ReactNode | string | undefined;

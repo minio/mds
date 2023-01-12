@@ -32,6 +32,7 @@ interface ButtonProps {
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
+  sx?: CSSObject;
 }
 
 declare const Button: FC<
@@ -132,6 +133,80 @@ interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
 }
 
 declare const InputLabel: FC<InputLabelProps>;
+
+interface IconButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  label?: string;
+  size?: "small" | "medium" | "large" | string;
+  sx?: CSSObject;
+  children: React.ReactNode;
+}
+
+declare const IconButton: FC<IconButtonProps>;
+
+interface ItemActions {
+  label?: string;
+  type: string | any;
+  sendOnlyId?: boolean;
+  disableButtonFunction?: (itemValue: any) => boolean;
+  showLoaderFunction?: (itemValue: any) => boolean;
+  onClick?(valueToSend: any): any;
+}
+interface IColumns {
+  label: string;
+  elementKey?: string;
+  renderFunction?: (input: any) => any;
+  renderFullObject?: boolean;
+  globalClass?: any;
+  rowClass?: any;
+  width?: number;
+  headerTextAlign?: string;
+  contentTextAlign?: string;
+  enableSort?: boolean;
+}
+interface IInfiniteScrollConfig {
+  loadMoreRecords: (indexElements: {
+    startIndex: number;
+    stopIndex: number;
+  }) => Promise<any>;
+  recordsCount: number;
+}
+interface ISortConfig {
+  triggerSort: (val: any) => any;
+  currentSort: string;
+  currentDirection: "ASC" | "DESC" | undefined;
+}
+interface DataTableProps {
+  itemActions?: ItemActions[] | null;
+  columns: IColumns[];
+  onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  idField?: string;
+  isLoading?: boolean;
+  loadingMessage?: React.ReactNode;
+  records: any[];
+  entityName?: string;
+  selectedItems?: string[];
+  customEmptyMessage?: string;
+  customPaperHeight?: string;
+  noBackground?: boolean;
+  columnsSelector?: boolean;
+  textSelectable?: boolean;
+  columnsShown?: string[];
+  onColumnChange?: (column: string, state: boolean) => any;
+  autoScrollToBottom?: boolean;
+  infiniteScrollConfig?: IInfiniteScrollConfig;
+  sortConfig?: ISortConfig;
+  disabled?: boolean;
+  onSelectAll?: () => void;
+  rowStyle?: ({
+    index,
+  }: {
+    index: number;
+  }) => "deleted" | "" | React.CSSProperties;
+  parentClassName?: string;
+}
+
+declare const DataTable: FC<DataTableProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -579,6 +654,18 @@ declare const FilterIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const FolderIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
+declare const ViewColumnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const ArrowDropUp$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const ArrowDropUp: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const CloudIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const DisableIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const FormatDriveIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
 declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AuditLogsMenuIcon: (
@@ -693,6 +780,8 @@ export {
   AlertIcon,
   AllBucketsIcon,
   ApplicationLogo,
+  ArrowDropUp as ArrowDropDown,
+  ArrowDropUp$1 as ArrowDropUp,
   ArrowIcon,
   ArrowRightIcon,
   ArrowRightLink,
@@ -720,6 +809,7 @@ export {
   Checkbox,
   CircleIcon,
   ClosePanelIcon,
+  CloudIcon,
   ClustersIcon,
   CollapseCaret,
   CollapseIcon,
@@ -737,11 +827,13 @@ export {
   CreateNewPathIcon,
   CreateUserIcon,
   DashboardIcon,
+  DataTable,
   DeleteIcon,
   DeleteNonCurrentIcon,
   DiagnosticsFeatureIcon,
   DiagnosticsIcon,
   DiagnosticsMenuIcon,
+  DisableIcon,
   DisabledIcon,
   DocumentationIcon,
   DownloadIcon,
@@ -782,6 +874,7 @@ export {
   FilterIcon,
   FolderBrowserIcon,
   FolderIcon,
+  FormatDriveIcon,
   FormatDrivesIcon,
   GlobalStyles,
   GoogleTierIcon,
@@ -796,6 +889,7 @@ export {
   HelpIconFilled,
   HistoryIcon,
   IAMPoliciesIcon,
+  IconButton,
   IdentityMenuIcon,
   InfoIcon,
   InputLabel,
@@ -907,6 +1001,7 @@ export {
   VerifiedIcon,
   VersionIcon,
   VersionsIcon,
+  ViewColumnIcon,
   WarnFilledIcon,
   WarnIcon,
   WarpIcon,
