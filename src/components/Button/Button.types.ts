@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { MouseEventHandler, ReactNode } from "react";
+import { CSSObject } from "styled-components";
 
 export interface ButtonProps {
   id: string;
@@ -28,6 +29,7 @@ export interface ButtonProps {
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
+  sx?: CSSObject;
 }
 
 export interface ConstructProps {

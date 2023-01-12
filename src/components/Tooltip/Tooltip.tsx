@@ -137,6 +137,10 @@ const Tooltip: FC<TooltipProps> = ({
   errorProps,
   placement,
 }) => {
+  if (tooltip === "") {
+    return null;
+  }
+
   return (
     <Fragment>
       <TooltipWrapper>

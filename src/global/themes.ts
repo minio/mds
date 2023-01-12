@@ -48,6 +48,11 @@ export const lightColors = {
   labelColor: "#07193E",
   checkBox: "#4CCB92",
   checkBoxBorder: "#c3c3c3",
+  iconButtonBG: "#F8F8F8",
+  iconButtonActive: "#5B5C5C80",
+  iconButtonHover: "#EFEFEF",
+  iconButtonDisabled: "#E6EBEB",
+  iconButtonColor: "#7C7C7C",
 };
 
 export const darkColors = {
@@ -84,6 +89,11 @@ export const darkColors = {
   labelColor: "#A2ADC0",
   checkBox: "#58FAB1",
   checkBoxBorder: "#8E98A9",
+  iconButtonBG: "#A2ADC0",
+  iconButtonActive: "#707988",
+  iconButtonHover: "#4B586A",
+  iconButtonDisabled: "#494A4D",
+  iconButtonColor: "#283140",
 };
 
 export const lightTheme = {
@@ -198,6 +208,21 @@ export const lightTheme = {
     checkBoxBorder: lightColors.checkBoxBorder,
     checkBoxColor: lightColors.checkBox,
   },
+  iconButton: {
+    buttonBG: lightColors.iconButtonBG,
+    activeBG: lightColors.iconButtonActive,
+    hoverBG: lightColors.iconButtonHover,
+    disabledBG: lightColors.iconButtonDisabled,
+    color: lightColors.iconButtonColor,
+  },
+  dataTable: {
+    border: lightColors.borderColor,
+    disabledBorder: lightColors.disabledGrey,
+    disabledBG: lightColors.disabledBGGrey,
+    selected: lightColors.mainBlue,
+    deletedDisabled: lightColors.mainRed,
+    hoverColor: lightColors.hoverGrey,
+  },
 };
 
 export const darkTheme = {
@@ -311,5 +336,20 @@ export const darkTheme = {
     labelColor: darkColors.labelColor,
     checkBoxBorder: darkColors.checkBoxBorder,
     checkBoxColor: darkColors.checkBox,
+  },
+  iconButton: {
+    buttonBG: darkColors.iconButtonBG,
+    activeBG: darkColors.iconButtonActive,
+    hoverBG: darkColors.iconButtonHover,
+    disabledBG: darkColors.iconButtonDisabled,
+    color: darkColors.iconButtonColor,
+  },
+  dataTable: {
+    border: darkColors.borderColor,
+    disabledBorder: darkColors.disabledGrey,
+    disabledBG: darkColors.disabledBGGrey,
+    selected: darkColors.mainWhite,
+    deletedDisabled: darkColors.mainRed,
+    hoverColor: darkColors.hoverGrey,
   },
 };
