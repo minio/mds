@@ -27,6 +27,8 @@ export declare const lightColors: {
   headerBG: string;
   headerBorder: string;
   headerColor: string;
+  tooltipBG: string;
+  tooltipColor: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -57,6 +59,8 @@ export declare const darkColors: {
   headerBG: string;
   headerBorder: string;
   headerColor: string;
+  tooltipBG: string;
+  tooltipColor: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -161,6 +165,10 @@ export declare const lightTheme: {
     border: string;
     color: string;
   };
+  tooltip: {
+    background: string;
+    color: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -263,6 +271,10 @@ export declare const darkTheme: {
   pageHeader: {
     background: string;
     border: string;
+    color: string;
+  };
+  tooltip: {
+    background: string;
     color: string;
   };
 };

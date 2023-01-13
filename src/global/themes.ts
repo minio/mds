@@ -43,6 +43,8 @@ export const lightColors = {
   headerBG: "#FFFFFF",
   headerBorder: "#E5E5E5",
   headerColor: "#000000",
+  tooltipBG: "#737373",
+  tooltipColor: "#FFFFFF",
 };
 
 export const darkColors = {
@@ -74,6 +76,8 @@ export const darkColors = {
   headerBG: "#212936",
   headerBorder: "#191E28",
   headerColor: "#E9F5F6",
+  tooltipBG: "#8E98A9",
+  tooltipColor: "#161C24",
 };
 
 export const lightTheme = {
@@ -179,6 +183,10 @@ export const lightTheme = {
     border: lightColors.headerBorder,
     color: lightColors.headerColor,
   },
+  tooltip: {
+    background: lightColors.tooltipBG,
+    color: lightColors.tooltipColor,
+  },
 };
 
 export const darkTheme = {
@@ -283,5 +291,9 @@ export const darkTheme = {
     background: darkColors.headerBG,
     border: darkColors.headerBorder,
     color: darkColors.headerColor,
+  },
+  tooltip: {
+    background: darkColors.tooltipBG,
+    color: darkColors.tooltipColor,
   },
 };
