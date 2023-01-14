@@ -26,6 +26,9 @@ export { default as Grid } from "./Grid/Grid";
 export { default as LoginWrapper } from "./LoginWrapper/LoginWrapper";
 export { default as Loader } from "./Loader/Loader";
 export { default as PageHeader } from "./PageHeader/PageHeader";
+export { default as Tooltip } from "./Tooltip/Tooltip";
+export { default as Checkbox } from "./Checkbox/Checkbox";
+export { default as InputLabel } from "./InputLabel/InputLabel";
 
 /*Icons*/
 export * from "./Icons";

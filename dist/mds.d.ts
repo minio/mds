@@ -103,6 +103,36 @@ interface PageHeaderProps {
 
 declare const PageHeader: FC<PageHeaderProps>;
 
+interface TooltipProps {
+  children: React.ReactElement;
+  tooltip: React.ReactNode;
+  errorProps?: any;
+  placement?: "bottom" | "left" | "right" | "top";
+}
+
+declare const Tooltip: FC<TooltipProps>;
+
+interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
+  label?: string;
+  tooltip?: string;
+  overrideLabelClasses?: string;
+  overrideCheckboxStyles?: CSSObject;
+  noTopMargin?: boolean;
+}
+
+declare const Checkbox: FC<
+  CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>
+>;
+
+interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
+  children?: ReactNode;
+  sx?: CSSObject;
+  noMinWidth?: boolean;
+  htmlFor?: string;
+}
+
+declare const InputLabel: FC<InputLabelProps>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -687,6 +717,7 @@ export {
   CertificateIcon,
   ChangeAccessPolicyIcon,
   ChangePasswordIcon,
+  Checkbox,
   CircleIcon,
   ClosePanelIcon,
   ClustersIcon,
@@ -767,6 +798,7 @@ export {
   IAMPoliciesIcon,
   IdentityMenuIcon,
   InfoIcon,
+  InputLabel,
   InspectMenuIcon,
   JSONIcon,
   LDAPIcon,
@@ -859,6 +891,7 @@ export {
   TiersIcon,
   TiersNotAvailableIcon,
   ToolsIcon,
+  Tooltip,
   TotalObjectsIcon,
   TraceIcon,
   TraceMenuIcon,
