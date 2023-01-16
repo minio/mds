@@ -29,6 +29,9 @@ export declare const lightColors: {
   headerColor: string;
   tooltipBG: string;
   tooltipColor: string;
+  labelColor: string;
+  checkBox: string;
+  checkBoxBorder: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -61,6 +64,9 @@ export declare const darkColors: {
   headerColor: string;
   tooltipBG: string;
   tooltipColor: string;
+  labelColor: string;
+  checkBox: string;
+  checkBoxBorder: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -169,6 +175,11 @@ export declare const lightTheme: {
     background: string;
     color: string;
   };
+  commonInput: {
+    labelColor: string;
+    checkBoxBorder: string;
+    checkBoxColor: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -276,5 +287,10 @@ export declare const darkTheme: {
   tooltip: {
     background: string;
     color: string;
+  };
+  commonInput: {
+    labelColor: string;
+    checkBoxBorder: string;
+    checkBoxColor: string;
   };
 };

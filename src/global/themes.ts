@@ -45,6 +45,9 @@ export const lightColors = {
   headerColor: "#000000",
   tooltipBG: "#737373",
   tooltipColor: "#FFFFFF",
+  labelColor: "#07193E",
+  checkBox: "#4CCB92",
+  checkBoxBorder: "#c3c3c3",
 };
 
 export const darkColors = {
@@ -78,6 +81,9 @@ export const darkColors = {
   headerColor: "#E9F5F6",
   tooltipBG: "#8E98A9",
   tooltipColor: "#161C24",
+  labelColor: "#A2ADC0",
+  checkBox: "#58FAB1",
+  checkBoxBorder: "#8E98A9",
 };
 
 export const lightTheme = {
@@ -187,6 +193,11 @@ export const lightTheme = {
     background: lightColors.tooltipBG,
     color: lightColors.tooltipColor,
   },
+  commonInput: {
+    labelColor: lightColors.labelColor,
+    checkBoxBorder: lightColors.checkBoxBorder,
+    checkBoxColor: lightColors.checkBox,
+  },
 };
 
 export const darkTheme = {
@@ -295,5 +306,10 @@ export const darkTheme = {
   tooltip: {
     background: darkColors.tooltipBG,
     color: darkColors.tooltipColor,
+  },
+  commonInput: {
+    labelColor: darkColors.labelColor,
+    checkBoxBorder: darkColors.checkBoxBorder,
+    checkBoxColor: darkColors.checkBox,
   },
 };
