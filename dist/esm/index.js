@@ -11202,14 +11202,14 @@ var Bo = function (e) {
         "& .ReactVirtualized__Table__headerColumn": {
           marginRight: 10,
           minWidth: 0,
-          "&::first-of-type": { marginLeft: 10 },
+          "&:first-of-type": { marginLeft: 10 },
         },
         "& .ReactVirtualized__Table__rowColumn": {
           marginRight: 10,
           minWidth: 0,
           textOverflow: "ellipsis",
           whiteSpace: "nowrap",
-          "&::first-of-type": { marginLeft: 10 },
+          "&:first-of-type": { marginLeft: 10 },
         },
         "& .ReactVirtualized__Table__sortableHeaderColumn": {
           cursor: "pointer",
