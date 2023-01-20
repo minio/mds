@@ -31,6 +31,7 @@ const CustomButton = styled.button<
     label,
     collapseOnSmall,
     parentChildren,
+    sx,
   }) => {
     const neatVariant = variant || "regular";
 
@@ -155,6 +156,7 @@ const CustomButton = styled.button<
         },
       },
       ...smallScreenStyles,
+      ...sx,
     };
   }
 );

@@ -115,6 +115,18 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.ArrowDropDown />
+              <br />
+              ArrowDropDown
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.ArrowDropUp />
+              <br />
+              ArrowDropUp
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.ArrowIcon />
               <br />
               ArrowIcon
@@ -229,6 +241,12 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.CloudIcon />
+              <br />
+              CloudIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.ClustersIcon />
               <br />
               ClustersIcon
@@ -337,6 +355,12 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.DisableIcon />
+              <br />
+              DisableIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.DisabledIcon />
               <br />
               DisabledIcon
@@ -436,6 +460,12 @@ const Template: Story = (args) => {
               <cicons.FolderIcon />
               <br />
               FolderIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.FormatDriveIcon />
+              <br />
+              FormatDriveIcon
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
@@ -1051,6 +1081,11 @@ const Template: Story = (args) => {
               <cicons.UserFilledIcon />
               <br />
               UserFilledIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.ViewColumnIcon />
+              <br />
+              ViewColumnIcon
             </Grid>
             <Grid item xs={3} sm={2} md={1}>
               <cicons.WarnFilledIcon />

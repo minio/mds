@@ -32,6 +32,11 @@ export declare const lightColors: {
   labelColor: string;
   checkBox: string;
   checkBoxBorder: string;
+  iconButtonBG: string;
+  iconButtonActive: string;
+  iconButtonHover: string;
+  iconButtonDisabled: string;
+  iconButtonColor: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -67,6 +72,11 @@ export declare const darkColors: {
   labelColor: string;
   checkBox: string;
   checkBoxBorder: string;
+  iconButtonBG: string;
+  iconButtonActive: string;
+  iconButtonHover: string;
+  iconButtonDisabled: string;
+  iconButtonColor: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -180,6 +190,21 @@ export declare const lightTheme: {
     checkBoxBorder: string;
     checkBoxColor: string;
   };
+  iconButton: {
+    buttonBG: string;
+    activeBG: string;
+    hoverBG: string;
+    disabledBG: string;
+    color: string;
+  };
+  dataTable: {
+    border: string;
+    disabledBorder: string;
+    disabledBG: string;
+    selected: string;
+    deletedDisabled: string;
+    hoverColor: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -292,5 +317,20 @@ export declare const darkTheme: {
     labelColor: string;
     checkBoxBorder: string;
     checkBoxColor: string;
+  };
+  iconButton: {
+    buttonBG: string;
+    activeBG: string;
+    hoverBG: string;
+    disabledBG: string;
+    color: string;
+  };
+  dataTable: {
+    border: string;
+    disabledBorder: string;
+    disabledBG: string;
+    selected: string;
+    deletedDisabled: string;
+    hoverColor: string;
   };
 };
