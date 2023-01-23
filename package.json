@@ -34,7 +34,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@types/jest": "^29.2.5",
+    "@types/jest": "^29.2.6",
     "@types/react": "^18.0.26",
     "@types/react-virtualized": "^9.21.21",
     "babel-loader": "^9.1.2",
