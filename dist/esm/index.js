@@ -707,13 +707,13 @@ var Qt,
       k(
         k(
           {
-            borderRadius: "3px",
+            borderRadius: 3,
             cursor: "pointer",
             width: a ? "100%" : "initial",
-            height: "39px",
+            height: 39,
             fontFamily: "'Inter', sans-serif",
             fontWeight: "400",
-            fontSize: "14px",
+            fontSize: 14,
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
@@ -727,18 +727,18 @@ var Qt,
               "#fff"
             ),
             borderColor: ua(t, "buttons.".concat(d, ".enabled.border"), "#000"),
-            borderWidth: "1px",
+            borderWidth: 1,
             borderStyle: "solid",
             color: ua(t, "buttons.".concat(d, ".enabled.text"), "#000"),
             "& .button-label": k({ whiteSpace: a ? "normal" : "nowrap" }, m),
             "& .buttonIcon": {
               display: "block",
-              height: "14px",
+              height: 14,
               "& > svg": {
                 fill: ua(t, "buttons.".concat(d, ".enabled.text"), "#000"),
                 color: ua(t, "buttons.".concat(d, ".enabled.text"), "#000"),
-                width: "14px",
-                height: "14px",
+                width: 14,
+                height: 14,
               },
             },
             "&:disabled": {
@@ -753,7 +753,7 @@ var Qt,
                 "buttons.".concat(d, ".disabled.border"),
                 "#000"
               ),
-              borderWeight: "1px",
+              borderWeight: 1,
               borderStyle: "solid",
               color: ua(t, "buttons.".concat(d, ".disabled.text"), "#000"),
               "& .buttonIcon > svg": {
@@ -768,8 +768,6 @@ var Qt,
                 "#fff"
               ),
               borderColor: ua(t, "buttons.".concat(d, ".hover.border"), "#000"),
-              borderWeight: "1px",
-              borderStyle: "solid",
               color: ua(t, "buttons.".concat(d, ".hover.text"), "#000"),
               "& .buttonIcon > svg": {
                 fill: ua(t, "buttons.".concat(d, ".hover.text"), "#000"),
@@ -782,9 +780,11 @@ var Qt,
                 "buttons.".concat(d, ".pressed.background"),
                 "#fff"
               ),
-              border: ua(t, "buttons.".concat(d, ".pressed.border"), "#000"),
-              borderWeight: "1px",
-              borderStyle: "solid",
+              borderColor: ua(
+                t,
+                "buttons.".concat(d, ".pressed.border"),
+                "#000"
+              ),
               color: ua(t, "buttons.".concat(d, ".pressed.text"), "#000"),
               "& .buttonIcon > svg": {
                 fill: ua(t, "buttons.".concat(d, ".pressed.text"), "#000"),
