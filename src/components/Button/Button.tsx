@@ -64,13 +64,13 @@ const CustomButton = styled.button<
     }
 
     return {
-      borderRadius: "3px",
+      borderRadius: 3,
       cursor: "pointer",
       width: fullWidth ? "100%" : "initial",
-      height: "39px",
+      height: 39,
       fontFamily: "'Inter', sans-serif",
       fontWeight: "400",
-      fontSize: "14px",
+      fontSize: 14,
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
@@ -87,7 +87,7 @@ const CustomButton = styled.button<
         "#fff"
       ),
       borderColor: get(theme, `buttons.${neatVariant}.enabled.border`, "#000"),
-      borderWidth: "1px",
+      borderWidth: 1,
       borderStyle: "solid",
       color: get(theme, `buttons.${neatVariant}.enabled.text`, "#000"),
       "& .button-label": {
@@ -96,13 +96,13 @@ const CustomButton = styled.button<
       },
       "& .buttonIcon": {
         display: "block",
-        height: "14px",
+        height: 14,
 
         "& > svg": {
           fill: get(theme, `buttons.${neatVariant}.enabled.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.enabled.text`, "#000"),
-          width: "14px",
-          height: "14px",
+          width: 14,
+          height: 14,
         },
       },
       "&:disabled": {
@@ -117,7 +117,7 @@ const CustomButton = styled.button<
           `buttons.${neatVariant}.disabled.border`,
           "#000"
         ),
-        borderWeight: "1px",
+        borderWeight: 1,
         borderStyle: "solid",
         color: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
         "& .buttonIcon > svg": {
@@ -132,8 +132,6 @@ const CustomButton = styled.button<
           "#fff"
         ),
         borderColor: get(theme, `buttons.${neatVariant}.hover.border`, "#000"),
-        borderWeight: "1px",
-        borderStyle: "solid",
         color: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
@@ -146,9 +144,11 @@ const CustomButton = styled.button<
           `buttons.${neatVariant}.pressed.background`,
           "#fff"
         ),
-        border: get(theme, `buttons.${neatVariant}.pressed.border`, "#000"),
-        borderWeight: "1px",
-        borderStyle: "solid",
+        borderColor: get(
+          theme,
+          `buttons.${neatVariant}.pressed.border`,
+          "#000"
+        ),
         color: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),

@@ -733,13 +733,13 @@ var Kt,
       P(
         P(
           {
-            borderRadius: "3px",
+            borderRadius: 3,
             cursor: "pointer",
             width: a ? "100%" : "initial",
-            height: "39px",
+            height: 39,
             fontFamily: "'Inter', sans-serif",
             fontWeight: "400",
-            fontSize: "14px",
+            fontSize: 14,
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
@@ -753,18 +753,18 @@ var Kt,
               "#fff"
             ),
             borderColor: da(t, "buttons.".concat(d, ".enabled.border"), "#000"),
-            borderWidth: "1px",
+            borderWidth: 1,
             borderStyle: "solid",
             color: da(t, "buttons.".concat(d, ".enabled.text"), "#000"),
             "& .button-label": P({ whiteSpace: a ? "normal" : "nowrap" }, m),
             "& .buttonIcon": {
               display: "block",
-              height: "14px",
+              height: 14,
               "& > svg": {
                 fill: da(t, "buttons.".concat(d, ".enabled.text"), "#000"),
                 color: da(t, "buttons.".concat(d, ".enabled.text"), "#000"),
-                width: "14px",
-                height: "14px",
+                width: 14,
+                height: 14,
               },
             },
             "&:disabled": {
@@ -779,7 +779,7 @@ var Kt,
                 "buttons.".concat(d, ".disabled.border"),
                 "#000"
               ),
-              borderWeight: "1px",
+              borderWeight: 1,
               borderStyle: "solid",
               color: da(t, "buttons.".concat(d, ".disabled.text"), "#000"),
               "& .buttonIcon > svg": {
@@ -794,8 +794,6 @@ var Kt,
                 "#fff"
               ),
               borderColor: da(t, "buttons.".concat(d, ".hover.border"), "#000"),
-              borderWeight: "1px",
-              borderStyle: "solid",
               color: da(t, "buttons.".concat(d, ".hover.text"), "#000"),
               "& .buttonIcon > svg": {
                 fill: da(t, "buttons.".concat(d, ".hover.text"), "#000"),
@@ -808,9 +806,11 @@ var Kt,
                 "buttons.".concat(d, ".pressed.background"),
                 "#fff"
               ),
-              border: da(t, "buttons.".concat(d, ".pressed.border"), "#000"),
-              borderWeight: "1px",
-              borderStyle: "solid",
+              borderColor: da(
+                t,
+                "buttons.".concat(d, ".pressed.border"),
+                "#000"
+              ),
               color: da(t, "buttons.".concat(d, ".pressed.text"), "#000"),
               "& .buttonIcon > svg": {
                 fill: da(t, "buttons.".concat(d, ".pressed.text"), "#000"),
