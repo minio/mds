@@ -37,6 +37,9 @@ export declare const lightColors: {
   iconButtonHover: string;
   iconButtonDisabled: string;
   iconButtonColor: string;
+  backLinkColor: string;
+  backLinkArrow: string;
+  backLinkHover: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -77,6 +80,9 @@ export declare const darkColors: {
   iconButtonHover: string;
   iconButtonDisabled: string;
   iconButtonColor: string;
+  backLinkColor: string;
+  backLinkArrow: string;
+  backLinkHover: string;
 };
 export declare const lightTheme: {
   bgColor: string;
@@ -205,6 +211,11 @@ export declare const lightTheme: {
     deletedDisabled: string;
     hoverColor: string;
   };
+  backLink: {
+    color: string;
+    arrow: string;
+    hover: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -332,5 +343,10 @@ export declare const darkTheme: {
     selected: string;
     deletedDisabled: string;
     hoverColor: string;
+  };
+  backLink: {
+    color: string;
+    arrow: string;
+    hover: string;
   };
 };
