@@ -31,6 +31,7 @@ export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as InputLabel } from "./InputLabel/InputLabel";
 export { default as IconButton } from "./IconButton/IconButton";
 export { default as DataTable } from "./DataTable/DataTable";
+export { default as BackLink } from "./BackLink/BackLink";
 
 /*Icons*/
 export * from "./Icons";

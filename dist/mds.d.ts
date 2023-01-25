@@ -6,7 +6,7 @@ import React, {
   HTMLAttributes,
 } from "react";
 import * as styled_components from "styled-components";
-import { CSSObject } from "styled-components";
+import { CSSObject, CSSProperties } from "styled-components";
 
 interface ThemeHandlerProps {
   darkMode?: boolean;
@@ -207,6 +207,13 @@ interface DataTableProps {
 }
 
 declare const DataTable: FC<DataTableProps>;
+
+interface BackLinkProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  sx?: CSSProperties;
+  label?: string;
+}
+
+declare const BackLink: FC<BackLinkProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -790,6 +797,7 @@ export {
   AzureTierIconXs,
   BackCaretIcon,
   BackIcon,
+  BackLink,
   BackSettingsIcon,
   BoxArrowDown,
   BoxArrowUp,

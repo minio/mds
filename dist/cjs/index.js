@@ -126,6 +126,7 @@ var l = n(e),
       deletedDisabled: E,
       hoverColor: u,
     },
+    backLink: { color: "#073052", arrow: "#081C42", hover: "#eaedee" },
   },
   V = {
     bgColor: x,
@@ -187,6 +188,7 @@ var l = n(e),
       deletedDisabled: T,
       hoverColor: y,
     },
+    backLink: { color: "#8E98A9", arrow: "#A2ADC0", hover: "#3A3F4A" },
   },
   P = function () {
     return (
@@ -11111,7 +11113,89 @@ var Io = function (e) {
       backgroundColor: "#f1f0f040",
       "&.selected": { color: "#b2b2b270" },
     },
-  };
+  },
+  Qo = function (e) {
+    return o.createElement(
+      "svg",
+      P(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 256 256",
+        },
+        e
+      ),
+      o.createElement(
+        "defs",
+        null,
+        o.createElement(
+          "clipPath",
+          { id: "prefix__a" },
+          o.createElement("path", { d: "M0 0h256v256H0z" })
+        )
+      ),
+      o.createElement(
+        "g",
+        { "data-name": "Back Settings", clipPath: "url(#prefix__a)" },
+        o.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
+        o.createElement("path", {
+          "data-name": "arrow-icn",
+          d: "M236.198 108.063c26.394 0 26.394 40.032 0 40.032H68.514l22.739 22.668c18.656 18.623-9.726 46.923-28.382 28.318L5.998 142.348a19.991 19.991 0 0 1 0-28.548l56.877-56.716c18.656-18.6 47.038 9.684 28.382 28.3l-22.743 22.679h167.684Z",
+        }),
+        o.createElement("path", {
+          "data-name": "Rect\\xE1ngulo 863",
+          fill: "none",
+          d: "M0 0h256v256H0z",
+        })
+      )
+    );
+  },
+  Jo = i.default.button(function (e) {
+    var t = e.theme,
+      a = e.sx;
+    return P(
+      {
+        display: "flex",
+        alignItems: "center",
+        textDecoration: "none",
+        justifyContent: "center",
+        flexDirection: "row",
+        height: "30px",
+        paddingLeft: 0,
+        background: "transparent",
+        border: 0,
+        cursor: "pointer",
+        "& .label": {
+          color: da(t, "backLink.color", "#073052"),
+          fontSize: 14,
+          fontWeight: 600,
+          lineHeight: 1,
+          paddingTop: 1,
+          marginRight: 10,
+        },
+        "&:hover .icon": {
+          background: da(t, "backLink.hover", "#eaedee"),
+          borderRadius: "2px",
+        },
+        "& .icon": {
+          lineHeight: 1,
+          marginRight: "3px",
+          display: "flex",
+          alignItems: "center",
+          width: "28px",
+          height: "30px",
+          "& .min-icon": {
+            width: "17px",
+            height: "11px",
+            margin: "auto",
+            color: da(t, "backLink.arrow", "#081C42"),
+          },
+        },
+      },
+      a
+    );
+  });
 (exports.AGPLV3DarkLogo = function (e) {
   return o.createElement(
     "svg",
@@ -11958,43 +12042,21 @@ var Io = function (e) {
       )
     );
   }),
-  (exports.BackSettingsIcon = function (e) {
-    return o.createElement(
-      "svg",
-      P(
-        {
-          xmlns: "http://www.w3.org/2000/svg",
-          className: "min-icon",
-          fill: "currentcolor",
-          viewBox: "0 0 256 256",
-        },
-        e
+  (exports.BackLink = function (e) {
+    var t = e.label,
+      a = e.sx;
+    return l.default.createElement(
+      Jo,
+      { sx: a },
+      l.default.createElement(
+        "span",
+        { className: "icon" },
+        l.default.createElement(Qo, null)
       ),
-      o.createElement(
-        "defs",
-        null,
-        o.createElement(
-          "clipPath",
-          { id: "prefix__a" },
-          o.createElement("path", { d: "M0 0h256v256H0z" })
-        )
-      ),
-      o.createElement(
-        "g",
-        { "data-name": "Back Settings", clipPath: "url(#prefix__a)" },
-        o.createElement("path", { fill: "none", d: "M0 0h256v256H0z" }),
-        o.createElement("path", {
-          "data-name": "arrow-icn",
-          d: "M236.198 108.063c26.394 0 26.394 40.032 0 40.032H68.514l22.739 22.668c18.656 18.623-9.726 46.923-28.382 28.318L5.998 142.348a19.991 19.991 0 0 1 0-28.548l56.877-56.716c18.656-18.6 47.038 9.684 28.382 28.3l-22.743 22.679h167.684Z",
-        }),
-        o.createElement("path", {
-          "data-name": "Rect\\xE1ngulo 863",
-          fill: "none",
-          d: "M0 0h256v256H0z",
-        })
-      )
+      l.default.createElement("span", { className: "label" }, t)
     );
   }),
+  (exports.BackSettingsIcon = Qo),
   (exports.BoxArrowDown = function (e) {
     return o.createElement(
       "svg",

@@ -53,6 +53,9 @@ export const lightColors = {
   iconButtonHover: "#EFEFEF",
   iconButtonDisabled: "#E6EBEB",
   iconButtonColor: "#7C7C7C",
+  backLinkColor: "#073052",
+  backLinkArrow: "#081C42",
+  backLinkHover: "#eaedee",
 };
 
 export const darkColors = {
@@ -94,6 +97,9 @@ export const darkColors = {
   iconButtonHover: "#4B586A",
   iconButtonDisabled: "#494A4D",
   iconButtonColor: "#283140",
+  backLinkColor: "#8E98A9",
+  backLinkArrow: "#A2ADC0",
+  backLinkHover: "#3A3F4A",
 };
 
 export const lightTheme = {
@@ -223,6 +229,11 @@ export const lightTheme = {
     deletedDisabled: lightColors.mainRed,
     hoverColor: lightColors.hoverGrey,
   },
+  backLink: {
+    color: lightColors.backLinkColor,
+    arrow: lightColors.backLinkArrow,
+    hover: lightColors.backLinkHover,
+  },
 };
 
 export const darkTheme = {
@@ -351,5 +362,10 @@ export const darkTheme = {
     selected: darkColors.mainWhite,
     deletedDisabled: darkColors.mainRed,
     hoverColor: darkColors.hoverGrey,
+  },
+  backLink: {
+    color: darkColors.backLinkColor,
+    arrow: darkColors.backLinkArrow,
+    hover: darkColors.backLinkHover,
   },
 };
