@@ -5216,6 +5216,13 @@ detab@2.0.4:
   dependencies:
     repeat-string "^1.5.4"
 
+detect-gpu@^5.0.8:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-5.0.8.tgz#2e618c91c17988544f6327df7112fa6e3ad8ed4d"
+  integrity sha512-55fCEmklMQosC+l/1TKXC1r88ObkLzePKFyXZRPCL0fPVkmIYtpNSGbCeO00STD9uWdYruXNwfKsdXcTL5Yvkg==
+  dependencies:
+    webgl-constants "^1.1.1"
+
 detect-newline@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
@@ -11646,6 +11653,11 @@ web-namespaces@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/web-namespaces/-/web-namespaces-1.1.4.tgz#bc98a3de60dadd7faefc403d1076d529f5e030ec"
   integrity sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw==
+
+webgl-constants@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/webgl-constants/-/webgl-constants-1.1.1.tgz#f9633ee87fea56647a60b9ce735cbdfb891c6855"
+  integrity sha512-LkBXKjU5r9vAW7Gcu3T5u+5cvSvh5WwINdr0C+9jpzVB41cjQAP5ePArDtk/WHYdVj0GefCgM73BA7FlIiNtdg==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
