@@ -14,9 +14,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
+import { getGPUTier } from "detect-gpu";
 import ApplicationLogo from "../ApplicationLogo/ApplicationLogo";
 import Grid from "../Grid/Grid";
 import { LoginWrapperProps } from "./LoginWrapper.types";
@@ -168,6 +169,17 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
   promoInfo,
   promoHeader,
 }) => {
+  const [GPUAvailable, setGPUAvailable] = useState<boolean>(false);
+
+  useEffect(() => {
+    (async () => {
+      const gpuTier = await getGPUTier();
+
+      setGPUAvailable(!!gpuTier.gpu && gpuTier.tier >= 2);
+      return;
+    })();
+  }, []);
+
   return (
     <CustomLogin>
       <Grid container className={"mainContainer"} wrap={"nowrap"}>
@@ -185,17 +197,21 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
             </Grid>
           )}
           <Grid item className={"videoContainer"}>
-            <video
-              autoPlay
-              playsInline
-              muted
-              loop
-              disablePictureInPicture
-              poster={poster}
-              className={"videoBG"}
-            >
-              <source src={bgVideo} type={"video/mp4"} />
-            </video>
+            {GPUAvailable ? (
+              <video
+                autoPlay
+                playsInline
+                muted
+                loop
+                disablePictureInPicture
+                poster={poster}
+                className={"videoBG"}
+              >
+                <source src={bgVideo} type={"video/mp4"} />
+              </video>
+            ) : (
+              <img src={poster} className={"videoBG"} />
+            )}
           </Grid>
         </Grid>
         <Grid item xs={12} className={"formPanel"}>
