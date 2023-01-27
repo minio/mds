@@ -23,7 +23,7 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Grid from "../Grid/Grid";
 
 export default {
-  title: "MDS/Data/DataTable",
+  title: "MDS/Information/DataTable",
   component: DataTable,
   argTypes: {},
 } as Meta<typeof DataTable>;
