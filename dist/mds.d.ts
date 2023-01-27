@@ -215,6 +215,14 @@ interface BackLinkProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 declare const BackLink: FC<BackLinkProps>;
 
+interface HelpBoxProps {
+  iconComponent: any;
+  title: string | React.ReactNode;
+  help: any;
+}
+
+declare const HelpBox: FC<HelpBoxProps>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -893,6 +901,7 @@ export {
   HardBucketQuotaIcon,
   HealIcon,
   HealthMenuIcon,
+  HelpBox,
   HelpIcon,
   HelpIconFilled,
   HistoryIcon,
