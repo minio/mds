@@ -58,6 +58,13 @@ Secondary.args = {
   variant: "secondary",
 };
 
+export const Text = Template.bind({});
+Text.args = {
+  disabled: false,
+  label: "Text Button",
+  variant: "text",
+};
+
 export const DefaultIcon = Template.bind({});
 DefaultIcon.args = {
   disabled: false,
