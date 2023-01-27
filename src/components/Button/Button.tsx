@@ -75,6 +75,7 @@ const CustomButton = styled.button<
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
+      textTransform: neatVariant === "text" ? "uppercase" : "none",
       margin: 0,
       padding:
         (!label || label.trim() === "") && !parentChildren

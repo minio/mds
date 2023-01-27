@@ -190,6 +190,32 @@ export const lightTheme = {
         iconColor: lightColors.white,
       },
     },
+    text: {
+      enabled: {
+        border: "transparent",
+        text: lightColors.mainGrey,
+        background: "transparent",
+        iconColor: lightColors.mainGrey,
+      },
+      disabled: {
+        border: "transparent",
+        text: lightColors.disabledInnerGrey,
+        background: "transparent",
+        iconColor: lightColors.disabledInnerGrey,
+      },
+      hover: {
+        border: lightColors.hoverGrey,
+        text: lightColors.mainGrey,
+        background: lightColors.hoverGrey,
+        iconColor: lightColors.mainGrey,
+      },
+      pressed: {
+        border: lightColors.pressedGrey,
+        text: lightColors.mainGrey,
+        background: lightColors.pressedGrey,
+        iconColor: lightColors.mainGrey,
+      },
+    },
   },
   login: {
     formBG: lightColors.sectionOneBG,
@@ -322,6 +348,32 @@ export const darkTheme = {
         text: darkColors.dark,
         background: darkColors.mainRed,
         iconColor: darkColors.dark,
+      },
+    },
+    text: {
+      enabled: {
+        border: "transparent",
+        text: darkColors.mainGrey,
+        background: "transparent",
+        iconColor: darkColors.mainGrey,
+      },
+      disabled: {
+        border: "transparent",
+        text: darkColors.disabledInnerGrey,
+        background: "transparent",
+        iconColor: darkColors.disabledInnerGrey,
+      },
+      hover: {
+        border: darkColors.hoverGrey,
+        text: darkColors.mainGrey,
+        background: darkColors.hoverGrey,
+        iconColor: darkColors.mainGrey,
+      },
+      pressed: {
+        border: darkColors.pressedGrey,
+        text: darkColors.borderPressedGrey,
+        background: darkColors.pressedGrey,
+        iconColor: darkColors.borderPressedGrey,
       },
     },
   },
