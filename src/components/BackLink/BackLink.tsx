@@ -61,9 +61,9 @@ const BackLinkBasic = styled.button<BackLinkProps>(({ theme, sx }) => ({
   ...sx,
 }));
 
-const BackLink: FC<BackLinkProps> = ({ label, sx }) => {
+const BackLink: FC<BackLinkProps> = ({ label, sx, ...props }) => {
   return (
-    <BackLinkBasic sx={sx}>
+    <BackLinkBasic sx={sx} {...props}>
       <span className={"icon"}>
         <BackSettingsIcon />
       </span>
