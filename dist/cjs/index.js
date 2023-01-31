@@ -12581,10 +12581,11 @@ var Ko = function (e) {
   }),
   (exports.BackLink = function (e) {
     var t = e.label,
-      a = e.sx;
+      a = e.sx,
+      n = O(e, ["label", "sx"]);
     return l.default.createElement(
       fi,
-      { sx: a },
+      N({ sx: a }, n),
       l.default.createElement(
         "span",
         { className: "icon" },

@@ -12159,10 +12159,11 @@ var ri = function (e) {
   }),
   Mi = function (e) {
     var a = e.label,
-      n = e.sx;
+      n = e.sx,
+      r = j(e, ["label", "sx"]);
     return t.createElement(
       yi,
-      { sx: n },
+      D({ sx: n }, r),
       t.createElement("span", { className: "icon" }, t.createElement(bi, null)),
       t.createElement("span", { className: "label" }, a)
     );
