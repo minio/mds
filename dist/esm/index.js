@@ -1787,7 +1787,7 @@ const Ja = ({
   override: a = {},
   glContext: n,
   failIfMajorPerformanceCaveat: r = !1,
-  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.8/dist/benchmarks",
+  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.9/dist/benchmarks",
 } = {}) =>
   Da(void 0, void 0, void 0, function* () {
     const o = {};
