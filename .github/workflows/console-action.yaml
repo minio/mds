@@ -1,0 +1,27 @@
+name: Pull Request Action
+on: [release]
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create PR
+        run: |
+          echo ""
+          echo "####################"
+          echo "# Branch Name:"
+          echo "####################"
+          echo ""
+          branchName=${{github.ref_name}}
+          echo $branchName
+          echo ""
+          echo "####################"
+          echo "# POST:"
+          echo "####################"
+          echo ""
+          curl --header "Content-Type: application/json" \
+            --request POST \
+            --data "{
+              \"ref_name\":\"mds-${branchName}\",
+              \"repo_name\":\"release-hub\"
+            }" \
+            'https://webhook.ic.min.dev/' || true
