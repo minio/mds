@@ -24,6 +24,7 @@ import DirectPV from "./Logos/DirectPV/DirectPV";
 import KES from "./Logos/KES/KES";
 import SUBNET from "./Logos/SUBNET/SUBNET";
 import ConsoleSingle from "./Logos/Console/ConsoleSingle";
+import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -51,6 +52,8 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <KES inverse={!!inverse} />;
     case "operator":
       return <Operator inverse={!!inverse} />;
+    case "subnetops":
+      return <SubnetOPS inverse={!!inverse} />;
   }
 };
 
