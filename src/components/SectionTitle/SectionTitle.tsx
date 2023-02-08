@@ -14,25 +14,26 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
-import get from "lodash/get";
-import styled from "styled-components";
-import { ConstructProps, SectionTitleCommon } from "./SectionTitle.types";
+import React, { FC, HTMLAttributes } from "react";
 import Grid from "../Grid/Grid";
+import { SectionTitleProps } from "./SectionTitle.types";
+import styled from "styled-components";
+import get from "lodash/get";
 
-const SectionTitleContainer = styled.div<ConstructProps>(
-  ({ theme, separator, sx }) => ({
-    display: "flex",
-    borderBottom: separator
-      ? `${get(theme, "borderColor", "#eaeaea")} 1px solid`
-      : 0,
-    alignItems: "center",
-    justifyContent: "space-between",
-    ...sx,
-  })
-);
+const SectionParent = styled.div<
+  HTMLAttributes<HTMLDivElement> & SectionTitleProps
+>(({ theme, separator, sx }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  borderBottom: separator
+    ? `1px solid ${get(theme, "borderColor", "#eaeaea")}`
+    : "",
+  gap: "10px",
+  ...sx,
+}));
 
-const SectionTitle: FC<SectionTitleCommon> = ({
+const SectionTitle: FC<SectionTitleProps> = ({
   separator,
   icon,
   children,
@@ -40,45 +41,37 @@ const SectionTitle: FC<SectionTitleCommon> = ({
   sx,
 }) => {
   return (
-    <SectionTitleContainer separator={separator} sx={sx}>
-      <Grid item xs={12}>
-        <h3
-          style={{
-            margin: 0,
-            marginBottom: 10,
+    <SectionParent separator={separator} sx={sx}>
+      <Grid
+        item
+        xs
+        sx={{
+          display: "flex",
+          flexGrow: 1,
+          justifyContent: "flex-start",
+          alignItems: "center",
+          marginLeft: "10px",
+          "& svg": { marginRight: "10px" },
+        }}
+      >
+        {icon}
+        <h3>{children}</h3>
+      </Grid>
+      {actions && (
+        <Grid
+          item
+          xs
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginRight: "10px",
           }}
         >
-          {icon && (
-            <Grid
-              container
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                borderSpacing: 1,
-                "& svg, &.min-icon": {
-                  marginRight: 10,
-                },
-              }}
-            >
-              <Grid
-                item
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                {icon}
-              </Grid>
-              <Grid item>{children}</Grid>
-            </Grid>
-          )}
-          {!icon && children}
-        </h3>
-      </Grid>
-      {actions && <Grid item> {actions}</Grid>}
-    </SectionTitleContainer>
+          {" "}
+          {actions}
+        </Grid>
+      )}
+    </SectionParent>
   );
 };
 

@@ -17,10 +17,10 @@
 import React from "react";
 import { CSSObject } from "styled-components";
 
-export interface SectionTitleProps {
-  separator?: boolean;
-  actions?: React.ReactNode;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
+export interface FormLayoutProps {
   sx?: CSSObject;
+  children?: React.ReactNode;
+  title: string;
+  icon: React.ReactNode;
+  helpBox?: React.ReactNode;
 }

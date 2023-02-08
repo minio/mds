@@ -14,13 +14,39 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
-import { CSSObject } from "styled-components";
+import React, { FC, HTMLAttributes } from "react";
+import styled from "styled-components";
+import get from "lodash/get";
+import { BoxProps } from "./Box.types";
 
-export interface SectionTitleProps {
-  separator?: boolean;
-  actions?: React.ReactNode;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
-  sx?: CSSObject;
-}
+const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
+  ({ theme, sx, withBorders }) => {
+    let extraBorders = {};
+
+    if (withBorders) {
+      extraBorders = {
+        border: `${get(theme, "borderColor", "#eaeaea")} 1px solid`,
+        borderRadius: 2,
+        padding: 15,
+      };
+    }
+    return {
+      ...extraBorders,
+      ...sx,
+    };
+  }
+);
+
+const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps> = ({
+  sx,
+  children,
+  ...props
+}) => {
+  return (
+    <BoxParent {...props} sx={sx}>
+      {children}
+    </BoxParent>
+  );
+};
+
+export default Box;

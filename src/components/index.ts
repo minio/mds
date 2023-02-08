@@ -33,6 +33,9 @@ export { default as IconButton } from "./IconButton/IconButton";
 export { default as DataTable } from "./DataTable/DataTable";
 export { default as BackLink } from "./BackLink/BackLink";
 export { default as HelpBox } from "./HelpBox/HelpBox";
+export { default as SectionTitle } from "./SectionTitle/SectionTitle";
+export { default as Box } from "./Box/Box";
+export { default as FormLayout } from "./FormLayout/FormLayout";
 
 /*Icons*/
 export * from "./Icons";
