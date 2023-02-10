@@ -168,6 +168,7 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
   formFooter,
   promoInfo,
   promoHeader,
+  disableAnimation,
 }) => {
   const [GPUAvailable, setGPUAvailable] = useState<boolean>(false);
 
@@ -197,7 +198,7 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
             </Grid>
           )}
           <Grid item className={"videoContainer"}>
-            {GPUAvailable ? (
+            {GPUAvailable && !disableAnimation ? (
               <video
                 autoPlay
                 playsInline
