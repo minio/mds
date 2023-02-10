@@ -6,4 +6,5 @@ export interface LoginWrapperProps {
   formFooter?: ReactNode;
   promoHeader?: ReactNode;
   promoInfo?: ReactNode;
+  disableAnimation?: boolean;
 }
