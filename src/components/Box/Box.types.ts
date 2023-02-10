@@ -17,10 +17,8 @@
 import React from "react";
 import { CSSObject } from "styled-components";
 
-export interface SectionTitleProps {
-  separator?: boolean;
-  actions?: React.ReactNode;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
+export interface BoxProps {
   sx?: CSSObject;
+  children?: React.ReactNode;
+  withBorders?: boolean;
 }

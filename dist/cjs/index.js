@@ -11808,7 +11808,87 @@ var Yo = function (e) {
       },
       "& .helpText": { fontSize: 16, paddingLeft: 5 },
     };
-  });
+  }),
+  gi = i.default.div(function (e) {
+    var t = e.theme,
+      a = e.separator,
+      n = e.sx;
+    return k(
+      {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        borderBottom: a
+          ? "1px solid ".concat(ea(t, "borderColor", "#eaeaea"))
+          : "",
+        gap: "10px",
+      },
+      n
+    );
+  }),
+  Ei = function (e) {
+    var t = e.separator,
+      a = e.icon,
+      n = e.children,
+      r = e.actions,
+      o = e.sx;
+    return l.default.createElement(
+      gi,
+      { separator: t, sx: o },
+      l.default.createElement(
+        Pa,
+        {
+          item: !0,
+          xs: !0,
+          sx: {
+            display: "flex",
+            flexGrow: 1,
+            justifyContent: "flex-start",
+            alignItems: "center",
+            marginLeft: "10px",
+            "& svg": { marginRight: "10px" },
+          },
+        },
+        a,
+        l.default.createElement("h3", null, n)
+      ),
+      r &&
+        l.default.createElement(
+          Pa,
+          {
+            item: !0,
+            xs: !0,
+            sx: {
+              display: "flex",
+              justifyContent: "flex-end",
+              marginRight: "10px",
+            },
+          },
+          " ",
+          r
+        )
+    );
+  },
+  wi = i.default.div(function (e) {
+    var t = e.theme,
+      a = e.sx,
+      n = {};
+    return (
+      e.withBorders &&
+        (n = {
+          border: "".concat(ea(t, "borderColor", "#eaeaea"), " 1px solid"),
+          borderRadius: 2,
+          padding: 15,
+        }),
+      k(k({}, n), a)
+    );
+  }),
+  xi = function (e) {
+    var t = e.sx,
+      a = e.children,
+      n = O(e, ["sx", "children"]);
+    return l.default.createElement(wi, k({}, n, { sx: t }), a);
+  };
 (exports.AGPLV3DarkLogo = function (e) {
   return o.createElement(
     "svg",
@@ -12671,6 +12751,7 @@ var Yo = function (e) {
     );
   }),
   (exports.BackSettingsIcon = fi),
+  (exports.Box = xi),
   (exports.BoxArrowDown = function (e) {
     return o.createElement(
       "svg",
@@ -16540,6 +16621,40 @@ var Yo = function (e) {
       )
     );
   }),
+  (exports.FormLayout = function (e) {
+    var t,
+      a = e.children,
+      n = e.title,
+      r = e.helpBox,
+      o = e.icon,
+      i = e.sx;
+    return l.default.createElement(
+      xi,
+      {
+        withBorders: !0,
+        sx: k(
+          ((t = {
+            display: "grid",
+            padding: "25px",
+            gap: "25px",
+            gridTemplateColumns: "1fr",
+          }),
+          (t["@media (min-width: ".concat(ea(La, "md", 0), "px)")] = {
+            gridTemplateColumns: "2fr 1.2fr",
+          }),
+          t),
+          i
+        ),
+      },
+      l.default.createElement(
+        xi,
+        null,
+        l.default.createElement(Ei, { icon: o, sx: { marginBottom: 16 } }, n),
+        a
+      ),
+      r
+    );
+  }),
   (exports.FormatDriveIcon = ai),
   (exports.FormatDrivesIcon = function (e) {
     return o.createElement(
@@ -20037,6 +20152,7 @@ var Yo = function (e) {
       )
     );
   }),
+  (exports.SectionTitle = Ei),
   (exports.SelectAllIcon = function (e) {
     return o.createElement(
       "svg",

@@ -18,7 +18,7 @@ import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import SectionTitle from "./SectionTitle";
-import { SectionTitleCommon } from "./SectionTitle.types";
+import { SectionTitleProps } from "./SectionTitle.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { Button, GlobalStyles } from "../index";
@@ -30,7 +30,7 @@ export default {
   argTypes: {},
 } as Meta<typeof SectionTitle>;
 
-const Template: Story<SectionTitleCommon> = (args) => (
+const Template: Story<SectionTitleProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <SectionTitle {...args} />
@@ -39,20 +39,34 @@ const Template: Story<SectionTitleCommon> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: "Just a Title",
-};
-
-export const TitleWithIcon = Template.bind({});
-TitleWithIcon.args = {
-  children: "Just a Title with Icon",
   icon: <TestIcon />,
+  actions: (
+    <Fragment>
+      <Button id={"test1"}>An Action</Button>
+    </Fragment>
+  ),
+  separator: true,
+  children: "Some Title",
 };
 
-export const TitleWithSeparator = Template.bind({});
-TitleWithSeparator.args = {
-  children: "Just a Title with Icon and separator",
+export const JustTitle = Template.bind({});
+JustTitle.args = {
+  separator: true,
+  children: "Some Title",
+};
+
+export const NoActions = Template.bind({});
+NoActions.args = {
   icon: <TestIcon />,
   separator: true,
+  children: "Some Title",
+};
+
+export const NoSeparator = Template.bind({});
+NoSeparator.args = {
+  icon: <TestIcon />,
+  separator: false,
+  children: "Some Title",
 };
 
 export const TitleWithCustomStyles = Template.bind({});

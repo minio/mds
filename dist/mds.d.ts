@@ -230,6 +230,34 @@ interface HelpBoxProps {
 
 declare const HelpBox: FC<HelpBoxProps>;
 
+interface SectionTitleProps {
+  separator?: boolean;
+  actions?: React.ReactNode;
+  icon?: React.ReactNode;
+  children: React.ReactNode;
+  sx?: CSSObject;
+}
+
+declare const SectionTitle: FC<SectionTitleProps>;
+
+interface BoxProps {
+  sx?: CSSObject;
+  children?: React.ReactNode;
+  withBorders?: boolean;
+}
+
+declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
+
+interface FormLayoutProps {
+  sx?: CSSObject;
+  children?: React.ReactNode;
+  title: string;
+  icon: React.ReactNode;
+  helpBox?: React.ReactNode;
+}
+
+declare const FormLayout: FC<FormLayoutProps>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -814,6 +842,7 @@ export {
   BackIcon,
   BackLink,
   BackSettingsIcon,
+  Box,
   BoxArrowDown,
   BoxArrowUp,
   BucketEncryptionIcon,
@@ -897,6 +926,7 @@ export {
   FilterIcon,
   FolderBrowserIcon,
   FolderIcon,
+  FormLayout,
   FormatDriveIcon,
   FormatDrivesIcon,
   GlobalStyles,
@@ -984,6 +1014,7 @@ export {
   S3TierIcon$1 as S3TierIcon,
   S3TierIcon as S3TierIconXs,
   SearchIcon,
+  SectionTitle,
   SelectAllIcon,
   SelectMultipleIcon,
   ServersIcon,
