@@ -17673,9 +17673,10 @@ var Yo = function (e) {
       r = t.formFooter,
       o = t.promoInfo,
       i = t.promoHeader,
-      c = e.useState(!1),
-      s = c[0],
-      d = c[1];
+      c = t.disableAnimation,
+      s = e.useState(!1),
+      d = s[0],
+      m = s[1];
     return (
       e.useEffect(function () {
         G(void 0, void 0, void 0, function () {
@@ -17685,7 +17686,7 @@ var Yo = function (e) {
               case 0:
                 return [4, Ua()];
               case 1:
-                return (e = t.sent()), d(!!e.gpu && e.tier >= 2), [2];
+                return (e = t.sent()), m(!!e.gpu && e.tier >= 2), [2];
             }
           });
         });
@@ -17727,7 +17728,7 @@ var Yo = function (e) {
             l.default.createElement(
               Pa,
               { item: !0, className: "videoContainer" },
-              s
+              d && !c
                 ? l.default.createElement(
                     "video",
                     {

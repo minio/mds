@@ -2237,9 +2237,10 @@ var tn,
       o = e.formFooter,
       i = e.promoInfo,
       c = e.promoHeader,
-      s = n(!1),
-      d = s[0],
-      m = s[1];
+      s = e.disableAnimation,
+      d = n(!1),
+      m = d[0],
+      h = d[1];
     return (
       r(function () {
         F(void 0, void 0, void 0, function () {
@@ -2249,7 +2250,7 @@ var tn,
               case 0:
                 return [4, en()];
               case 1:
-                return (e = t.sent()), m(!!e.gpu && e.tier >= 2), [2];
+                return (e = t.sent()), h(!!e.gpu && e.tier >= 2), [2];
             }
           });
         });
@@ -2287,7 +2288,7 @@ var tn,
             t.createElement(
               Da,
               { item: !0, className: "videoContainer" },
-              d
+              m && !s
                 ? t.createElement(
                     "video",
                     {
