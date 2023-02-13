@@ -11888,7 +11888,16 @@ var Yo = function (e) {
       a = e.children,
       n = O(e, ["sx", "children"]);
     return l.default.createElement(wi, k({}, n, { sx: t }), a);
-  };
+  },
+  _i = i.default.div(function (e) {
+    e.theme;
+    var t = e.sx,
+      a = e.variant;
+    return k(
+      { maxWidth: "constrained" === a ? 1220 : "initial", padding: 32 },
+      t
+    );
+  });
 (exports.AGPLV3DarkLogo = function (e) {
   return o.createElement(
     "svg",
@@ -12121,7 +12130,6 @@ var Yo = function (e) {
           "data-name": "Add Access Rule",
           clipPath: "url(#clip-Add_Access_Rule)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Add_Access_Rule_Icon", "data-name": "Add Access Rule Icon" },
@@ -12278,7 +12286,6 @@ var Yo = function (e) {
           "data-name": "Add Members to Group",
           clipPath: "url(#clip-Add_Members_to_Group)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -12364,8 +12371,6 @@ var Yo = function (e) {
           xmlns: "http://www.w3.org/2000/svg",
           className: "min-icon",
           fill: "currentcolor",
-          width: "11",
-          height: "11",
           viewBox: "0 0 256 256",
         },
         e
@@ -12879,7 +12884,6 @@ var Yo = function (e) {
           "data-name": "Enable Bucket Encryption",
           clipPath: "url(#clip-Enable_Bucket_Encryption)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -12951,7 +12955,6 @@ var Yo = function (e) {
           "data-name": "Enable Bucket Quota",
           clipPath: "url(#clip-Enable_Bucket_Quota)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -13016,7 +13019,6 @@ var Yo = function (e) {
           "data-name": "Set Bucket Replication",
           clipPath: "url(#clip-Set_Bucket_Replication)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -13534,7 +13536,6 @@ var Yo = function (e) {
           "data-name": "Change Access Policy",
           clipPath: "url(#clip-Change_Access_Policy)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -13608,7 +13609,6 @@ var Yo = function (e) {
           "data-name": "Change User Password",
           clipPath: "url(#clip-Change_User_Password)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -13988,7 +13988,6 @@ var Yo = function (e) {
           "data-name": "Generic Delete",
           clipPath: "url(#clip-Generic_Delete)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Generic_Delete_Icon", "data-name": "Generic Delete Icon" },
@@ -14051,7 +14050,6 @@ var Yo = function (e) {
           "data-name": "Generic Confirmation",
           clipPath: "url(#clip-Generic_Confirmation)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -14113,8 +14111,6 @@ var Yo = function (e) {
         className: "min-icon",
         fill: "currentcolor",
         xmlns: "http://www.w3.org/2000/svg",
-        width: "121.755",
-        height: "28.546",
         viewBox: "0 0 121.755 28.546",
       }),
       l.default.createElement(
@@ -14139,8 +14135,6 @@ var Yo = function (e) {
         className: "min-icon",
         fill: "currentcolor",
         xmlns: "http://www.w3.org/2000/svg",
-        width: "113.208",
-        height: "29.822",
         viewBox: "0 0 113.208 29.822",
       }),
       l.default.createElement(
@@ -14232,7 +14226,6 @@ var Yo = function (e) {
           "data-name": "Create Group",
           clipPath: "url(#clip-Create_Group)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Create_Group_Icon", "data-name": "Create Group Icon" },
@@ -14376,7 +14369,6 @@ var Yo = function (e) {
           "data-name": "Create New Path",
           clipPath: "url(#clip-Create_New_Path)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Create_New_Path_Icon", "data-name": "Create New Path Icon" },
@@ -14476,7 +14468,6 @@ var Yo = function (e) {
           "data-name": "Create User",
           clipPath: "url(#clip-Create_User)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Create_User-2", "data-name": "Create User" },
@@ -15140,7 +15131,6 @@ var Yo = function (e) {
           "data-name": "Drive Format Errors",
           clipPath: "url(#clip-Drive_Format_Errors)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -15411,7 +15401,6 @@ var Yo = function (e) {
           "data-name": "Edit YAML",
           clipPath: "url(#clip-Edit_YAML)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Edit_YAML_Icon", "data-name": "Edit YAML Icon" },
@@ -15574,7 +15563,6 @@ var Yo = function (e) {
           "data-name": "Subscribe to event",
           clipPath: "url(#clip-Subscribe_to_event)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -15721,7 +15709,6 @@ var Yo = function (e) {
       o.createElement(
         "g",
         null,
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement("path", {
           d: "m214.5,256H40.5c-8.01,0-14.5-6.49-14.5-14.5V14.57C26,6.56,32.49.07,40.5.07h114.33l.19.26,73.97,74.01v167.15c0,8.01-6.49,14.5-14.5,14.5Z",
           fill: "#584849",
@@ -15886,7 +15873,6 @@ var Yo = function (e) {
       o.createElement(
         "g",
         { id: "a" },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { transform: "translate(505.005 -4637.798)" },
@@ -16145,7 +16131,6 @@ var Yo = function (e) {
       o.createElement(
         "g",
         null,
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { transform: "translate(4891.5 -2436.5)" },
@@ -16266,7 +16251,6 @@ var Yo = function (e) {
         },
         e
       ),
-      o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
       o.createElement(
         "g",
         { transform: "translate(-13.993 -4638.241)" },
@@ -16438,8 +16422,6 @@ var Yo = function (e) {
           xmlns: "http://www.w3.org/2000/svg",
           className: "min-icon",
           fill: "currentcolor",
-          width: "14",
-          height: "13.088",
           viewBox: "0 0 14 13.088",
         },
         e
@@ -16695,7 +16677,6 @@ var Yo = function (e) {
           "data-name": "Format Drives",
           clipPath: "url(#clip-Format_Drives)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Format_Drives_Icon", "data-name": "Format Drives Icon" },
@@ -18422,7 +18403,6 @@ var Yo = function (e) {
           "data-name": "Expand Tenant: Add Pools",
           clipPath: "url(#clip-Expand_Tenant:_Add_Pools)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -18806,7 +18786,6 @@ var Yo = function (e) {
           "data-name": "Object Preview",
           clipPath: "url(#clip-Object_Preview)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           { id: "Object_Preview_Icon", "data-name": "Object Preview Icon" },
@@ -18895,8 +18874,6 @@ var Yo = function (e) {
           className: "min-icon",
           fill: "currentcolor",
           viewBox: "0 0 256 256",
-          width: "26.9",
-          height: "26.9",
         },
         e
       ),
@@ -19058,8 +19035,6 @@ var Yo = function (e) {
           className: "min-icon",
           fill: "currentcolor",
           viewBox: "0 0 256 256",
-          width: "32.12",
-          height: "25",
         },
         e
       ),
@@ -19237,6 +19212,22 @@ var Yo = function (e) {
         Pa,
         { item: !0, xs: 12, sm: 12, md: a ? 4 : 6 },
         l.default.createElement(Rn, null, n)
+      )
+    );
+  }),
+  (exports.PageLayout = function (e) {
+    var t = e.sx,
+      a = e.children,
+      n = e.variant,
+      r = e.className,
+      o = O(e, ["sx", "children", "variant", "className"]);
+    return l.default.createElement(
+      _i,
+      k({ sx: t, variant: n }, o),
+      l.default.createElement(
+        Pa,
+        { container: !0 },
+        l.default.createElement(Pa, { item: !0, xs: 12, className: r }, a)
       )
     );
   }),
@@ -20320,7 +20311,6 @@ var Yo = function (e) {
           "data-name": "New Access Key Created",
           clipPath: "url(#clip-New_Service_Account_Created)",
         },
-        o.createElement("rect", { width: "256", height: "256", fill: "#fff" }),
         o.createElement(
           "g",
           {
@@ -20901,30 +20891,34 @@ var Yo = function (e) {
   (exports.TierOfflineIcon = function (e) {
     return o.createElement(
       "svg",
-      {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: "14",
-        height: "14",
-        viewBox: "0 0 14 14",
-      },
+      k(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          viewBox: "0 0 14 14",
+        },
+        e
+      ),
       o.createElement("path", {
         id: "offline-icon",
         d: "M91.4,4.551l-.825-.825-2.44,2.439L85.7,3.726l-.825.825L87.312,6.99,84.873,9.429l.825.825,2.439-2.439,2.44,2.439.825-.825L88.961,6.99Zm-.155,9.44H85.027l-3.89-4.279V4.269L85.027-.01h6.219l3.89,4.279V9.711Z",
         transform: "translate(-81.136 0.01)",
         fill: "#c83b51",
-        "fill-rule": "evenodd",
+        fillRule: "evenodd",
       })
     );
   }),
   (exports.TierOnlineIcon = function (e) {
     return o.createElement(
       "svg",
-      {
-        xmlns: "http://www.w3.org/2000/svg",
-        width: "14",
-        height: "14",
-        viewBox: "0 0 14 14",
-      },
+      k(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          viewBox: "0 0 14 14",
+        },
+        e
+      ),
       o.createElement("path", {
         id: "online-icon",
         d: "M7,14a7.052,7.052,0,0,1-1.411-.142,6.962,6.962,0,0,1-2.5-1.053A7.02,7.02,0,0,1,.55,9.725,6.965,6.965,0,0,1,.142,8.411a7.068,7.068,0,0,1,0-2.821A6.962,6.962,0,0,1,1.2,3.086,7.02,7.02,0,0,1,4.275.55,6.965,6.965,0,0,1,5.589.142a7.068,7.068,0,0,1,2.821,0,6.962,6.962,0,0,1,2.5,1.053,7.02,7.02,0,0,1,2.536,3.08,6.965,6.965,0,0,1,.408,1.314,7.068,7.068,0,0,1,0,2.821,6.962,6.962,0,0,1-1.053,2.5,7.02,7.02,0,0,1-3.08,2.536,6.965,6.965,0,0,1-1.314.408A7.052,7.052,0,0,1,7,14ZM3.958,6h0L2.953,7.008l3.016,3.016L10.995,5,9.99,3.992,5.969,8.013,3.958,6Z",

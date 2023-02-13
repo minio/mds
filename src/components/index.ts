@@ -36,6 +36,7 @@ export { default as HelpBox } from "./HelpBox/HelpBox";
 export { default as SectionTitle } from "./SectionTitle/SectionTitle";
 export { default as Box } from "./Box/Box";
 export { default as FormLayout } from "./FormLayout/FormLayout";
+export { default as PageLayout } from "./PageLayout/PageLayout";
 
 /*Icons*/
 export * from "./Icons";
