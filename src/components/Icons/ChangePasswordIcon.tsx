@@ -43,7 +43,6 @@ const ChangePasswordIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Change User Password"
       clipPath="url(#clip-Change_User_Password)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Change_User_Password_Icon" data-name="Change User Password Icon">
         <g id="Grupo_2422" data-name="Grupo 2422" transform="translate(11)">
           <g id="Grupo_2421" data-name="Grupo 2421">

@@ -44,7 +44,6 @@ const FormatDrivesIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Format Drives"
       clipPath="url(#clip-Format_Drives)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Format_Drives_Icon" data-name="Format Drives Icon">
         <g
           id="Format_Drives_Icon-2"

@@ -44,7 +44,6 @@ const ObjectPreviewIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Object Preview"
       clipPath="url(#clip-Object_Preview)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Object_Preview_Icon" data-name="Object Preview Icon">
         <g id="Grupo_2420" data-name="Grupo 2420" transform="translate(20)">
           <g id="Grupo_2419" data-name="Grupo 2419">

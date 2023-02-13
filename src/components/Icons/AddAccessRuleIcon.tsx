@@ -29,7 +29,6 @@ const AddAccessRuleIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Add Access Rule"
       clipPath="url(#clip-Add_Access_Rule)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Add_Access_Rule_Icon" data-name="Add Access Rule Icon">
         <g id="Grupo_2406" data-name="Grupo 2406" transform="translate(18)">
           <g id="Grupo_2405" data-name="Grupo 2405">

@@ -22,8 +22,6 @@ const AlertCloseIcon = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     className={`min-icon`}
     fill={"currentcolor"}
-    width="11"
-    height="11"
     viewBox="0 0 256 256"
     {...props}
   >

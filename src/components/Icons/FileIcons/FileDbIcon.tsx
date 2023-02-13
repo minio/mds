@@ -26,7 +26,6 @@ const FileDbIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <g id="a">
-      <rect width="256" height="256" fill="#fff" />
       <g transform="translate(505.005 -4637.798)">
         <path
           d="M188.5,255.932H14.5A14.5,14.5,0,0,1,0,241.432V14.5A14.5,14.5,0,0,1,14.5,0H128.834l.192.265L203,74.279V241.432a14.5,14.5,0,0,1-14.5,14.5Z"

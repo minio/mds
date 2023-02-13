@@ -44,7 +44,6 @@ const BucketQuotaIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Enable Bucket Quota"
       clipPath="url(#clip-Enable_Bucket_Quota)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Enable_Bucket_Quota_icon" data-name="Enable Bucket Quota icon">
         <g id="Grupo_2411" data-name="Grupo 2411">
           <path

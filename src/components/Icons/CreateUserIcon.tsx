@@ -43,7 +43,6 @@ const CreateUserIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Create User"
       clipPath="url(#clip-Create_User)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Create_User-2" data-name="Create User">
         <g id="Grupo_2404" data-name="Grupo 2404" transform="translate(12)">
           <g id="Grupo_2403" data-name="Grupo 2403">

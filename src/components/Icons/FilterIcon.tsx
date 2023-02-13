@@ -22,8 +22,6 @@ const FilterIcon = (props: SVGProps<SVGSVGElement>) => {
       xmlns="http://www.w3.org/2000/svg"
       className={`min-icon`}
       fill={"currentcolor"}
-      width="14"
-      height="13.088"
       viewBox="0 0 14 13.088"
       {...props}
     >

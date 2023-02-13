@@ -44,7 +44,6 @@ const ChangeAccessPolicyIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Change Access Policy"
       clipPath="url(#clip-Change_Access_Policy)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Change_Access_Policy_Icon" data-name="Change Access Policy Icon">
         <g id="Grupo_2432" data-name="Grupo 2432" transform="translate(0 13)">
           <g id="Grupo_2431" data-name="Grupo 2431">

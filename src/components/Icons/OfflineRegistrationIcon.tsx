@@ -23,8 +23,6 @@ const OfflineRegistrationIcon = (props: SVGProps<SVGSVGElement>) => (
     className={`min-icon`}
     fill={"currentcolor"}
     viewBox="0 0 256 256"
-    width="26.9"
-    height="26.9"
     {...props}
   >
     <defs>

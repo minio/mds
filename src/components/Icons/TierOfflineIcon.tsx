@@ -20,16 +20,16 @@ import { SVGProps } from "react";
 const TierOfflineIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
+    className={`min-icon`}
     viewBox="0 0 14 14"
+    {...props}
   >
     <path
       id="offline-icon"
       d="M91.4,4.551l-.825-.825-2.44,2.439L85.7,3.726l-.825.825L87.312,6.99,84.873,9.429l.825.825,2.439-2.439,2.44,2.439.825-.825L88.961,6.99Zm-.155,9.44H85.027l-3.89-4.279V4.269L85.027-.01h6.219l3.89,4.279V9.711Z"
       transform="translate(-81.136 0.01)"
       fill="#c83b51"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     />
   </svg>
 );

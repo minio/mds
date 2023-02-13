@@ -43,7 +43,6 @@ const ServiceAccountCredentialsIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="New Access Key Created"
       clipPath="url(#clip-New_Service_Account_Created)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Create_Service_Account_Icon" data-name="Create Access Key Icon">
         <rect
           id="Rectángulo_1006"
