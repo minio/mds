@@ -43,7 +43,6 @@ const DriveFormatErrorsIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Drive Format Errors"
       clipPath="url(#clip-Drive_Format_Errors)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Drive_Format_Errors-Icon" data-name="Drive Format Errors-Icon">
         <rect
           id="Rectángulo_1004"

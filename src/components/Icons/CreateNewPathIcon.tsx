@@ -43,7 +43,6 @@ const CreateNewPathIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Create New Path"
       clipPath="url(#clip-Create_New_Path)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Create_New_Path_Icon" data-name="Create New Path Icon">
         <g
           id="Grupo_2415"

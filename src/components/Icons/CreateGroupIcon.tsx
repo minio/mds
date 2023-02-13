@@ -43,7 +43,6 @@ const CreateGroupIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Create Group"
       clipPath="url(#clip-Create_Group)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Create_Group_Icon" data-name="Create Group Icon">
         <g id="Grupo_2428" data-name="Grupo 2428" transform="translate(0 20)">
           <g id="Grupo_2427" data-name="Grupo 2427">

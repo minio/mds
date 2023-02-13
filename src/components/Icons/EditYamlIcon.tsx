@@ -39,7 +39,6 @@ const EditYamlIcon = (props: SVGProps<SVGSVGElement>) => (
       </clipPath>
     </defs>
     <g id="Edit_YAML" data-name="Edit YAML" clipPath="url(#clip-Edit_YAML)">
-      <rect width="256" height="256" fill="#fff" />
       <g id="Edit_YAML_Icon" data-name="Edit YAML Icon">
         <rect
           id="Rectángulo_1013"

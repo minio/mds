@@ -43,7 +43,6 @@ const BucketReplicationIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Set Bucket Replication"
       clipPath="url(#clip-Set_Bucket_Replication)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g
         id="Set_Bucket_Replication_icon"
         data-name="Set Bucket Replication icon"

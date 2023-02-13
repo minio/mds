@@ -23,8 +23,6 @@ const ConsoleEnterprise = (props: SVGProps<SVGSVGElement>) => {
       className={`min-icon`}
       fill={"currentcolor"}
       xmlns="http://www.w3.org/2000/svg"
-      width="121.755"
-      height="28.546"
       viewBox="0 0 121.755 28.546"
     >
       <g transform="translate(-1.655)">

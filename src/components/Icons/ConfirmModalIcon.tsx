@@ -43,7 +43,6 @@ const ConfirmModalIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Generic Confirmation"
       clipPath="url(#clip-Generic_Confirmation)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Generic_Confirmation_Icon" data-name="Generic Confirmation Icon">
         <g id="Grupo_2416" data-name="Grupo 2416">
           <path

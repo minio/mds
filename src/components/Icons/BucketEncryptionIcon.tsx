@@ -44,7 +44,6 @@ const BucketEncryptionIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Enable Bucket Encryption"
       clipPath="url(#clip-Enable_Bucket_Encryption)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g
         id="Enable_Bucket_Encryption_Icon"
         data-name="Enable Bucket Encryption Icon"

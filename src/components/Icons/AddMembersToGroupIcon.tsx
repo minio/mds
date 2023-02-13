@@ -43,7 +43,6 @@ const AddMembersToGroupIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Add Members to Group"
       clipPath="url(#clip-Add_Members_to_Group)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Add_Members_to_Group_Icon" data-name="Add Members to Group Icon">
         <g id="Grupo_2404" data-name="Grupo 2404" transform="translate(12)">
           <g id="Grupo_2403" data-name="Grupo 2403">

@@ -23,8 +23,6 @@ const OnlineRegistrationIcon = (props: SVGProps<SVGSVGElement>) => (
     className={`min-icon`}
     fill={"currentcolor"}
     viewBox="0 0 256 256"
-    width="32.12"
-    height="25"
     {...props}
   >
     <defs>

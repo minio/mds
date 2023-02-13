@@ -43,7 +43,6 @@ const ConfirmDeleteIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Generic Delete"
       clipPath="url(#clip-Generic_Delete)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Generic_Delete_Icon" data-name="Generic Delete Icon">
         <g id="Grupo_2418" data-name="Grupo 2418">
           <path

@@ -43,7 +43,6 @@ const NewPoolIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Expand Tenant: Add Pools"
       clipPath="url(#clip-Expand_Tenant:_Add_Pools)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g id="Expand_Tenants_Add_Pools" data-name="Expand Tenants Add Pools">
         <g id="Grupo_2392" data-name="Grupo 2392" transform="translate(14)">
           <g id="Grupo_2391" data-name="Grupo 2391">

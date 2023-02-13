@@ -26,7 +26,6 @@ const FileBookIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <g>
-      <rect width="256" height="256" fill="#fff" />
       <path
         d="m214.5,256H40.5c-8.01,0-14.5-6.49-14.5-14.5V14.57C26,6.56,32.49.07,40.5.07h114.33l.19.26,73.97,74.01v167.15c0,8.01-6.49,14.5-14.5,14.5Z"
         fill="#584849"

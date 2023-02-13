@@ -25,7 +25,6 @@ const FileTxtIcon = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 256 256"
     {...props}
   >
-    <rect width="256" height="256" fill="#fff" />
     <g transform="translate(-13.993 -4638.241)">
       <g transform="translate(41.993 4638.241)">
         <g>

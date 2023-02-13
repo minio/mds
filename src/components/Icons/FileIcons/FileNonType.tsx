@@ -26,7 +26,6 @@ const FileNonType = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <g>
-      <rect width="256" height="256" fill="#fff" />
       <g transform="translate(4891.5 -2436.5)">
         <path
           d="M188.186,256H14.5A14.5,14.5,0,0,1,0,241.5V14.5A14.5,14.5,0,0,1,14.5,0H128.635l.192.265L202.686,74.3V241.5a14.5,14.5,0,0,1-14.5,14.5Z"

@@ -34,7 +34,6 @@ const EventSubscriptionIcon = (props: SVGProps<SVGSVGElement>) => (
       data-name="Subscribe to event"
       clipPath="url(#clip-Subscribe_to_event)"
     >
-      <rect width="256" height="256" fill="#fff" />
       <g
         id="subscribe_to_event_icon"
         data-name="subscribe to event icon"
