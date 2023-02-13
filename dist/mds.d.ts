@@ -258,6 +258,15 @@ interface FormLayoutProps {
 
 declare const FormLayout: FC<FormLayoutProps>;
 
+interface PageLayoutProps {
+  variant?: "constrained" | "full";
+  children: React.ReactNode;
+  className?: string;
+  sx?: CSSObject;
+}
+
+declare const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
 ) => JSX.Element;
@@ -994,6 +1003,7 @@ export {
   OpenListIcon,
   OpenSourceIcon,
   PageHeader,
+  PageLayout,
   PasswordKeyIcon,
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
