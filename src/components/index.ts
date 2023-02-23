@@ -37,6 +37,7 @@ export { default as SectionTitle } from "./SectionTitle/SectionTitle";
 export { default as Box } from "./Box/Box";
 export { default as FormLayout } from "./FormLayout/FormLayout";
 export { default as PageLayout } from "./PageLayout/PageLayout";
+export { default as MainContainer } from "./MainContainer/MainContainer";
 
 /*Icons*/
 export * from "./Icons";
