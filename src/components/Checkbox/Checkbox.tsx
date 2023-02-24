@@ -68,13 +68,11 @@ const Checkbox: FC<
 }) => {
   return (
     <FieldContainer
-      className={className}
+      className={`inputItem ${className}`}
       sx={{
         display: "flex",
         justifyContent: "flex-start",
         alignItems: "center",
-        margin: "15px 0",
-        marginBottom: 0,
         marginTop: noTopMargin ? 0 : 15,
         flexBasis: "initial",
         flexWrap: "nowrap",
