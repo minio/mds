@@ -55,7 +55,7 @@
     "ts-jest": "^29.0.5",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5",
-    "yarn-audit-fix": "^9.3.8"
+    "yarn-audit-fix": "^9.3.9"
   },
   "resolutions": {
     "@storybook/**/glob-parent": "^5.1.2",
