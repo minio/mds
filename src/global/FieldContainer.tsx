@@ -27,7 +27,6 @@ export interface FieldContainerProps {
 const MainContainer = styled.div<
   HTMLAttributes<HTMLDivElement> & FieldContainerProps
 >(({ sx }) => ({
-  marginBottom: 20,
   position: "relative",
   display: "flex",
   flexWrap: "wrap",
