@@ -57,7 +57,6 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
 const Checkbox: FC<
   CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>
 > = ({
-  noTopMargin,
   tooltip,
   label,
   id,
@@ -68,12 +67,11 @@ const Checkbox: FC<
 }) => {
   return (
     <FieldContainer
-      className={`inputItem ${className}`}
+      className={`inputItem ${className ? className : ""}`}
       sx={{
         display: "flex",
         justifyContent: "flex-start",
         alignItems: "center",
-        marginTop: noTopMargin ? 0 : 15,
         flexBasis: "initial",
         flexWrap: "nowrap",
       }}

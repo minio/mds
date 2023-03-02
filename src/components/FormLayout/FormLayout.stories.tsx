@@ -25,6 +25,7 @@ import { GlobalStyles } from "../index";
 import Checkbox from "../Checkbox/Checkbox";
 import TestIcon from "../../utils/TestIcon";
 import HelpBox from "../HelpBox/HelpBox";
+import InputBox from "../InputBox/InputBox";
 
 export default {
   title: "MDS/Layout/FormLayout",
@@ -37,6 +38,7 @@ const Template: Story<FormLayoutProps> = (args) => (
     <GlobalStyles />
     <FormLayout {...args} title={"Form Title"} icon={<TestIcon />}>
       <Checkbox label={"A Checkbox input"} />
+      <InputBox id={"inputbox"} label={"An input box"} />
     </FormLayout>
   </StoryThemeProvider>
 );
