@@ -263,6 +263,13 @@ export const lightTheme = {
     arrow: lightColors.backLinkArrow,
     hover: lightColors.backLinkHover,
   },
+  inputBox: {
+    border: lightColors.borderColor,
+    hoverBorder: lightColors.promoBG,
+    color: lightColors.mainBlue,
+    backgroundColor: lightColors.white,
+    error: lightColors.mainRed,
+  },
 };
 
 export const darkTheme = {
@@ -423,5 +430,12 @@ export const darkTheme = {
     color: darkColors.backLinkColor,
     arrow: darkColors.backLinkArrow,
     hover: darkColors.backLinkHover,
+  },
+  inputBox: {
+    border: darkColors.borderColor,
+    hoverBorder: darkColors.mainWhite,
+    color: darkColors.mainGrey,
+    backgroundColor: darkColors.dark,
+    error: darkColors.mainRed,
   },
 };

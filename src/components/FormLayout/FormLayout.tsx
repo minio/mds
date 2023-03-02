@@ -23,7 +23,7 @@ import { FormLayoutProps } from "./FormLayout.types";
 
 const FormLayout: FC<FormLayoutProps> = ({
   children,
-  title,
+  title = "",
   helpBox,
   icon,
   sx,
@@ -36,16 +36,21 @@ const FormLayout: FC<FormLayoutProps> = ({
         padding: "25px",
         gap: "25px",
         gridTemplateColumns: "1fr",
+        "& .inputItem:not(:last-of-type)": {
+          marginBottom: 12,
+        },
         [`@media (min-width: ${get(breakPoints, "md", 0)}px)`]: {
-          gridTemplateColumns: "2fr 1.2fr",
+          gridTemplateColumns: helpBox ? "2fr 1.2fr" : "1fr",
         },
         ...sx,
       }}
     >
       <Box>
-        <SectionTitle icon={icon} sx={{ marginBottom: 16 }}>
-          {title}
-        </SectionTitle>
+        {title !== "" && (
+          <SectionTitle icon={icon} sx={{ marginBottom: 16 }}>
+            {title}
+          </SectionTitle>
+        )}
         {children}
       </Box>
       {helpBox}

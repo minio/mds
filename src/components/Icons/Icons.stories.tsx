@@ -1094,6 +1094,16 @@ const Template: Story = (args) => {
               ViewColumnIcon
             </Grid>
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.VisibilityOffIcon />
+              <br />
+              VisibilityOffIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.VisibilityOnIcon />
+              <br />
+              VisibilityOnIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.WarnFilledIcon />
               <br />
               WarnFilledIcon
