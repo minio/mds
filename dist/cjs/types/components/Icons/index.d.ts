@@ -183,3 +183,6 @@ export { default as ArrowDropDown } from "./ArrowDropDown";
 export { default as CloudIcon } from "./CloudIcon";
 export { default as DisableIcon } from "./DisableIcon";
 export { default as FormatDriveIcon } from "./FormatDriveIcon";
+export { default as ReportIcon } from "./ReportIcon";
+export { default as VisibilityOnIcon } from "./VisibilityOnIcon";
+export { default as VisibilityOffIcon } from "./VisibilityOffIcon";

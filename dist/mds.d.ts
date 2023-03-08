@@ -125,7 +125,6 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   tooltip?: string;
   overrideLabelClasses?: string;
   overrideCheckboxStyles?: CSSObject;
-  noTopMargin?: boolean;
 }
 
 declare const Checkbox: FC<
@@ -251,8 +250,8 @@ declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
 interface FormLayoutProps {
   sx?: CSSObject;
   children?: React.ReactNode;
-  title: string;
-  icon: React.ReactNode;
+  title?: string;
+  icon?: React.ReactNode;
   helpBox?: React.ReactNode;
 }
 
@@ -266,6 +265,32 @@ interface PageLayoutProps {
 }
 
 declare const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps>;
+
+interface MainContainerProps {
+  menu?: React.ReactNode;
+  children: React.ReactNode;
+}
+
+declare const MainContainer: FC<MainContainerProps>;
+
+interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  fullWidth?: boolean;
+  label?: string;
+  tooltip?: string;
+  sx?: CSSObject;
+  index?: number;
+  overlayId?: "index";
+  overlayIcon?: React.ReactNode;
+  overlayAction?: () => void;
+  overlayObject?: React.ReactNode;
+  noLabelMinWidth?: boolean;
+  required?: boolean;
+  className?: string;
+  error?: string;
+}
+
+declare const InputBox: FC<InputBoxProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -713,7 +738,7 @@ declare const FilterIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const FolderIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
-declare const ViewColumnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ViewColumnIcon$2: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const ArrowDropUp$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -724,6 +749,12 @@ declare const CloudIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 declare const DisableIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const FormatDriveIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const ReportIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const ViewColumnIcon$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const ViewColumnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -955,6 +986,7 @@ export {
   IconButton,
   IdentityMenuIcon,
   InfoIcon,
+  InputBox,
   InputLabel,
   InspectMenuIcon,
   JSONIcon,
@@ -974,6 +1006,7 @@ export {
   LogoutIcon,
   LogsIcon,
   LogsMenuIcon,
+  MainContainer,
   MenuCollapsedIcon,
   MenuCollapsedIcon$1 as MenuExpandedIcon,
   MetadataIcon,
@@ -1018,6 +1051,7 @@ export {
   RegisterMenuIcon,
   ObjectManagerIcon as RemoveAllIcon,
   RemoveIcon,
+  ReportIcon,
   ReportedUsageFullIcon,
   ReportedUsageIcon,
   RetentionIcon,
@@ -1066,7 +1100,9 @@ export {
   VerifiedIcon,
   VersionIcon,
   VersionsIcon,
-  ViewColumnIcon,
+  ViewColumnIcon$2 as ViewColumnIcon,
+  ViewColumnIcon as VisibilityOffIcon,
+  ViewColumnIcon$1 as VisibilityOnIcon,
   WarnFilledIcon,
   WarnIcon,
   WarpIcon,
