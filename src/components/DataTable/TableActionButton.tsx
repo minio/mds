@@ -72,6 +72,7 @@ const TableActionButton: FC<IActionButton> = ({
   const icon = typeof type === "string" ? defineIcon(type) : type;
   let buttonElement = (
     <IconButton
+      type={"button"}
       aria-label={typeof type === "string" ? type : ""}
       size={"30px"}
       sx={{

@@ -173,6 +173,7 @@ const InputBox: FC<InputBoxProps> = ({
               }
               id={overlayId}
               size={"25px"}
+              type={"button"}
             >
               {inputBoxWrapperIcon}
             </IconButton>
