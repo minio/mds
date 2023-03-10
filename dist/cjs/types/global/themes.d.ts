@@ -245,6 +245,13 @@ export declare const lightTheme: {
     arrow: string;
     hover: string;
   };
+  inputBox: {
+    border: string;
+    hoverBorder: string;
+    color: string;
+    backgroundColor: string;
+    error: string;
+  };
 };
 export declare const darkTheme: {
   bgColor: string;
@@ -404,5 +411,12 @@ export declare const darkTheme: {
     color: string;
     arrow: string;
     hover: string;
+  };
+  inputBox: {
+    border: string;
+    hoverBorder: string;
+    color: string;
+    backgroundColor: string;
+    error: string;
   };
 };
