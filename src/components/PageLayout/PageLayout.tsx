@@ -22,6 +22,7 @@ import Grid from "../Grid/Grid";
 const PageLayoutContainer = styled.div<
   HTMLAttributes<HTMLDivElement> & PageLayoutProps
 >(({ theme, sx, variant }) => ({
+  boxSizing: "content-box",
   maxWidth: variant === "constrained" ? 1220 : "initial",
   padding: 32,
   ...sx,
