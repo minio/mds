@@ -17,7 +17,7 @@
     "@types/styled-components": "^5.1.25",
     "detect-gpu": "^5.0.14",
     "react-virtualized": "^9.22.3",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.8"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
