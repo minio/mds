@@ -1829,7 +1829,7 @@ const $a = ({
   override: a = {},
   glContext: n,
   failIfMajorPerformanceCaveat: r = !1,
-  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.14/dist/benchmarks",
+  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.15/dist/benchmarks",
 } = {}) =>
   ka(void 0, void 0, void 0, function* () {
     const o = {};
@@ -11461,6 +11461,7 @@ var Xo = function (e) {
       h = l.default.createElement(
         qn,
         {
+          type: "button",
           "aria-label": "string" == typeof t ? t : "",
           size: "30px",
           sx: { margin: "0 8px" },
@@ -11903,7 +11904,11 @@ var Xo = function (e) {
     var t = e.sx,
       a = e.variant;
     return O(
-      { maxWidth: "constrained" === a ? 1220 : "initial", padding: 32 },
+      {
+        boxSizing: "content-box",
+        maxWidth: "constrained" === a ? 1220 : "initial",
+        padding: 32,
+      },
       t
     );
   }),
@@ -17424,6 +17429,7 @@ var Xo = function (e) {
                       },
                   id: d,
                   size: "25px",
+                  type: "button",
                 },
                 b
               )
