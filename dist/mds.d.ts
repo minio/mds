@@ -756,6 +756,8 @@ declare const ViewColumnIcon$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const ViewColumnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
+declare const AccessRuleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
 declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AuditLogsMenuIcon: (
@@ -859,6 +861,7 @@ export {
   AGPLV3LightLogo,
   AGPLV3Logo,
   AccessMenuIcon,
+  AccessRuleIcon,
   AccountIcon$1 as AccountIcon,
   AccountsMenuIcon,
   AddAccessRuleIcon,
