@@ -202,3 +202,4 @@ export { default as FormatDriveIcon } from "./FormatDriveIcon";
 export { default as ReportIcon } from "./ReportIcon";
 export { default as VisibilityOnIcon } from "./VisibilityOnIcon";
 export { default as VisibilityOffIcon } from "./VisibilityOffIcon";
+export { default as AccessRuleIcon } from "./AccessRuleIcon";
