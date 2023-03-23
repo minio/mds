@@ -1878,7 +1878,7 @@ const tn = ({
   override: a = {},
   glContext: n,
   failIfMajorPerformanceCaveat: r = !1,
-  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.14/dist/benchmarks",
+  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.15/dist/benchmarks",
 } = {}) =>
   Fa(void 0, void 0, void 0, function* () {
     const o = {};
@@ -11637,6 +11637,7 @@ var oi = function (e) {
       u = t.createElement(
         Xn,
         {
+          type: "button",
           "aria-label": "string" == typeof a ? a : "",
           size: "30px",
           sx: { margin: "0 8px" },
@@ -12412,7 +12413,11 @@ var oi = function (e) {
     var t = e.sx,
       a = e.variant;
     return j(
-      { maxWidth: "constrained" === a ? 1220 : "initial", padding: 32 },
+      {
+        boxSizing: "content-box",
+        maxWidth: "constrained" === a ? 1220 : "initial",
+        padding: 32,
+      },
       t
     );
   }),
@@ -12641,6 +12646,7 @@ var oi = function (e) {
                       },
                   id: d,
                   size: "25px",
+                  type: "button",
                 },
                 b
               )
