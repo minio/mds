@@ -67,6 +67,12 @@ const Template: Story = (args) => {
             }}
           >
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.AccessRuleIcon />
+              <br />
+              AccessRuleIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.AccountIcon />
               <br />
               AccountIcon
