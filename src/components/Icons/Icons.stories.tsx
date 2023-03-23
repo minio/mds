@@ -1257,6 +1257,31 @@ const Template: Story = (args) => {
               <br />
               UsersMenuIcon
             </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <micons.KeysMenuIcon />
+              <br />
+              KeysMenuIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <micons.StatusMenuIcon />
+              <br />
+              StatusMenuIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <micons.SecretsMenuIcon />
+              <br />
+              SecretsMenuIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <micons.PoliciesMenuIcon />
+              <br />
+              PoliciesMenuIcon
+            </Grid>
+            <Grid item xs={3} sm={2} md={1}>
+              <micons.IdentitiesMenuIcon />
+              <br />
+              IdentitiesMenuIcon
+            </Grid>
           </Grid>
           <h1>File Icons</h1>
           <Grid
