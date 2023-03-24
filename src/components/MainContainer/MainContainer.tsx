@@ -17,7 +17,8 @@
 import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { MainContainerProps } from "./MainContainer.types";
+import { MainContainerProps, ParentBoxProps } from "./MainContainer.types";
+import { breakPoints } from "../../global/utils";
 
 const CustomMain = styled.main(({ theme }) => {
   return {
@@ -30,13 +31,21 @@ const CustomMain = styled.main(({ theme }) => {
   };
 });
 
-const ParentBox = styled.div(() => ({
+const ParentBox = styled.div<ParentBoxProps>(({ horizontal }) => ({
   display: "flex",
+  flexDirection: !!horizontal ? "column" : "row",
+  [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
+    flexDirection: "column",
+  },
 }));
 
-const MainContainer: FC<MainContainerProps> = ({ children, menu }) => {
+const MainContainer: FC<MainContainerProps> = ({
+  children,
+  menu,
+  horizontal,
+}) => {
   return (
-    <ParentBox>
+    <ParentBox horizontal={horizontal}>
       {menu}
       <CustomMain>{children}</CustomMain>
     </ParentBox>

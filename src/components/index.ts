@@ -15,6 +15,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /*Basics*/
+export { breakPoints } from "../global/utils";
+
 export { default as ThemeHandler } from "./ThemeHandler/ThemeHandler";
 export { default as GlobalStyles } from "./GlobalStyles/GlobalStyles";
 
@@ -50,6 +52,7 @@ export { default as DropdownSelector } from "./DropdownSelector/DropdownSelector
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 export { default as ReadBox } from "./ReadBox/ReadBox";
 export { default as CommentBox } from "./CommentBox/CommentBox";
+export { default as Menu } from "./Menu/Menu";
 
 /*Icons*/
 export * from "./Icons";

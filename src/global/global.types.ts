@@ -178,6 +178,40 @@ export interface SignalColorsThemeProps {
   info: string;
 }
 
+export interface MenuThemeProps {
+  vertical?: {
+    background: string;
+    textColor: string;
+    iconBorderColor: string;
+    iconBGColor: string;
+    hoverSelectedIconBorder: string;
+    hoverSelectedBackground: string;
+    hoverSelectedColor: string;
+    sectionDividerColor: string;
+    notificationColor: string;
+    dropArrowBackground: string;
+    dropArrowColor: string;
+    menuCollapseColor: string;
+    sectionLabelColor: string;
+  };
+  horizontal?: {
+    menuHeaderBackground: string;
+    barBackground: string;
+    textColor: string;
+    iconBorderColor: string;
+    iconBGColor: string;
+    hoverSelectedIconBorder: string;
+    hoverSelectedBackground: string;
+    hoverSelectedColor: string;
+    sectionDividerColor: string;
+    notificationColor: string;
+    dropArrowBackground: string;
+    dropArrowColor: string;
+    dropBackground: string;
+    dropHoverSelectedColor: string;
+  };
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -212,6 +246,7 @@ export interface ThemeDefinitionProps {
   switchButton?: SwitchThemeProps;
   dropdownSelector?: DropdownSelectorThemeProps;
   readBox?: ReadBoxThemeProps;
+  menu?: MenuThemeProps;
 }
 
 export interface SelectorType {
