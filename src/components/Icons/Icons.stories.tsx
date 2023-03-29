@@ -955,6 +955,12 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.TimeIcon />
+              <br />
+              TimeIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.ToolsIcon />
               <br />
               ToolsIcon
