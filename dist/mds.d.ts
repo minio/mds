@@ -758,6 +758,8 @@ declare const ViewColumnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AccessRuleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
+declare const TimeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
 declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const AuditLogsMenuIcon: (
@@ -813,6 +815,18 @@ declare const CallHomeMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 declare const BucketsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
 declare const UsersMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const KeysMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const StatusMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const SecretsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const PoliciesMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+
+declare const IdentitiesMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => JSX.Element;
 
 declare const FileConfigIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 
@@ -987,12 +1001,14 @@ export {
   HistoryIcon,
   IAMPoliciesIcon,
   IconButton,
+  IdentitiesMenuIcon,
   IdentityMenuIcon,
   InfoIcon,
   InputBox,
   InputLabel,
   InspectMenuIcon,
   JSONIcon,
+  KeysMenuIcon,
   LDAPIcon,
   LambdaBalloonIcon,
   LambdaIcon,
@@ -1044,6 +1060,7 @@ export {
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
   PermissionIcon,
+  PoliciesMenuIcon,
   PreviewIcon,
   ProfileMenuIcon,
   PrometheusErrorIcon,
@@ -1061,6 +1078,7 @@ export {
   S3TierIcon$1 as S3TierIcon,
   S3TierIcon as S3TierIconXs,
   SearchIcon,
+  SecretsMenuIcon,
   SectionTitle,
   SelectAllIcon,
   SelectMultipleIcon,
@@ -1073,6 +1091,7 @@ export {
   SpeedtestIcon,
   StandardLightLogo,
   StarIcon,
+  StatusMenuIcon,
   StorageIcon,
   SuccessIcon,
   SupportMenuIcon,
@@ -1086,6 +1105,7 @@ export {
   TierOnlineIcon,
   TiersIcon,
   TiersNotAvailableIcon,
+  TimeIcon,
   ToolsIcon,
   Tooltip,
   TotalObjectsIcon,

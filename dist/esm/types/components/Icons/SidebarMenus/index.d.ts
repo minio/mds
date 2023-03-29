@@ -20,3 +20,8 @@ export { default as ProfileMenuIcon } from "./ProfileMenuIcon";
 export { default as CallHomeMenuIcon } from "./CallHomeMenuIcon";
 export { default as BucketsMenuIcon } from "./BucketsMenuIcon";
 export { default as UsersMenuIcon } from "./UsersMenuIcon";
+export { default as KeysMenuIcon } from "./KeysMenuIcon";
+export { default as StatusMenuIcon } from "./StatusMenuIcon";
+export { default as SecretsMenuIcon } from "./SecretsMenuIcon";
+export { default as PoliciesMenuIcon } from "./PoliciesMenuIcon";
+export { default as IdentitiesMenuIcon } from "./IdentitiesMenuIcon";
