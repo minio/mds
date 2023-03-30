@@ -23,5 +23,5 @@ export interface LoginWrapperProps {
   formFooter?: ReactNode;
   promoHeader?: ReactNode;
   promoInfo?: ReactNode;
-  animation?: boolean;
+  backgroundAnimation?: boolean;
 }
