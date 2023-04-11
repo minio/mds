@@ -5447,10 +5447,10 @@ detab@2.0.4:
   dependencies:
     repeat-string "^1.5.4"
 
-detect-gpu@^5.0.18:
-  version "5.0.18"
-  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-5.0.18.tgz#09a87b3d585ebeb6652bab4182f611403f5c2bba"
-  integrity sha512-Wlq37hvHR5lyN8T782Lnl5J4QJvr5qYGaTNa9cNVfCCd4L95OkCMRImcIOlpObEOKfJ6qQkmTgKncXb1UvTI/Q==
+detect-gpu@^5.0.19:
+  version "5.0.19"
+  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-5.0.19.tgz#d5252efaa63a251bba16b2775d6c7333ab042fd6"
+  integrity sha512-qYY9dJRL813XksNGRc3pKs/bQFRtBvhGFbnlK9C+jhNGrDG0HHY7NpnMegkCtgbp1ff5/TNqPG8k0uSMi4whKA==
   dependencies:
     webgl-constants "^1.1.1"
 
