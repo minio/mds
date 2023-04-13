@@ -18,16 +18,20 @@ import React, { FC } from "react";
 import { ThemeHandlerProps } from "./ThemeHandler.types";
 import { darkTheme, lightTheme } from "../../global/themes";
 import { ThemeProvider } from "styled-components";
+import { ThemeDefinitionProps } from "../../global/global.types";
 
 const ThemeHandler: FC<ThemeHandlerProps> = ({
   darkMode = false,
   children,
+  customTheme,
 }) => {
-  return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      {children}
-    </ThemeProvider>
-  );
+  let selectedTheme: ThemeDefinitionProps = darkMode ? darkTheme : lightTheme;
+
+  if (customTheme) {
+    selectedTheme = customTheme;
+  }
+
+  return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>;
 };
 
 export default ThemeHandler;

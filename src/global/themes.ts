@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { ThemeDefinitionProps } from "./global.types";
+
 export const lightColors = {
   white: "#fff",
   sectionOneBG: "#fff",
@@ -104,7 +106,7 @@ export const darkColors = {
   backLinkHover: "#3A3F4A",
 };
 
-export const lightTheme = {
+export const lightTheme: ThemeDefinitionProps = {
   bgColor: lightColors.white,
   fontColor: lightColors.defaultFontColor,
   borderColor: lightColors.borderColor,
@@ -272,7 +274,7 @@ export const lightTheme = {
   },
 };
 
-export const darkTheme = {
+export const darkTheme: ThemeDefinitionProps = {
   bgColor: darkColors.dark,
   fontColor: darkColors.defaultFontColor,
   borderColor: darkColors.borderColor,
