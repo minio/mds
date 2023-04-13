@@ -16,7 +16,7 @@
 
 import React, { useEffect, useState } from "react";
 import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
-import addons from "@storybook/addons";
+import { addons } from "@storybook/addons";
 
 import ThemeHandler from "../components/ThemeHandler/ThemeHandler";
 
