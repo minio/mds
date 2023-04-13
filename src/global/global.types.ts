@@ -101,6 +101,16 @@ export interface BreadcrumbsThemeProps {
   textColor: string;
 }
 
+export interface ActionsListThemeProps {
+  titleColor: string;
+  containerBorderColor: string;
+  backgroundColor: string;
+  optionsTextColor: string;
+  optionsBorder: string;
+  optionsHoverTextColor: string;
+  disabledOptionsTextColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -126,4 +136,5 @@ export interface ThemeDefinitionProps {
   backLink: BackLinkThemeProps;
   inputBox: InputBoxThemeProps;
   breadcrumbs: BreadcrumbsThemeProps;
+  actionsList: ActionsListThemeProps;
 }

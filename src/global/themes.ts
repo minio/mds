@@ -63,6 +63,9 @@ export const lightColors = {
   breadcrumbsBackground: "#FCFCFD",
   breadcrumbsBackBorder: "#EAEDEE",
   breadcrumbsText: "#969FA8",
+  actionsListBorder: "#F1F1F1",
+  disabledActionsColor: "#EBEBEB",
+  optionTextColor: "#5E5E5E",
 };
 
 export const darkColors = {
@@ -286,6 +289,15 @@ export const lightTheme: ThemeDefinitionProps = {
       backgroundColor: lightColors.white,
     },
   },
+  actionsList: {
+    containerBorderColor: lightColors.actionsListBorder,
+    backgroundColor: lightColors.iconButtonBG,
+    disabledOptionsTextColor: lightColors.disabledActionsColor,
+    optionsBorder: lightColors.headerBorder,
+    optionsHoverTextColor: lightColors.defaultFontColor,
+    optionsTextColor: lightColors.optionTextColor,
+    titleColor: lightColors.defaultFontColor,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -463,5 +475,14 @@ export const darkTheme: ThemeDefinitionProps = {
       border: darkColors.borderColor,
       backgroundColor: darkColors.sectionOneBG,
     },
+  },
+  actionsList: {
+    containerBorderColor: darkColors.bulletColor,
+    backgroundColor: darkColors.sectionOneBG,
+    disabledOptionsTextColor: darkColors.disabledGrey,
+    optionsBorder: darkColors.bulletColor,
+    optionsHoverTextColor: darkColors.hoverWhite,
+    optionsTextColor: darkColors.defaultFontColor,
+    titleColor: darkColors.defaultFontColor,
   },
 };
