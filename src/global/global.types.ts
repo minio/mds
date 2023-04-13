@@ -88,6 +88,19 @@ export interface InputBoxThemeProps {
   error: string;
 }
 
+export interface BreadcrumbsBackStyle {
+  border: string;
+  backgroundColor: string;
+}
+
+export interface BreadcrumbsThemeProps {
+  border: string;
+  backgroundColor: string;
+  linksColor: string;
+  backButton: BreadcrumbsBackStyle;
+  textColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -112,4 +125,5 @@ export interface ThemeDefinitionProps {
   dataTable: DataTableThemeProps;
   backLink: BackLinkThemeProps;
   inputBox: InputBoxThemeProps;
+  breadcrumbs: BreadcrumbsThemeProps;
 }
