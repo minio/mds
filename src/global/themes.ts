@@ -59,6 +59,10 @@ export const lightColors = {
   backLinkColor: "#073052",
   backLinkArrow: "#081C42",
   backLinkHover: "#eaedee",
+  commonLinkColor: "#969FA8",
+  breadcrumbsBackground: "#FCFCFD",
+  breadcrumbsBackBorder: "#EAEDEE",
+  breadcrumbsText: "#969FA8",
 };
 
 export const darkColors = {
@@ -272,6 +276,16 @@ export const lightTheme: ThemeDefinitionProps = {
     backgroundColor: lightColors.white,
     error: lightColors.mainRed,
   },
+  breadcrumbs: {
+    border: lightColors.borderColor,
+    linksColor: lightColors.commonLinkColor,
+    textColor: lightColors.breadcrumbsText,
+    backgroundColor: lightColors.breadcrumbsBackground,
+    backButton: {
+      border: lightColors.breadcrumbsBackBorder,
+      backgroundColor: lightColors.white,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -439,5 +453,15 @@ export const darkTheme: ThemeDefinitionProps = {
     color: darkColors.mainGrey,
     backgroundColor: darkColors.dark,
     error: darkColors.mainRed,
+  },
+  breadcrumbs: {
+    border: darkColors.borderColor,
+    linksColor: darkColors.mainGrey,
+    textColor: darkColors.mainGrey,
+    backgroundColor: darkColors.sectionOneBG,
+    backButton: {
+      border: darkColors.borderColor,
+      backgroundColor: darkColors.sectionOneBG,
+    },
   },
 };
