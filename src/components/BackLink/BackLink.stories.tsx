@@ -22,6 +22,7 @@ import { BackLinkProps } from "./BackLink.types";
 
 import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 
 export default {
   title: "MDS/Layout/BackLink",
@@ -31,6 +32,7 @@ export default {
 
 const Template: Story<BackLinkProps> = (args) => (
   <StoryThemeProvider>
+    <GlobalStyles />
     <BackLink {...args} onClick={() => alert("You clicked me!")} />
   </StoryThemeProvider>
 );

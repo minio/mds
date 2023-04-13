@@ -22,6 +22,7 @@ import { ButtonProps } from "./Button.types";
 
 import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 
 export default {
   title: "MDS/Forms/Button",
@@ -31,6 +32,7 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => (
   <StoryThemeProvider>
+    <GlobalStyles />
     <Button {...args} onClick={() => alert("You clicked me!")} />
     <br />
     <Button {...args}>With Children</Button>
