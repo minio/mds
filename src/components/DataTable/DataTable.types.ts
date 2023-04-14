@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { HTMLAttributes } from "react";
+import {CSSObject} from "styled-components";
 
 export interface ItemActions {
   label?: string;
@@ -80,12 +81,14 @@ export interface DataTableProps {
     index: number;
   }) => "deleted" | "" | React.CSSProperties;
   parentClassName?: string;
+  sx?: CSSObject;
 }
 
 export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   customPaperHeight?: string | number;
   noBackground?: boolean;
+  sx?: CSSObject;
 }
 
 export interface IActionButton {

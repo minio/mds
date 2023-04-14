@@ -61,7 +61,7 @@ const InputBase = styled.input<InputBoxProps>(({ theme, error }) => {
   };
 });
 
-const InputContainer = styled.div<InputContainerProps>(({ theme, error }) => ({
+const InputContainer = styled.div<InputContainerProps>(({ theme, error, sx }) => ({
   display: "flex",
   flexGrow: 1,
   width: "100%",
@@ -92,6 +92,7 @@ const InputContainer = styled.div<InputContainerProps>(({ theme, error }) => ({
   "& .inputLabel": {
     marginBottom: error ? 18 : 0,
   },
+  ...sx
 }));
 
 const InputBox: FC<InputBoxProps> = ({

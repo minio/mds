@@ -213,3 +213,31 @@ CustomPaperHeight.args = {
     },
   ],
 };
+
+export const CustomStyles = Template.bind({});
+CustomStyles.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  records: [
+    { field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+  ],
+  columns: [
+    { label: "Column1", elementKey: "field1", width: 200 },
+    { label: "Column2", elementKey: "field2", width: 100 },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+  sx: {
+    backgroundColor: "#f09",
+    color: "#fff"
+  }
+};
