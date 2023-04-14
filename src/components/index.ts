@@ -41,6 +41,7 @@ export { default as MainContainer } from "./MainContainer/MainContainer";
 export { default as InputBox } from "./InputBox/InputBox";
 export { default as Breadcrumbs } from "./Breadcrumbs/Breadcrumbs";
 export { default as ActionsList } from "./ActionsList/ActionsList";
+export { default as SimpleHeader } from "./SimpleHeader/SimpleHeader";
 
 /*Icons*/
 export * from "./Icons";
