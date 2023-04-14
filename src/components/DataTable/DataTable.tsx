@@ -149,6 +149,12 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
             "&:first-of-type": {
                 marginLeft: 10,
             },
+            "& svg": {
+                width: 12,
+                height: 12,
+                marginRight: 5,
+                alignSelf: "flex-end",
+            }
         },
         "& .ReactVirtualized__Table__rowColumn": {
             marginRight: 10,
