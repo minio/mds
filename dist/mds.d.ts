@@ -8,8 +8,119 @@ import React, {
 import * as styled_components from "styled-components";
 import { CSSObject, CSSProperties } from "styled-components";
 
+interface ButtonThemeProps {
+  border: string;
+  text: string;
+  background: string;
+  iconColor: string;
+}
+interface ButtonThemeStatesProps {
+  enabled: ButtonThemeProps;
+  disabled: ButtonThemeProps;
+  hover: ButtonThemeProps;
+  pressed: ButtonThemeProps;
+}
+interface LoginPageThemeProps {
+  formBG: string;
+  bgFilter: string;
+  promoBG: string;
+  promoHeader: string;
+  promoText: string;
+  footerElements: string;
+  footerDivider: string;
+}
+interface PageHeaderThemeProps {
+  background: string;
+  border: string;
+  color: string;
+}
+interface TooltipThemeProps {
+  background: string;
+  color: string;
+}
+interface CommonInputThemeProps {
+  labelColor: string;
+  checkBoxBorder: string;
+  checkBoxColor: string;
+}
+interface IconButtonThemeProps {
+  buttonBG: string;
+  activeBG: string;
+  hoverBG: string;
+  disabledBG: string;
+  color: string;
+}
+interface DataTableThemeProps {
+  border: string;
+  disabledBorder: string;
+  disabledBG: string;
+  selected: string;
+  deletedDisabled: string;
+  hoverColor: string;
+}
+interface BackLinkThemeProps {
+  color: string;
+  arrow: string;
+  hover: string;
+}
+interface InputBoxThemeProps {
+  border: string;
+  hoverBorder: string;
+  color: string;
+  backgroundColor: string;
+  error: string;
+}
+interface BreadcrumbsBackStyle {
+  border: string;
+  backgroundColor: string;
+}
+interface BreadcrumbsThemeProps {
+  border: string;
+  backgroundColor: string;
+  linksColor: string;
+  backButton: BreadcrumbsBackStyle;
+  textColor: string;
+}
+interface ActionsListThemeProps {
+  titleColor: string;
+  containerBorderColor: string;
+  backgroundColor: string;
+  optionsTextColor: string;
+  optionsBorder: string;
+  optionsHoverTextColor: string;
+  disabledOptionsTextColor: string;
+}
+interface ThemeDefinitionProps {
+  bgColor: string;
+  fontColor: string;
+  borderColor: string;
+  bulletColor: string;
+  logoColor: string;
+  logoLabelColor: string;
+  logoLabelInverse: string;
+  loaderColor: string;
+  boxBackground: string;
+  buttons: {
+    regular: ButtonThemeStatesProps;
+    callAction: ButtonThemeStatesProps;
+    secondary: ButtonThemeStatesProps;
+    text: ButtonThemeStatesProps;
+  };
+  login: LoginPageThemeProps;
+  pageHeader: PageHeaderThemeProps;
+  tooltip: TooltipThemeProps;
+  commonInput: CommonInputThemeProps;
+  iconButton: IconButtonThemeProps;
+  dataTable: DataTableThemeProps;
+  backLink: BackLinkThemeProps;
+  inputBox: InputBoxThemeProps;
+  breadcrumbs: BreadcrumbsThemeProps;
+  actionsList: ActionsListThemeProps;
+}
+
 interface ThemeHandlerProps {
   darkMode?: boolean;
+  customTheme?: ThemeDefinitionProps;
   children: ReactNode;
 }
 
@@ -96,7 +207,7 @@ interface LoginWrapperProps {
   formFooter?: ReactNode;
   promoHeader?: ReactNode;
   promoInfo?: ReactNode;
-  disableAnimation?: boolean;
+  backgroundAnimation?: boolean;
 }
 
 declare const LoginWrapper: FC<LoginWrapperProps>;
@@ -210,6 +321,7 @@ interface DataTableProps {
     index: number;
   }) => "deleted" | "" | React.CSSProperties;
   parentClassName?: string;
+  sx?: CSSObject;
 }
 
 declare const DataTable: FC<DataTableProps>;
@@ -291,6 +403,38 @@ interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 declare const InputBox: FC<InputBoxProps>;
+
+interface BreadcrumbsProps {
+  sx?: CSSObject;
+  children: React.ReactNode;
+  additionalOptions?: React.ReactNode;
+  goBackFunction: () => void;
+}
+
+declare const Breadcrumbs: FC<BreadcrumbsProps>;
+
+interface ActionItem {
+  action: () => void;
+  label: string;
+  disabled: boolean;
+  icon: React.ReactNode;
+  tooltip: string;
+}
+interface ActionsListProps {
+  sx?: CSSObject;
+  items: ActionItem[];
+  title: React.ReactNode;
+}
+
+declare const ActionsList: FC<ActionsListProps>;
+
+interface SimpleHeaderProps {
+  label: React.ReactNode;
+  icon?: React.ReactNode;
+  sx?: CSSObject;
+}
+
+declare const SimpleHeader: FC<SimpleHeaderProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -878,6 +1022,7 @@ export {
   AccessRuleIcon,
   AccountIcon$1 as AccountIcon,
   AccountsMenuIcon,
+  ActionsList,
   AddAccessRuleIcon,
   AddFolderIcon,
   AddIcon,
@@ -902,6 +1047,7 @@ export {
   Box,
   BoxArrowDown,
   BoxArrowUp,
+  Breadcrumbs,
   BucketEncryptionIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
@@ -1088,6 +1234,7 @@ export {
   ServiceAccountsIcon,
   SettingsIcon,
   ShareIcon,
+  SimpleHeader,
   SpeedtestIcon,
   StandardLightLogo,
   StarIcon,

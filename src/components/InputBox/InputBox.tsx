@@ -61,39 +61,41 @@ const InputBase = styled.input<InputBoxProps>(({ theme, error }) => {
   };
 });
 
-const InputContainer = styled.div<InputContainerProps>(({ theme, error, sx }) => ({
-  display: "flex",
-  flexGrow: 1,
-  width: "100%",
-  "& .errorText": {
-    fontSize: 12,
-    color: get(theme, "inputBox.error", "#C51B3F"),
-    marginTop: 3,
-  },
-  "& .textBoxContainer": {
-    width: "100%",
-    flexGrow: 1,
-    position: "relative",
-    minWidth: 160,
-  },
-  "& .tooltipContainer": {
-    marginLeft: 5,
+const InputContainer = styled.div<InputContainerProps>(
+  ({ theme, error, sx }) => ({
     display: "flex",
-    alignItems: "center",
-    "& .min-icon": {
-      width: 13,
+    flexGrow: 1,
+    width: "100%",
+    "& .errorText": {
+      fontSize: 12,
+      color: get(theme, "inputBox.error", "#C51B3F"),
+      marginTop: 3,
     },
-  },
-  "& .overlayAction": {
-    position: "absolute",
-    right: 5,
-    top: 6,
-  },
-  "& .inputLabel": {
-    marginBottom: error ? 18 : 0,
-  },
-  ...sx
-}));
+    "& .textBoxContainer": {
+      width: "100%",
+      flexGrow: 1,
+      position: "relative",
+      minWidth: 160,
+    },
+    "& .tooltipContainer": {
+      marginLeft: 5,
+      display: "flex",
+      alignItems: "center",
+      "& .min-icon": {
+        width: 13,
+      },
+    },
+    "& .overlayAction": {
+      position: "absolute",
+      right: 5,
+      top: 6,
+    },
+    "& .inputLabel": {
+      marginBottom: error ? 18 : 0,
+    },
+    ...sx,
+  })
+);
 
 const InputBox: FC<InputBoxProps> = ({
   id,

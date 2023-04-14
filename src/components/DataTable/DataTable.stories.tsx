@@ -238,8 +238,8 @@ CustomStyles.args = {
   ],
   sx: {
     backgroundColor: "#f09",
-    color: "#fff"
-  }
+    color: "#fff",
+  },
 };
 
 export const WithSortIndicators = Template.bind({});
@@ -264,10 +264,11 @@ WithSortIndicators.args = {
       elementKey: "field3",
     },
   ],
-  sortConfig:{
+  sortConfig: {
     currentSort: "field1",
     currentDirection: "DESC",
-    triggerSort: () => {alert('sort triggered')},
-  }
+    triggerSort: () => {
+      alert("sort triggered");
+    },
+  },
 };
-
