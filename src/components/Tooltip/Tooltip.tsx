@@ -20,11 +20,15 @@ import get from "lodash/get";
 import { TooltipConstructProps, TooltipProps } from "./Tooltip.types";
 
 const opacityAnimation = keyframes`
-from {opacity: 0;}
-to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 `;
 
-const TooltipWrapper = styled.div<HTMLAttributes<HTMLDivElement>>(
+const TooltipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   {
     display: "inline-flex",
     position: "relative",
@@ -138,7 +142,11 @@ const Tooltip: FC<TooltipProps> = ({
   placement,
 }) => {
   if (tooltip === "") {
-    return null;
+    return (
+      <Fragment>
+        {errorProps ? cloneElement(children, { ...errorProps }) : children}
+      </Fragment>
+    );
   }
 
   return (
