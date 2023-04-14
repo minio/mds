@@ -36,10 +36,10 @@ const Template: Story<DataTableProps> = (args) => {
     const value = targetD.value;
     const checked = targetD.checked;
 
-    let elements: string[] = [...selected]; // We clone the selectedBuckets array
+    let elements: string[] = [...selected]; // We clone the selected array
 
     if (checked) {
-      // If the user has checked this field we need to push this to selectedBucketsList
+      // If the user has checked this field we need to push this to elements selection list
       elements.push(value);
     } else {
       // User has unchecked this field, we need to remove it from the list
@@ -212,4 +212,63 @@ CustomPaperHeight.args = {
       elementKey: "field3",
     },
   ],
+};
+
+export const CustomStyles = Template.bind({});
+CustomStyles.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  records: [
+    { field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+  ],
+  columns: [
+    { label: "Column1", elementKey: "field1", width: 200 },
+    { label: "Column2", elementKey: "field2", width: 100 },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+  sx: {
+    backgroundColor: "#f09",
+    color: "#fff",
+  },
+};
+
+export const WithSortIndicators = Template.bind({});
+WithSortIndicators.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  records: [
+    { field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+  ],
+  columns: [
+    { label: "Column1", elementKey: "field1", width: 200 },
+    { label: "Column2", elementKey: "field2", width: 100 },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+  sortConfig: {
+    currentSort: "field1",
+    currentDirection: "DESC",
+    triggerSort: () => {
+      alert("sort triggered");
+    },
+  },
 };
