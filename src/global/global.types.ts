@@ -111,6 +111,12 @@ export interface ActionsListThemeProps {
   disabledOptionsTextColor: string;
 }
 
+export interface ScreenTitleThemeProps {
+  border: string;
+  subtitleColor: string;
+  iconColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -137,4 +143,5 @@ export interface ThemeDefinitionProps {
   inputBox: InputBoxThemeProps;
   breadcrumbs: BreadcrumbsThemeProps;
   actionsList: ActionsListThemeProps;
+  screenTitle: ScreenTitleThemeProps;
 }

@@ -42,6 +42,7 @@ export { default as InputBox } from "./InputBox/InputBox";
 export { default as Breadcrumbs } from "./Breadcrumbs/Breadcrumbs";
 export { default as ActionsList } from "./ActionsList/ActionsList";
 export { default as SimpleHeader } from "./SimpleHeader/SimpleHeader";
+export { default as ScreenTitle } from "./ScreenTitle/ScreenTitle";
 
 /*Icons*/
 export * from "./Icons";

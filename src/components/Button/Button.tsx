@@ -18,6 +18,7 @@ import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 import { ButtonProps, ConstructProps } from "./Button.types";
+import { breakPoints } from "../../global/utils";
 
 const CustomButton = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps
@@ -54,7 +55,7 @@ const CustomButton = styled.button<
       ((label && label.trim() !== "") || parentChildren)
     ) {
       smallScreenStyles = {
-        "@media (max-width: 768px)": {
+        [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
           padding: "0 14px",
           "& .button-label": {
             display: "none",
