@@ -19,6 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { PageHeaderProps } from "./PageHeader.types";
 import Grid from "../Grid/Grid";
+import { breakPoints } from "../../global/utils";
 
 const ParentContainer = styled.div<HTMLAttributes<HTMLDivElement>>(
   ({ theme }) => ({
@@ -32,7 +33,7 @@ const ParentContainer = styled.div<HTMLAttributes<HTMLDivElement>>(
     flexWrap: "wrap",
     justifyContent: "space-between",
     alignItems: "center",
-    "@media (max-width: 768px)": {
+    [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
       "& > div": {
         margin: "4px 0",
         padding: "0 20px,",
