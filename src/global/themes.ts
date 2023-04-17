@@ -298,6 +298,11 @@ export const lightTheme: ThemeDefinitionProps = {
     optionsTextColor: lightColors.optionTextColor,
     titleColor: lightColors.defaultFontColor,
   },
+  screenTitle: {
+    border: lightColors.borderColor,
+    subtitleColor: lightColors.commonLinkColor,
+    iconColor: lightColors.mainBlue,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -484,5 +489,10 @@ export const darkTheme: ThemeDefinitionProps = {
     optionsHoverTextColor: darkColors.hoverWhite,
     optionsTextColor: darkColors.defaultFontColor,
     titleColor: darkColors.defaultFontColor,
+  },
+  screenTitle: {
+    border: darkColors.borderColor,
+    subtitleColor: darkColors.hoverGrey,
+    iconColor: darkColors.mainGrey,
   },
 };

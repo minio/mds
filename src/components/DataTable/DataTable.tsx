@@ -31,7 +31,7 @@ import {
 } from "./DataTable.utils";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
-  ({ theme, customPaperHeight, disabled, noBackground }) => ({
+  ({ theme, customPaperHeight, disabled, noBackground, sx }) => ({
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -149,6 +149,12 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       "&:first-of-type": {
         marginLeft: 10,
       },
+      "& svg": {
+        width: 12,
+        height: 12,
+        marginRight: 5,
+        alignSelf: "flex-end",
+      },
     },
     "& .ReactVirtualized__Table__rowColumn": {
       marginRight: 10,
@@ -198,6 +204,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       left: 0,
       top: 3,
     },
+    ...sx,
   })
 );
 
@@ -236,11 +243,12 @@ const DataTable: FC<DataTableProps> = ({
   onSelectAll,
   rowStyle,
   parentClassName = "",
+  sx,
 }) => {
   /* TODO: Enable Columns Selection Capability
-        const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
-        const [anchorEl, setAnchorEl] = React.useState<any>(null);
-    */
+          const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
+          const [anchorEl, setAnchorEl] = React.useState<any>(null);
+      */
   const rowIDField = idField || "";
 
   const findView = itemActions
@@ -268,70 +276,71 @@ const DataTable: FC<DataTableProps> = ({
 
   /* TODO: Enable Columns Selection Capability
 
-            const openColumnsSelector = (event: { currentTarget: any }) => {
-                setColumnSelectorOpen(!columnSelectorOpen);
-                setAnchorEl(event.currentTarget);
-            };
+              const openColumnsSelector = (event: { currentTarget: any }) => {
+                  setColumnSelectorOpen(!columnSelectorOpen);
+                  setAnchorEl(event.currentTarget);
+              };
 
-            const closeColumnSelector = () => {
-                setColumnSelectorOpen(false);
-                setAnchorEl(null);
-            };
+              const closeColumnSelector = () => {
+                  setColumnSelectorOpen(false);
+                  setAnchorEl(null);
+              };
 
 
-              const columnsSelection = (columns: IColumns[]) => {
-                return (
-                  <Fragment>
-                    <IconButton
-                      aria-describedby={"columnsSelector"}
-                      color="primary"
-                      onClick={openColumnsSelector}
-                      size="large"
-                    >
-                      <ViewColumnIcon />
-                    </IconButton>
-                    <Popover
-                      anchorEl={anchorEl}
-                      id={"columnsSelector"}
-                      open={columnSelectorOpen}
-                      anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "left",
-                      }}
-                      transformOrigin={{
-                        vertical: "top",
-                        horizontal: "left",
-                      }}
-                      onClose={closeColumnSelector}
-                    >
-                      <div className={classes.shownColumnsLabel}>Shown Columns</div>
-                      <div className={classes.popoverContent}>
-                        {columns.map((column: IColumns) => {
-                          return (
-                            <Checkbox
-                              key={`tableColumns-${column.label}`}
-                              label={column.label}
-                              checked={columnsShown.includes(column.elementKey!)}
-                              onChange={(e) => {
-                                onColumnChange(column.elementKey!, e.target.checked);
-                              }}
-                              id={`chbox-${column.label}`}
-                              name={`chbox-${column.label}`}
-                              value={column.label}
-                            />
-                          );
-                        })}
-                      </div>
-                    </Popover>
-                  </Fragment>
-                );
-              };*/
+                const columnsSelection = (columns: IColumns[]) => {
+                  return (
+                    <Fragment>
+                      <IconButton
+                        aria-describedby={"columnsSelector"}
+                        color="primary"
+                        onClick={openColumnsSelector}
+                        size="large"
+                      >
+                        <ViewColumnIcon />
+                      </IconButton>
+                      <Popover
+                        anchorEl={anchorEl}
+                        id={"columnsSelector"}
+                        open={columnSelectorOpen}
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "left",
+                        }}
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "left",
+                        }}
+                        onClose={closeColumnSelector}
+                      >
+                        <div className={classes.shownColumnsLabel}>Shown Columns</div>
+                        <div className={classes.popoverContent}>
+                          {columns.map((column: IColumns) => {
+                            return (
+                              <Checkbox
+                                key={`tableColumns-${column.label}`}
+                                label={column.label}
+                                checked={columnsShown.includes(column.elementKey!)}
+                                onChange={(e) => {
+                                  onColumnChange(column.elementKey!, e.target.checked);
+                                }}
+                                id={`chbox-${column.label}`}
+                                name={`chbox-${column.label}`}
+                                value={column.label}
+                              />
+                            );
+                          })}
+                        </div>
+                      </Popover>
+                    </Fragment>
+                  );
+                };*/
 
   return (
     <Grid item xs={12} className={parentClassName}>
       <DataTableWrapper
         className={`${noBackground ? "noBackground" : ""}`}
         customPaperHeight={customPaperHeight}
+        sx={sx}
       >
         {isLoading && (
           <Grid container className={"loadingBox"}>

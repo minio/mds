@@ -28,7 +28,7 @@ const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
   alignItems: "center",
   display: "flex",
   userSelect: "none",
-  "& span": {
+  "& > span": {
     display: "flex",
     alignItems: "center",
     minWidth: 160,
