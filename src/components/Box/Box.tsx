@@ -20,14 +20,14 @@ import get from "lodash/get";
 import { BoxProps } from "./Box.types";
 
 const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
-  ({ theme, sx, withBorders }) => {
+  ({ theme, sx, withBorders, customBorderPadding }) => {
     let extraBorders = {};
 
     if (withBorders) {
       extraBorders = {
         border: `${get(theme, "borderColor", "#eaeaea")} 1px solid`,
         borderRadius: 2,
-        padding: 15,
+        padding: customBorderPadding || 15,
       };
     }
     return {
@@ -40,10 +40,11 @@ const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
 const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps> = ({
   sx,
   children,
+  customBorderPadding,
   ...props
 }) => {
   return (
-    <BoxParent {...props} sx={sx}>
+    <BoxParent {...props} sx={sx} customBorderPadding={customBorderPadding}>
       {children}
     </BoxParent>
   );
