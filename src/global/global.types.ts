@@ -117,6 +117,22 @@ export interface ScreenTitleThemeProps {
   iconColor: string;
 }
 
+export interface IconThemeColorProps {
+  accept: string;
+  delete: string;
+  default: string;
+}
+
+export interface ModalBoxThemeProps {
+  overlayColor: string;
+  containerColor: string;
+  closeColor: string;
+  closeHoverColor: string;
+  closeHoverBG: string;
+  titleColor: string;
+  iconColor: IconThemeColorProps;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -144,4 +160,5 @@ export interface ThemeDefinitionProps {
   breadcrumbs: BreadcrumbsThemeProps;
   actionsList: ActionsListThemeProps;
   screenTitle: ScreenTitleThemeProps;
+  modalBox: ModalBoxThemeProps;
 }

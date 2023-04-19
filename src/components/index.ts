@@ -43,6 +43,7 @@ export { default as Breadcrumbs } from "./Breadcrumbs/Breadcrumbs";
 export { default as ActionsList } from "./ActionsList/ActionsList";
 export { default as SimpleHeader } from "./SimpleHeader/SimpleHeader";
 export { default as ScreenTitle } from "./ScreenTitle/ScreenTitle";
+export { default as ModalBox } from "./ModalBox/ModalBox";
 
 /*Icons*/
 export * from "./Icons";

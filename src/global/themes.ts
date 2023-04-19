@@ -66,6 +66,9 @@ export const lightColors = {
   actionsListBorder: "#F1F1F1",
   disabledActionsColor: "#EBEBEB",
   optionTextColor: "#5E5E5E",
+  modalCloseColor: "#757575",
+  modalCloseHoverBG: "#EAEAEA",
+  modalOverlayBG: "#00000050",
 };
 
 export const darkColors = {
@@ -111,6 +114,9 @@ export const darkColors = {
   backLinkColor: "#8E98A9",
   backLinkArrow: "#A2ADC0",
   backLinkHover: "#3A3F4A",
+  modalCloseColor: "#4B586A",
+  modalCloseHoverBG: "#4B586A",
+  modalOverlayBG: "#00010650",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -303,6 +309,19 @@ export const lightTheme: ThemeDefinitionProps = {
     subtitleColor: lightColors.commonLinkColor,
     iconColor: lightColors.mainBlue,
   },
+  modalBox: {
+    closeColor: lightColors.modalCloseColor,
+    closeHoverBG: lightColors.modalCloseHoverBG,
+    closeHoverColor: lightColors.defaultFontColor,
+    containerColor: lightColors.white,
+    overlayColor: lightColors.modalOverlayBG,
+    titleColor: lightColors.defaultFontColor,
+    iconColor: {
+      default: lightColors.mainBlue,
+      accept: lightColors.checkBox,
+      delete: lightColors.mainRed,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -494,5 +513,18 @@ export const darkTheme: ThemeDefinitionProps = {
     border: darkColors.borderColor,
     subtitleColor: darkColors.hoverGrey,
     iconColor: darkColors.mainGrey,
+  },
+  modalBox: {
+    closeColor: darkColors.modalCloseColor,
+    closeHoverBG: darkColors.modalCloseHoverBG,
+    closeHoverColor: darkColors.defaultFontColor,
+    containerColor: darkColors.boxBackground,
+    overlayColor: darkColors.modalOverlayBG,
+    titleColor: darkColors.defaultFontColor,
+    iconColor: {
+      default: darkColors.mainGrey,
+      accept: darkColors.checkBox,
+      delete: darkColors.mainRed,
+    },
   },
 };
