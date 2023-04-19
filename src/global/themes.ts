@@ -69,6 +69,7 @@ export const lightColors = {
   modalCloseColor: "#757575",
   modalCloseHoverBG: "#EAEAEA",
   modalOverlayBG: "#00000050",
+  bulletBGColor: "#F1F4F4",
 };
 
 export const darkColors = {
@@ -117,6 +118,9 @@ export const darkColors = {
   modalCloseColor: "#4B586A",
   modalCloseHoverBG: "#4B586A",
   modalOverlayBG: "#00010650",
+  bulletBGColor: "#D5DEEF",
+  disabledSwitchBG: "#494A4C",
+  disabledBulletBG: "#4B586B",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -322,6 +326,17 @@ export const lightTheme: ThemeDefinitionProps = {
       delete: lightColors.mainRed,
     },
   },
+  switchButton: {
+    bulletBGColor: lightColors.bulletBGColor,
+    bulletBorderColor: lightColors.white,
+    disabledBulletBGColor: lightColors.hoverGrey,
+    disabledBulletBorderColor: lightColors.bulletBGColor,
+    offLabelColor: lightColors.disabledInnerGrey,
+    onLabelColor: lightColors.mainBlue,
+    onBackgroundColor: lightColors.checkBox,
+    switchBackground: lightColors.hoverGrey,
+    disabledBackground: lightColors.hoverGrey,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -526,5 +541,16 @@ export const darkTheme: ThemeDefinitionProps = {
       accept: darkColors.checkBox,
       delete: darkColors.mainRed,
     },
+  },
+  switchButton: {
+    bulletBGColor: darkColors.bulletBGColor,
+    bulletBorderColor: darkColors.mainWhite,
+    disabledBulletBGColor: darkColors.disabledBulletBG,
+    disabledBulletBorderColor: darkColors.backLinkArrow,
+    offLabelColor: darkColors.hoverGrey,
+    onLabelColor: darkColors.hoverWhite,
+    onBackgroundColor: darkColors.checkBox,
+    switchBackground: darkColors.backLinkArrow,
+    disabledBackground: darkColors.disabledSwitchBG,
   },
 };
