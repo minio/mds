@@ -133,6 +133,18 @@ export interface ModalBoxThemeProps {
   iconColor: IconThemeColorProps;
 }
 
+export interface SwitchThemeProps {
+  onLabelColor: string;
+  offLabelColor: string;
+  switchBackground: string;
+  onBackgroundColor: string;
+  bulletBorderColor: string;
+  bulletBGColor: string;
+  disabledBackground: string;
+  disabledBulletBorderColor: string;
+  disabledBulletBGColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -161,4 +173,5 @@ export interface ThemeDefinitionProps {
   actionsList: ActionsListThemeProps;
   screenTitle: ScreenTitleThemeProps;
   modalBox: ModalBoxThemeProps;
+  switchButton: SwitchThemeProps;
 }
