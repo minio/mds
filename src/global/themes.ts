@@ -337,6 +337,14 @@ export const lightTheme: ThemeDefinitionProps = {
     switchBackground: lightColors.hoverGrey,
     disabledBackground: lightColors.hoverGrey,
   },
+  dropdownSelector: {
+    hoverText: lightColors.defaultFontColor,
+    backgroundColor: lightColors.white,
+    hoverBG: lightColors.hoverGrey,
+    selectedBGColor: lightColors.pressedGrey,
+    selectedTextColor: lightColors.defaultFontColor,
+    optionTextColor: lightColors.defaultFontColor,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -552,5 +560,13 @@ export const darkTheme: ThemeDefinitionProps = {
     onBackgroundColor: darkColors.checkBox,
     switchBackground: darkColors.backLinkArrow,
     disabledBackground: darkColors.disabledSwitchBG,
+  },
+  dropdownSelector: {
+    hoverText: darkColors.dark,
+    backgroundColor: darkColors.sectionOneBG,
+    hoverBG: darkColors.mainGrey,
+    selectedBGColor: darkColors.bulletColor,
+    selectedTextColor: darkColors.mainWhite,
+    optionTextColor: darkColors.defaultFontColor,
   },
 };
