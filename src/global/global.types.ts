@@ -145,6 +145,15 @@ export interface SwitchThemeProps {
   disabledBulletBGColor: string;
 }
 
+export interface DropdownSelectorThemeProps {
+  backgroundColor: string;
+  optionTextColor: string;
+  selectedTextColor: string;
+  selectedBGColor: string;
+  hoverText: string;
+  hoverBG: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -174,4 +183,10 @@ export interface ThemeDefinitionProps {
   screenTitle: ScreenTitleThemeProps;
   modalBox: ModalBoxThemeProps;
   switchButton: SwitchThemeProps;
+  dropdownSelector: DropdownSelectorThemeProps;
+}
+
+export interface SelectorType {
+  label: string;
+  value: string;
 }

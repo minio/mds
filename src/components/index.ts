@@ -45,6 +45,8 @@ export { default as SimpleHeader } from "./SimpleHeader/SimpleHeader";
 export { default as ScreenTitle } from "./ScreenTitle/ScreenTitle";
 export { default as ModalBox } from "./ModalBox/ModalBox";
 export { default as Switch } from "./Switch/Switch";
+export { default as Select } from "./Select/Select";
+export { default as DropdownSelector } from "./DropdownSelector/DropdownSelector";
 
 /*Icons*/
 export * from "./Icons";
