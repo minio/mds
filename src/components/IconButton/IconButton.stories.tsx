@@ -23,6 +23,7 @@ import { IconButtonProps } from "./IconButton.types";
 import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import DownloadIcon from "../Icons/DownloadIcon";
 
 export default {
   title: "MDS/Forms/IconButton",
@@ -34,7 +35,7 @@ const Template: Story<IconButtonProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <IconButton {...args} onClick={() => alert("You clicked me!")}>
-      <TestIcon />
+      <DownloadIcon />
     </IconButton>
   </StoryThemeProvider>
 );

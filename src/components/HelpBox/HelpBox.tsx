@@ -31,7 +31,6 @@ const BaseHelpBox = styled.div(({ theme }) => ({
   "& .leftItems": {
     fontSize: 16,
     fontWeight: "bold",
-    marginBottom: 15,
     display: "flex",
     alignItems: "center",
     "& .min-icon": {
@@ -43,6 +42,7 @@ const BaseHelpBox = styled.div(({ theme }) => ({
   "& .helpText": {
     fontSize: 16,
     paddingLeft: 5,
+    marginTop: 15,
   },
 }));
 
@@ -54,9 +54,11 @@ const HelpBox: FC<HelpBoxProps> = ({ iconComponent, title, help }) => {
           {iconComponent}
           {title}
         </Grid>
-        <Grid item xs={12} className={"helpText"}>
-          {help}
-        </Grid>
+        {help && (
+          <Grid item xs={12} className={"helpText"}>
+            {help}
+          </Grid>
+        )}
       </Grid>
     </BaseHelpBox>
   );

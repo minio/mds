@@ -53,7 +53,7 @@ const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
     backgroundColor: get(theme, `iconButton.buttonBG`, "#000"),
     "& svg": {
       fill: get(theme, `iconButton.color`, "#000"),
-      margin: "calc(5% - 2px)",
+      margin: "calc(25% - 2px)",
     },
     "&:hover:not(:disabled)": {
       backgroundColor: get(theme, `iconButton.hoverBG`, "#000"),

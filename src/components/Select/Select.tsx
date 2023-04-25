@@ -72,7 +72,7 @@ const InputContainer = styled.div<InputContainerProps>(
       width: "100%",
       flexGrow: 1,
       position: "relative",
-      minWidth: 160,
+      minWidth: 80,
     },
     "& .tooltipContainer": {
       marginLeft: 5,
