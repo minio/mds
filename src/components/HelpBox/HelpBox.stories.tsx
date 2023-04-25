@@ -43,3 +43,9 @@ Default.args = {
   help: "This is the text that will be rendered for help",
   title: "Help Available for this page.",
 };
+
+export const NoHelpText = Template.bind({});
+NoHelpText.args = {
+  iconComponent: <TestIcon />,
+  title: "Help Available for this page.",
+};

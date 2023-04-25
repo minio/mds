@@ -26,7 +26,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
   ({ theme, backgroundOverlay, widthLimit, iconColor, customMaxWidth }) => ({
     "& .overlay": {
       position: "fixed",
-      zIndex: 10000,
+      zIndex: 1200,
       width: "100vw",
       height: "100vh",
       top: 0,
@@ -44,6 +44,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
       },
     },
     "& .modalContainer": {
+      color: get(theme, "fontColor", "#000"),
       width: "100%",
       maxWidth: widthLimit ? customMaxWidth : "100%",
       margin: 32,
@@ -96,7 +97,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
     },
     "& .dialogContent": {
       maxHeight: "calc(100vh - 150px)",
-      overflow: "auto",
+      overflowY: "auto",
     },
   })
 );

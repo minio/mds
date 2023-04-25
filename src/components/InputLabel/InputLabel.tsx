@@ -28,6 +28,7 @@ const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
   alignItems: "center",
   display: "flex",
   userSelect: "none",
+  whiteSpace: "nowrap",
   "& > span": {
     display: "flex",
     alignItems: "center",
