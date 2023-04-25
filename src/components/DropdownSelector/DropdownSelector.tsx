@@ -118,8 +118,6 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
   }, [open]);
 
   useEffect(() => {
-    console.log("ANCHOR");
-
     const handleResize = () => {
       hideTriggerAction();
     };
