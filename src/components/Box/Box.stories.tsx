@@ -44,6 +44,12 @@ WithBorder.args = {
   withBorders: true,
 };
 
+export const WithBackgroundColor = Template.bind({});
+WithBackgroundColor.args = {
+  withBorders: true,
+  useBackground: true,
+};
+
 export const WithCustomBorderPadding = Template.bind({});
 WithCustomBorderPadding.args = {
   withBorders: true,

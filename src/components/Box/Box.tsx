@@ -20,7 +20,7 @@ import get from "lodash/get";
 import { BoxProps } from "./Box.types";
 
 const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
-  ({ theme, sx, withBorders, customBorderPadding }) => {
+  ({ theme, sx, withBorders, customBorderPadding, useBackground }) => {
     let extraBorders = {};
 
     if (withBorders) {
@@ -30,7 +30,11 @@ const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
         padding: customBorderPadding || 15,
       };
     }
+
     return {
+      backgroundColor: useBackground
+        ? get(theme, "boxBackground", "#FBFAFA")
+        : "transparent",
       ...extraBorders,
       ...sx,
     };
