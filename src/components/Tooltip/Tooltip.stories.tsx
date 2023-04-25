@@ -34,7 +34,60 @@ const Template: Story<TooltipProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Grid container>
-      <Grid item sx={{ textAlign: "center", marginTop: 80 }} xs={12}>
+      <Grid item xs={4}>
+        <Tooltip {...args} />
+      </Grid>
+      <Grid item xs={4}>
+        <Grid
+          container
+          sx={{
+            flexDirection: "column",
+            display: "flex",
+            height: "calc(100vh - 40px)",
+          }}
+        >
+          <Grid
+            item
+            xs={4}
+            sx={{
+              display: "flex",
+              flexGrow: 1,
+              height: "100%",
+              justifyContent: "center",
+              alignItems: "flex-start",
+            }}
+          >
+            <Tooltip {...args} />
+          </Grid>
+          <Grid
+            item
+            xs={4}
+            sx={{
+              display: "flex",
+              flexGrow: 1,
+              height: "100%",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Tooltip {...args} />
+          </Grid>
+          <Grid
+            item
+            xs={4}
+            sx={{
+              display: "flex",
+              flexGrow: 1,
+              height: "100%",
+              justifyContent: "center",
+              alignItems: "flex-end",
+            }}
+          >
+            <Tooltip {...args} />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item xs={4} sx={{ textAlign: "right" }}>
         <Tooltip {...args} />
       </Grid>
     </Grid>
@@ -72,7 +125,7 @@ Right.args = {
 export const OnDisabledElement = Template.bind({});
 OnDisabledElement.args = {
   tooltip: <span>Some tooltip Label</span>,
-  placement: "bottom",
+  placement: "top",
   children: (
     <Button id={"testButton"} disabled>
       Button
