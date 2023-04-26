@@ -48,6 +48,14 @@ Default.args = {
   required: true,
 };
 
+export const DisabledInput = Template.bind({});
+DisabledInput.args = {
+  label: "An input box",
+  required: true,
+  disabled: true,
+  value: "Demo Text",
+};
+
 export const ErrorInput = Template.bind({});
 ErrorInput.args = {
   label: "Input with Error",

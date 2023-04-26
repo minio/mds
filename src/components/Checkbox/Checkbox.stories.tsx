@@ -44,3 +44,15 @@ Default.args = {
   },
   tooltip: "test",
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: "Click to confirm",
+  id: "checkbox",
+  onClick: () => {
+    console.log("click");
+  },
+  tooltip: "test",
+  checked: true,
+  disabled: true,
+};

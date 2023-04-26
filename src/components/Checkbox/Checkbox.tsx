@@ -34,7 +34,7 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
     width: 16,
     height: 16,
     borderRadius: 2,
-    border: `1px solid ${get(theme, "commonInput.checkBoxBorder", "#c3c3c3")}`,
+    border: `1px solid ${get(theme, "checkbox.checkBoxBorder", "#c3c3c3")}`,
     boxShadow: "inset 0px 1px 3px rgba(0,0,0,0.1)",
   },
   "input:checked ~ .checkbox": {
@@ -44,11 +44,21 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
       display: "block",
       width: 12,
       height: 12,
-      backgroundColor: get(theme, "commonInput.checkBoxColor", "#4CCB92"),
+      backgroundColor: get(theme, "checkbox.checkBoxColor", "#4CCB92"),
       borderRadius: 1,
       top: "50%",
       left: "50%",
       transform: "translateX(-50%) translateY(-50%)",
+    },
+  },
+  "input:disabled": {
+    "&  ~ .checkbox": {
+      border: `1px solid ${get(theme, "checkbox.disabledBorder", "#B4B4B4")}`,
+    },
+    "&:checked ~ .checkbox": {
+      "&:before": {
+        backgroundColor: get(theme, "checkbox.disabledColor", "#D5D7D7"),
+      },
     },
   },
   ...sx,
