@@ -53,8 +53,13 @@ export interface TooltipThemeProps {
 
 export interface CommonInputThemeProps {
   labelColor: string;
+}
+
+export interface CheckBoxThemeProps {
   checkBoxBorder: string;
   checkBoxColor: string;
+  disabledBorder: string;
+  disabledColor: string;
 }
 
 export interface IconButtonThemeProps {
@@ -85,7 +90,12 @@ export interface InputBoxThemeProps {
   hoverBorder: string;
   color: string;
   backgroundColor: string;
+  placeholderColor: string;
   error: string;
+  disabledBorder: string;
+  disabledBackground: string;
+  disabledText: string;
+  disabledPlaceholder: string;
 }
 
 export interface BreadcrumbsBackStyle {
@@ -154,6 +164,12 @@ export interface DropdownSelectorThemeProps {
   hoverBG: string;
 }
 
+export interface ReadBoxThemeProps {
+  borderColor: string;
+  backgroundColor: string;
+  textColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -174,6 +190,7 @@ export interface ThemeDefinitionProps {
   pageHeader: PageHeaderThemeProps;
   tooltip: TooltipThemeProps;
   commonInput: CommonInputThemeProps;
+  checkbox: CheckBoxThemeProps;
   iconButton: IconButtonThemeProps;
   dataTable: DataTableThemeProps;
   backLink: BackLinkThemeProps;
@@ -184,6 +201,7 @@ export interface ThemeDefinitionProps {
   modalBox: ModalBoxThemeProps;
   switchButton: SwitchThemeProps;
   dropdownSelector: DropdownSelectorThemeProps;
+  readBox: ReadBoxThemeProps;
 }
 
 export interface SelectorType {

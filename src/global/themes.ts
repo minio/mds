@@ -70,6 +70,8 @@ export const lightColors = {
   modalCloseHoverBG: "#EAEAEA",
   modalOverlayBG: "#00000050",
   bulletBGColor: "#F1F4F4",
+  placeholder: "#858585",
+  readBoxTextColor: "#696969",
 };
 
 export const darkColors = {
@@ -121,6 +123,8 @@ export const darkColors = {
   bulletBGColor: "#D5DEEF",
   disabledSwitchBG: "#494A4C",
   disabledBulletBG: "#4B586B",
+  placeholder: "#494A4D",
+  readBoxTextColor: "#707988",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -259,8 +263,12 @@ export const lightTheme: ThemeDefinitionProps = {
   },
   commonInput: {
     labelColor: lightColors.labelColor,
+  },
+  checkbox: {
     checkBoxBorder: lightColors.checkBoxBorder,
     checkBoxColor: lightColors.checkBox,
+    disabledBorder: lightColors.disabledInnerGrey,
+    disabledColor: lightColors.disabledBGGrey,
   },
   iconButton: {
     buttonBG: lightColors.iconButtonBG,
@@ -288,6 +296,11 @@ export const lightTheme: ThemeDefinitionProps = {
     color: lightColors.mainBlue,
     backgroundColor: lightColors.white,
     error: lightColors.mainRed,
+    placeholderColor: lightColors.placeholder,
+    disabledBorder: lightColors.disabledInnerGrey,
+    disabledBackground: lightColors.disabledGrey,
+    disabledPlaceholder: lightColors.disabledGrey,
+    disabledText: lightColors.disabledInnerGrey,
   },
   breadcrumbs: {
     border: lightColors.borderColor,
@@ -344,6 +357,11 @@ export const lightTheme: ThemeDefinitionProps = {
     selectedBGColor: lightColors.pressedGrey,
     selectedTextColor: lightColors.defaultFontColor,
     optionTextColor: lightColors.defaultFontColor,
+  },
+  readBox: {
+    borderColor: lightColors.headerBorder,
+    backgroundColor: lightColors.boxBackground,
+    textColor: lightColors.readBoxTextColor,
   },
 };
 
@@ -483,8 +501,12 @@ export const darkTheme: ThemeDefinitionProps = {
   },
   commonInput: {
     labelColor: darkColors.labelColor,
+  },
+  checkbox: {
     checkBoxBorder: darkColors.checkBoxBorder,
     checkBoxColor: darkColors.checkBox,
+    disabledBorder: darkColors.disabledInnerGrey,
+    disabledColor: darkColors.disabledBGGrey,
   },
   iconButton: {
     buttonBG: darkColors.iconButtonBG,
@@ -512,6 +534,11 @@ export const darkTheme: ThemeDefinitionProps = {
     color: darkColors.mainGrey,
     backgroundColor: darkColors.dark,
     error: darkColors.mainRed,
+    placeholderColor: darkColors.placeholder,
+    disabledBorder: darkColors.disabledGrey,
+    disabledBackground: darkColors.disabledInnerGrey,
+    disabledPlaceholder: darkColors.disabledGrey,
+    disabledText: darkColors.disabledBGGrey,
   },
   breadcrumbs: {
     border: darkColors.borderColor,
@@ -568,5 +595,10 @@ export const darkTheme: ThemeDefinitionProps = {
     selectedBGColor: darkColors.bulletColor,
     selectedTextColor: darkColors.mainWhite,
     optionTextColor: darkColors.defaultFontColor,
+  },
+  readBox: {
+    borderColor: darkColors.headerBorder,
+    backgroundColor: darkColors.boxBackground,
+    textColor: darkColors.readBoxTextColor,
   },
 };

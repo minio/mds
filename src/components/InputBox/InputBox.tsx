@@ -48,7 +48,7 @@ const InputBase = styled.input<InputBoxProps>(({ theme, error }) => {
     transitionDuration: "0.1s",
     backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
     "&:placeholder": {
-      color: "#858585",
+      color: get(theme, "inputBox.placeholderColor", "#858585"),
       opacity: 1,
       fontWeight: 400,
     },
@@ -57,6 +57,14 @@ const InputBase = styled.input<InputBoxProps>(({ theme, error }) => {
     },
     "&:focus": {
       borderColor: borderHover,
+    },
+    "&:disabled": {
+      border: get(theme, "inputBox.disabledBorder", "#494A4D"),
+      backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
+      color: get(theme, "inputBox.disabledText", "#E6EBEB"),
+      "&:placeholder": {
+        color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
+      },
     },
   };
 });
