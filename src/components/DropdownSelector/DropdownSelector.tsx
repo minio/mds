@@ -41,7 +41,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
   backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
   padding: "10px 0",
   maxHeight: 450,
-  minWidth: 100,
+  minWidth: 150,
   overflowY: "auto",
   borderRadius: 4,
   boxShadow:
