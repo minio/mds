@@ -60,6 +60,20 @@ const SelectBase = styled.div(({ theme }) => {
     "&:focus": {
       borderColor: borderHover,
     },
+    "&.disabled": {
+      border: get(theme, "inputBox.disabledBorder", "#494A4D"),
+      backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
+      color: get(theme, "inputBox.disabledText", "#E6EBEB"),
+      "&:placeholder": {
+        color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
+      },
+      "&:hover": {
+        borderColor: get(theme, "inputBox.disabledBorder", "#494A4D"),
+      },
+      "&:focus": {
+        borderColor: get(theme, "inputBox.disabledBorder", "#494A4D"),
+      },
+    },
   };
 });
 
@@ -107,7 +121,8 @@ const Select: FC<SelectProps> = ({
   sx,
   options,
   onChange,
-  ...props
+  disabled = false,
+  name,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -145,13 +160,15 @@ const Select: FC<SelectProps> = ({
       <Box
         className={"selectContainer"}
         onClick={(e) => {
-          setIsOpen(!isOpen);
-          setAnchorEl(e.currentTarget);
+          if (!disabled) {
+            setIsOpen(!isOpen);
+            setAnchorEl(e.currentTarget);
+          }
         }}
       >
-        <SelectBase {...props}>
+        <SelectBase className={disabled ? "disabled" : ""}>
           {selectedLabel?.label || ""}
-          <input type={"hidden"} id={id} value={value} {...props} />
+          <input type={"hidden"} id={id} name={name} value={value} />
         </SelectBase>
         <Box className={"overlayArrow"}>
           {isOpen ? <CollapseCaret /> : <ExpandCaret />}

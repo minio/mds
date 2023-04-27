@@ -14,19 +14,20 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
 import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
 
-export interface SelectPropsBase {
+export interface SelectProps {
   options: SelectorType[];
   value: string;
+  id: string;
+  name?: string;
+  required?: boolean;
+  className?: string;
+  disabled?: boolean;
   label?: string;
   tooltip?: string;
   noLabelMinWidth?: boolean;
   onChange: (newValue: string) => void;
   sx?: CSSObject;
 }
-
-export type SelectProps = SelectPropsBase &
-  React.InputHTMLAttributes<HTMLInputElement>;

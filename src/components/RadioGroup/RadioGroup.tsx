@@ -111,13 +111,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
       }}
     >
       {label !== "" && (
-        <InputLabel
-          htmlFor={id}
-          noMinWidth
-          sx={{
-            marginLeft: 10,
-          }}
-        >
+        <InputLabel htmlFor={id} noMinWidth>
           {label}
           {tooltip && tooltip !== "" && (
             <div className={"tooltipContainer"}>
