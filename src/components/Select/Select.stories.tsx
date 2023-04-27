@@ -30,7 +30,12 @@ export default {
   argTypes: {},
 } as Meta<typeof Select>;
 
-const Template: Story<SelectProps> = ({ label, required, tooltip }) => {
+const Template: Story<SelectProps> = ({
+  label,
+  required,
+  tooltip,
+  disabled,
+}) => {
   const [selectedValue, setSelectedValue] = useState<string>("value1");
 
   const options = [
@@ -55,6 +60,7 @@ const Template: Story<SelectProps> = ({ label, required, tooltip }) => {
           label={label}
           required={required}
           tooltip={tooltip}
+          disabled={disabled}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -77,4 +83,10 @@ WithTooltip.args = {
   label: "A Select box",
   required: true,
   tooltip: "Tooltip example",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  label: "A Select box",
+  disabled: true,
 };

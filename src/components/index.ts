@@ -48,6 +48,7 @@ export { default as Switch } from "./Switch/Switch";
 export { default as Select } from "./Select/Select";
 export { default as DropdownSelector } from "./DropdownSelector/DropdownSelector";
 export { default as RadioGroup } from "./RadioGroup/RadioGroup";
+export { default as ReadBox } from "./ReadBox/ReadBox";
 
 /*Icons*/
 export * from "./Icons";
