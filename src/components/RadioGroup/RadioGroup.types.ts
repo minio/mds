@@ -18,15 +18,20 @@ import React from "react";
 import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
 
-export interface SelectPropsBase {
-  options: SelectorType[];
-  value: string;
+export interface RadioGroupProps {
   label?: string;
   tooltip?: string;
-  noLabelMinWidth?: boolean;
-  onChange: (newValue: string) => void;
+  selectorOptions: SelectorType[];
+  currentValue: string;
+  id: string;
+  name: string;
+  disableOptions?: boolean;
+  displayInColumn?: boolean;
+  className?: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
   sx?: CSSObject;
 }
 
-export type SelectProps = SelectPropsBase &
-  React.InputHTMLAttributes<HTMLInputElement>;
+export interface OptionsContainerProps {
+  inColumn: boolean;
+}

@@ -47,6 +47,7 @@ export { default as ModalBox } from "./ModalBox/ModalBox";
 export { default as Switch } from "./Switch/Switch";
 export { default as Select } from "./Select/Select";
 export { default as DropdownSelector } from "./DropdownSelector/DropdownSelector";
+export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 
 /*Icons*/
 export * from "./Icons";
