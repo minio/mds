@@ -8,8 +8,181 @@ import React, {
 import * as styled_components from "styled-components";
 import { CSSObject, CSSProperties } from "styled-components";
 
+interface ButtonThemeProps {
+  border: string;
+  text: string;
+  background: string;
+  iconColor: string;
+}
+interface ButtonThemeStatesProps {
+  enabled: ButtonThemeProps;
+  disabled: ButtonThemeProps;
+  hover: ButtonThemeProps;
+  pressed: ButtonThemeProps;
+}
+interface LoginPageThemeProps {
+  formBG: string;
+  bgFilter: string;
+  promoBG: string;
+  promoHeader: string;
+  promoText: string;
+  footerElements: string;
+  footerDivider: string;
+}
+interface PageHeaderThemeProps {
+  background: string;
+  border: string;
+  color: string;
+}
+interface TooltipThemeProps {
+  background: string;
+  color: string;
+}
+interface CommonInputThemeProps {
+  labelColor: string;
+}
+interface CheckBoxThemeProps {
+  checkBoxBorder: string;
+  checkBoxColor: string;
+  disabledBorder: string;
+  disabledColor: string;
+}
+interface IconButtonThemeProps {
+  buttonBG: string;
+  activeBG: string;
+  hoverBG: string;
+  disabledBG: string;
+  color: string;
+}
+interface DataTableThemeProps {
+  border: string;
+  disabledBorder: string;
+  disabledBG: string;
+  selected: string;
+  deletedDisabled: string;
+  hoverColor: string;
+}
+interface BackLinkThemeProps {
+  color: string;
+  arrow: string;
+  hover: string;
+}
+interface InputBoxThemeProps {
+  border: string;
+  hoverBorder: string;
+  color: string;
+  backgroundColor: string;
+  placeholderColor: string;
+  error: string;
+  disabledBorder: string;
+  disabledBackground: string;
+  disabledText: string;
+  disabledPlaceholder: string;
+}
+interface BreadcrumbsBackStyle {
+  border: string;
+  backgroundColor: string;
+}
+interface BreadcrumbsThemeProps {
+  border: string;
+  backgroundColor: string;
+  linksColor: string;
+  backButton: BreadcrumbsBackStyle;
+  textColor: string;
+}
+interface ActionsListThemeProps {
+  titleColor: string;
+  containerBorderColor: string;
+  backgroundColor: string;
+  optionsTextColor: string;
+  optionsBorder: string;
+  optionsHoverTextColor: string;
+  disabledOptionsTextColor: string;
+}
+interface ScreenTitleThemeProps {
+  border: string;
+  subtitleColor: string;
+  iconColor: string;
+}
+interface IconThemeColorProps {
+  accept: string;
+  delete: string;
+  default: string;
+}
+interface ModalBoxThemeProps {
+  overlayColor: string;
+  containerColor: string;
+  closeColor: string;
+  closeHoverColor: string;
+  closeHoverBG: string;
+  titleColor: string;
+  iconColor: IconThemeColorProps;
+}
+interface SwitchThemeProps {
+  onLabelColor: string;
+  offLabelColor: string;
+  switchBackground: string;
+  onBackgroundColor: string;
+  bulletBorderColor: string;
+  bulletBGColor: string;
+  disabledBackground: string;
+  disabledBulletBorderColor: string;
+  disabledBulletBGColor: string;
+}
+interface DropdownSelectorThemeProps {
+  backgroundColor: string;
+  optionTextColor: string;
+  selectedTextColor: string;
+  selectedBGColor: string;
+  hoverText: string;
+  hoverBG: string;
+}
+interface ReadBoxThemeProps {
+  borderColor: string;
+  backgroundColor: string;
+  textColor: string;
+}
+interface ThemeDefinitionProps {
+  bgColor: string;
+  fontColor: string;
+  borderColor: string;
+  bulletColor: string;
+  logoColor: string;
+  logoLabelColor: string;
+  logoLabelInverse: string;
+  loaderColor: string;
+  boxBackground: string;
+  buttons: {
+    regular: ButtonThemeStatesProps;
+    callAction: ButtonThemeStatesProps;
+    secondary: ButtonThemeStatesProps;
+    text: ButtonThemeStatesProps;
+  };
+  login: LoginPageThemeProps;
+  pageHeader: PageHeaderThemeProps;
+  tooltip: TooltipThemeProps;
+  commonInput: CommonInputThemeProps;
+  checkbox: CheckBoxThemeProps;
+  iconButton: IconButtonThemeProps;
+  dataTable: DataTableThemeProps;
+  backLink: BackLinkThemeProps;
+  inputBox: InputBoxThemeProps;
+  breadcrumbs: BreadcrumbsThemeProps;
+  actionsList: ActionsListThemeProps;
+  screenTitle: ScreenTitleThemeProps;
+  modalBox: ModalBoxThemeProps;
+  switchButton: SwitchThemeProps;
+  dropdownSelector: DropdownSelectorThemeProps;
+  readBox: ReadBoxThemeProps;
+}
+interface SelectorType {
+  label: string;
+  value: string;
+}
+
 interface ThemeHandlerProps {
   darkMode?: boolean;
+  customTheme?: ThemeDefinitionProps;
   children: ReactNode;
 }
 
@@ -96,7 +269,7 @@ interface LoginWrapperProps {
   formFooter?: ReactNode;
   promoHeader?: ReactNode;
   promoInfo?: ReactNode;
-  disableAnimation?: boolean;
+  backgroundAnimation?: boolean;
 }
 
 declare const LoginWrapper: FC<LoginWrapperProps>;
@@ -124,7 +297,7 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
   tooltip?: string;
   overrideLabelClasses?: string;
-  overrideCheckboxStyles?: CSSObject;
+  sx?: CSSObject;
 }
 
 declare const Checkbox: FC<
@@ -140,13 +313,13 @@ interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
 
 declare const InputLabel: FC<InputLabelProps>;
 
-interface IconButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IconBase {
   label?: string;
   size?: "small" | "medium" | "large" | string;
   sx?: CSSObject;
   children: React.ReactNode;
 }
+type IconButtonProps = IconBase & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 declare const IconButton: FC<IconButtonProps>;
 
@@ -210,6 +383,7 @@ interface DataTableProps {
     index: number;
   }) => "deleted" | "" | React.CSSProperties;
   parentClassName?: string;
+  sx?: CSSObject;
 }
 
 declare const DataTable: FC<DataTableProps>;
@@ -243,6 +417,8 @@ interface BoxProps {
   sx?: CSSObject;
   children?: React.ReactNode;
   withBorders?: boolean;
+  customBorderPadding?: number | string;
+  useBackground?: boolean;
 }
 
 declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
@@ -291,6 +467,135 @@ interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 declare const InputBox: FC<InputBoxProps>;
+
+interface BreadcrumbsProps {
+  sx?: CSSObject;
+  children: React.ReactNode;
+  additionalOptions?: React.ReactNode;
+  goBackFunction: () => void;
+}
+
+declare const Breadcrumbs: FC<BreadcrumbsProps>;
+
+interface ActionItem {
+  action: () => void;
+  label: string;
+  disabled: boolean;
+  icon: React.ReactNode;
+  tooltip: string;
+}
+interface ActionsListProps {
+  sx?: CSSObject;
+  items: ActionItem[];
+  title: React.ReactNode;
+}
+
+declare const ActionsList: FC<ActionsListProps>;
+
+interface SimpleHeaderProps {
+  label: React.ReactNode;
+  icon?: React.ReactNode;
+  sx?: CSSObject;
+}
+
+declare const SimpleHeader: FC<SimpleHeaderProps>;
+
+interface ScreenTitleProps {
+  icon: React.ReactNode;
+  subTitle: React.ReactNode;
+  title: string;
+  actions: React.ReactNode;
+  sx?: CSSObject;
+  bottomBorder?: boolean;
+}
+
+declare const ScreenTitle: FC<ScreenTitleProps>;
+
+interface ModalBoxProps {
+  onClose: () => void;
+  open: boolean;
+  title: React.ReactNode;
+  children: React.ReactNode;
+  widthLimit?: boolean;
+  titleIcon?: React.ReactNode;
+  backgroundOverlay?: boolean;
+  iconColor?: "accept" | "delete" | "default";
+  customMaxWidth?: number | string;
+  sx?: CSSObject;
+}
+
+declare const ModalBox: FC<ModalBoxProps>;
+
+interface MainSwitchProps {
+  id: string;
+  label?: string;
+  tooltip?: string;
+  sx?: CSSObject;
+  className?: string;
+  switchOnly?: boolean;
+  indicatorLabels?: string[];
+  description?: string;
+}
+type SwitchProps = MainSwitchProps &
+  React.InputHTMLAttributes<HTMLInputElement>;
+
+declare const Switch: FC<
+  SwitchProps & React.InputHTMLAttributes<HTMLInputElement>
+>;
+
+interface SelectProps {
+  options: SelectorType[];
+  value: string;
+  id: string;
+  name?: string;
+  required?: boolean;
+  className?: string;
+  disabled?: boolean;
+  label?: string;
+  tooltip?: string;
+  noLabelMinWidth?: boolean;
+  onChange: (newValue: string) => void;
+  sx?: CSSObject;
+}
+
+declare const Select: FC<SelectProps>;
+
+interface DropdownSelectorProps {
+  options: SelectorType[];
+  selectedOption: string;
+  onSelect: (value: string) => void;
+  hideTriggerAction: () => void;
+  open: boolean;
+  anchorEl?: (EventTarget & HTMLDivElement) | null;
+}
+
+declare const DropdownSelector: FC<DropdownSelectorProps>;
+
+interface RadioGroupProps {
+  label?: string;
+  tooltip?: string;
+  selectorOptions: SelectorType[];
+  currentValue: string;
+  id: string;
+  name: string;
+  disableOptions?: boolean;
+  displayInColumn?: boolean;
+  className?: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  sx?: CSSObject;
+}
+
+declare const RadioGroup: FC<RadioGroupProps>;
+
+interface ReadBoxProps {
+  label?: string;
+  children: React.ReactNode;
+  multiLine?: boolean;
+  actionButton?: React.ReactNode;
+  sx?: CSSObject;
+}
+
+declare const ReadBox: FC<ReadBoxProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -878,6 +1183,7 @@ export {
   AccessRuleIcon,
   AccountIcon$1 as AccountIcon,
   AccountsMenuIcon,
+  ActionsList,
   AddAccessRuleIcon,
   AddFolderIcon,
   AddIcon,
@@ -902,6 +1208,7 @@ export {
   Box,
   BoxArrowDown,
   BoxArrowUp,
+  Breadcrumbs,
   BucketEncryptionIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
@@ -950,6 +1257,7 @@ export {
   DriveFormatErrorsIcon,
   DrivesIcon,
   DrivesMenuIcon,
+  DropdownSelector,
   EditIcon,
   EditTagIcon,
   EditTenantIcon,
@@ -1033,6 +1341,7 @@ export {
   MinIOTierIcon,
   MinIOTierIconXs,
   MirroringIcon,
+  ModalBox,
   MonitoringMenuIcon,
   MultipleBucketsIcon,
   NetworkGetIcon,
@@ -1065,6 +1374,8 @@ export {
   ProfileMenuIcon,
   PrometheusErrorIcon,
   PrometheusIcon,
+  RadioGroup,
+  ReadBox,
   RecoverIcon,
   RedoIcon,
   RefreshIcon,
@@ -1077,9 +1388,11 @@ export {
   RetentionIcon,
   S3TierIcon$1 as S3TierIcon,
   S3TierIcon as S3TierIconXs,
+  ScreenTitle,
   SearchIcon,
   SecretsMenuIcon,
   SectionTitle,
+  Select,
   SelectAllIcon,
   SelectMultipleIcon,
   ServersIcon,
@@ -1088,6 +1401,7 @@ export {
   ServiceAccountsIcon,
   SettingsIcon,
   ShareIcon,
+  SimpleHeader,
   SpeedtestIcon,
   StandardLightLogo,
   StarIcon,
@@ -1095,6 +1409,7 @@ export {
   StorageIcon,
   SuccessIcon,
   SupportMenuIcon,
+  Switch,
   SyncIcon,
   TagsIcon,
   TenantsIcon,
