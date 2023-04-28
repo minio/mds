@@ -5,7 +5,11 @@ export interface TooltipProps {
   errorProps?: any;
   placement?: "bottom" | "left" | "right" | "top";
 }
+export interface TooltipBuild {
+  placement: "bottom" | "left" | "right" | "top";
+}
 export interface TooltipConstructProps {
   placement: "bottom" | "left" | "right" | "top";
-  children: React.ReactNode;
+  content: React.ReactNode;
+  anchorEl: (EventTarget & HTMLSpanElement) | null;
 }

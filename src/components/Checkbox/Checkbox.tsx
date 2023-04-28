@@ -78,7 +78,7 @@ const Checkbox: FC<
         flexWrap: "nowrap",
       }}
     >
-      <CheckboxItem sx={sx}>
+      <CheckboxItem sx={sx} onClick={(e) => e.stopPropagation()}>
         <input type={"checkbox"} id={id} {...props} />
         <span className={"checkbox"} />
       </CheckboxItem>

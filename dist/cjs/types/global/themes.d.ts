@@ -1,3 +1,4 @@
+import { ThemeDefinitionProps } from "./global.types";
 export declare const lightColors: {
   white: string;
   sectionOneBG: string;
@@ -41,6 +42,19 @@ export declare const lightColors: {
   backLinkColor: string;
   backLinkArrow: string;
   backLinkHover: string;
+  commonLinkColor: string;
+  breadcrumbsBackground: string;
+  breadcrumbsBackBorder: string;
+  breadcrumbsText: string;
+  actionsListBorder: string;
+  disabledActionsColor: string;
+  optionTextColor: string;
+  modalCloseColor: string;
+  modalCloseHoverBG: string;
+  modalOverlayBG: string;
+  bulletBGColor: string;
+  placeholder: string;
+  readBoxTextColor: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -85,338 +99,14 @@ export declare const darkColors: {
   backLinkColor: string;
   backLinkArrow: string;
   backLinkHover: string;
+  modalCloseColor: string;
+  modalCloseHoverBG: string;
+  modalOverlayBG: string;
+  bulletBGColor: string;
+  disabledSwitchBG: string;
+  disabledBulletBG: string;
+  placeholder: string;
+  readBoxTextColor: string;
 };
-export declare const lightTheme: {
-  bgColor: string;
-  fontColor: string;
-  borderColor: string;
-  bulletColor: string;
-  logoColor: string;
-  logoLabelColor: string;
-  logoLabelInverse: string;
-  loaderColor: string;
-  boxBackground: string;
-  buttons: {
-    regular: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-    callAction: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-    secondary: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-    text: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-  };
-  login: {
-    formBG: string;
-    bgFilter: string;
-    promoBG: string;
-    promoHeader: string;
-    promoText: string;
-    footerElements: string;
-    footerDivider: string;
-  };
-  pageHeader: {
-    background: string;
-    border: string;
-    color: string;
-  };
-  tooltip: {
-    background: string;
-    color: string;
-  };
-  commonInput: {
-    labelColor: string;
-    checkBoxBorder: string;
-    checkBoxColor: string;
-  };
-  iconButton: {
-    buttonBG: string;
-    activeBG: string;
-    hoverBG: string;
-    disabledBG: string;
-    color: string;
-  };
-  dataTable: {
-    border: string;
-    disabledBorder: string;
-    disabledBG: string;
-    selected: string;
-    deletedDisabled: string;
-    hoverColor: string;
-  };
-  backLink: {
-    color: string;
-    arrow: string;
-    hover: string;
-  };
-  inputBox: {
-    border: string;
-    hoverBorder: string;
-    color: string;
-    backgroundColor: string;
-    error: string;
-  };
-};
-export declare const darkTheme: {
-  bgColor: string;
-  fontColor: string;
-  borderColor: string;
-  bulletColor: string;
-  logoColor: string;
-  logoLabelColor: string;
-  logoLabelInverse: string;
-  loaderColor: string;
-  boxBackground: string;
-  buttons: {
-    regular: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-    callAction: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-    secondary: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-    text: {
-      enabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      disabled: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      hover: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-      pressed: {
-        border: string;
-        text: string;
-        background: string;
-        iconColor: string;
-      };
-    };
-  };
-  login: {
-    formBG: string;
-    promoBG: string;
-    bgFilter: string;
-    promoHeader: string;
-    promoText: string;
-    footerElements: string;
-    footerDivider: string;
-  };
-  pageHeader: {
-    background: string;
-    border: string;
-    color: string;
-  };
-  tooltip: {
-    background: string;
-    color: string;
-  };
-  commonInput: {
-    labelColor: string;
-    checkBoxBorder: string;
-    checkBoxColor: string;
-  };
-  iconButton: {
-    buttonBG: string;
-    activeBG: string;
-    hoverBG: string;
-    disabledBG: string;
-    color: string;
-  };
-  dataTable: {
-    border: string;
-    disabledBorder: string;
-    disabledBG: string;
-    selected: string;
-    deletedDisabled: string;
-    hoverColor: string;
-  };
-  backLink: {
-    color: string;
-    arrow: string;
-    hover: string;
-  };
-  inputBox: {
-    border: string;
-    hoverBorder: string;
-    color: string;
-    backgroundColor: string;
-    error: string;
-  };
-};
+export declare const lightTheme: ThemeDefinitionProps;
+export declare const darkTheme: ThemeDefinitionProps;
