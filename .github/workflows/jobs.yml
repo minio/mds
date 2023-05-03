@@ -18,14 +18,24 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ ubuntu-latest ]
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out Code
+        uses: actions/checkout@v3
 
+      - name: Read .nvmrc
+        id: node_version
+        run: echo "$(cat .nvmrc)" && echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NVMRC }}
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
       - name: Install Dependencies
         continue-on-error: false
         run: |
-          yarn install
+          yarn install --frozen-lockfile --immutable
 
       - name: Check if build is correct
         continue-on-error: false
@@ -44,12 +54,25 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ ubuntu-latest ]
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out Code
+        uses: actions/checkout@v3
+
+      - name: Read .nvmrc
+        id: node_version
+        run: echo "$(cat .nvmrc)" && echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NVMRC }}
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
 
       - name: Install Dependencies
-        run: yarn install
+        continue-on-error: false
+        run: |
+          yarn install --frozen-lockfile --immutable
 
       - name: Run Jest Tests
         run: yarn test

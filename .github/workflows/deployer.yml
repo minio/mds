@@ -1,0 +1,48 @@
+name: Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: ${{ github.workflow }}-deployer-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-release:
+    name: "Build"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+    steps:
+      - name: Check out Code
+        uses: actions/checkout@v3
+
+      - name: Read .nvmrc
+        id: node_version
+        run: echo "$(cat .nvmrc)" && echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NVMRC }}
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
+
+      - name: Install Dependencies
+        continue-on-error: false
+        run: |
+          yarn install --frozen-lockfile --immutable
+
+      - name: Log in to private Docker registry
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+
+      - name: Build Storybook
+        run: |
+          yarn build-storybook 
+          docker buildx build --platform linux/amd64 --push -t registry.min.dev/minio/mds .
+          echo "${{ secrets.MDS_DEPLOYER_KUBECONFIG }}" > /tmp/kubecconfig
+          ls -l /tmp/kubecconfig
+          kubectl --kubeconfig /tmp/kubecconfig -n mds delete pod $(kubectl --kubeconfig /tmp/kubecconfig -n mds get pods | grep mds | awk '{print $1}')
+
