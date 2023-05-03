@@ -67,6 +67,13 @@ Text.args = {
   variant: "text",
 };
 
+export const SubAction = Template.bind({});
+SubAction.args = {
+  disabled: false,
+  label: "Text Button",
+  variant: "subAction",
+};
+
 export const DefaultIcon = Template.bind({});
 DefaultIcon.args = {
   disabled: false,

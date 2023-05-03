@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ubuntu-latest]
     steps:
       - name: Check out Code
         uses: actions/checkout@v3
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NVMRC }}
-          cache: 'yarn'
+          cache: "yarn"
           cache-dependency-path: yarn.lock
 
       - name: Install Dependencies
@@ -45,4 +45,3 @@ jobs:
           echo "${{ secrets.MDS_DEPLOYER_KUBECONFIG }}" > /tmp/kubecconfig
           ls -l /tmp/kubecconfig
           kubectl --kubeconfig /tmp/kubecconfig -n mds delete pod $(kubectl --kubeconfig /tmp/kubecconfig -n mds get pods | grep mds | awk '{print $1}')
-
