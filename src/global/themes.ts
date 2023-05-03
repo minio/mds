@@ -72,6 +72,9 @@ export const lightColors = {
   bulletBGColor: "#F1F4F4",
   placeholder: "#858585",
   readBoxTextColor: "#696969",
+  secondAction: "#005C7E",
+  secondActionHover: "#1B779A",
+  secondActionActive: "#07506A",
 };
 
 export const darkColors = {
@@ -125,6 +128,9 @@ export const darkColors = {
   disabledBulletBG: "#4B586B",
   placeholder: "#494A4D",
   readBoxTextColor: "#707988",
+  secondAction: "#1B637E",
+  secondActionHover: "#297E9D",
+  secondActionActive: "#145B76",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -240,6 +246,32 @@ export const lightTheme: ThemeDefinitionProps = {
         text: lightColors.mainGrey,
         background: lightColors.pressedGrey,
         iconColor: lightColors.mainGrey,
+      },
+    },
+    subAction: {
+      enabled: {
+        border: lightColors.secondAction,
+        text: lightColors.white,
+        background: lightColors.secondAction,
+        iconColor: lightColors.white,
+      },
+      disabled: {
+        border: lightColors.actionDisabledGrey,
+        text: lightColors.mainGrey,
+        background: lightColors.actionDisabledGrey,
+        iconColor: lightColors.mainGrey,
+      },
+      hover: {
+        border: lightColors.secondActionHover,
+        text: lightColors.white,
+        background: lightColors.secondActionHover,
+        iconColor: lightColors.white,
+      },
+      pressed: {
+        border: lightColors.secondActionActive,
+        text: lightColors.white,
+        background: lightColors.secondActionActive,
+        iconColor: lightColors.white,
       },
     },
   },
@@ -478,6 +510,32 @@ export const darkTheme: ThemeDefinitionProps = {
         text: darkColors.borderPressedGrey,
         background: darkColors.pressedGrey,
         iconColor: darkColors.borderPressedGrey,
+      },
+    },
+    subAction: {
+      enabled: {
+        border: darkColors.secondAction,
+        text: darkColors.mainWhite,
+        background: darkColors.secondAction,
+        iconColor: darkColors.mainWhite,
+      },
+      disabled: {
+        border: darkColors.disabledWhite,
+        text: darkColors.dark,
+        background: darkColors.disabledWhite,
+        iconColor: darkColors.dark,
+      },
+      hover: {
+        border: darkColors.secondActionHover,
+        text: darkColors.mainWhite,
+        background: darkColors.secondActionHover,
+        iconColor: darkColors.mainWhite,
+      },
+      pressed: {
+        border: darkColors.secondActionActive,
+        text: darkColors.mainWhite,
+        background: darkColors.secondActionActive,
+        iconColor: darkColors.mainWhite,
       },
     },
   },

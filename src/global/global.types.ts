@@ -180,28 +180,29 @@ export interface ThemeDefinitionProps {
   logoLabelInverse: string;
   loaderColor: string;
   boxBackground: string;
-  buttons: {
-    regular: ButtonThemeStatesProps;
-    callAction: ButtonThemeStatesProps;
-    secondary: ButtonThemeStatesProps;
-    text: ButtonThemeStatesProps;
+  buttons?: {
+    regular?: ButtonThemeStatesProps;
+    callAction?: ButtonThemeStatesProps;
+    secondary?: ButtonThemeStatesProps;
+    text?: ButtonThemeStatesProps;
+    subAction?: ButtonThemeStatesProps;
   };
-  login: LoginPageThemeProps;
-  pageHeader: PageHeaderThemeProps;
-  tooltip: TooltipThemeProps;
-  commonInput: CommonInputThemeProps;
-  checkbox: CheckBoxThemeProps;
-  iconButton: IconButtonThemeProps;
-  dataTable: DataTableThemeProps;
-  backLink: BackLinkThemeProps;
-  inputBox: InputBoxThemeProps;
-  breadcrumbs: BreadcrumbsThemeProps;
-  actionsList: ActionsListThemeProps;
-  screenTitle: ScreenTitleThemeProps;
-  modalBox: ModalBoxThemeProps;
-  switchButton: SwitchThemeProps;
-  dropdownSelector: DropdownSelectorThemeProps;
-  readBox: ReadBoxThemeProps;
+  login?: LoginPageThemeProps;
+  pageHeader?: PageHeaderThemeProps;
+  tooltip?: TooltipThemeProps;
+  commonInput?: CommonInputThemeProps;
+  checkbox?: CheckBoxThemeProps;
+  iconButton?: IconButtonThemeProps;
+  dataTable?: DataTableThemeProps;
+  backLink?: BackLinkThemeProps;
+  inputBox?: InputBoxThemeProps;
+  breadcrumbs?: BreadcrumbsThemeProps;
+  actionsList?: ActionsListThemeProps;
+  screenTitle?: ScreenTitleThemeProps;
+  modalBox?: ModalBoxThemeProps;
+  switchButton?: SwitchThemeProps;
+  dropdownSelector?: DropdownSelectorThemeProps;
+  readBox?: ReadBoxThemeProps;
 }
 
 export interface SelectorType {
