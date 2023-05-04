@@ -28,6 +28,7 @@ export interface SelectProps {
   label?: string;
   tooltip?: string;
   noLabelMinWidth?: boolean;
+  fixedLabel?: string;
   onChange: (newValue: string) => void;
   sx?: CSSObject;
 }

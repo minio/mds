@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useState } from "react";
+import React, { FC, Fragment, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { SelectProps } from "./Select.types";
@@ -122,6 +122,7 @@ const Select: FC<SelectProps> = ({
   options,
   onChange,
   disabled = false,
+  fixedLabel = "",
   name,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -167,7 +168,13 @@ const Select: FC<SelectProps> = ({
         }}
       >
         <SelectBase className={disabled ? "disabled" : ""}>
-          {selectedLabel?.label || ""}
+          <Fragment>
+            {fixedLabel !== "" ? (
+              fixedLabel
+            ) : (
+              <Fragment>{selectedLabel?.label || ""}</Fragment>
+            )}
+          </Fragment>
           <input type={"hidden"} id={id} name={name} value={value} />
         </SelectBase>
         <Box className={"overlayArrow"}>
