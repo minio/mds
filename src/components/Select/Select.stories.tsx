@@ -35,6 +35,7 @@ const Template: Story<SelectProps> = ({
   required,
   tooltip,
   disabled,
+  fixedLabel = "",
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>("value1");
 
@@ -52,15 +53,20 @@ const Template: Story<SelectProps> = ({
       <GlobalStyles />
       <FormLayout>
         <Select
+          id={"story-select"}
           options={options}
           value={selectedValue}
           onChange={(newValue) => {
             setSelectedValue(newValue);
+            if (fixedLabel !== "") {
+              alert(`Triggered ${newValue}`);
+            }
           }}
           label={label}
           required={required}
           tooltip={tooltip}
           disabled={disabled}
+          fixedLabel={fixedLabel}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -89,4 +95,10 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   label: "A Select box",
   disabled: true,
+};
+
+export const FixedLabel = Template.bind({});
+FixedLabel.args = {
+  fixedLabel: "Select an option to trigger an action",
+  disabled: false,
 };
