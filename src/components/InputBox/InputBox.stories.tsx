@@ -25,6 +25,8 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
 import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
+import UsersIcon from "../Icons/UsersIcon";
+import PasswordKeyIcon from "../Icons/PasswordKeyIcon";
 
 export default {
   title: "MDS/Forms/InputBox",
@@ -123,4 +125,17 @@ NoLabelAndAction.args = {
   required: true,
   overlayIcon: <TestIcon />,
   overlayAction: () => alert("You clicked the action"),
+};
+
+export const StartIcon = Template.bind({});
+StartIcon.args = {
+  startIcon: <UsersIcon />,
+  placeholder: "Username",
+};
+
+export const StartIconWithAction = Template.bind({});
+StartIconWithAction.args = {
+  startIcon: <PasswordKeyIcon />,
+  placeholder: "Password",
+  type: "password",
 };

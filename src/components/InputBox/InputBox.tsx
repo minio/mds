@@ -17,7 +17,11 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
-import { InputBoxProps, InputContainerProps } from "./InputBox.types";
+import {
+  ExtraInputProps,
+  InputBoxProps,
+  InputContainerProps,
+} from "./InputBox.types";
 import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import IconButton from "../IconButton/IconButton";
@@ -26,48 +30,54 @@ import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
 
-const InputBase = styled.input<InputBoxProps>(({ theme, error }) => {
-  let borderColor = get(theme, "inputBox.border", "#E2E2E2");
-  let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
+const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
+  ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {
+    let borderColor = get(theme, "inputBox.border", "#E2E2E2");
+    let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 
-  if (error && error !== "") {
-    borderColor = get(theme, "inputBox.error", "#C51B3F");
-    borderHover = get(theme, "inputBox.error", "#C51B3F");
-  }
+    if (error && error !== "") {
+      borderColor = get(theme, "inputBox.error", "#C51B3F");
+      borderHover = get(theme, "inputBox.error", "#C51B3F");
+    }
 
-  return {
-    height: 38,
-    width: "100%",
-    padding: "0 35px 0 15px",
-    color: get(theme, "inputBox.color", "#07193E"),
-    fontSize: 13,
-    fontWeight: 600,
-    border: `${borderColor} 1px solid`,
-    borderRadius: 3,
-    outline: "none",
-    transitionDuration: "0.1s",
-    backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
-    "&:placeholder": {
-      color: get(theme, "inputBox.placeholderColor", "#858585"),
-      opacity: 1,
-      fontWeight: 400,
-    },
-    "&:hover": {
-      borderColor: borderHover,
-    },
-    "&:focus": {
-      borderColor: borderHover,
-    },
-    "&:disabled": {
-      border: get(theme, "inputBox.disabledBorder", "#494A4D"),
-      backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
-      color: get(theme, "inputBox.disabledText", "#E6EBEB"),
+    return {
+      height: 38,
+      width: "100%",
+      paddingTop: 0,
+      paddingRight:
+        !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 15,
+      paddingLeft: !!startIcon ? 35 : 15,
+      paddingBottom: 0,
+      color: get(theme, "inputBox.color", "#07193E"),
+      fontSize: 13,
+      fontWeight: 600,
+      border: `${borderColor} 1px solid`,
+      borderRadius: 3,
+      outline: "none",
+      transitionDuration: "0.1s",
+      backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
       "&:placeholder": {
-        color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
+        color: get(theme, "inputBox.placeholderColor", "#858585"),
+        opacity: 1,
+        fontWeight: 400,
       },
-    },
-  };
-});
+      "&:hover": {
+        borderColor: borderHover,
+      },
+      "&:focus": {
+        borderColor: borderHover,
+      },
+      "&:disabled": {
+        border: get(theme, "inputBox.disabledBorder", "#494A4D"),
+        backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
+        color: get(theme, "inputBox.disabledText", "#E6EBEB"),
+        "&:placeholder": {
+          color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
+        },
+      },
+    };
+  }
+);
 
 const InputContainer = styled.div<InputContainerProps>(
   ({ theme, error, sx }) => ({
@@ -101,6 +111,16 @@ const InputContainer = styled.div<InputContainerProps>(
     "& .inputLabel": {
       marginBottom: error ? 18 : 0,
     },
+    "& .startOverlayIcon": {
+      position: "absolute",
+      left: 10,
+      top: 10,
+      "& svg": {
+        width: 14,
+        height: 14,
+        fill: get(theme, "inputBox.color", "#07193E"),
+      },
+    },
     ...sx,
   })
 );
@@ -117,6 +137,7 @@ const InputBox: FC<InputBoxProps> = ({
   overlayObject,
   label = "",
   required,
+  startIcon,
   className,
   error,
   sx,
@@ -163,6 +184,7 @@ const InputBox: FC<InputBoxProps> = ({
       )}
 
       <Box className={"textBoxContainer"}>
+        {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
         <InputBase
           id={id}
           fullWidth
@@ -170,6 +192,10 @@ const InputBox: FC<InputBoxProps> = ({
           error={error}
           className={"inputRebase"}
           data-index={index}
+          startIcon={startIcon}
+          overlayObject={overlayObject}
+          overlayIcon={overlayIcon}
+          originType={type}
           {...props}
         />
         {inputBoxWrapperIcon && (
