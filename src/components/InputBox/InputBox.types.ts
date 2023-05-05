@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { HTMLAttributes, ReactNode } from "react";
+import React from "react";
 import { CSSObject } from "styled-components";
 
 export interface InputBoxProps
@@ -30,14 +30,20 @@ export interface InputBoxProps
   overlayAction?: () => void;
   overlayObject?: React.ReactNode;
   noLabelMinWidth?: boolean;
+  startIcon?: React.ReactNode;
   required?: boolean;
   className?: string;
   error?: string;
 }
 
 export interface InputContainerProps {
-  children?: ReactNode;
+  children?: React.ReactNode;
   sx?: CSSObject;
   error?: boolean;
+  startIcon?: React.ReactNode;
   className?: string;
+}
+
+export interface ExtraInputProps {
+  originType?: string;
 }
