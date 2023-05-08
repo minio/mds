@@ -19,7 +19,7 @@ import { SelectorType } from "../../global/global.types";
 
 export interface SelectProps {
   options: SelectorType[];
-  value: string;
+  value?: string;
   id: string;
   name?: string;
   required?: boolean;

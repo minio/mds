@@ -23,6 +23,9 @@ import { SelectProps } from "./Select.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
+import DownloadIcon from "../Icons/DownloadIcon";
+import UploadIcon from "../Icons/UploadIcon";
+import UsersIcon from "../Icons/UsersIcon";
 
 export default {
   title: "MDS/Forms/Select",
@@ -36,10 +39,11 @@ const Template: Story<SelectProps> = ({
   tooltip,
   disabled,
   fixedLabel = "",
+  options,
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>("value1");
 
-  const options = [
+  let useOpts = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     {
@@ -48,13 +52,17 @@ const Template: Story<SelectProps> = ({
     },
   ];
 
+  if (options && options.length > 0) {
+    useOpts = options;
+  }
+
   return (
     <StoryThemeProvider>
       <GlobalStyles />
       <FormLayout>
         <Select
           id={"story-select"}
-          options={options}
+          options={useOpts}
           value={selectedValue}
           onChange={(newValue) => {
             setSelectedValue(newValue);
@@ -101,4 +109,13 @@ export const FixedLabel = Template.bind({});
 FixedLabel.args = {
   fixedLabel: "Select an option to trigger an action",
   disabled: false,
+};
+
+export const OptionsWithIcons = Template.bind({});
+OptionsWithIcons.args = {
+  options: [
+    { label: "Option 1", value: "value1", icon: <DownloadIcon /> },
+    { label: "Option 2", value: "value2", icon: <UploadIcon /> },
+    { label: "Option 3", value: "value3", icon: <UsersIcon /> },
+  ],
 };

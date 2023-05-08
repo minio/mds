@@ -102,6 +102,9 @@ const InputContainer = styled.div<InputContainerProps>(
       transform: "translateY(-50%)",
       marginTop: 2,
       right: 5,
+      "& svg": {
+        fill: get(theme, "inputBox.color", "#07193E"),
+      },
     },
     "& .inputLabel": {
       marginBottom: error ? 18 : 0,
@@ -132,7 +135,7 @@ const Select: FC<SelectProps> = ({
 
   const selectedLabel = options.find((option) => option.value === value);
 
-  if (!selectedLabel) {
+  if (!selectedLabel && fixedLabel === "") {
     console.warn("The selected value is not included in Options List");
   }
 

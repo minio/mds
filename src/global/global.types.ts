@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { lightColors } from "./themes";
+import React from "react";
 
 export interface ButtonThemeProps {
   border: string;
@@ -208,4 +209,5 @@ export interface ThemeDefinitionProps {
 export interface SelectorType {
   label: string;
   value: string;
+  icon?: React.ReactNode;
 }
