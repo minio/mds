@@ -39,6 +39,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
   position: "absolute",
   display: "flex",
   backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
+  border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
   padding: "10px 0",
   maxHeight: 450,
   minWidth: 150,
@@ -59,6 +60,13 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
       padding: "6px 15px",
       fontSize: 14,
       userSelect: "none",
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+      "& svg": {
+        width: 16,
+        height: 16,
+      },
       '&:not([class*="Mui"])::before': {
         content: "' '",
       },
@@ -79,9 +87,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
   ...sx,
 }));
 
-const calcElementPosition = (
-  anchorEl: (EventTarget & HTMLDivElement) | null
-) => {
+const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
   if (!anchorEl) {
     return {
       top: 0,
@@ -101,7 +107,7 @@ const calcElementPosition = (
 
 const DropdownSelector: FC<DropdownSelectorProps> = ({
   options,
-  selectedOption,
+  selectedOption = "",
   onSelect,
   hideTriggerAction,
   open,
@@ -160,6 +166,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
                 }}
                 key={`option-${index}`}
               >
+                {option.icon}
                 {option.label}
               </li>
             );
