@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { CSSObject } from "styled-components";
 export interface InputBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -13,13 +13,18 @@ export interface InputBoxProps
   overlayAction?: () => void;
   overlayObject?: React.ReactNode;
   noLabelMinWidth?: boolean;
+  startIcon?: React.ReactNode;
   required?: boolean;
   className?: string;
   error?: string;
 }
 export interface InputContainerProps {
-  children?: ReactNode;
+  children?: React.ReactNode;
   sx?: CSSObject;
   error?: boolean;
+  startIcon?: React.ReactNode;
   className?: string;
+}
+export interface ExtraInputProps {
+  originType?: string;
 }

@@ -2,7 +2,7 @@ import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
 export interface SelectProps {
   options: SelectorType[];
-  value: string;
+  value?: string;
   id: string;
   name?: string;
   required?: boolean;
@@ -11,6 +11,7 @@ export interface SelectProps {
   label?: string;
   tooltip?: string;
   noLabelMinWidth?: boolean;
+  fixedLabel?: string;
   onChange: (newValue: string) => void;
   sx?: CSSObject;
 }

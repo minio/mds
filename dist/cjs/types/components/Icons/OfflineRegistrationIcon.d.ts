@@ -1,5 +1,6 @@
+import * as React from "react";
 import { SVGProps } from "react";
 declare const OfflineRegistrationIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 export default OfflineRegistrationIcon;

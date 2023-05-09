@@ -1,3 +1,4 @@
+import React from "react";
 import { IColumns, ItemActions } from "./DataTable.types";
 export declare const selectWidth = 45;
 export declare const generateColumnsMap: (
@@ -12,13 +13,13 @@ export declare const generateColumnsMap: (
   columnsShown: string[],
   sortColumn: string,
   sortDirection: "ASC" | "DESC" | undefined
-) => (JSX.Element | null)[];
+) => (React.JSX.Element | null)[];
 export declare const elementActions: (
   actions: ItemActions[],
   valueToSend: any,
   selected: boolean,
   idField: string
-) => (JSX.Element | null)[];
+) => (React.JSX.Element | null)[];
 export declare const calculateOptionsSize: (
   containerWidth: number,
   totalOptions: number

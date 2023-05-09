@@ -1,3 +1,6 @@
+import * as React from "react";
 import { SVGProps } from "react";
-declare const ConsoleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ConsoleIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 export default ConsoleIcon;
