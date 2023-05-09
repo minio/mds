@@ -1,3 +1,4 @@
+import * as React from "react";
 import { SVGProps } from "react";
-declare const UploadIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UploadIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 export default UploadIcon;

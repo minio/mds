@@ -173,7 +173,7 @@ export { default as TierOfflineIcon } from "./TierOfflineIcon";
 export { default as WarnFilledIcon } from "./WarnFilledIcon";
 export { default as BoxArrowUp } from "./BoxArrowUp";
 export { default as BoxArrowDown } from "./BoxArrowDown";
-export { default as UserFilledIcon } from "./UsersFilledIcon";
+export { default as UserFilledIcon } from "./UserFilledIcon";
 export { default as LockFilledIcon } from "./LockFilledIcon";
 export { default as FilterIcon } from "./FilterIcon";
 export { default as FolderIcon } from "./FolderIcon";

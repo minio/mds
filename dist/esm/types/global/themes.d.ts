@@ -55,6 +55,9 @@ export declare const lightColors: {
   bulletBGColor: string;
   placeholder: string;
   readBoxTextColor: string;
+  secondAction: string;
+  secondActionHover: string;
+  secondActionActive: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -107,6 +110,9 @@ export declare const darkColors: {
   disabledBulletBG: string;
   placeholder: string;
   readBoxTextColor: string;
+  secondAction: string;
+  secondActionHover: string;
+  secondActionActive: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;

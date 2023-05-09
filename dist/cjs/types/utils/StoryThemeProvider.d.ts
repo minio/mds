@@ -4,5 +4,5 @@ interface IStoryThemeProvider {
 }
 declare const StoryThemeProvider: ({
   children,
-}: IStoryThemeProvider) => JSX.Element;
+}: IStoryThemeProvider) => React.JSX.Element;
 export default StoryThemeProvider;

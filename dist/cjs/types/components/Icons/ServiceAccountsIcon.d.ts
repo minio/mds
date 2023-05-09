@@ -1,5 +1,5 @@
-import { SVGProps } from "react";
+import React, { SVGProps } from "react";
 declare const ServiceAccountsIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 export default ServiceAccountsIcon;

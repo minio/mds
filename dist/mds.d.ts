@@ -1,4 +1,5 @@
-import React, {
+import * as React from "react";
+import React__default, {
   ReactNode,
   FC,
   MouseEventHandler,
@@ -152,32 +153,34 @@ interface ThemeDefinitionProps {
   logoLabelInverse: string;
   loaderColor: string;
   boxBackground: string;
-  buttons: {
-    regular: ButtonThemeStatesProps;
-    callAction: ButtonThemeStatesProps;
-    secondary: ButtonThemeStatesProps;
-    text: ButtonThemeStatesProps;
+  buttons?: {
+    regular?: ButtonThemeStatesProps;
+    callAction?: ButtonThemeStatesProps;
+    secondary?: ButtonThemeStatesProps;
+    text?: ButtonThemeStatesProps;
+    subAction?: ButtonThemeStatesProps;
   };
-  login: LoginPageThemeProps;
-  pageHeader: PageHeaderThemeProps;
-  tooltip: TooltipThemeProps;
-  commonInput: CommonInputThemeProps;
-  checkbox: CheckBoxThemeProps;
-  iconButton: IconButtonThemeProps;
-  dataTable: DataTableThemeProps;
-  backLink: BackLinkThemeProps;
-  inputBox: InputBoxThemeProps;
-  breadcrumbs: BreadcrumbsThemeProps;
-  actionsList: ActionsListThemeProps;
-  screenTitle: ScreenTitleThemeProps;
-  modalBox: ModalBoxThemeProps;
-  switchButton: SwitchThemeProps;
-  dropdownSelector: DropdownSelectorThemeProps;
-  readBox: ReadBoxThemeProps;
+  login?: LoginPageThemeProps;
+  pageHeader?: PageHeaderThemeProps;
+  tooltip?: TooltipThemeProps;
+  commonInput?: CommonInputThemeProps;
+  checkbox?: CheckBoxThemeProps;
+  iconButton?: IconButtonThemeProps;
+  dataTable?: DataTableThemeProps;
+  backLink?: BackLinkThemeProps;
+  inputBox?: InputBoxThemeProps;
+  breadcrumbs?: BreadcrumbsThemeProps;
+  actionsList?: ActionsListThemeProps;
+  screenTitle?: ScreenTitleThemeProps;
+  modalBox?: ModalBoxThemeProps;
+  switchButton?: SwitchThemeProps;
+  dropdownSelector?: DropdownSelectorThemeProps;
+  readBox?: ReadBoxThemeProps;
 }
 interface SelectorType {
   label: string;
   value: string;
+  icon?: React__default.ReactNode;
 }
 
 interface ThemeHandlerProps {
@@ -197,7 +200,7 @@ interface ButtonProps {
   id: string;
   name?: string;
   label?: string;
-  variant?: "regular" | "callAction" | "secondary" | "text";
+  variant?: "regular" | "callAction" | "secondary" | "text" | "subAction";
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   fullWidth?: boolean;
@@ -209,7 +212,7 @@ interface ButtonProps {
 }
 
 declare const Button: FC<
-  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  ButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
 >;
 
 interface ApplicationLogoProps {
@@ -277,16 +280,16 @@ declare const LoginWrapper: FC<LoginWrapperProps>;
 declare const Loader: FC<SVGProps<any>>;
 
 interface PageHeaderProps {
-  label: React.ReactNode;
-  middleComponent?: React.ReactNode;
-  actions?: React.ReactNode;
+  label: React__default.ReactNode;
+  middleComponent?: React__default.ReactNode;
+  actions?: React__default.ReactNode;
 }
 
 declare const PageHeader: FC<PageHeaderProps>;
 
 interface TooltipProps {
-  children: React.ReactElement;
-  tooltip: React.ReactNode;
+  children: React__default.ReactElement;
+  tooltip: React__default.ReactNode;
   errorProps?: any;
   placement?: "bottom" | "left" | "right" | "top";
 }
@@ -301,7 +304,7 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
 }
 
 declare const Checkbox: FC<
-  CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>
+  CheckboxProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
 
 interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
@@ -317,9 +320,10 @@ interface IconBase {
   label?: string;
   size?: "small" | "medium" | "large" | string;
   sx?: CSSObject;
-  children: React.ReactNode;
+  children: React__default.ReactNode;
 }
-type IconButtonProps = IconBase & React.ButtonHTMLAttributes<HTMLButtonElement>;
+type IconButtonProps = IconBase &
+  React__default.ButtonHTMLAttributes<HTMLButtonElement>;
 
 declare const IconButton: FC<IconButtonProps>;
 
@@ -358,10 +362,10 @@ interface ISortConfig {
 interface DataTableProps {
   itemActions?: ItemActions[] | null;
   columns: IColumns[];
-  onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSelect?: (e: React__default.ChangeEvent<HTMLInputElement>) => void;
   idField?: string;
   isLoading?: boolean;
-  loadingMessage?: React.ReactNode;
+  loadingMessage?: React__default.ReactNode;
   records: any[];
   entityName?: string;
   selectedItems?: string[];
@@ -381,14 +385,15 @@ interface DataTableProps {
     index,
   }: {
     index: number;
-  }) => "deleted" | "" | React.CSSProperties;
+  }) => "deleted" | "" | React__default.CSSProperties;
   parentClassName?: string;
   sx?: CSSObject;
 }
 
 declare const DataTable: FC<DataTableProps>;
 
-interface BackLinkProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface BackLinkProps
+  extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
   sx?: CSSProperties;
   label?: string;
 }
@@ -397,7 +402,7 @@ declare const BackLink: FC<BackLinkProps>;
 
 interface HelpBoxProps {
   iconComponent: any;
-  title: string | React.ReactNode;
+  title: string | React__default.ReactNode;
   help: any;
 }
 
@@ -405,9 +410,9 @@ declare const HelpBox: FC<HelpBoxProps>;
 
 interface SectionTitleProps {
   separator?: boolean;
-  actions?: React.ReactNode;
-  icon?: React.ReactNode;
-  children: React.ReactNode;
+  actions?: React__default.ReactNode;
+  icon?: React__default.ReactNode;
+  children: React__default.ReactNode;
   sx?: CSSObject;
 }
 
@@ -415,7 +420,7 @@ declare const SectionTitle: FC<SectionTitleProps>;
 
 interface BoxProps {
   sx?: CSSObject;
-  children?: React.ReactNode;
+  children?: React__default.ReactNode;
   withBorders?: boolean;
   customBorderPadding?: number | string;
   useBackground?: boolean;
@@ -425,17 +430,17 @@ declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
 
 interface FormLayoutProps {
   sx?: CSSObject;
-  children?: React.ReactNode;
+  children?: React__default.ReactNode;
   title?: string;
-  icon?: React.ReactNode;
-  helpBox?: React.ReactNode;
+  icon?: React__default.ReactNode;
+  helpBox?: React__default.ReactNode;
 }
 
 declare const FormLayout: FC<FormLayoutProps>;
 
 interface PageLayoutProps {
   variant?: "constrained" | "full";
-  children: React.ReactNode;
+  children: React__default.ReactNode;
   className?: string;
   sx?: CSSObject;
 }
@@ -443,13 +448,14 @@ interface PageLayoutProps {
 declare const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps>;
 
 interface MainContainerProps {
-  menu?: React.ReactNode;
-  children: React.ReactNode;
+  menu?: React__default.ReactNode;
+  children: React__default.ReactNode;
 }
 
 declare const MainContainer: FC<MainContainerProps>;
 
-interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputBoxProps
+  extends React__default.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   fullWidth?: boolean;
   label?: string;
@@ -457,10 +463,11 @@ interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   sx?: CSSObject;
   index?: number;
   overlayId?: "index";
-  overlayIcon?: React.ReactNode;
+  overlayIcon?: React__default.ReactNode;
   overlayAction?: () => void;
-  overlayObject?: React.ReactNode;
+  overlayObject?: React__default.ReactNode;
   noLabelMinWidth?: boolean;
+  startIcon?: React__default.ReactNode;
   required?: boolean;
   className?: string;
   error?: string;
@@ -470,8 +477,8 @@ declare const InputBox: FC<InputBoxProps>;
 
 interface BreadcrumbsProps {
   sx?: CSSObject;
-  children: React.ReactNode;
-  additionalOptions?: React.ReactNode;
+  children: React__default.ReactNode;
+  additionalOptions?: React__default.ReactNode;
   goBackFunction: () => void;
 }
 
@@ -481,30 +488,30 @@ interface ActionItem {
   action: () => void;
   label: string;
   disabled: boolean;
-  icon: React.ReactNode;
+  icon: React__default.ReactNode;
   tooltip: string;
 }
 interface ActionsListProps {
   sx?: CSSObject;
   items: ActionItem[];
-  title: React.ReactNode;
+  title: React__default.ReactNode;
 }
 
 declare const ActionsList: FC<ActionsListProps>;
 
 interface SimpleHeaderProps {
-  label: React.ReactNode;
-  icon?: React.ReactNode;
+  label: React__default.ReactNode;
+  icon?: React__default.ReactNode;
   sx?: CSSObject;
 }
 
 declare const SimpleHeader: FC<SimpleHeaderProps>;
 
 interface ScreenTitleProps {
-  icon: React.ReactNode;
-  subTitle: React.ReactNode;
+  icon: React__default.ReactNode;
+  subTitle: React__default.ReactNode;
   title: string;
-  actions: React.ReactNode;
+  actions: React__default.ReactNode;
   sx?: CSSObject;
   bottomBorder?: boolean;
 }
@@ -514,10 +521,10 @@ declare const ScreenTitle: FC<ScreenTitleProps>;
 interface ModalBoxProps {
   onClose: () => void;
   open: boolean;
-  title: React.ReactNode;
-  children: React.ReactNode;
+  title: React__default.ReactNode;
+  children: React__default.ReactNode;
   widthLimit?: boolean;
-  titleIcon?: React.ReactNode;
+  titleIcon?: React__default.ReactNode;
   backgroundOverlay?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
@@ -537,15 +544,15 @@ interface MainSwitchProps {
   description?: string;
 }
 type SwitchProps = MainSwitchProps &
-  React.InputHTMLAttributes<HTMLInputElement>;
+  React__default.InputHTMLAttributes<HTMLInputElement>;
 
 declare const Switch: FC<
-  SwitchProps & React.InputHTMLAttributes<HTMLInputElement>
+  SwitchProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
 
 interface SelectProps {
   options: SelectorType[];
-  value: string;
+  value?: string;
   id: string;
   name?: string;
   required?: boolean;
@@ -554,6 +561,7 @@ interface SelectProps {
   label?: string;
   tooltip?: string;
   noLabelMinWidth?: boolean;
+  fixedLabel?: string;
   onChange: (newValue: string) => void;
   sx?: CSSObject;
 }
@@ -562,11 +570,11 @@ declare const Select: FC<SelectProps>;
 
 interface DropdownSelectorProps {
   options: SelectorType[];
-  selectedOption: string;
+  selectedOption?: string;
   onSelect: (value: string) => void;
   hideTriggerAction: () => void;
   open: boolean;
-  anchorEl?: (EventTarget & HTMLDivElement) | null;
+  anchorEl?: (EventTarget & HTMLElement) | null;
 }
 
 declare const DropdownSelector: FC<DropdownSelectorProps>;
@@ -581,7 +589,7 @@ interface RadioGroupProps {
   disableOptions?: boolean;
   displayInColumn?: boolean;
   className?: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: React__default.ChangeEventHandler<HTMLInputElement>;
   sx?: CSSObject;
 }
 
@@ -589,9 +597,9 @@ declare const RadioGroup: FC<RadioGroupProps>;
 
 interface ReadBoxProps {
   label?: string;
-  children: React.ReactNode;
+  children: React__default.ReactNode;
   multiLine?: boolean;
-  actionButton?: React.ReactNode;
+  actionButton?: React__default.ReactNode;
   sx?: CSSObject;
 }
 
@@ -599,581 +607,863 @@ declare const ReadBox: FC<ReadBoxProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
-declare const DisabledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DisabledIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const FormatDrivesIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FormatDrivesIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const SpeedtestIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SpeedtestIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const StorageIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const StorageIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const RefreshIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const RefreshIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const VersionIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const VersionIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const LambdaBalloonIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const HelpIconFilled: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const HelpIconFilled: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ShareIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ShareIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const EditIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const EditIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const JSONIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const JSONIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const SearchIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SearchIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const WarnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const WarnIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const CircleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CircleIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const ObjectBrowserFolderIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const RedoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const RedoIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const ChangeAccessPolicyIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const ServersIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ServersIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ClosePanelIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ClosePanelIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const MinIOTierIconXs: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const MinIOTierIconXs: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const DashboardIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DashboardIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ClustersIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ClustersIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const MirroringIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const MirroringIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ToolsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ToolsIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const ArrowIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ArrowIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const ServiceAccountIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const OnlineRegistrationBackIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const ConfigurationsListIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const WatchIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const WatchIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const ServiceAccountCredentialsIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const HealIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const HealIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const S3TierIcon$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const S3TierIcon$1: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const ArrowRightIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ArrowRightIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const PreviewIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const PreviewIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const BucketQuotaIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BucketQuotaIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const SelectMultipleIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const DeleteIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DeleteIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const EditYamlIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const EditYamlIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const ReportedUsageIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const PrometheusIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const PrometheusIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ConfirmModalIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ConfirmModalIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const NextArrowIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const NextArrowIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const PermissionIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const PermissionIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const GoogleTierIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const GoogleTierIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const AccountIcon$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AccountIcon$1: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const AddAccessRuleIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const UptimeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UptimeIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const EnabledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const EnabledIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const ObjectPreviewIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const TenantsOutlineIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const DrivesIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DrivesIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const CreateNewPathIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const HelpIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const HelpIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const ReportedUsageFullIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
-declare const AddNewTagIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AddNewTagIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const OnlineRegistrationIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const DiagnosticsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DiagnosticsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const ObjectBrowser1Icon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const MinIOTierIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const MinIOTierIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const WarpIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const WarpIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const CopyIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CopyIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const OpenListIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const OpenListIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const MultipleBucketsIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const AddMembersToGroupIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const OfflineRegistrationBackIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const PrometheusErrorIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const LifecycleConfigIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const DriveFormatErrorsIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const VerifiedIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const VerifiedIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const CallHomeFeatureIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const TraceIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TraceIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const AddIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AddIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const GoogleTierIconXs: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const GoogleTierIconXs: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const LambdaNotificationsIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
-declare const BackSettingsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BackSettingsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LicenseIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LicenseIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const RemoveIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const RemoveIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const TiersNotAvailableIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
 declare const PerformanceFeatureIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const AddFolderIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AddFolderIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const S3TierIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const S3TierIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const IAMPoliciesIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const IAMPoliciesIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UsersIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UsersIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const EgressIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const EgressIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const BucketEncryptionIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const DocumentationIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const DiagnosticsFeatureIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const PasswordKeyIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const PasswordKeyIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const TrashIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TrashIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const EventSubscriptionIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const DownloadIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DownloadIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ComputerLineIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ComputerLineIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const AllBucketsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AllBucketsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LambdaIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LambdaIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const GroupsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const GroupsIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const DownloadStatIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DownloadStatIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UploadFile$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UploadFile$1: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const TiersIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TiersIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const NewAccountIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const NewAccountIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const CreateGroupIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CreateGroupIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const CollapseIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CollapseIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const ConfirmDeleteIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const OfflineRegistrationIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const TenantsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TenantsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UploadFile: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UploadFile: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const CreateIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CreateIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const NewPoolIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const NewPoolIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const SyncIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SyncIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const LogoutIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LogoutIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const AzureTierIconXs: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AzureTierIconXs: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const TotalObjectsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TotalObjectsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const HistoryIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const HistoryIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const CreateUserIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CreateUserIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const BucketsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BucketsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UploadStatIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UploadStatIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const BucketReplicationIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const ObjectManagerIcon$1: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const ObjectBrowserIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const RecoverIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const RecoverIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const SettingsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SettingsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UploadIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UploadIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const AzureTierIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AzureTierIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const CalendarIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CalendarIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const ServiceAccountsIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
-declare const LogsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LogsIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const HardBucketQuotaIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
-declare const ConsoleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ConsoleIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const ChangePasswordIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const LockIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LockIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const BackCaretIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BackCaretIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const VersionsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const VersionsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const NewPathIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const NewPathIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ObjectInfoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ObjectInfoIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const MetadataIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const MetadataIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LegalHoldIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LegalHoldIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const RetentionIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const RetentionIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const TagsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TagsIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const AlertCloseIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AlertCloseIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const OpenSourceIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const OpenSourceIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ArrowRightLink: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ArrowRightLink: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const LicenseDocIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LicenseDocIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const SelectAllIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SelectAllIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const BackIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BackIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const DeleteNonCurrentIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const EditTenantIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const EditTenantIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const SuccessIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SuccessIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const NetworkGetIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const NetworkGetIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const NetworkPutIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const NetworkPutIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const ObjectManagerIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const CancelledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CancelledIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const EditTagIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const EditTagIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LinkIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LinkIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const AlertIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AlertIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const InfoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const InfoIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const ConsoleAgpl: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ConsoleAgpl: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const ConsoleStandard: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ConsoleStandard: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
 declare const ConsoleEnterprise: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React__default.JSX.Element;
 
-declare const AGPLV3LightLogo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AGPLV3LightLogo: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const AGPLV3Logo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AGPLV3Logo: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
 declare const EnterpriseLightLogo: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const StandardLightLogo: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const AGPLV3DarkLogo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AGPLV3DarkLogo: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LDAPIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LDAPIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const OIDCIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const OIDCIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const StarIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const StarIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const AccountIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AccountIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const CollapseCaret: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CollapseCaret: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ExpandCaret: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ExpandCaret: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const CertificateIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CertificateIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const TierOnlineIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TierOnlineIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const TierOfflineIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TierOfflineIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const WarnFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const WarnFilledIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const BoxArrowUp: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BoxArrowUp: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const BoxArrowDown: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BoxArrowDown: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UserFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UserFilledIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LockFilledIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LockFilledIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FilterIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FilterIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
 
-declare const FolderIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FolderIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const ViewColumnIcon$2: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ViewColumnIcon$2: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ArrowDropUp$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ArrowDropUp$1: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ArrowDropUp: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ArrowDropUp: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const CloudIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CloudIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const DisableIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DisableIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FormatDriveIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FormatDriveIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ReportIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ReportIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const ViewColumnIcon$1: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ViewColumnIcon$1: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ViewColumnIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ViewColumnIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const AccessRuleIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AccessRuleIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const TimeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TimeIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const InspectMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const InspectMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const AuditLogsMenuIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const HealthMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const HealthMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const MenuCollapsedIcon$1: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const TraceMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const TraceMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const GroupsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const GroupsMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const MenuCollapsedIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const MetricsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const MetricsMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const IdentityMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const IdentityMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const LogsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const LogsMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const MonitoringMenuIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const SupportMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SupportMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const PerformanceMenuIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
 declare const DiagnosticsMenuIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const AccessMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AccessMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const RegisterMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const RegisterMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const DrivesMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const DrivesMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const AccountsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const AccountsMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const ProfileMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const ProfileMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const CallHomeMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const CallHomeMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const BucketsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const BucketsMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const UsersMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const UsersMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const KeysMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const KeysMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const StatusMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const StatusMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const SecretsMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const SecretsMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const PoliciesMenuIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const PoliciesMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const IdentitiesMenuIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const FileConfigIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileConfigIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FilePdfIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FilePdfIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileFontIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileFontIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileLinkIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileLinkIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileImageIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileImageIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileWorldIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileWorldIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileBookIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileBookIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileMissingIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileMissingIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileCodeIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileCodeIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FilePptIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FilePptIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileDbIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileDbIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
-declare const FileTxtIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileTxtIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileVideoIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileVideoIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileLockIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileLockIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileXlsIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileXlsIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileZipIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileZipIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 declare const FolderBrowserIcon: (
   props: SVGProps<SVGSVGElement>
-) => JSX.Element;
+) => React.JSX.Element;
 
-declare const FileCloudIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileCloudIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileMusicIcon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileMusicIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
-declare const FileNonType: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+declare const FileNonType: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
 
 export {
   AGPLV3DarkLogo,
