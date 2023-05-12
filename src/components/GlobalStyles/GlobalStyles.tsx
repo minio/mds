@@ -158,6 +158,18 @@ const GlobalStyles = createGlobalStyle`
         padding: 25px;
     }
     
+    a {
+        color: ${get(
+          theme,
+          "buttons.callAction.enabled.background",
+          "#07193E"
+        )};
+    }
+    
+    a:hover {
+        color: ${get(theme, "buttons.callAction.hover.background", "#0D2453")};
+    }
+    
     hr {
         border-top: 0;
         border-left: 0;

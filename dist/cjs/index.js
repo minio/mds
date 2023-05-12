@@ -988,7 +988,15 @@ var ba,
         )
         .concat(
           ya(t, "borderColor", "#E2E2E2"),
-          ";\n        border-radius: 3px;\n        background-color: transparent;\n        padding: 25px;\n    }\n    \n    hr {\n        border-top: 0;\n        border-left: 0;\n        borderR-right: 0;\n        border-color: "
+          ";\n        border-radius: 3px;\n        background-color: transparent;\n        padding: 25px;\n    }\n    \n    a {\n        color: "
+        )
+        .concat(
+          ya(t, "buttons.callAction.enabled.background", "#07193E"),
+          ";\n    }\n    \n    a:hover {\n        color: "
+        )
+        .concat(
+          ya(t, "buttons.callAction.hover.background", "#0D2453"),
+          ";\n    }\n    \n    hr {\n        border-top: 0;\n        border-left: 0;\n        borderR-right: 0;\n        border-color: "
         )
         .concat(
           ya(t, "borderColor", "#E2E2E2"),
@@ -13255,6 +13263,80 @@ var zc = function (e, t, a) {
       },
       a
     );
+  }),
+  Bc = i.default.textarea(function (e) {
+    var t = e.theme,
+      a = e.error;
+    e.originType;
+    var n = ya(t, "inputBox.border", "#E2E2E2"),
+      r = ya(t, "inputBox.hoverBorder", "#000110");
+    return (
+      a &&
+        "" !== a &&
+        ((n = ya(t, "inputBox.error", "#C51B3F")),
+        (r = ya(t, "inputBox.error", "#C51B3F"))),
+      {
+        fontFamily: "'Inter',sans-serif",
+        width: "100%",
+        resize: "none",
+        padding: "16px 14px",
+        color: ya(t, "inputBox.color", "#07193E"),
+        fontSize: 13,
+        fontWeight: 600,
+        border: "".concat(n, " 1px solid"),
+        borderRadius: 3,
+        outline: "none",
+        transitionDuration: "0.1s",
+        backgroundColor: ya(t, "inputBox.backgroundColor", "#fff"),
+        "&:placeholder": {
+          color: ya(t, "inputBox.placeholderColor", "#858585"),
+          opacity: 1,
+          fontWeight: 400,
+        },
+        "&:hover": { borderColor: r },
+        "&:focus": { borderColor: r },
+        "&:disabled": {
+          border: ya(t, "inputBox.disabledBorder", "#494A4D"),
+          backgroundColor: ya(t, "inputBox.disabledBackground", "#B4B4B4"),
+          color: ya(t, "inputBox.disabledText", "#E6EBEB"),
+          "&:placeholder": {
+            color: ya(t, "inputBox.disabledPlaceholder", "#E6EBEB"),
+          },
+        },
+      }
+    );
+  }),
+  Oc = i.default.div(function (e) {
+    var t = e.theme,
+      a = e.error,
+      n = e.sx;
+    return ie(
+      {
+        display: "flex",
+        alignItems: "flex-start",
+        flexGrow: 1,
+        width: "100%",
+        "& .errorText": {
+          fontSize: 12,
+          color: ya(t, "inputBox.error", "#C51B3F"),
+          marginTop: 3,
+        },
+        "& .textBoxContainer": {
+          width: "100%",
+          flexGrow: 1,
+          position: "relative",
+          minWidth: 160,
+        },
+        "& .tooltipContainer": {
+          marginLeft: 5,
+          display: "flex",
+          alignItems: "center",
+          "& .min-icon": { width: 13 },
+        },
+        "& .inputLabel": { marginBottom: a ? 18 : 0 },
+      },
+      n
+    );
   });
 (exports.AGPLV3DarkLogo = function (e) {
   return o.createElement(
@@ -15181,6 +15263,74 @@ var zc = function (e, t, a) {
             d: "M0 186h256v28H0z",
           })
         )
+      )
+    );
+  }),
+  (exports.CommentBox = function (e) {
+    var t = e.id,
+      a = e.tooltip,
+      n = void 0 === a ? "" : a,
+      r = e.index,
+      o = e.noLabelMinWidth,
+      i = e.label,
+      c = void 0 === i ? "" : i,
+      s = e.required,
+      d = e.className,
+      m = e.error,
+      u = e.sx,
+      h = ce(e, [
+        "id",
+        "tooltip",
+        "index",
+        "noLabelMinWidth",
+        "label",
+        "required",
+        "className",
+        "error",
+        "sx",
+      ]);
+    return l.default.createElement(
+      Oc,
+      { error: !!m && "" !== m, sx: u, className: "inputItem ".concat(d) },
+      "" !== c &&
+        l.default.createElement(
+          lr,
+          { htmlFor: t, noMinWidth: o, className: "inputLabel" },
+          c,
+          s ? "*" : "",
+          "" !== n &&
+            l.default.createElement(
+              Di,
+              { className: "tooltipContainer" },
+              l.default.createElement(
+                nr,
+                { tooltip: n, placement: "top" },
+                l.default.createElement(
+                  Di,
+                  { className: n },
+                  l.default.createElement(cr, null)
+                )
+              )
+            )
+        ),
+      l.default.createElement(
+        Di,
+        { className: "textBoxContainer" },
+        l.default.createElement(
+          Bc,
+          ie(
+            {
+              id: t,
+              fullWidth: !0,
+              error: m,
+              className: "inputRebase",
+              "data-index": r,
+              rows: 5,
+            },
+            h
+          )
+        ),
+        "" !== m && l.default.createElement(Di, { className: "errorText" }, m)
       )
     );
   }),
