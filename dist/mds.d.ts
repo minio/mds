@@ -473,7 +473,7 @@ interface InputBoxProps
   error?: string;
 }
 
-declare const InputBox: FC<InputBoxProps>;
+declare const InputBox$1: FC<InputBoxProps>;
 
 interface BreadcrumbsProps {
   sx?: CSSObject;
@@ -604,6 +604,22 @@ interface ReadBoxProps {
 }
 
 declare const ReadBox: FC<ReadBoxProps>;
+
+interface CommentBoxProps
+  extends React__default.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  id: string;
+  fullWidth?: boolean;
+  label?: string;
+  tooltip?: string;
+  sx?: CSSObject;
+  index?: number;
+  noLabelMinWidth?: boolean;
+  required?: boolean;
+  className?: string;
+  error?: string;
+}
+
+declare const InputBox: FC<CommentBoxProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -1519,6 +1535,7 @@ export {
   ClustersIcon,
   CollapseCaret,
   CollapseIcon,
+  InputBox as CommentBox,
   ComputerLineIcon,
   ConfigurationsListIcon,
   ConfirmDeleteIcon,
@@ -1602,7 +1619,7 @@ export {
   IdentitiesMenuIcon,
   IdentityMenuIcon,
   InfoIcon,
-  InputBox,
+  InputBox$1 as InputBox,
   InputLabel,
   InspectMenuIcon,
   JSONIcon,
