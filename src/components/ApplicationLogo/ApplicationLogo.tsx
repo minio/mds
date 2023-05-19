@@ -25,6 +25,9 @@ import KES from "./Logos/KES/KES";
 import SUBNET from "./Logos/SUBNET/SUBNET";
 import ConsoleSingle from "./Logos/Console/ConsoleSingle";
 import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
+import Cloud from "./Logos/Cloud/Cloud";
+import Releases from "./Logos/Releases/Releases";
+import VMBroker from "./Logos/VMBroker/VMBroker";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -54,6 +57,14 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <Operator inverse={!!inverse} />;
     case "subnetops":
       return <SubnetOPS inverse={!!inverse} />;
+    case "cloud":
+      return <Cloud inverse={!!inverse} />;
+    case "releases":
+      return <Releases inverse={!!inverse} />;
+      break;
+    case "vmbroker":
+      return <VMBroker inverse={!!inverse} />;
+      break;
   }
 };
 
