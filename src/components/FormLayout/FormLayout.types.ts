@@ -23,4 +23,6 @@ export interface FormLayoutProps {
   title?: string;
   icon?: React.ReactNode;
   helpBox?: React.ReactNode;
+  withBorders?: boolean;
+  containerPadding?: boolean;
 }

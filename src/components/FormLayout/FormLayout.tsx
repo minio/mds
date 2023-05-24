@@ -27,13 +27,15 @@ const FormLayout: FC<FormLayoutProps> = ({
   helpBox,
   icon,
   sx,
+  containerPadding = true,
+  withBorders = true,
 }) => {
   return (
     <Box
-      withBorders
+      withBorders={withBorders}
       sx={{
         display: "grid",
-        padding: "25px",
+        padding: containerPadding ? 25 : 0,
         gap: "25px",
         gridTemplateColumns: "1fr",
         "& .inputItem:not(:last-of-type)": {

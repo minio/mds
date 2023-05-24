@@ -65,3 +65,28 @@ FormLayoutWithCustomStyles.args = {
     borderColor: "#f9a",
   },
 };
+
+export const NoBorder = Template.bind({});
+NoBorder.args = {
+  withBorders: false,
+  helpBox: (
+    <HelpBox
+      iconComponent={<TestIcon />}
+      title={"Help Title"}
+      help={"Help Text"}
+    />
+  ),
+};
+
+export const NoBorderAndPadding = Template.bind({});
+NoBorderAndPadding.args = {
+  withBorders: false,
+  containerPadding: false,
+  helpBox: (
+    <HelpBox
+      iconComponent={<TestIcon />}
+      title={"Help Title"}
+      help={"Help Text"}
+    />
+  ),
+};
