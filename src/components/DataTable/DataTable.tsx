@@ -179,7 +179,8 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       fill: "currentColor",
     },
     "& .optionsAlignment": {
-      textAlign: "center",
+      display: "flex",
+      gap: 5,
       "& .min-icon": {
         width: 16,
         height: 16,
@@ -517,7 +518,7 @@ const DataTable: FC<DataTableProps> = ({
                       {hasOptions && (
                         // @ts-ignore
                         <Column
-                          dataKey={rowIDField || "column-options"}
+                          dataKey={"column-options"}
                           width={optionsWidth}
                           headerClassName="optionsAlignment"
                           className="optionsAlignment"

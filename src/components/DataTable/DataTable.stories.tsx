@@ -272,3 +272,51 @@ WithSortIndicators.args = {
     },
   },
 };
+
+export const WithItemActions = Template.bind({});
+WithItemActions.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  itemActions: [
+    {
+      type: "edit",
+      onClick: (itemID: string) => {
+        alert(itemID);
+      },
+      sendOnlyId: true,
+      label: "Edit",
+    },
+    {
+      type: "delete",
+      onClick: (deleteItem) => {
+        console.log("DELETE", deleteItem);
+      },
+      label: "Delete",
+    },
+  ],
+  records: [
+    { field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+  ],
+  columns: [
+    { label: "Column1", elementKey: "field1", width: 200 },
+    { label: "Column2", elementKey: "field2", width: 100 },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+  sortConfig: {
+    currentSort: "field1",
+    currentDirection: "DESC",
+    triggerSort: () => {
+      alert("sort triggered");
+    },
+  },
+};
