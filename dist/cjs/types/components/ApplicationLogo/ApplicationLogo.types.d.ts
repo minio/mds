@@ -5,7 +5,10 @@ export interface ApplicationLogoProps {
     | "directpv"
     | "kes"
     | "subnet"
-    | "subnetops";
+    | "subnetops"
+    | "cloud"
+    | "releases"
+    | "vmbroker";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
   inverse?: boolean;
 }
