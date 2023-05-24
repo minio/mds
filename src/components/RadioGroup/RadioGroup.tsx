@@ -74,6 +74,7 @@ const OptionsContainer = styled.div<OptionsContainerProps>(({ inColumn }) => ({
   justifyContent: "flex-end",
   gap: 15,
   "& .optionLabel": {
+    userSelect: "none",
     "&.checked": {
       fontWeight: "bold",
     },
