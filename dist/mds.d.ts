@@ -222,7 +222,10 @@ interface ApplicationLogoProps {
     | "directpv"
     | "kes"
     | "subnet"
-    | "subnetops";
+    | "subnetops"
+    | "cloud"
+    | "releases"
+    | "vmbroker";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
   inverse?: boolean;
 }
@@ -434,6 +437,8 @@ interface FormLayoutProps {
   title?: string;
   icon?: React__default.ReactNode;
   helpBox?: React__default.ReactNode;
+  withBorders?: boolean;
+  containerPadding?: boolean;
 }
 
 declare const FormLayout: FC<FormLayoutProps>;
