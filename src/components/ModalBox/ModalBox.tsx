@@ -40,7 +40,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
       opacity: 0,
       "&.active": {
         opacity: 1,
-        transitionDuration: "0.3s",
+        transition: "opacity 0.3s",
       },
     },
     "& .modalContainer": {
