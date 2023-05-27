@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import get from "lodash/get";
 import styled from "styled-components";
+import { useEscapeKey } from "../../global/hooks";
 import { ModalBoxContainerProps, ModalBoxProps } from "./ModalBox.types";
 import Box from "../Box/Box";
-import { createPortal } from "react-dom";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
 
 const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
@@ -114,6 +115,8 @@ const ModalBox: FC<ModalBoxProps> = ({
   customMaxWidth = 750,
   sx,
 }) => {
+  useEscapeKey(onClose);
+
   const [displayOverlay, setDisplayOverlay] = useState<boolean>(false);
 
   useEffect(() => {
