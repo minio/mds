@@ -20,7 +20,7 @@ import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
 const DirectPV: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
   return (
-    <LogoBase viewBox="0 0 665.85156 144.36321" inverse={inverse}>
+    <LogoBase viewBox="0 0 665.85156 145.5" inverse={inverse}>
       <g>
         <rect
           className={"minioSection"}
