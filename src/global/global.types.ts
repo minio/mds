@@ -171,6 +171,13 @@ export interface ReadBoxThemeProps {
   textColor: string;
 }
 
+export interface SignalColorsThemeProps {
+  danger: string;
+  warning: string;
+  good: string;
+  info: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -181,6 +188,7 @@ export interface ThemeDefinitionProps {
   logoLabelInverse: string;
   loaderColor: string;
   boxBackground: string;
+  signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
     callAction?: ButtonThemeStatesProps;
