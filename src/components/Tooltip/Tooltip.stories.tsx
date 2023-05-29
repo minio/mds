@@ -127,7 +127,7 @@ OnDisabledElement.args = {
   tooltip: <span>Some tooltip Label</span>,
   placement: "top",
   children: (
-    <Button id={"testButton"} disabled>
+    <Button id={"testButton"} disabled style={{ pointerEvents: "none" }}>
       Button
     </Button>
   ),

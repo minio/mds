@@ -88,6 +88,9 @@ const ActionsList: FC<ActionsListProps> = ({ sx, items, title }) => {
                   icon={actionItem.icon}
                   onClick={actionItem.action}
                   disabled={actionItem.disabled}
+                  style={{
+                    pointerEvents: actionItem.disabled ? "none" : "initial",
+                  }}
                 />
               </Tooltip>
             </li>
