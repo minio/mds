@@ -49,7 +49,7 @@ export const lightColors = {
   tooltipBG: "#737373",
   tooltipColor: "#FFFFFF",
   labelColor: "#07193E",
-  checkBox: "#4CCB92",
+  mainGreen: "#4CCB92",
   checkBoxBorder: "#c3c3c3",
   iconButtonBG: "#F8F8F8",
   iconButtonActive: "#5B5C5C80",
@@ -75,6 +75,7 @@ export const lightColors = {
   secondAction: "#005C7E",
   secondActionHover: "#1B779A",
   secondActionActive: "#07506A",
+  mainOrange: "#FFBD62",
 };
 
 export const darkColors = {
@@ -110,7 +111,7 @@ export const darkColors = {
   tooltipBG: "#8E98A9",
   tooltipColor: "#161C24",
   labelColor: "#A2ADC0",
-  checkBox: "#58FAB1",
+  mainGreen: "#58FAB1",
   checkBoxBorder: "#8E98A9",
   iconButtonBG: "#A2ADC0",
   iconButtonActive: "#707988",
@@ -131,6 +132,7 @@ export const darkColors = {
   secondAction: "#1B637E",
   secondActionHover: "#297E9D",
   secondActionActive: "#145B76",
+  mainOrange: "#fCCE9D",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -143,6 +145,12 @@ export const lightTheme: ThemeDefinitionProps = {
   logoLabelInverse: lightColors.logoLabelInverse,
   loaderColor: lightColors.loaderColor,
   boxBackground: lightColors.boxBackground,
+  signalColors: {
+    danger: lightColors.mainRed,
+    good: lightColors.mainGreen,
+    info: lightColors.bulletColor,
+    warning: lightColors.mainOrange,
+  },
   buttons: {
     regular: {
       enabled: {
@@ -298,7 +306,7 @@ export const lightTheme: ThemeDefinitionProps = {
   },
   checkbox: {
     checkBoxBorder: lightColors.checkBoxBorder,
-    checkBoxColor: lightColors.checkBox,
+    checkBoxColor: lightColors.mainGreen,
     disabledBorder: lightColors.disabledInnerGrey,
     disabledColor: lightColors.disabledBGGrey,
   },
@@ -367,7 +375,7 @@ export const lightTheme: ThemeDefinitionProps = {
     titleColor: lightColors.defaultFontColor,
     iconColor: {
       default: lightColors.mainBlue,
-      accept: lightColors.checkBox,
+      accept: lightColors.mainGreen,
       delete: lightColors.mainRed,
     },
   },
@@ -378,7 +386,7 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledBulletBorderColor: lightColors.bulletBGColor,
     offLabelColor: lightColors.disabledInnerGrey,
     onLabelColor: lightColors.mainBlue,
-    onBackgroundColor: lightColors.checkBox,
+    onBackgroundColor: lightColors.mainGreen,
     switchBackground: lightColors.hoverGrey,
     disabledBackground: lightColors.hoverGrey,
   },
@@ -407,6 +415,12 @@ export const darkTheme: ThemeDefinitionProps = {
   logoLabelInverse: darkColors.logoLabelInverse,
   loaderColor: darkColors.loaderColor,
   boxBackground: darkColors.boxBackground,
+  signalColors: {
+    danger: darkColors.mainRed,
+    good: darkColors.mainGreen,
+    info: darkColors.secondActionHover,
+    warning: darkColors.mainOrange,
+  },
   buttons: {
     regular: {
       enabled: {
@@ -562,7 +576,7 @@ export const darkTheme: ThemeDefinitionProps = {
   },
   checkbox: {
     checkBoxBorder: darkColors.checkBoxBorder,
-    checkBoxColor: darkColors.checkBox,
+    checkBoxColor: darkColors.mainGreen,
     disabledBorder: darkColors.disabledInnerGrey,
     disabledColor: darkColors.disabledBGGrey,
   },
@@ -631,7 +645,7 @@ export const darkTheme: ThemeDefinitionProps = {
     titleColor: darkColors.defaultFontColor,
     iconColor: {
       default: darkColors.mainGrey,
-      accept: darkColors.checkBox,
+      accept: darkColors.mainGreen,
       delete: darkColors.mainRed,
     },
   },
@@ -642,7 +656,7 @@ export const darkTheme: ThemeDefinitionProps = {
     disabledBulletBorderColor: darkColors.backLinkArrow,
     offLabelColor: darkColors.hoverGrey,
     onLabelColor: darkColors.hoverWhite,
-    onBackgroundColor: darkColors.checkBox,
+    onBackgroundColor: darkColors.mainGreen,
     switchBackground: darkColors.backLinkArrow,
     disabledBackground: darkColors.disabledSwitchBG,
   },
