@@ -15,7 +15,7 @@
   "types": "dist/mds.d.ts",
   "dependencies": {
     "@types/styled-components": "^5.1.25",
-    "detect-gpu": "^5.0.25",
+    "detect-gpu": "^5.0.26",
     "react-virtualized": "^9.22.5",
     "styled-components": "^5.3.10"
   },
