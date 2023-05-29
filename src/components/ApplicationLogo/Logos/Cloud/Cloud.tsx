@@ -20,7 +20,7 @@ import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
 const Cloud: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
   return (
-    <LogoBase viewBox="0 0 184.538 49.96" inverse={inverse}>
+    <LogoBase viewBox="0 0 184.538 52" inverse={inverse}>
       <g>
         <g>
           <rect
