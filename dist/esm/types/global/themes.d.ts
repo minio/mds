@@ -32,7 +32,7 @@ export declare const lightColors: {
   tooltipBG: string;
   tooltipColor: string;
   labelColor: string;
-  checkBox: string;
+  mainGreen: string;
   checkBoxBorder: string;
   iconButtonBG: string;
   iconButtonActive: string;
@@ -58,6 +58,16 @@ export declare const lightColors: {
   secondAction: string;
   secondActionHover: string;
   secondActionActive: string;
+  mainOrange: string;
+  menuBackground: string;
+  menuDropArrowColor: string;
+  menuDropArrowBackground: string;
+  menuSelectedOption: string;
+  menuCommonColor: string;
+  menuColorDivider: string;
+  menuCollapseColor: string;
+  menuIconBG: string;
+  menuIconBorder: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -92,7 +102,7 @@ export declare const darkColors: {
   tooltipBG: string;
   tooltipColor: string;
   labelColor: string;
-  checkBox: string;
+  mainGreen: string;
   checkBoxBorder: string;
   iconButtonBG: string;
   iconButtonActive: string;
@@ -113,6 +123,18 @@ export declare const darkColors: {
   secondAction: string;
   secondActionHover: string;
   secondActionActive: string;
+  mainOrange: string;
+  menuBackground: string;
+  menuDropArrowColor: string;
+  menuDropArrowBackground: string;
+  menuSelectedOption: string;
+  menuCommonColor: string;
+  menuColorDivider: string;
+  menuCollapseColor: string;
+  menuIconBG: string;
+  menuIconBorder: string;
+  menuHoverSelectedBorderIcon: string;
+  menuHoverSelectedBG: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
