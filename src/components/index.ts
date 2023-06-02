@@ -58,3 +58,6 @@ export { default as Menu } from "./Menu/Menu";
 export * from "./Icons";
 export * from "./Icons/SidebarMenus";
 export * from "./Icons/FileIcons";
+
+/*Interfaces*/
+export * from "./Menu/Menu.types";

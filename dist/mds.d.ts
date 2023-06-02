@@ -702,6 +702,22 @@ interface MenuItemProps {
   currentPath?: string;
   visibleTooltip?: boolean;
 }
+interface SectionHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  label: string;
+  divider?: boolean;
+}
+interface MainHeaderProps {
+  divider?: boolean;
+}
+interface MenuConstructProps {
+  sx?: CSSObject;
+}
+interface SubItemsBoxProps {
+  anchorEl: (EventTarget & HTMLElement) | null;
+  hideTriggerAction: () => void;
+  children: React__default.ReactNode;
+  open: boolean;
+}
 
 declare const Menu: FC<MenuProps>;
 
@@ -1730,9 +1746,13 @@ export {
   LogsIcon,
   LogsMenuIcon,
   MainContainer,
+  MainHeaderProps,
   Menu,
   MenuCollapsedIcon,
+  MenuConstructProps,
   MenuCollapsedIcon$1 as MenuExpandedIcon,
+  MenuItemProps,
+  MenuProps,
   MetadataIcon,
   MetricsMenuIcon,
   MinIOTierIcon,
@@ -1788,6 +1808,7 @@ export {
   ScreenTitle,
   SearchIcon,
   SecretsMenuIcon,
+  SectionHeaderProps,
   SectionTitle,
   Select,
   SelectAllIcon,
@@ -1804,6 +1825,7 @@ export {
   StarIcon,
   StatusMenuIcon,
   StorageIcon,
+  SubItemsBoxProps,
   SuccessIcon,
   SupportMenuIcon,
   Switch,
