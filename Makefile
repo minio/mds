@@ -8,3 +8,6 @@ lint:
 
 test:
 	@(yarn install; yarn test;)
+
+test-warnings:
+	./check-warnings.sh

@@ -14,14 +14,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
+import React, { FC } from "react";
+import CircleIcon from "../../Icons/CircleIcon";
 
-export interface MainContainerProps {
-  menu?: React.ReactNode;
-  children: React.ReactNode;
-  horizontal?: boolean;
-}
+const MenuBadge: FC = () => {
+  return <CircleIcon />;
+};
 
-export interface ParentBoxProps {
-  horizontal?: boolean;
-}
+export default MenuBadge;

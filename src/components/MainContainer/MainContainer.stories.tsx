@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import MainContainer from "./MainContainer";
 import { MainContainerProps } from "./MainContainer.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { Button, GlobalStyles } from "../index";
+import { GlobalStyles } from "../index";
 import Box from "../Box/Box";
 
 export default {
@@ -29,26 +29,32 @@ export default {
   argTypes: {},
 } as Meta<typeof MainContainer>;
 
-const Template: Story<MainContainerProps> = (args) => (
-  <StoryThemeProvider>
-    <GlobalStyles />
-    <MainContainer {...args} />
-  </StoryThemeProvider>
-);
+const Template: Story<MainContainerProps> = (args) => {
+  return (
+    <StoryThemeProvider>
+      <GlobalStyles />
+      <MainContainer {...args} />
+    </StoryThemeProvider>
+  );
+};
 
 export const Default = Template.bind({});
 
 Default.args = {
-  menu: (
-    <Box sx={{ width: 250, backgroundColor: "#fac" }}>
-      A Block simulating a menu box
-    </Box>
-  ),
   children: <Box>This is a Block simulating the content box</Box>,
+  menu: <div>This is where menu goes</div>,
 };
 
 export const NoMenu = Template.bind({});
 
 NoMenu.args = {
   children: <Box>This is a Block simulating the content box</Box>,
+};
+
+export const HorizontalMenu = Template.bind({});
+
+HorizontalMenu.args = {
+  children: <Box>This is a Block simulating the content box</Box>,
+  menu: <div>This is where menu goes</div>,
+  horizontal: true,
 };

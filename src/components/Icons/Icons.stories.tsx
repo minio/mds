@@ -271,6 +271,12 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.CollapseMenuIcon />
+              <br />
+              CollapseMenuIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.ComputerLineIcon />
               <br />
               ComputerLineIcon
