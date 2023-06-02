@@ -24,7 +24,8 @@ export interface ApplicationLogoProps {
     | "subnetops"
     | "cloud"
     | "releases"
-    | "vmbroker";
+    | "vmbroker"
+    | "midas";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
   inverse?: boolean;
 }
