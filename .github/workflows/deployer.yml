@@ -1,9 +1,9 @@
 name: Workflow
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types:
+      - published
 
 concurrency:
   group: ${{ github.workflow }}-deployer-${{ github.head_ref }}
