@@ -28,6 +28,7 @@ import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 import Cloud from "./Logos/Cloud/Cloud";
 import Releases from "./Logos/Releases/Releases";
 import VMBroker from "./Logos/VMBroker/VMBroker";
+import Midas from "./Logos/Midas/Midas";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -64,6 +65,9 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       break;
     case "vmbroker":
       return <VMBroker inverse={!!inverse} />;
+      break;
+    case "midas":
+      return <Midas inverse={!!inverse} />;
       break;
   }
 };
