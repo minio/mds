@@ -188,3 +188,4 @@ export { default as VisibilityOnIcon } from "./VisibilityOnIcon";
 export { default as VisibilityOffIcon } from "./VisibilityOffIcon";
 export { default as AccessRuleIcon } from "./AccessRuleIcon";
 export { default as TimeIcon } from "./TimeIcon";
+export { default as CollapseMenuIcon } from "./CollapseMenuIcon";

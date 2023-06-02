@@ -9,6 +9,14 @@ import React__default, {
 import * as styled_components from "styled-components";
 import { CSSObject, CSSProperties } from "styled-components";
 
+declare const breakPoints: {
+  xs: number;
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+};
+
 interface ButtonThemeProps {
   border: string;
   text: string;
@@ -143,6 +151,45 @@ interface ReadBoxThemeProps {
   backgroundColor: string;
   textColor: string;
 }
+interface SignalColorsThemeProps {
+  danger: string;
+  warning: string;
+  good: string;
+  info: string;
+}
+interface MenuThemeProps {
+  vertical?: {
+    background: string;
+    textColor: string;
+    iconBorderColor: string;
+    iconBGColor: string;
+    hoverSelectedIconBorder: string;
+    hoverSelectedBackground: string;
+    hoverSelectedColor: string;
+    sectionDividerColor: string;
+    notificationColor: string;
+    dropArrowBackground: string;
+    dropArrowColor: string;
+    menuCollapseColor: string;
+    sectionLabelColor: string;
+  };
+  horizontal?: {
+    menuHeaderBackground: string;
+    barBackground: string;
+    textColor: string;
+    iconBorderColor: string;
+    iconBGColor: string;
+    hoverSelectedIconBorder: string;
+    hoverSelectedBackground: string;
+    hoverSelectedColor: string;
+    sectionDividerColor: string;
+    notificationColor: string;
+    dropArrowBackground: string;
+    dropArrowColor: string;
+    dropBackground: string;
+    dropHoverSelectedColor: string;
+  };
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -153,6 +200,7 @@ interface ThemeDefinitionProps {
   logoLabelInverse: string;
   loaderColor: string;
   boxBackground: string;
+  signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
     callAction?: ButtonThemeStatesProps;
@@ -176,6 +224,7 @@ interface ThemeDefinitionProps {
   switchButton?: SwitchThemeProps;
   dropdownSelector?: DropdownSelectorThemeProps;
   readBox?: ReadBoxThemeProps;
+  menu?: MenuThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -225,7 +274,8 @@ interface ApplicationLogoProps {
     | "subnetops"
     | "cloud"
     | "releases"
-    | "vmbroker";
+    | "vmbroker"
+    | "midas";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
   inverse?: boolean;
 }
@@ -455,6 +505,7 @@ declare const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps>;
 interface MainContainerProps {
   menu?: React__default.ReactNode;
   children: React__default.ReactNode;
+  horizontal?: boolean;
 }
 
 declare const MainContainer: FC<MainContainerProps>;
@@ -625,6 +676,34 @@ interface CommentBoxProps
 }
 
 declare const InputBox: FC<CommentBoxProps>;
+
+interface MenuProps {
+  options: MenuItemProps[];
+  sx?: CSSObject;
+  applicationLogo: ApplicationLogoProps;
+  callPathAction: (path: string) => void;
+  horizontal?: boolean;
+  isOpen: boolean;
+  collapseAction: () => void;
+  displayGroupTitles?: boolean;
+  signOutAction?: () => void;
+  currentPath?: string;
+  middleComponent?: React__default.ReactNode;
+}
+interface MenuItemProps {
+  groupName: string;
+  path?: string;
+  name: string;
+  id?: string;
+  icon: React__default.ReactNode;
+  onClick?: (path: string) => void;
+  children?: MenuItemProps[];
+  badge?: boolean;
+  currentPath?: string;
+  visibleTooltip?: boolean;
+}
+
+declare const Menu: FC<MenuProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -1300,6 +1379,10 @@ declare const AccessRuleIcon: (
 
 declare const TimeIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
 
+declare const CollapseMenuIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>
 ) => React.JSX.Element;
@@ -1540,6 +1623,7 @@ export {
   ClustersIcon,
   CollapseCaret,
   CollapseIcon,
+  CollapseMenuIcon,
   InputBox as CommentBox,
   ComputerLineIcon,
   ConfigurationsListIcon,
@@ -1646,6 +1730,7 @@ export {
   LogsIcon,
   LogsMenuIcon,
   MainContainer,
+  Menu,
   MenuCollapsedIcon,
   MenuCollapsedIcon$1 as MenuExpandedIcon,
   MetadataIcon,
@@ -1757,4 +1842,5 @@ export {
   WarnIcon,
   WarpIcon,
   WatchIcon,
+  breakPoints,
 };
