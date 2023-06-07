@@ -32,6 +32,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
     width: 250,
     maxWidth: 250,
+    minWidth: 250,
     height: "100vh",
     overflow: "auto",
     position: "relative",
@@ -83,6 +84,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     },
     "&.collapsed": {
       width: 80,
+      minWidth: 80,
       boxSizing: "content-box",
       "& .collapseButton, & .menuLogoContainer": {
         display: "none",
@@ -196,7 +198,7 @@ const VerticalMenu: FC<MenuProps> = ({
             <ApplicationLogo inverse {...applicationLogo} />
           </Box>
           <Box className={"collapsedMenuHeader"}>
-            <Tooltip tooltip={"Expand Menu"}>
+            <Tooltip tooltip={"Expand Menu"} placement={"right"}>
               <span className={"collapsedIcon"}>
                 <MinIOTierIconXs />
               </span>
