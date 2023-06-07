@@ -179,6 +179,12 @@ const MenuItem: FC<MenuItemProps> = ({
     }
   }
 
+  // If Menu has children set but not sub items, then we hide it
+
+  if (children && children.length === 0) {
+    return null;
+  }
+
   // Menu option with submenus
   if (children && children.length > 0) {
     return (
@@ -212,7 +218,7 @@ const MenuItem: FC<MenuItemProps> = ({
                   icon={child.icon}
                   id={child.id}
                   path={child.path}
-                  groupName={child.groupName}
+                  group={child.group}
                   currentPath={currentPath}
                 />
               </Tooltip>

@@ -219,7 +219,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
                   icon={child.icon}
                   id={child.id}
                   path={child.path}
-                  groupName={child.groupName}
+                  group={child.group}
                   currentPath={currentPath}
                 />
               ))}

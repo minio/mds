@@ -33,7 +33,7 @@ export interface MenuProps {
 }
 
 export interface MenuItemProps {
-  groupName: string;
+  group?: string;
   path?: string;
   name: string;
   id?: string;
