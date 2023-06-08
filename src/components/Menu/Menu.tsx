@@ -14,17 +14,32 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { MenuProps } from "./Menu.types";
 import { breakPoints } from "../../global/utils";
 import HorizontalMenu from "./Horizontal/HorizontalMenu";
 import VerticalMenu from "./Vertical/VerticalMenu";
 import MobileMenu from "./MobileMenu/MobileMenu";
+import debounce from "lodash/debounce";
 
-const Menu: FC<MenuProps> = ({ horizontal = false, ...props }) => {
-  const windowWidth = document.documentElement.offsetWidth;
+const Menu: FC<MenuProps> = ({
+  horizontal = false,
+  mobileModeAuto = true,
+  ...props
+}) => {
+  const [mobileMode, setMobileMode] = useState<boolean>(false);
 
-  if (windowWidth <= breakPoints.md) {
+  useEffect(() => {
+    const scrollResize = debounce(() => {
+      const windowWidth = document.documentElement.offsetWidth;
+
+      setMobileMode(windowWidth <= breakPoints.md);
+    }, 400);
+
+    window.addEventListener("resize", scrollResize);
+  });
+
+  if (mobileMode && mobileModeAuto) {
     return <MobileMenu {...props} />;
   }
 
@@ -34,7 +49,7 @@ const Menu: FC<MenuProps> = ({ horizontal = false, ...props }) => {
 
   if (!!props.middleComponent) {
     console.warn(
-      "Middle component set, this cannot be rendered in Vertical Menu"
+      "Middle component is set, this cannot be rendered in Vertical Menu"
     );
   }
 

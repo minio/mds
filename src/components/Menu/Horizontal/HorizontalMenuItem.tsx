@@ -165,6 +165,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
   onClick,
   badge,
   currentPath,
+  isVisible = true,
 }) => {
   const [open, setOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -183,8 +184,19 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
     setAnchorEl(null);
   };
 
+  // If Menu has children set but not sub items, then we hide it
+  if ((children && children.length === 0) || !isVisible) {
+    return null;
+  }
+
   // Menu option with submenus
   if (children && children.length > 0) {
+    const filterSubItems = children.filter((item) => item.isVisible !== false);
+
+    if (filterSubItems.length === 0) {
+      return null;
+    }
+
     return (
       <MenuItemContainer>
         <MenuItemButton
@@ -212,7 +224,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
             >
               {children.map((child) => (
                 <HorizontalMenuItem
-                  key={`sub-menu-opt-${child.name}-${child.id}`}
+                  key={`sub-menu-opt-${name}-${child.id || child.name}`}
                   onClick={onClick}
                   name={child.name}
                   badge={child.badge}

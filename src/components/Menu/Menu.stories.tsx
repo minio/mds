@@ -60,94 +60,103 @@ const Template: Story<MenuProps> = ({ options, horizontal }) => {
 
 export const Default = Template.bind({});
 
+const options = [
+  {
+    icon: <TestIcon />,
+    path: "/testPath1",
+    name: "Test 1",
+    group: "Group 1",
+    id: "test1",
+    onClick: (path) => {
+      console.log("Custom Click Action", path);
+    },
+  },
+  {
+    icon: <TestIcon />,
+    name: "Test X",
+    group: "Group 1",
+    id: "testX",
+    onClick: (path) => {
+      console.log("Custom Click Action NO PATH", path);
+    },
+  },
+  {
+    icon: <TestIcon />,
+    path: "/testPath2",
+    name: "Test 2",
+    group: "Group 1",
+    id: "test2",
+    badge: true,
+  },
+  {
+    icon: <TestIcon />,
+    path: "/testPath3",
+    name: "Test 3",
+    group: "Group 1",
+    id: "tes3",
+  },
+  {
+    icon: <TestIcon />,
+    path: "/testPath4",
+    name: "Test 4",
+    group: "Group 2",
+    id: "tes4",
+  },
+  {
+    icon: <TestIcon />,
+    name: "Test 5",
+    group: "Group 2",
+    id: "test5",
+    children: [
+      {
+        icon: <TestIcon />,
+        path: "/subPath1",
+        name: "Sublevel 1",
+        group: "Group 2",
+        id: "testl1",
+      },
+      {
+        icon: <TestIcon />,
+        path: "/subPath2",
+        name: "Sublevel 2",
+        group: "Group 2",
+        id: "testl2",
+      },
+      {
+        icon: <TestIcon />,
+        path: "/subPath3",
+        name: "Sublevel 3",
+        group: "Group 2",
+        id: "testl3",
+      },
+    ],
+  },
+  {
+    icon: <TestIcon />,
+    path: "https://min.io/",
+    name: "External URL",
+    group: "Group 2",
+    id: "testl1",
+  },
+  {
+    icon: <TestIcon />,
+    name: "Hidden",
+    group: "Group 2",
+    id: "test5",
+    children: [],
+  },
+];
+
 Default.args = {
   children: <Box>This is a Block simulating the content box</Box>,
-  options: [
-    {
-      icon: <TestIcon />,
-      path: "/testPath1",
-      name: "Test 1",
-      group: "Group 1",
-      id: "test1",
-      onClick: (path) => {
-        console.log("Custom Click Action", path);
-      },
-    },
-    {
-      icon: <TestIcon />,
-      name: "Test X",
-      group: "Group 1",
-      id: "testX",
-      onClick: (path) => {
-        console.log("Custom Click Action NO PATH", path);
-      },
-    },
-    {
-      icon: <TestIcon />,
-      path: "/testPath2",
-      name: "Test 2",
-      group: "Group 1",
-      id: "test2",
-      badge: true,
-    },
-    {
-      icon: <TestIcon />,
-      path: "/testPath3",
-      name: "Test 3",
-      group: "Group 1",
-      id: "tes3",
-    },
-    {
-      icon: <TestIcon />,
-      path: "/testPath4",
-      name: "Test 4",
-      group: "Group 2",
-      id: "tes4",
-    },
-    {
-      icon: <TestIcon />,
-      name: "Test 5",
-      group: "Group 2",
-      id: "test5",
-      children: [
-        {
-          icon: <TestIcon />,
-          path: "/subPath1",
-          name: "Sublevel 1",
-          group: "Group 2",
-          id: "testl1",
-        },
-        {
-          icon: <TestIcon />,
-          path: "/subPath2",
-          name: "Sublevel 2",
-          group: "Group 2",
-          id: "testl2",
-        },
-        {
-          icon: <TestIcon />,
-          path: "/subPath3",
-          name: "Sublevel 3",
-          group: "Group 2",
-          id: "testl3",
-        },
-      ],
-    },
-    {
-      icon: <TestIcon />,
-      path: "https://min.io/",
-      name: "External URL",
-      group: "Group 2",
-      id: "testl1",
-    },
-    {
-      icon: <TestIcon />,
-      name: "Hidden",
-      group: "Group 2",
-      id: "test5",
-      children: [],
-    },
-  ],
+  options,
+};
+
+export const SubpathSelected = Template.bind({});
+
+SubpathSelected.args = {
+  children: <Box>This is a Block simulating the content box</Box>,
+  options,
 };
 
 export const Horizontal = Template.bind({});
@@ -168,37 +177,6 @@ Horizontal.args = {
     },
     {
       icon: <TestIcon />,
-      name: "Test X",
-      group: "Group 1",
-      id: "testX",
-      onClick: (path) => {
-        console.log("Custom Click Action NO PATH", path);
-      },
-    },
-    {
-      icon: <TestIcon />,
-      path: "/testPath2",
-      name: "Test 2",
-      group: "Group 1",
-      id: "test2",
-      badge: true,
-    },
-    {
-      icon: <TestIcon />,
-      path: "/testPath3",
-      name: "Test 3",
-      group: "Group 1",
-      id: "tes3",
-    },
-    {
-      icon: <TestIcon />,
-      path: "/testPath4",
-      name: "Test 4",
-      group: "Group 2",
-      id: "tes4",
-    },
-    {
-      icon: <TestIcon />,
       name: "Test 5",
       group: "Group 2",
       id: "test5",
@@ -226,12 +204,13 @@ Horizontal.args = {
         },
       ],
     },
-    {
-      icon: <TestIcon />,
-      path: "https://min.io/",
-      name: "External URL",
-      group: "Group 2",
-      id: "testl1",
-    },
   ],
+};
+
+export const MobileAutoDisabled = Template.bind({});
+
+MobileAutoDisabled.args = {
+  children: <Box>This is a Block simulating the content box</Box>,
+  mobileModeAuto: false,
+  options,
 };
