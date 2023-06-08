@@ -45,10 +45,12 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     "& .menuContainer": {
       height: "inherit",
       position: "relative",
+      display: "flex",
+      flexDirection: "column",
       "& .collapseButton": {
         position: "absolute",
         right: 11,
-        top: -12,
+        top: 10,
         "& > svg": {
           width: 12,
           height: 12,
@@ -77,7 +79,6 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
       display: "flex",
       flexDirection: "column",
       flexGrow: 1,
-      height: "100%",
     },
     "& .menuHeaderContainer": {
       cursor: "pointer",
@@ -209,11 +210,11 @@ const VerticalMenu: FC<MenuProps> = ({
           {options.map((option) => {
             let extraItem = null;
 
-            if (displayGroupTitles) {
-              if (currTitle !== option.groupName) {
-                currTitle = option.groupName;
+            if (displayGroupTitles && option.group) {
+              if (currTitle !== option.group) {
+                currTitle = option.group;
 
-                extraItem = <MenuSectionHeader label={option.groupName} />;
+                extraItem = <MenuSectionHeader label={option.group} />;
               }
             }
 
@@ -227,13 +228,15 @@ const VerticalMenu: FC<MenuProps> = ({
             };
 
             return (
-              <Fragment key={`menu-section-${option.groupName}-${option.id}`}>
+              <Fragment
+                key={`menu-section-${option.group || "common"}-${option.id}`}
+              >
                 {extraItem}
                 <MenuItem
                   onClick={onClickAction}
                   icon={option.icon}
                   name={option.name}
-                  groupName={option.groupName}
+                  group={option.group}
                   id={option.id}
                   path={option.path}
                   currentPath={currentPath}
@@ -249,7 +252,7 @@ const VerticalMenu: FC<MenuProps> = ({
               <MenuSectionHeader label={""} />
               <MenuItem
                 id="sign-out"
-                groupName={"common"}
+                group={"common"}
                 name={"Sign Out"}
                 icon={<LogoutIcon />}
                 onClick={signOutAction}

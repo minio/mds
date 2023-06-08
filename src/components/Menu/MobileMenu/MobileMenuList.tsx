@@ -45,10 +45,12 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     "& .menuContainer": {
       height: "inherit",
       position: "relative",
+      display: "flex",
+      flexDirection: "column",
       "& .collapseButton": {
         position: "absolute",
-        right: 11,
-        top: -5,
+        right: 15,
+        top: 15,
         "& > svg": {
           width: 20,
           height: 20,
@@ -118,11 +120,11 @@ const MobileMenuList: FC<MenuProps> = ({
           {options.map((option) => {
             let extraItem = null;
 
-            if (displayGroupTitles) {
-              if (currTitle !== option.groupName) {
-                currTitle = option.groupName;
+            if (displayGroupTitles && option.group) {
+              if (currTitle !== option.group) {
+                currTitle = option.group;
 
-                extraItem = <MenuSectionHeader label={option.groupName} />;
+                extraItem = <MenuSectionHeader label={option.group} />;
               }
             }
 
@@ -138,13 +140,13 @@ const MobileMenuList: FC<MenuProps> = ({
             };
 
             return (
-              <Fragment key={`menu-section-${option.groupName}-${option.id}`}>
+              <Fragment key={`menu-section-${option.group}-${option.id}`}>
                 {extraItem}
                 <MenuItem
                   onClick={onClickAction}
                   icon={option.icon}
                   name={option.name}
-                  groupName={option.groupName}
+                  group={option.group}
                   id={option.id}
                   path={option.path}
                   currentPath={currentPath}
@@ -155,10 +157,10 @@ const MobileMenuList: FC<MenuProps> = ({
             );
           })}
           {signOutAction && (
-            <Box>
+            <Box sx={{ marginTop: "auto" }}>
               <MenuSectionHeader label={""} />
               <MenuItem
-                groupName={"common"}
+                group={"common"}
                 name={"Sign Out"}
                 icon={<LogoutIcon />}
                 onClick={signOutAction}

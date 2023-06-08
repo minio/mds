@@ -103,11 +103,11 @@ const HorizontalMenu: FC<MenuProps> = ({
 
           return (
             <HorizontalMenuItem
-              key={`menu-section-${option.groupName}-${option.id}`}
+              key={`menu-section-${option.group}-${option.id}`}
               onClick={onClickAction}
               icon={option.icon}
               name={option.name}
-              groupName={option.groupName}
+              group={option.group}
               id={option.id}
               path={option.path}
               currentPath={currentPath}
