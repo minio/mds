@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { cloneElement, FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 import { MainContainerProps, ParentBoxProps } from "./MainContainer.types";
@@ -31,22 +31,35 @@ const CustomMain = styled.main(({ theme }) => {
   };
 });
 
-const ParentBox = styled.div<ParentBoxProps>(({ horizontal }) => ({
-  display: "flex",
-  flexDirection: !!horizontal ? "column" : "row",
-  [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
-    flexDirection: "column",
-  },
-}));
+const ParentBox = styled.div<ParentBoxProps>(
+  ({ horizontal, mobileModeAuto }) => {
+    let breakPoint = {};
+
+    if (mobileModeAuto) {
+      breakPoint = {
+        [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
+          flexDirection: "column",
+        },
+      };
+    }
+
+    return {
+      display: "flex",
+      flexDirection: !!horizontal ? "column" : "row",
+      ...breakPoint,
+    };
+  }
+);
 
 const MainContainer: FC<MainContainerProps> = ({
   children,
   menu,
   horizontal,
+  mobileModeAuto = true,
 }) => {
   return (
-    <ParentBox horizontal={horizontal}>
-      {menu}
+    <ParentBox horizontal={horizontal} mobileModeAuto={mobileModeAuto}>
+      {menu && cloneElement(menu, { mobileModeAuto })}
       <CustomMain>{children}</CustomMain>
     </ParentBox>
   );

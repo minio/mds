@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import MainContainer from "./MainContainer";
@@ -22,6 +22,8 @@ import { MainContainerProps } from "./MainContainer.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
 import Box from "../Box/Box";
+import Menu from "../Menu/Menu";
+import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/MainContainer",
@@ -57,4 +59,41 @@ HorizontalMenu.args = {
   children: <Box>This is a Block simulating the content box</Box>,
   menu: <div>This is where menu goes</div>,
   horizontal: true,
+};
+
+export const DisableMobileMode = Template.bind({});
+
+DisableMobileMode.args = {
+  children: <Box>This is a Block simulating the content box</Box>,
+  menu: (
+    <Menu
+      isOpen={true}
+      displayGroupTitles
+      options={[
+        {
+          icon: <TestIcon />,
+          path: "/testPath1",
+          name: "Test 1",
+          group: "Group 1",
+          id: "test1",
+          onClick: (path) => {
+            console.log("Custom Click Action", path);
+          },
+        },
+      ]}
+      applicationLogo={{ applicationName: "console", subVariant: "AGPL" }}
+      callPathAction={(path) => {
+        alert(`Called Path "${path}"`);
+      }}
+      signOutAction={() => {
+        alert("Sign Out!");
+      }}
+      collapseAction={() => {
+        console.log("COLLAPSE!");
+      }}
+      horizontal={false}
+      currentPath={"/testPath1"}
+    />
+  ),
+  mobileModeAuto: false,
 };
