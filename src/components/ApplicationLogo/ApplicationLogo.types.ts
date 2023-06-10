@@ -25,7 +25,7 @@ export interface ApplicationLogoProps {
     | "cloud"
     | "releases"
     | "vmbroker"
-    | "midas";
+    | "eureka";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
   inverse?: boolean;
 }
