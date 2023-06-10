@@ -28,7 +28,7 @@ import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 import Cloud from "./Logos/Cloud/Cloud";
 import Releases from "./Logos/Releases/Releases";
 import VMBroker from "./Logos/VMBroker/VMBroker";
-import Midas from "./Logos/Midas/Midas";
+import Eureka from "./Logos/Eureka/Eureka";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -66,8 +66,8 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
     case "vmbroker":
       return <VMBroker inverse={!!inverse} />;
       break;
-    case "midas":
-      return <Midas inverse={!!inverse} />;
+    case "eureka":
+      return <Eureka inverse={!!inverse} />;
       break;
   }
 };
