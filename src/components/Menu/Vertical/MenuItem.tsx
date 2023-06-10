@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { MenuItemProps } from "../Menu.types";
@@ -169,8 +169,21 @@ const MenuItem: FC<MenuItemProps> = ({
   badge,
   currentPath,
   visibleTooltip = false,
+  isVisible = true,
 }) => {
   const [open, setOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (children && children.length > 0) {
+      const selectedIndex = children.findIndex(
+        (elem) => elem.path && currentPath?.startsWith(elem.path)
+      );
+
+      if (selectedIndex >= 0) {
+        setOpen(true);
+      }
+    }
+  }, [currentPath, children]);
 
   let selected = false;
   if (currentPath && path) {
@@ -181,12 +194,18 @@ const MenuItem: FC<MenuItemProps> = ({
 
   // If Menu has children set but not sub items, then we hide it
 
-  if (children && children.length === 0) {
+  if ((children && children.length === 0) || !isVisible) {
     return null;
   }
 
   // Menu option with submenus
   if (children && children.length > 0) {
+    const filterSubItems = children.filter((item) => item.isVisible !== false);
+
+    if (filterSubItems.length === 0) {
+      return null;
+    }
+
     return (
       <MenuItemContainer>
         <Tooltip tooltip={visibleTooltip ? name : ""} placement={"right"}>

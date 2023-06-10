@@ -36,6 +36,30 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     height: "100vh",
     overflow: "auto",
     position: "relative",
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+    "&::-webkit-scrollbar": {
+      width: 5,
+    },
+    "&::-webkit-scrollbar-thumb": {
+      background: get(
+        theme,
+        "menu.vertical.sectionDividerColor",
+        lightColors.menuColorDivider
+      ),
+      borderRadius: 0,
+    },
+
+    "&::-webkit-scrollbar-track": {
+      background: get(theme, "borderColor", lightColors.borderColor),
+      boxShadow: `inset 0px 0px 0px 0px ${get(
+        theme,
+        "borderColor",
+        lightColors.borderColor
+      )}`,
+      borderRadius: 0,
+    },
+
     background: get(
       theme,
       "menu.vertical.background",
@@ -229,7 +253,9 @@ const VerticalMenu: FC<MenuProps> = ({
 
             return (
               <Fragment
-                key={`menu-section-${option.group || "common"}-${option.id}`}
+                key={`menu-section-${option.group || "common"}-${
+                  option.id || option.name
+                }`}
               >
                 {extraItem}
                 <MenuItem
