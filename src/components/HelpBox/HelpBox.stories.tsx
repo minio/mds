@@ -49,3 +49,8 @@ NoHelpText.args = {
   iconComponent: <TestIcon />,
   title: "Help Available for this page.",
 };
+
+export const NoIcon = Template.bind({});
+NoIcon.args = {
+  title: "Help Available for this page.",
+};

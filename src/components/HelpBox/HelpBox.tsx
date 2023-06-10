@@ -51,7 +51,7 @@ const HelpBox: FC<HelpBoxProps> = ({ iconComponent, title, help }) => {
     <BaseHelpBox>
       <Grid container>
         <Grid item xs={12} className={"leftItems"}>
-          {iconComponent}
+          {iconComponent || null}
           {title}
         </Grid>
         {help && (
