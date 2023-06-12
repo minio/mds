@@ -1,4 +1,4 @@
 import { FC, SVGProps } from "react";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
-declare const Midas: FC<SVGProps<any> & LogoBaseProps>;
-export default Midas;
+declare const Eureka: FC<SVGProps<any> & LogoBaseProps>;
+export default Eureka;
