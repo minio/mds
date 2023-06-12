@@ -1,7 +1,7 @@
 import * as React from "react";
 import React__default, {
-  ReactNode,
   FC,
+  ReactNode,
   MouseEventHandler,
   SVGProps,
   HTMLAttributes,
@@ -235,7 +235,7 @@ interface SelectorType {
 interface ThemeHandlerProps {
   darkMode?: boolean;
   customTheme?: ThemeDefinitionProps;
-  children: ReactNode;
+  children: any;
 }
 
 declare const ThemeHandler: FC<ThemeHandlerProps>;
@@ -275,7 +275,7 @@ interface ApplicationLogoProps {
     | "cloud"
     | "releases"
     | "vmbroker"
-    | "midas";
+    | "eureka";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
   inverse?: boolean;
 }
@@ -454,7 +454,7 @@ interface BackLinkProps
 declare const BackLink: FC<BackLinkProps>;
 
 interface HelpBoxProps {
-  iconComponent: any;
+  iconComponent?: any;
   title: string | React__default.ReactNode;
   help: any;
 }
@@ -503,9 +503,10 @@ interface PageLayoutProps {
 declare const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps>;
 
 interface MainContainerProps {
-  menu?: React__default.ReactNode;
-  children: React__default.ReactNode;
+  menu?: React__default.ReactElement;
+  children: React__default.ReactElement;
   horizontal?: boolean;
+  mobileModeAuto?: boolean;
 }
 
 declare const MainContainer: FC<MainContainerProps>;
@@ -689,9 +690,10 @@ interface MenuProps {
   signOutAction?: () => void;
   currentPath?: string;
   middleComponent?: React__default.ReactNode;
+  mobileModeAuto?: boolean;
 }
 interface MenuItemProps {
-  groupName: string;
+  group?: string;
   path?: string;
   name: string;
   id?: string;
@@ -701,6 +703,7 @@ interface MenuItemProps {
   badge?: boolean;
   currentPath?: string;
   visibleTooltip?: boolean;
+  isVisible?: boolean;
 }
 interface SectionHeaderProps extends HTMLAttributes<HTMLDivElement> {
   label: string;
