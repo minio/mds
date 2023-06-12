@@ -13,9 +13,10 @@ export interface MenuProps {
   signOutAction?: () => void;
   currentPath?: string;
   middleComponent?: React.ReactNode;
+  mobileModeAuto?: boolean;
 }
 export interface MenuItemProps {
-  groupName: string;
+  group?: string;
   path?: string;
   name: string;
   id?: string;
@@ -25,6 +26,7 @@ export interface MenuItemProps {
   badge?: boolean;
   currentPath?: string;
   visibleTooltip?: boolean;
+  isVisible?: boolean;
 }
 export interface SectionHeaderProps extends HTMLAttributes<HTMLDivElement> {
   label: string;

@@ -2047,46 +2047,50 @@ var Ga,
       dn,
       { viewBox: "0 0 184.538 52", inverse: t },
       l.default.createElement("path", {
-        d: "m1.41,23.5h3.73l8.78,21.43h.3l8.78-21.43h3.73v25.82h-2.93v-19.62h-.25l-8.07,19.62h-2.82L4.59,29.7h-.25v19.62H1.41v-25.82Z",
+        d: "m1.42,49.54v-25.94h15.65v2.79H4.56v8.76h11.7v2.79H4.56v8.82h12.72v2.79H1.42Z",
         className: "minioApplicationName",
       }),
       l.default.createElement("path", {
-        d: "m36.11,23.5v25.82h-3.13v-25.82h3.13Z",
+        d: "m39.77,23.61h3.14v17.17c0,1.77-.42,3.35-1.25,4.74-.83,1.39-2,2.48-3.51,3.28-1.51.8-3.28,1.2-5.32,1.2s-3.81-.4-5.32-1.2c-1.51-.8-2.68-1.89-3.51-3.28-.83-1.39-1.25-2.97-1.25-4.74v-17.17h3.14v16.92c0,1.27.28,2.39.84,3.38.56.98,1.35,1.76,2.39,2.32,1.03.56,2.27.84,3.72.84s2.68-.28,3.72-.84c1.04-.56,1.83-1.33,2.39-2.32.55-.98.83-2.11.83-3.38v-16.92h0Z",
         className: "minioApplicationName",
       }),
       l.default.createElement("path", {
-        d: "m50.33,49.32h-7.97v-25.82h8.32c2.5,0,4.65.52,6.43,1.54,1.78,1.03,3.15,2.5,4.1,4.43.95,1.92,1.42,4.22,1.42,6.89s-.48,5-1.44,6.94c-.96,1.94-2.35,3.43-4.19,4.46-1.83,1.04-4.06,1.56-6.68,1.56Zm-4.84-2.77h4.64c2.13,0,3.9-.41,5.31-1.24,1.4-.82,2.45-2,3.14-3.52.69-1.52,1.03-3.33,1.03-5.43s-.34-3.88-1.02-5.39c-.68-1.51-1.7-2.67-3.05-3.48-1.35-.81-3.04-1.22-5.06-1.22h-4.99v20.27h0Z",
+        d: "m49.19,49.54v-25.94h8.76c2.03,0,3.69.34,4.99,1.03,1.3.69,2.26,1.63,2.89,2.83.62,1.2.94,2.56.94,4.09s-.31,2.88-.94,4.07c-.63,1.18-1.58,2.11-2.87,2.78-1.29.67-2.94,1.01-4.95,1.01h-7.09v-2.84h6.99c1.38,0,2.5-.2,3.35-.61.85-.41,1.46-.98,1.85-1.73.38-.75.58-1.64.58-2.68s-.19-1.95-.58-2.72c-.39-.78-1.01-1.38-1.86-1.8-.85-.43-1.98-.64-3.38-.64h-5.52v23.15h-3.14Zm12.21-11.65l6.38,11.65h-3.65l-6.28-11.65h3.55Z",
         className: "minioApplicationName",
       }),
       l.default.createElement("path", {
-        d: "m67.73,49.32h-3.28l9.48-25.82h3.23l9.48,25.82h-3.28l-7.72-21.74h-.2l-7.72,21.74h0Zm1.21-10.09h13.21v2.77h-13.21v-2.77Z",
+        d: "m71.99,49.54v-25.94h15.65v2.79h-12.51v8.76h11.7v2.79h-11.7v8.82h12.72v2.79h-15.86Z",
         className: "minioApplicationName",
       }),
       l.default.createElement("path", {
-        d: "m104.8,29.95c-.15-1.28-.76-2.27-1.84-2.98-1.08-.71-2.4-1.06-3.96-1.06-1.14,0-2.14.19-2.99.56s-1.52.88-1.99,1.53c-.47.65-.71,1.38-.71,2.21,0,.69.17,1.28.5,1.77.33.49.76.9,1.28,1.22.52.32,1.07.59,1.64.79.57.21,1.1.37,1.58.5l2.62.71c.67.18,1.42.42,2.25.73.83.31,1.62.73,2.38,1.27.76.53,1.39,1.22,1.89,2.05.5.83.74,1.85.74,3.06,0,1.4-.36,2.66-1.09,3.78-.73,1.13-1.79,2.02-3.18,2.69-1.39.66-3.08,1-5.06,1-1.85,0-3.45-.3-4.8-.9-1.35-.6-2.41-1.43-3.18-2.5-.77-1.07-1.2-2.31-1.3-3.72h3.23c.08.98.41,1.78.99,2.41.58.63,1.31,1.11,2.19,1.41.89.31,1.84.46,2.87.46,1.19,0,2.27-.2,3.22-.59.95-.39,1.7-.94,2.26-1.64.55-.7.83-1.52.83-2.47,0-.86-.24-1.55-.72-2.09-.48-.54-1.11-.98-1.89-1.31s-1.63-.63-2.53-.88l-3.18-.91c-2.02-.58-3.61-1.41-4.79-2.48-1.18-1.08-1.77-2.48-1.77-4.22,0-1.45.39-2.71,1.18-3.79.79-1.08,1.84-1.92,3.18-2.52,1.33-.6,2.82-.9,4.47-.9s3.14.3,4.44.89c1.29.59,2.32,1.4,3.08,2.43s1.16,2.19,1.2,3.49h-3.03Z",
+        d: "m93.32,49.54v-25.94h3.14v12.87h.3l11.65-12.87h4.1l-10.89,11.7,10.89,14.24h-3.8l-9.02-12.06-3.24,3.65v8.41h-3.14Z",
+        className: "minioApplicationName",
+      }),
+      l.default.createElement("path", {
+        d: "m117.63,49.54h-3.29l9.52-25.94h3.24l9.52,25.94h-3.29l-7.75-21.83h-.2l-7.75,21.83Zm1.22-10.13h13.27v2.79h-13.27v-2.79Z",
         className: "minioApplicationName",
       }),
       l.default.createElement("rect", {
-        x: "21.65",
+        x: "21.74",
         y: ".24",
-        width: "3.74",
-        height: "10.97",
+        width: "3.76",
+        height: "11.02",
         className: "minioSection",
       }),
       l.default.createElement("path", {
-        d: "m17.14.35l-7.6,4.64c-.11.07-.24.07-.35,0L1.59.35c-.16-.1-.35-.15-.54-.15h0C.47.19,0,.66,0,1.24v9.97h3.74v-4.73c0-.29.32-.47.57-.32l4.26,2.61c.42.26.95.26,1.37.01l4.49-2.64c.25-.15.56.03.56.32v4.75h3.74V1.24c0-.58-.47-1.04-1.04-1.04h0c-.19,0-.38.05-.54.15h0Z",
+        d: "m17.22.35l-7.63,4.66c-.11.07-.25.07-.35,0L1.6.35c-.16-.1-.35-.15-.55-.15h0C.47.19,0,.66,0,1.24v10.02h3.76v-4.75c0-.29.32-.47.57-.32l4.28,2.62c.42.26.95.26,1.38.01l4.51-2.65c.25-.15.57.03.57.32v4.77h3.76V1.24c0-.58-.47-1.05-1.05-1.05h0c-.19,0-.38.05-.55.15h0Z",
         className: "minioSection",
       }),
       l.default.createElement("path", {
-        d: "m44.09.24h-3.8v5.03c0,.28-.3.46-.55.33L29.91.36c-.15-.08-.32-.12-.49-.12h0c-.58,0-1.04.47-1.04,1.04v9.93h3.77v-4.95c0-.28.3-.46.55-.33l9.88,5.24c.15.08.32.12.49.12h0c.58,0,1.04-.47,1.04-1.04V.24h0,0Z",
+        d: "m44.29.24h-3.81v5.05c0,.28-.3.46-.55.33L30.04.36c-.15-.08-.32-.12-.49-.12h0c-.58,0-1.05.47-1.05,1.05v9.97h3.78v-4.97c0-.28.3-.46.55-.33l9.92,5.26c.15.08.32.12.49.12h0c.58,0,1.05-.47,1.05-1.05V.24h0,0Z",
         className: "minioSection",
       }),
       l.default.createElement("path", {
-        d: "m47.13,11.21V.24h1.74v10.97h-1.74Z",
+        d: "m47.34,11.26V.24h1.75v11.02h-1.75Z",
         className: "minioSection",
       }),
       l.default.createElement("path", {
-        d: "m58.89,11.45c-4.63,0-7.92-2.2-7.92-5.72,0-3.5,3.31-5.72,7.92-5.72s7.94,2.2,7.94,5.72-3.25,5.72-7.94,5.72Zm0-9.98c-3.45,0-6.1,1.51-6.1,4.26s2.65,4.26,6.1,4.26,6.12-1.49,6.12-4.26-2.67-4.26-6.12-4.26h0Z",
+        d: "m59.16,11.5c-4.65,0-7.96-2.21-7.96-5.75,0-3.52,3.32-5.75,7.96-5.75s7.98,2.21,7.98,5.75-3.26,5.75-7.98,5.75Zm0-10.03c-3.46,0-6.13,1.51-6.13,4.28s2.67,4.28,6.13,4.28,6.15-1.49,6.15-4.28-2.69-4.28-6.15-4.28h0Z",
         className: "minioSection",
       })
     );
@@ -2124,7 +2128,7 @@ var Ga,
         return l.default.createElement(Cn, { inverse: !!r });
       case "vmbroker":
         return l.default.createElement(bn, { inverse: !!r });
-      case "midas":
+      case "eureka":
         return l.default.createElement(_n, { inverse: !!r });
     }
   },
@@ -2320,7 +2324,7 @@ const Pn = ({
   override: a = {},
   glContext: n,
   failIfMajorPerformanceCaveat: r = !1,
-  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.26/dist/benchmarks",
+  benchmarksURL: l = "https://unpkg.com/detect-gpu@5.0.27/dist/benchmarks",
 } = {}) =>
   Rn(void 0, void 0, void 0, function* () {
     const o = {};
@@ -12506,15 +12510,16 @@ var Pi = Ae(function (e) {
     };
   }),
   mc = i.default.div(function (e) {
-    var t;
+    var t,
+      a = e.horizontal,
+      n = {};
     return (
-      ((t = {
-        display: "flex",
-        flexDirection: e.horizontal ? "column" : "row",
-      })["@media (max-width: ".concat(Da(s, "md", 0), "px)")] = {
-        flexDirection: "column",
-      }),
-      t
+      e.mobileModeAuto &&
+        (((t = {})["@media (max-width: ".concat(Da(s, "md", 0), "px)")] = {
+          flexDirection: "column",
+        }),
+        (n = t)),
+      Me({ display: "flex", flexDirection: a ? "column" : "row" }, n)
     );
   }),
   uc = function (e) {
@@ -13976,65 +13981,75 @@ var Uc = function (e, t, a) {
       s = t.onClick,
       d = t.badge,
       m = t.currentPath,
-      u = e.useState(!1),
-      h = u[0],
-      f = u[1],
-      p = l.default.useState(null),
-      v = p[0],
-      g = p[1],
-      E = !1;
-    m && c && m.startsWith(c) && (E = !0);
+      u = t.isVisible,
+      h = void 0 === u || u,
+      f = e.useState(!1),
+      p = f[0],
+      v = f[1],
+      g = l.default.useState(null),
+      E = g[0],
+      w = g[1],
+      x = !1;
+    m && c && m.startsWith(c) && (x = !0);
+    if ((n && 0 === n.length) || !h) return null;
     if (n && n.length > 0)
-      return l.default.createElement(
-        us,
-        null,
-        l.default.createElement(
-          hs,
-          {
-            id: o,
-            type: "button",
-            onClick: function (e) {
-              e.stopPropagation(), f(!0), g(e.currentTarget);
-            },
-            className: "menuItemButton ".concat(h ? "selected" : ""),
-          },
-          l.default.createElement(vs, { icon: r, name: i, badge: !!d }),
-          l.default.createElement(
-            cc,
-            { className: "statusArrow" },
-            h
-              ? l.default.createElement(Zc, null)
-              : l.default.createElement(Tc, null)
-          )
-        ),
-        h &&
-          a.createPortal(
+      return 0 ===
+        n.filter(function (e) {
+          return !1 !== e.isVisible;
+        }).length
+        ? null
+        : l.default.createElement(
+            us,
+            null,
             l.default.createElement(
-              ds,
+              hs,
               {
-                anchorEl: v,
-                hideTriggerAction: function () {
-                  f(!1), g(null);
+                id: o,
+                type: "button",
+                onClick: function (e) {
+                  e.stopPropagation(), v(!0), w(e.currentTarget);
                 },
-                open: h,
+                className: "menuItemButton ".concat(p ? "selected" : ""),
               },
-              n.map(function (e) {
-                return l.default.createElement(gs, {
-                  key: "sub-menu-opt-".concat(e.name, "-").concat(e.id),
-                  onClick: s,
-                  name: e.name,
-                  badge: e.badge,
-                  icon: e.icon,
-                  id: e.id,
-                  path: e.path,
-                  groupName: e.groupName,
-                  currentPath: m,
-                });
-              })
+              l.default.createElement(vs, { icon: r, name: i, badge: !!d }),
+              l.default.createElement(
+                cc,
+                { className: "statusArrow" },
+                p
+                  ? l.default.createElement(Zc, null)
+                  : l.default.createElement(Tc, null)
+              )
             ),
-            document.body
-          )
-      );
+            p &&
+              a.createPortal(
+                l.default.createElement(
+                  ds,
+                  {
+                    anchorEl: E,
+                    hideTriggerAction: function () {
+                      v(!1), w(null);
+                    },
+                    open: p,
+                  },
+                  n.map(function (e) {
+                    return l.default.createElement(gs, {
+                      key: "sub-menu-opt-"
+                        .concat(i, "-")
+                        .concat(e.id || e.name),
+                      onClick: s,
+                      name: e.name,
+                      badge: e.badge,
+                      icon: e.icon,
+                      id: e.id,
+                      path: e.path,
+                      group: e.group,
+                      currentPath: m,
+                    });
+                  })
+                ),
+                document.body
+              )
+          );
     if (
       null == c
         ? void 0
@@ -14050,7 +14065,7 @@ var Uc = function (e, t, a) {
     return l.default.createElement(
       hs,
       {
-        className: "menuItemButton ".concat(E ? "selected" : ""),
+        className: "menuItemButton ".concat(x ? "selected" : ""),
         type: "button",
         id: o,
         onClick: function () {
@@ -14121,13 +14136,13 @@ var Uc = function (e, t, a) {
         { className: "sections" },
         a.map(function (e) {
           return l.default.createElement(gs, {
-            key: "menu-section-".concat(e.groupName, "-").concat(e.id),
+            key: "menu-section-".concat(e.group, "-").concat(e.id),
             onClick: function (t) {
               e.onClick && e.onClick(t), r(t);
             },
             icon: e.icon,
             name: e.name,
-            groupName: e.groupName,
+            group: e.group,
             id: e.id,
             path: e.path,
             currentPath: i,
@@ -14281,59 +14296,79 @@ var Uc = function (e, t, a) {
       d = t.currentPath,
       m = t.visibleTooltip,
       u = void 0 !== m && m,
-      h = e.useState(!1),
-      f = h[0],
-      p = h[1],
-      v = !1;
-    if ((d && i && d.startsWith(i) && (v = !0), a && a.length > 0))
-      return l.default.createElement(
-        bs,
-        null,
-        l.default.createElement(
-          _r,
-          { tooltip: u ? o : "", placement: "right" },
-          l.default.createElement(
-            _s,
-            {
-              id: r,
-              type: "button",
-              onClick: function () {
-                p(!f);
-              },
-              className: "menuItemButton",
-            },
-            l.default.createElement(Ss, { icon: n, name: o, badge: !!s }),
+      h = t.isVisible,
+      f = void 0 === h || h,
+      p = e.useState(!1),
+      v = p[0],
+      g = p[1];
+    e.useEffect(
+      function () {
+        a &&
+          a.length > 0 &&
+          a.findIndex(function (e) {
+            return e.path && (null == d ? void 0 : d.startsWith(e.path));
+          }) >= 0 &&
+          g(!0);
+      },
+      [d, a]
+    );
+    var E = !1;
+    if ((d && i && d.startsWith(i) && (E = !0), (a && 0 === a.length) || !f))
+      return null;
+    if (a && a.length > 0)
+      return 0 ===
+        a.filter(function (e) {
+          return !1 !== e.isVisible;
+        }).length
+        ? null
+        : l.default.createElement(
+            bs,
+            null,
             l.default.createElement(
-              cc,
-              { className: "statusArrow" },
-              f
-                ? l.default.createElement(Zc, null)
-                : l.default.createElement(Tc, null)
-            )
-          )
-        ),
-        f &&
-          l.default.createElement(
-            cc,
-            { className: "subItemsBox" },
-            a.map(function (e) {
-              return l.default.createElement(
-                _r,
-                { tooltip: u ? e.name : "", placement: "right" },
-                l.default.createElement(zs, {
-                  onClick: c,
-                  name: e.name,
-                  badge: e.badge,
-                  icon: e.icon,
-                  id: e.id,
-                  path: e.path,
-                  groupName: e.groupName,
-                  currentPath: d,
+              _r,
+              { tooltip: u ? o : "", placement: "right" },
+              l.default.createElement(
+                _s,
+                {
+                  id: r,
+                  type: "button",
+                  onClick: function () {
+                    g(!v);
+                  },
+                  className: "menuItemButton",
+                },
+                l.default.createElement(Ss, { icon: n, name: o, badge: !!s }),
+                l.default.createElement(
+                  cc,
+                  { className: "statusArrow" },
+                  v
+                    ? l.default.createElement(Zc, null)
+                    : l.default.createElement(Tc, null)
+                )
+              )
+            ),
+            v &&
+              l.default.createElement(
+                cc,
+                { className: "subItemsBox" },
+                a.map(function (e) {
+                  return l.default.createElement(
+                    _r,
+                    { tooltip: u ? e.name : "", placement: "right" },
+                    l.default.createElement(zs, {
+                      onClick: c,
+                      name: e.name,
+                      badge: e.badge,
+                      icon: e.icon,
+                      id: e.id,
+                      path: e.path,
+                      group: e.group,
+                      currentPath: d,
+                    })
+                  );
                 })
-              );
-            })
-          )
-      );
+              )
+          );
     if (
       null == i
         ? void 0
@@ -14356,7 +14391,7 @@ var Uc = function (e, t, a) {
       l.default.createElement(
         _s,
         {
-          className: "menuItemButton ".concat(v ? "selected" : ""),
+          className: "menuItemButton ".concat(E ? "selected" : ""),
           type: "button",
           id: r,
           onClick: function () {
@@ -14420,18 +14455,33 @@ var Uc = function (e, t, a) {
       {
         width: 250,
         maxWidth: 250,
+        minWidth: 250,
         height: "100vh",
         overflow: "auto",
         position: "relative",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+        "&::-webkit-scrollbar": { width: 5 },
+        "&::-webkit-scrollbar-thumb": {
+          background: Da(t, "menu.vertical.sectionDividerColor", F),
+          borderRadius: 0,
+        },
+        "&::-webkit-scrollbar-track": {
+          background: Da(t, "borderColor", f),
+          boxShadow: "inset 0px 0px 0px 0px ".concat(Da(t, "borderColor", f)),
+          borderRadius: 0,
+        },
         background: Da(t, "menu.vertical.background", P),
         transitionDuration: "0.3s",
         "& .menuContainer": {
           height: "inherit",
           position: "relative",
+          display: "flex",
+          flexDirection: "column",
           "& .collapseButton": {
             position: "absolute",
             right: 11,
-            top: -12,
+            top: 10,
             "& > svg": {
               width: 12,
               height: 12,
@@ -14453,11 +14503,11 @@ var Uc = function (e, t, a) {
           display: "flex",
           flexDirection: "column",
           flexGrow: 1,
-          height: "100%",
         },
         "& .menuHeaderContainer": { cursor: "pointer" },
         "&.collapsed": {
           width: 80,
+          minWidth: 80,
           boxSizing: "content-box",
           "& .collapseButton, & .menuLogoContainer": { display: "none" },
           "& .labelHeader": { display: "none" },
@@ -14547,7 +14597,7 @@ var Uc = function (e, t, a) {
             { className: "collapsedMenuHeader" },
             l.default.createElement(
               _r,
-              { tooltip: "Expand Menu" },
+              { tooltip: "Expand Menu", placement: "right" },
               l.default.createElement(
                 "span",
                 { className: "collapsedIcon" },
@@ -14562,12 +14612,17 @@ var Uc = function (e, t, a) {
           n.map(function (t) {
             var a = null;
             r &&
-              u !== t.groupName &&
-              ((u = t.groupName),
-              (a = l.default.createElement(Zs, { label: t.groupName })));
+              t.group &&
+              u !== t.group &&
+              ((u = t.group),
+              (a = l.default.createElement(Zs, { label: t.group })));
             return l.default.createElement(
               e.Fragment,
-              { key: "menu-section-".concat(t.groupName, "-").concat(t.id) },
+              {
+                key: "menu-section-"
+                  .concat(t.group || "common", "-")
+                  .concat(t.id || t.name),
+              },
               a,
               l.default.createElement(zs, {
                 onClick: function (e) {
@@ -14575,7 +14630,7 @@ var Uc = function (e, t, a) {
                 },
                 icon: t.icon,
                 name: t.name,
-                groupName: t.groupName,
+                group: t.group,
                 id: t.id,
                 path: t.path,
                 currentPath: d,
@@ -14592,7 +14647,7 @@ var Uc = function (e, t, a) {
               l.default.createElement(Zs, { label: "" }),
               l.default.createElement(zs, {
                 id: "sign-out",
-                groupName: "common",
+                group: "common",
                 name: "Sign Out",
                 icon: l.default.createElement(is, null),
                 onClick: o,
@@ -14668,10 +14723,12 @@ var Uc = function (e, t, a) {
         "& .menuContainer": {
           height: "inherit",
           position: "relative",
+          display: "flex",
+          flexDirection: "column",
           "& .collapseButton": {
             position: "absolute",
-            right: 11,
-            top: -5,
+            right: 15,
+            top: 15,
             "& > svg": {
               width: 20,
               height: 20,
@@ -14746,12 +14803,13 @@ var Uc = function (e, t, a) {
           n.map(function (t) {
             var a = null;
             r &&
-              d !== t.groupName &&
-              ((d = t.groupName),
-              (a = l.default.createElement(Zs, { label: t.groupName })));
+              t.group &&
+              d !== t.group &&
+              ((d = t.group),
+              (a = l.default.createElement(Zs, { label: t.group })));
             return l.default.createElement(
               e.Fragment,
-              { key: "menu-section-".concat(t.groupName, "-").concat(t.id) },
+              { key: "menu-section-".concat(t.group, "-").concat(t.id) },
               a,
               l.default.createElement(zs, {
                 onClick: function (e) {
@@ -14760,7 +14818,7 @@ var Uc = function (e, t, a) {
                 },
                 icon: t.icon,
                 name: t.name,
-                groupName: t.groupName,
+                group: t.group,
                 id: t.id,
                 path: t.path,
                 currentPath: s,
@@ -14772,10 +14830,10 @@ var Uc = function (e, t, a) {
           o &&
             l.default.createElement(
               cc,
-              null,
+              { sx: { marginTop: "auto" } },
               l.default.createElement(Zs, { label: "" }),
               l.default.createElement(zs, {
-                groupName: "common",
+                group: "common",
                 name: "Sign Out",
                 icon: l.default.createElement(is, null),
                 onClick: o,
@@ -19953,7 +20011,7 @@ var Uc = function (e, t, a) {
         l.default.createElement(
           zn,
           { item: !0, xs: 12, className: "leftItems" },
-          t,
+          t || null,
           a
         ),
         n &&
@@ -20904,30 +20962,46 @@ var Uc = function (e, t, a) {
       )
     );
   }),
-  (exports.MainContainer = function (e) {
-    var t = e.children,
-      a = e.menu,
-      n = e.horizontal;
+  (exports.MainContainer = function (t) {
+    var a = t.children,
+      n = t.menu,
+      r = t.horizontal,
+      o = t.mobileModeAuto,
+      i = void 0 === o || o;
     return l.default.createElement(
       mc,
-      { horizontal: n },
-      a,
-      l.default.createElement(dc, null, t)
+      { horizontal: r, mobileModeAuto: i },
+      n && e.cloneElement(n, { mobileModeAuto: i }),
+      l.default.createElement(dc, null, a)
     );
   }),
-  (exports.Menu = function (e) {
-    var t = e.horizontal,
-      a = void 0 !== t && t,
-      n = Se(e, ["horizontal"]);
-    return document.documentElement.offsetWidth <= s.md
-      ? l.default.createElement(Vs, Me({}, n))
-      : a
-      ? l.default.createElement(ws, Me({}, n))
-      : (n.middleComponent &&
-          console.warn(
-            "Middle component set, this cannot be rendered in Vertical Menu"
-          ),
-        l.default.createElement(Hs, Me({}, n)));
+  (exports.Menu = function (t) {
+    var a = t.horizontal,
+      n = void 0 !== a && a,
+      r = t.mobileModeAuto,
+      o = void 0 === r || r,
+      i = Se(t, ["horizontal", "mobileModeAuto"]),
+      c = e.useState(!1),
+      d = c[0],
+      m = c[1];
+    return (
+      e.useEffect(function () {
+        var e = $c(function () {
+          var e = document.documentElement.offsetWidth;
+          m(e <= s.md);
+        }, 400);
+        window.addEventListener("resize", e);
+      }),
+      d && o
+        ? l.default.createElement(Vs, Me({}, i))
+        : n
+        ? l.default.createElement(ws, Me({}, i))
+        : (i.middleComponent &&
+            console.warn(
+              "Middle component is set, this cannot be rendered in Vertical Menu"
+            ),
+          l.default.createElement(Hs, Me({}, i)))
+    );
   }),
   (exports.MenuCollapsedIcon = function (e) {
     return o.createElement(
