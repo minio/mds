@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment, useState } from "react";
 import { AutoSizer, Column, InfiniteLoader, Table } from "react-virtualized";
 import styled from "styled-components";
 import get from "lodash/get";
@@ -22,13 +22,21 @@ import isString from "lodash/isString";
 import Checkbox from "../Checkbox/Checkbox";
 import Loader from "../Loader/Loader";
 import Grid from "../Grid/Grid";
-import { DataTableProps, DataTableWrapperProps } from "./DataTable.types";
+import {
+  DataTableProps,
+  DataTableWrapperProps,
+  IColumns,
+} from "./DataTable.types";
 import {
   calculateOptionsSize,
   elementActions,
   generateColumnsMap,
   selectWidth,
 } from "./DataTable.utils";
+import ViewColumnIcon from "../Icons/ViewColumnIcon";
+import Box from "../Box/Box";
+import Button from "../Button/Button";
+import ColumnsSelector from "./ColumnsSelector";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, noBackground, sx }) => ({
@@ -236,7 +244,7 @@ const DataTable: FC<DataTableProps> = ({
   columnsSelector = false,
   textSelectable = false,
   columnsShown = [],
-  onColumnChange = (column: string, state: boolean) => {},
+  onColumnChange = (column: string) => {},
   infiniteScrollConfig,
   sortConfig,
   autoScrollToBottom = false,
@@ -246,10 +254,8 @@ const DataTable: FC<DataTableProps> = ({
   parentClassName = "",
   sx,
 }) => {
-  /* TODO: Enable Columns Selection Capability
-          const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
-          const [anchorEl, setAnchorEl] = React.useState<any>(null);
-      */
+  const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<any>(null);
   const rowIDField = idField || "";
 
   const findView = itemActions
@@ -275,66 +281,43 @@ const DataTable: FC<DataTableProps> = ({
     }
   };
 
-  /* TODO: Enable Columns Selection Capability
+  const openColumnsSelector = (event: { currentTarget: any }) => {
+    setColumnSelectorOpen(!columnSelectorOpen);
+    setAnchorEl(event.currentTarget);
+  };
 
-              const openColumnsSelector = (event: { currentTarget: any }) => {
-                  setColumnSelectorOpen(!columnSelectorOpen);
-                  setAnchorEl(event.currentTarget);
-              };
+  const closeColumnSelector = () => {
+    setColumnSelectorOpen(false);
+    setAnchorEl(null);
+  };
 
-              const closeColumnSelector = () => {
-                  setColumnSelectorOpen(false);
-                  setAnchorEl(null);
-              };
-
-
-                const columnsSelection = (columns: IColumns[]) => {
-                  return (
-                    <Fragment>
-                      <IconButton
-                        aria-describedby={"columnsSelector"}
-                        color="primary"
-                        onClick={openColumnsSelector}
-                        size="large"
-                      >
-                        <ViewColumnIcon />
-                      </IconButton>
-                      <Popover
-                        anchorEl={anchorEl}
-                        id={"columnsSelector"}
-                        open={columnSelectorOpen}
-                        anchorOrigin={{
-                          vertical: "bottom",
-                          horizontal: "left",
-                        }}
-                        transformOrigin={{
-                          vertical: "top",
-                          horizontal: "left",
-                        }}
-                        onClose={closeColumnSelector}
-                      >
-                        <div className={classes.shownColumnsLabel}>Shown Columns</div>
-                        <div className={classes.popoverContent}>
-                          {columns.map((column: IColumns) => {
-                            return (
-                              <Checkbox
-                                key={`tableColumns-${column.label}`}
-                                label={column.label}
-                                checked={columnsShown.includes(column.elementKey!)}
-                                onChange={(e) => {
-                                  onColumnChange(column.elementKey!, e.target.checked);
-                                }}
-                                id={`chbox-${column.label}`}
-                                name={`chbox-${column.label}`}
-                                value={column.label}
-                              />
-                            );
-                          })}
-                        </div>
-                      </Popover>
-                    </Fragment>
-                  );
-                };*/
+  const columnsSelection = (columns: IColumns[]) => {
+    return (
+      <Box
+        sx={{ margin: "10px 0 0", display: "flex", justifyContent: "flex-end" }}
+      >
+        <Button
+          id={"columns-selector"}
+          variant={"regular"}
+          icon={<ViewColumnIcon />}
+          iconLocation={"end"}
+          onClick={openColumnsSelector}
+        >
+          Columns
+        </Button>
+        {columnSelectorOpen && (
+          <ColumnsSelector
+            open={columnSelectorOpen}
+            closeTriggerAction={closeColumnSelector}
+            onSelect={(label) => onColumnChange(label)}
+            columns={columns}
+            selectedOptionIDs={columnsShown}
+            anchorEl={anchorEl}
+          />
+        )}
+      </Box>
+    );
+  };
 
   return (
     <Grid item xs={12} className={parentClassName}>
@@ -359,12 +342,10 @@ const DataTable: FC<DataTableProps> = ({
             </Grid>
           </Grid>
         )}
-        {/* TODO: Enable Columns Selection capability
-          columnsSelector && !isLoading && records.length > 0 && (
-            <div className={classes.overlayColumnSelection}>
-              {columnsSelection(columns)}
-            </div>
-          )*/}
+
+        {columnsSelector && !isLoading && records.length > 0 && (
+          <Fragment>{columnsSelection(columns)}</Fragment>
+        )}
         {records && !isLoading && records.length > 0 ? (
           // @ts-ignore
           <InfiniteLoader
