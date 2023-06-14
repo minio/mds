@@ -20,7 +20,7 @@ import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
 const ConsoleAGPL: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
   return (
-    <LogoBase viewBox="0 0 184.45 54.229" inverse={inverse}>
+    <LogoBase viewBox="0 0 184.45 55" inverse={inverse}>
       <g transform="translate(-31.65 -18.133)">
         <g transform="translate(-995 -63.754)">
           <g transform="translate(1025.5 81.887)">
