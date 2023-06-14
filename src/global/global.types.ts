@@ -175,6 +175,7 @@ export interface SignalColorsThemeProps {
   warning: string;
   good: string;
   info: string;
+  disabled: string;
 }
 
 export interface MenuThemeProps {

@@ -172,6 +172,7 @@ export const lightTheme: ThemeDefinitionProps = {
     good: lightColors.mainGreen,
     info: lightColors.bulletColor,
     warning: lightColors.mainOrange,
+    disabled: lightColors.disabledGrey,
   },
   buttons: {
     regular: {
@@ -475,6 +476,7 @@ export const darkTheme: ThemeDefinitionProps = {
     good: darkColors.mainGreen,
     info: darkColors.secondActionHover,
     warning: darkColors.mainOrange,
+    disabled: darkColors.disabledGrey,
   },
   buttons: {
     regular: {
