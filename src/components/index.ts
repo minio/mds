@@ -62,3 +62,4 @@ export * from "./Icons/FileIcons";
 
 /*Interfaces*/
 export * from "./Menu/Menu.types";
+export * from "./DataTable/DataTable.types";

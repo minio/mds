@@ -30,6 +30,7 @@ export default {
 
 const Template: Story<DataTableProps> = (args) => {
   const [selected, setSelected] = useState<string[]>([]);
+  const [selectedColumns, setSelectedColumns] = useState<string[]>(["field1"]);
 
   const onSelectFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
     const targetD = e.target;
@@ -66,6 +67,27 @@ const Template: Story<DataTableProps> = (args) => {
       selectedItems: selected,
       onSelect: onSelectFunction,
       onSelectAll: onSelectAllFunction,
+    };
+  }
+
+  if (args.columnsSelector) {
+    extraFunc = {
+      ...extraFunc,
+      columnsShown: selectedColumns,
+      onColumnChange: (columnKey) => {
+        const itemFound = selectedColumns.findIndex(
+          (item) => item === columnKey
+        );
+
+        // Item Exists, we remove it
+        if (itemFound >= 0) {
+          setSelectedColumns(
+            selectedColumns.filter((item) => item !== columnKey)
+          );
+        } else {
+          setSelectedColumns([...selectedColumns, columnKey]);
+        }
+      },
     };
   }
 
@@ -319,4 +341,86 @@ WithItemActions.args = {
       alert("sort triggered");
     },
   },
+};
+
+export const ColumnsSelector = Template.bind({});
+ColumnsSelector.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  columnsSelector: true,
+  itemActions: [
+    {
+      type: "edit",
+      onClick: (itemID: string) => {
+        alert(itemID);
+      },
+      sendOnlyId: true,
+      label: "Edit",
+    },
+    {
+      type: "delete",
+      onClick: (deleteItem) => {
+        console.log("DELETE", deleteItem);
+      },
+      label: "Delete",
+    },
+  ],
+  records: [
+    {
+      field1: "Value1",
+      field2: "Value2",
+      field3: "Value3",
+      field4: "Value4",
+      field5: "Value5",
+      field6: "Value6",
+      field7: "Value7",
+      field8: "Value8",
+      field9: "Value9",
+      field10: "Value10",
+      field11: "Value11",
+      field12: "Value12",
+    },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+      field4: "Value4-1",
+      field5: "Value5-1",
+      field6: "Value6-1",
+      field7: "Value7-1",
+      field8: "Value8-1",
+      field9: "Value9-1",
+      field10: "Value10-1",
+      field11: "Value11-1",
+      field12: "Value12-1",
+    },
+  ],
+  columns: [
+    { label: "Column1", elementKey: "field1", width: 200 },
+    { label: "Column2", elementKey: "field2", width: 100 },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+    { label: "Column4", elementKey: "field4", width: 200 },
+    { label: "Column5", elementKey: "field5", width: 100 },
+    {
+      label: "Column6",
+      elementKey: "field6",
+    },
+    { label: "Column7", elementKey: "field7", width: 200 },
+    { label: "Column8", elementKey: "field8", width: 100 },
+    {
+      label: "Column9",
+      elementKey: "field9",
+    },
+    { label: "Column10", elementKey: "field10", width: 200 },
+    { label: "Column11", elementKey: "field11", width: 100 },
+    {
+      label: "Column12",
+      elementKey: "field12",
+    },
+  ],
 };
