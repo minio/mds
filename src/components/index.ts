@@ -54,6 +54,7 @@ export { default as ReadBox } from "./ReadBox/ReadBox";
 export { default as CommentBox } from "./CommentBox/CommentBox";
 export { default as Menu } from "./Menu/Menu";
 export { default as ExpandOptionsButton } from "./ExpandOptionsButton/ExpandOptionsButton";
+export { default as Tabs } from "./Tabs/Tabs";
 
 /*Icons*/
 export * from "./Icons";
@@ -63,3 +64,4 @@ export * from "./Icons/FileIcons";
 /*Interfaces*/
 export * from "./Menu/Menu.types";
 export * from "./DataTable/DataTable.types";
+export * from "./Tabs/Tabs.types";

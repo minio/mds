@@ -87,6 +87,7 @@ export const lightColors = {
   menuCollapseColor: "#E8E8E8",
   menuIconBG: "#06274E",
   menuIconBorder: "#052148",
+  tabBorder: "#EAEAEA",
 };
 
 export const darkColors = {
@@ -459,6 +460,36 @@ export const lightTheme: ThemeDefinitionProps = {
       dropHoverSelectedColor: lightColors.white,
     },
   },
+  tabs: {
+    vertical: {
+      buttons: {
+        hoverLabelColor: lightColors.mainBlue,
+        hoverBackground: "transparent",
+        backgroundColor: lightColors.iconButtonBG,
+        labelColor: lightColors.mainGrey,
+        disabledBackgroundColor: lightColors.disabledBGGrey,
+        disabledColor: lightColors.disabledInnerGrey,
+        selectedBackground: lightColors.headerBorder,
+        selectedLabelColor: lightColors.mainBlue,
+      },
+      backgroundColor: lightColors.iconButtonBG,
+      borders: lightColors.tabBorder,
+    },
+    horizontal: {
+      buttons: {
+        hoverLabelColor: lightColors.mainBlue,
+        hoverBackground: "transparent",
+        backgroundColor: "transparent",
+        labelColor: lightColors.mainGrey,
+        disabledBackgroundColor: "transparent",
+        disabledColor: lightColors.disabledInnerGrey,
+        selectedBackground: "transparent",
+        selectedLabelColor: lightColors.mainBlue,
+      },
+      backgroundColor: "transparent",
+      selectedIndicatorColor: lightColors.mainBlue,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -761,6 +792,36 @@ export const darkTheme: ThemeDefinitionProps = {
       barBackground: darkColors.boxBackground,
       dropBackground: darkColors.boxBackground,
       dropHoverSelectedColor: darkColors.dark,
+    },
+  },
+  tabs: {
+    vertical: {
+      buttons: {
+        hoverLabelColor: darkColors.mainWhite,
+        hoverBackground: "transparent",
+        backgroundColor: darkColors.boxBackground,
+        labelColor: darkColors.defaultFontColor,
+        disabledBackgroundColor: darkColors.disabledBGGrey,
+        disabledColor: darkColors.disabledInnerGrey,
+        selectedBackground: darkColors.iconButtonBG,
+        selectedLabelColor: darkColors.dark,
+      },
+      backgroundColor: darkColors.boxBackground,
+      borders: darkColors.borderColor,
+    },
+    horizontal: {
+      buttons: {
+        hoverLabelColor: darkColors.mainWhite,
+        hoverBackground: "transparent",
+        backgroundColor: "transparent",
+        labelColor: darkColors.defaultFontColor,
+        disabledBackgroundColor: "transparent",
+        disabledColor: darkColors.disabledInnerGrey,
+        selectedBackground: "transparent",
+        selectedLabelColor: darkColors.mainWhite,
+      },
+      backgroundColor: "transparent",
+      selectedIndicatorColor: darkColors.mainWhite,
     },
   },
 };
