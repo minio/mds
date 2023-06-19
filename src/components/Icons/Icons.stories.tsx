@@ -145,6 +145,18 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.AudioIcon />
+              <br />
+              AudioIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.AudioIconMute />
+              <br />
+              AudioIconMute
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.AzureTierIcon />
               <br />
               AzureTierIcon
@@ -211,6 +223,12 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.CancelledAudioIcon />
+              <br />
+              CancelledAudioIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.CancelledIcon />
               <br />
               CancelledIcon
@@ -226,6 +244,12 @@ const Template: Story = (args) => {
               <cicons.ChangeAccessPolicyIcon />
               <br />
               ChangeAccessPolicyIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.ChatIcon />
+              <br />
+              ChatIcon
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
@@ -856,6 +880,12 @@ const Template: Story = (args) => {
               <cicons.SelectMultipleIcon />
               <br />
               SelectMultipleIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.SendMessageIcon />
+              <br />
+              SendMessageIcon
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>

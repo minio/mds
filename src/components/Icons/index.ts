@@ -205,3 +205,8 @@ export { default as VisibilityOffIcon } from "./VisibilityOffIcon";
 export { default as AccessRuleIcon } from "./AccessRuleIcon";
 export { default as TimeIcon } from "./TimeIcon";
 export { default as CollapseMenuIcon } from "./CollapseMenuIcon";
+export { default as AudioIcon } from "./AudioIcon";
+export { default as AudioIconMute } from "./AudioIconMute";
+export { default as ChatIcon } from "./ChatIcon";
+export { default as SendMessageIcon } from "./SendMessageIcon";
+export { default as CancelledAudioIcon } from "./CancelledAudioIcon";
