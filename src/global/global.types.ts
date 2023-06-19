@@ -212,6 +212,30 @@ export interface MenuThemeProps {
   };
 }
 
+interface TabButtonProps {
+  labelColor: string;
+  backgroundColor: string;
+  hoverBackground: string;
+  hoverLabelColor: string;
+  selectedBackground: string;
+  selectedLabelColor: string;
+  disabledBackgroundColor: string;
+  disabledColor: string;
+}
+
+export interface TabThemeProps {
+  vertical?: {
+    backgroundColor: string;
+    buttons: TabButtonProps;
+    borders: string;
+  };
+  horizontal?: {
+    backgroundColor: string;
+    selectedIndicatorColor: string;
+    buttons: TabButtonProps;
+  };
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -247,6 +271,7 @@ export interface ThemeDefinitionProps {
   dropdownSelector?: DropdownSelectorThemeProps;
   readBox?: ReadBoxThemeProps;
   menu?: MenuThemeProps;
+  tabs?: TabThemeProps;
 }
 
 export interface SelectorType {
