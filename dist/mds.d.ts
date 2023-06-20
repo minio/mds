@@ -189,6 +189,7 @@ interface MenuThemeProps {
     dropArrowColor: string;
     dropBackground: string;
     dropHoverSelectedColor: string;
+    noOptionsBar: string;
   };
 }
 interface TabButtonProps$1 {
@@ -731,7 +732,7 @@ interface CommentBoxProps
 declare const InputBox: FC<CommentBoxProps>;
 
 interface MenuProps {
-  options: MenuItemProps[];
+  options?: MenuItemProps[];
   sx?: CSSObject;
   applicationLogo: ApplicationLogoProps;
   callPathAction: (path: string) => void;

@@ -171,6 +171,7 @@ export interface MenuThemeProps {
     dropArrowColor: string;
     dropBackground: string;
     dropHoverSelectedColor: string;
+    noOptionsBar: string;
   };
 }
 interface TabButtonProps {
