@@ -278,6 +278,7 @@ var f = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
         barBackground: x,
         dropBackground: x,
         dropHoverSelectedColor: g,
+        noOptionsBar: w,
       },
     },
     tabs: {
@@ -494,6 +495,7 @@ var f = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
         barBackground: le,
         dropBackground: le,
         dropHoverSelectedColor: ee,
+        noOptionsBar: oe,
       },
     },
     tabs: {
@@ -15555,6 +15557,10 @@ var Ac = function (e, t, n) {
           overflowX: "auto",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
+          "&.compact": {
+            height: 5,
+            backgroundColor: Qn(t, "menu.horizontal.noOptionsBar", b),
+          },
           "&::-webkit-scrollbar": { width: 0, height: 0 },
         },
       },
@@ -15586,23 +15592,24 @@ var Ac = function (e, t, n) {
       ),
       t.createElement(
         fc,
-        { className: "sections" },
-        a.map(function (e) {
-          return t.createElement(Qs, {
-            key: "menu-section-".concat(e.group, "-").concat(e.id),
-            onClick: function (t) {
-              e.onClick && e.onClick(t), l(t);
-            },
-            icon: e.icon,
-            name: e.name,
-            group: e.group,
-            id: e.id,
-            path: e.path,
-            currentPath: i,
-            badge: e.badge,
-            children: e.children,
-          });
-        })
+        { className: "sections ".concat(a && 0 !== a.length ? "" : "compact") },
+        a &&
+          a.map(function (e) {
+            return t.createElement(Qs, {
+              key: "menu-section-".concat(e.group, "-").concat(e.id),
+              onClick: function (t) {
+                e.onClick && e.onClick(t), l(t);
+              },
+              icon: e.icon,
+              name: e.name,
+              group: e.group,
+              id: e.id,
+              path: e.path,
+              currentPath: i,
+              badge: e.badge,
+              children: e.children,
+            });
+          })
       )
     );
   },
@@ -16060,36 +16067,37 @@ var Ac = function (e, t, n) {
         t.createElement(
           fc,
           { className: "menuItems" },
-          r.map(function (e) {
-            var a = null;
-            l &&
-              e.group &&
-              h !== e.group &&
-              ((h = e.group), (a = t.createElement(dd, { label: e.group })));
-            return t.createElement(
-              n,
-              {
-                key: "menu-section-"
-                  .concat(e.group || "common", "-")
-                  .concat(e.id || e.name),
-              },
-              a,
-              t.createElement(cd, {
-                onClick: function (t) {
-                  e.onClick ? e.onClick(t) : i(t);
+          r &&
+            r.map(function (e) {
+              var a = null;
+              l &&
+                e.group &&
+                h !== e.group &&
+                ((h = e.group), (a = t.createElement(dd, { label: e.group })));
+              return t.createElement(
+                n,
+                {
+                  key: "menu-section-"
+                    .concat(e.group || "common", "-")
+                    .concat(e.id || e.name),
                 },
-                icon: e.icon,
-                name: e.name,
-                group: e.group,
-                id: e.id,
-                path: e.path,
-                currentPath: d,
-                badge: e.badge,
-                children: e.children,
-                visibleTooltip: !c,
-              })
-            );
-          }),
+                a,
+                t.createElement(cd, {
+                  onClick: function (t) {
+                    e.onClick ? e.onClick(t) : i(t);
+                  },
+                  icon: e.icon,
+                  name: e.name,
+                  group: e.group,
+                  id: e.id,
+                  path: e.path,
+                  currentPath: d,
+                  badge: e.badge,
+                  children: e.children,
+                  visibleTooltip: !c,
+                })
+              );
+            }),
           o &&
             t.createElement(
               fc,
@@ -16250,32 +16258,33 @@ var Ac = function (e, t, n) {
         t.createElement(
           fc,
           { className: "menuItems" },
-          r.map(function (e) {
-            var a = null;
-            l &&
-              e.group &&
-              d !== e.group &&
-              ((d = e.group), (a = t.createElement(dd, { label: e.group })));
-            return t.createElement(
-              n,
-              { key: "menu-section-".concat(e.group, "-").concat(e.id) },
-              a,
-              t.createElement(cd, {
-                onClick: function (t) {
-                  if (e.onClick) return e.onClick(t), void c();
-                  i(t), c();
-                },
-                icon: e.icon,
-                name: e.name,
-                group: e.group,
-                id: e.id,
-                path: e.path,
-                currentPath: s,
-                badge: e.badge,
-                children: e.children,
-              })
-            );
-          }),
+          r &&
+            r.map(function (e) {
+              var a = null;
+              l &&
+                e.group &&
+                d !== e.group &&
+                ((d = e.group), (a = t.createElement(dd, { label: e.group })));
+              return t.createElement(
+                n,
+                { key: "menu-section-".concat(e.group, "-").concat(e.id) },
+                a,
+                t.createElement(cd, {
+                  onClick: function (t) {
+                    if (e.onClick) return e.onClick(t), void c();
+                    i(t), c();
+                  },
+                  icon: e.icon,
+                  name: e.name,
+                  group: e.group,
+                  id: e.id,
+                  path: e.path,
+                  currentPath: s,
+                  badge: e.badge,
+                  children: e.children,
+                })
+              );
+            }),
           o &&
             t.createElement(
               fc,

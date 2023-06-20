@@ -300,6 +300,7 @@ var l = n(e),
         barBackground: p,
         dropBackground: p,
         dropHoverSelectedColor: m,
+        noOptionsBar: h,
       },
     },
     tabs: {
@@ -516,6 +517,7 @@ var l = n(e),
         barBackground: J,
         dropBackground: J,
         dropHoverSelectedColor: $,
+        noOptionsBar: ee,
       },
     },
     tabs: {
@@ -14397,6 +14399,10 @@ var bc = function (e, t, a) {
           overflowX: "auto",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
+          "&.compact": {
+            height: 5,
+            backgroundColor: qa(t, "menu.horizontal.noOptionsBar", v),
+          },
           "&::-webkit-scrollbar": { width: 0, height: 0 },
         },
       },
@@ -14428,23 +14434,24 @@ var bc = function (e, t, a) {
       ),
       l.default.createElement(
         lc,
-        { className: "sections" },
-        a.map(function (e) {
-          return l.default.createElement(Ms, {
-            key: "menu-section-".concat(e.group, "-").concat(e.id),
-            onClick: function (t) {
-              e.onClick && e.onClick(t), r(t);
-            },
-            icon: e.icon,
-            name: e.name,
-            group: e.group,
-            id: e.id,
-            path: e.path,
-            currentPath: i,
-            badge: e.badge,
-            children: e.children,
-          });
-        })
+        { className: "sections ".concat(a && 0 !== a.length ? "" : "compact") },
+        a &&
+          a.map(function (e) {
+            return l.default.createElement(Ms, {
+              key: "menu-section-".concat(e.group, "-").concat(e.id),
+              onClick: function (t) {
+                e.onClick && e.onClick(t), r(t);
+              },
+              icon: e.icon,
+              name: e.name,
+              group: e.group,
+              id: e.id,
+              path: e.path,
+              currentPath: i,
+              badge: e.badge,
+              children: e.children,
+            });
+          })
       )
     );
   },
@@ -14904,37 +14911,38 @@ var bc = function (e, t, a) {
         l.default.createElement(
           lc,
           { className: "menuItems" },
-          n.map(function (t) {
-            var a = null;
-            r &&
-              t.group &&
-              u !== t.group &&
-              ((u = t.group),
-              (a = l.default.createElement(Bs, { label: t.group })));
-            return l.default.createElement(
-              e.Fragment,
-              {
-                key: "menu-section-"
-                  .concat(t.group || "common", "-")
-                  .concat(t.id || t.name),
-              },
-              a,
-              l.default.createElement(ks, {
-                onClick: function (e) {
-                  t.onClick ? t.onClick(e) : i(e);
+          n &&
+            n.map(function (t) {
+              var a = null;
+              r &&
+                t.group &&
+                u !== t.group &&
+                ((u = t.group),
+                (a = l.default.createElement(Bs, { label: t.group })));
+              return l.default.createElement(
+                e.Fragment,
+                {
+                  key: "menu-section-"
+                    .concat(t.group || "common", "-")
+                    .concat(t.id || t.name),
                 },
-                icon: t.icon,
-                name: t.name,
-                group: t.group,
-                id: t.id,
-                path: t.path,
-                currentPath: d,
-                badge: t.badge,
-                children: t.children,
-                visibleTooltip: !c,
-              })
-            );
-          }),
+                a,
+                l.default.createElement(ks, {
+                  onClick: function (e) {
+                    t.onClick ? t.onClick(e) : i(e);
+                  },
+                  icon: t.icon,
+                  name: t.name,
+                  group: t.group,
+                  id: t.id,
+                  path: t.path,
+                  currentPath: d,
+                  badge: t.badge,
+                  children: t.children,
+                  visibleTooltip: !c,
+                })
+              );
+            }),
           o &&
             l.default.createElement(
               lc,
@@ -15095,33 +15103,34 @@ var bc = function (e, t, a) {
         l.default.createElement(
           lc,
           { className: "menuItems" },
-          n.map(function (t) {
-            var a = null;
-            r &&
-              t.group &&
-              d !== t.group &&
-              ((d = t.group),
-              (a = l.default.createElement(Bs, { label: t.group })));
-            return l.default.createElement(
-              e.Fragment,
-              { key: "menu-section-".concat(t.group, "-").concat(t.id) },
-              a,
-              l.default.createElement(ks, {
-                onClick: function (e) {
-                  if (t.onClick) return t.onClick(e), void c();
-                  i(e), c();
-                },
-                icon: t.icon,
-                name: t.name,
-                group: t.group,
-                id: t.id,
-                path: t.path,
-                currentPath: s,
-                badge: t.badge,
-                children: t.children,
-              })
-            );
-          }),
+          n &&
+            n.map(function (t) {
+              var a = null;
+              r &&
+                t.group &&
+                d !== t.group &&
+                ((d = t.group),
+                (a = l.default.createElement(Bs, { label: t.group })));
+              return l.default.createElement(
+                e.Fragment,
+                { key: "menu-section-".concat(t.group, "-").concat(t.id) },
+                a,
+                l.default.createElement(ks, {
+                  onClick: function (e) {
+                    if (t.onClick) return t.onClick(e), void c();
+                    i(e), c();
+                  },
+                  icon: t.icon,
+                  name: t.name,
+                  group: t.group,
+                  id: t.id,
+                  path: t.path,
+                  currentPath: s,
+                  badge: t.badge,
+                  children: t.children,
+                })
+              );
+            }),
           o &&
             l.default.createElement(
               lc,
