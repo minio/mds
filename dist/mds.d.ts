@@ -156,6 +156,7 @@ interface SignalColorsThemeProps {
   warning: string;
   good: string;
   info: string;
+  disabled: string;
 }
 interface MenuThemeProps {
   vertical?: {
@@ -188,6 +189,28 @@ interface MenuThemeProps {
     dropArrowColor: string;
     dropBackground: string;
     dropHoverSelectedColor: string;
+  };
+}
+interface TabButtonProps$1 {
+  labelColor: string;
+  backgroundColor: string;
+  hoverBackground: string;
+  hoverLabelColor: string;
+  selectedBackground: string;
+  selectedLabelColor: string;
+  disabledBackgroundColor: string;
+  disabledColor: string;
+}
+interface TabThemeProps {
+  vertical?: {
+    backgroundColor: string;
+    buttons: TabButtonProps$1;
+    borders: string;
+  };
+  horizontal?: {
+    backgroundColor: string;
+    selectedIndicatorColor: string;
+    buttons: TabButtonProps$1;
   };
 }
 interface ThemeDefinitionProps {
@@ -225,6 +248,7 @@ interface ThemeDefinitionProps {
   dropdownSelector?: DropdownSelectorThemeProps;
   readBox?: ReadBoxThemeProps;
   menu?: MenuThemeProps;
+  tabs?: TabThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -428,7 +452,7 @@ interface DataTableProps {
   columnsSelector?: boolean;
   textSelectable?: boolean;
   columnsShown?: string[];
-  onColumnChange?: (column: string, state: boolean) => any;
+  onColumnChange?: (column: string) => any;
   autoScrollToBottom?: boolean;
   infiniteScrollConfig?: IInfiniteScrollConfig;
   sortConfig?: ISortConfig;
@@ -440,6 +464,34 @@ interface DataTableProps {
     index: number;
   }) => "deleted" | "" | React__default.CSSProperties;
   parentClassName?: string;
+  sx?: CSSObject;
+}
+interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  disabled?: boolean;
+  customPaperHeight?: string | number;
+  noBackground?: boolean;
+  sx?: CSSObject;
+}
+interface IActionButton {
+  label?: string;
+  type: string | React__default.ReactNode;
+  onClick?: (id: string) => any;
+  valueToSend: any;
+  selected: boolean;
+  sendOnlyId?: boolean;
+  idField: string;
+  disabled: boolean;
+}
+interface ColumnSelectorProps {
+  open: boolean;
+  closeTriggerAction: () => void;
+  onSelect: (column: string) => void;
+  columns: IColumns[];
+  selectedOptionIDs: string[];
+  sx?: CSSObject;
+  anchorEl?: (EventTarget & HTMLElement) | null;
+}
+interface ColumnSelectorConstructProps {
   sx?: CSSObject;
 }
 
@@ -723,6 +775,62 @@ interface SubItemsBoxProps {
 }
 
 declare const Menu: FC<MenuProps>;
+
+interface ExpandOptionsButtonProps {
+  label: string;
+  open: boolean;
+  sx?: CSSObject;
+}
+
+declare const ExpandOptionsButton: FC<
+  ExpandOptionsButtonProps &
+    React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+interface TabProps {
+  label: string;
+  icon?: React__default.ReactNode;
+  disabled?: boolean;
+  to?: string;
+  id: string;
+}
+interface TabItemProps {
+  tabConfig: TabProps;
+  content?: React__default.ReactNode;
+}
+interface TabsProps {
+  horizontal?: boolean;
+  options: TabItemProps[];
+  currentTabOrPath: string;
+  useRouteTabs?: boolean;
+  routes?: React__default.ReactElement | null;
+  onTabClick: (selectedItem: string) => void;
+  sx?: CSSObject;
+}
+interface TabsContainerProps {
+  horizontal: boolean;
+  sx?: CSSObject;
+}
+interface TabButtonProps {
+  id: string;
+  horizontal?: boolean;
+  label: string;
+  onClick: () => void;
+  disabled: boolean;
+  icon?: React__default.ReactNode;
+  selected?: boolean;
+}
+interface TabButtonConstructProps {
+  horizontal: boolean;
+}
+interface TabPanelProps {
+  id: string;
+  selectedTab?: string;
+  useRouteTabs: boolean;
+  children: React__default.ReactNode;
+}
+
+declare const Tabs: FC<TabsProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -1402,6 +1510,22 @@ declare const CollapseMenuIcon: (
   props: SVGProps<SVGSVGElement>
 ) => React.JSX.Element;
 
+declare const AudioIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+
+declare const AudioIconMute: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
+
+declare const ChatIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+
+declare const SendMessageIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
+
+declare const CancelledAudioIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React__default.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>
 ) => React.JSX.Element;
@@ -1611,6 +1735,8 @@ export {
   ArrowIcon,
   ArrowRightIcon,
   ArrowRightLink,
+  AudioIcon,
+  AudioIconMute,
   AuditLogsMenuIcon,
   AzureTierIcon,
   AzureTierIconXs,
@@ -1631,10 +1757,12 @@ export {
   CalendarIcon,
   CallHomeFeatureIcon,
   CallHomeMenuIcon,
+  CancelledAudioIcon,
   CancelledIcon,
   CertificateIcon,
   ChangeAccessPolicyIcon,
   ChangePasswordIcon,
+  ChatIcon,
   Checkbox,
   CircleIcon,
   ClosePanelIcon,
@@ -1643,6 +1771,8 @@ export {
   CollapseCaret,
   CollapseIcon,
   CollapseMenuIcon,
+  ColumnSelectorConstructProps,
+  ColumnSelectorProps,
   InputBox as CommentBox,
   ComputerLineIcon,
   ConfigurationsListIcon,
@@ -1659,6 +1789,8 @@ export {
   CreateUserIcon,
   DashboardIcon,
   DataTable,
+  DataTableProps,
+  DataTableWrapperProps,
   DeleteIcon,
   DeleteNonCurrentIcon,
   DiagnosticsFeatureIcon,
@@ -1683,6 +1815,7 @@ export {
   EnterpriseLightLogo,
   EventSubscriptionIcon,
   ExpandCaret,
+  ExpandOptionsButton,
   AccountIcon as ExtraFeaturesIcon,
   FileBookIcon,
   FileCloudIcon,
@@ -1723,6 +1856,10 @@ export {
   HelpIconFilled,
   HistoryIcon,
   IAMPoliciesIcon,
+  IActionButton,
+  IColumns,
+  IInfiniteScrollConfig,
+  ISortConfig,
   IconButton,
   IdentitiesMenuIcon,
   IdentityMenuIcon,
@@ -1730,6 +1867,7 @@ export {
   InputBox$1 as InputBox,
   InputLabel,
   InspectMenuIcon,
+  ItemActions,
   JSONIcon,
   KeysMenuIcon,
   LDAPIcon,
@@ -1816,6 +1954,7 @@ export {
   Select,
   SelectAllIcon,
   SelectMultipleIcon,
+  SendMessageIcon,
   ServersIcon,
   ServiceAccountCredentialsIcon,
   ServiceAccountIcon,
@@ -1833,6 +1972,14 @@ export {
   SupportMenuIcon,
   Switch,
   SyncIcon,
+  TabButtonConstructProps,
+  TabButtonProps,
+  TabItemProps,
+  TabPanelProps,
+  TabProps,
+  Tabs,
+  TabsContainerProps,
+  TabsProps,
   TagsIcon,
   TenantsIcon,
   TenantsOutlineIcon,
