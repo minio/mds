@@ -23,6 +23,10 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
 import Box from "../Box/Box";
 import TestIcon from "../../utils/TestIcon";
+import ChatIcon from "../Icons/ChatIcon";
+import LambdaIcon from "../Icons/LambdaIcon";
+import LambdaBalloonIcon from "../Icons/LambdaBalloonIcon";
+import LambdaNotificationsIcon from "../Icons/LambdaNotificationsIcon";
 
 export default {
   title: "MDS/Layout/Menu",
@@ -166,7 +170,7 @@ Horizontal.args = {
   horizontal: true,
   options: [
     {
-      icon: <TestIcon />,
+      icon: <ChatIcon />,
       path: "/testPath1",
       name: "Test 1",
       group: "Group 1",
@@ -176,7 +180,7 @@ Horizontal.args = {
       },
     },
     {
-      icon: <TestIcon />,
+      icon: <LambdaNotificationsIcon />,
       name: "Test 5",
       group: "Group 2",
       id: "test5",
