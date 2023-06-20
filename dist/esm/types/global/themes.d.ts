@@ -68,6 +68,7 @@ export declare const lightColors: {
   menuCollapseColor: string;
   menuIconBG: string;
   menuIconBorder: string;
+  tabBorder: string;
 };
 export declare const darkColors: {
   dark: string;

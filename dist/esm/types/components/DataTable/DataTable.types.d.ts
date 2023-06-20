@@ -48,7 +48,7 @@ export interface DataTableProps {
   columnsSelector?: boolean;
   textSelectable?: boolean;
   columnsShown?: string[];
-  onColumnChange?: (column: string, state: boolean) => any;
+  onColumnChange?: (column: string) => any;
   autoScrollToBottom?: boolean;
   infiniteScrollConfig?: IInfiniteScrollConfig;
   sortConfig?: ISortConfig;
@@ -77,4 +77,16 @@ export interface IActionButton {
   sendOnlyId?: boolean;
   idField: string;
   disabled: boolean;
+}
+export interface ColumnSelectorProps {
+  open: boolean;
+  closeTriggerAction: () => void;
+  onSelect: (column: string) => void;
+  columns: IColumns[];
+  selectedOptionIDs: string[];
+  sx?: CSSObject;
+  anchorEl?: (EventTarget & HTMLElement) | null;
+}
+export interface ColumnSelectorConstructProps {
+  sx?: CSSObject;
 }
