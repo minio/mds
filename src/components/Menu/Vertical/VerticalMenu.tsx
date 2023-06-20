@@ -231,48 +231,49 @@ const VerticalMenu: FC<MenuProps> = ({
           </Box>
         </Box>
         <Box className={"menuItems"}>
-          {options.map((option) => {
-            let extraItem = null;
+          {options &&
+            options.map((option) => {
+              let extraItem = null;
 
-            if (displayGroupTitles && option.group) {
-              if (currTitle !== option.group) {
-                currTitle = option.group;
+              if (displayGroupTitles && option.group) {
+                if (currTitle !== option.group) {
+                  currTitle = option.group;
 
-                extraItem = <MenuSectionHeader label={option.group} />;
-              }
-            }
-
-            const onClickAction = (path: string) => {
-              if (option.onClick) {
-                option.onClick(path);
-                return;
+                  extraItem = <MenuSectionHeader label={option.group} />;
+                }
               }
 
-              callPathAction(path);
-            };
+              const onClickAction = (path: string) => {
+                if (option.onClick) {
+                  option.onClick(path);
+                  return;
+                }
 
-            return (
-              <Fragment
-                key={`menu-section-${option.group || "common"}-${
-                  option.id || option.name
-                }`}
-              >
-                {extraItem}
-                <MenuItem
-                  onClick={onClickAction}
-                  icon={option.icon}
-                  name={option.name}
-                  group={option.group}
-                  id={option.id}
-                  path={option.path}
-                  currentPath={currentPath}
-                  badge={option.badge}
-                  children={option.children}
-                  visibleTooltip={!isOpen}
-                />
-              </Fragment>
-            );
-          })}
+                callPathAction(path);
+              };
+
+              return (
+                <Fragment
+                  key={`menu-section-${option.group || "common"}-${
+                    option.id || option.name
+                  }`}
+                >
+                  {extraItem}
+                  <MenuItem
+                    onClick={onClickAction}
+                    icon={option.icon}
+                    name={option.name}
+                    group={option.group}
+                    id={option.id}
+                    path={option.path}
+                    currentPath={currentPath}
+                    badge={option.badge}
+                    children={option.children}
+                    visibleTooltip={!isOpen}
+                  />
+                </Fragment>
+              );
+            })}
           {signOutAction && (
             <Box sx={{ marginTop: "auto" }}>
               <MenuSectionHeader label={""} />

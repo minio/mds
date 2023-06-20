@@ -117,45 +117,46 @@ const MobileMenuList: FC<MenuProps> = ({
           </Box>
         </Box>
         <Box className={"menuItems"}>
-          {options.map((option) => {
-            let extraItem = null;
+          {options &&
+            options.map((option) => {
+              let extraItem = null;
 
-            if (displayGroupTitles && option.group) {
-              if (currTitle !== option.group) {
-                currTitle = option.group;
+              if (displayGroupTitles && option.group) {
+                if (currTitle !== option.group) {
+                  currTitle = option.group;
 
-                extraItem = <MenuSectionHeader label={option.group} />;
+                  extraItem = <MenuSectionHeader label={option.group} />;
+                }
               }
-            }
 
-            const onClickAction = (path: string) => {
-              if (option.onClick) {
-                option.onClick(path);
+              const onClickAction = (path: string) => {
+                if (option.onClick) {
+                  option.onClick(path);
+                  collapseAction();
+                  return;
+                }
+
+                callPathAction(path);
                 collapseAction();
-                return;
-              }
+              };
 
-              callPathAction(path);
-              collapseAction();
-            };
-
-            return (
-              <Fragment key={`menu-section-${option.group}-${option.id}`}>
-                {extraItem}
-                <MenuItem
-                  onClick={onClickAction}
-                  icon={option.icon}
-                  name={option.name}
-                  group={option.group}
-                  id={option.id}
-                  path={option.path}
-                  currentPath={currentPath}
-                  badge={option.badge}
-                  children={option.children}
-                />
-              </Fragment>
-            );
-          })}
+              return (
+                <Fragment key={`menu-section-${option.group}-${option.id}`}>
+                  {extraItem}
+                  <MenuItem
+                    onClick={onClickAction}
+                    icon={option.icon}
+                    name={option.name}
+                    group={option.group}
+                    id={option.id}
+                    path={option.path}
+                    currentPath={currentPath}
+                    badge={option.badge}
+                    children={option.children}
+                  />
+                </Fragment>
+              );
+            })}
           {signOutAction && (
             <Box sx={{ marginTop: "auto" }}>
               <MenuSectionHeader label={""} />

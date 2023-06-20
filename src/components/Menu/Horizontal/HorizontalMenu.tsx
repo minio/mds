@@ -61,6 +61,14 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
         overflowX: "auto",
         scrollbarWidth: "none",
         msOverflowStyle: "none",
+        "&.compact": {
+          height: 5,
+          backgroundColor: get(
+            theme,
+            "menu.horizontal.noOptionsBar",
+            lightColors.mainGrey
+          ),
+        },
         "&::-webkit-scrollbar": {
           width: 0,
           height: 0,
@@ -91,31 +99,36 @@ const HorizontalMenu: FC<MenuProps> = ({
           </IconButton>
         )}
       </Box>
-      <Box className={"sections"}>
-        {options.map((option) => {
-          const onClickAction = (path: string) => {
-            if (option.onClick) {
-              option.onClick(path);
-            }
+      <Box
+        className={`sections ${
+          !options || options.length === 0 ? "compact" : ""
+        }`}
+      >
+        {options &&
+          options.map((option) => {
+            const onClickAction = (path: string) => {
+              if (option.onClick) {
+                option.onClick(path);
+              }
 
-            callPathAction(path);
-          };
+              callPathAction(path);
+            };
 
-          return (
-            <HorizontalMenuItem
-              key={`menu-section-${option.group}-${option.id}`}
-              onClick={onClickAction}
-              icon={option.icon}
-              name={option.name}
-              group={option.group}
-              id={option.id}
-              path={option.path}
-              currentPath={currentPath}
-              badge={option.badge}
-              children={option.children}
-            />
-          );
-        })}
+            return (
+              <HorizontalMenuItem
+                key={`menu-section-${option.group}-${option.id}`}
+                onClick={onClickAction}
+                icon={option.icon}
+                name={option.name}
+                group={option.group}
+                id={option.id}
+                path={option.path}
+                currentPath={currentPath}
+                badge={option.badge}
+                children={option.children}
+              />
+            );
+          })}
       </Box>
     </HorizontalMenuContainer>
   );
