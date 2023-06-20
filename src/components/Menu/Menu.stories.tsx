@@ -21,11 +21,8 @@ import Menu from "./Menu";
 import { MenuProps } from "./Menu.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
-import Box from "../Box/Box";
 import TestIcon from "../../utils/TestIcon";
 import ChatIcon from "../Icons/ChatIcon";
-import LambdaIcon from "../Icons/LambdaIcon";
-import LambdaBalloonIcon from "../Icons/LambdaBalloonIcon";
 import LambdaNotificationsIcon from "../Icons/LambdaNotificationsIcon";
 
 export default {
@@ -152,21 +149,18 @@ const options = [
 ];
 
 Default.args = {
-  children: <Box>This is a Block simulating the content box</Box>,
   options,
 };
 
 export const SubpathSelected = Template.bind({});
 
 SubpathSelected.args = {
-  children: <Box>This is a Block simulating the content box</Box>,
   options,
 };
 
 export const Horizontal = Template.bind({});
 
 Horizontal.args = {
-  children: <Box>This is a Block simulating the content box</Box>,
   horizontal: true,
   options: [
     {
@@ -214,7 +208,16 @@ Horizontal.args = {
 export const MobileAutoDisabled = Template.bind({});
 
 MobileAutoDisabled.args = {
-  children: <Box>This is a Block simulating the content box</Box>,
   mobileModeAuto: false,
   options,
+};
+
+export const VerticalNoOptions = Template.bind({});
+
+VerticalNoOptions.args = {};
+
+export const HorizontalNoOptions = Template.bind({});
+
+HorizontalNoOptions.args = {
+  horizontal: true,
 };

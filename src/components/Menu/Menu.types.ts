@@ -19,7 +19,7 @@ import { CSSObject } from "styled-components";
 import { ApplicationLogoProps } from "../ApplicationLogo/ApplicationLogo.types";
 
 export interface MenuProps {
-  options: MenuItemProps[];
+  options?: MenuItemProps[];
   sx?: CSSObject;
   applicationLogo: ApplicationLogoProps;
   callPathAction: (path: string) => void;

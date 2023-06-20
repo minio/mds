@@ -458,6 +458,7 @@ export const lightTheme: ThemeDefinitionProps = {
       barBackground: lightColors.boxBackground,
       dropBackground: lightColors.boxBackground,
       dropHoverSelectedColor: lightColors.white,
+      noOptionsBar: lightColors.bulletColor,
     },
   },
   tabs: {
@@ -792,6 +793,7 @@ export const darkTheme: ThemeDefinitionProps = {
       barBackground: darkColors.boxBackground,
       dropBackground: darkColors.boxBackground,
       dropHoverSelectedColor: darkColors.dark,
+      noOptionsBar: darkColors.mainGrey,
     },
   },
   tabs: {
