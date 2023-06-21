@@ -18,6 +18,7 @@ import React, { FC, Fragment, useState } from "react";
 import { AutoSizer, Column, InfiniteLoader, Table } from "react-virtualized";
 import styled from "styled-components";
 import get from "lodash/get";
+import isPlainObject from "lodash/isPlainObject";
 import isString from "lodash/isString";
 import Checkbox from "../Checkbox/Checkbox";
 import Loader from "../Loader/Loader";
@@ -460,7 +461,7 @@ const DataTable: FC<DataTableProps> = ({
                               ? selectedItems.includes(
                                   isString(rowData)
                                     ? rowData
-                                    : rowData[rowIDField]
+                                    : `${rowData[rowIDField]}`
                                 )
                               : false;
 
@@ -469,7 +470,7 @@ const DataTable: FC<DataTableProps> = ({
                                 value={
                                   isString(rowData)
                                     ? rowData
-                                    : rowData[rowIDField]
+                                    : `${rowData[rowIDField]}`
                                 }
                                 color="primary"
                                 className="TableCheckbox"
@@ -508,7 +509,7 @@ const DataTable: FC<DataTableProps> = ({
                               ? selectedItems.includes(
                                   isString(rowData)
                                     ? rowData
-                                    : rowData[rowIDField]
+                                    : `${rowData[rowIDField]}`
                                 )
                               : false;
                             return elementActions(
