@@ -23,6 +23,7 @@ import ArrowDropUpIcon from "../Icons/ArrowDropUp";
 import ArrowDropDownIcon from "../Icons/ArrowDropDown";
 import Loader from "../Loader/Loader";
 import TableActionButton from "./TableActionButton";
+import Box from "../Box/Box";
 
 export const selectWidth = 45;
 
@@ -126,7 +127,13 @@ export const generateColumnsMap = (
           column.headerTextAlign ? `text-${column.headerTextAlign}` : ""
         }`}
         headerRenderer={() => (
-          <Fragment>
+          <Box
+            sx={{
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
             {sortColumn === column.elementKey && (
               <Fragment>
                 {sortDirection === "ASC" ? (
@@ -137,7 +144,7 @@ export const generateColumnsMap = (
               </Fragment>
             )}
             {column.label}
-          </Fragment>
+          </Box>
         )}
         className={
           column.contentTextAlign ? `text-${column.contentTextAlign}` : ""
@@ -145,7 +152,7 @@ export const generateColumnsMap = (
         cellRenderer={({ rowData }) => {
           const isSelected = selectedItems
             ? selectedItems.includes(
-                isString(rowData) ? rowData : rowData[idField]
+                isString(rowData) ? rowData : `${rowData[idField]}`
               )
             : false;
           return subRenderFunction(rowData, column, isSelected);

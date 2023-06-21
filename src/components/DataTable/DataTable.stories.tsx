@@ -56,7 +56,9 @@ const Template: Story<DataTableProps> = (args) => {
       return;
     }
 
-    const allItems = args.records.map((element) => element.field1);
+    const allItems = args.records.map(
+      (element) => `${element[`${args.idField}`]}`
+    );
     setSelected(allItems);
   };
 
@@ -279,7 +281,11 @@ WithSortIndicators.args = {
     },
   ],
   columns: [
-    { label: "Column1", elementKey: "field1", width: 200 },
+    {
+      label: "Super Long Column Name to test ellipsis truncate",
+      elementKey: "field1",
+      width: 200,
+    },
     { label: "Column2", elementKey: "field2", width: 100 },
     {
       label: "Column3",
@@ -421,6 +427,73 @@ ColumnsSelector.args = {
     {
       label: "Column12",
       elementKey: "field12",
+    },
+  ],
+};
+
+export const NumericIDs = Template.bind({});
+NumericIDs.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "id",
+  records: [
+    { id: 1, field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      id: 2,
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+    { id: 3, field1: "Value1-2", field2: "Value2-2", field3: "Value3-2" },
+    {
+      id: 4,
+      field1: "Value1-3",
+      field2: "Value2-3",
+      field3: "Value3-3",
+    },
+  ],
+  columns: [
+    { label: "ID", elementKey: "id" },
+    { label: "Column1", elementKey: "field1" },
+    { label: "Column2", elementKey: "field2" },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+};
+
+export const LongTitles = Template.bind({});
+LongTitles.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "id",
+  records: [
+    { id: 1, field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      id: 2,
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+    { id: 3, field1: "Value1-2", field2: "Value2-2", field3: "Value3-2" },
+    {
+      id: 4,
+      field1: "Value1-3",
+      field2: "Value2-3",
+      field3: "Value3-3",
+    },
+  ],
+  columns: [
+    { label: "ID", elementKey: "id" },
+    {
+      label: "Super long title name for a single column that needs to truncate",
+      elementKey: "field1",
+    },
+    { label: "Column2", elementKey: "field2" },
+    {
+      label: "Column3",
+      elementKey: "field3",
     },
   ],
 };
