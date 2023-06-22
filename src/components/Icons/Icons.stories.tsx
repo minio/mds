@@ -967,6 +967,18 @@ const Template: Story = (args) => {
             </Grid>
 
             <Grid item xs={3} sm={2} md={1}>
+              <cicons.ThumbsDownIcon />
+              <br />
+              ThumbsDownIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
+              <cicons.ThumbsUpIcon />
+              <br />
+              ThumbsUpIcon
+            </Grid>
+
+            <Grid item xs={3} sm={2} md={1}>
               <cicons.TiersIcon />
               <br />
               TiersIcon
