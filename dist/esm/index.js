@@ -12288,7 +12288,41 @@ var Xi = Oe(function (e) {
       a ? u : null
     );
   },
-  mc = function (e, t, n, a, r, l, o) {
+  mc = i.div(function (e) {
+    var t = e.theme,
+      n = e.sx,
+      a = e.withBorders,
+      r = e.customBorderPadding,
+      l = e.useBackground,
+      o = {};
+    return (
+      a &&
+        (o = {
+          border: "".concat(Qn(t, "borderColor", "#eaeaea"), " 1px solid"),
+          borderRadius: 2,
+          padding: r || 15,
+        }),
+      ke(
+        ke(
+          {
+            backgroundColor: l
+              ? Qn(t, "boxBackground", "#FBFAFA")
+              : "transparent",
+          },
+          o
+        ),
+        n
+      )
+    );
+  }),
+  hc = function (e) {
+    var n = e.sx,
+      a = e.children,
+      r = e.customBorderPadding,
+      l = Ne(e, ["sx", "children", "customBorderPadding"]);
+    return t.createElement(mc, ke({}, l, { sx: n, customBorderPadding: r }), a);
+  },
+  uc = function (e, t, n, a, r, l, o) {
     if (e) {
       var i = (function (e, t, n) {
         if (n || 2 === arguments.length)
@@ -12315,8 +12349,8 @@ var Xi = Oe(function (e) {
     }
     return t;
   },
-  hc = function (e, a, r, l, o, i, c, s, d, m, h) {
-    var u = mc(e, a, r, l, o, s, d);
+  pc = function (e, a, r, l, o, i, c, s, d, m, h) {
+    var u = uc(e, a, r, l, o, s, d);
     return e.map(function (e, a) {
       if (s && !d.includes(e.elementKey)) return null;
       var r = !e.enableSort || !e.enableSort;
@@ -12328,8 +12362,14 @@ var Xi = Oe(function (e) {
         ),
         headerRenderer: function () {
           return t.createElement(
-            n,
-            null,
+            hc,
+            {
+              sx: {
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              },
+            },
             m === e.elementKey &&
               t.createElement(
                 n,
@@ -12344,7 +12384,7 @@ var Xi = Oe(function (e) {
         className: e.contentTextAlign ? "text-".concat(e.contentTextAlign) : "",
         cellRenderer: function (a) {
           var r = a.rowData,
-            l = !!i && i.includes(Xi(r) ? r : r[c]);
+            l = !!i && i.includes(Xi(r) ? r : "".concat(r[c]));
           return (function (e, a, r) {
             var l = Xi(e) ? e : Qn(e, a.elementKey || "", null),
               o = a.renderFullObject ? e : l,
@@ -12362,7 +12402,7 @@ var Xi = Oe(function (e) {
       });
     });
   },
-  uc = function (t) {
+  fc = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -12395,40 +12435,6 @@ var Xi = Oe(function (e) {
         ry: "12",
       })
     );
-  },
-  pc = i.div(function (e) {
-    var t = e.theme,
-      n = e.sx,
-      a = e.withBorders,
-      r = e.customBorderPadding,
-      l = e.useBackground,
-      o = {};
-    return (
-      a &&
-        (o = {
-          border: "".concat(Qn(t, "borderColor", "#eaeaea"), " 1px solid"),
-          borderRadius: 2,
-          padding: r || 15,
-        }),
-      ke(
-        ke(
-          {
-            backgroundColor: l
-              ? Qn(t, "boxBackground", "#FBFAFA")
-              : "transparent",
-          },
-          o
-        ),
-        n
-      )
-    );
-  }),
-  fc = function (e) {
-    var n = e.sx,
-      a = e.children,
-      r = e.customBorderPadding,
-      l = Ne(e, ["sx", "children", "customBorderPadding"]);
-    return t.createElement(pc, ke({}, l, { sx: n, customBorderPadding: r }), a);
   },
   vc = Fe,
   gc = /\s/;
@@ -12559,6 +12565,7 @@ var Ac = function (e, t, n) {
           padding: "0 0 5px",
           borderBottom: "1px solid ".concat(Qn(t, "borderColor", C)),
           marginBottom: 5,
+          color: Qn(t, "fontColor", E),
         },
         "& .columnsSelectorContainer": {
           display: "flex",
@@ -12624,12 +12631,12 @@ var Ac = function (e, t, n) {
                   },
                 },
                 t.createElement(
-                  fc,
+                  hc,
                   { className: "columnsSelectorTitle" },
                   "Shown Columns"
                 ),
                 t.createElement(
-                  fc,
+                  hc,
                   { className: "columnsSelectorContainer" },
                   n.map(function (e) {
                     return t.createElement(qr, {
@@ -12907,7 +12914,7 @@ var Ac = function (e, t, n) {
             null,
             (function (e) {
               return t.createElement(
-                fc,
+                hc,
                 {
                   sx: {
                     margin: "10px 0 0",
@@ -12920,7 +12927,7 @@ var Ac = function (e, t, n) {
                   {
                     id: "columns-selector",
                     variant: "regular",
-                    icon: t.createElement(uc, null),
+                    icon: t.createElement(fc, null),
                     iconLocation: "end",
                     onClick: j,
                   },
@@ -13064,9 +13071,9 @@ var Ac = function (e, t, n) {
                         disableSort: !0,
                         cellRenderer: function (e) {
                           var n = e.rowData,
-                            a = !!h && h.includes(Xi(n) ? n : n[q]);
+                            a = !!h && h.includes(Xi(n) ? n : "".concat(n[q]));
                           return t.createElement(qr, {
-                            value: Xi(n) ? n : n[q],
+                            value: Xi(n) ? n : "".concat(n[q]),
                             color: "primary",
                             className: "TableCheckbox",
                             checked: a,
@@ -13077,7 +13084,7 @@ var Ac = function (e, t, n) {
                           });
                         },
                       }),
-                    hc(
+                    pc(
                       l,
                       v,
                       E,
@@ -13098,7 +13105,7 @@ var Ac = function (e, t, n) {
                         className: "optionsAlignment",
                         cellRenderer: function (e) {
                           var n = e.rowData,
-                            a = !!h && h.includes(Xi(n) ? n : n[q]);
+                            a = !!h && h.includes(Xi(n) ? n : "".concat(n[q]));
                           return (function (e, n, a, r) {
                             return e.map(function (e, l) {
                               if ("view" === e.type) return null;
@@ -13360,7 +13367,7 @@ var Ac = function (e, t, n) {
       m = e.withBorders,
       h = void 0 === m || m;
     return t.createElement(
-      fc,
+      hc,
       {
         withBorders: h,
         sx: ke(
@@ -13379,7 +13386,7 @@ var Ac = function (e, t, n) {
         ),
       },
       t.createElement(
-        fc,
+        hc,
         null,
         "" !== l &&
           t.createElement(Uc, { icon: i, sx: { marginBottom: 16 } }, l),
@@ -13633,13 +13640,13 @@ var Ac = function (e, t, n) {
             f ? "*" : "",
             "" !== l &&
               t.createElement(
-                fc,
+                hc,
                 { className: "tooltipContainer" },
                 t.createElement(
                   Vr,
                   { tooltip: l, placement: "top" },
                   t.createElement(
-                    fc,
+                    hc,
                     { className: l },
                     t.createElement(Gr, null)
                   )
@@ -13647,9 +13654,9 @@ var Ac = function (e, t, n) {
               )
           ),
         t.createElement(
-          fc,
+          hc,
           { className: "textBoxContainer" },
-          v && t.createElement(fc, { className: "startOverlayIcon" }, v),
+          v && t.createElement(hc, { className: "startOverlayIcon" }, v),
           t.createElement(
             ns,
             ke(
@@ -13670,7 +13677,7 @@ var Ac = function (e, t, n) {
           ),
           y &&
             t.createElement(
-              fc,
+              hc,
               { className: "overlayAction" },
               t.createElement(
                 jr,
@@ -13689,8 +13696,8 @@ var Ac = function (e, t, n) {
                 y
               )
             ),
-          h && t.createElement(fc, { className: "overlayAction" }, h),
-          "" !== E && t.createElement(fc, { className: "errorText" }, E)
+          h && t.createElement(hc, { className: "overlayAction" }, h),
+          "" !== E && t.createElement(hc, { className: "errorText" }, E)
         )
       )
     );
@@ -13789,7 +13796,7 @@ var Ac = function (e, t, n) {
         { onClick: l, className: "backButton" },
         t.createElement(ls, null)
       ),
-      t.createElement(fc, { className: "breadcrumbsList", dir: "rtl" }, a),
+      t.createElement(hc, { className: "breadcrumbsList", dir: "rtl" }, a),
       r
     );
   },
@@ -13997,20 +14004,20 @@ var Ac = function (e, t, n) {
       ps,
       { sx: c, bottomBorder: i },
       t.createElement(
-        fc,
+        hc,
         { className: "stContainer" },
         t.createElement(
-          fc,
+          hc,
           { className: "leftItems" },
-          n ? t.createElement(fc, { className: "headerBarIcon" }, n) : null,
+          n ? t.createElement(hc, { className: "headerBarIcon" }, n) : null,
           t.createElement(
-            fc,
+            hc,
             { className: "titleColumn" },
             t.createElement("h1", { style: { margin: 0 } }, r),
             t.createElement("span", { className: "headerBarSubheader" }, a)
           )
         ),
-        t.createElement(fc, { className: "rightItems" }, l)
+        t.createElement(hc, { className: "rightItems" }, l)
       )
     );
   },
@@ -14214,22 +14221,22 @@ var Ac = function (e, t, n) {
         sx: x,
       },
       t.createElement(
-        fc,
+        hc,
         { className: "overlay ".concat(_ ? "active" : "") },
         t.createElement(
-          fc,
+          hc,
           { className: "modalContainer" },
           t.createElement(
-            fc,
+            hc,
             { className: "modalTitleBar" },
-            t.createElement(fc, { className: "title" }, p, s),
+            t.createElement(hc, { className: "title" }, p, s),
             t.createElement(
               "button",
               { className: "closeModalButton", id: "close", onClick: i },
               t.createElement(vs, null)
             )
           ),
-          t.createElement(fc, { className: "dialogContent" }, d)
+          t.createElement(hc, { className: "dialogContent" }, d)
         )
       )
     );
@@ -14392,7 +14399,7 @@ var Ac = function (e, t, n) {
               ),
             h
           ),
-          s && t.createElement(fc, { className: "actionDescription" }, s)
+          s && t.createElement(hc, { className: "actionDescription" }, s)
         );
   },
   ys = function (t) {
@@ -14732,13 +14739,13 @@ var Ac = function (e, t, n) {
             i ? "*" : "",
             "" !== d &&
               t.createElement(
-                fc,
+                hc,
                 { className: "tooltipContainer" },
                 t.createElement(
                   Vr,
                   { tooltip: d, placement: "top" },
                   t.createElement(
-                    fc,
+                    hc,
                     { className: d },
                     t.createElement(Gr, null)
                   )
@@ -14746,7 +14753,7 @@ var Ac = function (e, t, n) {
               )
           ),
         t.createElement(
-          fc,
+          hc,
           {
             className: "selectContainer",
             onClick: function (e) {
@@ -14771,7 +14778,7 @@ var Ac = function (e, t, n) {
             })
           ),
           t.createElement(
-            fc,
+            hc,
             { className: "overlayArrow" },
             y ? t.createElement(ys, null) : t.createElement(Ms, null)
           ),
@@ -15003,16 +15010,16 @@ var Ac = function (e, t, n) {
       { className: "inputItem", label: a, multiLine: l, sx: i },
       "" !== a && t.createElement(Br, { className: "inputLabel" }, a),
       t.createElement(
-        fc,
+        hc,
         {
           className: "predefinedList ".concat(o ? "includesActionButton" : ""),
         },
         t.createElement(
-          fc,
+          hc,
           { className: l ? "innerContentMultiline" : "innerContent" },
           r
         ),
-        o && t.createElement(fc, { className: "overlayShareOption" }, o)
+        o && t.createElement(hc, { className: "overlayShareOption" }, o)
       )
     );
   },
@@ -15124,17 +15131,17 @@ var Ac = function (e, t, n) {
           s ? "*" : "",
           "" !== r &&
             t.createElement(
-              fc,
+              hc,
               { className: "tooltipContainer" },
               t.createElement(
                 Vr,
                 { tooltip: r, placement: "top" },
-                t.createElement(fc, { className: r }, t.createElement(Gr, null))
+                t.createElement(hc, { className: r }, t.createElement(Gr, null))
               )
             )
         ),
       t.createElement(
-        fc,
+        hc,
         { className: "textBoxContainer" },
         t.createElement(
           Ps,
@@ -15150,7 +15157,7 @@ var Ac = function (e, t, n) {
             u
           )
         ),
-        "" !== m && t.createElement(fc, { className: "errorText" }, m)
+        "" !== m && t.createElement(hc, { className: "errorText" }, m)
       )
     );
   },
@@ -15312,7 +15319,7 @@ var Ac = function (e, t, n) {
         ? t.createElement(
             Fs,
             { onClick: o },
-            t.createElement(fc, { className: "subItemsBox", sx: ke({}, s) }, i)
+            t.createElement(hc, { className: "subItemsBox", sx: ke({}, s) }, i)
           )
         : null
     );
@@ -15470,7 +15477,7 @@ var Ac = function (e, t, n) {
               },
               t.createElement(Xs, { icon: r, name: o, badge: !!s }),
               t.createElement(
-                fc,
+                hc,
                 { className: "statusArrow" },
                 f ? t.createElement(ys, null) : t.createElement(Ms, null)
               )
@@ -15579,7 +15586,7 @@ var Ac = function (e, t, n) {
       Js,
       { sx: c },
       t.createElement(
-        fc,
+        hc,
         { className: "headerBar" },
         t.createElement(ka, ke({ inverse: !0 }, n)),
         o,
@@ -15591,7 +15598,7 @@ var Ac = function (e, t, n) {
           )
       ),
       t.createElement(
-        fc,
+        hc,
         { className: "sections ".concat(a && 0 !== a.length ? "" : "compact") },
         a &&
           a.map(function (e) {
@@ -15799,7 +15806,7 @@ var Ac = function (e, t, n) {
                 },
                 t.createElement(id, { icon: l, name: i, badge: !!d }),
                 t.createElement(
-                  fc,
+                  hc,
                   { className: "statusArrow" },
                   g ? t.createElement(ys, null) : t.createElement(Ms, null)
                 )
@@ -15807,7 +15814,7 @@ var Ac = function (e, t, n) {
             ),
             g &&
               t.createElement(
-                fc,
+                hc,
                 { className: "subItemsBox" },
                 n.map(function (e) {
                   return t.createElement(
@@ -16035,23 +16042,23 @@ var Ac = function (e, t, n) {
       hd,
       { sx: m, className: "".concat(c ? "" : "collapsed") },
       t.createElement(
-        fc,
+        hc,
         { className: "menuContainer" },
         t.createElement(
-          fc,
+          hc,
           { className: "menuHeaderContainer", onClick: s },
           t.createElement(
-            fc,
+            hc,
             { className: "collapseButton" },
             t.createElement(td, null)
           ),
           t.createElement(
-            fc,
+            hc,
             { className: "menuLogoContainer" },
             t.createElement(ka, ke({ inverse: !0 }, a))
           ),
           t.createElement(
-            fc,
+            hc,
             { className: "collapsedMenuHeader" },
             t.createElement(
               Vr,
@@ -16065,7 +16072,7 @@ var Ac = function (e, t, n) {
           )
         ),
         t.createElement(
-          fc,
+          hc,
           { className: "menuItems" },
           r &&
             r.map(function (e) {
@@ -16100,7 +16107,7 @@ var Ac = function (e, t, n) {
             }),
           o &&
             t.createElement(
-              fc,
+              hc,
               { sx: { marginTop: "auto" } },
               t.createElement(dd, { label: "" }),
               t.createElement(cd, {
@@ -16226,23 +16233,23 @@ var Ac = function (e, t, n) {
       fd,
       null,
       t.createElement(
-        fc,
+        hc,
         { className: "menuContainer" },
         t.createElement(
-          fc,
+          hc,
           { className: "menuHeaderContainer", onClick: c },
           t.createElement(
-            fc,
+            hc,
             { className: "collapseButton" },
             t.createElement(vs, null)
           ),
           t.createElement(
-            fc,
+            hc,
             { className: "menuLogoContainer" },
             t.createElement(ka, ke({ inverse: !0 }, a))
           ),
           t.createElement(
-            fc,
+            hc,
             { className: "collapsedMenuHeader" },
             t.createElement(
               Vr,
@@ -16256,7 +16263,7 @@ var Ac = function (e, t, n) {
           )
         ),
         t.createElement(
-          fc,
+          hc,
           { className: "menuItems" },
           r &&
             r.map(function (e) {
@@ -16287,7 +16294,7 @@ var Ac = function (e, t, n) {
             }),
           o &&
             t.createElement(
-              fc,
+              hc,
               { sx: { marginTop: "auto" } },
               t.createElement(dd, { label: "" }),
               t.createElement(cd, {
@@ -16348,7 +16355,7 @@ var Ac = function (e, t, n) {
         gd,
         { sx: m },
         t.createElement(
-          fc,
+          hc,
           { className: "headerBar" },
           t.createElement(ka, ke({ inverse: !0 }, r)),
           t.createElement(
@@ -16362,8 +16369,8 @@ var Ac = function (e, t, n) {
             t.createElement(pd, null)
           )
         ),
-        s && t.createElement(fc, null, "middleComponent"),
-        t.createElement(fc, { className: "menuOpen" })
+        s && t.createElement(hc, null, "middleComponent"),
+        t.createElement(hc, { className: "menuOpen" })
       ),
       p &&
         u(
@@ -16461,7 +16468,7 @@ var Ac = function (e, t, n) {
       a = e.useRouteTabs,
       r = e.id,
       l = e.children;
-    return a || n === r ? t.createElement(fc, { id: r }, l) : null;
+    return a || n === r ? t.createElement(hc, { id: r }, l) : null;
   },
   _d = i.button(function (e) {
     var t = e.theme,
@@ -16612,7 +16619,7 @@ var Ac = function (e, t, n) {
       Md,
       { horizontal: !!n, sx: s },
       t.createElement(
-        fc,
+        hc,
         { className: "optionsList" },
         a.map(function (e, a) {
           return e
@@ -16632,7 +16639,7 @@ var Ac = function (e, t, n) {
         })
       ),
       t.createElement(
-        fc,
+        hc,
         { className: "tabsPanels" },
         o
           ? t.createElement(
@@ -24143,6 +24150,40 @@ var Ac = function (e, t, n) {
           xmlns: "http://www.w3.org/2000/svg",
           className: "min-icon",
           fill: "currentcolor",
+          viewBox: "0 0 256 256",
+        },
+        t
+      ),
+      e.createElement("path", {
+        d: "m198.32,245.59l-91.85-.87c-12.51,0-22.66-10.14-22.66-22.66v-122.37c0-2.19.31-4.37.94-6.46.68-3.64,1.82-7.18,3.39-10.53l25.36-54.39c8.93-19.14,21.43-20.11,34.93-8.66,10.55,8.95,6.17,36.6-.5,57.39h80.92c12.51,0,22.66,10.15,22.66,22.66l-19.21,110.63c0,12.26-18.22,35.29-33.04,35.3-.31,0-.62,0-.92-.03Zm-187.07-.87c-3.73,0-6.75-3.02-6.75-6.75V92.04c0-3.73,3.02-6.75,6.75-6.75h46.31c3.73,0,6.75,3.02,6.75,6.75v145.93c0,3.73-3.02,6.75-6.75,6.75H11.25Z",
+      })
+    );
+  },
+  Vu = function (t) {
+    return e.createElement(
+      "svg",
+      ke(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 256 256",
+        },
+        t
+      ),
+      e.createElement("path", {
+        d: "m113.5,227.69l-25.36-54.39c-1.57-3.35-2.71-6.89-3.39-10.53-.62-2.1-.94-4.28-.94-6.46V33.94c0-12.51,10.15-22.66,22.66-22.66,0,0,0,0,0,0l91.85-.87c14.98-.99,33.96,22.75,33.96,35.27l19.21,110.63c0,12.51-10.15,22.66-22.66,22.66h-80.92c6.68,20.79,11.05,48.44.5,57.39-5.67,4.81-11.16,7.43-16.29,7.43-7.08,0-13.46-4.99-18.63-16.09ZM11.25,170.71c-3.73,0-6.75-3.02-6.75-6.75V18.03c0-3.73,3.02-6.75,6.75-6.75h46.31c3.73,0,6.75,3.02,6.75,6.75v145.93c0,3.73-3.02,6.75-6.75,6.75H11.25Z",
+      })
+    );
+  },
+  Iu = function (t) {
+    return e.createElement(
+      "svg",
+      ke(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
           viewBox: "0 0 12 12.001",
         },
         t
@@ -24154,7 +24195,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  Vu = function (t) {
+  Bu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24208,7 +24249,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Iu = function (t) {
+  Pu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24232,7 +24273,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Bu = function (t) {
+  Ou = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24280,7 +24321,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Pu = function (t) {
+  Gu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24311,7 +24352,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Ou = function (t) {
+  Du = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24383,7 +24424,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Gu = function (t) {
+  qu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24440,7 +24481,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Du = function (t) {
+  Fu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24488,7 +24529,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  qu = function (t) {
+  ju = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24510,7 +24551,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  Fu = function (t) {
+  Wu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24564,7 +24605,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  ju = function (t) {
+  Uu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24611,7 +24652,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Wu = function (t) {
+  $u = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24659,7 +24700,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Uu = function (t) {
+  Ku = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24706,7 +24747,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  $u = function (t) {
+  Yu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24738,7 +24779,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Ku = function (t) {
+  Xu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24780,7 +24821,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Yu = function (t) {
+  Qu = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24822,7 +24863,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Xu = function (t) {
+  Ju = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24876,7 +24917,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Qu = function (t) {
+  ep = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24917,7 +24958,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Ju = function (t) {
+  tp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24971,7 +25012,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  ep = function (t) {
+  np = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -24992,7 +25033,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  tp = function (t) {
+  ap = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25066,7 +25107,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  np = function (t) {
+  rp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25110,7 +25151,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  ap = function (t) {
+  lp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25130,7 +25171,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  rp = function (t) {
+  op = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25149,7 +25190,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  lp = function (t) {
+  ip = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25167,7 +25208,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  op = function (t) {
+  cp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25189,7 +25230,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  ip = function (t) {
+  sp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25211,7 +25252,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  cp = function (t) {
+  dp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25252,7 +25293,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  sp = function (t) {
+  mp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25285,7 +25326,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  dp = function (t) {
+  hp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25318,7 +25359,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  mp = function (t) {
+  up = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25352,7 +25393,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  hp = function (t) {
+  pp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25390,7 +25431,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  up = function (t) {
+  fp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25423,7 +25464,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  pp = function (t) {
+  vp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25467,7 +25508,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  fp = function (t) {
+  gp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25517,7 +25558,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  vp = function (t) {
+  Ep = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25563,7 +25604,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  gp = function (t) {
+  wp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25621,7 +25662,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Ep = function (t) {
+  Cp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25658,7 +25699,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  wp = function (t) {
+  xp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25708,7 +25749,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Cp = function (t) {
+  bp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25734,7 +25775,7 @@ var Ac = function (e, t, n) {
       })
     );
   },
-  xp = function (t) {
+  _p = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25767,7 +25808,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  bp = function (t) {
+  yp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25800,7 +25841,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  _p = function (t) {
+  Mp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25833,7 +25874,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  yp = function (t) {
+  Sp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25869,7 +25910,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Mp = function (t) {
+  zp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25902,7 +25943,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  Sp = function (t) {
+  Rp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25935,7 +25976,7 @@ var Ac = function (e, t, n) {
       )
     );
   },
-  zp = function (t) {
+  Zp = function (t) {
     return e.createElement(
       "svg",
       ke(
@@ -25971,10 +26012,10 @@ export {
   hu as AGPLV3DarkLogo,
   cu as AGPLV3LightLogo,
   su as AGPLV3Logo,
-  Ku as AccessMenuIcon,
+  Xu as AccessMenuIcon,
   Ru as AccessRuleIcon,
   um as AccountIcon,
-  Qu as AccountsMenuIcon,
+  ep as AccountsMenuIcon,
   ms as ActionsList,
   pm as AddAccessRuleIcon,
   Wm as AddFolderIcon,
@@ -25992,14 +26033,14 @@ export {
   Fh as ArrowRightLink,
   Tu as AudioIcon,
   Hu as AudioIconMute,
-  Vu as AuditLogsMenuIcon,
+  Bu as AuditLogsMenuIcon,
   Zh as AzureTierIcon,
   gh as AzureTierIconXs,
   ls as BackCaretIcon,
   Uh as BackIcon,
   qc as BackLink,
   Gc as BackSettingsIcon,
-  fc as Box,
+  hc as Box,
   bu as BoxArrowDown,
   xu as BoxArrowUp,
   is as Breadcrumbs,
@@ -26007,11 +26048,11 @@ export {
   am as BucketQuotaIcon,
   _h as BucketReplicationIcon,
   xh as BucketsIcon,
-  tp as BucketsMenuIcon,
+  ap as BucketsMenuIcon,
   wa as Button,
   Th as CalendarIcon,
   Im as CallHomeFeatureIcon,
-  ep as CallHomeMenuIcon,
+  np as CallHomeMenuIcon,
   ku as CancelledAudioIcon,
   eu as CancelledIcon,
   gu as CertificateIcon,
@@ -26046,7 +26087,7 @@ export {
   $h as DeleteNonCurrentIcon,
   Qm as DiagnosticsFeatureIcon,
   ym as DiagnosticsIcon,
-  $u as DiagnosticsMenuIcon,
+  Yu as DiagnosticsMenuIcon,
   nc as DisableIcon,
   Rd as DisabledIcon,
   Xm as DocumentationIcon,
@@ -26054,7 +26095,7 @@ export {
   lh as DownloadStatIcon,
   Nm as DriveFormatErrorsIcon,
   wm as DrivesIcon,
-  Xu as DrivesMenuIcon,
+  Ju as DrivesMenuIcon,
   Zs as DropdownSelector,
   ic as EditIcon,
   tu as EditTagIcon,
@@ -26068,27 +26109,27 @@ export {
   Ms as ExpandCaret,
   xd as ExpandOptionsButton,
   vu as ExtraFeaturesIcon,
-  pp as FileBookIcon,
-  Mp as FileCloudIcon,
-  vp as FileCodeIcon,
-  cp as FileConfigIcon,
-  Ep as FileDbIcon,
-  dp as FileFontIcon,
-  hp as FileImageIcon,
-  mp as FileLinkIcon,
-  xp as FileLockIcon,
-  fp as FileMissingIcon,
-  Sp as FileMusicIcon,
-  zp as FileNonType,
-  sp as FilePdfIcon,
-  gp as FilePptIcon,
-  wp as FileTxtIcon,
-  Cp as FileVideoIcon,
-  up as FileWorldIcon,
-  bp as FileXlsIcon,
-  _p as FileZipIcon,
+  vp as FileBookIcon,
+  zp as FileCloudIcon,
+  Ep as FileCodeIcon,
+  dp as FileConfigIcon,
+  Cp as FileDbIcon,
+  hp as FileFontIcon,
+  pp as FileImageIcon,
+  up as FileLinkIcon,
+  _p as FileLockIcon,
+  gp as FileMissingIcon,
+  Rp as FileMusicIcon,
+  Zp as FileNonType,
+  mp as FilePdfIcon,
+  wp as FilePptIcon,
+  xp as FileTxtIcon,
+  bp as FileVideoIcon,
+  fp as FileWorldIcon,
+  yp as FileXlsIcon,
+  Mp as FileZipIcon,
   Mu as FilterIcon,
-  yp as FolderBrowserIcon,
+  Sp as FolderBrowserIcon,
   Su as FolderIcon,
   $c as FormLayout,
   ac as FormatDriveIcon,
@@ -26098,24 +26139,24 @@ export {
   Om as GoogleTierIconXs,
   Ba as Grid,
   rh as GroupsIcon,
-  Ou as GroupsMenuIcon,
+  Du as GroupsMenuIcon,
   Lh as HardBucketQuotaIcon,
   em as HealIcon,
-  Iu as HealthMenuIcon,
+  Pu as HealthMenuIcon,
   jc as HelpBox,
   Gr as HelpIcon,
   Nd as HelpIconFilled,
   wh as HistoryIcon,
   rc as IAMPoliciesIcon,
   jr as IconButton,
-  ip as IdentitiesMenuIcon,
-  qu as IdentityMenuIcon,
+  sp as IdentitiesMenuIcon,
+  ju as IdentityMenuIcon,
   ru as InfoIcon,
   rs as InputBox,
   Br as InputLabel,
-  Nu as InspectMenuIcon,
+  Iu as InspectMenuIcon,
   Vd as JSONIcon,
-  ap as KeysMenuIcon,
+  lp as KeysMenuIcon,
   uu as LDAPIcon,
   kd as LambdaBalloonIcon,
   ah as LambdaIcon,
@@ -26131,18 +26172,18 @@ export {
   ur as LoginWrapper,
   Ds as LogoutIcon,
   Ah as LogsIcon,
-  Fu as LogsMenuIcon,
+  Wu as LogsMenuIcon,
   Jc as MainContainer,
   wd as Menu,
-  Gu as MenuCollapsedIcon,
-  Bu as MenuExpandedIcon,
+  qu as MenuCollapsedIcon,
+  Ou as MenuExpandedIcon,
   Ph as MetadataIcon,
-  Du as MetricsMenuIcon,
+  Fu as MetricsMenuIcon,
   Sm as MinIOTierIcon,
   md as MinIOTierIconXs,
   Wd as MirroringIcon,
   Es as ModalBox,
-  ju as MonitoringMenuIcon,
+  Uu as MonitoringMenuIcon,
   Tm as MultipleBucketsIcon,
   Xh as NetworkGetIcon,
   Qh as NetworkPutIcon,
@@ -26167,11 +26208,11 @@ export {
   Yc as PageLayout,
   Jm as PasswordKeyIcon,
   jm as PerformanceFeatureIcon,
-  Uu as PerformanceMenuIcon,
+  Ku as PerformanceMenuIcon,
   mm as PermissionIcon,
-  op as PoliciesMenuIcon,
+  cp as PoliciesMenuIcon,
   lc as PreviewIcon,
-  Ju as ProfileMenuIcon,
+  tp as ProfileMenuIcon,
   Lm as PrometheusErrorIcon,
   cm as PrometheusIcon,
   Vs as RadioGroup,
@@ -26179,7 +26220,7 @@ export {
   Sh as RecoverIcon,
   Od as RedoIcon,
   Ad as RefreshIcon,
-  Yu as RegisterMenuIcon,
+  Qu as RegisterMenuIcon,
   Jh as RemoveAllIcon,
   qm as RemoveIcon,
   zu as ReportIcon,
@@ -26190,7 +26231,7 @@ export {
   Um as S3TierIconXs,
   fs as ScreenTitle,
   Id as SearchIcon,
-  lp as SecretsMenuIcon,
+  ip as SecretsMenuIcon,
   Uc as SectionTitle,
   As as Select,
   Wh as SelectAllIcon,
@@ -26206,10 +26247,10 @@ export {
   Td as SpeedtestIcon,
   mu as StandardLightLogo,
   fu as StarIcon,
-  rp as StatusMenuIcon,
+  op as StatusMenuIcon,
   Hd as StorageIcon,
   Yh as SuccessIcon,
-  Wu as SupportMenuIcon,
+  $u as SupportMenuIcon,
   _s as Switch,
   vh as SyncIcon,
   Sd as Tabs,
@@ -26218,6 +26259,8 @@ export {
   Em as TenantsOutlineIcon,
   Le as ThemeHandler,
   Va as ThemedLogo,
+  Vu as ThumbsDownIcon,
+  Nu as ThumbsUpIcon,
   wu as TierOfflineIcon,
   Eu as TierOnlineIcon,
   ih as TiersIcon,
@@ -26227,7 +26270,7 @@ export {
   Vr as Tooltip,
   Eh as TotalObjectsIcon,
   Bm as TraceIcon,
-  Pu as TraceMenuIcon,
+  Gu as TraceMenuIcon,
   cc as TrashIcon,
   uh as UploadFile,
   oh as UploadFolderIcon,
@@ -26236,11 +26279,11 @@ export {
   fm as UptimeIcon,
   _u as UserFilledIcon,
   $m as UsersIcon,
-  np as UsersMenuIcon,
+  rp as UsersMenuIcon,
   Vm as VerifiedIcon,
   Ld as VersionIcon,
   Vh as VersionsIcon,
-  uc as ViewColumnIcon,
+  fc as ViewColumnIcon,
   es as VisibilityOffIcon,
   ts as VisibilityOnIcon,
   Cu as WarnFilledIcon,
