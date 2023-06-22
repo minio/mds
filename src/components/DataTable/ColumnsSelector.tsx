@@ -65,6 +65,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
         lightColors.borderColor
       )}`,
       marginBottom: 5,
+      color: get(theme, "fontColor", lightColors.defaultFontColor),
     },
     "& .columnsSelectorContainer": {
       display: "flex",
