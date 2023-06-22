@@ -12176,7 +12176,45 @@ var Gi = Le(function (e) {
       a ? h : null
     );
   },
-  tc = function (e, t, a, n, r, l, o) {
+  tc = i.default.div(function (e) {
+    var t = e.theme,
+      a = e.sx,
+      n = e.withBorders,
+      r = e.customBorderPadding,
+      l = e.useBackground,
+      o = {};
+    return (
+      n &&
+        (o = {
+          border: "".concat(qa(t, "borderColor", "#eaeaea"), " 1px solid"),
+          borderRadius: 2,
+          padding: r || 15,
+        }),
+      ze(
+        ze(
+          {
+            backgroundColor: l
+              ? qa(t, "boxBackground", "#FBFAFA")
+              : "transparent",
+          },
+          o
+        ),
+        a
+      )
+    );
+  }),
+  ac = function (e) {
+    var t = e.sx,
+      a = e.children,
+      n = e.customBorderPadding,
+      r = Re(e, ["sx", "children", "customBorderPadding"]);
+    return l.default.createElement(
+      tc,
+      ze({}, r, { sx: t, customBorderPadding: n }),
+      a
+    );
+  },
+  nc = function (e, t, a, n, r, l, o) {
     if (e) {
       var i = (function (e, t, a) {
         if (a || 2 === arguments.length)
@@ -12203,8 +12241,8 @@ var Gi = Le(function (e) {
     }
     return t;
   },
-  ac = function (t, a, n, r, o, i, c, s, d, m, u) {
-    var h = tc(t, a, n, r, o, s, d);
+  rc = function (t, a, n, r, o, i, c, s, d, m, u) {
+    var h = nc(t, a, n, r, o, s, d);
     return t.map(function (t, a) {
       if (s && !d.includes(t.elementKey)) return null;
       var n = !t.enableSort || !t.enableSort;
@@ -12216,8 +12254,14 @@ var Gi = Le(function (e) {
         ),
         headerRenderer: function () {
           return l.default.createElement(
-            e.Fragment,
-            null,
+            ac,
+            {
+              sx: {
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              },
+            },
             m === t.elementKey &&
               l.default.createElement(
                 e.Fragment,
@@ -12232,7 +12276,7 @@ var Gi = Le(function (e) {
         className: t.contentTextAlign ? "text-".concat(t.contentTextAlign) : "",
         cellRenderer: function (a) {
           var n = a.rowData,
-            r = !!i && i.includes(Gi(n) ? n : n[c]);
+            r = !!i && i.includes(Gi(n) ? n : "".concat(n[c]));
           return (function (t, a, n) {
             var r = Gi(t) ? t : qa(t, a.elementKey || "", null),
               o = a.renderFullObject ? t : r,
@@ -12254,7 +12298,7 @@ var Gi = Le(function (e) {
       });
     });
   },
-  nc = function (e) {
+  lc = function (e) {
     return o.createElement(
       "svg",
       ze(
@@ -12286,44 +12330,6 @@ var Gi = Le(function (e) {
         rx: "12",
         ry: "12",
       })
-    );
-  },
-  rc = i.default.div(function (e) {
-    var t = e.theme,
-      a = e.sx,
-      n = e.withBorders,
-      r = e.customBorderPadding,
-      l = e.useBackground,
-      o = {};
-    return (
-      n &&
-        (o = {
-          border: "".concat(qa(t, "borderColor", "#eaeaea"), " 1px solid"),
-          borderRadius: 2,
-          padding: r || 15,
-        }),
-      ze(
-        ze(
-          {
-            backgroundColor: l
-              ? qa(t, "boxBackground", "#FBFAFA")
-              : "transparent",
-          },
-          o
-        ),
-        a
-      )
-    );
-  }),
-  lc = function (e) {
-    var t = e.sx,
-      a = e.children,
-      n = e.customBorderPadding,
-      r = Re(e, ["sx", "children", "customBorderPadding"]);
-    return l.default.createElement(
-      rc,
-      ze({}, r, { sx: t, customBorderPadding: n }),
-      a
     );
   },
   oc = Be,
@@ -12455,6 +12461,7 @@ var bc = function (e, t, a) {
           padding: "0 0 5px",
           borderBottom: "1px solid ".concat(qa(t, "borderColor", f)),
           marginBottom: 5,
+          color: qa(t, "fontColor", u),
         },
         "& .columnsSelectorContainer": {
           display: "flex",
@@ -12520,12 +12527,12 @@ var bc = function (e, t, a) {
                   },
                 },
                 l.default.createElement(
-                  lc,
+                  ac,
                   { className: "columnsSelectorTitle" },
                   "Shown Columns"
                 ),
                 l.default.createElement(
-                  lc,
+                  ac,
                   { className: "columnsSelectorContainer" },
                   n.map(function (e) {
                     return l.default.createElement(Lr, {
@@ -14149,7 +14156,7 @@ var bc = function (e, t, a) {
             gs,
             { onClick: r },
             l.default.createElement(
-              lc,
+              ac,
               { className: "subItemsBox", sx: ze({}, c) },
               o
             )
@@ -14310,7 +14317,7 @@ var bc = function (e, t, a) {
               },
               l.default.createElement(ys, { icon: r, name: i, badge: !!d }),
               l.default.createElement(
-                lc,
+                ac,
                 { className: "statusArrow" },
                 p
                   ? l.default.createElement(ts, null)
@@ -14421,7 +14428,7 @@ var bc = function (e, t, a) {
       Ss,
       { sx: c },
       l.default.createElement(
-        lc,
+        ac,
         { className: "headerBar" },
         l.default.createElement(zn, ze({ inverse: !0 }, t)),
         o,
@@ -14433,7 +14440,7 @@ var bc = function (e, t, a) {
           )
       ),
       l.default.createElement(
-        lc,
+        ac,
         { className: "sections ".concat(a && 0 !== a.length ? "" : "compact") },
         a &&
           a.map(function (e) {
@@ -14641,7 +14648,7 @@ var bc = function (e, t, a) {
                 },
                 l.default.createElement(Is, { icon: n, name: o, badge: !!s }),
                 l.default.createElement(
-                  lc,
+                  ac,
                   { className: "statusArrow" },
                   v
                     ? l.default.createElement(ts, null)
@@ -14651,7 +14658,7 @@ var bc = function (e, t, a) {
             ),
             v &&
               l.default.createElement(
-                lc,
+                ac,
                 { className: "subItemsBox" },
                 a.map(function (e) {
                   return l.default.createElement(
@@ -14879,23 +14886,23 @@ var bc = function (e, t, a) {
       Ps,
       { sx: m, className: "".concat(c ? "" : "collapsed") },
       l.default.createElement(
-        lc,
+        ac,
         { className: "menuContainer" },
         l.default.createElement(
-          lc,
+          ac,
           { className: "menuHeaderContainer", onClick: s },
           l.default.createElement(
-            lc,
+            ac,
             { className: "collapseButton" },
             l.default.createElement(Rs, null)
           ),
           l.default.createElement(
-            lc,
+            ac,
             { className: "menuLogoContainer" },
             l.default.createElement(zn, ze({ inverse: !0 }, a))
           ),
           l.default.createElement(
-            lc,
+            ac,
             { className: "collapsedMenuHeader" },
             l.default.createElement(
               Sr,
@@ -14909,7 +14916,7 @@ var bc = function (e, t, a) {
           )
         ),
         l.default.createElement(
-          lc,
+          ac,
           { className: "menuItems" },
           n &&
             n.map(function (t) {
@@ -14945,7 +14952,7 @@ var bc = function (e, t, a) {
             }),
           o &&
             l.default.createElement(
-              lc,
+              ac,
               { sx: { marginTop: "auto" } },
               l.default.createElement(Bs, { label: "" }),
               l.default.createElement(ks, {
@@ -15071,23 +15078,23 @@ var bc = function (e, t, a) {
       Ds,
       null,
       l.default.createElement(
-        lc,
+        ac,
         { className: "menuContainer" },
         l.default.createElement(
-          lc,
+          ac,
           { className: "menuHeaderContainer", onClick: c },
           l.default.createElement(
-            lc,
+            ac,
             { className: "collapseButton" },
             l.default.createElement(Kc, null)
           ),
           l.default.createElement(
-            lc,
+            ac,
             { className: "menuLogoContainer" },
             l.default.createElement(zn, ze({ inverse: !0 }, a))
           ),
           l.default.createElement(
-            lc,
+            ac,
             { className: "collapsedMenuHeader" },
             l.default.createElement(
               Sr,
@@ -15101,7 +15108,7 @@ var bc = function (e, t, a) {
           )
         ),
         l.default.createElement(
-          lc,
+          ac,
           { className: "menuItems" },
           n &&
             n.map(function (t) {
@@ -15133,7 +15140,7 @@ var bc = function (e, t, a) {
             }),
           o &&
             l.default.createElement(
-              lc,
+              ac,
               { sx: { marginTop: "auto" } },
               l.default.createElement(Bs, { label: "" }),
               l.default.createElement(ks, {
@@ -15194,7 +15201,7 @@ var bc = function (e, t, a) {
         qs,
         { sx: m },
         l.default.createElement(
-          lc,
+          ac,
           { className: "headerBar" },
           l.default.createElement(zn, ze({ inverse: !0 }, n)),
           l.default.createElement(
@@ -15208,8 +15215,8 @@ var bc = function (e, t, a) {
             l.default.createElement(Gs, null)
           )
         ),
-        s && l.default.createElement(lc, null, "middleComponent"),
-        l.default.createElement(lc, { className: "menuOpen" })
+        s && l.default.createElement(ac, null, "middleComponent"),
+        l.default.createElement(ac, { className: "menuOpen" })
       ),
       h &&
         a.createPortal(
@@ -15267,7 +15274,7 @@ var bc = function (e, t, a) {
       a = e.useRouteTabs,
       n = e.id,
       r = e.children;
-    return a || t === n ? l.default.createElement(lc, { id: n }, r) : null;
+    return a || t === n ? l.default.createElement(ac, { id: n }, r) : null;
   },
   $s = i.default.button(function (e) {
     var t = e.theme,
@@ -16288,7 +16295,7 @@ var bc = function (e, t, a) {
     );
   }),
   (exports.BackSettingsIcon = Tc),
-  (exports.Box = lc),
+  (exports.Box = ac),
   (exports.BoxArrowDown = function (e) {
     return o.createElement(
       "svg",
@@ -16391,7 +16398,7 @@ var bc = function (e, t, a) {
         l.default.createElement(Dc, null)
       ),
       l.default.createElement(
-        lc,
+        ac,
         { className: "breadcrumbsList", dir: "rtl" },
         a
       ),
@@ -17335,13 +17342,13 @@ var bc = function (e, t, a) {
           s ? "*" : "",
           "" !== n &&
             l.default.createElement(
-              lc,
+              ac,
               { className: "tooltipContainer" },
               l.default.createElement(
                 Sr,
                 { tooltip: n, placement: "top" },
                 l.default.createElement(
-                  lc,
+                  ac,
                   { className: n },
                   l.default.createElement(Ar, null)
                 )
@@ -17349,7 +17356,7 @@ var bc = function (e, t, a) {
             )
         ),
       l.default.createElement(
-        lc,
+        ac,
         { className: "textBoxContainer" },
         l.default.createElement(
           hs,
@@ -17365,7 +17372,7 @@ var bc = function (e, t, a) {
             h
           )
         ),
-        "" !== m && l.default.createElement(lc, { className: "errorText" }, m)
+        "" !== m && l.default.createElement(ac, { className: "errorText" }, m)
       )
     );
   }),
@@ -18128,7 +18135,7 @@ var bc = function (e, t, a) {
             null,
             (function (e) {
               return l.default.createElement(
-                lc,
+                ac,
                 {
                   sx: {
                     margin: "10px 0 0",
@@ -18141,7 +18148,7 @@ var bc = function (e, t, a) {
                   {
                     id: "columns-selector",
                     variant: "regular",
-                    icon: l.default.createElement(nc, null),
+                    icon: l.default.createElement(lc, null),
                     iconLocation: "end",
                     onClick: q,
                   },
@@ -18289,9 +18296,9 @@ var bc = function (e, t, a) {
                         disableSort: !0,
                         cellRenderer: function (e) {
                           var t = e.rowData,
-                            a = !!m && m.includes(Gi(t) ? t : t[D]);
+                            a = !!m && m.includes(Gi(t) ? t : "".concat(t[D]));
                           return l.default.createElement(Lr, {
-                            value: Gi(t) ? t : t[D],
+                            value: Gi(t) ? t : "".concat(t[D]),
                             color: "primary",
                             className: "TableCheckbox",
                             checked: a,
@@ -18302,7 +18309,7 @@ var bc = function (e, t, a) {
                           });
                         },
                       }),
-                    ac(
+                    rc(
                       n,
                       v,
                       E,
@@ -18323,7 +18330,7 @@ var bc = function (e, t, a) {
                         className: "optionsAlignment",
                         cellRenderer: function (e) {
                           var t = e.rowData,
-                            n = !!m && m.includes(Gi(t) ? t : t[D]);
+                            n = !!m && m.includes(Gi(t) ? t : "".concat(t[D]));
                           return (function (e, t, a, n) {
                             return e.map(function (e, r) {
                               if ("view" === e.type) return null;
@@ -20139,7 +20146,7 @@ var bc = function (e, t, a) {
       u = e.withBorders,
       h = void 0 === u || u;
     return l.default.createElement(
-      lc,
+      ac,
       {
         withBorders: h,
         sx: ze(
@@ -20158,7 +20165,7 @@ var bc = function (e, t, a) {
         ),
       },
       l.default.createElement(
-        lc,
+        ac,
         null,
         "" !== r &&
           l.default.createElement(Ic, { icon: i, sx: { marginBottom: 16 } }, r),
@@ -20817,13 +20824,13 @@ var bc = function (e, t, a) {
             p ? "*" : "",
             "" !== r &&
               l.default.createElement(
-                lc,
+                ac,
                 { className: "tooltipContainer" },
                 l.default.createElement(
                   Sr,
                   { tooltip: r, placement: "top" },
                   l.default.createElement(
-                    lc,
+                    ac,
                     { className: r },
                     l.default.createElement(Ar, null)
                   )
@@ -20831,10 +20838,10 @@ var bc = function (e, t, a) {
               )
           ),
         l.default.createElement(
-          lc,
+          ac,
           { className: "textBoxContainer" },
           v &&
-            l.default.createElement(lc, { className: "startOverlayIcon" }, v),
+            l.default.createElement(ac, { className: "startOverlayIcon" }, v),
           l.default.createElement(
             Oc,
             ze(
@@ -20855,7 +20862,7 @@ var bc = function (e, t, a) {
           ),
           y &&
             l.default.createElement(
-              lc,
+              ac,
               { className: "overlayAction" },
               l.default.createElement(
                 kr,
@@ -20874,8 +20881,8 @@ var bc = function (e, t, a) {
                 y
               )
             ),
-          u && l.default.createElement(lc, { className: "overlayAction" }, u),
-          "" !== E && l.default.createElement(lc, { className: "errorText" }, E)
+          u && l.default.createElement(ac, { className: "overlayAction" }, u),
+          "" !== E && l.default.createElement(ac, { className: "errorText" }, E)
         )
       )
     );
@@ -21896,22 +21903,22 @@ var bc = function (e, t, a) {
         sx: w,
       },
       l.default.createElement(
-        lc,
+        ac,
         { className: "overlay ".concat(C ? "active" : "") },
         l.default.createElement(
-          lc,
+          ac,
           { className: "modalContainer" },
           l.default.createElement(
-            lc,
+            ac,
             { className: "modalTitleBar" },
-            l.default.createElement(lc, { className: "title" }, u, c),
+            l.default.createElement(ac, { className: "title" }, u, c),
             l.default.createElement(
               "button",
               { className: "closeModalButton", id: "close", onClick: o },
               l.default.createElement(Kc, null)
             )
           ),
-          l.default.createElement(lc, { className: "dialogContent" }, s)
+          l.default.createElement(ac, { className: "dialogContent" }, s)
         )
       )
     );
@@ -23467,16 +23474,16 @@ var bc = function (e, t, a) {
       { className: "inputItem", label: a, multiLine: r, sx: i },
       "" !== a && l.default.createElement(Rr, { className: "inputLabel" }, a),
       l.default.createElement(
-        lc,
+        ac,
         {
           className: "predefinedList ".concat(o ? "includesActionButton" : ""),
         },
         l.default.createElement(
-          lc,
+          ac,
           { className: r ? "innerContentMultiline" : "innerContent" },
           n
         ),
-        o && l.default.createElement(lc, { className: "overlayShareOption" }, o)
+        o && l.default.createElement(ac, { className: "overlayShareOption" }, o)
       )
     );
   }),
@@ -24026,16 +24033,16 @@ var bc = function (e, t, a) {
       $c,
       { sx: c, bottomBorder: i },
       l.default.createElement(
-        lc,
+        ac,
         { className: "stContainer" },
         l.default.createElement(
-          lc,
+          ac,
           { className: "leftItems" },
           t
-            ? l.default.createElement(lc, { className: "headerBarIcon" }, t)
+            ? l.default.createElement(ac, { className: "headerBarIcon" }, t)
             : null,
           l.default.createElement(
-            lc,
+            ac,
             { className: "titleColumn" },
             l.default.createElement("h1", { style: { margin: 0 } }, n),
             l.default.createElement(
@@ -24045,7 +24052,7 @@ var bc = function (e, t, a) {
             )
           )
         ),
-        l.default.createElement(lc, { className: "rightItems" }, r)
+        l.default.createElement(ac, { className: "rightItems" }, r)
       )
     );
   }),
@@ -24153,13 +24160,13 @@ var bc = function (e, t, a) {
             o ? "*" : "",
             "" !== s &&
               l.default.createElement(
-                lc,
+                ac,
                 { className: "tooltipContainer" },
                 l.default.createElement(
                   Sr,
                   { tooltip: s, placement: "top" },
                   l.default.createElement(
-                    lc,
+                    ac,
                     { className: s },
                     l.default.createElement(Ar, null)
                   )
@@ -24167,7 +24174,7 @@ var bc = function (e, t, a) {
               )
           ),
         l.default.createElement(
-          lc,
+          ac,
           {
             className: "selectContainer",
             onClick: function (e) {
@@ -24196,7 +24203,7 @@ var bc = function (e, t, a) {
             })
           ),
           l.default.createElement(
-            lc,
+            ac,
             { className: "overlayArrow" },
             _
               ? l.default.createElement(ts, null)
@@ -24927,7 +24934,7 @@ var bc = function (e, t, a) {
             u
           ),
           s &&
-            l.default.createElement(lc, { className: "actionDescription" }, s)
+            l.default.createElement(ac, { className: "actionDescription" }, s)
         );
   }),
   (exports.SyncIcon = function (e) {
@@ -24982,7 +24989,7 @@ var bc = function (e, t, a) {
       Ys,
       { horizontal: !!t, sx: s },
       l.default.createElement(
-        lc,
+        ac,
         { className: "optionsList" },
         a.map(function (e, a) {
           return e
@@ -25002,7 +25009,7 @@ var bc = function (e, t, a) {
         })
       ),
       l.default.createElement(
-        lc,
+        ac,
         { className: "tabsPanels" },
         o
           ? l.default.createElement(
@@ -25140,6 +25147,40 @@ var bc = function (e, t, a) {
       { viewBox: "0 0 162.612 24.465", width: t },
       l.default.createElement("path", {
         d: "M52.751.414h9.108v23.63h-9.108zM41.711.74l-18.488 9.92a.919.919 0 0 1-.856 0L3.879.74A2.808 2.808 0 0 0 2.558.414h-.023A2.4 2.4 0 0 0 0 2.641v21.376h9.1V13.842a.918.918 0 0 1 1.385-.682l10.361 5.568a3.634 3.634 0 0 0 3.336.028l10.933-5.634a.917.917 0 0 1 1.371.69v10.205h9.1V2.641A2.4 2.4 0 0 0 43.055.414h-.023a2.808 2.808 0 0 0-1.321.326zm65.564-.326h-9.237v10.755a.913.913 0 0 1-1.338.706L72.762.675a2.824 2.824 0 0 0-1.191-.261h-.016a2.4 2.4 0 0 0-2.535 2.227v21.377h9.163V13.275a.914.914 0 0 1 1.337-.707l24.032 11.2a2.813 2.813 0 0 0 1.188.26 2.4 2.4 0 0 0 2.535-2.227zm7.161 23.63V.414h4.191v23.63zm28.856.421c-11.274 0-19.272-4.7-19.272-12.232C124.02 4.741 132.066 0 143.292 0s19.32 4.7 19.32 12.233-7.902 12.232-19.32 12.232zm0-21.333c-8.383 0-14.84 3.217-14.84 9.1 0 5.926 6.457 9.1 14.84 9.1s14.887-3.174 14.887-9.1c0-5.883-6.504-9.1-14.887-9.1z",
+      })
+    );
+  }),
+  (exports.ThumbsDownIcon = function (e) {
+    return o.createElement(
+      "svg",
+      ze(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 256 256",
+        },
+        e
+      ),
+      o.createElement("path", {
+        d: "m113.5,227.69l-25.36-54.39c-1.57-3.35-2.71-6.89-3.39-10.53-.62-2.1-.94-4.28-.94-6.46V33.94c0-12.51,10.15-22.66,22.66-22.66,0,0,0,0,0,0l91.85-.87c14.98-.99,33.96,22.75,33.96,35.27l19.21,110.63c0,12.51-10.15,22.66-22.66,22.66h-80.92c6.68,20.79,11.05,48.44.5,57.39-5.67,4.81-11.16,7.43-16.29,7.43-7.08,0-13.46-4.99-18.63-16.09ZM11.25,170.71c-3.73,0-6.75-3.02-6.75-6.75V18.03c0-3.73,3.02-6.75,6.75-6.75h46.31c3.73,0,6.75,3.02,6.75,6.75v145.93c0,3.73-3.02,6.75-6.75,6.75H11.25Z",
+      })
+    );
+  }),
+  (exports.ThumbsUpIcon = function (e) {
+    return o.createElement(
+      "svg",
+      ze(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 256 256",
+        },
+        e
+      ),
+      o.createElement("path", {
+        d: "m198.32,245.59l-91.85-.87c-12.51,0-22.66-10.14-22.66-22.66v-122.37c0-2.19.31-4.37.94-6.46.68-3.64,1.82-7.18,3.39-10.53l25.36-54.39c8.93-19.14,21.43-20.11,34.93-8.66,10.55,8.95,6.17,36.6-.5,57.39h80.92c12.51,0,22.66,10.15,22.66,22.66l-19.21,110.63c0,12.26-18.22,35.29-33.04,35.3-.31,0-.62,0-.92-.03Zm-187.07-.87c-3.73,0-6.75-3.02-6.75-6.75V92.04c0-3.73,3.02-6.75,6.75-6.75h46.31c3.73,0,6.75,3.02,6.75,6.75v145.93c0,3.73-3.02,6.75-6.75,6.75H11.25Z",
       })
     );
   }),
@@ -25909,7 +25950,7 @@ var bc = function (e, t, a) {
       })
     );
   }),
-  (exports.ViewColumnIcon = nc),
+  (exports.ViewColumnIcon = lc),
   (exports.VisibilityOffIcon = Vc),
   (exports.VisibilityOnIcon = Pc),
   (exports.WarnFilledIcon = function (e) {

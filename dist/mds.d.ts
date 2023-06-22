@@ -1527,6 +1527,14 @@ declare const CancelledAudioIcon: (
   props: SVGProps<SVGSVGElement>
 ) => React__default.JSX.Element;
 
+declare const ThumbsUpIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
+
+declare const ThumbsDownIcon: (
+  props: SVGProps<SVGSVGElement>
+) => React.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>
 ) => React.JSX.Element;
@@ -1986,6 +1994,8 @@ export {
   TenantsOutlineIcon,
   ThemeHandler,
   ThemedLogo,
+  ThumbsDownIcon,
+  ThumbsUpIcon,
   TierOfflineIcon,
   TierOnlineIcon,
   TiersIcon,
