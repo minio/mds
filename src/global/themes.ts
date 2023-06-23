@@ -491,6 +491,11 @@ export const lightTheme: ThemeDefinitionProps = {
       selectedIndicatorColor: lightColors.mainBlue,
     },
   },
+  codeEditor: {
+    backgroundColor: lightColors.white,
+    textColor: lightColors.defaultFontColor,
+    helpToolsBarBG: lightColors.boxBackground,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -825,5 +830,10 @@ export const darkTheme: ThemeDefinitionProps = {
       backgroundColor: "transparent",
       selectedIndicatorColor: darkColors.mainWhite,
     },
+  },
+  codeEditor: {
+    backgroundColor: darkColors.boxBackground,
+    textColor: darkColors.mainWhite,
+    helpToolsBarBG: darkColors.boxBackground,
   },
 };

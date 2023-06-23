@@ -237,6 +237,12 @@ export interface TabThemeProps {
   };
 }
 
+export interface CodeEditorThemeProps {
+  backgroundColor: string;
+  textColor: string;
+  helpToolsBarBG: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -273,6 +279,7 @@ export interface ThemeDefinitionProps {
   readBox?: ReadBoxThemeProps;
   menu?: MenuThemeProps;
   tabs?: TabThemeProps;
+  codeEditor?: CodeEditorThemeProps;
 }
 
 export interface SelectorType {
