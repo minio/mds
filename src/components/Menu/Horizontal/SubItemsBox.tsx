@@ -19,8 +19,8 @@ import get from "lodash/get";
 import debounce from "lodash/debounce";
 import styled, { CSSObject } from "styled-components";
 import { SubItemsBoxProps } from "../Menu.types";
-import { Box } from "../../index";
 import { lightColors } from "../../../global/themes";
+import Box from "../../Box/Box";
 
 const minDropWidth = 180;
 
