@@ -214,6 +214,11 @@ interface TabThemeProps {
     buttons: TabButtonProps$1;
   };
 }
+interface CodeEditorThemeProps {
+  backgroundColor: string;
+  textColor: string;
+  helpToolsBarBG: string;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -250,6 +255,7 @@ interface ThemeDefinitionProps {
   readBox?: ReadBoxThemeProps;
   menu?: MenuThemeProps;
   tabs?: TabThemeProps;
+  codeEditor?: CodeEditorThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -832,6 +838,25 @@ interface TabPanelProps {
 }
 
 declare const Tabs: FC<TabsProps>;
+
+interface CodeEditorProps {
+  value: string;
+  label?: string;
+  mode?: string;
+  tooltip?: string;
+  editorHeight?: string | number;
+  onChange: (value: string) => any;
+  className?: string;
+  helpTools?: React__default.ReactNode;
+  sx?: CSSObject;
+}
+interface CodeEditorBaseProps {
+  editorHeight: string | number;
+  sx?: CSSObject;
+  className?: string;
+}
+
+declare const CodeMirrorWrapper: FC<CodeEditorProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -1777,6 +1802,9 @@ export {
   ClosePanelIcon,
   CloudIcon,
   ClustersIcon,
+  CodeMirrorWrapper as CodeEditor,
+  CodeEditorBaseProps,
+  CodeEditorProps,
   CollapseCaret,
   CollapseIcon,
   CollapseMenuIcon,
