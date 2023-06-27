@@ -55,6 +55,7 @@ WithHelpTools.args = {
       />
     </Fragment>
   ),
+  mode: "js",
 };
 
 export const WithTooltip = Template.bind({});

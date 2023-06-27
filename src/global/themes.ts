@@ -88,6 +88,15 @@ export const lightColors = {
   menuIconBG: "#06274E",
   menuIconBorder: "#052148",
   tabBorder: "#EAEAEA",
+  codeEditorComment: "#6e7781",
+  codeEditorEntityTag: "#116329",
+  codeEditorEntity: "#8250df",
+  codeEditorSublimelinterGutterMark: "#8c959f",
+  codeEditorConstant: "#0550ae",
+  codeEditorString: "#0a3069",
+  codeEditorKeyword: "#cf222e",
+  codeEditorMarkupBold: "#24292f",
+  codeEditorRegexp: "#ffaa00",
 };
 
 export const darkColors = {
@@ -156,6 +165,15 @@ export const darkColors = {
   menuIconBorder: "#151E2E",
   menuHoverSelectedBorderIcon: "#0E1119",
   menuHoverSelectedBG: "#909AAB",
+  codeEditorComment: "#8b949e",
+  codeEditorEntityTag: "#7ee787",
+  codeEditorEntity: "#d2a8ff",
+  codeEditorSublimelinterGutterMark: "#8E98A9",
+  codeEditorConstant: "#79c0ff",
+  codeEditorString: "#a5d6ff",
+  codeEditorKeyword: "#ff7b72",
+  codeEditorMarkupBold: "#c9d1d9",
+  codeEditorRegexp: "#ffd582",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -495,6 +513,15 @@ export const lightTheme: ThemeDefinitionProps = {
     backgroundColor: lightColors.white,
     textColor: lightColors.defaultFontColor,
     helpToolsBarBG: lightColors.boxBackground,
+    comment: lightColors.codeEditorComment,
+    entityTag: lightColors.codeEditorEntityTag,
+    entity: lightColors.codeEditorEntity,
+    sublimelinterGutterMark: lightColors.codeEditorSublimelinterGutterMark,
+    constant: lightColors.codeEditorConstant,
+    string: lightColors.codeEditorString,
+    keyword: lightColors.codeEditorKeyword,
+    markupBold: lightColors.codeEditorMarkupBold,
+    codeEditorRegexp: lightColors.codeEditorRegexp,
   },
 };
 
@@ -835,5 +862,14 @@ export const darkTheme: ThemeDefinitionProps = {
     backgroundColor: darkColors.boxBackground,
     textColor: darkColors.mainWhite,
     helpToolsBarBG: darkColors.boxBackground,
+    comment: darkColors.codeEditorComment,
+    entityTag: darkColors.codeEditorEntityTag,
+    entity: darkColors.codeEditorEntity,
+    sublimelinterGutterMark: darkColors.codeEditorSublimelinterGutterMark,
+    constant: darkColors.codeEditorConstant,
+    string: darkColors.codeEditorString,
+    keyword: darkColors.codeEditorKeyword,
+    markupBold: darkColors.codeEditorMarkupBold,
+    codeEditorRegexp: darkColors.codeEditorRegexp,
   },
 };
