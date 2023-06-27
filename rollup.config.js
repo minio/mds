@@ -32,7 +32,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
-      css(),
+      css({ alwaysOutput: true, minify: true }),
       copy({
         targets: [{ src: "src/components/assets", dest: "dist" }],
       }),

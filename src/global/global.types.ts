@@ -241,6 +241,15 @@ export interface CodeEditorThemeProps {
   backgroundColor: string;
   textColor: string;
   helpToolsBarBG: string;
+  comment: string;
+  entityTag: string;
+  entity: string;
+  sublimelinterGutterMark: string;
+  constant: string;
+  string: string;
+  keyword: string;
+  markupBold: string;
+  codeEditorRegexp: string;
 }
 
 export interface ThemeDefinitionProps {
