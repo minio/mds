@@ -69,6 +69,15 @@ export declare const lightColors: {
   menuIconBG: string;
   menuIconBorder: string;
   tabBorder: string;
+  codeEditorComment: string;
+  codeEditorEntityTag: string;
+  codeEditorEntity: string;
+  codeEditorSublimelinterGutterMark: string;
+  codeEditorConstant: string;
+  codeEditorString: string;
+  codeEditorKeyword: string;
+  codeEditorMarkupBold: string;
+  codeEditorRegexp: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -136,6 +145,15 @@ export declare const darkColors: {
   menuIconBorder: string;
   menuHoverSelectedBorderIcon: string;
   menuHoverSelectedBG: string;
+  codeEditorComment: string;
+  codeEditorEntityTag: string;
+  codeEditorEntity: string;
+  codeEditorSublimelinterGutterMark: string;
+  codeEditorConstant: string;
+  codeEditorString: string;
+  codeEditorKeyword: string;
+  codeEditorMarkupBold: string;
+  codeEditorRegexp: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
