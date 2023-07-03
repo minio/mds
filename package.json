@@ -18,7 +18,7 @@
     "@uiw/react-textarea-code-editor": "^2.1.7",
     "detect-gpu": "^5.0.31",
     "react-virtualized": "^9.22.5",
-    "styled-components": "^5.3.11"
+    "styled-components": "^6.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.5",
