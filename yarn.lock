@@ -9603,10 +9603,10 @@ rollup-plugin-dts@^4.2.3:
   optionalDependencies:
     "@babel/code-frame" "^7.18.6"
 
-rollup-plugin-import-css@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-import-css/-/rollup-plugin-import-css-3.2.1.tgz#d58537a68bbd72c8d31f8998e1d53d6da23179e6"
-  integrity sha512-svr1JrBknT5ndEUM8nPaemTx/uF/5Tf4FAMQxvAYx2K9Sx7hL+JwB/rPuB1ZmUE1rjCnQHnz/fgik+noYM5+0w==
+rollup-plugin-import-css@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-import-css/-/rollup-plugin-import-css-3.3.1.tgz#869d9454e38691a377168dd1df545e9e7555184f"
+  integrity sha512-/v/OjjDPhhhbua5w4VzHRTtqfyyG950jJSObtM9os5ELGgaHiolNOvpZNk2KeTSFMuhdrXirGXM64bluHgwySA==
   dependencies:
     "@rollup/pluginutils" "^5.0.2"
 
