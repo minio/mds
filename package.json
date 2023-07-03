@@ -57,7 +57,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "storybook": "^7.0.24",
     "storybook-dark-mode": "^3.0.0",
-    "ts-jest": "^29.1.0",
+    "ts-jest": "^29.1.1",
     "tslib": "^2.6.0",
     "typescript": "^5.1.3",
     "yarn-audit-fix": "^9.3.12"
