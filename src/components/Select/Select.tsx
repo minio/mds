@@ -103,6 +103,8 @@ const InputContainer = styled.div<InputContainerProps>(
       marginTop: 2,
       right: 5,
       "& svg": {
+        width: 26,
+        height: 26,
         fill: get(theme, "inputBox.color", "#07193E"),
       },
     },
