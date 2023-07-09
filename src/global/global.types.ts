@@ -252,6 +252,20 @@ export interface CodeEditorThemeProps {
   codeEditorRegexp: string;
 }
 
+export interface TagVariantProps {
+  background: string;
+  label: string;
+  deleteColor: string;
+}
+
+export interface TagThemeProps {
+  default: TagVariantProps;
+  secondary: TagVariantProps;
+  warn: TagVariantProps;
+  alert: TagVariantProps;
+  ok: TagVariantProps;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -289,6 +303,7 @@ export interface ThemeDefinitionProps {
   menu?: MenuThemeProps;
   tabs?: TabThemeProps;
   codeEditor?: CodeEditorThemeProps;
+  tag?: TagThemeProps;
 }
 
 export interface SelectorType {

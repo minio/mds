@@ -523,6 +523,33 @@ export const lightTheme: ThemeDefinitionProps = {
     markupBold: lightColors.codeEditorMarkupBold,
     codeEditorRegexp: lightColors.codeEditorRegexp,
   },
+  tag: {
+    alert: {
+      background: lightColors.mainRed,
+      label: lightColors.white,
+      deleteColor: lightColors.white,
+    },
+    default: {
+      background: lightColors.mainBlue,
+      label: lightColors.white,
+      deleteColor: lightColors.white,
+    },
+    secondary: {
+      background: lightColors.secondAction,
+      label: lightColors.white,
+      deleteColor: lightColors.white,
+    },
+    warn: {
+      background: lightColors.mainOrange,
+      label: lightColors.defaultFontColor,
+      deleteColor: lightColors.defaultFontColor,
+    },
+    ok: {
+      background: lightColors.mainGreen,
+      label: lightColors.defaultFontColor,
+      deleteColor: lightColors.defaultFontColor,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -871,5 +898,32 @@ export const darkTheme: ThemeDefinitionProps = {
     keyword: darkColors.codeEditorKeyword,
     markupBold: darkColors.codeEditorMarkupBold,
     codeEditorRegexp: darkColors.codeEditorRegexp,
+  },
+  tag: {
+    alert: {
+      background: darkColors.mainRed,
+      label: darkColors.mainWhite,
+      deleteColor: darkColors.mainWhite,
+    },
+    default: {
+      background: darkColors.mainGrey,
+      label: darkColors.dark,
+      deleteColor: darkColors.dark,
+    },
+    secondary: {
+      background: darkColors.secondAction,
+      label: darkColors.mainWhite,
+      deleteColor: darkColors.mainWhite,
+    },
+    warn: {
+      background: darkColors.mainOrange,
+      label: darkColors.dark,
+      deleteColor: darkColors.dark,
+    },
+    ok: {
+      background: darkColors.mainGreen,
+      label: darkColors.dark,
+      deleteColor: darkColors.dark,
+    },
   },
 };
