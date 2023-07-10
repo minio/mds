@@ -56,6 +56,7 @@ export { default as Menu } from "./Menu/Menu";
 export { default as ExpandOptionsButton } from "./ExpandOptionsButton/ExpandOptionsButton";
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as CodeEditor } from "./CodeEditor/CodeEditor";
+export { default as Tag } from "./Tag/Tag";
 
 /*Icons*/
 export * from "./Icons";
@@ -67,3 +68,4 @@ export * from "./Menu/Menu.types";
 export * from "./DataTable/DataTable.types";
 export * from "./Tabs/Tabs.types";
 export * from "./CodeEditor/CodeEditor.types";
+export * from "./Tag/Tag.types";
