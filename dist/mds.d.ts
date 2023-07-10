@@ -228,6 +228,18 @@ interface CodeEditorThemeProps {
   markupBold: string;
   codeEditorRegexp: string;
 }
+interface TagVariantProps {
+  background: string;
+  label: string;
+  deleteColor: string;
+}
+interface TagThemeProps {
+  default: TagVariantProps;
+  secondary: TagVariantProps;
+  warn: TagVariantProps;
+  alert: TagVariantProps;
+  ok: TagVariantProps;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -265,6 +277,7 @@ interface ThemeDefinitionProps {
   menu?: MenuThemeProps;
   tabs?: TabThemeProps;
   codeEditor?: CodeEditorThemeProps;
+  tag?: TagThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -866,6 +879,21 @@ interface CodeEditorBaseProps {
 }
 
 declare const CodeMirrorWrapper: FC<CodeEditorProps>;
+
+interface TagMainProps {
+  label: string;
+  onDelete?: (item: string) => void;
+  id: string;
+}
+interface TagConstructProps {
+  color?: "default" | "secondary" | "warn" | "alert" | "ok";
+  sx?: CSSObject;
+}
+type TagProps = TagMainProps & TagConstructProps;
+
+declare const Tag: FC<
+  TagProps & React__default.HTMLAttributes<HTMLSpanElement>
+>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>
@@ -2026,6 +2054,10 @@ export {
   Tabs,
   TabsContainerProps,
   TabsProps,
+  Tag,
+  TagConstructProps,
+  TagMainProps,
+  TagProps,
   TagsIcon,
   TenantsIcon,
   TenantsOutlineIcon,
