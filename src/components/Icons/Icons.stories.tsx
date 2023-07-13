@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, ReactNode, useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import * as cicons from "./";
@@ -24,12 +24,39 @@ import Grid from "../Grid/Grid";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Button from "../Button/Button";
+import Box from "../Box/Box";
 
 export default {
   title: "MDS/Graphics/Icons",
   component: Fragment,
   argTypes: {},
 } as Meta;
+
+const IconDisplay = ({ children }: { children: ReactNode | ReactNode[] }) => {
+  return (
+    <Box
+      style={{
+        display: "flex",
+        width: "100%",
+        flexWrap: "wrap",
+        gap: 8,
+      }}
+      sx={{
+        "& .story-icon": {
+          flex: "1 1 125px",
+          textAlign: "center",
+          paddingTop: 8,
+          wordBreak: "break-word",
+          "& .min-icon": {
+            height: 24,
+          },
+        },
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
 
 const Template: Story = (args) => {
   const [color, setColor] = useState<boolean>(false);
@@ -51,1423 +78,1391 @@ const Template: Story = (args) => {
             </Button>
           </Grid>
           <h1>Icons</h1>
-          <Grid
-            container
-            sx={{
-              padding: 4,
-              margin: 5,
-              textAlign: "center",
-              "& .min-icon": {
-                color: color ? "red" : "black",
-              },
-              "& div": {
-                padding: 5,
-                margin: 5,
-              },
-            }}
-          >
-            <Grid item xs={3} sm={2} md={1}>
+          <IconDisplay>
+            <div className="story-icon">
               <cicons.AccessRuleIcon />
               <br />
               AccessRuleIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AccountIcon />
               <br />
               AccountIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AddAccessRuleIcon />
               <br />
               AddAccessRuleIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AddFolderIcon />
               <br />
               AddFolderIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AddIcon />
               <br />
               AddIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AddMembersToGroupIcon />
               <br />
               AddMembersToGroupIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AddNewTagIcon />
               <br />
               AddNewTagIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AlertIcon />
               <br />
               AlertIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AllBucketsIcon />
               <br />
               AllBucketsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ArrowDropDown />
               <br />
               ArrowDropDown
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ArrowDropUp />
               <br />
               ArrowDropUp
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ArrowIcon />
               <br />
               ArrowIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ArrowRightIcon />
               <br />
               ArrowRightIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AudioIcon />
               <br />
               AudioIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AudioIconMute />
               <br />
               AudioIconMute
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AzureTierIcon />
               <br />
               AzureTierIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.AzureTierIconXs />
               <br />
               AzureTierIconXs
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BackSettingsIcon />
               <br />
               BackSettingsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BoxArrowDown />
               <br />
               BoxArrowDown
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BoxArrowUp />
               <br />
               BoxArrowUp
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BucketEncryptionIcon />
               <br />
               BucketEncryptionIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BucketQuotaIcon />
               <br />
               BucketQuotaIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BucketReplicationIcon />
               <br />
               BucketReplicationIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.BucketsIcon />
               <br />
               BucketsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CalendarIcon />
               <br />
               CalendarIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CallHomeFeatureIcon />
               <br />
               CallHomeFeatureIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CancelledAudioIcon />
               <br />
               CancelledAudioIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CancelledIcon />
               <br />
               CancelledIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CertificateIcon />
               <br />
               CertificateIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ChangeAccessPolicyIcon />
               <br />
               ChangeAccessPolicyIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ChatIcon />
               <br />
               ChatIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ChangePasswordIcon />
               <br />
               ChangePasswordIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CircleIcon />
               <br />
               CircleIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ClosePanelIcon />
               <br />
               ClosePanelIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CloudIcon />
               <br />
               CloudIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ClustersIcon />
               <br />
               ClustersIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CollapseCaret />
               <br />
               CollapseCaret
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CollapseIcon />
               <br />
               CollapseIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CollapseMenuIcon />
               <br />
               CollapseMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ComputerLineIcon />
               <br />
               ComputerLineIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ConfigurationsListIcon />
               <br />
               ConfigurationsListIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ConfirmDeleteIcon />
               <br />
               ConfirmDeleteIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ConfirmModalIcon />
               <br />
               ConfirmModalIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ConsoleIcon />
               <br />
               ConsoleIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CopyIcon />
               <br />
               CopyIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CreateGroupIcon />
               <br />
               CreateGroupIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CreateIcon />
               <br />
               CreateIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CreateNewPathIcon />
               <br />
               CreateNewPathIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.CreateUserIcon />
               <br />
               CreateUserIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DashboardIcon />
               <br />
               DashboardIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DeleteIcon />
               <br />
               DeleteIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DeleteNonCurrentIcon />
               <br />
               DeleteNonCurrentIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DiagnosticsFeatureIcon />
               <br />
               DiagnosticsFeatureIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DiagnosticsIcon />
               <br />
               DiagnosticsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DisableIcon />
               <br />
               DisableIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DisabledIcon />
               <br />
               DisabledIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DocumentationIcon />
               <br />
               DocumentationIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DownloadIcon />
               <br />
               DownloadIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DownloadStatIcon />
               <br />
               DownloadStatIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DriveFormatErrorsIcon />
               <br />
               DriveFormatErrorsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.DrivesIcon />
               <br />
               DrivesIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EditIcon />
               <br />
               EditIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EditTagIcon />
               <br />
               EditTagIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EditTenantIcon />
               <br />
               EditTenantIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EditYamlIcon />
               <br />
               EditYamlIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EditorThemeSwitchIcon />
               <br />
               EditorThemeSwitchIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EgressIcon />
               <br />
               EgressIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EnabledIcon />
               <br />
               EnabledIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.EventSubscriptionIcon />
               <br />
               EventSubscriptionIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ExpandCaret />
               <br />
               ExpandCaret
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ExtraFeaturesIcon />
               <br />
               ExtraFeaturesIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.FolderIcon />
               <br />
               FolderIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.FormatDriveIcon />
               <br />
               FormatDriveIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.FormatDrivesIcon />
               <br />
               FormatDrivesIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.GoogleTierIcon />
               <br />
               GoogleTierIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.GoogleTierIconXs />
               <br />
               GoogleTierIconXs
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.GroupsIcon />
               <br />
               GroupsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.HardBucketQuotaIcon />
               <br />
               HardBucketQuotaIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.HealIcon />
               <br />
               HealIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.HelpIcon />
               <br />
               HelpIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.HelpIconFilled />
               <br />
               HelpIconFilled
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.HistoryIcon />
               <br />
               HistoryIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.IAMPoliciesIcon />
               <br />
               IAMPoliciesIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.InfoIcon />
               <br />
               InfoIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.JSONIcon />
               <br />
               JSONIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LambdaBalloonIcon />
               <br />
               LambdaBalloonIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LambdaIcon />
               <br />
               LambdaIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LambdaNotificationsIcon />
               <br />
               LambdaNotificationsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LegalHoldIcon />
               <br />
               LegalHoldIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LicenseIcon />
               <br />
               LicenseIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LifecycleConfigIcon />
               <br />
               LifecycleConfigIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LinkIcon />
               <br />
               LinkIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LockFilledIcon />
               <br />
               LockFilledIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LockIcon />
               <br />
               LockIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LogoutIcon />
               <br />
               LogoutIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.LogsIcon />
               <br />
               LogsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.MetadataIcon />
               <br />
               MetadataIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.MinIOTierIcon />
               <br />
               MinIOTierIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.MinIOTierIconXs />
               <br />
               MinIOTierIconXs
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.MirroringIcon />
               <br />
               MirroringIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.MultipleBucketsIcon />
               <br />
               MultipleBucketsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.NewAccountIcon />
               <br />
               NewAccountIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.NewPathIcon />
               <br />
               NewPathIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.NewPoolIcon />
               <br />
               NewPoolIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.NextArrowIcon />
               <br />
               NextArrowIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ObjectBrowser1Icon />
               <br />
               ObjectBrowser1Icon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ObjectBrowserFolderIcon />
               <br />
               ObjectBrowserFolderIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ObjectBrowserIcon />
               <br />
               ObjectBrowserIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ObjectInfoIcon />
               <br />
               ObjectInfoIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ObjectManagerIcon />
               <br />
               ObjectManagerIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ObjectPreviewIcon />
               <br />
               ObjectPreviewIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.OfflineRegistrationBackIcon />
               <br />
               OfflineRegistrationBackIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.OfflineRegistrationIcon />
               <br />
               OfflineRegistrationIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.OnlineRegistrationBackIcon />
               <br />
               OnlineRegistrationBackIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.OnlineRegistrationIcon />
               <br />
               OnlineRegistrationIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.OpenListIcon />
               <br />
               OpenListIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.PasswordKeyIcon />
               <br />
               PasswordKeyIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.PerformanceFeatureIcon />
               <br />
               PerformanceFeatureIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.PermissionIcon />
               <br />
               PermissionIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.PreviewIcon />
               <br />
               PreviewIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.PrometheusErrorIcon />
               <br />
               PrometheusErrorIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.PrometheusIcon />
               <br />
               PrometheusIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.RecoverIcon />
               <br />
               RecoverIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.RedoIcon />
               <br />
               RedoIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.RefreshIcon />
               <br />
               RefreshIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.RemoveAllIcon />
               <br />
               RemoveAllIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.RemoveIcon />
               <br />
               RemoveIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ReportIcon />
               <br />
               ReportIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ReportedUsageFullIcon />
               <br />
               ReportedUsageFullIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ReportedUsageIcon />
               <br />
               ReportedUsageIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.RetentionIcon />
               <br />
               RetentionIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.S3TierIcon />
               <br />
               S3TierIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.S3TierIconXs />
               <br />
               S3TierIconXs
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SearchIcon />
               <br />
               SearchIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SelectAllIcon />
               <br />
               SelectAllIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SelectMultipleIcon />
               <br />
               SelectMultipleIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SendMessageIcon />
               <br />
               SendMessageIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ServersIcon />
               <br />
               ServersIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ServiceAccountCredentialsIcon />
               <br />
               ServiceAccountCredentialsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ServiceAccountIcon />
               <br />
               ServiceAccountIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ServiceAccountsIcon />
               <br />
               ServiceAccountsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SettingsIcon />
               <br />
               SettingsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ShareIcon />
               <br />
               ShareIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SpeedtestIcon />
               <br />
               SpeedtestIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.StarIcon />
               <br />
               StarIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.StorageIcon />
               <br />
               StorageIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.SyncIcon />
               <br />
               SyncIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TagsIcon />
               <br />
               TagsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TenantsIcon />
               <br />
               TenantsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TenantsOutlineIcon />
               <br />
               TenantsOutlineIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ThumbsDownIcon />
               <br />
               ThumbsDownIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ThumbsUpIcon />
               <br />
               ThumbsUpIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TiersIcon />
               <br />
               TiersIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TiersNotAvailableIcon />
               <br />
               TiersNotAvailableIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TierOfflineIcon />
               <br />
               TierOfflineIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TierOnlineIcon />
               <br />
               TierOnlineIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TimeIcon />
               <br />
               TimeIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.ToolsIcon />
               <br />
               ToolsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TotalObjectsIcon />
               <br />
               TotalObjectsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TraceIcon />
               <br />
               TraceIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.TrashIcon />
               <br />
               TrashIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.UploadFile />
               <br />
               UploadFile
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.UploadFolderIcon />
               <br />
               UploadFolderIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.UploadIcon />
               <br />
               UploadIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.UploadStatIcon />
               <br />
               UploadStatIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.UptimeIcon />
               <br />
               UptimeIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.UsersIcon />
               <br />
               UsersIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.VerifiedIcon />
               <br />
               VerifiedIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.VersionIcon />
               <br />
               VersionIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.VersionsIcon />
               <br />
               VersionsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.WarnIcon />
               <br />
               WarnIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.WarpIcon />
               <br />
               WarpIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <cicons.WatchIcon />
               <br />
               WatchIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.AlertCloseIcon />
               <br />
               AlertCloseIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.OpenSourceIcon />
               <br />
               OpenSourceIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.LicenseDocIcon />
               <br />
               LicenseDocIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.BackIcon />
               <br />
               BackIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.FilterIcon />
               <br />
               FilterIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.SuccessIcon />
               <br />
               SuccessIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.NetworkGetIcon />
               <br />
               NetworkGetIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.NetworkPutIcon />
               <br />
               NetworkPutIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.UserFilledIcon />
               <br />
               UserFilledIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.ViewColumnIcon />
               <br />
               ViewColumnIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.VisibilityOffIcon />
               <br />
               VisibilityOffIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.VisibilityOnIcon />
               <br />
               VisibilityOnIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <cicons.WarnFilledIcon />
               <br />
               WarnFilledIcon
-            </Grid>
-          </Grid>
+            </div>
+          </IconDisplay>
           <h1>Menu Icons</h1>
-          <Grid
-            container
-            sx={{
-              padding: 4,
-              textAlign: "center",
-              "& .min-icon": {
-                color: color ? "red" : "black",
-              },
-            }}
-          >
-            <Grid item xs={3} sm={2} md={1}>
+          <IconDisplay>
+            <div className="story-icon">
               <micons.AccessMenuIcon />
               <br />
               AccessMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.AccountsMenuIcon />
               <br />
               AccountsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.AuditLogsMenuIcon />
               <br />
               AuditLogsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.BucketsMenuIcon />
               <br />
               BucketsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.CallHomeMenuIcon />
               <br />
               CallHomeMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.DiagnosticsMenuIcon />
               <br />
               DiagnosticsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.DrivesMenuIcon />
               <br />
               DrivesMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.GroupsMenuIcon />
               <br />
               GroupsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.HealthMenuIcon />
               <br />
               HealthMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.IdentityMenuIcon />
               <br />
               IdentityMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.InspectMenuIcon />
               <br />
               InspectMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.LogsMenuIcon />
               <br />
               LogsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.MenuCollapsedIcon />
               <br />
               MenuCollapsedIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.MenuExpandedIcon />
               <br />
               MenuExpandedIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.MetricsMenuIcon />
               <br />
               MetricsMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.MonitoringMenuIcon />
               <br />
               MonitoringMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.PerformanceMenuIcon />
               <br />
               PerformanceMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.ProfileMenuIcon />
               <br />
               ProfileMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.RegisterMenuIcon />
               <br />
               RegisterMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.SupportMenuIcon />
               <br />
               SupportMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.TraceMenuIcon />
               <br />
               TraceMenuIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <micons.UsersMenuIcon />
               <br />
               UsersMenuIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <micons.KeysMenuIcon />
               <br />
               KeysMenuIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <micons.StatusMenuIcon />
               <br />
               StatusMenuIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <micons.SecretsMenuIcon />
               <br />
               SecretsMenuIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <micons.PoliciesMenuIcon />
               <br />
               PoliciesMenuIcon
-            </Grid>
-            <Grid item xs={3} sm={2} md={1}>
+            </div>
+            <div className="story-icon">
               <micons.IdentitiesMenuIcon />
               <br />
               IdentitiesMenuIcon
-            </Grid>
-          </Grid>
+            </div>
+          </IconDisplay>
           <h1>File Icons</h1>
-          <Grid
-            container
-            sx={{
-              padding: 4,
-              textAlign: "center",
-              "& .min-icon": {
-                color: color ? "red" : "black",
-              },
-            }}
-          >
-            <Grid item xs={3} sm={2} md={1}>
+          <IconDisplay>
+            <div className="story-icon">
               <ficons.FileBookIcon />
               <br />
               FileBookIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileCloudIcon />
               <br />
               FileCloudIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileCodeIcon />
               <br />
               FileCodeIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileConfigIcon />
               <br />
               FileConfigIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileDbIcon />
               <br />
               FileDbIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileFontIcon />
               <br />
               FileFontIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileImageIcon />
               <br />
               FileImageIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileLinkIcon />
               <br />
               FileLinkIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileLockIcon />
               <br />
               FileLockIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileMissingIcon />
               <br />
               FileMissingIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileMusicIcon />
               <br />
               FileMusicIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileNonType />
               <br />
               FileNonType
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FilePdfIcon />
               <br />
               FilePdfIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FilePptIcon />
               <br />
               FilePptIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileTxtIcon />
               <br />
               FileTxtIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileVideoIcon />
               <br />
               FileVideoIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileWorldIcon />
               <br />
               FileWorldIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileXlsIcon />
               <br />
               FileXlsIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FileZipIcon />
               <br />
               FileZipIcon
-            </Grid>
+            </div>
 
-            <Grid item xs={3} sm={2} md={1}>
+            <div className="story-icon">
               <ficons.FolderBrowserIcon />
               <br />
               FolderBrowserIcon
-            </Grid>
-          </Grid>
+            </div>
+          </IconDisplay>
         </Grid>
       </Fragment>
     </StoryThemeProvider>
