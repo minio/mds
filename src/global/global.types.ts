@@ -308,6 +308,6 @@ export interface ThemeDefinitionProps {
 
 export interface SelectorType {
   label: string;
-  value: string;
+  value: string | any;
   icon?: React.ReactNode;
 }

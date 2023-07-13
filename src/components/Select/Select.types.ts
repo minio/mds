@@ -19,7 +19,7 @@ import { SelectorType } from "../../global/global.types";
 
 export interface SelectProps {
   options: SelectorType[];
-  value?: string;
+  value: string | any;
   id: string;
   name?: string;
   required?: boolean;
@@ -29,6 +29,6 @@ export interface SelectProps {
   tooltip?: string;
   noLabelMinWidth?: boolean;
   fixedLabel?: string;
-  onChange: (newValue: string) => void;
+  onChange: (newValue: string | any) => void;
   sx?: CSSObject;
 }
