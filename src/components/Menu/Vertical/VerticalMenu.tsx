@@ -208,6 +208,7 @@ const VerticalMenu: FC<MenuProps> = ({
   isOpen,
   collapseAction,
   currentPath,
+  endComponent,
   sx,
 }) => {
   let currTitle = "";
@@ -276,6 +277,7 @@ const VerticalMenu: FC<MenuProps> = ({
             })}
           {signOutAction && (
             <Box sx={{ marginTop: "auto" }}>
+              {endComponent}
               <MenuSectionHeader label={""} />
               <MenuItem
                 id="sign-out"
