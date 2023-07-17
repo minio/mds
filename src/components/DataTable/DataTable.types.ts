@@ -17,9 +17,25 @@
 import React, { HTMLAttributes } from "react";
 import { CSSObject } from "styled-components";
 
+export const actionsTypes = [
+  "view",
+  "edit",
+  "delete",
+  "description",
+  "share",
+  "cloud",
+  "console",
+  "download",
+  "disable",
+  "format",
+  "preview",
+] as const;
+
+export type PredefinedActionTypes = (typeof actionsTypes)[number];
+
 export interface ItemActions {
-  label?: string;
-  type: string | any;
+  tooltip?: string;
+  type: PredefinedActionTypes | React.ReactNode;
   sendOnlyId?: boolean;
   disableButtonFunction?: (itemValue: any) => boolean;
   showLoaderFunction?: (itemValue: any) => boolean;
@@ -93,8 +109,8 @@ export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IActionButton {
-  label?: string;
-  type: string | React.ReactNode;
+  tooltip?: string;
+  type: PredefinedActionTypes | React.ReactNode;
   onClick?: (id: string) => any;
   valueToSend: any;
   selected: boolean;

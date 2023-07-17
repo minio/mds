@@ -27,9 +27,10 @@ import EditIcon from "../Icons/EditIcon";
 import TrashIcon from "../Icons/TrashIcon";
 import DownloadIcon from "../Icons/DownloadIcon";
 import IconButton from "../IconButton/IconButton";
-import { IActionButton } from "./DataTable.types";
+import { IActionButton, PredefinedActionTypes } from "./DataTable.types";
+import { isPredefinedAction } from "./DataTable.utils";
 
-const defineIcon = (type: string) => {
+const defineIcon = (type: PredefinedActionTypes) => {
   switch (type) {
     case "view":
       return <PreviewIcon />;
@@ -65,11 +66,11 @@ const TableActionButton: FC<IActionButton> = ({
   idField,
   sendOnlyId = false,
   disabled = false,
-  label,
+  tooltip,
 }) => {
   const valueClick = sendOnlyId ? valueToSend[idField] : valueToSend;
 
-  const icon = typeof type === "string" ? defineIcon(type) : type;
+  const icon = isPredefinedAction(type) ? defineIcon(type) : type;
   let buttonElement = (
     <IconButton
       type={"button"}
@@ -96,8 +97,8 @@ const TableActionButton: FC<IActionButton> = ({
     </IconButton>
   );
 
-  if (label && label !== "") {
-    buttonElement = <Tooltip tooltip={label}>{buttonElement}</Tooltip>;
+  if (tooltip && tooltip !== "") {
+    buttonElement = <Tooltip tooltip={tooltip}>{buttonElement}</Tooltip>;
   }
 
   if (onClick) {
