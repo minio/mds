@@ -48,7 +48,7 @@ const ParentBox = styled.div<ParentBoxProps>(
       flexDirection: !!horizontal ? "column" : "row",
       ...breakPoint,
     };
-  }
+  },
 );
 
 const MainContainer: FC<MainContainerProps> = ({

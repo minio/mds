@@ -74,7 +74,7 @@ export const AnimationFrame = styled.svg(
     #section11 {
       animation: ${animation11} 3000ms linear infinite normal forwards;
     }
-  `
+  `,
 );
 
 const Loader: FC<SVGProps<any>> = (props: any) => {

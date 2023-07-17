@@ -86,7 +86,7 @@ const CustomButton = styled.button<
       backgroundColor: get(
         theme,
         `buttons.${neatVariant}.enabled.background`,
-        "#fff"
+        "#fff",
       ),
       borderColor: get(theme, `buttons.${neatVariant}.enabled.border`, "#000"),
       borderWidth: 1,
@@ -112,12 +112,12 @@ const CustomButton = styled.button<
         backgroundColor: get(
           theme,
           `buttons.${neatVariant}.disabled.background`,
-          "#fff"
+          "#fff",
         ),
         borderColor: get(
           theme,
           `buttons.${neatVariant}.disabled.border`,
-          "#000"
+          "#000",
         ),
         borderWeight: 1,
         borderStyle: "solid",
@@ -131,7 +131,7 @@ const CustomButton = styled.button<
         backgroundColor: get(
           theme,
           `buttons.${neatVariant}.hover.background`,
-          "#fff"
+          "#fff",
         ),
         borderColor: get(theme, `buttons.${neatVariant}.hover.border`, "#000"),
         color: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
@@ -144,12 +144,12 @@ const CustomButton = styled.button<
         backgroundColor: get(
           theme,
           `buttons.${neatVariant}.pressed.background`,
-          "#fff"
+          "#fff",
         ),
         borderColor: get(
           theme,
           `buttons.${neatVariant}.pressed.border`,
-          "#000"
+          "#000",
         ),
         color: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
         "& .buttonIcon > svg": {
@@ -160,7 +160,7 @@ const CustomButton = styled.button<
       ...smallScreenStyles,
       ...sx,
     };
-  }
+  },
 );
 const Button: FC<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>

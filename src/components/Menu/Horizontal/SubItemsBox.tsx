@@ -40,7 +40,7 @@ const SubItemsBoxContainer = styled.div(({ theme }) => ({
     backgroundColor: get(
       theme,
       "menu.horizontal.dropBackground",
-      lightColors.boxBackground
+      lightColors.boxBackground,
     ),
     border: `${get(theme, "borderColor", lightColors.borderColor)}`,
     "& .menuItemButton": {
@@ -49,19 +49,19 @@ const SubItemsBoxContainer = styled.div(({ theme }) => ({
         backgroundColor: get(
           theme,
           "menu.horizontal.hoverSelectedBackground",
-          lightColors.mainBlue
+          lightColors.mainBlue,
         ),
         borderBottom: 0,
         color: get(
           theme,
           "menu.horizontal.dropHoverSelectedColor",
-          lightColors.white
+          lightColors.white,
         ),
         "& .iconContainer": {
           border: `${get(
             theme,
             "menu.horizontal.dropHoverSelectedColor",
-            lightColors.white
+            lightColors.white,
           )} 1px solid`,
         },
       },
@@ -80,7 +80,7 @@ const SubItemsBox: FC<SubItemsBoxProps> = ({
   const windowWidth = document.documentElement.offsetWidth;
 
   const calcElementPosition = (
-    anchorEl: (EventTarget & HTMLElement) | null
+    anchorEl: (EventTarget & HTMLElement) | null,
   ) => {
     if (!anchorEl) {
       return {

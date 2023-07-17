@@ -40,12 +40,12 @@ const commonStyle = (theme: any) => ({
     border: `${get(
       theme,
       "menu.vertical.iconBorderColor",
-      lightColors.menuIconBorder
+      lightColors.menuIconBorder,
     )} 1px solid`,
     backgroundColor: get(
       theme,
       "menu.vertical.iconBGColor",
-      lightColors.menuIconBG
+      lightColors.menuIconBG,
     ),
   },
   "&.selected, &:hover": {
@@ -53,13 +53,13 @@ const commonStyle = (theme: any) => ({
     background: get(
       theme,
       "menu.vertical.hoverSelectedBackground",
-      lightColors.menuSelectedOption
+      lightColors.menuSelectedOption,
     ),
     "& .iconContainer": {
       border: `${get(
         theme,
         "menu.vertical.hoverSelectedIconBorder",
-        lightColors.white
+        lightColors.white,
       )} 1px solid`,
     },
   },
@@ -86,7 +86,7 @@ const MenuItemContainer = styled.div(({ theme }) => ({
     backgroundColor: get(
       theme,
       "menu.vertical.dropArrowBackground",
-      lightColors.menuDropArrowBackground
+      lightColors.menuDropArrowBackground,
     ),
     width: 15,
     height: 15,
@@ -176,7 +176,7 @@ const MenuItem: FC<MenuItemProps> = ({
   useEffect(() => {
     if (children && children.length > 0) {
       const selectedIndex = children.findIndex(
-        (elem) => elem.path && currentPath?.startsWith(elem.path)
+        (elem) => elem.path && currentPath?.startsWith(elem.path),
       );
 
       if (selectedIndex >= 0) {
@@ -251,7 +251,7 @@ const MenuItem: FC<MenuItemProps> = ({
   // Path is a link, we display an anchor instead of a button, default target _blank
   if (
     path?.match(
-      /^(https?:\/\/)?([\da-zа-я\.\-_]+)\.([a-zа-я\._]{2,6})([a-zа-я\d\.\-\?\/&=#%_]*)*/
+      /^(https?:\/\/)?([\da-zа-я\.\-_]+)\.([a-zа-я\._]{2,6})([a-zа-я\d\.\-\?\/&=#%_]*)*/,
     )
   ) {
     return (

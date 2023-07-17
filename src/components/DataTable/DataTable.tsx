@@ -81,7 +81,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
           borderBottom: `${get(
             theme,
             "dataTable.border",
-            "#E2E2E2"
+            "#E2E2E2",
           )} 1px solid`,
           width: "100%",
         },
@@ -215,7 +215,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       top: 3,
     },
     ...sx,
-  })
+  }),
 );
 
 const TableRowPredefStyles: any = {
@@ -370,7 +370,7 @@ const DataTable: FC<DataTableProps> = ({
                     width,
                     itemActions
                       ? itemActions.filter((el) => el.type !== "view").length
-                      : 0
+                      : 0,
                   );
                   const hasSelect: boolean = !!(onSelect && selectedItems);
                   const hasOptions: boolean = !!(
@@ -461,7 +461,7 @@ const DataTable: FC<DataTableProps> = ({
                               ? selectedItems.includes(
                                   isString(rowData)
                                     ? rowData
-                                    : `${rowData[rowIDField]}`
+                                    : `${rowData[rowIDField]}`,
                                 )
                               : false;
 
@@ -495,7 +495,7 @@ const DataTable: FC<DataTableProps> = ({
                         columnsSelector,
                         columnsShown,
                         sortConfig ? sortConfig.currentSort : "",
-                        sortConfig ? sortConfig.currentDirection : undefined
+                        sortConfig ? sortConfig.currentDirection : undefined,
                       )}
                       {hasOptions && (
                         // @ts-ignore
@@ -509,14 +509,14 @@ const DataTable: FC<DataTableProps> = ({
                               ? selectedItems.includes(
                                   isString(rowData)
                                     ? rowData
-                                    : `${rowData[rowIDField]}`
+                                    : `${rowData[rowIDField]}`,
                                 )
                               : false;
                             return elementActions(
                               itemActions || [],
                               rowData,
                               isSelected,
-                              rowIDField
+                              rowIDField,
                             );
                           }}
                         />

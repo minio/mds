@@ -114,7 +114,7 @@ const CustomLogin = styled.div(({ theme }) => {
       [`@media (min-width: ${get(
         breakPoints,
         "xs",
-        0
+        0,
       )}px) and (max-width: ${get(breakPoints, "md", 0)}px)`]: {
         maxWidth: "100%",
       },
@@ -145,7 +145,7 @@ const CustomLogin = styled.div(({ theme }) => {
           borderTop: `${get(
             theme,
             "login.footerDivider",
-            "#f2f2f2"
+            "#f2f2f2",
           )} 1px solid`,
           padding: "35px 0",
           textAlign: "center",

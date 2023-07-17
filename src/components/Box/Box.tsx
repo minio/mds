@@ -38,7 +38,7 @@ const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
       ...extraBorders,
       ...sx,
     };
-  }
+  },
 );
 
 const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps> = ({

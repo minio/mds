@@ -89,7 +89,7 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       },
     },
     ...sx,
-  })
+  }),
 );
 
 const ScreenTitle: FC<ScreenTitleProps> = ({

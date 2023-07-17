@@ -23,7 +23,7 @@ export const useEscapeKey = (handleAction: () => void) => {
         handleAction();
       }
     },
-    [handleAction]
+    [handleAction],
   );
 
   useEffect(() => {

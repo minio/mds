@@ -6,5 +6,5 @@ export declare const breakPoints: {
   xl: number;
 };
 export declare const fractionToPerc: (
-  fraction: "auto" | number | boolean
+  fraction: "auto" | number | boolean,
 ) => string;

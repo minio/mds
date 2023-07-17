@@ -45,7 +45,7 @@ const Template: Story<TabsProps> = ({
   sx,
 }) => {
   const [currentTab, setCurrentTab] = useState<string>(
-    useRouteTabs ? "/page1" : "tab1"
+    useRouteTabs ? "/page1" : "tab1",
   );
 
   return (

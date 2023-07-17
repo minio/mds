@@ -38,7 +38,7 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
       : get(
           theme,
           "tabs.vertical.buttons.backgroundColor",
-          lightColors.iconButtonBG
+          lightColors.iconButtonBG,
         ),
     color: horizontal
       ? get(theme, "tabs.horizontal.buttons.labelColor", lightColors.mainGrey)
@@ -48,7 +48,7 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
       : `${get(
           theme,
           "tabs.vertical.borders",
-          lightColors.tabBorder
+          lightColors.tabBorder,
         )} 1px solid`,
     "&:hover": {
       backgroundColor: horizontal
@@ -58,12 +58,12 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
         ? get(
             theme,
             "tabs.horizontal.buttons.hoverLabelColor",
-            lightColors.mainBlue
+            lightColors.mainBlue,
           )
         : get(
             theme,
             "tabs.vertical.buttons.hoverLabelColor",
-            lightColors.mainBlue
+            lightColors.mainBlue,
           ),
     },
     "&:disabled": {
@@ -73,18 +73,18 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
         : get(
             theme,
             "tabs.vertical.buttons.disabledBackgroundColor",
-            lightColors.disabledBGGrey
+            lightColors.disabledBGGrey,
           ),
       color: horizontal
         ? get(
             theme,
             "tabs.horizontal.buttons.disabledColor",
-            lightColors.disabledInnerGrey
+            lightColors.disabledInnerGrey,
           )
         : get(
             theme,
             "tabs.vertical.buttons.disabledColor",
-            lightColors.disabledInnerGrey
+            lightColors.disabledInnerGrey,
           ),
     },
     "& svg": {
@@ -98,32 +98,32 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
         : get(
             theme,
             "tabs.vertical.buttons.selectedBackground",
-            lightColors.headerBorder
+            lightColors.headerBorder,
           ),
       color: horizontal
         ? get(
             theme,
             "tabs.horizontal.buttons.selectedLabelColor",
-            lightColors.mainBlue
+            lightColors.mainBlue,
           )
         : get(
             theme,
             "tabs.vertical.buttons.selectedLabelColor",
-            lightColors.mainBlue
+            lightColors.mainBlue,
           ),
       borderBottom: horizontal
         ? `${get(
             theme,
             "tabs.horizontal.selectedIndicatorColor",
-            lightColors.mainBlue
+            lightColors.mainBlue,
           )} 2px solid`
         : `${get(
             theme,
             "tabs.vertical.borders",
-            lightColors.tabBorder
+            lightColors.tabBorder,
           )} 1px solid`,
     },
-  })
+  }),
 );
 
 const TabButton: FC<TabButtonProps> = ({

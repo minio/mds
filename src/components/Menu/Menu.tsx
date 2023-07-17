@@ -49,7 +49,7 @@ const Menu: FC<MenuProps> = ({
 
   if (!!props.middleComponent) {
     console.warn(
-      "Middle component is set, this cannot be rendered in Vertical Menu"
+      "Middle component is set, this cannot be rendered in Vertical Menu",
     );
   }
 

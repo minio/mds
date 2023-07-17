@@ -75,7 +75,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
         backgroundColor: get(
           theme,
           "dropdownSelector.selectedBGColor",
-          "#D5D7D8"
+          "#D5D7D8",
         ),
         color: get(theme, "dropdownSelector.optionTextColor", "#000"),
       },
@@ -148,7 +148,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
 
   if (!anchorEl) {
     console.warn(
-      "AnchorEl not set. Element will be rendered on the top of the page"
+      "AnchorEl not set. Element will be rendered on the top of the page",
     );
   }
 
@@ -175,7 +175,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
         </ul>
       </DropdownBlock>
     </SelectorContainer>,
-    document.body
+    document.body,
   );
 };
 

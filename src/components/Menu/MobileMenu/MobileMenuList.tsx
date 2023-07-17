@@ -39,7 +39,7 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     background: get(
       theme,
       "menu.vertical.background",
-      lightColors.menuBackground
+      lightColors.menuBackground,
     ),
     transitionDuration: "0.3s",
     "& .menuContainer": {
@@ -57,7 +57,7 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
           fill: get(
             theme,
             "menu.vertical.menuCollapseColor",
-            lightColors.menuCollapseColor
+            lightColors.menuCollapseColor,
           ),
         },
       },

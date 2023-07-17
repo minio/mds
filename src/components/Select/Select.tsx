@@ -112,7 +112,7 @@ const InputContainer = styled.div<InputContainerProps>(
       marginBottom: error ? 18 : 0,
     },
     ...sx,
-  })
+  }),
 );
 
 const Select: FC<SelectProps> = ({

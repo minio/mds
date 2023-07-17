@@ -47,7 +47,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
     backgroundColor: get(
       theme,
       "dropdownSelector.backgroundColor",
-      lightColors.white
+      lightColors.white,
     ),
     border: `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`,
     padding: "10px 10px",
@@ -62,7 +62,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
       borderBottom: `1px solid ${get(
         theme,
         "borderColor",
-        lightColors.borderColor
+        lightColors.borderColor,
       )}`,
       marginBottom: 5,
       color: get(theme, "fontColor", lightColors.defaultFontColor),
@@ -75,7 +75,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
       overflowY: "auto",
     },
     ...sx,
-  })
+  }),
 );
 
 const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
@@ -137,7 +137,7 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
 
   if (!anchorEl) {
     console.warn(
-      "AnchorEl not set. Element will be rendered on the top of the page"
+      "AnchorEl not set. Element will be rendered on the top of the page",
     );
   }
 
@@ -159,7 +159,7 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
                 label={column.label}
                 checked={
                   selectedOptionIDs.findIndex(
-                    (element) => element === column.elementKey
+                    (element) => element === column.elementKey,
                   ) >= 0
                 }
                 onChange={() => {
@@ -174,7 +174,7 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
         </Box>
       </SelectorBox>
     </SelectorContainer>,
-    document.body
+    document.body,
   );
 };
 

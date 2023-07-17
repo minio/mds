@@ -46,7 +46,7 @@ const ExpandButtonBase = styled.button<ConstructExpandOptionsProps>(
       backgroundColor: get(
         theme,
         "buttons.regular.hover.background",
-        lightColors.hoverGrey
+        lightColors.hoverGrey,
       ),
     },
     "&:active": {
@@ -54,20 +54,20 @@ const ExpandButtonBase = styled.button<ConstructExpandOptionsProps>(
       backgroundColor: get(
         theme,
         "buttons.regular.pressed.background",
-        lightColors.pressedGrey
+        lightColors.pressedGrey,
       ),
     },
     "&:disabled": {
       color: get(
         theme,
         "buttons.regular.disabled.text",
-        lightColors.disabledInnerGrey
+        lightColors.disabledInnerGrey,
       ),
       backgroundColor: "transparent",
       cursor: "not-allowed",
     },
     ...sx,
-  })
+  }),
 );
 
 const ExpandOptionsButton: FC<

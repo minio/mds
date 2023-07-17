@@ -67,7 +67,7 @@ const ReadBoxBase = styled.div<ReadBoxBaseProps>(
       transform: "translate(0, -50%)",
     },
     ...sx,
-  })
+  }),
 );
 
 const ReadBox: FC<ReadBoxProps> = ({
