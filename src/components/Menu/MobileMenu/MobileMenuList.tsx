@@ -95,6 +95,7 @@ const MobileMenuList: FC<MenuProps> = ({
   callPathAction,
   collapseAction,
   currentPath,
+  endComponent,
 }) => {
   let currTitle = "";
 
@@ -159,6 +160,7 @@ const MobileMenuList: FC<MenuProps> = ({
             })}
           {signOutAction && (
             <Box sx={{ marginTop: "auto" }}>
+              {endComponent}
               <MenuSectionHeader label={""} />
               <MenuItem
                 group={"common"}

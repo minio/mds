@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { MenuConstructProps, MenuProps } from "../Menu.types";
@@ -47,6 +47,11 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
         "& svg": {
           width: 200,
         },
+        "& .endComponent": {
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+        },
       },
       "& .sections": {
         backgroundColor: get(
@@ -61,6 +66,11 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
         overflowX: "auto",
         scrollbarWidth: "none",
         msOverflowStyle: "none",
+        borderBottom: `${get(
+          theme,
+          "borderColor",
+          lightColors.borderColor
+        )} 1px solid`,
         "&.compact": {
           height: 5,
           backgroundColor: get(
@@ -85,6 +95,7 @@ const HorizontalMenu: FC<MenuProps> = ({
   signOutAction,
   callPathAction,
   middleComponent,
+  endComponent,
   currentPath,
   sx,
 }) => {
@@ -93,11 +104,14 @@ const HorizontalMenu: FC<MenuProps> = ({
       <Box className={"headerBar"}>
         <ApplicationLogo inverse {...applicationLogo} />
         {middleComponent}
-        {signOutAction && (
-          <IconButton id="sign-out" onClick={signOutAction}>
-            <LogoutIcon />
-          </IconButton>
-        )}
+        <Box className={"endComponent"}>
+          {endComponent}
+          {signOutAction && (
+            <IconButton id="sign-out" onClick={signOutAction}>
+              <LogoutIcon />
+            </IconButton>
+          )}
+        </Box>
       </Box>
       <Box
         className={`sections ${

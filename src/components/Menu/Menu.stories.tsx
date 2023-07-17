@@ -24,6 +24,8 @@ import { GlobalStyles } from "../index";
 import TestIcon from "../../utils/TestIcon";
 import ChatIcon from "../Icons/ChatIcon";
 import LambdaNotificationsIcon from "../Icons/LambdaNotificationsIcon";
+import Button from "../Button/Button";
+import Box from "../Box/Box";
 
 export default {
   title: "MDS/Layout/Menu",
@@ -31,7 +33,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Menu>;
 
-const Template: Story<MenuProps> = ({ options, horizontal }) => {
+const Template: Story<MenuProps> = ({ options, horizontal, endComponent }) => {
   const [menuCollapsed, setMenuCollapsed] = useState<boolean>(false);
 
   return (
@@ -54,6 +56,7 @@ const Template: Story<MenuProps> = ({ options, horizontal }) => {
         }}
         horizontal={horizontal}
         currentPath={"/testPath1"}
+        endComponent={endComponent}
       />
     </StoryThemeProvider>
   );
@@ -181,7 +184,7 @@ Horizontal.args = {
       children: [
         {
           icon: <TestIcon />,
-          path: "/subPath1",
+          path: "/testPath1",
           name: "Sublevel 1",
           group: "Group 2",
           id: "testl1",
@@ -220,4 +223,33 @@ export const HorizontalNoOptions = Template.bind({});
 
 HorizontalNoOptions.args = {
   horizontal: true,
+};
+
+export const EndComponent = Template.bind({});
+
+EndComponent.args = {
+  endComponent: (
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Button
+        id={"randon-button"}
+        icon={<TestIcon />}
+        onClick={() => alert("Extra!")}
+      />
+    </Box>
+  ),
+};
+
+export const EndComponentHorizontal = Template.bind({});
+
+EndComponentHorizontal.args = {
+  horizontal: true,
+  endComponent: (
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Button
+        id={"randon-button"}
+        icon={<TestIcon />}
+        onClick={() => alert("Extra!")}
+      />
+    </Box>
+  ),
 };

@@ -45,7 +45,7 @@ const SubItemsBoxContainer = styled.div(({ theme }) => ({
     border: `${get(theme, "borderColor", lightColors.borderColor)}`,
     "& .menuItemButton": {
       width: "100%",
-      "&:hover": {
+      "&:hover, &.selected": {
         backgroundColor: get(
           theme,
           "menu.horizontal.hoverSelectedBackground",

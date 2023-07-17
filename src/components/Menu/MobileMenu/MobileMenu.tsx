@@ -68,6 +68,7 @@ const MobileMenu: FC<MenuProps> = ({
   callPathAction,
   horizontal,
   currentPath,
+  endComponent,
   sx,
 }) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -102,6 +103,7 @@ const MobileMenu: FC<MenuProps> = ({
             signOutAction={signOutAction}
             displayGroupTitles={displayGroupTitles}
             currentPath={currentPath}
+            endComponent={endComponent}
           />,
           document.body
         )}
