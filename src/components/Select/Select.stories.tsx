@@ -26,6 +26,7 @@ import FormLayout from "../FormLayout/FormLayout";
 import DownloadIcon from "../Icons/DownloadIcon";
 import UploadIcon from "../Icons/UploadIcon";
 import UsersIcon from "../Icons/UsersIcon";
+import { SelectOptionsType } from "../../global/global.types";
 
 export default {
   title: "MDS/Forms/Select",
@@ -43,7 +44,7 @@ const Template: Story<SelectProps> = ({
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>("value1");
 
-  let useOpts = [
+  let useOpts: SelectOptionsType[] = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     {
@@ -64,10 +65,16 @@ const Template: Story<SelectProps> = ({
           id={"story-select"}
           options={useOpts}
           value={selectedValue}
-          onChange={(newValue) => {
+          onChange={(newValue, extraValue) => {
             setSelectedValue(newValue);
             if (fixedLabel !== "") {
               alert(`Triggered ${newValue}`);
+            }
+
+            console.log(extraValue);
+
+            if (extraValue) {
+              alert(`Extra Value ${JSON.stringify(extraValue)}`);
             }
           }}
           label={label}
@@ -117,5 +124,30 @@ OptionsWithIcons.args = {
     { label: "Option 1", value: "value1", icon: <DownloadIcon /> },
     { label: "Option 2", value: "value2", icon: <UploadIcon /> },
     { label: "Option 3", value: "value3", icon: <UsersIcon /> },
+  ],
+};
+
+export const ExtraReturnOption = Template.bind({});
+ExtraReturnOption.args = {
+  options: [
+    {
+      label: "Option 1",
+      value: "value1",
+      icon: <DownloadIcon />,
+      extraValue: { anotherVar: "test1" },
+    },
+    {
+      label: "Option 2",
+      value: "value2",
+      icon: <UploadIcon />,
+      extraValue: { anotherVar: "test2" },
+    },
+    {
+      label: "Option 3",
+      value: "value3",
+      icon: <UsersIcon />,
+      extraValue: { anotherVar: "test3" },
+    },
+    { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
   ],
 };

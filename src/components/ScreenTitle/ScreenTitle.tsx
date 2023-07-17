@@ -94,7 +94,7 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
 
 const ScreenTitle: FC<ScreenTitleProps> = ({
   icon,
-  subTitle,
+  subTitle = "",
   title,
   actions,
   bottomBorder = true,

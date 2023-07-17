@@ -311,3 +311,7 @@ export interface SelectorType {
   value: string;
   icon?: React.ReactNode;
 }
+
+export interface SelectOptionsType extends SelectorType {
+  extraValue?: any;
+}
