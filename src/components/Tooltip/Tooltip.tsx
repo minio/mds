@@ -51,7 +51,7 @@ const TooltipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
         animation: ${opacityAnimation} 1s;
       }
     }
-  `
+  `,
 );
 
 const TooltipItem = styled.div<TooltipBuild>(({ theme, placement }) => {
@@ -254,7 +254,7 @@ const Tooltip: FC<TooltipProps> = ({
               content={tooltip}
               anchorEl={anchorEl}
             />,
-            document.body
+            document.body,
           )}
       </TooltipWrapper>
     </Fragment>

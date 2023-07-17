@@ -76,7 +76,7 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
         },
       },
     };
-  }
+  },
 );
 
 const InputContainer = styled.div<InputContainerProps>(
@@ -122,7 +122,7 @@ const InputContainer = styled.div<InputContainerProps>(
       },
     },
     ...sx,
-  })
+  }),
 );
 
 const InputBox: FC<InputBoxProps> = ({

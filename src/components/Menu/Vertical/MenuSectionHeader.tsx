@@ -24,7 +24,7 @@ const Header = styled.div<MainHeaderProps>(({ theme }) => ({
   borderBottom: `${get(
     theme,
     "menu.vertical.sectionDividerColor",
-    lightColors.menuColorDivider
+    lightColors.menuColorDivider,
   )} 1px solid`,
   margin: "30px 25px 0",
   paddingBottom: 5,

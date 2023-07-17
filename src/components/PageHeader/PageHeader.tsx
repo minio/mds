@@ -39,7 +39,7 @@ const ParentContainer = styled.div<HTMLAttributes<HTMLDivElement>>(
         padding: "0 20px,",
       },
     },
-  })
+  }),
 );
 
 const LabelContainer = styled.div<HTMLAttributes<HTMLDivElement>>(
@@ -55,7 +55,7 @@ const LabelContainer = styled.div<HTMLAttributes<HTMLDivElement>>(
       color: get(theme, `pageHeader.color`, "#000"),
       textDecoration: "none",
     },
-  })
+  }),
 );
 
 const MiddleContainer = styled.div<HTMLAttributes<HTMLDivElement>>(() => ({

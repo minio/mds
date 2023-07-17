@@ -37,12 +37,12 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
         background: get(
           theme,
           "menu.horizontal.menuHeaderBackground",
-          lightColors.menuBackground
+          lightColors.menuBackground,
         ),
         borderBottom: `${get(
           theme,
           "menu.horizontal.sectionDividerColor",
-          lightColors.menuColorDivider
+          lightColors.menuColorDivider,
         )} 1px solid`,
         "& svg": {
           width: 200,
@@ -57,7 +57,7 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
         backgroundColor: get(
           theme,
           "menu.horizontal.barBackground",
-          lightColors.mainGrey
+          lightColors.mainGrey,
         ),
         width: "100%",
         height: 45,
@@ -69,14 +69,14 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
         borderBottom: `${get(
           theme,
           "borderColor",
-          lightColors.borderColor
+          lightColors.borderColor,
         )} 1px solid`,
         "&.compact": {
           height: 5,
           backgroundColor: get(
             theme,
             "menu.horizontal.noOptionsBar",
-            lightColors.mainGrey
+            lightColors.mainGrey,
           ),
         },
         "&::-webkit-scrollbar": {
@@ -86,7 +86,7 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
       },
       ...sx,
     };
-  }
+  },
 );
 
 const HorizontalMenu: FC<MenuProps> = ({

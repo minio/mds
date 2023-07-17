@@ -42,7 +42,7 @@ const commonStyle = (theme: any) => ({
     border: `${get(
       theme,
       "menu.horizontal.iconBorderColor",
-      lightColors.menuIconBorder
+      lightColors.menuIconBorder,
     )} 1px solid`,
     backgroundColor: "transparent",
   },
@@ -51,13 +51,13 @@ const commonStyle = (theme: any) => ({
     borderBottom: `${get(
       theme,
       "menu.horizontal.hoverSelectedBackground",
-      lightColors.mainBlue
+      lightColors.mainBlue,
     )} 2px solid`,
     "& .iconContainer": {
       border: `${get(
         theme,
         "menu.horizontal.hoverSelectedIconBorder",
-        lightColors.white
+        lightColors.white,
       )} 1px solid`,
     },
   },
@@ -78,7 +78,7 @@ const MenuItemContainer = styled.div(({ theme }) => ({
     backgroundColor: get(
       theme,
       "menu.horizontal.dropArrowBackground",
-      lightColors.menuDropArrowBackground
+      lightColors.menuDropArrowBackground,
     ),
     width: 15,
     height: 15,
@@ -125,7 +125,7 @@ const OptionElement = styled.span(({ theme }) => ({
       fill: get(
         theme,
         "menu.horizontal.notificationColor",
-        lightColors.mainRed
+        lightColors.mainRed,
       ),
       position: "absolute",
       top: 4,
@@ -236,7 +236,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
                 />
               ))}
             </SubItemsBox>,
-            document.body
+            document.body,
           )}
       </MenuItemContainer>
     );
@@ -245,7 +245,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
   // Path is a link, we display an anchor instead of a button, default target _blank
   if (
     path?.match(
-      /^(https?:\/\/)?([\da-zа-я\.\-_]+)\.([a-zа-я\._]{2,6})([a-zа-я\d\.\-\?\/&=#%_]*)*/
+      /^(https?:\/\/)?([\da-zа-я\.\-_]+)\.([a-zа-я\._]{2,6})([a-zа-я\d\.\-\?\/&=#%_]*)*/,
     )
   ) {
     return (

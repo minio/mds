@@ -59,7 +59,7 @@ const CustomDiv = styled.div<GridProps>((props) => {
             maxWidth = `and (max-width:  ${get(
               breakPoints,
               brPoints[index + 1],
-              0
+              0,
             )}px)`;
           }
 

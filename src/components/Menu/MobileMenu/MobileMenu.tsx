@@ -35,7 +35,7 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
       background: get(
         theme,
         "menu.horizontal.menuHeaderBackground",
-        lightColors.menuBackground
+        lightColors.menuBackground,
       ),
       alignItems: "center",
       "& svg": {
@@ -105,7 +105,7 @@ const MobileMenu: FC<MenuProps> = ({
             currentPath={currentPath}
             endComponent={endComponent}
           />,
-          document.body
+          document.body,
         )}
     </Fragment>
   );

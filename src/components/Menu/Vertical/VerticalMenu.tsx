@@ -45,7 +45,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
       background: get(
         theme,
         "menu.vertical.sectionDividerColor",
-        lightColors.menuColorDivider
+        lightColors.menuColorDivider,
       ),
       borderRadius: 0,
     },
@@ -55,7 +55,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
       boxShadow: `inset 0px 0px 0px 0px ${get(
         theme,
         "borderColor",
-        lightColors.borderColor
+        lightColors.borderColor,
       )}`,
       borderRadius: 0,
     },
@@ -63,7 +63,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     background: get(
       theme,
       "menu.vertical.background",
-      lightColors.menuBackground
+      lightColors.menuBackground,
     ),
     transitionDuration: "0.3s",
     "& .menuContainer": {
@@ -81,7 +81,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
           fill: get(
             theme,
             "menu.vertical.menuCollapseColor",
-            lightColors.menuCollapseColor
+            lightColors.menuCollapseColor,
           ),
         },
       },
@@ -93,7 +93,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
       borderBottom: `${get(
         theme,
         "menu.vertical.sectionDividerColor",
-        lightColors.menuColorDivider
+        lightColors.menuColorDivider,
       )} 1px solid`,
     },
     "& .collapsedMenuHeader": {
@@ -129,12 +129,12 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
         border: `${get(
           theme,
           "menu.vertical.iconBorderColor",
-          lightColors.menuIconBorder
+          lightColors.menuIconBorder,
         )} 1px solid`,
         backgroundColor: get(
           theme,
           "menu.vertical.iconBGColor",
-          lightColors.menuIconBG
+          lightColors.menuIconBG,
         ),
         borderRadius: "100%",
         margin: "25px 0",
@@ -142,7 +142,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
           borderColor: get(
             theme,
             "menu.vertical.hoverSelectedIconBorder",
-            lightColors.white
+            lightColors.white,
           ),
         },
         "& .collapsedIcon": {
@@ -150,7 +150,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
           color: get(
             theme,
             "menu.vertical.menuCollapseColor",
-            lightColors.menuCollapseColor
+            lightColors.menuCollapseColor,
           ),
           "& svg": {
             width: 30,

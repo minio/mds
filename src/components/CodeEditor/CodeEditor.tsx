@@ -46,7 +46,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
         backgroundColor: get(
           theme,
           "codeEditor.backgroundColor",
-          lightColors.white
+          lightColors.white,
         ),
         color: get(theme, "codeEditor.textColor", lightColors.defaultFontColor),
         fontFamily:
@@ -63,7 +63,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.comment",
-            lightColors.codeEditorComment
+            lightColors.codeEditorComment,
           ),
         },
         [`& code[class*="language-"] .token.punctuation,
@@ -71,7 +71,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.sublimelinterGutterMark",
-            lightColors.codeEditorSublimelinterGutterMark
+            lightColors.codeEditorSublimelinterGutterMark,
           ),
         },
         [`& code[class*="language-"] .namespace,
@@ -91,7 +91,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.entityTag",
-            lightColors.codeEditorEntityTag
+            lightColors.codeEditorEntityTag,
           ),
         },
         [`& code[class*="language-"] .token.builtin,
@@ -107,7 +107,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.constant",
-            lightColors.codeEditorConstant
+            lightColors.codeEditorConstant,
           ),
         },
         [`& code[class*="language-"] .style .token.string,
@@ -123,7 +123,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.constant",
-            lightColors.codeEditorConstant
+            lightColors.codeEditorConstant,
           ),
         },
         [`& code[class*="language-"] .token.atrule,
@@ -135,7 +135,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.keyword",
-            lightColors.codeEditorKeyword
+            lightColors.codeEditorKeyword,
           ),
         },
         [`& code[class*="language-"] .token.function,
@@ -152,7 +152,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.codeEditorRegexp",
-            lightColors.codeEditorRegexp
+            lightColors.codeEditorRegexp,
           ),
         },
         [`& code[class*="language-"] .token.bold,
@@ -162,7 +162,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.markupBold",
-            lightColors.codeEditorMarkupBold
+            lightColors.codeEditorMarkupBold,
           ),
         },
         [`& code[class*="language-"] .token.tag,
@@ -170,7 +170,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.entityTag",
-            lightColors.codeEditorEntityTag
+            lightColors.codeEditorEntityTag,
           ),
         },
         [`& code[class*="language-"] .token.attr-value,
@@ -180,7 +180,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           color: get(
             theme,
             "codeEditor.constant",
-            lightColors.codeEditorConstant
+            lightColors.codeEditorConstant,
           ),
         },
         [`& code[class*="language-"] .token.selector .class,
@@ -210,7 +210,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
       background: get(
         theme,
         "codeEditor.helpToolsBarBG",
-        lightColors.boxBackground
+        lightColors.boxBackground,
       ),
       border: `${get(theme, "borderColor", lightColors.borderColor)} 1px solid`,
       borderTop: 0,
@@ -227,7 +227,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
       },
     },
     ...sx,
-  })
+  }),
 );
 
 const CodeMirrorWrapper: FC<CodeEditorProps> = ({

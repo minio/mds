@@ -67,7 +67,7 @@ const SwitchItem = styled.label(({ theme }) => ({
         border: `${get(
           theme,
           "switchButton.bulletBorderColor",
-          "#FFF"
+          "#FFF",
         )} 2px solid `,
         backgroundColor: get(theme, "switchButton.bulletBGColor", "#F1F4F4"),
         transitionDuration: "0.1s",
@@ -85,12 +85,12 @@ const SwitchItem = styled.label(({ theme }) => ({
         borderColor: get(
           theme,
           "switchButton.disabledBulletBorderColor",
-          "#F1F4F4"
+          "#F1F4F4",
         ),
         backgroundColor: get(
           theme,
           "switchButton.disabledBulletBGColor",
-          "#E6EAEB"
+          "#E6EAEB",
         ),
       },
     },
@@ -117,7 +117,7 @@ const SwitchMainContainer = styled.div<SwitchContainerProps>(
       color: "#999999",
     },
     ...sx,
-  })
+  }),
 );
 
 const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({

@@ -54,12 +54,12 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
       border: `${get(
         theme,
         "breadcrumbs.backButton.border",
-        "#EAEDEE"
+        "#EAEDEE",
       )} 1px solid`,
       backgroundColor: get(
         theme,
         "breadcrumbs.backButton.backgroundColor",
-        "#FFF"
+        "#FFF",
       ),
       borderLeft: 0,
       borderRadius: 0,

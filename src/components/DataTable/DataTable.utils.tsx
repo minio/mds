@@ -36,7 +36,7 @@ export const selectWidth = 45;
 const subRenderFunction = (
   rowData: any,
   column: IColumns,
-  isSelected: boolean
+  isSelected: boolean,
 ) => {
   const itemElement = isString(rowData)
     ? rowData
@@ -62,14 +62,14 @@ const calculateColumnRest = (
   hasSelect: boolean,
   hasActions: boolean,
   columnsSelector: boolean,
-  columnsShown: string[]
+  columnsShown: string[],
 ) => {
   if (columns) {
     let colsItems = [...columns];
 
     if (columnsSelector) {
       colsItems = columns.filter((column) =>
-        columnsShown.includes(column.elementKey!)
+        columnsShown.includes(column.elementKey!),
       );
     }
 
@@ -105,7 +105,7 @@ export const generateColumnsMap = (
   columnsSelector: boolean,
   columnsShown: string[],
   sortColumn: string,
-  sortDirection: "ASC" | "DESC" | undefined
+  sortDirection: "ASC" | "DESC" | undefined,
 ) => {
   const commonRestWidth = calculateColumnRest(
     columns,
@@ -114,7 +114,7 @@ export const generateColumnsMap = (
     hasSelect,
     hasActions,
     columnsSelector,
-    columnsShown
+    columnsShown,
   );
   return columns.map((column: IColumns, index: number) => {
     if (columnsSelector && !columnsShown.includes(column.elementKey!)) {
@@ -157,7 +157,7 @@ export const generateColumnsMap = (
         cellRenderer={({ rowData }) => {
           const isSelected = selectedItems
             ? selectedItems.includes(
-                isString(rowData) ? rowData : `${rowData[idField]}`
+                isString(rowData) ? rowData : `${rowData[idField]}`,
               )
             : false;
           return subRenderFunction(rowData, column, isSelected);
@@ -175,7 +175,7 @@ export const elementActions = (
   actions: ItemActions[],
   valueToSend: any,
   selected: boolean,
-  idField: string
+  idField: string,
 ) => {
   return actions.map((action: ItemActions, index: number) => {
     if (action.type === "view") {
@@ -225,7 +225,7 @@ export const elementActions = (
 // Function to calculate the options column width according elements inside
 export const calculateOptionsSize = (
   containerWidth: number,
-  totalOptions: number
+  totalOptions: number,
 ) => {
   const minContainerSize = 80;
   const sizeOptions = totalOptions * 45 + 15;

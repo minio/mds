@@ -162,7 +162,7 @@ const GlobalStyles = createGlobalStyle`
         color: ${get(
           theme,
           "buttons.callAction.enabled.background",
-          "#07193E"
+          "#07193E",
         )};
     }
     

@@ -39,7 +39,7 @@ const ActionsListPanel = styled.div<
     border: `${get(
       theme,
       "actionsList.containerBorderColor",
-      "#F1F1F1"
+      "#F1F1F1",
     )} 1px solid`,
     borderRadius: 3,
     margin: "8px 22px",
@@ -54,7 +54,7 @@ const ActionsListPanel = styled.div<
       borderBottom: `${get(
         theme,
         "actionsList.optionsBorder",
-        "#E5E5E5"
+        "#E5E5E5",
       )} 1px solid`,
       fontSize: 14,
       "&:first-of-type": {

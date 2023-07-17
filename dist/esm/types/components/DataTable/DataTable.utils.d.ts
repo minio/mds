@@ -12,15 +12,15 @@ export declare const generateColumnsMap: (
   columnsSelector: boolean,
   columnsShown: string[],
   sortColumn: string,
-  sortDirection: "ASC" | "DESC" | undefined
+  sortDirection: "ASC" | "DESC" | undefined,
 ) => (React.JSX.Element | null)[];
 export declare const elementActions: (
   actions: ItemActions[],
   valueToSend: any,
   selected: boolean,
-  idField: string
+  idField: string,
 ) => (React.JSX.Element | null)[];
 export declare const calculateOptionsSize: (
   containerWidth: number,
-  totalOptions: number
+  totalOptions: number,
 ) => number;

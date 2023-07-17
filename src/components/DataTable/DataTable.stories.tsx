@@ -58,7 +58,7 @@ const Template: Story<DataTableProps> = (args) => {
     }
 
     const allItems = args.records.map(
-      (element) => `${element[`${args.idField}`]}`
+      (element) => `${element[`${args.idField}`]}`,
     );
     setSelected(allItems);
   };
@@ -79,13 +79,13 @@ const Template: Story<DataTableProps> = (args) => {
       columnsShown: selectedColumns,
       onColumnChange: (columnKey) => {
         const itemFound = selectedColumns.findIndex(
-          (item) => item === columnKey
+          (item) => item === columnKey,
         );
 
         // Item Exists, we remove it
         if (itemFound >= 0) {
           setSelectedColumns(
-            selectedColumns.filter((item) => item !== columnKey)
+            selectedColumns.filter((item) => item !== columnKey),
           );
         } else {
           setSelectedColumns([...selectedColumns, columnKey]);

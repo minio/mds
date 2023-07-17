@@ -70,7 +70,7 @@ const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
         },
       },
     };
-  }
+  },
 );
 
 const BoxContainer = styled.div<CommentContainerProps>(
@@ -102,7 +102,7 @@ const BoxContainer = styled.div<CommentContainerProps>(
       marginBottom: error ? 18 : 0,
     },
     ...sx,
-  })
+  }),
 );
 
 const InputBox: FC<CommentBoxProps> = ({

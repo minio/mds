@@ -39,14 +39,14 @@ const TabsContainer = styled.div<TabsContainerProps>(
         : `${get(
             theme,
             "tabs.vertical.borders",
-            lightColors.tabBorder
+            lightColors.tabBorder,
           )} 1px solid`,
       borderBottom: horizontal
         ? `${get(theme, "borderColor", lightColors.borderColor)} 1px solid`
         : `${get(
             theme,
             "tabs.vertical.borders",
-            lightColors.tabBorder
+            lightColors.tabBorder,
           )} 1px solid`,
       backgroundColor: horizontal
         ? get(theme, "tabs.horizontal.backgroundColor", "transparent")
@@ -61,11 +61,11 @@ const TabsContainer = styled.div<TabsContainerProps>(
         : `${get(
             theme,
             "tabs.vertical.borders",
-            lightColors.tabBorder
+            lightColors.tabBorder,
           )} 1px solid`,
       borderLeft: "none",
     },
-  })
+  }),
 );
 
 const Tabs: FC<TabsProps> = ({
@@ -88,7 +88,7 @@ const Tabs: FC<TabsProps> = ({
                 id={item.tabConfig.id}
                 onClick={() => {
                   onTabClick(
-                    useRouteTabs ? item.tabConfig.to || "" : item.tabConfig.id
+                    useRouteTabs ? item.tabConfig.to || "" : item.tabConfig.id,
                   );
                 }}
                 horizontal={!!horizontal}

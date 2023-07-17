@@ -100,7 +100,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
       maxHeight: "calc(100vh - 150px)",
       overflowY: "auto",
     },
-  })
+  }),
 );
 
 const ModalBox: FC<ModalBoxProps> = ({

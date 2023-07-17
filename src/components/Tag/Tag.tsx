@@ -38,7 +38,7 @@ const TagBase = styled.span<TagConstructProps>(({ theme, color, sx }) => {
     backgroundColor: get(
       theme,
       `tag.${color}.background`,
-      lightColors.mainBlue
+      lightColors.mainBlue,
     ),
     borderRadius: 16,
     whiteSpace: "nowrap",
