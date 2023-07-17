@@ -15,10 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { CSSObject } from "styled-components";
-import { SelectorType } from "../../global/global.types";
+import { SelectOptionsType } from "../../global/global.types";
 
 export interface SelectProps {
-  options: SelectorType[];
+  options: SelectOptionsType[];
   value?: string;
   id: string;
   name?: string;
@@ -29,6 +29,6 @@ export interface SelectProps {
   tooltip?: string;
   noLabelMinWidth?: boolean;
   fixedLabel?: string;
-  onChange: (newValue: string) => void;
+  onChange: (newValue: string, extraValue?: any) => void;
   sx?: CSSObject;
 }

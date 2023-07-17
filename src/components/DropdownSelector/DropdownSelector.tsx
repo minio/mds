@@ -54,6 +54,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
     flexDirection: "column",
     width: "100%",
     "& > li": {
+      cursor: "pointer",
       listStyle: "none",
       width: "100%",
       color: get(theme, "dropdownSelector.optionTextColor", "#000"),
@@ -162,7 +163,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
                   selectedOption === option.value ? "selected" : ""
                 }`}
                 onClick={() => {
-                  onSelect(option.value);
+                  onSelect(option.value, option.extraValue || null);
                 }}
                 key={`option-${index}`}
               >
