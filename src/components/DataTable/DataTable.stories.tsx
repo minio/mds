@@ -21,6 +21,7 @@ import DataTable from "./DataTable";
 import { DataTableProps } from "./DataTable.types";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Grid from "../Grid/Grid";
+import SuccessIcon from "../Icons/SuccessIcon";
 
 export default {
   title: "MDS/Information/DataTable",
@@ -314,14 +315,132 @@ WithItemActions.args = {
         alert(itemID);
       },
       sendOnlyId: true,
-      label: "Edit",
+      tooltip: "Edit",
     },
     {
       type: "delete",
       onClick: (deleteItem) => {
         console.log("DELETE", deleteItem);
       },
-      label: "Delete",
+      tooltip: "Delete",
+    },
+  ],
+  records: [
+    { field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+  ],
+  columns: [
+    { label: "Column1", elementKey: "field1", width: 200 },
+    { label: "Column2", elementKey: "field2", width: 100 },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+  sortConfig: {
+    currentSort: "field1",
+    currentDirection: "DESC",
+    triggerSort: () => {
+      alert("sort triggered");
+    },
+  },
+};
+
+export const FullItemsActions = Template.bind({});
+FullItemsActions.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  itemActions: [
+    {
+      type: "edit",
+      onClick: (itemID: string) => {
+        alert(itemID);
+      },
+      sendOnlyId: true,
+      tooltip: "Edit",
+    },
+    {
+      type: "delete",
+      onClick: (deleteItem) => {
+        console.log("DELETE", deleteItem);
+      },
+      tooltip: "Delete",
+    },
+    {
+      type: "console",
+      onClick: (deleteItem) => {
+        console.log("CONSOLE", deleteItem);
+      },
+      tooltip: "Console",
+    },
+    {
+      type: "description",
+      onClick: (deleteItem) => {
+        console.log("DESCRIPTION", deleteItem);
+      },
+      tooltip: "Description",
+    },
+    {
+      type: "cloud",
+      onClick: (deleteItem) => {
+        console.log("CLOUD", deleteItem);
+      },
+      tooltip: "Cloud",
+    },
+    {
+      type: "view",
+      onClick: (deleteItem) => {
+        console.log("VIEW", deleteItem);
+      },
+      tooltip: "View",
+    },
+    {
+      type: "disable",
+      onClick: (deleteItem) => {
+        console.log("DISABLE", deleteItem);
+      },
+      tooltip: "Disable",
+    },
+    {
+      type: "download",
+      onClick: (deleteItem) => {
+        console.log("DOWNLOAD", deleteItem);
+      },
+      tooltip: "Download",
+    },
+    {
+      type: "format",
+      onClick: (deleteItem) => {
+        console.log("FORMAT", deleteItem);
+      },
+      tooltip: "Format",
+    },
+    {
+      type: "preview",
+      onClick: (deleteItem) => {
+        console.log("PREVIEW", deleteItem);
+      },
+      tooltip: "Preview",
+    },
+    {
+      type: "share",
+      onClick: (deleteItem) => {
+        console.log("SHARE", deleteItem);
+      },
+      tooltip: "Share",
+    },
+    {
+      type: <SuccessIcon />,
+      onClick: (deleteItem) => {
+        console.log("DELETE", deleteItem);
+      },
+      tooltip: "Custom Icon",
     },
   ],
   records: [

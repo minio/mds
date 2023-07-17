@@ -32,7 +32,13 @@ export default {
   argTypes: {},
 } as Meta;
 
-const IconDisplay = ({ children }: { children: ReactNode | ReactNode[] }) => {
+const IconDisplay = ({
+  children,
+  applyColor,
+}: {
+  children: ReactNode | ReactNode[];
+  applyColor: boolean;
+}) => {
   return (
     <Box
       style={{
@@ -49,6 +55,7 @@ const IconDisplay = ({ children }: { children: ReactNode | ReactNode[] }) => {
           wordBreak: "break-word",
           "& .min-icon": {
             height: 24,
+            color: applyColor ? "red" : "black",
           },
         },
       }}
@@ -78,7 +85,7 @@ const Template: Story = (args) => {
             </Button>
           </Grid>
           <h1>Icons</h1>
-          <IconDisplay>
+          <IconDisplay applyColor={color}>
             <div className="story-icon">
               <cicons.AccessRuleIcon />
               <br />
@@ -1183,7 +1190,7 @@ const Template: Story = (args) => {
             </div>
           </IconDisplay>
           <h1>Menu Icons</h1>
-          <IconDisplay>
+          <IconDisplay applyColor={color}>
             <div className="story-icon">
               <micons.AccessMenuIcon />
               <br />
@@ -1342,7 +1349,7 @@ const Template: Story = (args) => {
             </div>
           </IconDisplay>
           <h1>File Icons</h1>
-          <IconDisplay>
+          <IconDisplay applyColor={color}>
             <div className="story-icon">
               <ficons.FileBookIcon />
               <br />
