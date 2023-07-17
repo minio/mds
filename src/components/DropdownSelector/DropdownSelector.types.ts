@@ -14,13 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import React from "react";
-import { SelectorType } from "../../global/global.types";
+import { SelectOptionsType } from "../../global/global.types";
 import { CSSObject } from "styled-components";
 
 export interface DropdownSelectorProps {
-  options: SelectorType[];
+  options: SelectOptionsType[];
   selectedOption?: string;
-  onSelect: (value: string) => void;
+  onSelect: (value: string, extraValue?: any) => void;
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;

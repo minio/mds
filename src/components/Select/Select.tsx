@@ -18,11 +18,11 @@ import React, { FC, Fragment, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { SelectProps } from "./Select.types";
+import { InputContainerProps } from "../InputBox/InputBox.types";
 import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
-import { InputContainerProps } from "../InputBox/InputBox.types";
 import CollapseCaret from "../Icons/CollapseCaret";
 import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
@@ -188,7 +188,7 @@ const Select: FC<SelectProps> = ({
         <DropdownSelector
           options={options}
           selectedOption={value}
-          onSelect={(nValue) => onChange(nValue)}
+          onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
           hideTriggerAction={() => {
             setIsOpen(false);
           }}
