@@ -284,6 +284,9 @@ interface SelectorType {
   value: string;
   icon?: React__default.ReactNode;
 }
+interface SelectOptionsType extends SelectorType {
+  extraValue?: any;
+}
 
 interface ThemeHandlerProps {
   darkMode?: boolean;
@@ -433,9 +436,23 @@ type IconButtonProps = IconBase &
 
 declare const IconButton: FC<IconButtonProps>;
 
+declare const actionsTypes: readonly [
+  "view",
+  "edit",
+  "delete",
+  "description",
+  "share",
+  "cloud",
+  "console",
+  "download",
+  "disable",
+  "format",
+  "preview",
+];
+type PredefinedActionTypes = (typeof actionsTypes)[number];
 interface ItemActions {
-  label?: string;
-  type: string | any;
+  tooltip?: string;
+  type: PredefinedActionTypes | React__default.ReactNode;
   sendOnlyId?: boolean;
   disableButtonFunction?: (itemValue: any) => boolean;
   showLoaderFunction?: (itemValue: any) => boolean;
@@ -502,8 +519,8 @@ interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   sx?: CSSObject;
 }
 interface IActionButton {
-  label?: string;
-  type: string | React__default.ReactNode;
+  tooltip?: string;
+  type: PredefinedActionTypes | React__default.ReactNode;
   onClick?: (id: string) => any;
   valueToSend: any;
   selected: boolean;
@@ -647,7 +664,7 @@ declare const SimpleHeader: FC<SimpleHeaderProps>;
 
 interface ScreenTitleProps {
   icon: React__default.ReactNode;
-  subTitle: React__default.ReactNode;
+  subTitle?: React__default.ReactNode;
   title: string;
   actions: React__default.ReactNode;
   sx?: CSSObject;
@@ -689,7 +706,7 @@ declare const Switch: FC<
 >;
 
 interface SelectProps {
-  options: SelectorType[];
+  options: SelectOptionsType[];
   value?: string;
   id: string;
   name?: string;
@@ -700,16 +717,16 @@ interface SelectProps {
   tooltip?: string;
   noLabelMinWidth?: boolean;
   fixedLabel?: string;
-  onChange: (newValue: string) => void;
+  onChange: (newValue: string, extraValue?: any) => void;
   sx?: CSSObject;
 }
 
 declare const Select: FC<SelectProps>;
 
 interface DropdownSelectorProps {
-  options: SelectorType[];
+  options: SelectOptionsType[];
   selectedOption?: string;
-  onSelect: (value: string) => void;
+  onSelect: (value: string, extraValue?: any) => void;
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
@@ -771,6 +788,7 @@ interface MenuProps {
   signOutAction?: () => void;
   currentPath?: string;
   middleComponent?: React__default.ReactNode;
+  endComponent?: React__default.ReactNode;
   mobileModeAuto?: boolean;
 }
 interface MenuItemProps {
@@ -2002,6 +2020,7 @@ export {
   PerformanceMenuIcon,
   PermissionIcon,
   PoliciesMenuIcon,
+  PredefinedActionTypes,
   PreviewIcon,
   ProfileMenuIcon,
   PrometheusErrorIcon,
@@ -2094,5 +2113,6 @@ export {
   WarnIcon,
   WarpIcon,
   WatchIcon,
+  actionsTypes,
   breakPoints,
 };
