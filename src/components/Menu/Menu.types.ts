@@ -30,6 +30,7 @@ export interface MenuProps {
   signOutAction?: () => void;
   currentPath?: string;
   middleComponent?: React.ReactNode;
+  endComponent?: React.ReactNode;
   mobileModeAuto?: boolean;
 }
 
