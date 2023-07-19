@@ -26,7 +26,7 @@ import FormLayout from "../FormLayout/FormLayout";
 import DownloadIcon from "../Icons/DownloadIcon";
 import UploadIcon from "../Icons/UploadIcon";
 import UsersIcon from "../Icons/UsersIcon";
-import { SelectOptionsType } from "../../global/global.types";
+import { SelectorType } from "../../global/global.types";
 
 export default {
   title: "MDS/Forms/Select",
@@ -44,7 +44,7 @@ const Template: Story<SelectProps> = ({
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>("value1");
 
-  let useOpts: SelectOptionsType[] = [
+  let useOpts: SelectorType[] = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     {
