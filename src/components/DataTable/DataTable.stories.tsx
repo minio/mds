@@ -316,13 +316,30 @@ WithItemActions.args = {
       },
       sendOnlyId: true,
       tooltip: "Edit",
+      isDisabled: true,
     },
     {
       type: "delete",
       onClick: (deleteItem) => {
         console.log("DELETE", deleteItem);
       },
-      tooltip: "Delete",
+      tooltip: "Delete, Disabled if Column 1 is Value1",
+      isDisabled: (value) => value.field1 === "Value1",
+    },
+    {
+      type: "preview",
+      onClick: (deleteItem) => {
+        console.log("PREVIEW", deleteItem);
+      },
+      tooltip: "Preview",
+    },
+    {
+      type: "cloud",
+      onClick: (deleteItem) => {
+        console.log("DELETE", deleteItem);
+      },
+      tooltip: "Delete, Disabled if Column 1 is Value1",
+      showLoader: (value) => value.field1 === "Value1",
     },
   ],
   records: [

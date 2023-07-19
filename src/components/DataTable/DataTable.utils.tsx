@@ -19,10 +19,10 @@ import get from "lodash/get";
 import isString from "lodash/isString";
 import { Column } from "react-virtualized";
 import {
+  actionsTypes,
   IColumns,
   ItemActions,
   PredefinedActionTypes,
-  actionsTypes,
 } from "./DataTable.types";
 import ArrowDropUpIcon from "../Icons/ArrowDropUp";
 import ArrowDropDownIcon from "../Icons/ArrowDropDown";
@@ -182,19 +182,21 @@ export const elementActions = (
       return null;
     }
 
-    const vlSend =
-      typeof valueToSend === "string" ? valueToSend : valueToSend[idField];
-
     let disabled = false;
 
-    if (action.disableButtonFunction) {
-      if (action.disableButtonFunction(vlSend)) {
-        disabled = true;
+    if (!!action.isDisabled) {
+      if (typeof action.isDisabled === "boolean") {
+        disabled = action.isDisabled;
+      } else {
+        disabled = action.isDisabled(valueToSend);
       }
     }
 
-    if (action.showLoaderFunction) {
-      if (action.showLoaderFunction(vlSend)) {
+    if (!!action.showLoader) {
+      if (
+        (typeof action.showLoader === "boolean" && action.showLoader) ||
+        action.showLoader(valueToSend)
+      ) {
         return (
           <div className={"progress-enabled"}>
             <Loader
