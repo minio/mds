@@ -21,58 +21,79 @@ import { TagConstructProps, TagProps } from "./Tag.types";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import { lightColors } from "../../global/themes";
 
-const TagBase = styled.span<TagConstructProps>(({ theme, color, sx }) => {
-  return {
-    position: "relative",
-    margin: 0,
-    userSelect: "none",
-    appearance: "none",
-    maxWidth: "100%",
-    fontFamily: "'Inter', sans-serif",
-    fontSize: 14,
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: 24,
-    color: get(theme, `tag.${color}.label`, lightColors.white),
-    backgroundColor: get(
-      theme,
-      `tag.${color}.background`,
-      lightColors.mainBlue,
-    ),
-    borderRadius: 16,
-    whiteSpace: "nowrap",
-    cursor: "default",
-    outline: 0,
-    textDecoration: "none",
-    border: 0,
-    padding: "0 10px",
-    verticalAlign: "middle",
-    marginRight: 5,
-    gap: 10,
-    "& .deleteTagButton": {
-      backgroundColor: "transparent",
-      border: 0,
-      display: "flex",
+const TagBase = styled.span<TagConstructProps>(
+  ({ theme, color, variant, sx }) => {
+    return {
+      position: "relative",
+      margin: 0,
+      userSelect: "none",
+      appearance: "none",
+      maxWidth: "100%",
+      fontFamily: "'Inter', sans-serif",
+      fontSize: 14,
+      display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      padding: 0,
-      cursor: "pointer",
-      opacity: 0.6,
-      "&:hover": {
-        opacity: 1,
-      },
+      height: 24,
+      color:
+        variant === "regular"
+          ? get(theme, `tag.${color}.label`, lightColors.white)
+          : get(theme, `tag.${color}.background`, lightColors.mainBlue),
+      backgroundColor:
+        variant === "regular"
+          ? get(theme, `tag.${color}.background`, lightColors.mainBlue)
+          : "transparent",
+      borderRadius: 16,
+      whiteSpace: "nowrap",
+      cursor: "default",
+      outline: 0,
+      textDecoration: "none",
+      border:
+        variant === "regular"
+          ? 0
+          : `${get(
+              theme,
+              `tag.${color}.background`,
+              lightColors.mainBlue,
+            )} 1px solid`,
+      padding: "0 10px",
+      verticalAlign: "middle",
+      gap: 8,
       "& svg": {
-        fill: get(theme, `tag.${color}.deleteColor`, lightColors.white),
-        width: 10,
-        height: 10,
-        minWidth: 10,
-        minHeight: 10,
+        width: 12,
+        height: 12,
+        fill:
+          variant === "regular"
+            ? get(theme, `tag.${color}.label`, lightColors.white)
+            : get(theme, `tag.${color}.background`, lightColors.mainBlue),
       },
-    },
-    ...sx,
-  };
-});
+      "& .deleteTagButton": {
+        backgroundColor: "transparent",
+        border: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 0,
+        cursor: "pointer",
+        opacity: 0.6,
+        "&:hover": {
+          opacity: 1,
+        },
+        "& svg": {
+          fill:
+            variant === "regular"
+              ? get(theme, `tag.${color}.deleteColor`, lightColors.white)
+              : get(theme, `tag.${color}.background`, lightColors.mainBlue),
+          width: 10,
+          height: 10,
+          minWidth: 10,
+          minHeight: 10,
+        },
+      },
+      ...sx,
+    };
+  },
+);
 
 const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
   children,
@@ -81,9 +102,12 @@ const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
   onDelete,
   id,
   label,
+  variant = "regular",
+  icon,
 }) => {
   return (
-    <TagBase id={id} color={color} sx={sx}>
+    <TagBase id={id} color={color} sx={sx} variant={variant}>
+      {icon}
       <span>
         {label}
         {children}

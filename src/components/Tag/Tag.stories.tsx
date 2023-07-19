@@ -21,6 +21,7 @@ import Tag from "./Tag";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { TagProps } from "./Tag.types";
+import AddIcon from "../Icons/AddIcon";
 
 export default {
   title: "MDS/Layout/Tag",
@@ -33,10 +34,41 @@ const Template: Story<TagProps> = ({ label, id, onDelete, sx, color }) => {
     <StoryThemeProvider>
       <GlobalStyles />
       <Tag label={label} color={color} id={id} sx={sx} />
+      &nbsp;
       <Tag label={label} color={color} id={id} onDelete={onDelete} sx={sx}>
         {" "}
         with on Delete
       </Tag>
+      &nbsp;
+      <Tag
+        label={label}
+        color={color}
+        id={id}
+        onDelete={onDelete}
+        sx={sx}
+        variant={"outlined"}
+      >
+        {" "}
+        Outlined
+      </Tag>
+      &nbsp;
+      <Tag label={label} color={color} id={id} sx={sx} icon={<AddIcon />}>
+        {" "}
+        With an Icon
+      </Tag>
+      &nbsp;
+      <Tag
+        label={label}
+        color={color}
+        id={id}
+        sx={sx}
+        variant={"outlined"}
+        icon={<AddIcon />}
+      >
+        {" "}
+        Outlined With an Icon
+      </Tag>
+      &nbsp;
     </StoryThemeProvider>
   );
 };
