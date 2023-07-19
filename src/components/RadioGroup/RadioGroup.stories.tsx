@@ -44,8 +44,12 @@ const Template: Story<RadioGroupProps> = ({
         label={label}
         tooltip={tooltip}
         currentValue={selectedOption}
-        onChange={(e) => {
+        onChange={(e, extra) => {
           setSelectedOption(e.target.value);
+
+          if (extra) {
+            alert(`Extra Value: ${JSON.stringify(extra)}`);
+          }
         }}
         selectorOptions={[
           { label: "Option 1", value: "option1" },
@@ -54,6 +58,11 @@ const Template: Story<RadioGroupProps> = ({
             value: "option2",
           },
           { label: "Option 3", value: "option3" },
+          {
+            label: "With Extra Value",
+            value: "option4",
+            extraValue: { value: "extravalue" },
+          },
         ]}
         name={"selectBox"}
         disableOptions={disableOptions}

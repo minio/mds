@@ -28,7 +28,10 @@ export interface RadioGroupProps {
   disableOptions?: boolean;
   displayInColumn?: boolean;
   className?: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    extraValue?: any,
+  ) => void;
   sx?: CSSObject;
 }
 
