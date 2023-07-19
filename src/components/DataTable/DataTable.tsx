@@ -18,7 +18,6 @@ import React, { FC, Fragment, useState } from "react";
 import { AutoSizer, Column, InfiniteLoader, Table } from "react-virtualized";
 import styled from "styled-components";
 import get from "lodash/get";
-import isPlainObject from "lodash/isPlainObject";
 import isString from "lodash/isString";
 import Checkbox from "../Checkbox/Checkbox";
 import Loader from "../Loader/Loader";
@@ -202,17 +201,12 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       textAlign: "right",
     },
     "& .progress-enabled": {
-      paddingTop: 3,
-      display: "inline-block",
-      margin: "0 10px",
+      display: "inline-flex",
       position: "relative",
-      width: 18,
-      height: 18,
-    },
-    "& .progress-enabled > .MuiCircularProgress-root": {
-      position: "absolute",
-      left: 0,
-      top: 3,
+      alignItems: "center",
+      justifyContent: "center",
+      width: 30,
+      height: 30,
     },
     ...sx,
   }),
@@ -270,9 +264,11 @@ const DataTable: FC<DataTableProps> = ({
 
       let disabled = false;
 
-      if (findView.disableButtonFunction) {
-        if (findView.disableButtonFunction(valueClick)) {
-          disabled = true;
+      if (!!findView.isDisabled) {
+        if (typeof findView.isDisabled === "boolean") {
+          disabled = findView.isDisabled;
+        } else {
+          disabled = findView.isDisabled(rowItem);
         }
       }
 
