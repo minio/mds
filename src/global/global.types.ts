@@ -275,6 +275,7 @@ export interface ThemeDefinitionProps {
   logoLabelColor: string;
   logoLabelInverse: string;
   loaderColor: string;
+  linkColor?: string;
   boxBackground: string;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
