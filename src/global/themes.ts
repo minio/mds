@@ -98,6 +98,7 @@ export const lightColors = {
   codeEditorMarkupBold: "#24292f",
   codeEditorRegexp: "#ffaa00",
   linkColor: "#2781B0",
+  mutedText: "#87888d",
 };
 
 export const darkColors = {
@@ -176,6 +177,7 @@ export const darkColors = {
   codeEditorMarkupBold: "#c9d1d9",
   codeEditorRegexp: "#ffd582",
   linkColor: "#85B3EE",
+  mutedText: "#767a80",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -189,6 +191,7 @@ export const lightTheme: ThemeDefinitionProps = {
   loaderColor: lightColors.loaderColor,
   linkColor: lightColors.linkColor,
   boxBackground: lightColors.boxBackground,
+  mutedText: lightColors.mutedText,
   signalColors: {
     danger: lightColors.mainRed,
     good: lightColors.mainGreen,
@@ -566,6 +569,7 @@ export const darkTheme: ThemeDefinitionProps = {
   loaderColor: darkColors.loaderColor,
   linkColor: darkColors.linkColor,
   boxBackground: darkColors.boxBackground,
+  mutedText: darkColors.mutedText,
   signalColors: {
     danger: darkColors.mainRed,
     good: darkColors.mainGreen,

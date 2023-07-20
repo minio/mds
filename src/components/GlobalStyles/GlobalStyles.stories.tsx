@@ -67,6 +67,10 @@ const Template: Story = (args) => (
           interdum orci, in porttitor neque. Phasellus maximus mauris sed
           egestas vulputate. Praesent in neque ipsum.
         </p>
+        <h2>Muted Text</h2>
+        <span className={"muted"}>Muted Label</span>
+        <br />
+        <i className={"muted"}>Muted Label with italics</i>
       </section>
       <h1>List Items</h1>
       <section>
