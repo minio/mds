@@ -17,6 +17,7 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import get from "lodash/get";
+import { darkColors, lightColors } from "../../global/themes";
 
 const InterBlackWoff = require("../assets/fonts/Inter/Inter-Black.woff");
 const InterBlackItalicWoff = require("../assets/fonts/Inter/Inter-BlackItalic.woff");
@@ -137,8 +138,8 @@ const GlobalStyles = createGlobalStyle`
     }
     
     body {
-        background-color: ${get(theme, "bgColor", "#fff")};
-        color: ${get(theme, "fontColor", "#000")};
+        background-color: ${get(theme, "bgColor", lightColors.white)};
+        color: ${get(theme, "fontColor", lightColors.defaultFontColor)};
         height: 100vh;
         width: 100vw;
         font-family: 'Inter', sans-serif;
@@ -152,7 +153,7 @@ const GlobalStyles = createGlobalStyle`
     }
     
     fieldset, section {
-        border: 1px solid ${get(theme, "borderColor", "#E2E2E2")};
+        border: 1px solid ${get(theme, "borderColor", lightColors.borderColor)};
         border-radius: 3px;
         background-color: transparent;
         padding: 25px;
@@ -167,14 +168,18 @@ const GlobalStyles = createGlobalStyle`
     }
     
     a:hover {
-        color: ${get(theme, "buttons.callAction.hover.background", "#0D2453")};
+        color: ${get(
+          theme,
+          "buttons.callAction.hover.background",
+          lightColors.hoverBlue,
+        )};
     }
     
     hr {
         border-top: 0;
         border-left: 0;
         borderR-right: 0;
-        border-color: ${get(theme, "borderColor", "#E2E2E2")};
+        border-color: ${get(theme, "borderColor", lightColors.borderColor)};
         background-color: transparent;
     }
     
@@ -184,7 +189,7 @@ const GlobalStyles = createGlobalStyle`
         
         li:not([class*="Mui"])::before {
           content: '￭';
-          color: ${get(theme, "bulletColor", "#2781B0")};
+          color: ${get(theme, "bulletColor", lightColors.bulletColor)};
           font-size: 20px;
           display: inline-block;
           width: 1em;
@@ -195,7 +200,7 @@ const GlobalStyles = createGlobalStyle`
           list-style: none;
           li:not([class*="Mui"])::before {
             content: "￮";
-            color: ${get(theme, "bulletColor", "#2781B0")},
+            color: ${get(theme, "bulletColor", lightColors.bulletColor)},
             font-size: 20px;
             display: inline-block;
             width: 1em;
@@ -231,6 +236,10 @@ const GlobalStyles = createGlobalStyle`
       height: 100vh;
       justify-content: center;
       align-items: center;
+    }
+    
+    .muted {
+        color: ${get(theme, "mutedText", lightColors.mutedText)};
     }
     `;
     }}
