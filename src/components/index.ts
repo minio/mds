@@ -57,6 +57,7 @@ export { default as ExpandOptionsButton } from "./ExpandOptionsButton/ExpandOpti
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as CodeEditor } from "./CodeEditor/CodeEditor";
 export { default as Tag } from "./Tag/Tag";
+export { default as ActionLink } from "./ActionLink/ActionLink";
 
 /*Icons*/
 export * from "./Icons";
@@ -69,3 +70,4 @@ export * from "./DataTable/DataTable.types";
 export * from "./Tabs/Tabs.types";
 export * from "./CodeEditor/CodeEditor.types";
 export * from "./Tag/Tag.types";
+export * from "./ActionLink/ActionLink.types";
