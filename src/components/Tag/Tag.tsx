@@ -104,9 +104,10 @@ const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
   label,
   variant = "regular",
   icon,
+  ...props
 }) => {
   return (
-    <TagBase id={id} color={color} sx={sx} variant={variant}>
+    <TagBase id={id} color={color} sx={sx} variant={variant} {...props}>
       {icon}
       <span>
         {label}
