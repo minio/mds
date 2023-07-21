@@ -249,7 +249,9 @@ interface ThemeDefinitionProps {
   logoLabelColor: string;
   logoLabelInverse: string;
   loaderColor: string;
+  linkColor?: string;
   boxBackground: string;
+  mutedText: string;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
@@ -283,8 +285,6 @@ interface SelectorType {
   label: string;
   value: string;
   icon?: React__default.ReactNode;
-}
-interface SelectOptionsType extends SelectorType {
   extraValue?: any;
 }
 
@@ -454,8 +454,8 @@ interface ItemActions {
   tooltip?: string;
   type: PredefinedActionTypes | React__default.ReactNode;
   sendOnlyId?: boolean;
-  disableButtonFunction?: (itemValue: any) => boolean;
-  showLoaderFunction?: (itemValue: any) => boolean;
+  isDisabled?: boolean | ((itemValue: any) => boolean);
+  showLoader?: boolean | ((itemValue: any) => boolean);
   onClick?(valueToSend: any): any;
 }
 interface IColumns {
@@ -706,7 +706,7 @@ declare const Switch: FC<
 >;
 
 interface SelectProps {
-  options: SelectOptionsType[];
+  options: SelectorType[];
   value?: string;
   id: string;
   name?: string;
@@ -724,7 +724,7 @@ interface SelectProps {
 declare const Select: FC<SelectProps>;
 
 interface DropdownSelectorProps {
-  options: SelectOptionsType[];
+  options: SelectorType[];
   selectedOption?: string;
   onSelect: (value: string, extraValue?: any) => void;
   hideTriggerAction: () => void;
@@ -744,7 +744,10 @@ interface RadioGroupProps {
   disableOptions?: boolean;
   displayInColumn?: boolean;
   className?: string;
-  onChange: React__default.ChangeEventHandler<HTMLInputElement>;
+  onChange: (
+    event: React__default.ChangeEvent<HTMLInputElement>,
+    extraValue?: any,
+  ) => void;
   sx?: CSSObject;
 }
 
@@ -902,16 +905,43 @@ interface TagMainProps {
   label: string;
   onDelete?: (item: string) => void;
   id: string;
+  icon?: ReactNode;
 }
 interface TagConstructProps {
   color?: "default" | "secondary" | "warn" | "alert" | "ok";
   sx?: CSSObject;
+  variant?: "regular" | "outlined";
 }
 type TagProps = TagMainProps & TagConstructProps;
 
 declare const Tag: FC<
   TagProps & React__default.HTMLAttributes<HTMLSpanElement>
 >;
+
+interface CommonActionLinkProps {
+  isLoading: boolean;
+  label: any;
+}
+interface BaseActionLinkProps {
+  sx?: CSSObject;
+}
+type ActionLinkProps = CommonActionLinkProps & BaseActionLinkProps;
+
+declare const ActionLink: FC<
+  ActionLinkProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+interface ValuePairMain {
+  label?: ReactNode;
+  value?: ReactNode;
+}
+interface ValuePairCommon {
+  direction?: "column" | "row";
+  sx?: CSSObject;
+}
+type ValuePairProps = ValuePairMain & ValuePairCommon;
+
+declare const ValuePair: FC<ValuePairProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -1809,6 +1839,8 @@ export {
   AccessRuleIcon,
   AccountIcon$1 as AccountIcon,
   AccountsMenuIcon,
+  ActionLink,
+  ActionLinkProps,
   ActionsList,
   AddAccessRuleIcon,
   AddFolderIcon,
@@ -1833,6 +1865,7 @@ export {
   BackIcon,
   BackLink,
   BackSettingsIcon,
+  BaseActionLinkProps,
   Box,
   BoxArrowDown,
   BoxArrowUp,
@@ -1866,6 +1899,7 @@ export {
   ColumnSelectorConstructProps,
   ColumnSelectorProps,
   InputBox as CommentBox,
+  CommonActionLinkProps,
   ComputerLineIcon,
   ConfigurationsListIcon,
   ConfirmDeleteIcon,
@@ -2103,6 +2137,10 @@ export {
   UserFilledIcon,
   UsersIcon,
   UsersMenuIcon,
+  ValuePair,
+  ValuePairCommon,
+  ValuePairMain,
+  ValuePairProps,
   VerifiedIcon,
   VersionIcon,
   VersionsIcon,

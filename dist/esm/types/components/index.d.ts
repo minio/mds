@@ -37,6 +37,8 @@ export { default as ExpandOptionsButton } from "./ExpandOptionsButton/ExpandOpti
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as CodeEditor } from "./CodeEditor/CodeEditor";
 export { default as Tag } from "./Tag/Tag";
+export { default as ActionLink } from "./ActionLink/ActionLink";
+export { default as ValuePair } from "./ValuePair/ValuePair";
 export * from "./Icons";
 export * from "./Icons/SidebarMenus";
 export * from "./Icons/FileIcons";
@@ -45,3 +47,5 @@ export * from "./DataTable/DataTable.types";
 export * from "./Tabs/Tabs.types";
 export * from "./CodeEditor/CodeEditor.types";
 export * from "./Tag/Tag.types";
+export * from "./ActionLink/ActionLink.types";
+export * from "./ValuePair/ValuePair.types";

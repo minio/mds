@@ -78,6 +78,8 @@ export declare const lightColors: {
   codeEditorKeyword: string;
   codeEditorMarkupBold: string;
   codeEditorRegexp: string;
+  linkColor: string;
+  mutedText: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -154,6 +156,8 @@ export declare const darkColors: {
   codeEditorKeyword: string;
   codeEditorMarkupBold: string;
   codeEditorRegexp: string;
+  linkColor: string;
+  mutedText: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
