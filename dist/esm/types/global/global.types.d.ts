@@ -231,7 +231,9 @@ export interface ThemeDefinitionProps {
   logoLabelColor: string;
   logoLabelInverse: string;
   loaderColor: string;
+  linkColor?: string;
   boxBackground: string;
+  mutedText: string;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
@@ -265,8 +267,6 @@ export interface SelectorType {
   label: string;
   value: string;
   icon?: React.ReactNode;
-}
-export interface SelectOptionsType extends SelectorType {
   extraValue?: any;
 }
 export {};

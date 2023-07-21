@@ -18,8 +18,8 @@ export interface ItemActions {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
   sendOnlyId?: boolean;
-  disableButtonFunction?: (itemValue: any) => boolean;
-  showLoaderFunction?: (itemValue: any) => boolean;
+  isDisabled?: boolean | ((itemValue: any) => boolean);
+  showLoader?: boolean | ((itemValue: any) => boolean);
   onClick?(valueToSend: any): any;
 }
 export interface IColumns {

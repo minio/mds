@@ -1,7 +1,7 @@
 import { CSSObject } from "styled-components";
-import { SelectOptionsType } from "../../global/global.types";
+import { SelectorType } from "../../global/global.types";
 export interface SelectProps {
-  options: SelectOptionsType[];
+  options: SelectorType[];
   value?: string;
   id: string;
   name?: string;
