@@ -58,6 +58,7 @@ export { default as Tabs } from "./Tabs/Tabs";
 export { default as CodeEditor } from "./CodeEditor/CodeEditor";
 export { default as Tag } from "./Tag/Tag";
 export { default as ActionLink } from "./ActionLink/ActionLink";
+export { default as ValuePair } from "./ValuePair/ValuePair";
 
 /*Icons*/
 export * from "./Icons";
@@ -71,3 +72,4 @@ export * from "./Tabs/Tabs.types";
 export * from "./CodeEditor/CodeEditor.types";
 export * from "./Tag/Tag.types";
 export * from "./ActionLink/ActionLink.types";
+export * from "./ValuePair/ValuePair.types";
