@@ -58,7 +58,7 @@
     "storybook": "^7.1.0",
     "storybook-dark-mode": "^3.0.0",
     "ts-jest": "^29.1.1",
-    "tslib": "^2.6.0",
+    "tslib": "^2.6.1",
     "typescript": "^5.1.6",
     "yarn-audit-fix": "^9.3.12"
   },
