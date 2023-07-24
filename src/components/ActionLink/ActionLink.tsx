@@ -37,9 +37,9 @@ const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
 
 const ActionLink: FC<
   ActionLinkProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ label, isLoading, sx, children }) => {
+> = ({ label, isLoading, sx, children, ...props }) => {
   return (
-    <ActionLinkBase sx={sx}>
+    <ActionLinkBase {...props} sx={sx}>
       {isLoading ? (
         <Loader style={{ width: 16, height: 16 }} />
       ) : (
