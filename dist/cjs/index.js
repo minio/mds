@@ -2523,7 +2523,7 @@ const fr = ({
   override: n = {},
   glContext: a,
   failIfMajorPerformanceCaveat: r = !1,
-  benchmarksURL: o = "https://unpkg.com/detect-gpu@5.0.33/dist/benchmarks",
+  benchmarksURL: o = "https://unpkg.com/detect-gpu@5.0.34/dist/benchmarks",
 } = {}) =>
   or(void 0, void 0, void 0, function* () {
     const i = {};
@@ -45223,10 +45223,11 @@ var yC = TC.exports,
     var n = t.label,
       a = t.isLoading,
       r = t.sx,
-      i = t.children;
+      i = t.children,
+      l = ze(t, ["label", "isLoading", "sx", "children"]);
     return o.default.createElement(
       NC,
-      { sx: r },
+      Ue({}, l, { sx: r }),
       a
         ? o.default.createElement($r, { style: { width: 16, height: 16 } })
         : o.default.createElement(e.Fragment, null, n, i),
@@ -54686,10 +54687,20 @@ var yC = TC.exports,
       s = e.label,
       c = e.variant,
       d = void 0 === c ? "regular" : c,
-      u = e.icon;
+      u = e.icon,
+      p = ze(e, [
+        "children",
+        "color",
+        "sx",
+        "onDelete",
+        "id",
+        "label",
+        "variant",
+        "icon",
+      ]);
     return o.default.createElement(
       RC,
-      { id: l, color: a, sx: r, variant: d },
+      Ue({ id: l, color: a, sx: r, variant: d }, p),
       u,
       o.default.createElement("span", null, s, t),
       i &&
