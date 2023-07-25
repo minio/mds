@@ -2518,7 +2518,7 @@ const wr = ({
   override: n = {},
   glContext: a,
   failIfMajorPerformanceCaveat: r = !1,
-  benchmarksURL: o = "https://unpkg.com/detect-gpu@5.0.33/dist/benchmarks",
+  benchmarksURL: o = "https://unpkg.com/detect-gpu@5.0.34/dist/benchmarks",
 } = {}) =>
   fr(void 0, void 0, void 0, function* () {
     const i = {};
@@ -46277,10 +46277,20 @@ var nA = QC.exports,
       s = e.label,
       c = e.variant,
       d = void 0 === c ? "regular" : c,
-      u = e.icon;
+      u = e.icon,
+      p = Xe(e, [
+        "children",
+        "color",
+        "sx",
+        "onDelete",
+        "id",
+        "label",
+        "variant",
+        "icon",
+      ]);
     return t.createElement(
       lA,
-      { id: l, color: r, sx: o, variant: d },
+      Ye({ id: l, color: r, sx: o, variant: d }, p),
       u,
       t.createElement("span", null, s, n),
       i &&
@@ -46317,10 +46327,11 @@ var nA = QC.exports,
     var a = e.label,
       r = e.isLoading,
       o = e.sx,
-      i = e.children;
+      i = e.children,
+      l = Xe(e, ["label", "isLoading", "sx", "children"]);
     return t.createElement(
       cA,
-      { sx: o },
+      Ye({}, l, { sx: o }),
       r
         ? t.createElement(ao, { style: { width: 16, height: 16 } })
         : t.createElement(n, null, a, i),
