@@ -153,6 +153,7 @@ export interface SwitchThemeProps {
   disabledBackground: string;
   disabledBulletBorderColor: string;
   disabledBulletBGColor: string;
+  disabledOnBackground: string;
 }
 
 export interface DropdownSelectorThemeProps {
