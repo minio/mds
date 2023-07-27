@@ -107,6 +107,7 @@ const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
 };
 
 const DropdownSelector: FC<DropdownSelectorProps> = ({
+  id,
   options,
   selectedOption = "",
   onSelect,
@@ -154,7 +155,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
 
   return createPortal(
     <SelectorContainer onClick={hideTriggerAction}>
-      <DropdownBlock sx={coords}>
+      <DropdownBlock id={id} sx={coords}>
         <ul>
           {options.map((option, index) => {
             return (

@@ -141,7 +141,7 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
             : "OFF"}
         </SwitchIndicator>
       )}
-      <SwitchItem>
+      <SwitchItem id={`${id}-switch`}>
         <input type={"checkbox"} id={id} checked={checked} {...props} />
         <span className={"switchRail"} />
       </SwitchItem>
