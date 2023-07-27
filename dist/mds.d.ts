@@ -137,6 +137,7 @@ interface SwitchThemeProps {
   disabledBackground: string;
   disabledBulletBorderColor: string;
   disabledBulletBGColor: string;
+  disabledOnBackground: string;
 }
 interface DropdownSelectorThemeProps {
   backgroundColor: string;
@@ -724,6 +725,7 @@ interface SelectProps {
 declare const Select: FC<SelectProps>;
 
 interface DropdownSelectorProps {
+  id: string;
   options: SelectorType[];
   selectedOption?: string;
   onSelect: (value: string, extraValue?: any) => void;
