@@ -79,7 +79,15 @@ const SwitchItem = styled.label(({ theme }) => ({
         left: "calc(100% - 23px)",
       },
     },
+    "&:disabled:checked ~.switchRail": {
+      backgroundColor: get(
+        theme,
+        "switchButton.disabledOnBackground",
+        "#8bb0a0",
+      ),
+    },
     "&:disabled ~.switchRail": {
+      cursor: "not-allowed",
       backgroundColor: get(theme, "switchButton.disabledBackground", "#E6EAEB"),
       "&:before": {
         borderColor: get(

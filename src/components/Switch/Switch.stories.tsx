@@ -38,8 +38,9 @@ const Template: Story<SwitchProps> = ({
   indicatorLabels,
   description,
   disabled,
+  checked,
 }) => {
-  const [checked, setChecked] = useState<boolean>(false);
+  const [stateChecked, setChecked] = useState<boolean>(checked);
   return (
     <StoryThemeProvider>
       <GlobalStyles />
@@ -52,7 +53,7 @@ const Template: Story<SwitchProps> = ({
         switchOnly={switchOnly}
         indicatorLabels={indicatorLabels}
         description={description}
-        checked={checked}
+        checked={stateChecked}
         disabled={disabled}
         onClick={(e) => {
           setChecked(e.target.checked);
@@ -83,6 +84,18 @@ WithTooltip.args = {
 
 export const DisabledSwitch = Template.bind({});
 DisabledSwitch.args = {
+  label: "Click to confirm",
+  id: "Switch",
+  onClick: () => {
+    console.log("click");
+  },
+  tooltip: "test",
+  disabled: true,
+  checked: false,
+};
+
+export const ActiveDisabledSwitch = Template.bind({});
+ActiveDisabledSwitch.args = {
   label: "Click to confirm",
   id: "Switch",
   onClick: () => {
