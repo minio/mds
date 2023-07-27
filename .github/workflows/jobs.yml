@@ -30,12 +30,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NVMRC }}
-          cache: "yarn"
-          cache-dependency-path: yarn.lock
+
       - name: Install Dependencies
         continue-on-error: false
         run: |
-          yarn install --frozen-lockfile --immutable
+          yarn install
 
       - name: Check if build is correct
         continue-on-error: false
@@ -70,7 +69,7 @@ jobs:
       - name: Install Dependencies
         continue-on-error: false
         run: |
-          yarn install --frozen-lockfile --immutable
+          yarn install
 
       - name: Run Jest Tests
         run: yarn test
