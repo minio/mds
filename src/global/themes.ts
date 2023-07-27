@@ -99,6 +99,7 @@ export const lightColors = {
   codeEditorRegexp: "#ffaa00",
   linkColor: "#2781B0",
   mutedText: "#87888d",
+  disabledOnSwitchBG: "#a9d3c5",
 };
 
 export const darkColors = {
@@ -149,6 +150,7 @@ export const darkColors = {
   modalOverlayBG: "#00010650",
   bulletBGColor: "#D5DEEF",
   disabledSwitchBG: "#494A4C",
+  disabledOnSwitchBG: "#a2d7c3",
   disabledBulletBG: "#4B586B",
   placeholder: "#494A4D",
   readBoxTextColor: "#707988",
@@ -437,6 +439,7 @@ export const lightTheme: ThemeDefinitionProps = {
     onBackgroundColor: lightColors.mainGreen,
     switchBackground: lightColors.hoverGrey,
     disabledBackground: lightColors.hoverGrey,
+    disabledOnBackground: lightColors.disabledOnSwitchBG,
   },
   dropdownSelector: {
     hoverText: lightColors.defaultFontColor,
@@ -815,6 +818,7 @@ export const darkTheme: ThemeDefinitionProps = {
     onBackgroundColor: darkColors.mainGreen,
     switchBackground: darkColors.backLinkArrow,
     disabledBackground: darkColors.disabledSwitchBG,
+    disabledOnBackground: darkColors.disabledOnSwitchBG,
   },
   dropdownSelector: {
     hoverText: darkColors.dark,
