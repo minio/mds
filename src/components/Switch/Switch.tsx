@@ -79,7 +79,15 @@ const SwitchItem = styled.label(({ theme }) => ({
         left: "calc(100% - 23px)",
       },
     },
+    "&:disabled:checked ~.switchRail": {
+      backgroundColor: get(
+        theme,
+        "switchButton.disabledOnBackground",
+        "#8bb0a0",
+      ),
+    },
     "&:disabled ~.switchRail": {
+      cursor: "not-allowed",
       backgroundColor: get(theme, "switchButton.disabledBackground", "#E6EAEB"),
       "&:before": {
         borderColor: get(
@@ -141,7 +149,7 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
             : "OFF"}
         </SwitchIndicator>
       )}
-      <SwitchItem>
+      <SwitchItem id={`${id}-switch`}>
         <input type={"checkbox"} id={id} checked={checked} {...props} />
         <span className={"switchRail"} />
       </SwitchItem>

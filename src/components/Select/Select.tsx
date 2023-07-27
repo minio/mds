@@ -164,6 +164,7 @@ const Select: FC<SelectProps> = ({
       )}
 
       <Box
+        id={`${id}-select`}
         className={"selectContainer"}
         onClick={(e) => {
           if (!disabled) {
@@ -186,6 +187,7 @@ const Select: FC<SelectProps> = ({
           {isOpen ? <CollapseCaret /> : <ExpandCaret />}
         </Box>
         <DropdownSelector
+          id={`${id}-options-selector`}
           options={options}
           selectedOption={value}
           onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
