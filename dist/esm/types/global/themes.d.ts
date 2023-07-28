@@ -80,6 +80,7 @@ export declare const lightColors: {
   codeEditorRegexp: string;
   linkColor: string;
   mutedText: string;
+  disabledOnSwitchBG: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -129,6 +130,7 @@ export declare const darkColors: {
   modalOverlayBG: string;
   bulletBGColor: string;
   disabledSwitchBG: string;
+  disabledOnSwitchBG: string;
   disabledBulletBG: string;
   placeholder: string;
   readBoxTextColor: string;
