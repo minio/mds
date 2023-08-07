@@ -60,7 +60,7 @@
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.1",
     "typescript": "^5.1.6",
-    "yarn-audit-fix": "^9.3.12"
+    "yarn-audit-fix": "^10.0.0"
   },
   "resolutions": {
     "rollup-plugin-terser/**/terser": "^5.19.2"
