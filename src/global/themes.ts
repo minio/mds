@@ -195,6 +195,7 @@ export const lightTheme: ThemeDefinitionProps = {
   boxBackground: lightColors.boxBackground,
   mutedText: lightColors.mutedText,
   signalColors: {
+    main: lightColors.mainBlue,
     danger: lightColors.mainRed,
     good: lightColors.mainGreen,
     info: lightColors.bulletColor,
@@ -574,6 +575,7 @@ export const darkTheme: ThemeDefinitionProps = {
   boxBackground: darkColors.boxBackground,
   mutedText: darkColors.mutedText,
   signalColors: {
+    main: darkColors.mainGrey,
     danger: darkColors.mainRed,
     good: darkColors.mainGreen,
     info: darkColors.secondActionHover,
