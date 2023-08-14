@@ -153,6 +153,7 @@ interface ReadBoxThemeProps {
   textColor: string;
 }
 interface SignalColorsThemeProps {
+  main: string;
   danger: string;
   warning: string;
   good: string;
@@ -944,6 +945,21 @@ interface ValuePairCommon {
 type ValuePairProps = ValuePairMain & ValuePairCommon;
 
 declare const ValuePair: FC<ValuePairProps>;
+
+interface MainProgressProps {
+  variant?: "determinate" | "indeterminate";
+  notificationLabel?: string;
+  value?: number;
+  maxValue?: number;
+  progressLabel?: boolean;
+}
+interface CommonProgressBar {
+  sx?: CSSObject;
+  color?: "blue" | "red" | "green" | "orange" | "grey";
+}
+type ProgressBarProps = MainProgressProps & CommonProgressBar;
+
+declare const ProgressBar: FC<ProgressBarProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -1902,6 +1918,7 @@ export {
   ColumnSelectorProps,
   InputBox as CommentBox,
   CommonActionLinkProps,
+  CommonProgressBar,
   ComputerLineIcon,
   ConfigurationsListIcon,
   ConfirmDeleteIcon,
@@ -2016,6 +2033,7 @@ export {
   LogsMenuIcon,
   MainContainer,
   MainHeaderProps,
+  MainProgressProps,
   Menu,
   MenuCollapsedIcon,
   MenuConstructProps,
@@ -2059,6 +2077,8 @@ export {
   PredefinedActionTypes,
   PreviewIcon,
   ProfileMenuIcon,
+  ProgressBar,
+  ProgressBarProps,
   PrometheusErrorIcon,
   PrometheusIcon,
   RadioGroup,
