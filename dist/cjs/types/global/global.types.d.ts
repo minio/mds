@@ -135,6 +135,7 @@ export interface ReadBoxThemeProps {
   textColor: string;
 }
 export interface SignalColorsThemeProps {
+  main: string;
   danger: string;
   warning: string;
   good: string;
