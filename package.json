@@ -61,8 +61,5 @@
     "tslib": "^2.6.1",
     "typescript": "^5.1.6"
   },
-  "resolutions": {
-    "jackspeak": "2.1.1"
-  },
   "packageManager": "yarn@3.6.1"
 }
