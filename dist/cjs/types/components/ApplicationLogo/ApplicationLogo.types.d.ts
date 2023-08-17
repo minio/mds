@@ -10,6 +10,6 @@ export interface ApplicationLogoProps {
     | "releases"
     | "vmbroker"
     | "eureka";
-  subVariant?: "simple" | "AGPL" | "standard" | "enterprise";
+  subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
   inverse?: boolean;
 }
