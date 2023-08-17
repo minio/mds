@@ -48,7 +48,7 @@ const BaseHelpBox = styled.div(({ theme }) => ({
 
 const HelpBox: FC<HelpBoxProps> = ({ iconComponent, title, help }) => {
   return (
-    <BaseHelpBox>
+    <BaseHelpBox className={"helpbox-container"}>
       <Grid container>
         <Grid item xs={12} className={"leftItems"}>
           {iconComponent || null}

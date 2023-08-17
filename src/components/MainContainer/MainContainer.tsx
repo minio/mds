@@ -58,7 +58,11 @@ const MainContainer: FC<MainContainerProps> = ({
   mobileModeAuto = true,
 }) => {
   return (
-    <ParentBox horizontal={horizontal} mobileModeAuto={mobileModeAuto}>
+    <ParentBox
+      className={"parentBox"}
+      horizontal={horizontal}
+      mobileModeAuto={mobileModeAuto}
+    >
       {menu && cloneElement(menu, { mobileModeAuto })}
       <CustomMain>{children}</CustomMain>
     </ParentBox>

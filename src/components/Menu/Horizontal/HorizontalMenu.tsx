@@ -100,7 +100,7 @@ const HorizontalMenu: FC<MenuProps> = ({
   sx,
 }) => {
   return (
-    <HorizontalMenuContainer sx={sx}>
+    <HorizontalMenuContainer className={"menuBox"} sx={sx}>
       <Box className={"headerBar"}>
         <ApplicationLogo inverse {...applicationLogo} />
         {middleComponent}

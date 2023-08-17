@@ -78,7 +78,11 @@ const Tabs: FC<TabsProps> = ({
   sx,
 }) => {
   return (
-    <TabsContainer horizontal={!!horizontal} sx={sx}>
+    <TabsContainer
+      className={"tabs-container"}
+      horizontal={!!horizontal}
+      sx={sx}
+    >
       <Box className={"optionsList"}>
         {options.map((item, index) => {
           if (item) {

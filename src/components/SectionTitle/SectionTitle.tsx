@@ -41,7 +41,11 @@ const SectionTitle: FC<SectionTitleProps> = ({
   sx,
 }) => {
   return (
-    <SectionParent separator={separator} sx={sx}>
+    <SectionParent
+      className={"sectionTitle-container"}
+      separator={separator}
+      sx={sx}
+    >
       <Grid
         item
         xs

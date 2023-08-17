@@ -101,7 +101,11 @@ const ScreenTitle: FC<ScreenTitleProps> = ({
   sx,
 }) => {
   return (
-    <ScreenTitleContainer sx={sx} bottomBorder={bottomBorder}>
+    <ScreenTitleContainer
+      className={"screenTitle-container"}
+      sx={sx}
+      bottomBorder={bottomBorder}
+    >
       <Box className={"stContainer"}>
         <Box className={"leftItems"}>
           {icon ? <Box className={"headerBarIcon"}>{icon}</Box> : null}
