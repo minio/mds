@@ -138,6 +138,7 @@ const ModalBox: FC<ModalBoxProps> = ({
       iconColor={iconColor}
       customMaxWidth={customMaxWidth}
       sx={sx}
+      className={"modalBoxMain"}
     >
       <Box className={`overlay ${displayOverlay ? "active" : ""}`}>
         <Box className={"modalContainer"}>

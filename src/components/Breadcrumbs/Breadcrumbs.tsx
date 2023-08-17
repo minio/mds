@@ -95,7 +95,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
   goBackFunction,
 }) => {
   return (
-    <BoxParent sx={sx}>
+    <BoxParent className={"breadcrumbs-bar"} sx={sx}>
       <IconButton onClick={goBackFunction} className={"backButton"}>
         <BackCaretIcon />
       </IconButton>

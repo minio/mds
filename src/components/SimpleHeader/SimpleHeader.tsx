@@ -39,7 +39,7 @@ const ParentContainer = styled.div<
 
 const SimpleHeader: FC<SimpleHeaderProps> = ({ label, icon, sx }) => {
   return (
-    <ParentContainer sx={sx}>
+    <ParentContainer className={"simpleHeader-container"} sx={sx}>
       <span>{label}</span>
       {icon}
     </ParentContainer>

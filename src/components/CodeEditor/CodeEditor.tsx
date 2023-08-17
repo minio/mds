@@ -245,7 +245,7 @@ const CodeMirrorWrapper: FC<CodeEditorProps> = ({
     <CodeEditorBase
       sx={sx}
       editorHeight={editorHeight}
-      className={`inputItem ${className}`}
+      className={`codeEditor inputItem ${className}`}
     >
       <InputLabel
         sx={{ marginBottom: "10px", display: "flex", alignItems: "center" }}

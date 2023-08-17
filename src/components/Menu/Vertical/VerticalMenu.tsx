@@ -214,7 +214,10 @@ const VerticalMenu: FC<MenuProps> = ({
   let currTitle = "";
 
   return (
-    <VerticalMenuDrawer sx={sx} className={`${!isOpen ? "collapsed" : ""}`}>
+    <VerticalMenuDrawer
+      sx={sx}
+      className={`menuBox ${!isOpen ? "collapsed" : ""}`}
+    >
       <Box className={"menuContainer"}>
         <Box className={"menuHeaderContainer"} onClick={collapseAction}>
           <Box className={"collapseButton"}>

@@ -75,7 +75,7 @@ const MobileMenu: FC<MenuProps> = ({
 
   return (
     <Fragment>
-      <MobileMenuContainer sx={sx}>
+      <MobileMenuContainer className={"menuBox"} sx={sx}>
         <Box className={"headerBar"}>
           <ApplicationLogo inverse {...applicationLogo} />
           <IconButton
