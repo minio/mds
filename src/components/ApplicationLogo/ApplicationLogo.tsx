@@ -28,6 +28,7 @@ import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 import Cloud from "./Logos/Cloud/Cloud";
 import Releases from "./Logos/Releases/Releases";
 import VMBroker from "./Logos/VMBroker/VMBroker";
+import EurekaNew from "./Logos/Eureka/EurekaNew";
 import Eureka from "./Logos/Eureka/Eureka";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
@@ -67,7 +68,12 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <VMBroker inverse={!!inverse} />;
       break;
     case "eureka":
-      return <Eureka inverse={!!inverse} />;
+      switch (subVariant) {
+        case "new":
+          return <EurekaNew inverse={!!inverse} />;
+        default:
+          return <Eureka inverse={!!inverse} />;
+      }
       break;
   }
 };
