@@ -35,44 +35,45 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
   subVariant = "simple",
   inverse,
+  onClick,
 }) => {
   switch (applicationName) {
     case "console":
       switch (subVariant) {
         case "standard":
-          return <ConsoleStandard inverse={!!inverse} />;
+          return <ConsoleStandard inverse={!!inverse} onClick={onClick} />;
         case "enterprise":
-          return <ConsoleEnterprise inverse={!!inverse} />;
+          return <ConsoleEnterprise inverse={!!inverse} onClick={onClick} />;
         case "AGPL":
-          return <ConsoleAGPL inverse={!!inverse} />;
+          return <ConsoleAGPL inverse={!!inverse} onClick={onClick} />;
         default:
-          return <ConsoleSingle inverse={!!inverse} />;
+          return <ConsoleSingle inverse={!!inverse} onClick={onClick} />;
       }
       break;
     case "directpv":
-      return <DirectPV inverse={!!inverse} />;
+      return <DirectPV inverse={!!inverse} onClick={onClick} />;
     case "subnet":
-      return <SUBNET inverse={!!inverse} />;
+      return <SUBNET inverse={!!inverse} onClick={onClick} />;
     case "kes":
-      return <KES inverse={!!inverse} />;
+      return <KES inverse={!!inverse} onClick={onClick} />;
     case "operator":
-      return <Operator inverse={!!inverse} />;
+      return <Operator inverse={!!inverse} onClick={onClick} />;
     case "subnetops":
-      return <SubnetOPS inverse={!!inverse} />;
+      return <SubnetOPS inverse={!!inverse} onClick={onClick} />;
     case "cloud":
-      return <Cloud inverse={!!inverse} />;
+      return <Cloud inverse={!!inverse} onClick={onClick} />;
     case "releases":
-      return <Releases inverse={!!inverse} />;
+      return <Releases inverse={!!inverse} onClick={onClick} />;
       break;
     case "vmbroker":
-      return <VMBroker inverse={!!inverse} />;
+      return <VMBroker inverse={!!inverse} onClick={onClick} />;
       break;
     case "eureka":
       switch (subVariant) {
         case "new":
-          return <EurekaNew inverse={!!inverse} />;
+          return <EurekaNew inverse={!!inverse} onClick={onClick} />;
         default:
-          return <Eureka inverse={!!inverse} />;
+          return <Eureka inverse={!!inverse} onClick={onClick} />;
       }
       break;
   }

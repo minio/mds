@@ -18,9 +18,9 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const Releases: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const Releases: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   return (
-    <LogoBase viewBox="0 0 189.7 49.96" inverse={inverse}>
+    <LogoBase viewBox="0 0 189.7 49.96" inverse={inverse} onClick={onClick}>
       <g>
         <g>
           <rect

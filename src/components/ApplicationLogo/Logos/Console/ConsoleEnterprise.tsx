@@ -18,9 +18,12 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const ConsoleEnterprise: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const ConsoleEnterprise: FC<SVGProps<any> & LogoBaseProps> = ({
+  inverse,
+  onClick,
+}) => {
   return (
-    <LogoBase viewBox="0 0 184.45 51" inverse={inverse}>
+    <LogoBase viewBox="0 0 184.45 51" inverse={inverse} onClick={onClick}>
       <g transform="translate(-31.65 -18.133)">
         <g transform="translate(-995 -63.754)">
           <g transform="translate(1025.5 81.887)">

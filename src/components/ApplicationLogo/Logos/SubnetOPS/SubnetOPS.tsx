@@ -18,9 +18,9 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const DirectPV: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const DirectPV: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   return (
-    <LogoBase viewBox="0 0 665.85156 145.5" inverse={inverse}>
+    <LogoBase viewBox="0 0 665.85156 145.5" inverse={inverse} onClick={onClick}>
       <g>
         <rect
           className={"minioSection"}
