@@ -136,7 +136,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
                     value={selector.value}
                     defaultChecked={currentValue === selector.value}
                     onChange={(event) => onChange(event, selector.extraValue)}
-                    disabled={disableOptions}
+                    disabled={disableOptions || !!selector.disabled}
                   />
                   <span className={"radio"} />
                 </RadioButton>

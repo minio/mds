@@ -449,6 +449,7 @@ export const lightTheme: ThemeDefinitionProps = {
     selectedBGColor: lightColors.pressedGrey,
     selectedTextColor: lightColors.defaultFontColor,
     optionTextColor: lightColors.defaultFontColor,
+    disabledText: lightColors.disabledGrey,
   },
   readBox: {
     borderColor: lightColors.headerBorder,
@@ -829,6 +830,7 @@ export const darkTheme: ThemeDefinitionProps = {
     selectedBGColor: darkColors.bulletColor,
     selectedTextColor: darkColors.mainWhite,
     optionTextColor: darkColors.defaultFontColor,
+    disabledText: darkColors.disabledGrey,
   },
   readBox: {
     borderColor: darkColors.headerBorder,

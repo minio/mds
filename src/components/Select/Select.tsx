@@ -129,6 +129,7 @@ const Select: FC<SelectProps> = ({
   disabled = false,
   fixedLabel = "",
   name,
+  placeholder = "",
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -137,7 +138,7 @@ const Select: FC<SelectProps> = ({
 
   const selectedLabel = options.find((option) => option.value === value);
 
-  if (!selectedLabel && fixedLabel === "") {
+  if (!selectedLabel && fixedLabel === "" && placeholder === "") {
     console.warn("The selected value is not included in Options List");
   }
 
@@ -178,7 +179,13 @@ const Select: FC<SelectProps> = ({
             {fixedLabel !== "" ? (
               fixedLabel
             ) : (
-              <Fragment>{selectedLabel?.label || ""}</Fragment>
+              <Fragment>
+                {selectedLabel?.label || (
+                  <i style={{ opacity: 0.6 }}>
+                    {placeholder !== "" ? placeholder : ""}
+                  </i>
+                )}
+              </Fragment>
             )}
           </Fragment>
           <input type={"hidden"} id={id} name={name} value={value} />

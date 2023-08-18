@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled, { CSSObject } from "styled-components";
 import debounce from "lodash/debounce";
 import { createPortal } from "react-dom";
@@ -78,6 +78,18 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
           "#D5D7D8",
         ),
         color: get(theme, "dropdownSelector.optionTextColor", "#000"),
+      },
+      "&.disabled": {
+        cursor: "not-allowed",
+        color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+        "&:hover": {
+          backgroundColor: get(
+            theme,
+            "dropdownSelector.backgroundColor",
+            "#fff",
+          ),
+          color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+        },
       },
       "&:hover": {
         backgroundColor: get(theme, "dropdownSelector.hoverBG", "#E6EAEB"),
@@ -162,9 +174,11 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
               <li
                 className={`${
                   selectedOption === option.value ? "selected" : ""
-                }`}
+                } ${option.disabled ? "disabled" : ""}`}
                 onClick={() => {
-                  onSelect(option.value, option.extraValue || null);
+                  if (!option.disabled) {
+                    onSelect(option.value, option.extraValue || null);
+                  }
                 }}
                 key={`option-${index}`}
               >

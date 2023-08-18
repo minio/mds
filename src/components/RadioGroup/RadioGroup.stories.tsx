@@ -63,6 +63,7 @@ const Template: Story<RadioGroupProps> = ({
             value: "option4",
             extraValue: { value: "extravalue" },
           },
+          { label: "Disabled Option", value: "option5", disabled: true },
         ]}
         name={"selectBox"}
         disableOptions={disableOptions}
