@@ -41,8 +41,11 @@ const Template: Story<SelectProps> = ({
   disabled,
   fixedLabel = "",
   options,
+  placeholder,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<string>("value1");
+  const [selectedValue, setSelectedValue] = useState<string>(
+    placeholder ? "" : "value1",
+  );
 
   let useOpts: SelectorType[] = [
     { label: "Option 1", value: "value1" },
@@ -50,6 +53,11 @@ const Template: Story<SelectProps> = ({
     {
       label: "Option 3",
       value: "value3",
+    },
+    {
+      label: "Disabled Option",
+      value: "value4",
+      disabled: true,
     },
   ];
 
@@ -82,6 +90,7 @@ const Template: Story<SelectProps> = ({
           tooltip={tooltip}
           disabled={disabled}
           fixedLabel={fixedLabel}
+          placeholder={placeholder}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -129,6 +138,32 @@ OptionsWithIcons.args = {
 
 export const ExtraReturnOption = Template.bind({});
 ExtraReturnOption.args = {
+  options: [
+    {
+      label: "Option 1",
+      value: "value1",
+      icon: <DownloadIcon />,
+      extraValue: { anotherVar: "test1" },
+    },
+    {
+      label: "Option 2",
+      value: "value2",
+      icon: <UploadIcon />,
+      extraValue: { anotherVar: "test2" },
+    },
+    {
+      label: "Option 3",
+      value: "value3",
+      icon: <UsersIcon />,
+      extraValue: { anotherVar: "test3" },
+    },
+    { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
+  ],
+};
+
+export const WithPlaceholder = Template.bind({});
+WithPlaceholder.args = {
+  placeholder: "This Select has placeholder",
   options: [
     {
       label: "Option 1",

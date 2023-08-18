@@ -163,6 +163,7 @@ export interface DropdownSelectorThemeProps {
   selectedBGColor: string;
   hoverText: string;
   hoverBG: string;
+  disabledText: string;
 }
 
 export interface ReadBoxThemeProps {
@@ -315,4 +316,5 @@ export interface SelectorType {
   value: string;
   icon?: React.ReactNode;
   extraValue?: any;
+  disabled?: boolean;
 }
