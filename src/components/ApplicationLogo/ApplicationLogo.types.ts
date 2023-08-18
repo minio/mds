@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import React from "react";
+
 export interface ApplicationLogoProps {
   applicationName:
     | "console"
@@ -28,4 +30,5 @@ export interface ApplicationLogoProps {
     | "eureka";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
   inverse?: boolean;
+  onClick?: React.MouseEventHandler<any> | undefined;
 }

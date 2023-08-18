@@ -99,10 +99,16 @@ const HorizontalMenu: FC<MenuProps> = ({
   currentPath,
   sx,
 }) => {
+  let inverse = true;
+
+  if (applicationLogo.inverse !== undefined) {
+    inverse = applicationLogo.inverse;
+  }
+
   return (
     <HorizontalMenuContainer className={"menuBox"} sx={sx}>
       <Box className={"headerBar"}>
-        <ApplicationLogo inverse {...applicationLogo} />
+        <ApplicationLogo inverse={inverse} {...applicationLogo} />
         {middleComponent}
         <Box className={"endComponent"}>
           {endComponent}

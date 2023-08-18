@@ -18,9 +18,9 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const Eureka: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const Eureka: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   return (
-    <LogoBase viewBox="0 0 184.538 52" inverse={inverse}>
+    <LogoBase viewBox="0 0 184.538 52" inverse={inverse} onClick={onClick}>
       <path
         d="m1.42,49.54v-25.94h15.65v2.79H4.56v8.76h11.7v2.79H4.56v8.82h12.72v2.79H1.42Z"
         className={"minioApplicationName"}

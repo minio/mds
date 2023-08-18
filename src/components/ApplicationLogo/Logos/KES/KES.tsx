@@ -18,9 +18,9 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const KES: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const KES: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   return (
-    <LogoBase viewBox="0 0 184.538 51" inverse={inverse}>
+    <LogoBase viewBox="0 0 184.538 51" inverse={inverse} onClick={onClick}>
       <g transform="translate(26.059 -11)">
         <g transform="translate(-29 11)">
           <g transform="translate(0 0)">
