@@ -18,9 +18,9 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const EurekaNew: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const EurekaNew: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   return (
-    <LogoBase viewBox="0 0 149.615 41.178" inverse={inverse}>
+    <LogoBase viewBox="0 0 149.615 41.178" inverse={inverse} onClick={onClick}>
       <g>
         <g>
           <path

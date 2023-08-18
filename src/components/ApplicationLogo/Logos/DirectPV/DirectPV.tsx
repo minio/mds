@@ -18,9 +18,9 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const DirectPV: FC<SVGProps<any> & LogoBaseProps> = ({ inverse }) => {
+const DirectPV: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   return (
-    <LogoBase viewBox="0 0 184.538 50.008" inverse={inverse}>
+    <LogoBase viewBox="0 0 184.538 50.008" inverse={inverse} onClick={onClick}>
       <g transform="translate(26.456 -11)">
         <g transform="translate(-29 11)">
           <g transform="translate(0 0)">
