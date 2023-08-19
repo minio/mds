@@ -39,7 +39,7 @@ import Button from "../Button/Button";
 import ColumnsSelector from "./ColumnsSelector";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
-  ({ theme, customPaperHeight, disabled, noBackground, sx }) => ({
+  ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -92,7 +92,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
     },
     "& .rowLine": {
       borderBottom: `${get(theme, "dataTable.border", "#E2E2E2")} 1px solid`,
-      height: 40,
+      height: rowHeight,
       fontSize: 14,
       transitionDuration: "0.3s",
       "&:focus": {
@@ -248,6 +248,7 @@ const DataTable: FC<DataTableProps> = ({
   rowStyle,
   parentClassName = "",
   sx,
+  rowHeight = 40,
 }) => {
   const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<any>(null);
@@ -322,6 +323,7 @@ const DataTable: FC<DataTableProps> = ({
         className={`${noBackground ? "noBackground" : ""}`}
         customPaperHeight={customPaperHeight}
         sx={sx}
+        rowHeight={rowHeight}
       >
         {isLoading && (
           <Grid container className={"loadingBox"}>
@@ -391,7 +393,7 @@ const DataTable: FC<DataTableProps> = ({
                         </Fragment>
                       )}
                       overscanRowCount={10}
-                      rowHeight={40}
+                      rowHeight={rowHeight}
                       width={width}
                       rowCount={records.length}
                       rowGetter={({ index }) => records[index]}
