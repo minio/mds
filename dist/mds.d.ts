@@ -146,6 +146,7 @@ interface DropdownSelectorThemeProps {
   selectedBGColor: string;
   hoverText: string;
   hoverBG: string;
+  disabledText: string;
 }
 interface ReadBoxThemeProps {
   borderColor: string;
@@ -288,6 +289,7 @@ interface SelectorType {
   value: string;
   icon?: React__default.ReactNode;
   extraValue?: any;
+  disabled?: boolean;
 }
 
 interface ThemeHandlerProps {
@@ -336,6 +338,7 @@ interface ApplicationLogoProps {
     | "eureka";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
   inverse?: boolean;
+  onClick?: React__default.MouseEventHandler<any> | undefined;
 }
 
 declare const ApplicationLogo: FC<ApplicationLogoProps>;
@@ -513,12 +516,14 @@ interface DataTableProps {
   }) => "deleted" | "" | React__default.CSSProperties;
   parentClassName?: string;
   sx?: CSSObject;
+  rowHeight?: number;
 }
 interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   customPaperHeight?: string | number;
   noBackground?: boolean;
   sx?: CSSObject;
+  rowHeight: number;
 }
 interface IActionButton {
   tooltip?: string;
@@ -719,6 +724,7 @@ interface SelectProps {
   tooltip?: string;
   noLabelMinWidth?: boolean;
   fixedLabel?: string;
+  placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
   sx?: CSSObject;
 }

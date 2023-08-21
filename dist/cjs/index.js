@@ -284,6 +284,7 @@ var o = a(e),
       selectedBGColor: T,
       selectedTextColor: p,
       optionTextColor: p,
+      disabledText: E,
     },
     readBox: { borderColor: I, backgroundColor: f, textColor: "#696969" },
     menu: {
@@ -525,6 +526,7 @@ var o = a(e),
       selectedBGColor: ce,
       selectedTextColor: Ee,
       optionTextColor: se,
+      disabledText: me,
     },
     readBox: { borderColor: Ae, backgroundColor: ue, textColor: "#707988" },
     menu: {
@@ -1456,10 +1458,11 @@ var Ea,
     );
   }),
   Ga = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.538 51", inverse: t },
+      { viewBox: "0 0 184.538 51", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -1527,10 +1530,11 @@ var Ea,
     );
   },
   Za = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.45 55", inverse: t },
+      { viewBox: "0 0 184.45 55", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -1616,10 +1620,11 @@ var Ea,
     );
   },
   Va = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.45 51", inverse: t },
+      { viewBox: "0 0 184.45 51", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -1687,10 +1692,11 @@ var Ea,
     );
   },
   $a = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 154.498 50.008", inverse: t },
+      { viewBox: "0 0 154.498 50.008", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(27.666 -11)" },
@@ -1745,10 +1751,11 @@ var Ea,
     );
   },
   ja = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.538 50.008", inverse: t },
+      { viewBox: "0 0 184.538 50.008", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(26.456 -11)" },
@@ -1803,10 +1810,11 @@ var Ea,
     );
   },
   Wa = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.538 51", inverse: t },
+      { viewBox: "0 0 184.538 51", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(26.059 -11)" },
@@ -1861,10 +1869,11 @@ var Ea,
     );
   },
   qa = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.538 50.008", inverse: t },
+      { viewBox: "0 0 184.538 50.008", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(27.622 -11)" },
@@ -1919,10 +1928,11 @@ var Ea,
     );
   },
   Ka = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.45 55", inverse: t },
+      { viewBox: "0 0 184.45 55", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(-31.65 -18.133)" },
@@ -1985,10 +1995,11 @@ var Ea,
     );
   },
   Ya = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 665.85156 145.5", inverse: t },
+      { viewBox: "0 0 665.85156 145.5", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         null,
@@ -2059,10 +2070,11 @@ var Ea,
     );
   },
   Xa = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.538 52", inverse: t },
+      { viewBox: "0 0 184.538 52", inverse: t, onClick: n },
       o.default.createElement("path", {
         d: "m22.19,31.57h-3.13c-.19-.9-.51-1.69-.96-2.37-.46-.68-1.01-1.25-1.66-1.72-.65-.47-1.37-.82-2.16-1.05-.79-.24-1.61-.35-2.47-.35-1.56,0-2.98.4-4.24,1.19s-2.27,1.95-3.01,3.49c-.74,1.54-1.12,3.42-1.12,5.66s.37,4.12,1.12,5.66c.74,1.54,1.75,2.7,3.01,3.49,1.27.79,2.68,1.19,4.24,1.19.86,0,1.68-.12,2.47-.35.79-.24,1.51-.59,2.16-1.05.65-.47,1.21-1.04,1.66-1.73.46-.68.78-1.47.96-2.36h3.13c-.24,1.32-.66,2.5-1.29,3.54-.62,1.04-1.4,1.93-2.32,2.65-.92.73-1.96,1.28-3.11,1.66s-2.37.57-3.68.57c-2.2,0-4.16-.54-5.88-1.61s-3.06-2.61-4.05-4.59c-.98-1.98-1.48-4.34-1.48-7.06s.49-5.08,1.48-7.06c.98-1.98,2.33-3.51,4.05-4.59,1.71-1.08,3.67-1.61,5.88-1.61,1.3,0,2.53.19,3.68.57s2.18.93,3.11,1.66c.92.73,1.7,1.61,2.32,2.65.62,1.04,1.05,2.22,1.29,3.55h0Z",
         className: "minioApplicationName",
@@ -2109,10 +2121,11 @@ var Ea,
     );
   },
   Qa = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 189.7 49.96", inverse: t },
+      { viewBox: "0 0 189.7 49.96", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         null,
@@ -2183,10 +2196,11 @@ var Ea,
     );
   },
   Ja = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 189.7 49.96", inverse: t },
+      { viewBox: "0 0 189.7 49.96", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         null,
@@ -2257,10 +2271,11 @@ var Ea,
     );
   },
   er = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 149.615 41.178", inverse: t },
+      { viewBox: "0 0 149.615 41.178", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         null,
@@ -2363,10 +2378,11 @@ var Ea,
     );
   },
   tr = function (e) {
-    var t = e.inverse;
+    var t = e.inverse,
+      n = e.onClick;
     return o.default.createElement(
       za,
-      { viewBox: "0 0 184.538 52", inverse: t },
+      { viewBox: "0 0 184.538 52", inverse: t, onClick: n },
       o.default.createElement("path", {
         d: "m1.42,49.54v-25.94h15.65v2.79H4.56v8.76h11.7v2.79H4.56v8.82h12.72v2.79H1.42Z",
         className: "minioApplicationName",
@@ -2420,39 +2436,40 @@ var Ea,
     var t = e.applicationName,
       n = e.subVariant,
       a = void 0 === n ? "simple" : n,
-      r = e.inverse;
+      r = e.inverse,
+      i = e.onClick;
     switch (t) {
       case "console":
         switch (a) {
           case "standard":
-            return o.default.createElement(Ga, { inverse: !!r });
+            return o.default.createElement(Ga, { inverse: !!r, onClick: i });
           case "enterprise":
-            return o.default.createElement(Va, { inverse: !!r });
+            return o.default.createElement(Va, { inverse: !!r, onClick: i });
           case "AGPL":
-            return o.default.createElement(Za, { inverse: !!r });
+            return o.default.createElement(Za, { inverse: !!r, onClick: i });
           default:
-            return o.default.createElement(Ka, { inverse: !!r });
+            return o.default.createElement(Ka, { inverse: !!r, onClick: i });
         }
       case "directpv":
-        return o.default.createElement(ja, { inverse: !!r });
+        return o.default.createElement(ja, { inverse: !!r, onClick: i });
       case "subnet":
-        return o.default.createElement(qa, { inverse: !!r });
+        return o.default.createElement(qa, { inverse: !!r, onClick: i });
       case "kes":
-        return o.default.createElement(Wa, { inverse: !!r });
+        return o.default.createElement(Wa, { inverse: !!r, onClick: i });
       case "operator":
-        return o.default.createElement($a, { inverse: !!r });
+        return o.default.createElement($a, { inverse: !!r, onClick: i });
       case "subnetops":
-        return o.default.createElement(Ya, { inverse: !!r });
+        return o.default.createElement(Ya, { inverse: !!r, onClick: i });
       case "cloud":
-        return o.default.createElement(Xa, { inverse: !!r });
+        return o.default.createElement(Xa, { inverse: !!r, onClick: i });
       case "releases":
-        return o.default.createElement(Qa, { inverse: !!r });
+        return o.default.createElement(Qa, { inverse: !!r, onClick: i });
       case "vmbroker":
-        return o.default.createElement(Ja, { inverse: !!r });
+        return o.default.createElement(Ja, { inverse: !!r, onClick: i });
       case "eureka":
         return "new" === a
-          ? o.default.createElement(er, { inverse: !!r })
-          : o.default.createElement(tr, { inverse: !!r });
+          ? o.default.createElement(er, { inverse: !!r, onClick: i })
+          : o.default.createElement(tr, { inverse: !!r, onClick: i });
     }
   },
   ar = l.default.svg(function (e) {
@@ -12774,7 +12791,8 @@ var tc = je(function (e, t, n) {
       n = e.customPaperHeight,
       a = e.disabled;
     e.noBackground;
-    var r = e.sx;
+    var r = e.sx,
+      o = e.rowHeight;
     return Ue(
       {
         display: "flex",
@@ -12822,7 +12840,7 @@ var tc = je(function (e, t, n) {
             Ta(t, "dataTable.border", "#E2E2E2"),
             " 1px solid",
           ),
-          height: 40,
+          height: o,
           fontSize: 14,
           transitionDuration: "0.3s",
           "&:focus": { outline: "initial" },
@@ -13869,6 +13887,18 @@ var tc = je(function (e, t, n) {
               ),
               color: Ta(t, "dropdownSelector.optionTextColor", "#000"),
             },
+            "&.disabled": {
+              cursor: "not-allowed",
+              color: Ta(t, "dropdownSelector.disabledText", "#E6EBEB"),
+              "&:hover": {
+                backgroundColor: Ta(
+                  t,
+                  "dropdownSelector.backgroundColor",
+                  "#fff",
+                ),
+                color: Ta(t, "dropdownSelector.disabledText", "#E6EBEB"),
+              },
+            },
             "&:hover": {
               backgroundColor: Ta(t, "dropdownSelector.hoverBG", "#E6EAEB"),
               color: Ta(t, "dropdownSelector.hoverText", "#000"),
@@ -13934,9 +13964,11 @@ var tc = je(function (e, t, n) {
                     return o.default.createElement(
                       "li",
                       {
-                        className: "".concat(l === e.value ? "selected" : ""),
+                        className: ""
+                          .concat(l === e.value ? "selected" : "", " ")
+                          .concat(e.disabled ? "disabled" : ""),
                         onClick: function () {
-                          s(e.value, e.extraValue || null);
+                          e.disabled || s(e.value, e.extraValue || null);
                         },
                         key: "option-".concat(t),
                       },
@@ -14646,48 +14678,54 @@ var tc = je(function (e, t, n) {
       i = e.middleComponent,
       l = e.endComponent,
       s = e.currentPath,
-      c = e.sx;
-    return o.default.createElement(
-      rd,
-      { className: "menuBox", sx: c },
+      c = e.sx,
+      d = !0;
+    return (
+      void 0 !== t.inverse && (d = t.inverse),
       o.default.createElement(
-        Ls,
-        { className: "headerBar" },
-        o.default.createElement(nr, Ue({ inverse: !0 }, t)),
-        i,
+        rd,
+        { className: "menuBox", sx: c },
         o.default.createElement(
           Ls,
-          { className: "endComponent" },
-          l,
-          a &&
-            o.default.createElement(
-              uo,
-              { id: "sign-out", onClick: a },
-              o.default.createElement(Wc, null),
-            ),
+          { className: "headerBar" },
+          o.default.createElement(nr, Ue({ inverse: d }, t)),
+          i,
+          o.default.createElement(
+            Ls,
+            { className: "endComponent" },
+            l,
+            a &&
+              o.default.createElement(
+                uo,
+                { id: "sign-out", onClick: a },
+                o.default.createElement(Wc, null),
+              ),
+          ),
         ),
-      ),
-      o.default.createElement(
-        Ls,
-        { className: "sections ".concat(n && 0 !== n.length ? "" : "compact") },
-        n &&
-          n.map(function (e) {
-            return o.default.createElement(ad, {
-              key: "menu-section-".concat(e.group, "-").concat(e.id),
-              onClick: function (t) {
-                e.onClick && e.onClick(t), r(t);
-              },
-              icon: e.icon,
-              name: e.name,
-              group: e.group,
-              id: e.id,
-              path: e.path,
-              currentPath: s,
-              badge: e.badge,
-              children: e.children,
-            });
-          }),
-      ),
+        o.default.createElement(
+          Ls,
+          {
+            className: "sections ".concat(n && 0 !== n.length ? "" : "compact"),
+          },
+          n &&
+            n.map(function (e) {
+              return o.default.createElement(ad, {
+                key: "menu-section-".concat(e.group, "-").concat(e.id),
+                onClick: function (t) {
+                  e.onClick && e.onClick(t), r(t);
+                },
+                icon: e.icon,
+                name: e.name,
+                group: e.group,
+                id: e.id,
+                path: e.path,
+                currentPath: s,
+                badge: e.badge,
+                children: e.children,
+              });
+            }),
+        ),
+      )
     );
   },
   id = function (e) {
@@ -47918,23 +47956,25 @@ var CC,
       L = t.parentClassName,
       M = void 0 === L ? "" : L,
       P = t.sx,
-      D = e.useState(!1),
-      B = D[0],
-      H = D[1],
-      F = e.useState(null),
-      U = F[0],
-      z = F[1],
-      G = p || "",
-      Z = n
+      D = t.rowHeight,
+      B = void 0 === D ? 40 : D,
+      H = e.useState(!1),
+      F = H[0],
+      U = H[1],
+      z = e.useState(null),
+      G = z[0],
+      Z = z[1],
+      V = p || "",
+      $ = n
         ? n.find(function (e) {
             return "view" === e.type;
           })
         : null,
-      V = function (e) {
-        H(!B), z(e.currentTarget);
+      j = function (e) {
+        U(!F), Z(e.currentTarget);
       },
-      $ = function () {
-        H(!1), z(null);
+      W = function () {
+        U(!1), Z(null);
       };
     return o.default.createElement(
       or,
@@ -47945,6 +47985,7 @@ var CC,
           className: "".concat(b ? "noBackground" : ""),
           customPaperHeight: g,
           sx: P,
+          rowHeight: B,
         },
         l &&
           o.default.createElement(
@@ -47984,20 +48025,20 @@ var CC,
                     variant: "regular",
                     icon: o.default.createElement(Bs, null),
                     iconLocation: "end",
-                    onClick: V,
+                    onClick: j,
                   },
                   "Columns",
                 ),
-                B &&
+                F &&
                   o.default.createElement(oc, {
-                    open: B,
-                    closeTriggerAction: $,
+                    open: F,
+                    closeTriggerAction: W,
                     onSelect: function (e) {
                       return w(e);
                     },
                     columns: e,
                     selectedOptionIDs: C,
-                    anchorEl: U,
+                    anchorEl: G,
                   }),
               );
             })(a),
@@ -48059,7 +48100,7 @@ var CC,
                         );
                       },
                       overscanRowCount: 10,
-                      rowHeight: 40,
+                      rowHeight: B,
                       width: g,
                       rowCount: i.length,
                       rowGetter: function (e) {
@@ -48068,22 +48109,22 @@ var CC,
                       },
                       onRowClick: function (e) {
                         !(function (e) {
-                          if (Z) {
-                            var t = Z.sendOnlyId && p ? e[G] : e,
+                          if ($) {
+                            var t = $.sendOnlyId && p ? e[V] : e,
                               n = !1;
-                            Z.isDisabled &&
+                            $.isDisabled &&
                               (n =
-                                "boolean" == typeof Z.isDisabled
-                                  ? Z.isDisabled
-                                  : Z.isDisabled(e)),
-                              Z.onClick && !n && Z.onClick(t);
+                                "boolean" == typeof $.isDisabled
+                                  ? $.isDisabled
+                                  : $.isDisabled(e)),
+                              $.onClick && !n && $.onClick(t);
                           }
                         })(e.rowData);
                       },
                       rowClassName: function (e) {
                         return "rowLine "
-                          .concat(Z ? "canClick" : "", " ")
-                          .concat(!Z && S ? "canSelectText" : "", " ")
+                          .concat($ ? "canClick" : "", " ")
+                          .concat(!$ && S ? "canSelectText" : "", " ")
                           .concat(O ? O(e) : "");
                       },
                       onRowsRendered: l,
@@ -48127,14 +48168,14 @@ var CC,
                                 ),
                           );
                         },
-                        dataKey: "select-".concat(G),
+                        dataKey: "select-".concat(V),
                         width: 45,
                         disableSort: !0,
                         cellRenderer: function (e) {
                           var t = e.rowData,
-                            n = !!u && u.includes(Es(t) ? t : "".concat(t[G]));
+                            n = !!u && u.includes(Es(t) ? t : "".concat(t[V]));
                           return o.default.createElement(so, {
-                            value: Es(t) ? t : "".concat(t[G]),
+                            value: Es(t) ? t : "".concat(t[V]),
                             color: "primary",
                             className: "TableCheckbox",
                             checked: n,
@@ -48152,7 +48193,7 @@ var CC,
                       T,
                       _,
                       u || [],
-                      G,
+                      V,
                       v,
                       C,
                       N ? N.currentSort : "",
@@ -48166,7 +48207,7 @@ var CC,
                         className: "optionsAlignment",
                         cellRenderer: function (e) {
                           var t = e.rowData,
-                            a = !!u && u.includes(Es(t) ? t : "".concat(t[G]));
+                            a = !!u && u.includes(Es(t) ? t : "".concat(t[V]));
                           return (function (e, t, n, a) {
                             return e.map(function (e, r) {
                               if ("view" === e.type) return null;
@@ -48206,7 +48247,7 @@ var CC,
                                     })
                               );
                             });
-                          })(n || [], t, a, G);
+                          })(n || [], t, a, V);
                         },
                       }),
                   );
@@ -53330,7 +53371,7 @@ var CC,
                     onChange: function (t) {
                       return l(t, e.extraValue);
                     },
-                    disabled: m,
+                    disabled: m || !!e.disabled,
                   }),
                   o.default.createElement("span", { className: "radio" }),
                 ),
@@ -54026,18 +54067,21 @@ var CC,
       T = t.fixedLabel,
       v = void 0 === T ? "" : T,
       _ = t.name,
-      S = e.useState(!1),
-      y = S[0],
-      C = S[1],
-      A = o.default.useState(null),
-      w = A[0],
-      R = A[1],
-      N = f.find(function (e) {
+      S = t.placeholder,
+      y = void 0 === S ? "" : S,
+      C = e.useState(!1),
+      A = C[0],
+      w = C[1],
+      R = o.default.useState(null),
+      N = R[0],
+      I = R[1],
+      x = f.find(function (e) {
         return e.value === m;
       });
     return (
-      N ||
+      x ||
         "" !== v ||
+        "" !== y ||
         console.warn("The selected value is not included in Options List"),
       o.default.createElement(
         Uc,
@@ -54069,7 +54113,7 @@ var CC,
             id: "".concat(n, "-select"),
             className: "selectContainer",
             onClick: function (e) {
-              b || (C(!y), R(e.currentTarget));
+              b || (w(!A), I(e.currentTarget));
             },
           },
           o.default.createElement(
@@ -54083,7 +54127,12 @@ var CC,
                 : o.default.createElement(
                     e.Fragment,
                     null,
-                    (null == N ? void 0 : N.label) || "",
+                    (null == x ? void 0 : x.label) ||
+                      o.default.createElement(
+                        "i",
+                        { style: { opacity: 0.6 } },
+                        "" !== y ? y : "",
+                      ),
                   ),
             ),
             o.default.createElement("input", {
@@ -54096,7 +54145,7 @@ var CC,
           o.default.createElement(
             Ls,
             { className: "overlayArrow" },
-            y
+            A
               ? o.default.createElement(Lc, null)
               : o.default.createElement(Mc, null),
           ),
@@ -54108,10 +54157,10 @@ var CC,
               return g(e, t);
             },
             hideTriggerAction: function () {
-              C(!1);
+              w(!1);
             },
-            open: y,
-            anchorEl: w,
+            open: A,
+            anchorEl: N,
           }),
         ),
       )

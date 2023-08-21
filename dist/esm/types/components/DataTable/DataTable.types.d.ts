@@ -75,12 +75,14 @@ export interface DataTableProps {
   }) => "deleted" | "" | React.CSSProperties;
   parentClassName?: string;
   sx?: CSSObject;
+  rowHeight?: number;
 }
 export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   customPaperHeight?: string | number;
   noBackground?: boolean;
   sx?: CSSObject;
+  rowHeight: number;
 }
 export interface IActionButton {
   tooltip?: string;
