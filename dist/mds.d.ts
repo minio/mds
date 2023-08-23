@@ -928,8 +928,8 @@ declare const Tag: FC<
 >;
 
 interface CommonActionLinkProps {
-  isLoading: boolean;
-  label: any;
+  isLoading?: boolean;
+  label?: any;
 }
 interface BaseActionLinkProps {
   sx?: CSSObject;

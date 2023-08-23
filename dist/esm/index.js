@@ -2260,105 +2260,78 @@ var Ra,
       a = e.onClick;
     return t.createElement(
       Xa,
-      { viewBox: "0 0 149.615 41.178", inverse: n, onClick: a },
+      { viewBox: "0 0 149.6 41.2", inverse: n, onClick: a },
       t.createElement(
         "g",
         null,
-        t.createElement(
-          "g",
-          null,
-          t.createElement("path", {
-            d: "M160.647,103.275c0,7.069-4.512,10.667-11.014,10.667s-11.015-3.6-11.015-10.667V87.913h5.115v15.106c0,4.2,2.375,6.046,5.9,6.046s5.9-1.845,5.9-6.046V87.913h5.115Z",
-            transform: "translate(-114.732 -72.764)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("path", {
-            d: "M303.977,87.912c6.1,0,9.371,2.886,9.371,7.782,0,4.2-2.923,7.069-7.836,7.544l7.873,10.247H307.21l-7.453-10.174h-1.5v10.174h-5.1V87.912Zm-5.717,4.694v6.265h5.626c2.776,0,4.219-1.023,4.219-3.178,0-2.119-1.516-3.087-4.219-3.087Z",
-            transform: "translate(-242.646 -72.763)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("path", {
-            d: "M580.983,102.964h-2.356v10.521h-5.1V87.913h5.1V98.269h2.411l8.457-10.357h6.393l-10.722,12.476,11.526,13.1h-6.612Z",
-            transform: "translate(-474.701 -72.764)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("path", {
-            d: "M742.783,113.485h-5.443l-2.229-5.955h-10.9l-2.228,5.955h-5.316l9.955-25.573h6.211ZM725.96,102.835h7.4l-3.69-9.882Z",
-            transform: "translate(-593.168 -72.763)",
-            className: "minioApplicationName",
-          }),
-        ),
+        t.createElement("path", {
+          className: "minioApplicationName",
+          d: "M45.9,30.5c0,7.1-4.5,10.7-11,10.7s-11-3.6-11-10.7V15.1H29v15.1c0,4.2,2.4,6,5.9,6\n\t\ts5.9-1.8,5.9-6V15.1h5.1L45.9,30.5z",
+        }),
+        t.createElement("path", {
+          className: "minioApplicationName",
+          d: "M93.4,36v4.7H74.7V15.1h18.6v4.7H79.7v5.7h13v4.7h-13V36H93.4z",
+        }),
+        t.createElement("path", {
+          className: "minioApplicationName",
+          d: "M61.3,15.1c6.1,0,9.4,2.9,9.4,7.8c0,4.2-2.9,7.1-7.8,7.5l7.9,10.2h-6.2l-7.5-10.2h-1.5v10.2\n\t\th-5.1V15.1H61.3z M55.6,19.8v6.3h5.6c2.8,0,4.2-1,4.2-3.2c0-2.1-1.5-3.1-4.2-3.1H55.6z",
+        }),
+        t.createElement("path", {
+          className: "minioApplicationName",
+          d: "M106.3,30.2h-2.4v10.5h-5.1V15.1h5.1v10.4h2.4l8.5-10.4h6.4l-10.7,12.5L122,40.7h-6.6\n\t\tL106.3,30.2z",
+        }),
+        t.createElement("path", {
+          className: "minioApplicationName",
+          d: "M149.6,40.7h-5.4l-2.2-6H131l-2.2,6h-5.3l10-25.6h6.2L149.6,40.7z M132.8,30.1h7.4l-3.7-9.9\n\t\tL132.8,30.1z",
+        }),
       ),
-      t.createElement("rect", {
-        width: "2.55",
-        height: "7.53",
-        transform: "translate(14.769 0.132)",
-        className: "minioSection",
-      }),
       t.createElement(
         "g",
         null,
-        t.createElement(
-          "g",
-          null,
-          t.createElement("path", {
-            d: "M11.678.866,6.5,4.027a.231.231,0,0,1-.241,0L1.087.866a.709.709,0,0,0-.371-.1H.71a.71.71,0,0,0-.71.71V8.284H2.549V5.042a.255.255,0,0,1,.388-.218L5.837,6.6a.908.908,0,0,0,.934.009l3.061-1.8a.255.255,0,0,1,.383.22V8.284h2.548V1.472a.709.709,0,0,0-.709-.71h-.007a.71.71,0,0,0-.37.1",
-            transform: "translate(0 -0.631)",
-            className: "minioSection",
-          }),
-          t.createElement("path", {
-            d: "M122.847.764h-2.586V4.191a.255.255,0,0,1-.375.225l-6.7-3.569a.713.713,0,0,0-.334-.083h0a.71.71,0,0,0-.71.71V8.286H114.7V4.862a.255.255,0,0,1,.374-.225L121.8,8.206a.71.71,0,0,0,1.043-.627Z",
-            transform: "translate(-92.813 -0.632)",
-            className: "minioSection",
-          }),
-          t.createElement("rect", {
-            width: "1.173",
-            height: "7.53",
-            transform: "translate(32.039 0.132)",
-            className: "minioSection",
-          }),
-          t.createElement("path", {
-            d: "M206.895,7.8c-3.156,0-5.4-1.5-5.4-3.9s2.253-3.9,5.4-3.9S212.3,1.5,212.3,3.9s-2.212,3.9-5.409,3.9m0-6.8c-2.347,0-4.155,1.025-4.155,2.9s1.808,2.9,4.155,2.9,4.169-1.012,4.169-2.9S209.241,1,206.895,1Z",
-            transform: "translate(-166.777)",
-            className: "minioSection",
-          }),
-          t.createElement("rect", {
-            width: "19.062",
-            height: "5.016",
-            transform: "translate(0 15.046)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("rect", {
-            width: "16.044",
-            height: "5.016",
-            transform: "translate(0 26.082)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("rect", {
-            width: "19.062",
-            height: "5.016",
-            transform: "translate(0 36.114)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("rect", {
-            width: "19.062",
-            height: "5.016",
-            transform: "translate(75.301 15.046)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("rect", {
-            width: "16.044",
-            height: "5.016",
-            transform: "translate(75.301 26.082)",
-            className: "minioApplicationName",
-          }),
-          t.createElement("rect", {
-            width: "19.062",
-            height: "5.016",
-            transform: "translate(75.301 36.114)",
-            className: "minioApplicationName",
-          }),
-        ),
+        t.createElement("path", {
+          className: "minioSection",
+          d: "M11.7,0.2L6.5,3.4c-0.1,0-0.2,0-0.2,0L1.1,0.2C1,0.2,0.8,0.1,0.7,0.1h0C0.3,0.1,0,0.5,0,0.8\n\t\tc0,0,0,0,0,0v6.8h2.5V4.4c0-0.1,0.1-0.3,0.3-0.3c0,0,0.1,0,0.1,0L5.8,6c0.3,0.2,0.6,0.2,0.9,0l3.1-1.8c0.1-0.1,0.3,0,0.3,0.1\n\t\tc0,0,0,0.1,0,0.1v3.3h2.5V0.8c0-0.4-0.3-0.7-0.7-0.7c0,0,0,0,0,0h0C11.9,0.1,11.8,0.2,11.7,0.2",
+        }),
+        t.createElement("rect", {
+          x: "14.8",
+          y: "0.1",
+          className: "minioSection",
+          width: "2.5",
+          height: "7.5",
+        }),
+        t.createElement("path", {
+          className: "minioSection",
+          d: "M30,0.1h-2.6v3.4c0,0.1-0.1,0.3-0.3,0.3c0,0-0.1,0-0.1,0l-6.7-3.6c-0.1-0.1-0.2-0.1-0.3-0.1\n\t\tl0,0c-0.4,0-0.7,0.3-0.7,0.7v6.8h2.6V4.2C21.9,4.1,22,4,22.1,4c0,0,0.1,0,0.1,0L29,7.6c0.3,0.2,0.8,0.1,1-0.3C30,7.2,30,7.1,30,6.9\n\t\tL30,0.1z",
+        }),
+        t.createElement("rect", {
+          x: "32",
+          y: "0.1",
+          className: "minioSection",
+          width: "1.2",
+          height: "7.5",
+        }),
+        t.createElement("path", {
+          className: "minioSection",
+          d: "M40.1,7.8c-3.2,0-5.4-1.5-5.4-3.9S37,0,40.1,0s5.4,1.5,5.4,3.9S43.3,7.8,40.1,7.8 M40.1,1\n\t\tC37.8,1,36,2,36,3.9s1.8,2.9,4.2,2.9s4.2-1,4.2-2.9S42.5,1,40.1,1L40.1,1z",
+        }),
+        t.createElement("rect", {
+          className: "minioApplicationName",
+          y: "15",
+          width: "19.1",
+          height: "5",
+        }),
+        t.createElement("rect", {
+          className: "minioApplicationName",
+          y: "25.5",
+          width: "12.8",
+          height: "5",
+        }),
+        t.createElement("rect", {
+          className: "minioApplicationName",
+          y: "36.1",
+          width: "19.1",
+          height: "5",
+        }),
       ),
     );
   },
@@ -46517,16 +46490,18 @@ var aA,
   }),
   mA = function (e) {
     var a = e.label,
-      r = e.isLoading,
-      i = e.sx,
-      o = e.children,
-      l = Xe(e, ["label", "isLoading", "sx", "children"]);
+      r = void 0 === a ? "" : a,
+      i = e.isLoading,
+      o = void 0 !== i && i,
+      l = e.sx,
+      s = e.children,
+      c = Xe(e, ["label", "isLoading", "sx", "children"]);
     return t.createElement(
       pA,
-      Ye({}, l, { sx: i }),
-      r
+      Ye({}, c, { sx: l }),
+      o
         ? t.createElement(ri, { style: { width: 16, height: 16 } })
-        : t.createElement(n, null, a, o),
+        : t.createElement(n, null, r, s),
     );
   },
   hA = d.div(function (e) {
