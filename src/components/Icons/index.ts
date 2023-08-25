@@ -212,3 +212,4 @@ export { default as SendMessageIcon } from "./SendMessageIcon";
 export { default as CancelledAudioIcon } from "./CancelledAudioIcon";
 export { default as ThumbsUpIcon } from "./ThumbsUpIcon";
 export { default as ThumbsDownIcon } from "./ThumbsDownIcon";
+export { default as AttachFileIcon } from "./AttachFileIcon";

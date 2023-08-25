@@ -60,6 +60,7 @@ export { default as Tag } from "./Tag/Tag";
 export { default as ActionLink } from "./ActionLink/ActionLink";
 export { default as ValuePair } from "./ValuePair/ValuePair";
 export { default as ProgressBar } from "./ProgressBar/ProgressBar";
+export { default as FileSelector } from "./FileSelector/FileSelector";
 
 /*Icons*/
 export * from "./Icons";
@@ -103,3 +104,4 @@ export * from "./Tag/Tag.types";
 export * from "./ActionLink/ActionLink.types";
 export * from "./ValuePair/ValuePair.types";
 export * from "./ProgressBar/ProgressBar.types";
+export * from "./FileSelector/FileSelector.types";
