@@ -165,6 +165,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.AttachFileIcon />
+              <br />
+              AttachFileIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.AudioIcon />
               <br />
               AudioIcon
