@@ -18,12 +18,7 @@ import React, { Fragment } from "react";
 import get from "lodash/get";
 import isString from "lodash/isString";
 import { Column } from "react-virtualized";
-import {
-  actionsTypes,
-  IColumns,
-  ItemActions,
-  PredefinedActionTypes,
-} from "./DataTable.types";
+import { IColumns, ItemActions } from "./DataTable.types";
 import ArrowDropUpIcon from "../Icons/ArrowDropUp";
 import ArrowDropDownIcon from "../Icons/ArrowDropDown";
 import Loader from "../Loader/Loader";
@@ -242,6 +237,3 @@ export const calculateOptionsSize = (
 
   return sizeOptions;
 };
-
-export const isPredefinedAction = (val: any): val is PredefinedActionTypes =>
-  actionsTypes.includes(val);

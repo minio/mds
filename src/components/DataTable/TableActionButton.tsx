@@ -27,8 +27,14 @@ import EditIcon from "../Icons/EditIcon";
 import TrashIcon from "../Icons/TrashIcon";
 import DownloadIcon from "../Icons/DownloadIcon";
 import IconButton from "../IconButton/IconButton";
-import { IActionButton, PredefinedActionTypes } from "./DataTable.types";
-import { isPredefinedAction } from "./DataTable.utils";
+import {
+  actionsTypes,
+  IActionButton,
+  PredefinedActionTypes,
+} from "./DataTable.types";
+
+export const isPredefinedAction = (val: any): val is PredefinedActionTypes =>
+  actionsTypes.includes(val);
 
 const defineIcon = (type: PredefinedActionTypes) => {
   switch (type) {
