@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /*Basics*/
-export { breakPoints } from "../global/utils";
+export { breakPoints, calculateBytes } from "../global/utils";
 
 export { default as ThemeHandler } from "./ThemeHandler/ThemeHandler";
 export { default as GlobalStyles } from "./GlobalStyles/GlobalStyles";
@@ -61,6 +61,7 @@ export { default as ActionLink } from "./ActionLink/ActionLink";
 export { default as ValuePair } from "./ValuePair/ValuePair";
 export { default as ProgressBar } from "./ProgressBar/ProgressBar";
 export { default as FileSelector } from "./FileSelector/FileSelector";
+export { default as SizeChart } from "./SizeChart/SizeChart";
 
 /*Icons*/
 export * from "./Icons";
@@ -105,3 +106,4 @@ export * from "./ActionLink/ActionLink.types";
 export * from "./ValuePair/ValuePair.types";
 export * from "./ProgressBar/ProgressBar.types";
 export * from "./FileSelector/FileSelector.types";
+export * from "./SizeChart/SizeChart.types";
