@@ -114,3 +114,11 @@ FullComponentsSet.args = {
     </Fragment>
   ),
 };
+
+export const CustomStyles = Template.bind({});
+CustomStyles.args = {
+  label: "Just Label",
+  sx: {
+    backgroundColor: "#008800",
+  },
+};

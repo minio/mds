@@ -15,9 +15,16 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
+import { CSSObject } from "styled-components";
 
-export interface PageHeaderProps {
+export interface PageHeaderMainProps {
   label: React.ReactNode;
   middleComponent?: React.ReactNode;
   actions?: React.ReactNode;
 }
+
+export interface PageHeaderConstruct {
+  sx?: CSSObject;
+}
+
+export type PageHeaderProps = PageHeaderMainProps & PageHeaderConstruct;

@@ -19,10 +19,10 @@ import {
   ScreenTitleContainerProps,
   ScreenTitleProps,
 } from "./ScreenTitle.types";
+import { breakPoints } from "../../global/utils";
 import styled from "styled-components";
 import Box from "../Box/Box";
 import get from "lodash/get";
-import { breakPoints } from "../../global/utils";
 
 const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
   ({ theme, sx, bottomBorder }) => ({
