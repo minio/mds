@@ -24,17 +24,3 @@ export declare const calculateOptionsSize: (
   containerWidth: number,
   totalOptions: number,
 ) => number;
-export declare const isPredefinedAction: (
-  val: any,
-) => val is
-  | "view"
-  | "console"
-  | "cloud"
-  | "format"
-  | "edit"
-  | "delete"
-  | "description"
-  | "share"
-  | "download"
-  | "disable"
-  | "preview";
