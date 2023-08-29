@@ -64,6 +64,7 @@ export { default as FileSelector } from "./FileSelector/FileSelector";
 export { default as SizeChart } from "./SizeChart/SizeChart";
 export { default as Snackbar } from "./Snackbar/Snackbar";
 export { default as Accordion } from "./Accordion/Accordion";
+export { default as HelpTip } from "./HelpTip/HelpTip";
 
 /*Icons*/
 export * from "./Icons";
@@ -111,3 +112,4 @@ export * from "./FileSelector/FileSelector.types";
 export * from "./SizeChart/SizeChart.types";
 export * from "./Snackbar/Snackbar.types";
 export * from "./Accordion/Accordion.types";
+export * from "./HelpTip/HelpTip.types";
