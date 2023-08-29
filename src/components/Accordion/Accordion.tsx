@@ -15,16 +15,16 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
+import styled from "styled-components";
+import get from "lodash/get";
 import {
   AccordionContentProps,
   AccordionMainProps,
   AccordionProps,
 } from "./Accordion.types";
-import styled from "styled-components";
 import { lightColors } from "../../global/themes";
-import get from "lodash/get";
-import CollapseCaret from "../Icons/CollapseCaret";
 import { ExpandCaret } from "../Icons";
+import CollapseCaret from "../Icons/CollapseCaret";
 import Box from "../Box/Box";
 
 const AccordionContainer = styled.div<AccordionMainProps>(({ theme, sx }) => ({

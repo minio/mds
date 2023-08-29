@@ -174,6 +174,7 @@ const Button: FC<
   fullWidth,
   collapseOnSmall = true,
   children,
+  className,
   ...props
 }) => {
   let iconToPlace: React.ReactNode = null;
@@ -193,6 +194,7 @@ const Button: FC<
       collapseOnSmall={!!collapseOnSmall}
       icon={iconToPlace}
       parentChildren={children || null}
+      className={`${className || ""} button-${variant}`}
       {...props}
     >
       <Fragment>
