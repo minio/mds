@@ -9,14 +9,6 @@ import React__default, {
 import * as styled_components from "styled-components";
 import { CSSObject, CSSProperties } from "styled-components";
 
-declare const breakPoints: {
-  xs: number;
-  sm: number;
-  md: number;
-  lg: number;
-  xl: number;
-};
-
 interface ButtonThemeProps {
   border: string;
   text: string;
@@ -291,6 +283,23 @@ interface SelectorType {
   extraValue?: any;
   disabled?: boolean;
 }
+interface IBytesCalc {
+  total: number;
+  unit: string;
+}
+
+declare const breakPoints: {
+  xs: number;
+  sm: number;
+  md: number;
+  lg: number;
+  xl: number;
+};
+declare const calculateBytes: (
+  x: string | number,
+  showDecimals?: boolean,
+  roundFloor?: boolean,
+) => IBytesCalc;
 
 interface ThemeHandlerProps {
   darkMode?: boolean;
@@ -318,6 +327,9 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   sx?: CSSObject;
+}
+interface ConstructProps {
+  parentChildren: ReactNode | string | undefined;
 }
 
 declare const Button: FC<
@@ -393,11 +405,15 @@ declare const LoginWrapper: FC<LoginWrapperProps>;
 
 declare const Loader: FC<SVGProps<any>>;
 
-interface PageHeaderProps {
+interface PageHeaderMainProps {
   label: React__default.ReactNode;
   middleComponent?: React__default.ReactNode;
   actions?: React__default.ReactNode;
 }
+interface PageHeaderConstruct {
+  sx?: CSSObject;
+}
+type PageHeaderProps = PageHeaderMainProps & PageHeaderConstruct;
 
 declare const PageHeader: FC<PageHeaderProps>;
 
@@ -406,6 +422,14 @@ interface TooltipProps {
   tooltip: React__default.ReactNode;
   errorProps?: any;
   placement?: "bottom" | "left" | "right" | "top";
+}
+interface TooltipBuild {
+  placement: "bottom" | "left" | "right" | "top";
+}
+interface TooltipConstructProps {
+  placement: "bottom" | "left" | "right" | "top";
+  content: React__default.ReactNode;
+  anchorEl: (EventTarget & HTMLSpanElement) | null;
 }
 
 declare const Tooltip: FC<TooltipProps>;
@@ -634,6 +658,16 @@ interface InputBoxProps
   className?: string;
   error?: string;
 }
+interface InputContainerProps {
+  children?: React__default.ReactNode;
+  sx?: CSSObject;
+  error?: boolean;
+  startIcon?: React__default.ReactNode;
+  className?: string;
+}
+interface ExtraInputProps {
+  originType?: string;
+}
 
 declare const InputBox$1: FC<InputBoxProps>;
 
@@ -642,6 +676,9 @@ interface BreadcrumbsProps {
   children: React__default.ReactNode;
   additionalOptions?: React__default.ReactNode;
   goBackFunction: () => void;
+}
+interface BreadcrumbsContainerProps {
+  sx?: CSSObject;
 }
 
 declare const Breadcrumbs: FC<BreadcrumbsProps>;
@@ -658,12 +695,23 @@ interface ActionsListProps {
   items: ActionItem[];
   title: React__default.ReactNode;
 }
+interface ActionsListPanelProps {
+  sx?: CSSObject;
+}
+interface ActionButtonProps
+  extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
+  icon: React__default.ReactNode;
+}
 
 declare const ActionsList: FC<ActionsListProps>;
 
 interface SimpleHeaderProps {
   label: React__default.ReactNode;
   icon?: React__default.ReactNode;
+  sx?: CSSObject;
+}
+interface SimpleHeaderContainerProps {
   sx?: CSSObject;
 }
 
@@ -674,6 +722,10 @@ interface ScreenTitleProps {
   subTitle?: React__default.ReactNode;
   title: string;
   actions: React__default.ReactNode;
+  sx?: CSSObject;
+  bottomBorder?: boolean;
+}
+interface ScreenTitleContainerProps {
   sx?: CSSObject;
   bottomBorder?: boolean;
 }
@@ -692,6 +744,13 @@ interface ModalBoxProps {
   customMaxWidth?: number | string;
   sx?: CSSObject;
 }
+interface ModalBoxContainerProps {
+  backgroundOverlay?: boolean;
+  widthLimit?: boolean;
+  iconColor?: "accept" | "delete" | "default";
+  customMaxWidth?: number | string;
+  sx?: CSSObject;
+}
 
 declare const ModalBox: FC<ModalBoxProps>;
 
@@ -704,6 +763,13 @@ interface MainSwitchProps {
   switchOnly?: boolean;
   indicatorLabels?: string[];
   description?: string;
+}
+interface IndicatorProps {
+  on: boolean;
+  children: React__default.ReactNode;
+}
+interface SwitchContainerProps {
+  sx?: CSSObject;
 }
 type SwitchProps = MainSwitchProps &
   React__default.InputHTMLAttributes<HTMLInputElement>;
@@ -740,6 +806,9 @@ interface DropdownSelectorProps {
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
 }
+interface DropDownBlockProps {
+  sx: CSSObject;
+}
 
 declare const DropdownSelector: FC<DropdownSelectorProps>;
 
@@ -759,6 +828,9 @@ interface RadioGroupProps {
   ) => void;
   sx?: CSSObject;
 }
+interface OptionsContainerProps {
+  inColumn: boolean;
+}
 
 declare const RadioGroup: FC<RadioGroupProps>;
 
@@ -768,6 +840,11 @@ interface ReadBoxProps {
   multiLine?: boolean;
   actionButton?: React__default.ReactNode;
   sx?: CSSObject;
+}
+interface ReadBoxBaseProps {
+  label?: string;
+  sx?: CSSObject;
+  multiLine?: boolean;
 }
 
 declare const ReadBox: FC<ReadBoxProps>;
@@ -784,6 +861,16 @@ interface CommentBoxProps
   required?: boolean;
   className?: string;
   error?: string;
+}
+interface CommentContainerProps {
+  children?: React__default.ReactNode;
+  sx?: CSSObject;
+  error?: boolean;
+  startIcon?: React__default.ReactNode;
+  className?: string;
+}
+interface ExtraCommentProps {
+  originType?: string;
 }
 
 declare const InputBox: FC<CommentBoxProps>;
@@ -838,6 +925,9 @@ declare const Menu: FC<MenuProps>;
 interface ExpandOptionsButtonProps {
   label: string;
   open: boolean;
+  sx?: CSSObject;
+}
+interface ConstructExpandOptionsProps {
   sx?: CSSObject;
 }
 
@@ -966,6 +1056,69 @@ interface CommonProgressBar {
 type ProgressBarProps = MainProgressProps & CommonProgressBar;
 
 declare const ProgressBar: FC<ProgressBarProps>;
+
+interface FileSelectorProps {
+  label: string;
+  onChange: (
+    event: React__default.ChangeEvent<HTMLInputElement>,
+    fileName: string,
+    data?: string,
+  ) => void;
+  returnEncodedData?: boolean;
+  id: string;
+  name: string;
+  disabled?: boolean;
+  tooltip?: string;
+  required?: boolean;
+  error?: string;
+  accept?: string;
+  value: string;
+  className?: string;
+  noLabelMinWidth?: boolean;
+  sx?: CSSObject;
+}
+interface FileSelectorConstructorProps {
+  children?: React__default.ReactNode;
+  sx?: CSSObject;
+  error?: boolean;
+  startIcon?: React__default.ReactNode;
+  className?: string;
+}
+
+declare const FileSelector: FC<FileSelectorProps>;
+
+interface SizeChartMain {
+  label: boolean;
+  width?: string;
+  height?: string;
+}
+interface SizeChartConstructProps {
+  usedBytes: number;
+  totalBytes: number;
+  chartLabel?: string;
+  sx?: CSSObject;
+}
+type SizeChartProps = SizeChartMain & SizeChartConstructProps;
+
+declare const SizeChart: FC<SizeChartProps>;
+
+interface AccordionProps {
+  expanded: boolean;
+  onTitleClick: () => void;
+  id: string;
+  title: string;
+  children: ReactNode;
+  disabled?: boolean;
+  sx?: CSSObject;
+}
+interface AccordionMainProps {
+  sx?: CSSObject;
+}
+interface AccordionContentProps {
+  expanded: boolean;
+}
+
+declare const Accordion: FC<AccordionProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -1669,6 +1822,10 @@ declare const ThumbsDownIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React.JSX.Element;
 
+declare const AttachFileIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React.JSX.Element;
@@ -1861,11 +2018,19 @@ export {
   AGPLV3Logo,
   AccessMenuIcon,
   AccessRuleIcon,
+  Accordion,
+  AccordionContentProps,
+  AccordionMainProps,
+  AccordionProps,
   AccountIcon$1 as AccountIcon,
   AccountsMenuIcon,
+  ActionButtonProps,
+  ActionItem,
   ActionLink,
   ActionLinkProps,
   ActionsList,
+  ActionsListPanelProps,
+  ActionsListProps,
   AddAccessRuleIcon,
   AddFolderIcon,
   AddIcon,
@@ -1875,11 +2040,13 @@ export {
   AlertIcon,
   AllBucketsIcon,
   ApplicationLogo,
+  ApplicationLogoProps,
   ArrowDropUp as ArrowDropDown,
   ArrowDropUp$1 as ArrowDropUp,
   ArrowIcon,
   ArrowRightIcon,
   ArrowRightLink,
+  AttachFileIcon,
   AudioIcon,
   AudioIconMute,
   AuditLogsMenuIcon,
@@ -1888,18 +2055,23 @@ export {
   BackCaretIcon,
   BackIcon,
   BackLink,
+  BackLinkProps,
   BackSettingsIcon,
   BaseActionLinkProps,
   Box,
   BoxArrowDown,
   BoxArrowUp,
+  BoxProps,
   Breadcrumbs,
+  BreadcrumbsContainerProps,
+  BreadcrumbsProps,
   BucketEncryptionIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
   BucketsIcon,
   BucketsMenuIcon,
   Button,
+  ButtonProps,
   CalendarIcon,
   CallHomeFeatureIcon,
   CallHomeMenuIcon,
@@ -1923,6 +2095,8 @@ export {
   ColumnSelectorConstructProps,
   ColumnSelectorProps,
   InputBox as CommentBox,
+  CommentBoxProps,
+  CommentContainerProps,
   CommonActionLinkProps,
   CommonProgressBar,
   ComputerLineIcon,
@@ -1933,6 +2107,8 @@ export {
   ConsoleEnterprise,
   ConsoleIcon,
   ConsoleStandard,
+  ConstructExpandOptionsProps,
+  ConstructProps,
   CopyIcon,
   CreateGroupIcon,
   CreateIcon,
@@ -1955,7 +2131,9 @@ export {
   DriveFormatErrorsIcon,
   DrivesIcon,
   DrivesMenuIcon,
+  DropDownBlockProps,
   DropdownSelector,
+  DropdownSelectorProps,
   EditIcon,
   EditTagIcon,
   EditTenantIcon,
@@ -1967,7 +2145,10 @@ export {
   EventSubscriptionIcon,
   ExpandCaret,
   ExpandOptionsButton,
+  ExpandOptionsButtonProps,
+  ExtraCommentProps,
   AccountIcon as ExtraFeaturesIcon,
+  ExtraInputProps,
   FileBookIcon,
   FileCloudIcon,
   FileCodeIcon,
@@ -1982,6 +2163,9 @@ export {
   FileNonType,
   FilePdfIcon,
   FilePptIcon,
+  FileSelector,
+  FileSelectorConstructorProps,
+  FileSelectorProps,
   FileTxtIcon,
   FileVideoIcon,
   FileWorldIcon,
@@ -1991,18 +2175,21 @@ export {
   FolderBrowserIcon,
   FolderIcon,
   FormLayout,
+  FormLayoutProps,
   FormatDriveIcon,
   FormatDrivesIcon,
   GlobalStyles,
   GoogleTierIcon,
   GoogleTierIconXs,
   Grid,
+  GridProps,
   GroupsIcon,
   GroupsMenuIcon,
   HardBucketQuotaIcon,
   HealIcon,
   HealthMenuIcon,
   HelpBox,
+  HelpBoxProps,
   HelpIcon,
   HelpIconFilled,
   HistoryIcon,
@@ -2011,12 +2198,18 @@ export {
   IColumns,
   IInfiniteScrollConfig,
   ISortConfig,
+  IconBase,
   IconButton,
+  IconButtonProps,
   IdentitiesMenuIcon,
   IdentityMenuIcon,
+  IndicatorProps,
   InfoIcon,
   InputBox$1 as InputBox,
+  InputBoxProps,
+  InputContainerProps,
   InputLabel,
+  InputLabelProps,
   InspectMenuIcon,
   ItemActions,
   JSONIcon,
@@ -2040,6 +2233,7 @@ export {
   MainContainer,
   MainHeaderProps,
   MainProgressProps,
+  MainSwitchProps,
   Menu,
   MenuCollapsedIcon,
   MenuConstructProps,
@@ -2052,6 +2246,8 @@ export {
   MinIOTierIconXs,
   MirroringIcon,
   ModalBox,
+  ModalBoxContainerProps,
+  ModalBoxProps,
   MonitoringMenuIcon,
   MultipleBucketsIcon,
   NetworkGetIcon,
@@ -2073,8 +2269,13 @@ export {
   OnlineRegistrationIcon,
   OpenListIcon,
   OpenSourceIcon,
+  OptionsContainerProps,
   PageHeader,
+  PageHeaderConstruct,
+  PageHeaderMainProps,
+  PageHeaderProps,
   PageLayout,
+  PageLayoutProps,
   PasswordKeyIcon,
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
@@ -2088,7 +2289,10 @@ export {
   PrometheusErrorIcon,
   PrometheusIcon,
   RadioGroup,
+  RadioGroupProps,
   ReadBox,
+  ReadBoxBaseProps,
+  ReadBoxProps,
   RecoverIcon,
   RedoIcon,
   RefreshIcon,
@@ -2102,13 +2306,18 @@ export {
   S3TierIcon$1 as S3TierIcon,
   S3TierIcon as S3TierIconXs,
   ScreenTitle,
+  ScreenTitleContainerProps,
+  ScreenTitleProps,
   SearchIcon,
   SecretsMenuIcon,
   SectionHeaderProps,
   SectionTitle,
+  SectionTitleProps,
   Select,
   SelectAllIcon,
   SelectMultipleIcon,
+  SelectProps,
+  SelectorType,
   SendMessageIcon,
   ServersIcon,
   ServiceAccountCredentialsIcon,
@@ -2117,6 +2326,12 @@ export {
   SettingsIcon,
   ShareIcon,
   SimpleHeader,
+  SimpleHeaderContainerProps,
+  SimpleHeaderProps,
+  SizeChart,
+  SizeChartConstructProps,
+  SizeChartMain,
+  SizeChartProps,
   SpeedtestIcon,
   StandardLightLogo,
   StarIcon,
@@ -2126,6 +2341,8 @@ export {
   SuccessIcon,
   SupportMenuIcon,
   Switch,
+  SwitchContainerProps,
+  SwitchProps,
   SyncIcon,
   TabButtonConstructProps,
   TabButtonProps,
@@ -2153,6 +2370,9 @@ export {
   TimeIcon,
   ToolsIcon,
   Tooltip,
+  TooltipBuild,
+  TooltipConstructProps,
+  TooltipProps,
   TotalObjectsIcon,
   TraceIcon,
   TraceMenuIcon,
@@ -2181,4 +2401,5 @@ export {
   WatchIcon,
   actionsTypes,
   breakPoints,
+  calculateBytes,
 };

@@ -1,3 +1,4 @@
+import { IBytesCalc } from "./global.types";
 export declare const breakPoints: {
   xs: number;
   sm: number;
@@ -5,6 +6,12 @@ export declare const breakPoints: {
   lg: number;
   xl: number;
 };
+export declare const units: string[];
 export declare const fractionToPerc: (
   fraction: "auto" | number | boolean,
 ) => string;
+export declare const calculateBytes: (
+  x: string | number,
+  showDecimals?: boolean,
+  roundFloor?: boolean,
+) => IBytesCalc;

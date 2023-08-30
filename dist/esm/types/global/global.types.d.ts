@@ -273,4 +273,8 @@ export interface SelectorType {
   extraValue?: any;
   disabled?: boolean;
 }
+export interface IBytesCalc {
+  total: number;
+  unit: string;
+}
 export {};
