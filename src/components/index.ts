@@ -62,6 +62,7 @@ export { default as ValuePair } from "./ValuePair/ValuePair";
 export { default as ProgressBar } from "./ProgressBar/ProgressBar";
 export { default as FileSelector } from "./FileSelector/FileSelector";
 export { default as SizeChart } from "./SizeChart/SizeChart";
+export { default as Snackbar } from "./Snackbar/Snackbar";
 export { default as Accordion } from "./Accordion/Accordion";
 
 /*Icons*/
@@ -108,4 +109,5 @@ export * from "./ValuePair/ValuePair.types";
 export * from "./ProgressBar/ProgressBar.types";
 export * from "./FileSelector/FileSelector.types";
 export * from "./SizeChart/SizeChart.types";
+export * from "./Snackbar/Snackbar.types";
 export * from "./Accordion/Accordion.types";

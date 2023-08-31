@@ -561,6 +561,24 @@ export const lightTheme: ThemeDefinitionProps = {
       deleteColor: lightColors.defaultFontColor,
     },
   },
+  snackbar: {
+    error: {
+      backgroundColor: lightColors.mainRed,
+      labelColor: lightColors.white,
+    },
+    default: {
+      backgroundColor: lightColors.mainBlue,
+      labelColor: lightColors.white,
+    },
+    success: {
+      backgroundColor: lightColors.mainGreen,
+      labelColor: lightColors.white,
+    },
+    warning: {
+      backgroundColor: lightColors.mainOrange,
+      labelColor: lightColors.defaultFontColor,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -940,6 +958,24 @@ export const darkTheme: ThemeDefinitionProps = {
       background: darkColors.mainGreen,
       label: darkColors.dark,
       deleteColor: darkColors.dark,
+    },
+  },
+  snackbar: {
+    error: {
+      backgroundColor: darkColors.mainRed,
+      labelColor: darkColors.mainWhite,
+    },
+    default: {
+      backgroundColor: darkColors.mainGrey,
+      labelColor: darkColors.dark,
+    },
+    success: {
+      backgroundColor: darkColors.mainGreen,
+      labelColor: darkColors.dark,
+    },
+    warning: {
+      backgroundColor: darkColors.mainOrange,
+      labelColor: darkColors.dark,
     },
   },
 };
