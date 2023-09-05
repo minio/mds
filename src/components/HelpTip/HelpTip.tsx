@@ -208,7 +208,7 @@ const BaseHelpTip = styled.div(({ theme }) => ({
 
 export const HelpTip: FC<HelpTipProps> = ({
   children,
-  helptip,
+  content,
   placement = "bottom",
 }) => {
   const [anchorEl, setAnchorEl] = useState<
@@ -452,7 +452,7 @@ export const HelpTip: FC<HelpTipProps> = ({
                 <BaseHelpTip className={"helpbox-container"} ref={wrapperRef}>
                   <Grid container>
                     <Grid item xs={12} className={"helpText"}>
-                      {helptip}
+                      {content}
                     </Grid>
                   </Grid>
                 </BaseHelpTip>
