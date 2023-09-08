@@ -235,6 +235,16 @@ interface TagThemeProps {
   alert: TagVariantProps;
   ok: TagVariantProps;
 }
+interface SnackBarColorElements {
+  backgroundColor: string;
+  labelColor: string;
+}
+interface SnackBarThemeProps {
+  default: SnackBarColorElements;
+  success: SnackBarColorElements;
+  warning: SnackBarColorElements;
+  error: SnackBarColorElements;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -275,6 +285,7 @@ interface ThemeDefinitionProps {
   tabs?: TabThemeProps;
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
+  snackbar?: SnackBarThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -606,6 +617,7 @@ interface BoxProps {
   withBorders?: boolean;
   customBorderPadding?: number | string;
   useBackground?: boolean;
+  ref?: React__default.RefObject<HTMLInputElement>;
 }
 
 declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
@@ -1102,6 +1114,27 @@ type SizeChartProps = SizeChartMain & SizeChartConstructProps;
 
 declare const SizeChart: FC<SizeChartProps>;
 
+interface SnackbarMainProps {
+  autoHideDuration?: number;
+  message?: ReactNode;
+  onClose: () => void;
+  closeButton?: boolean;
+  mode?: "inline" | "portal";
+}
+interface SnackbarConstructProps {
+  open: boolean;
+  condensed?: boolean;
+  variant?: "default" | "success" | "warning" | "error";
+  sx?: CSSObject;
+}
+interface SnackbarButtonProps {
+  variant: "default" | "success" | "warning" | "error";
+  condensed: boolean;
+}
+type SnackbarProps = SnackbarMainProps & SnackbarConstructProps;
+
+declare const Snackbar: FC<SnackbarProps>;
+
 interface AccordionProps {
   expanded: boolean;
   onTitleClick: () => void;
@@ -1119,6 +1152,23 @@ interface AccordionContentProps {
 }
 
 declare const Accordion: FC<AccordionProps>;
+
+interface HelpTipProps {
+  children: any;
+  content: React__default.ReactElement;
+  errorProps?: any;
+  placement?: "bottom" | "left" | "right" | "top";
+}
+interface HelpTipBuild {
+  placement: "bottom" | "left" | "right" | "top";
+}
+interface HelpTipConstructProps {
+  placement: "bottom" | "left" | "right" | "top";
+  content: React__default.ReactNode;
+  anchorEl: (EventTarget & HTMLSpanElement) | null;
+}
+
+declare const HelpTip: FC<HelpTipProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2192,6 +2242,10 @@ export {
   HelpBoxProps,
   HelpIcon,
   HelpIconFilled,
+  HelpTip,
+  HelpTipBuild,
+  HelpTipConstructProps,
+  HelpTipProps,
   HistoryIcon,
   IAMPoliciesIcon,
   IActionButton,
@@ -2332,6 +2386,11 @@ export {
   SizeChartConstructProps,
   SizeChartMain,
   SizeChartProps,
+  Snackbar,
+  SnackbarButtonProps,
+  SnackbarConstructProps,
+  SnackbarMainProps,
+  SnackbarProps,
   SpeedtestIcon,
   StandardLightLogo,
   StarIcon,

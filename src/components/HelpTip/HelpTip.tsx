@@ -14,8 +14,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useEffect, useRef, useState } from "react";
-import styled from "styled-components";
+import React, {
+  FC,
+  Fragment,
+  HTMLAttributes,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import styled, { css, keyframes } from "styled-components";
 import { createPortal } from "react-dom";
 import get from "lodash/get";
 import {
@@ -25,7 +32,30 @@ import {
 } from "./HelpTip.types";
 import Grid from "../Grid/Grid";
 import { HelpIconFilled } from "../Icons";
-import { TooltipWrapper } from "../Tooltip/Tooltip";
+
+const opacityAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const HelptipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
+  {
+    display: "inline-flex",
+    position: "relative",
+  },
+  css`
+    &:hover {
+      & .tooltipElement {
+        display: block;
+        animation: ${opacityAnimation} 1s;
+      }
+    }
+  `,
+);
 
 const HelptipItem = styled.div<HelpTipBuild>(({ theme, placement }) => {
   const tooltipArrowSize = "6px";
@@ -423,7 +453,7 @@ export const HelpTip: FC<HelpTipProps> = ({
 
   return (
     <Fragment>
-      <TooltipWrapper
+      <HelptipWrapper
         ref={wrapperRef}
         onPointerEnter={(event) => {
           if (!helptipOpen) {
@@ -461,7 +491,7 @@ export const HelpTip: FC<HelpTipProps> = ({
             />,
             document.body,
           )}
-      </TooltipWrapper>
+      </HelptipWrapper>
     </Fragment>
   );
 };

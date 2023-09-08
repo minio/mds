@@ -387,6 +387,12 @@ var o = a(e),
       warn: { background: U, label: h, deleteColor: h },
       ok: { background: O, label: h, deleteColor: h },
     },
+    snackbar: {
+      error: { backgroundColor: w, labelColor: m },
+      default: { backgroundColor: y, labelColor: m },
+      success: { backgroundColor: O, labelColor: m },
+      warning: { backgroundColor: U, labelColor: h },
+    },
   },
   ze = {
     bgColor: se,
@@ -629,6 +635,12 @@ var o = a(e),
       secondary: { background: Oe, label: Te, deleteColor: Te },
       warn: { background: Pe, label: se, deleteColor: se },
       ok: { background: xe, label: se, deleteColor: se },
+    },
+    snackbar: {
+      error: { backgroundColor: ye, labelColor: Te },
+      default: { backgroundColor: he, labelColor: se },
+      success: { backgroundColor: xe, labelColor: se },
+      warning: { backgroundColor: Pe, labelColor: se },
     },
   },
   Ge = function () {
@@ -12428,10 +12440,11 @@ var Ts = qe(function (e) {
     var t = e.sx,
       n = e.children,
       a = e.customBorderPadding,
-      r = Ze(e, ["sx", "children", "customBorderPadding"]);
+      r = e.ref,
+      i = Ze(e, ["sx", "children", "customBorderPadding", "ref"]);
     return o.default.createElement(
       Ms,
-      Ge({}, r, { sx: t, customBorderPadding: a }),
+      Ge({}, i, { ref: r, sx: t, customBorderPadding: a }),
       n,
     );
   },
@@ -23040,6 +23053,7 @@ const Vg = Fg({
       autoComplete: Ig,
       autoFocus: wg,
       autoPlay: wg,
+      blocking: Ig,
       capture: wg,
       charSet: null,
       checked: wg,
@@ -23065,6 +23079,7 @@ const Vg = Fg({
       draggable: Rg,
       encType: null,
       enterKeyHint: null,
+      fetchPriority: null,
       form: null,
       formAction: null,
       formEncType: null,
@@ -23082,6 +23097,7 @@ const Vg = Fg({
       id: null,
       imageSizes: null,
       imageSrcSet: null,
+      inert: wg,
       inputMode: null,
       integrity: null,
       is: null,
@@ -23205,6 +23221,9 @@ const Vg = Fg({
       ping: Ig,
       placeholder: null,
       playsInline: wg,
+      popover: null,
+      popoverTarget: null,
+      popoverTargetAction: null,
       poster: null,
       preload: null,
       readOnly: wg,
@@ -23462,6 +23481,7 @@ const Vg = Fg({
       textAnchor: "text-anchor",
       textDecoration: "text-decoration",
       textRendering: "text-rendering",
+      transformOrigin: "transform-origin",
       typeOf: "typeof",
       underlinePosition: "underline-position",
       underlineThickness: "underline-thickness",
@@ -23823,6 +23843,7 @@ const Vg = Fg({
       typeOf: Og,
       to: null,
       transform: null,
+      transformOrigin: null,
       u1: null,
       u2: null,
       underlinePosition: xg,
@@ -44765,8 +44786,10 @@ var yC,
       CC));
 var AC,
   wC,
-  RC = _C.exports,
-  NC = [
+  RC,
+  NC,
+  xC = _C.exports,
+  IC = [
     "prefixCls",
     "value",
     "padding",
@@ -44779,7 +44802,7 @@ var AC,
     "rehypePlugins",
     "onChange",
   ],
-  xC = o.default.forwardRef((t, n) => {
+  kC = o.default.forwardRef((t, n) => {
     var {
         prefixCls: a = "w-tc-editor",
         padding: r = 10,
@@ -44792,7 +44815,7 @@ var AC,
         rehypePlugins: u,
         onChange: p,
       } = t,
-      m = Lo(t, NC),
+      m = Lo(t, IC),
       [h, f] = e.useState(t.value || "");
     e.useEffect(() => f(t.value || ""), [t.value]);
     var g = e.useRef(null);
@@ -44847,7 +44870,7 @@ var AC,
       ),
       T = e.useMemo(
         () =>
-          RC.jsx("div", {
+          xC.jsx("div", {
             style: xo({}, vC, E, { minHeight: o }),
             className: a + "-preview " + (l ? "language-" + l : ""),
             dangerouslySetInnerHTML: { __html: b },
@@ -44932,14 +44955,14 @@ var AC,
           value: h,
         },
       );
-    return RC.jsxs("div", {
+    return xC.jsxs("div", {
       style: xo({}, bC, d),
       className: a + " " + (c || ""),
       "data-color-mode": s,
-      children: [RC.jsx("textarea", xo({}, v, { ref: g })), T],
+      children: [xC.jsx("textarea", xo({}, v, { ref: g })), T],
     });
   }),
-  IC = l.default.div(function (e) {
+  OC = l.default.div(function (e) {
     var t,
       n = e.theme,
       a = e.editorHeight,
@@ -45037,7 +45060,7 @@ var AC,
       r,
     );
   }),
-  kC = l.default.span(function (e) {
+  LC = l.default.span(function (e) {
     var t = e.theme,
       n = e.color,
       a = e.variant,
@@ -45111,7 +45134,7 @@ var AC,
       r,
     );
   }),
-  OC = l.default.button(function (e) {
+  MC = l.default.button(function (e) {
     var t = e.theme,
       n = e.sx;
     return Ge(
@@ -45128,7 +45151,7 @@ var AC,
       n,
     );
   }),
-  LC = l.default.div(function (e) {
+  PC = l.default.div(function (e) {
     var t;
     e.theme;
     var n = e.sx,
@@ -45147,14 +45170,14 @@ var AC,
       n,
     );
   }),
-  MC = {
+  DC = {
     blue: "main",
     red: "danger",
     green: "good",
     orange: "warning",
     grey: "disabled",
   },
-  PC = l.default.div(function (e) {
+  BC = l.default.div(function (e) {
     var t = e.theme,
       n = e.sx,
       a = e.color;
@@ -45171,12 +45194,12 @@ var AC,
         },
         "& .notificationLabel": {
           fontSize: 12,
-          color: _a(t, "signalColors.".concat(MC[a || "blue"]), y),
+          color: _a(t, "signalColors.".concat(DC[a || "blue"]), y),
         },
         "& .percentageBar": {
           display: "block",
           height: 8,
-          backgroundColor: _a(t, "signalColors.".concat(MC[a || "blue"]), y),
+          backgroundColor: _a(t, "signalColors.".concat(DC[a || "blue"]), y),
           transitionDuration: "0.1s",
           borderRadius: 8,
         },
@@ -45184,7 +45207,7 @@ var AC,
       n,
     );
   }),
-  DC = t.keyframes(
+  HC = t.keyframes(
     AC ||
       (AC = je(
         [
@@ -45195,7 +45218,7 @@ var AC,
         ],
       )),
   ),
-  BC = l.default.div(
+  FC = l.default.div(
     wC ||
       (wC = je(
         [
@@ -45209,12 +45232,12 @@ var AC,
           ";\n",
         ],
       )),
-    DC,
+    HC,
     function (e) {
-      return _a(e.theme, "signalColors.".concat(MC[e.color || "blue"]), y);
+      return _a(e.theme, "signalColors.".concat(DC[e.color || "blue"]), y);
     },
   ),
-  HC = function (e) {
+  UC = function (e) {
     return i.createElement(
       "svg",
       Ge(
@@ -45231,7 +45254,7 @@ var AC,
       }),
     );
   },
-  FC = l.default.div(function (e) {
+  zC = l.default.div(function (e) {
     var t = e.theme,
       n = e.error,
       a = e.sx;
@@ -45273,7 +45296,7 @@ var AC,
       a,
     );
   }),
-  UC = l.default.svg(function (e) {
+  GC = l.default.svg(function (e) {
     var t = e.theme,
       n = e.usedBytes,
       a = e.totalBytes,
@@ -45311,7 +45334,119 @@ var AC,
       )
     );
   }),
-  zC = l.default.div(function (e) {
+  ZC = l.default.div(function (e) {
+    var t = e.theme,
+      n = e.sx,
+      a = e.open,
+      r = e.variant,
+      o = e.condensed;
+    return Ge(
+      {
+        position: "fixed",
+        width: o ? "auto" : "100vw",
+        maxWidth: o ? 350 : "100vw",
+        zIndex: 1e4,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: o ? 25 : 75,
+        fontSize: o ? 12 : 14,
+        top: 0,
+        left: o ? "50%" : 0,
+        gap: o ? 5 : 0,
+        transform: o ? "translateX(-50%)" : "initial",
+        padding: o ? "0 15px" : "0 60px 0 25px",
+        borderBottomLeftRadius: o ? 8 : 0,
+        borderBottomRightRadius: o ? 8 : 0,
+        backgroundColor: _a(t, "snackbar.".concat(r, ".backgroundColor"), y),
+        color: _a(t, "snackbar.".concat(r, ".labelColor"), m),
+        fontWeight: o ? "normal" : "bold",
+        marginTop: a ? 0 : "-100%",
+        transition: "all 0.5s",
+        "& .messageTruncation": {
+          width: "100%",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          textAlign: "center",
+        },
+      },
+      n,
+    );
+  }),
+  VC = l.default.button(function (e) {
+    var t = e.theme,
+      n = e.variant,
+      a = e.condensed;
+    return {
+      backgroundColor: a ? "transparent" : "#00000030",
+      color: _a(t, "snackbar.".concat(n, ".labelColor"), m),
+      display: "flex",
+      position: a ? "initial" : "absolute",
+      alignItems: "center",
+      justifyContent: "center",
+      cursor: "pointer",
+      width: a ? 15 : 25,
+      height: a ? 15 : 25,
+      borderRadius: a ? 0 : "100%",
+      border: "none",
+      top: "50%",
+      right: 25,
+      transform: a ? "initial" : "translateY(-50%)",
+      padding: 0,
+      "&:hover": { backgroundColor: a ? "transparent" : "#00000040" },
+      "& svg": { width: a ? 10 : 12, height: a ? 10 : 12 },
+    };
+  }),
+  $C = function (e) {
+    return i.createElement(
+      "svg",
+      Ge(
+        {
+          xmlns: "http://www.w3.org/2000/svg",
+          className: "min-icon",
+          fill: "currentcolor",
+          viewBox: "0 0 21 21",
+        },
+        e,
+      ),
+      i.createElement(
+        "defs",
+        null,
+        i.createElement(
+          "clipPath",
+          { id: "clip-path-help-icon" },
+          i.createElement("rect", {
+            id: "Rectángulo_961",
+            "data-name": "Rectángulo 961",
+            width: "21",
+            height: "21",
+            transform: "translate(0 -0.159)",
+            fill: "currentcolor",
+          }),
+        ),
+      ),
+      i.createElement(
+        "g",
+        { id: "HelpIcon-Full", transform: "translate(0 0.159)" },
+        i.createElement(
+          "g",
+          {
+            id: "Grupo_2320",
+            "data-name": "Grupo 2320",
+            clipPath: "url(#clip-path-help-icon)",
+          },
+          i.createElement("path", {
+            id: "Trazado_7048",
+            "data-name": "Trazado 7048",
+            d: "M10.42,0A10.42,10.42,0,1,0,20.84,10.42,10.42,10.42,0,0,0,10.42,0M9.534,18.477a2,2,0,0,1-1.953-1.953h0a1.943,1.943,0,1,1,1.953,1.953m1.309-6.32-.082,1.176H8.3V9.856h.982c1.974,0,3.037-.624,3.037-1.82,0-1.1-1.053-1.7-3.007-1.7-.552,0-1.125.041-1.554.081L7.561,3.73A15.939,15.939,0,0,1,9.626,3.6c3.569,0,5.635,1.647,5.635,4.234,0,2.362-1.575,3.876-4.418,4.326",
+            fill: "currentcolor",
+          }),
+        ),
+      ),
+    );
+  },
+  jC = l.default.div(function (e) {
     var t = e.theme,
       n = e.sx;
     return Ge(
@@ -45319,7 +45454,7 @@ var AC,
       n,
     );
   }),
-  GC = l.default.div(function (e) {
+  WC = l.default.div(function (e) {
     var t = e.theme;
     return {
       display: "flex",
@@ -45337,7 +45472,7 @@ var AC,
       "&:not(.disabled):hover": { backgroundColor: _a(t, "boxBackground", E) },
     };
   }),
-  ZC = l.default.div(function (e) {
+  qC = l.default.div(function (e) {
     var t = e.theme,
       n = e.expanded;
     return {
@@ -45347,6 +45482,178 @@ var AC,
         padding: 10,
         marginTop: n ? 0 : "-100%",
         transition: "all 0.2s",
+      },
+    };
+  }),
+  KC = t.keyframes(
+    RC ||
+      (RC = je(
+        ["\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n"],
+        ["\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n"],
+      )),
+  ),
+  YC = l.default.span(
+    { display: "inline-flex", position: "relative" },
+    t.css(
+      NC ||
+        (NC = je(
+          [
+            "\n    &:hover {\n      & .tooltipElement {\n        display: block;\n        animation: ",
+            " 1s;\n      }\n    }\n  ",
+          ],
+          [
+            "\n    &:hover {\n      & .tooltipElement {\n        display: block;\n        animation: ",
+            " 1s;\n      }\n    }\n  ",
+          ],
+        )),
+      KC,
+    ),
+  ),
+  XC = l.default.div(function (e) {
+    var t = e.theme,
+      n = e.placement,
+      a = "6px",
+      r = _a(t, "tooltip.background", "#737373"),
+      o = _a(t, "tooltip.color", "#FFFFFF"),
+      i = {},
+      l = {
+        content: "' '",
+        left: "50%",
+        border: "solid transparent",
+        height: 0,
+        width: 0,
+        position: "absolute",
+        pointerEvents: "none",
+        borderWidth: a,
+        marginLeft: "calc(".concat(a, " * -1);"),
+      };
+    switch (n) {
+      case "top":
+        i = {
+          transform: "translateX(-50%) translateY(-50%)",
+          "&::before": Ge(Ge({}, l), { top: "100%", borderTopColor: r }),
+        };
+        break;
+      case "right":
+        i = {
+          transform: "translateX(0) translateY(-50%)",
+          "&::before": Ge(Ge({}, l), {
+            left: "calc(".concat(a, " * -1)"),
+            top: "50%",
+            transform: "translateX(0) translateY(-50%)",
+            borderRightColor: r,
+          }),
+        };
+        break;
+      case "left":
+        i = {
+          transform: "translateX(-100%) translateY(-50%)",
+          "&::before": Ge(Ge({}, l), {
+            left: "auto",
+            right: "calc(".concat(a, " * -2)"),
+            top: "50%",
+            transform: "translateX(0) translateY(-50%)",
+            borderLeftColor: r,
+          }),
+        };
+        break;
+      default:
+        i = {
+          transform: "translateX(-50%)",
+          "&::before": Ge(Ge({}, l), { bottom: "100%", borderBottomColor: r }),
+        };
+    }
+    return Ge(
+      {
+        position: "fixed",
+        borderRadius: 4,
+        color: o,
+        background: r,
+        lineHeight: 1,
+        zIndex: 10001,
+        padding: 8,
+        fontSize: 12,
+        boxShadow: "#00000050 0px 3px 10px",
+        maxWidth: 350,
+      },
+      i,
+    );
+  }),
+  QC = l.default.div(function (e) {
+    var t = e.theme,
+      n = e.placement,
+      a = "6px",
+      r = _a(t, "tooltip.background", "#737373"),
+      o = {},
+      i = {
+        content: "' '",
+        left: "50%",
+        height: 0,
+        width: 0,
+        position: "absolute",
+        pointerEvents: "none",
+        marginLeft: "calc(".concat(a, " * -1);"),
+      };
+    switch (n) {
+      case "top":
+        o = {
+          transform: "translateX(-50%) translateY(-50%)",
+          "&::before": Ge(Ge({}, i), { top: "100%", borderTopColor: r }),
+        };
+        break;
+      case "right":
+        o = {
+          transform: "translateX(0) translateY(-50%)",
+          "&::before": Ge(Ge({}, i), {
+            left: "calc(".concat(a, " * -1)"),
+            top: "50%",
+            transform: "translateX(0) translateY(-50%)",
+            borderRightColor: r,
+          }),
+        };
+        break;
+      case "left":
+        o = {
+          transform: "translateX(-100%) translateY(-50%)",
+          "&::before": Ge(Ge({}, i), {
+            left: "auto",
+            right: "calc(".concat(a, " * -2)"),
+            top: "50%",
+            transform: "translateX(0) translateY(-50%)",
+            borderLeftColor: r,
+          }),
+        };
+        break;
+      default:
+        o = {
+          transform: "translateX(-50%)",
+          "&::before": Ge(Ge({}, i), { bottom: "100%", borderBottomColor: r }),
+        };
+    }
+    return Ge({ position: "fixed", color: r, zIndex: 10001 }, o);
+  }),
+  JC = l.default.div(function (e) {
+    var t = e.theme;
+    return {
+      border: "1px solid ".concat(_a(t, "borderColor", "#E2E2E2")),
+      borderRadius: 2,
+      backgroundColor: _a(t, "boxBackground", "#FBFAFA"),
+      paddingLeft: 25,
+      paddingTop: 20,
+      paddingBottom: 20,
+      paddingRight: 30,
+      "& .leftItems": {
+        fontSize: 16,
+        fontWeight: "bold",
+        display: "flex",
+        alignItems: "center",
+        "& .min-icon": { marginRight: 15, height: 28, width: 38 },
+      },
+      "& .helpText": {
+        fontSize: 10,
+        paddingLeft: 5,
+        marginTop: 15,
+        color: "black",
       },
     };
   });
@@ -45515,10 +45822,10 @@ var AC,
       l = e.id,
       s = e.sx;
     return o.default.createElement(
-      zC,
+      jC,
       { id: l, sx: s },
       o.default.createElement(
-        GC,
+        WC,
         {
           onClick: function () {
             return i ? null : r();
@@ -45531,7 +45838,7 @@ var AC,
           : o.default.createElement(Pc, null),
       ),
       o.default.createElement(
-        ZC,
+        qC,
         { className: "accordionContent", expanded: n },
         o.default.createElement(Ps, { className: "expandSubContainer" }, a),
       ),
@@ -45628,7 +45935,7 @@ var AC,
       s = t.children,
       c = Ze(t, ["label", "isLoading", "sx", "children"]);
     return o.default.createElement(
-      OC,
+      MC,
       Ge({}, c, { sx: l }),
       i
         ? o.default.createElement(qr, { style: { width: 16, height: 16 } })
@@ -46068,7 +46375,7 @@ var AC,
       }),
     );
   }),
-  (exports.AttachFileIcon = HC),
+  (exports.AttachFileIcon = UC),
   (exports.AudioIcon = function (e) {
     return i.createElement(
       "svg",
@@ -47306,7 +47613,7 @@ var AC,
       m = e.helpTools,
       h = e.className;
     return o.default.createElement(
-      IC,
+      OC,
       { sx: p, editorHeight: u, className: "codeEditor inputItem ".concat(h) },
       o.default.createElement(
         oo,
@@ -47326,7 +47633,7 @@ var AC,
       o.default.createElement(
         Ps,
         { className: "editorContainer" },
-        o.default.createElement(xC, {
+        o.default.createElement(kC, {
           value: t,
           language: s,
           onChange: function (e) {
@@ -49837,7 +50144,7 @@ var AC,
       y = t.sx,
       C = e.useRef(null);
     return o.default.createElement(
-      FC,
+      zC,
       { error: !!m && "" !== m, sx: y, className: "inputItem ".concat(b) },
       "" !== n &&
         o.default.createElement(
@@ -49914,7 +50221,7 @@ var AC,
               size: "small",
               disabled: s,
             },
-            o.default.createElement(HC, null),
+            o.default.createElement(UC, null),
           ),
         ),
         "" !== m && o.default.createElement(Ps, { className: "errorText" }, m),
@@ -50781,52 +51088,205 @@ var AC,
     );
   }),
   (exports.HelpIcon = so),
-  (exports.HelpIconFilled = function (e) {
-    return i.createElement(
-      "svg",
-      Ge(
-        {
-          xmlns: "http://www.w3.org/2000/svg",
-          className: "min-icon",
-          fill: "currentcolor",
-          viewBox: "0 0 21 21",
+  (exports.HelpIconFilled = $C),
+  (exports.HelpTip = function (t) {
+    var a = t.children,
+      r = t.content,
+      i = t.placement,
+      l = void 0 === i ? "bottom" : i,
+      s = e.useState(null),
+      c = s[0],
+      d = s[1],
+      u = e.useState(!1),
+      p = u[0],
+      m = u[1],
+      h = e.useState(!1),
+      f = h[0],
+      g = h[1],
+      E = function () {
+        f || (m(!1), g(!0));
+      };
+    var b,
+      T = e.useRef(null);
+    return (
+      (b = T),
+      e.useEffect(
+        function () {
+          function e(e) {
+            b.current && !b.current.contains(e.target) && g(!1);
+          }
+          return (
+            document.addEventListener("mousedown", e),
+            function () {
+              document.removeEventListener("mousedown", e);
+            }
+          );
         },
-        e,
+        [b],
       ),
-      i.createElement(
-        "defs",
+      o.default.createElement(
+        e.Fragment,
         null,
-        i.createElement(
-          "clipPath",
-          { id: "clip-path-help-icon" },
-          i.createElement("rect", {
-            id: "Rectángulo_961",
-            "data-name": "Rectángulo 961",
-            width: "21",
-            height: "21",
-            transform: "translate(0 -0.159)",
-            fill: "currentcolor",
-          }),
-        ),
-      ),
-      i.createElement(
-        "g",
-        { id: "HelpIcon-Full", transform: "translate(0 0.159)" },
-        i.createElement(
-          "g",
+        o.default.createElement(
+          YC,
           {
-            id: "Grupo_2320",
-            "data-name": "Grupo 2320",
-            clipPath: "url(#clip-path-help-icon)",
+            ref: T,
+            onPointerEnter: function (e) {
+              f || (d(e.currentTarget), m(!0));
+            },
+            onMouseLeave: function () {
+              f
+                ? setTimeout(function () {
+                    m(!1), g(!1);
+                  }, 5e3)
+                : setTimeout(function () {
+                    m(!1);
+                  }, 1e3);
+            },
           },
-          i.createElement("path", {
-            id: "Trazado_7048",
-            "data-name": "Trazado 7048",
-            d: "M10.42,0A10.42,10.42,0,1,0,20.84,10.42,10.42,10.42,0,0,0,10.42,0M9.534,18.477a2,2,0,0,1-1.953-1.953h0a1.943,1.943,0,1,1,1.953,1.953m1.309-6.32-.082,1.176H8.3V9.856h.982c1.974,0,3.037-.624,3.037-1.82,0-1.1-1.053-1.7-3.007-1.7-.552,0-1.125.041-1.554.081L7.561,3.73A15.939,15.939,0,0,1,9.626,3.6c3.569,0,5.635,1.647,5.635,4.234,0,2.362-1.575,3.876-4.418,4.326",
-            fill: "currentcolor",
-          }),
+          a,
+          p &&
+            !f &&
+            n.createPortal(
+              o.default.createElement(
+                function (e) {
+                  var t = e.placement,
+                    n = e.anchorEl,
+                    a = {},
+                    r = t;
+                  if (n) {
+                    var i = n.getBoundingClientRect(),
+                      l = document.documentElement.offsetWidth,
+                      s = document.documentElement.offsetHeight;
+                    switch (t) {
+                      case "bottom":
+                        i.top + i.height + 45 > s && (r = "top");
+                        break;
+                      case "left":
+                        i.left - 175 < 0 && (r = "right");
+                        break;
+                      case "right":
+                        i.left + i.width + 175 > l && (r = "left");
+                        break;
+                      case "top":
+                        i.top < 45 && (r = "bottom");
+                    }
+                    switch (r) {
+                      case "bottom":
+                        a = {
+                          top: i.top + i.height + 10,
+                          left: i.left + i.width / 2,
+                        };
+                        break;
+                      case "left":
+                        a = { top: i.top + i.height / 2, left: i.left - 12 };
+                        break;
+                      case "right":
+                        a = {
+                          top: i.top + i.height / 2,
+                          left: i.left + i.width + 12,
+                        };
+                        break;
+                      case "top":
+                        a = {
+                          top: i.top - i.height / 2 - 10,
+                          left: i.left + i.width / 2,
+                        };
+                    }
+                  }
+                  return o.default.createElement(
+                    QC,
+                    { placement: r, style: a, onClick: E },
+                    o.default.createElement($C, {
+                      style: { width: 12, height: 12 },
+                    }),
+                  );
+                },
+                {
+                  placement: l,
+                  content: o.default.createElement($C, null),
+                  anchorEl: c,
+                },
+              ),
+              document.body,
+            ),
+          f &&
+            n.createPortal(
+              o.default.createElement(
+                function (e) {
+                  var t = e.placement,
+                    n = e.content,
+                    a = e.anchorEl,
+                    r = {},
+                    i = t;
+                  if (a) {
+                    var l = a.getBoundingClientRect(),
+                      s = document.documentElement.offsetWidth,
+                      c = document.documentElement.offsetHeight;
+                    switch (t) {
+                      case "bottom":
+                        l.top + l.height + 45 > c && (i = "top");
+                        break;
+                      case "left":
+                        l.left - 175 < 0 && (i = "right");
+                        break;
+                      case "right":
+                        l.left + l.width + 175 > s && (i = "left");
+                        break;
+                      case "top":
+                        l.top < 45 && (i = "bottom");
+                    }
+                    switch (i) {
+                      case "bottom":
+                        r = {
+                          top: l.top + l.height + 10,
+                          left: l.left + l.width / 2,
+                        };
+                        break;
+                      case "left":
+                        r = { top: l.top + l.height / 2, left: l.left - 12 };
+                        break;
+                      case "right":
+                        r = {
+                          top: l.top + l.height / 2,
+                          left: l.left + l.width + 12,
+                        };
+                        break;
+                      case "top":
+                        r = {
+                          top: l.top - l.height / 2 - 10,
+                          left: l.left + l.width / 2,
+                        };
+                    }
+                  }
+                  return o.default.createElement(
+                    XC,
+                    { placement: i, style: r, onClick: E },
+                    n,
+                  );
+                },
+                {
+                  placement: l,
+                  content: o.default.createElement(
+                    JC,
+                    { className: "helpbox-container", ref: T },
+                    o.default.createElement(
+                      lr,
+                      { container: !0 },
+                      o.default.createElement(
+                        lr,
+                        { item: !0, xs: 12, className: "helpText" },
+                        r,
+                      ),
+                    ),
+                  ),
+                  anchorEl: c,
+                },
+              ),
+              document.body,
+            ),
         ),
-      ),
+      )
     );
   }),
   (exports.HistoryIcon = function (e) {
@@ -53463,7 +53923,7 @@ var AC,
       h = void 0 === m ? "blue" : m,
       f = (100 * i) / s;
     return o.default.createElement(
-      PC,
+      BC,
       { color: h, sx: a },
       o.default.createElement(
         Ps,
@@ -53472,7 +53932,7 @@ var AC,
           Ps,
           { className: "progressContainer" },
           "indeterminate" === d
-            ? o.default.createElement(BC, { color: h })
+            ? o.default.createElement(FC, { color: h })
             : o.default.createElement(Ps, {
                 className: "percentageBar",
                 style: { width: "".concat(f, "%") },
@@ -54838,7 +55298,7 @@ var AC,
       );
     var g = p(l);
     return o.default.createElement(
-      UC,
+      GC,
       {
         width: a,
         height: i,
@@ -54889,6 +55349,76 @@ var AC,
           ),
         ),
     );
+  }),
+  (exports.Snackbar = function (t) {
+    var a = t.autoHideDuration,
+      r = void 0 === a ? 5 : a,
+      i = t.message,
+      l = void 0 === i ? "" : i,
+      s = t.open,
+      c = t.onClose,
+      d = t.variant,
+      u = void 0 === d ? "default" : d,
+      p = t.condensed,
+      m = void 0 !== p && p,
+      h = t.closeButton,
+      f = t.sx,
+      g = t.mode,
+      E = void 0 === g ? "portal" : g,
+      b = e.useState(!1),
+      T = b[0],
+      v = b[1],
+      _ = e.useRef(null);
+    e.useEffect(
+      function () {
+        if (s && r > 0 && !T) {
+          var e = 1e3 * r;
+          _.current = setTimeout(function () {
+            c();
+          }, e);
+        }
+        return function () {
+          clearTimeout(_.current);
+        };
+      },
+      [s, r, T],
+    ),
+      e.useEffect(
+        function () {
+          T && clearTimeout(_.current);
+        },
+        [T],
+      );
+    if (!s || "" === l) return null;
+    var S = o.default.createElement(
+      ZC,
+      {
+        open: s,
+        variant: u,
+        sx: f,
+        onMouseOver: function () {
+          return v(!0);
+        },
+        onMouseLeave: function () {
+          return v(!1);
+        },
+        condensed: m,
+      },
+      o.default.createElement(Ps, { className: "messageTruncation" }, l),
+      h &&
+        o.default.createElement(
+          VC,
+          {
+            variant: u,
+            condensed: m,
+            onClick: function () {
+              clearTimeout(_.current), c();
+            },
+          },
+          o.default.createElement(Nc, null),
+        ),
+    );
+    return "portal" === E ? n.createPortal(S, document.body) : S;
   }),
   (exports.SpeedtestIcon = function (e) {
     return i.createElement(
@@ -55375,7 +55905,7 @@ var AC,
         "icon",
       ]);
     return o.default.createElement(
-      kC,
+      LC,
       Ge({ id: l, color: a, sx: r, variant: d }, p),
       u,
       o.default.createElement("span", null, s, t),
@@ -56223,7 +56753,7 @@ var AC,
       l = void 0 === i ? "column" : i,
       s = e.sx;
     return o.default.createElement(
-      LC,
+      PC,
       { sx: s, direction: l },
       o.default.createElement(Ps, { className: "label" }, r),
       o.default.createElement(Ps, { className: "value" }, n),

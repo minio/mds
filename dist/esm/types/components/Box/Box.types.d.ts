@@ -6,4 +6,5 @@ export interface BoxProps {
   withBorders?: boolean;
   customBorderPadding?: number | string;
   useBackground?: boolean;
+  ref?: React.RefObject<HTMLInputElement>;
 }
