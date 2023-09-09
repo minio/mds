@@ -39,7 +39,7 @@ const opacityAnimation = keyframes`
   }
 `;
 
-export const TooltipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
+const TooltipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   {
     display: "inline-flex",
     position: "relative",
