@@ -4,7 +4,7 @@ export interface AccordionProps {
   expanded: boolean;
   onTitleClick: () => void;
   id: string;
-  title: string;
+  title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
   sx?: CSSObject;

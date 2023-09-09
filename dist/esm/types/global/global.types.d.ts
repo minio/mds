@@ -225,6 +225,16 @@ export interface TagThemeProps {
   alert: TagVariantProps;
   ok: TagVariantProps;
 }
+interface SnackBarColorElements {
+  backgroundColor: string;
+  labelColor: string;
+}
+export interface SnackBarThemeProps {
+  default: SnackBarColorElements;
+  success: SnackBarColorElements;
+  warning: SnackBarColorElements;
+  error: SnackBarColorElements;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -265,6 +275,7 @@ export interface ThemeDefinitionProps {
   tabs?: TabThemeProps;
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
+  snackbar?: SnackBarThemeProps;
 }
 export interface SelectorType {
   label: string;
