@@ -240,6 +240,8 @@ const CodeMirrorWrapper: FC<CodeEditorProps> = ({
   sx,
   helpTools,
   className,
+  helpTip,
+  helpTipPlacement,
 }) => {
   return (
     <CodeEditorBase
@@ -249,6 +251,8 @@ const CodeMirrorWrapper: FC<CodeEditorProps> = ({
     >
       <InputLabel
         sx={{ marginBottom: "10px", display: "flex", alignItems: "center" }}
+        helpTip={helpTip}
+        helpTipPlacement={helpTipPlacement}
       >
         <span>{label}</span>
         {tooltip !== "" && (

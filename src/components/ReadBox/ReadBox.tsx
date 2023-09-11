@@ -76,6 +76,8 @@ const ReadBox: FC<ReadBoxProps> = ({
   multiLine,
   actionButton,
   sx,
+  helpTip,
+  helpTipPlacement,
 }) => {
   return (
     <ReadBoxBase
@@ -85,7 +87,13 @@ const ReadBox: FC<ReadBoxProps> = ({
       sx={sx}
     >
       {label !== "" && (
-        <InputLabel className={"inputLabel"}>{label}</InputLabel>
+        <InputLabel
+          className={"inputLabel"}
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
+        >
+          {label}
+        </InputLabel>
       )}
       <Box
         className={`predefinedList ${

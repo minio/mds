@@ -450,6 +450,8 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   tooltip?: string;
   overrideLabelClasses?: string;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 
 declare const Checkbox: FC<
@@ -461,6 +463,8 @@ interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   sx?: CSSObject;
   noMinWidth?: boolean;
   htmlFor?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 
 declare const InputLabel: FC<InputLabelProps>;
@@ -668,6 +672,8 @@ interface InputBoxProps
   required?: boolean;
   className?: string;
   error?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface InputContainerProps {
   children?: React__default.ReactNode;
@@ -774,6 +780,8 @@ interface MainSwitchProps {
   switchOnly?: boolean;
   indicatorLabels?: string[];
   description?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface IndicatorProps {
   on: boolean;
@@ -804,6 +812,8 @@ interface SelectProps {
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 
 declare const Select: FC<SelectProps>;
@@ -838,6 +848,8 @@ interface RadioGroupProps {
     extraValue?: any,
   ) => void;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface OptionsContainerProps {
   inColumn: boolean;
@@ -851,6 +863,8 @@ interface ReadBoxProps {
   multiLine?: boolean;
   actionButton?: React__default.ReactNode;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface ReadBoxBaseProps {
   label?: string;
@@ -872,6 +886,8 @@ interface CommentBoxProps
   required?: boolean;
   className?: string;
   error?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface CommentContainerProps {
   children?: React__default.ReactNode;
@@ -1002,6 +1018,8 @@ interface CodeEditorProps {
   className?: string;
   helpTools?: React__default.ReactNode;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface CodeEditorBaseProps {
   editorHeight: string | number;
@@ -1087,6 +1105,8 @@ interface FileSelectorProps {
   className?: string;
   noLabelMinWidth?: boolean;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 interface FileSelectorConstructorProps {
   children?: React__default.ReactNode;

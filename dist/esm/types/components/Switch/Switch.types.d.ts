@@ -9,6 +9,8 @@ export interface MainSwitchProps {
   switchOnly?: boolean;
   indicatorLabels?: string[];
   description?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 export interface IndicatorProps {
   on: boolean;

@@ -5,4 +5,6 @@ export interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   tooltip?: string;
   overrideLabelClasses?: string;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }

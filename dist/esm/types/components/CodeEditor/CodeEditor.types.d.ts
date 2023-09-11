@@ -10,6 +10,8 @@ export interface CodeEditorProps {
   className?: string;
   helpTools?: React.ReactNode;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 export interface CodeEditorBaseProps {
   editorHeight: string | number;

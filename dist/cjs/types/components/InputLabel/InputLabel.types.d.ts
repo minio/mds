@@ -5,4 +5,6 @@ export interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   sx?: CSSObject;
   noMinWidth?: boolean;
   htmlFor?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }

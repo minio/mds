@@ -34,6 +34,8 @@ export interface InputBoxProps
   required?: boolean;
   className?: string;
   error?: string;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 
 export interface InputContainerProps {

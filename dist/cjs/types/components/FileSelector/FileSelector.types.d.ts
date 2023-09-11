@@ -19,6 +19,8 @@ export interface FileSelectorProps {
   className?: string;
   noLabelMinWidth?: boolean;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 export interface FileSelectorConstructorProps {
   children?: React.ReactNode;

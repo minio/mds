@@ -6,6 +6,8 @@ export interface ReadBoxProps {
   multiLine?: boolean;
   actionButton?: React.ReactNode;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 export interface ReadBoxBaseProps {
   label?: string;

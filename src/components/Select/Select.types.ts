@@ -32,4 +32,6 @@ export interface SelectProps {
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }

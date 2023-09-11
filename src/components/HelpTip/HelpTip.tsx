@@ -41,7 +41,7 @@ const opacityAnimation = keyframes`
     opacity: 1;
   }
 `;
-
+let placementOptions = new Set<string>(["top", "bottom", "left", "right"]);
 const HelptipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   {
     display: "inline-flex",
@@ -57,86 +57,88 @@ const HelptipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   `,
 );
 
-const HelptipItem = styled.div<HelpTipBuild>(({ theme, placement }) => {
-  const tooltipArrowSize = "6px";
+const HelptipItem = styled.div<HelpTipBuild>(
+  ({ theme, placement = "hide" }) => {
+    const tooltipArrowSize = "6px";
 
-  const background = get(theme, "tooltip.background", "#737373");
-  const textColor = get(theme, "tooltip.color", "#FFFFFF");
+    const background = get(theme, "tooltip.background", "#737373");
+    const textColor = get(theme, "tooltip.color", "#FFFFFF");
 
-  let placementPosition = {};
-  const beforePosition = {
-    content: "' '",
-    left: "50%",
-    border: "solid transparent",
-    height: 0,
-    width: 0,
-    position: "absolute",
-    pointerEvents: "none",
-    borderWidth: tooltipArrowSize,
-    marginLeft: `calc(${tooltipArrowSize} * -1);`,
-  };
+    let placementPosition = {};
+    const beforePosition = {
+      content: "' '",
+      left: "50%",
+      border: "solid transparent",
+      height: 0,
+      width: 0,
+      position: "absolute",
+      pointerEvents: "none",
+      borderWidth: tooltipArrowSize,
+      marginLeft: `calc(${tooltipArrowSize} * -1);`,
+    };
 
-  switch (placement) {
-    case "top":
-      placementPosition = {
-        transform: "translateX(-50%) translateY(-50%)",
-        "&::before": {
-          ...beforePosition,
-          top: "100%",
-          borderTopColor: background,
-        },
-      };
-      break;
-    case "right":
-      placementPosition = {
-        transform: "translateX(0) translateY(-50%)",
-        "&::before": {
-          ...beforePosition,
-          left: `calc(${tooltipArrowSize} * -1)`,
-          top: "50%",
+    switch (placement) {
+      case "top":
+        placementPosition = {
+          transform: "translateX(-50%) translateY(-50%)",
+          "&::before": {
+            ...beforePosition,
+            top: "100%",
+            borderTopColor: background,
+          },
+        };
+        break;
+      case "right":
+        placementPosition = {
           transform: "translateX(0) translateY(-50%)",
-          borderRightColor: background,
-        },
-      };
-      break;
-    case "left":
-      placementPosition = {
-        transform: "translateX(-100%) translateY(-50%)",
-        "&::before": {
-          ...beforePosition,
-          left: "auto",
-          right: `calc(${tooltipArrowSize} * -2)`,
-          top: "50%",
-          transform: "translateX(0) translateY(-50%)",
-          borderLeftColor: background,
-        },
-      };
-      break;
-    default:
-      placementPosition = {
-        transform: "translateX(-50%)",
-        "&::before": {
-          ...beforePosition,
-          bottom: "100%",
-          borderBottomColor: background,
-        },
-      };
-  }
+          "&::before": {
+            ...beforePosition,
+            left: `calc(${tooltipArrowSize} * -1)`,
+            top: "50%",
+            transform: "translateX(0) translateY(-50%)",
+            borderRightColor: background,
+          },
+        };
+        break;
+      case "left":
+        placementPosition = {
+          transform: "translateX(-100%) translateY(-50%)",
+          "&::before": {
+            ...beforePosition,
+            left: "auto",
+            right: `calc(${tooltipArrowSize} * -2)`,
+            top: "50%",
+            transform: "translateX(0) translateY(-50%)",
+            borderLeftColor: background,
+          },
+        };
+        break;
+      default:
+        placementPosition = {
+          transform: "translateX(-50%)",
+          "&::before": {
+            ...beforePosition,
+            bottom: "100%",
+            borderBottomColor: background,
+          },
+        };
+    }
 
-  return {
-    position: "fixed",
-    borderRadius: 4,
-    color: textColor,
-    background: background,
-    lineHeight: 1,
-    zIndex: 10001,
-    padding: 8,
-    fontSize: 12,
-    boxShadow: "#00000050 0px 3px 10px",
-    maxWidth: 350,
-    ...placementPosition,
-  };
-});
+    return {
+      position: "fixed",
+      borderRadius: 4,
+      color: textColor,
+      background: background,
+      lineHeight: 1,
+      zIndex: 10001,
+      padding: 2,
+      fontSize: 12,
+      boxShadow: "#00000050 0px 3px 10px",
+      maxWidth: 350,
+      ...placementPosition,
+    };
+  },
+);
 
 const HelpTargetItem = styled.div<HelpTipBuild>(({ theme, placement }) => {
   const tooltipArrowSize = "6px";
@@ -213,17 +215,17 @@ const BaseHelpTip = styled.div(({ theme }) => ({
   border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
   borderRadius: 2,
   backgroundColor: get(theme, "boxBackground", "#FBFAFA"),
-  paddingLeft: 25,
-  paddingTop: 20,
-  paddingBottom: 20,
-  paddingRight: 30,
+  paddingLeft: 10,
+  paddingTop: 5,
+  paddingBottom: 5,
+  paddingRight: 10,
   "& .leftItems": {
     fontSize: 16,
     fontWeight: "bold",
     display: "flex",
     alignItems: "center",
     "& .min-icon": {
-      marginRight: 15,
+      marginRight: 5,
       height: 28,
       width: 38,
     },
@@ -231,16 +233,12 @@ const BaseHelpTip = styled.div(({ theme }) => ({
   "& .helpText": {
     fontSize: 10,
     paddingLeft: 5,
-    marginTop: 15,
+    marginTop: 5,
     color: "black",
   },
 }));
 
-export const HelpTip: FC<HelpTipProps> = ({
-  children,
-  content,
-  placement = "bottom",
-}) => {
+export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
   const [anchorEl, setAnchorEl] = useState<
     (EventTarget & HTMLSpanElement) | null
   >(null);
@@ -252,7 +250,7 @@ export const HelpTip: FC<HelpTipProps> = ({
       ? setTimeout(() => {
           setHelptipVisible(false);
           setHelptipOpen(false);
-        }, 5000)
+        }, 50000)
       : setTimeout(() => {
           setHelptipVisible(false);
         }, 1000);
@@ -272,7 +270,7 @@ export const HelpTip: FC<HelpTipProps> = ({
   }) => {
     let position = {};
     let calculatedPlacement = placement;
-    const boundYLimit = 45;
+    const boundYLimit = 25;
     const boundXLimit = 175;
 
     if (anchorEl) {
@@ -376,7 +374,7 @@ export const HelpTip: FC<HelpTipProps> = ({
           const calcInitPosition = bounds.left - boundXLimit;
 
           if (calcInitPosition < 0) {
-            calculatedPlacement = "right";
+            //calculatedPlacement = "right";
           }
 
           break;
@@ -451,7 +449,7 @@ export const HelpTip: FC<HelpTipProps> = ({
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
-  return (
+  return placement && placementOptions.has(placement) ? (
     <Fragment>
       <HelptipWrapper
         ref={wrapperRef}
@@ -469,7 +467,7 @@ export const HelpTip: FC<HelpTipProps> = ({
           createPortal(
             <HelptipTarget
               placement={placement}
-              content={<HelpIconFilled />}
+              content={<HelpIconFilled color="red" />}
               anchorEl={anchorEl}
             />,
             document.body,
@@ -493,6 +491,8 @@ export const HelpTip: FC<HelpTipProps> = ({
           )}
       </HelptipWrapper>
     </Fragment>
+  ) : (
+    <Fragment>{children}</Fragment>
   );
 };
 

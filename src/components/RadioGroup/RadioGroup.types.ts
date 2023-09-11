@@ -33,6 +33,8 @@ export interface RadioGroupProps {
     extraValue?: any,
   ) => void;
   sx?: CSSObject;
+  helpTip?: any;
+  helpTipPlacement?: "top" | "bottom" | "left" | "right";
 }
 
 export interface OptionsContainerProps {

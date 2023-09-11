@@ -66,7 +66,17 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
 
 const Checkbox: FC<
   CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>
-> = ({ tooltip, label, id, overrideLabelClasses, sx, className, ...props }) => {
+> = ({
+  tooltip,
+  label,
+  id,
+  overrideLabelClasses,
+  sx,
+  className,
+  helpTip,
+  helpTipPlacement,
+  ...props
+}) => {
   return (
     <FieldContainer
       className={`inputItem ${className ? className : ""}`}
@@ -90,6 +100,8 @@ const Checkbox: FC<
           sx={{
             marginLeft: 10,
           }}
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
         >
           {label}
           {tooltip && tooltip !== "" && (
