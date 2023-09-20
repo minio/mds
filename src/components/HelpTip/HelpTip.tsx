@@ -374,7 +374,6 @@ export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
           const calcInitPosition = bounds.left - boundXLimit;
 
           if (calcInitPosition < 0) {
-            //calculatedPlacement = "right";
           }
 
           break;
