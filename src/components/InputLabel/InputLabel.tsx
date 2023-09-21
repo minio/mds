@@ -53,9 +53,13 @@ const InputLabel: FC<InputLabelProps> = ({
   return (
     <CustomLabel sx={sx} htmlFor={htmlFor} {...props}>
       <span className={`${noMinWidth ? "noMinWidthLabel" : ""}`}>
-        <HelpTip placement={helpTipPlacement} content={helpTip}>
-          {children}
-        </HelpTip>
+        {helpTip ? (
+          <HelpTip placement={helpTipPlacement} content={helpTip}>
+            {children}
+          </HelpTip>
+        ) : (
+          children
+        )}
       </span>
     </CustomLabel>
   );

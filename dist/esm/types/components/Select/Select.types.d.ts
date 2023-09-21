@@ -1,5 +1,7 @@
+/// <reference types="react" />
 import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
+import { HelpTipPlacement } from "../../global/global.types";
 export interface SelectProps {
   options: SelectorType[];
   value?: string;
@@ -15,4 +17,6 @@ export interface SelectProps {
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
   sx?: CSSObject;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: HelpTipPlacement;
 }

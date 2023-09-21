@@ -32,6 +32,7 @@ import {
 } from "./HelpTip.types";
 import Grid from "../Grid/Grid";
 import { HelpIconFilled } from "../Icons";
+import { HelpTipPlacement } from "../../global/global.types";
 
 const opacityAnimation = keyframes`
   from {
@@ -57,88 +58,86 @@ const HelptipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   `,
 );
 
-const HelptipItem = styled.div<HelpTipBuild>(
-  ({ theme, placement = "hide" }) => {
-    const tooltipArrowSize = "6px";
+const HelptipItem = styled.div<HelpTipBuild>(({ theme, placement }) => {
+  const tooltipArrowSize = "6px";
 
-    const background = get(theme, "tooltip.background", "#737373");
-    const textColor = get(theme, "tooltip.color", "#FFFFFF");
+  const background = get(theme, "tooltip.background", "#737373");
+  const textColor = get(theme, "tooltip.color", "#FFFFFF");
 
-    let placementPosition = {};
-    const beforePosition = {
-      content: "' '",
-      left: "50%",
-      border: "solid transparent",
-      height: 0,
-      width: 0,
-      position: "absolute",
-      pointerEvents: "none",
-      borderWidth: tooltipArrowSize,
-      marginLeft: `calc(${tooltipArrowSize} * -1);`,
-    };
+  let placementPosition = {};
+  const beforePosition = {
+    content: "' '",
+    left: "50%",
+    border: "solid transparent",
+    height: 0,
+    width: 0,
+    position: "absolute",
+    pointerEvents: "none",
+    borderWidth: tooltipArrowSize,
+    marginLeft: `calc(${tooltipArrowSize} * -1);`,
+  };
 
-    switch (placement) {
-      case "top":
-        placementPosition = {
-          transform: "translateX(-50%) translateY(-50%)",
-          "&::before": {
-            ...beforePosition,
-            top: "100%",
-            borderTopColor: background,
-          },
-        };
-        break;
-      case "right":
-        placementPosition = {
+  switch (placement) {
+    case "top":
+      placementPosition = {
+        transform: "translateX(-50%) translateY(-50%)",
+        "&::before": {
+          ...beforePosition,
+          top: "100%",
+          borderTopColor: background,
+        },
+      };
+      break;
+    case "right":
+      placementPosition = {
+        transform: "translateX(0) translateY(-50%)",
+        "&::before": {
+          ...beforePosition,
+          left: `calc(${tooltipArrowSize} * -1)`,
+          top: "50%",
           transform: "translateX(0) translateY(-50%)",
-          "&::before": {
-            ...beforePosition,
-            left: `calc(${tooltipArrowSize} * -1)`,
-            top: "50%",
-            transform: "translateX(0) translateY(-50%)",
-            borderRightColor: background,
-          },
-        };
-        break;
-      case "left":
-        placementPosition = {
-          transform: "translateX(-100%) translateY(-50%)",
-          "&::before": {
-            ...beforePosition,
-            left: "auto",
-            right: `calc(${tooltipArrowSize} * -2)`,
-            top: "50%",
-            transform: "translateX(0) translateY(-50%)",
-            borderLeftColor: background,
-          },
-        };
-        break;
-      default:
-        placementPosition = {
-          transform: "translateX(-50%)",
-          "&::before": {
-            ...beforePosition,
-            bottom: "100%",
-            borderBottomColor: background,
-          },
-        };
-    }
+          borderRightColor: background,
+        },
+      };
+      break;
+    case "left":
+      placementPosition = {
+        transform: "translateX(-100%) translateY(-50%)",
+        "&::before": {
+          ...beforePosition,
+          left: "auto",
+          right: `calc(${tooltipArrowSize} * -2)`,
+          top: "50%",
+          transform: "translateX(0) translateY(-50%)",
+          borderLeftColor: background,
+        },
+      };
+      break;
+    default:
+      placementPosition = {
+        transform: "translateX(-50%)",
+        "&::before": {
+          ...beforePosition,
+          bottom: "100%",
+          borderBottomColor: background,
+        },
+      };
+  }
 
-    return {
-      position: "fixed",
-      borderRadius: 4,
-      color: textColor,
-      background: background,
-      lineHeight: 1,
-      zIndex: 10001,
-      padding: 2,
-      fontSize: 12,
-      boxShadow: "#00000050 0px 3px 10px",
-      maxWidth: 350,
-      ...placementPosition,
-    };
-  },
-);
+  return {
+    position: "fixed",
+    borderRadius: 4,
+    color: textColor,
+    background: background,
+    lineHeight: 1,
+    zIndex: 10001,
+    padding: 2,
+    fontSize: 12,
+    boxShadow: "#00000050 0px 3px 10px",
+    maxWidth: 350,
+    ...placementPosition,
+  };
+});
 
 const HelpTargetItem = styled.div<HelpTipBuild>(({ theme, placement }) => {
   const tooltipArrowSize = "6px";
@@ -448,7 +447,7 @@ export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
-  return placement && placementOptions.has(placement) ? (
+  return placement && Object.values(HelpTipPlacement).includes(placement) ? (
     <Fragment>
       <HelptipWrapper
         ref={wrapperRef}

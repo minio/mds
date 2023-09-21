@@ -16,6 +16,7 @@
 
 import React from "react";
 import { CSSObject } from "styled-components";
+import { HelpTipPlacement } from "../../global/global.types";
 
 export interface InputBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -34,8 +35,8 @@ export interface InputBoxProps
   required?: boolean;
   className?: string;
   error?: string;
-  helpTip?: any;
-  helpTipPlacement?: "top" | "bottom" | "left" | "right";
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: HelpTipPlacement;
 }
 
 export interface InputContainerProps {
