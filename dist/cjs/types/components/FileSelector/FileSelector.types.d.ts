@@ -1,5 +1,4 @@
 import { CSSObject } from "styled-components";
-import { HelpTipPlacement } from "../../global/global.types";
 import React from "react";
 export interface FileSelectorProps {
   label: string;
@@ -20,8 +19,6 @@ export interface FileSelectorProps {
   className?: string;
   noLabelMinWidth?: boolean;
   sx?: CSSObject;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: HelpTipPlacement;
 }
 export interface FileSelectorConstructorProps {
   children?: React.ReactNode;

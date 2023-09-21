@@ -288,10 +288,4 @@ export interface IBytesCalc {
   total: number;
   unit: string;
 }
-export declare enum HelpTipPlacement {
-  top = 0,
-  bottom = 1,
-  left = 2,
-  right = 3,
-}
 export {};
