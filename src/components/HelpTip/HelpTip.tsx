@@ -42,7 +42,6 @@ const opacityAnimation = keyframes`
     opacity: 1;
   }
 `;
-let placementOptions = new Set<string>(["top", "bottom", "left", "right"]);
 const HelptipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   {
     display: "inline-flex",
@@ -465,7 +464,7 @@ export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
           createPortal(
             <HelptipTarget
               placement={placement}
-              content={<HelpIconFilled color="red" />}
+              content={<HelpIconFilled />}
               anchorEl={anchorEl}
             />,
             document.body,
