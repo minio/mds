@@ -130,6 +130,8 @@ const Select: FC<SelectProps> = ({
   fixedLabel = "",
   name,
   placeholder = "",
+  helpTip,
+  helpTipPlacement,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -149,6 +151,8 @@ const Select: FC<SelectProps> = ({
           htmlFor={id}
           noMinWidth={noLabelMinWidth}
           className={"inputLabel"}
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
         >
           {label}
           {required ? "*" : ""}

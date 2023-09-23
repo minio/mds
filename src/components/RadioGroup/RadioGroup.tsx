@@ -99,6 +99,8 @@ const RadioGroup: FC<RadioGroupProps> = ({
   currentValue,
   disableOptions = false,
   displayInColumn = false,
+  helpTip,
+  helpTipPlacement,
 }) => {
   return (
     <FieldContainer
@@ -112,7 +114,12 @@ const RadioGroup: FC<RadioGroupProps> = ({
       }}
     >
       {label !== "" && (
-        <InputLabel htmlFor={id} noMinWidth>
+        <InputLabel
+          htmlFor={id}
+          noMinWidth
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
+        >
           {label}
           {tooltip && tooltip !== "" && (
             <div className={"tooltipContainer"}>

@@ -100,6 +100,8 @@ const FileSelector: FC<FileSelectorProps> = ({
   noLabelMinWidth = false,
   returnEncodedData = false,
   sx,
+  helpTip,
+  helpTipPlacement,
 }) => {
   const fileUpload = useRef<HTMLInputElement>(null);
 
@@ -114,6 +116,8 @@ const FileSelector: FC<FileSelectorProps> = ({
           htmlFor={id}
           noMinWidth={noLabelMinWidth}
           className={"inputLabel"}
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
         >
           {label}
           {required ? "*" : ""}

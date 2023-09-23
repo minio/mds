@@ -115,6 +115,8 @@ const InputBox: FC<CommentBoxProps> = ({
   className,
   error,
   sx,
+  helpTip,
+  helpTipPlacement,
   ...props
 }) => {
   return (
@@ -128,6 +130,8 @@ const InputBox: FC<CommentBoxProps> = ({
           htmlFor={id}
           noMinWidth={noLabelMinWidth}
           className={"inputLabel"}
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
         >
           {label}
           {required ? "*" : ""}

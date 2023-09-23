@@ -138,6 +138,8 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
   indicatorLabels,
   description,
   checked,
+  helpTip,
+  helpTipPlacement,
   ...props
 }) => {
   const switchComponent = (
@@ -172,7 +174,12 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
     >
       <FieldContainer className={"inputBase"}>
         {label !== "" && (
-          <InputLabel htmlFor={id} noMinWidth>
+          <InputLabel
+            htmlFor={id}
+            noMinWidth
+            helpTip={helpTip}
+            helpTipPlacement={helpTipPlacement}
+          >
             {label}
             {tooltip && tooltip !== "" && (
               <div className={"tooltipContainer"}>

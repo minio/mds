@@ -32,6 +32,7 @@ import {
 } from "./HelpTip.types";
 import Grid from "../Grid/Grid";
 import { HelpIconFilled } from "../Icons";
+import { HelpTipPlacement } from "../../global/global.types";
 
 const opacityAnimation = keyframes`
   from {
@@ -41,7 +42,6 @@ const opacityAnimation = keyframes`
     opacity: 1;
   }
 `;
-
 const HelptipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
   {
     display: "inline-flex",
@@ -130,7 +130,7 @@ const HelptipItem = styled.div<HelpTipBuild>(({ theme, placement }) => {
     background: background,
     lineHeight: 1,
     zIndex: 10001,
-    padding: 8,
+    padding: 2,
     fontSize: 12,
     boxShadow: "#00000050 0px 3px 10px",
     maxWidth: 350,
@@ -213,17 +213,17 @@ const BaseHelpTip = styled.div(({ theme }) => ({
   border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
   borderRadius: 2,
   backgroundColor: get(theme, "boxBackground", "#FBFAFA"),
-  paddingLeft: 25,
-  paddingTop: 20,
-  paddingBottom: 20,
-  paddingRight: 30,
+  paddingLeft: 10,
+  paddingTop: 5,
+  paddingBottom: 5,
+  paddingRight: 10,
   "& .leftItems": {
     fontSize: 16,
     fontWeight: "bold",
     display: "flex",
     alignItems: "center",
     "& .min-icon": {
-      marginRight: 15,
+      marginRight: 5,
       height: 28,
       width: 38,
     },
@@ -231,16 +231,12 @@ const BaseHelpTip = styled.div(({ theme }) => ({
   "& .helpText": {
     fontSize: 10,
     paddingLeft: 5,
-    marginTop: 15,
+    marginTop: 5,
     color: "black",
   },
 }));
 
-export const HelpTip: FC<HelpTipProps> = ({
-  children,
-  content,
-  placement = "bottom",
-}) => {
+export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
   const [anchorEl, setAnchorEl] = useState<
     (EventTarget & HTMLSpanElement) | null
   >(null);
@@ -252,7 +248,7 @@ export const HelpTip: FC<HelpTipProps> = ({
       ? setTimeout(() => {
           setHelptipVisible(false);
           setHelptipOpen(false);
-        }, 5000)
+        }, 50000)
       : setTimeout(() => {
           setHelptipVisible(false);
         }, 1000);
@@ -272,7 +268,7 @@ export const HelpTip: FC<HelpTipProps> = ({
   }) => {
     let position = {};
     let calculatedPlacement = placement;
-    const boundYLimit = 45;
+    const boundYLimit = 25;
     const boundXLimit = 175;
 
     if (anchorEl) {
@@ -376,7 +372,6 @@ export const HelpTip: FC<HelpTipProps> = ({
           const calcInitPosition = bounds.left - boundXLimit;
 
           if (calcInitPosition < 0) {
-            calculatedPlacement = "right";
           }
 
           break;
@@ -451,7 +446,7 @@ export const HelpTip: FC<HelpTipProps> = ({
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
-  return (
+  return placement && Object.values(HelpTipPlacement).includes(placement) ? (
     <Fragment>
       <HelptipWrapper
         ref={wrapperRef}
@@ -493,6 +488,8 @@ export const HelpTip: FC<HelpTipProps> = ({
           )}
       </HelptipWrapper>
     </Fragment>
+  ) : (
+    <Fragment>{children}</Fragment>
   );
 };
 

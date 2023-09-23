@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { CSSObject } from "styled-components";
+import { HelpTipPlacement } from "../../global/global.types";
 import React from "react";
 
 export interface FileSelectorProps {
@@ -36,6 +37,8 @@ export interface FileSelectorProps {
   className?: string;
   noLabelMinWidth?: boolean;
   sx?: CSSObject;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: HelpTipPlacement;
 }
 
 export interface FileSelectorConstructorProps {

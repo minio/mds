@@ -16,6 +16,7 @@
 
 import React from "react";
 import { CSSObject } from "styled-components";
+import { HelpTipPlacement } from "../../global/global.types";
 
 export interface MainSwitchProps {
   id: string;
@@ -26,6 +27,8 @@ export interface MainSwitchProps {
   switchOnly?: boolean;
   indicatorLabels?: string[];
   description?: string;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: HelpTipPlacement;
 }
 
 export interface IndicatorProps {

@@ -29,6 +29,7 @@ import InputLabel from "../InputLabel/InputLabel";
 import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
+import HelpTip from "../HelpTip/HelpTip";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {
@@ -141,6 +142,8 @@ const InputBox: FC<InputBoxProps> = ({
   className,
   error,
   sx,
+  helpTip,
+  helpTipPlacement,
   ...props
 }) => {
   const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
@@ -168,6 +171,8 @@ const InputBox: FC<InputBoxProps> = ({
           htmlFor={id}
           noMinWidth={noLabelMinWidth}
           className={"inputLabel"}
+          helpTip={helpTip}
+          helpTipPlacement={helpTipPlacement}
         >
           {label}
           {required ? "*" : ""}
