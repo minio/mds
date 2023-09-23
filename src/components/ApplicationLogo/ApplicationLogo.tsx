@@ -30,6 +30,12 @@ import Releases from "./Logos/Releases/Releases";
 import VMBroker from "./Logos/VMBroker/VMBroker";
 import EurekaNew from "./Logos/Eureka/EurekaNew";
 import Eureka from "./Logos/Eureka/Eureka";
+import KMS from "./Logos/KMS/KMS";
+import LoadBalancer from "./Logos/LoadBalancer/LoadBalancer";
+import IndexLogo from "./Logos/IndexLogo/IndexLogo";
+import Cache from "./Logos/Cache/Cache";
+import Monitor from "./Logos/Monitor/Monitor";
+import Observe from "./Logos/Observe/Observe";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -76,6 +82,18 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
           return <Eureka inverse={!!inverse} onClick={onClick} />;
       }
       break;
+    case "kms":
+      return <KMS inverse={!!inverse} onClick={onClick} />;
+    case "loadbalancer":
+      return <LoadBalancer inverse={!!inverse} onClick={onClick} />;
+    case "index":
+      return <IndexLogo inverse={!!inverse} onClick={onClick} />;
+    case "cache":
+      return <Cache inverse={!!inverse} onClick={onClick} />;
+    case "monitor":
+      return <Monitor inverse={!!inverse} onClick={onClick} />;
+    case "observe":
+      return <Observe inverse={!!inverse} onClick={onClick} />;
   }
 };
 
