@@ -16,7 +16,7 @@
 
 import React from "react";
 import { CSSObject } from "styled-components";
-import { HelpTipPlacement } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface ReadBoxProps {
   label?: string;
@@ -25,7 +25,7 @@ export interface ReadBoxProps {
   actionButton?: React.ReactNode;
   sx?: CSSObject;
   helpTip?: React.ReactNode;
-  helpTipPlacement?: HelpTipPlacement;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface ReadBoxBaseProps {

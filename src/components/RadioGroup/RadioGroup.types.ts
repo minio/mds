@@ -17,7 +17,7 @@
 import React from "react";
 import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
-import { HelpTipPlacement } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface RadioGroupProps {
   label?: string;
@@ -35,7 +35,7 @@ export interface RadioGroupProps {
   ) => void;
   sx?: CSSObject;
   helpTip?: React.ReactNode;
-  helpTipPlacement?: HelpTipPlacement;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface OptionsContainerProps {

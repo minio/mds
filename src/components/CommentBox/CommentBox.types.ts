@@ -16,7 +16,7 @@
 
 import React from "react";
 import { CSSObject } from "styled-components";
-import { HelpTipPlacement } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface CommentBoxProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -31,7 +31,7 @@ export interface CommentBoxProps
   className?: string;
   error?: string;
   helpTip?: React.ReactNode;
-  helpTipPlacement?: HelpTipPlacement;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface CommentContainerProps {

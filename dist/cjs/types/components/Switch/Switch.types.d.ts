@@ -1,5 +1,6 @@
 import React from "react";
 import { CSSObject } from "styled-components";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface MainSwitchProps {
   id: string;
   label?: string;
@@ -9,6 +10,8 @@ export interface MainSwitchProps {
   switchOnly?: boolean;
   indicatorLabels?: string[];
   description?: string;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 export interface IndicatorProps {
   on: boolean;

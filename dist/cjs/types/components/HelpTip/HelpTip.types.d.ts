@@ -1,15 +1,16 @@
 import React from "react";
+export type CommonHelpTipPlacement = "bottom" | "left" | "right" | "top";
 export interface HelpTipProps {
   children: any;
-  content: React.ReactElement;
+  content: React.ReactNode;
   errorProps?: any;
-  placement?: "bottom" | "left" | "right" | "top";
+  placement?: CommonHelpTipPlacement;
 }
 export interface HelpTipBuild {
-  placement: "bottom" | "left" | "right" | "top";
+  placement: CommonHelpTipPlacement;
 }
 export interface HelpTipConstructProps {
-  placement: "bottom" | "left" | "right" | "top";
+  placement: CommonHelpTipPlacement;
   content: React.ReactNode;
   anchorEl: (EventTarget & HTMLSpanElement) | null;
 }

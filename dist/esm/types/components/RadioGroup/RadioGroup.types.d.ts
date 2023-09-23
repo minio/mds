@@ -1,6 +1,7 @@
 import React from "react";
 import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface RadioGroupProps {
   label?: string;
   tooltip?: string;
@@ -16,6 +17,8 @@ export interface RadioGroupProps {
     extraValue?: any,
   ) => void;
   sx?: CSSObject;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 export interface OptionsContainerProps {
   inColumn: boolean;

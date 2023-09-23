@@ -98,7 +98,7 @@ export const Bottom = Template.bind({});
 Bottom.args = {
   tooltip: <span>Some tooltip Label</span>,
   placement: "bottom",
-  children: <span>A span block</span>,
+  content: <span>A span block</span>,
 };
 
 export const Top = Template.bind({});
