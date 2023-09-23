@@ -16,7 +16,7 @@
 
 import React from "react";
 import { CSSObject } from "styled-components";
-import { HelpTipPlacement } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface CodeEditorProps {
   value: string;
@@ -29,7 +29,7 @@ export interface CodeEditorProps {
   helpTools?: React.ReactNode;
   sx?: CSSObject;
   helpTip?: React.ReactNode;
-  helpTipPlacement?: HelpTipPlacement;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface CodeEditorBaseProps {

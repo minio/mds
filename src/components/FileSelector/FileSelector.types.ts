@@ -14,9 +14,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { CSSObject } from "styled-components";
-import { HelpTipPlacement } from "../../global/global.types";
 import React from "react";
+import { CSSObject } from "styled-components";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface FileSelectorProps {
   label: string;
@@ -38,7 +38,7 @@ export interface FileSelectorProps {
   noLabelMinWidth?: boolean;
   sx?: CSSObject;
   helpTip?: React.ReactNode;
-  helpTipPlacement?: HelpTipPlacement;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface FileSelectorConstructorProps {

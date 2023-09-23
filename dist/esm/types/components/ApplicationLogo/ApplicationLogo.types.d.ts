@@ -10,7 +10,13 @@ export interface ApplicationLogoProps {
     | "cloud"
     | "releases"
     | "vmbroker"
-    | "eureka";
+    | "eureka"
+    | "kms"
+    | "loadbalancer"
+    | "index"
+    | "cache"
+    | "monitor"
+    | "observe";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
   inverse?: boolean;
   onClick?: React.MouseEventHandler<any> | undefined;

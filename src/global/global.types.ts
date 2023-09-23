@@ -336,10 +336,3 @@ export interface IBytesCalc {
   total: number;
   unit: string;
 }
-
-export enum HelpTipPlacement {
-  top,
-  bottom,
-  left,
-  right,
-}

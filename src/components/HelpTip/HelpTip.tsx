@@ -26,13 +26,13 @@ import styled, { css, keyframes } from "styled-components";
 import { createPortal } from "react-dom";
 import get from "lodash/get";
 import {
+  CommonHelpTipPlacement,
   HelpTipBuild,
   HelpTipConstructProps,
   HelpTipProps,
 } from "./HelpTip.types";
 import Grid from "../Grid/Grid";
 import { HelpIconFilled } from "../Icons";
-import { HelpTipPlacement } from "../../global/global.types";
 
 const opacityAnimation = keyframes`
   from {
@@ -446,7 +446,7 @@ export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
 
-  return placement && Object.values(HelpTipPlacement).includes(placement) ? (
+  return placement ? (
     <Fragment>
       <HelptipWrapper
         ref={wrapperRef}

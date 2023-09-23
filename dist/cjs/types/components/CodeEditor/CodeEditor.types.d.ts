@@ -1,5 +1,6 @@
 import React from "react";
 import { CSSObject } from "styled-components";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface CodeEditorProps {
   value: string;
   label?: string;
@@ -10,6 +11,8 @@ export interface CodeEditorProps {
   className?: string;
   helpTools?: React.ReactNode;
   sx?: CSSObject;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
 }
 export interface CodeEditorBaseProps {
   editorHeight: string | number;
