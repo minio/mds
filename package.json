@@ -15,7 +15,7 @@
   "types": "dist/mds.d.ts",
   "dependencies": {
     "@types/styled-components": "^5.1.27",
-    "@uiw/react-textarea-code-editor": "^2.1.7",
+    "@uiw/react-textarea-code-editor": "^2.1.9",
     "detect-gpu": "^5.0.37",
     "react-virtualized": "^9.22.5",
     "styled-components": "^5.3.11"
