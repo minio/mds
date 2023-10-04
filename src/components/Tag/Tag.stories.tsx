@@ -29,13 +29,27 @@ export default {
   argTypes: {},
 } as Meta<typeof Tag>;
 
-const Template: Story<TagProps> = ({ label, id, onDelete, sx, color }) => {
+const Template: Story<TagProps> = ({
+  label,
+  id,
+  onDelete,
+  sx,
+  color,
+  square,
+}) => {
   return (
     <StoryThemeProvider>
       <GlobalStyles />
-      <Tag label={label} color={color} id={id} sx={sx} />
+      <Tag label={label} color={color} id={id} sx={sx} square={square} />
       &nbsp;
-      <Tag label={label} color={color} id={id} onDelete={onDelete} sx={sx}>
+      <Tag
+        label={label}
+        color={color}
+        id={id}
+        onDelete={onDelete}
+        sx={sx}
+        square={square}
+      >
         {" "}
         with on Delete
       </Tag>
@@ -47,12 +61,20 @@ const Template: Story<TagProps> = ({ label, id, onDelete, sx, color }) => {
         onDelete={onDelete}
         sx={sx}
         variant={"outlined"}
+        square={square}
       >
         {" "}
         Outlined
       </Tag>
       &nbsp;
-      <Tag label={label} color={color} id={id} sx={sx} icon={<AddIcon />}>
+      <Tag
+        label={label}
+        color={color}
+        id={id}
+        sx={sx}
+        icon={<AddIcon />}
+        square={square}
+      >
         {" "}
         With an Icon
       </Tag>
@@ -64,6 +86,7 @@ const Template: Story<TagProps> = ({ label, id, onDelete, sx, color }) => {
         sx={sx}
         variant={"outlined"}
         icon={<AddIcon />}
+        square={square}
       >
         {" "}
         Outlined With an Icon
@@ -112,6 +135,16 @@ Warn.args = {
   },
 };
 
+export const Grey = Template.bind({});
+Grey.args = {
+  label: "A Tag",
+  id: "tag-test",
+  color: "grey",
+  onDelete: () => {
+    alert("Clicked Delete Button!");
+  },
+};
+
 export const Ok = Template.bind({});
 Ok.args = {
   label: "A Tag",
@@ -120,6 +153,17 @@ Ok.args = {
   onDelete: () => {
     alert("Clicked Delete Button!");
   },
+};
+
+export const Square = Template.bind({});
+Square.args = {
+  label: "A Tag",
+  id: "tag-test",
+  color: "default",
+  onDelete: () => {
+    alert("Clicked Delete Button!");
+  },
+  square: true,
 };
 
 export const CustomStyles = Template.bind({});

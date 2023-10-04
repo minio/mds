@@ -22,7 +22,7 @@ import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import { lightColors } from "../../global/themes";
 
 const TagBase = styled.span<TagConstructProps>(
-  ({ theme, color, variant, sx }) => {
+  ({ theme, color, variant, square, sx }) => {
     return {
       position: "relative",
       margin: 0,
@@ -30,7 +30,7 @@ const TagBase = styled.span<TagConstructProps>(
       appearance: "none",
       maxWidth: "100%",
       fontFamily: "'Inter', sans-serif",
-      fontSize: 14,
+      fontSize: 13,
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
@@ -43,7 +43,7 @@ const TagBase = styled.span<TagConstructProps>(
         variant === "regular"
           ? get(theme, `tag.${color}.background`, lightColors.mainBlue)
           : "transparent",
-      borderRadius: 16,
+      borderRadius: square ? 3 : 16,
       whiteSpace: "nowrap",
       cursor: "default",
       outline: 0,
@@ -104,10 +104,18 @@ const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
   label,
   variant = "regular",
   icon,
+  square = false,
   ...props
 }) => {
   return (
-    <TagBase id={id} color={color} sx={sx} variant={variant} {...props}>
+    <TagBase
+      id={id}
+      color={color}
+      sx={sx}
+      variant={variant}
+      square={square}
+      {...props}
+    >
       {icon}
       <span>
         {label}
