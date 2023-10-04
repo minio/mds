@@ -224,6 +224,7 @@ export interface TagThemeProps {
   warn: TagVariantProps;
   alert: TagVariantProps;
   ok: TagVariantProps;
+  grey: TagVariantProps;
 }
 interface SnackBarColorElements {
   backgroundColor: string;

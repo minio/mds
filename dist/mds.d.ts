@@ -235,6 +235,7 @@ interface TagThemeProps {
   warn: TagVariantProps;
   alert: TagVariantProps;
   ok: TagVariantProps;
+  grey: TagVariantProps;
 }
 interface SnackBarColorElements {
   backgroundColor: string;
@@ -1059,9 +1060,10 @@ interface TagMainProps {
   icon?: ReactNode;
 }
 interface TagConstructProps {
-  color?: "default" | "secondary" | "warn" | "alert" | "ok";
+  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
   sx?: CSSObject;
   variant?: "regular" | "outlined";
+  square?: boolean;
 }
 type TagProps = TagMainProps & TagConstructProps;
 
