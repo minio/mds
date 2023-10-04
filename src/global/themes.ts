@@ -560,6 +560,11 @@ export const lightTheme: ThemeDefinitionProps = {
       label: lightColors.defaultFontColor,
       deleteColor: lightColors.defaultFontColor,
     },
+    grey: {
+      background: lightColors.actionDisabledGrey,
+      label: lightColors.defaultFontColor,
+      deleteColor: lightColors.defaultFontColor,
+    },
   },
   snackbar: {
     error: {
@@ -958,6 +963,11 @@ export const darkTheme: ThemeDefinitionProps = {
       background: darkColors.mainGreen,
       label: darkColors.dark,
       deleteColor: darkColors.dark,
+    },
+    grey: {
+      background: darkColors.disabledBGGrey,
+      label: darkColors.mainWhite,
+      deleteColor: darkColors.mainWhite,
     },
   },
   snackbar: {
