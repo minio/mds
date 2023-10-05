@@ -138,7 +138,7 @@ const FileSelector: FC<FileSelectorProps> = ({
           name={name}
           onChange={(e) => {
             const fileName = get(e, "target.files[0].name", "");
-            if (returnEncodedData) {
+            if (returnEncodedData && fileName.trim() !== "") {
               fileProcess(e, (data: any) => {
                 onChange(e, fileName, data);
               });
@@ -156,6 +156,7 @@ const FileSelector: FC<FileSelectorProps> = ({
         <Box className={"fileReselect"}>
           {value !== "" && <div className={"valueString"}>{value || ""}</div>}
           <IconButton
+            type={"button"}
             color="primary"
             aria-label="upload picture"
             onClick={() => {
