@@ -36,6 +36,7 @@ import IndexLogo from "./Logos/IndexLogo/IndexLogo";
 import Cache from "./Logos/Cache/Cache";
 import Monitor from "./Logos/Monitor/Monitor";
 import Observe from "./Logos/Observe/Observe";
+import MissionControl from "./Logos/MissionControl/MissionControl";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -94,6 +95,8 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <Monitor inverse={!!inverse} onClick={onClick} />;
     case "observe":
       return <Observe inverse={!!inverse} onClick={onClick} />;
+    case "missioncontrol":
+      return <MissionControl inverse={!!inverse} onClick={onClick} />;
   }
 };
 
