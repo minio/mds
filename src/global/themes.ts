@@ -584,6 +584,28 @@ export const lightTheme: ThemeDefinitionProps = {
       labelColor: lightColors.defaultFontColor,
     },
   },
+  informativeMessage: {
+    error: {
+      backgroundColor: lightColors.mainRed,
+      borderColor: lightColors.mainRed,
+      textColor: lightColors.white,
+    },
+    default: {
+      backgroundColor: lightColors.mainBlue,
+      borderColor: lightColors.mainBlue,
+      textColor: lightColors.white,
+    },
+    success: {
+      backgroundColor: lightColors.mainGreen,
+      borderColor: lightColors.mainGreen,
+      textColor: lightColors.white,
+    },
+    warning: {
+      backgroundColor: lightColors.mainOrange,
+      borderColor: lightColors.mainOrange,
+      textColor: lightColors.defaultFontColor,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -986,6 +1008,28 @@ export const darkTheme: ThemeDefinitionProps = {
     warning: {
       backgroundColor: darkColors.mainOrange,
       labelColor: darkColors.dark,
+    },
+  },
+  informativeMessage: {
+    error: {
+      backgroundColor: darkColors.mainRed,
+      borderColor: darkColors.mainRed,
+      textColor: darkColors.mainWhite,
+    },
+    default: {
+      backgroundColor: darkColors.mainGrey,
+      borderColor: darkColors.mainGrey,
+      textColor: darkColors.dark,
+    },
+    success: {
+      backgroundColor: darkColors.mainGreen,
+      borderColor: darkColors.mainGreen,
+      textColor: darkColors.dark,
+    },
+    warning: {
+      backgroundColor: darkColors.mainOrange,
+      borderColor: darkColors.mainOrange,
+      textColor: darkColors.dark,
     },
   },
 };
