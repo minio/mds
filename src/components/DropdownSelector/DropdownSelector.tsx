@@ -23,6 +23,7 @@ import {
   DropdownSelectorProps,
 } from "./DropdownSelector.types";
 import get from "lodash/get";
+import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 
 const SelectorContainer = styled.div(({}) => ({
   position: "fixed",
@@ -91,7 +92,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
           color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
         },
       },
-      "&:hover": {
+      "&.hovered:not(.disabled)": {
         backgroundColor: get(theme, "dropdownSelector.hoverBG", "#E6EAEB"),
         color: get(theme, "dropdownSelector.hoverText", "#000"),
       },
@@ -128,6 +129,40 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
   anchorEl = null,
 }) => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
+  const [indexHover, setIndexHover] = useState<number>(0);
+
+  const selectOption = () => {
+    const option = options[indexHover];
+
+    if (!option.disabled) {
+      onSelect(option.value, option.extraValue || null, option.label);
+    }
+
+    hideTriggerAction();
+  };
+
+  useEnterKey(selectOption);
+  useEscapeKey(hideTriggerAction);
+  useArrowKeys((keyPressed) => {
+    if (open) {
+      if (keyPressed === "ArrowUp") {
+        const prevIndex = indexHover - 1;
+        const setIndexValue = prevIndex >= 0 ? prevIndex : 0;
+
+        setIndexHover(setIndexValue);
+      } else if (keyPressed === "ArrowDown") {
+        const nextIndex = indexHover + 1;
+        const setIndexValue =
+          nextIndex <= options.length - 1 ? nextIndex : options.length - 1;
+
+        setIndexHover(setIndexValue);
+      }
+    }
+  });
+
+  useEffect(() => {
+    setIndexHover(0);
+  }, [options]);
 
   useEffect(() => {
     if (open) {
@@ -174,11 +209,12 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
               <li
                 className={`${
                   selectedOption === option.value ? "selected" : ""
-                } ${option.disabled ? "disabled" : ""}`}
-                onClick={() => {
-                  if (!option.disabled) {
-                    onSelect(option.value, option.extraValue || null);
-                  }
+                } ${option.disabled ? "disabled" : ""} ${
+                  index === indexHover ? "hovered" : ""
+                }`}
+                onClick={selectOption}
+                onMouseOver={() => {
+                  setIndexHover(index);
                 }}
                 key={`option-${index}`}
               >

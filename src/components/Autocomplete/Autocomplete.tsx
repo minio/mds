@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
-import { SelectProps } from "./Select.types";
+import { AutocompleteProps } from "./Autocomplete.types";
 import { InputContainerProps } from "../InputBox/InputBox.types";
 import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
@@ -27,7 +27,7 @@ import CollapseCaret from "../Icons/CollapseCaret";
 import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 
-const SelectBase = styled.div(({ theme }) => {
+const AutocompleteBase = styled.input(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", "#E2E2E2");
   let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 
@@ -48,7 +48,7 @@ const SelectBase = styled.div(({ theme }) => {
     outline: "none",
     transitionDuration: "0.1s",
     backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
-    userSelect: "none",
+    userAutocomplete: "none",
     "&:placeholder": {
       color: "#858585",
       opacity: 1,
@@ -60,7 +60,7 @@ const SelectBase = styled.div(({ theme }) => {
     "&:focus": {
       borderColor: borderHover,
     },
-    "&.disabled": {
+    "&.disabled, &:disabled": {
       border: get(theme, "inputBox.disabledBorder", "#494A4D"),
       backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
       color: get(theme, "inputBox.disabledText", "#E6EBEB"),
@@ -83,7 +83,7 @@ const InputContainer = styled.div<InputContainerProps>(
     flexGrow: 1,
     width: "100%",
     position: "relative",
-    "& .selectContainer": {
+    "& .AutocompleteContainer": {
       width: "100%",
       flexGrow: 1,
       position: "relative",
@@ -101,8 +101,8 @@ const InputContainer = styled.div<InputContainerProps>(
       position: "absolute",
       top: "50%",
       transform: "translateY(-50%)",
-      marginTop: "2px",
-      right: "5px",
+      marginTop: 2,
+      right: 5,
       "& svg": {
         width: 26,
         height: 26,
@@ -116,7 +116,7 @@ const InputContainer = styled.div<InputContainerProps>(
   }),
 );
 
-const Select: FC<SelectProps> = ({
+const Autocomplete: FC<AutocompleteProps> = ({
   id,
   label = "",
   required,
@@ -128,25 +128,41 @@ const Select: FC<SelectProps> = ({
   options,
   onChange,
   disabled = false,
-  fixedLabel = "",
   name,
   placeholder = "",
   helpTip,
   helpTipPlacement,
+  displayDropArrow = true,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [searchBoxVal, setSearchBoxVal] = useState<string>("");
+  const [filterVal, setFilterVal] = useState<string>("");
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & HTMLDivElement) | null
   >(null);
 
-  const selectedLabel = options.find((option) => option.value === value);
+  useEffect(() => {
+    if (value !== "") {
+      const option = options.find((option) => option.value === value);
 
-  if (!selectedLabel && fixedLabel === "" && placeholder === "") {
-    console.warn("The selected value is not included in Options List");
-  }
+      setSearchBoxVal(option?.label || "");
+    }
+  }, []);
+
+  const filteredOptions = options.filter((item) =>
+    item.label.toLowerCase().includes(filterVal.toLowerCase()),
+  );
 
   return (
-    <InputContainer sx={sx} className={`inputItem ${className}`}>
+    <InputContainer
+      sx={sx}
+      className={`inputItem ${className}`}
+      onKeyDown={() => {
+        if (!isOpen) {
+          setIsOpen(true);
+        }
+      }}
+    >
       {label !== "" && (
         <InputLabel
           htmlFor={id}
@@ -170,8 +186,8 @@ const Select: FC<SelectProps> = ({
       )}
 
       <Box
-        id={`${id}-select`}
-        className={"selectContainer"}
+        id={`${id}-Autocomplete`}
+        className={"AutocompleteContainer"}
         onClick={(e) => {
           if (!disabled) {
             setIsOpen(!isOpen);
@@ -179,32 +195,42 @@ const Select: FC<SelectProps> = ({
           }
         }}
       >
-        <SelectBase className={disabled ? "disabled" : ""}>
-          <Fragment>
-            {fixedLabel !== "" ? (
-              fixedLabel
-            ) : (
-              <Fragment>
-                {selectedLabel?.label || (
-                  <i style={{ opacity: 0.6 }}>
-                    {placeholder !== "" ? placeholder : ""}
-                  </i>
-                )}
-              </Fragment>
-            )}
-          </Fragment>
-          <input type={"hidden"} id={id} name={name} value={value} />
-        </SelectBase>
-        <Box className={"overlayArrow"}>
-          {isOpen ? <CollapseCaret /> : <ExpandCaret />}
-        </Box>
+        <AutocompleteBase
+          disabled={disabled}
+          id={id}
+          name={name}
+          value={searchBoxVal}
+          onChange={(e) => {
+            setSearchBoxVal(e.target.value);
+            setFilterVal(e.target.value);
+          }}
+          placeholder={placeholder}
+        />
+        {displayDropArrow && (
+          <Box className={"overlayArrow"}>
+            <Fragment>{isOpen ? <CollapseCaret /> : <ExpandCaret />}</Fragment>
+          </Box>
+        )}
+
         <DropdownSelector
-          id={`${id}-options-selector`}
-          options={options}
+          id={`${id}-options-Autocompleteor`}
+          options={filteredOptions}
           selectedOption={value}
-          onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
+          onSelect={(nValue, extraValue, label) => {
+            setSearchBoxVal(label || "");
+            setFilterVal("");
+            onChange(nValue, extraValue);
+          }}
           hideTriggerAction={() => {
             setIsOpen(false);
+            if (
+              (value !== "" && searchBoxVal === "") ||
+              filteredOptions.length === 0
+            ) {
+              const option = options.find((option) => option.value === value);
+
+              setSearchBoxVal(option?.label || "");
+            }
           }}
           open={isOpen}
           anchorEl={anchorEl}
@@ -214,4 +240,4 @@ const Select: FC<SelectProps> = ({
   );
 };
 
-export default Select;
+export default Autocomplete;
