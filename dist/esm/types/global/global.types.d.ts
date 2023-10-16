@@ -236,6 +236,17 @@ export interface SnackBarThemeProps {
   warning: SnackBarColorElements;
   error: SnackBarColorElements;
 }
+export interface InformativeColorElements {
+  backgroundColor: string;
+  borderColor: string;
+  textColor: string;
+}
+export interface InformativeMessageProps {
+  default: InformativeColorElements;
+  success: InformativeColorElements;
+  warning: InformativeColorElements;
+  error: InformativeColorElements;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -277,6 +288,7 @@ export interface ThemeDefinitionProps {
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
+  informativeMessage?: InformativeMessageProps;
 }
 export interface SelectorType {
   label: string;
