@@ -106,7 +106,7 @@ RequiredTag.args = {
 
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
-  label: "A Autocomplete box",
+  label: "An Autocomplete box",
   required: true,
   tooltip: "Tooltip example",
 };
