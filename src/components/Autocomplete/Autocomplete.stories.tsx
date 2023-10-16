@@ -95,7 +95,7 @@ const Template: Story<AutocompleteProps> = ({
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "A Autocomplete box",
+  label: "An Autocomplete box",
 };
 
 export const RequiredTag = Template.bind({});
