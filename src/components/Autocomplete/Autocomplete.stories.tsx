@@ -113,7 +113,7 @@ WithTooltip.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: "A Autocomplete box",
+  label: "An Autocomplete box",
   disabled: true,
 };
 
