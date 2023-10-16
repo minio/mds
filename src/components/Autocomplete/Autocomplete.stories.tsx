@@ -100,7 +100,7 @@ Default.args = {
 
 export const RequiredTag = Template.bind({});
 RequiredTag.args = {
-  label: "A Autocomplete box",
+  label: "An Autocomplete box",
   required: true,
 };
 
