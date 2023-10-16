@@ -247,6 +247,17 @@ interface SnackBarThemeProps {
   warning: SnackBarColorElements;
   error: SnackBarColorElements;
 }
+interface InformativeColorElements {
+  backgroundColor: string;
+  borderColor: string;
+  textColor: string;
+}
+interface InformativeMessageProps {
+  default: InformativeColorElements;
+  success: InformativeColorElements;
+  warning: InformativeColorElements;
+  error: InformativeColorElements;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -288,6 +299,7 @@ interface ThemeDefinitionProps {
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
+  informativeMessage?: InformativeMessageProps;
 }
 interface SelectorType {
   label: string;
@@ -847,7 +859,7 @@ interface DropdownSelectorProps {
   id: string;
   options: SelectorType[];
   selectedOption?: string;
-  onSelect: (value: string, extraValue?: any) => void;
+  onSelect: (value: string, extraValue?: any, label?: string) => void;
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
@@ -1199,6 +1211,27 @@ interface AccordionContentProps {
 declare const Accordion: FC<AccordionProps>;
 
 declare const HelpTip: FC<HelpTipProps>;
+
+interface AutocompleteProps {
+  options: SelectorType[];
+  value?: string;
+  id: string;
+  name?: string;
+  required?: boolean;
+  className?: string;
+  disabled?: boolean;
+  displayDropArrow?: boolean;
+  label?: string;
+  tooltip?: string;
+  noLabelMinWidth?: boolean;
+  placeholder?: string;
+  onChange: (newValue: string, extraValue?: any) => void;
+  sx?: CSSObject;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+}
+
+declare const Autocomplete: FC<AutocompleteProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2182,6 +2215,8 @@ export {
   AudioIcon,
   AudioIconMute,
   AuditLogsMenuIcon,
+  Autocomplete,
+  AutocompleteProps,
   AzureTierIcon,
   AzureTierIconXs,
   BackCaretIcon,
