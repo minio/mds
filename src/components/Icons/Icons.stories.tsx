@@ -285,6 +285,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.CheckCircleIcon />
+              <br />
+              CheckCircleIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.CircleIcon />
               <br />
               CircleIcon
@@ -309,6 +315,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.CodeIcon />
+              <br />
+              CodeIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.CollapseCaret />
               <br />
               CollapseCaret
@@ -324,6 +336,12 @@ const Template: Story = (args) => {
               <cicons.CollapseMenuIcon />
               <br />
               CollapseMenuIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.CompressIcon />
+              <br />
+              CompressIcon
             </div>
 
             <div className="story-icon">
@@ -513,9 +531,27 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.ExpandIcon />
+              <br />
+              ExpandIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.ExtraFeaturesIcon />
               <br />
               ExtraFeaturesIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.FirstAidIcon />
+              <br />
+              FirstAidIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.FindReplaceIcon />
+              <br />
+              FindReplaceIcon
             </div>
 
             <div className="story-icon">
@@ -603,6 +639,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.KeyIcon />
+              <br />
+              KeyIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.LambdaBalloonIcon />
               <br />
               LambdaBalloonIcon
@@ -654,6 +696,18 @@ const Template: Story = (args) => {
               <cicons.LockIcon />
               <br />
               LockIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.LockOpenIcon />
+              <br />
+              LockOpenIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.LoginIcon />
+              <br />
+              LoginIcon
             </div>
 
             <div className="story-icon">
@@ -795,6 +849,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.PendingItemsIcon />
+              <br />
+              PendingItemsIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.PerformanceFeatureIcon />
               <br />
               PerformanceFeatureIcon
@@ -822,6 +882,12 @@ const Template: Story = (args) => {
               <cicons.PrometheusIcon />
               <br />
               PrometheusIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.PublicIcon />
+              <br />
+              PublicIcon
             </div>
 
             <div className="story-icon">
@@ -1193,6 +1259,12 @@ const Template: Story = (args) => {
               <cicons.WarnFilledIcon />
               <br />
               WarnFilledIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.WebhookIcon />
+              <br />
+              WebhookIcon
             </div>
           </IconDisplay>
           <h1>Menu Icons</h1>
