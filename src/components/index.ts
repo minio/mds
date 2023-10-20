@@ -66,6 +66,7 @@ export { default as Snackbar } from "./Snackbar/Snackbar";
 export { default as Accordion } from "./Accordion/Accordion";
 export { default as HelpTip } from "./HelpTip/HelpTip";
 export { default as Autocomplete } from "./Autocomplete/Autocomplete";
+export { default as Badge } from "./Badge/Badge";
 
 /*Icons*/
 export * from "./Icons";
@@ -115,3 +116,4 @@ export * from "./Snackbar/Snackbar.types";
 export * from "./Accordion/Accordion.types";
 export * from "./HelpTip/HelpTip.types";
 export * from "./Autocomplete/Autocomplete.types";
+export * from "./Badge/Badge.types";

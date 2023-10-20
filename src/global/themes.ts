@@ -606,6 +606,32 @@ export const lightTheme: ThemeDefinitionProps = {
       textColor: lightColors.defaultFontColor,
     },
   },
+  badge: {
+    alert: {
+      backgroundColor: lightColors.mainRed,
+      textColor: lightColors.white,
+    },
+    default: {
+      backgroundColor: lightColors.mainBlue,
+      textColor: lightColors.white,
+    },
+    secondary: {
+      backgroundColor: lightColors.secondAction,
+      textColor: lightColors.white,
+    },
+    warn: {
+      backgroundColor: lightColors.mainOrange,
+      textColor: lightColors.defaultFontColor,
+    },
+    ok: {
+      backgroundColor: lightColors.mainGreen,
+      textColor: lightColors.defaultFontColor,
+    },
+    grey: {
+      backgroundColor: lightColors.actionDisabledGrey,
+      textColor: lightColors.defaultFontColor,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -1030,6 +1056,32 @@ export const darkTheme: ThemeDefinitionProps = {
       backgroundColor: darkColors.mainOrange,
       borderColor: darkColors.mainOrange,
       textColor: darkColors.dark,
+    },
+  },
+  badge: {
+    alert: {
+      backgroundColor: darkColors.mainRed,
+      textColor: darkColors.mainWhite,
+    },
+    default: {
+      backgroundColor: darkColors.mainGrey,
+      textColor: darkColors.dark,
+    },
+    secondary: {
+      backgroundColor: darkColors.secondAction,
+      textColor: darkColors.mainWhite,
+    },
+    warn: {
+      backgroundColor: darkColors.mainOrange,
+      textColor: darkColors.dark,
+    },
+    ok: {
+      backgroundColor: darkColors.mainGreen,
+      textColor: darkColors.dark,
+    },
+    grey: {
+      backgroundColor: darkColors.disabledBGGrey,
+      textColor: darkColors.mainWhite,
     },
   },
 };
