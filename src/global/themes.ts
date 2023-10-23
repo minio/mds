@@ -632,6 +632,21 @@ export const lightTheme: ThemeDefinitionProps = {
       textColor: lightColors.defaultFontColor,
     },
   },
+  wizard: {
+    stepsBackground: lightColors.boxBackground,
+    vertical: {
+      stepLabelColor: lightColors.defaultFontColor,
+      selectedStepBG: lightColors.borderColor,
+      selectedStepLabelColor: lightColors.defaultFontColor,
+      disabledLabelColor: lightColors.disabledInnerGrey,
+    },
+    modal: {
+      stepLabelColor: lightColors.defaultFontColor,
+      selectedStepBG: lightColors.borderColor,
+      selectedStepLabelColor: lightColors.defaultFontColor,
+      disabledLabelColor: lightColors.disabledGrey,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -1082,6 +1097,21 @@ export const darkTheme: ThemeDefinitionProps = {
     grey: {
       backgroundColor: darkColors.disabledBGGrey,
       textColor: darkColors.mainWhite,
+    },
+  },
+  wizard: {
+    stepsBackground: darkColors.boxBackground,
+    vertical: {
+      stepLabelColor: darkColors.defaultFontColor,
+      selectedStepBG: darkColors.borderColor,
+      selectedStepLabelColor: darkColors.dark,
+      disabledLabelColor: darkColors.disabledGrey,
+    },
+    modal: {
+      stepLabelColor: darkColors.defaultFontColor,
+      selectedStepBG: darkColors.borderColor,
+      selectedStepLabelColor: darkColors.mainWhite,
+      disabledLabelColor: darkColors.disabledGrey,
     },
   },
 };

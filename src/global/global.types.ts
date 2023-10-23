@@ -310,6 +310,19 @@ export interface BadgeStyleProps {
   grey: BadgeColorElements;
 }
 
+export interface WizardStepColorProps {
+  stepLabelColor: string;
+  selectedStepBG: string;
+  selectedStepLabelColor: string;
+  disabledLabelColor: string;
+}
+
+export interface WizardColorProps {
+  stepsBackground: string;
+  vertical: WizardStepColorProps;
+  modal: WizardStepColorProps;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -353,6 +366,7 @@ export interface ThemeDefinitionProps {
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageProps;
   badge?: BadgeStyleProps;
+  wizard?: WizardColorProps;
 }
 
 export interface SelectorType {
