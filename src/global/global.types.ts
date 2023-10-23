@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
+import { lightColors } from "./themes";
 
 export interface ButtonThemeProps {
   border: string;
@@ -295,6 +296,20 @@ export interface InformativeMessageProps {
   error: InformativeColorElements;
 }
 
+export interface BadgeColorElements {
+  backgroundColor: string;
+  textColor: string;
+}
+
+export interface BadgeStyleProps {
+  alert: BadgeColorElements;
+  default: BadgeColorElements;
+  secondary: BadgeColorElements;
+  warn: BadgeColorElements;
+  ok: BadgeColorElements;
+  grey: BadgeColorElements;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -337,6 +352,7 @@ export interface ThemeDefinitionProps {
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageProps;
+  badge?: BadgeStyleProps;
 }
 
 export interface SelectorType {
