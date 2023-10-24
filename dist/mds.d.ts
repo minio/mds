@@ -258,6 +258,29 @@ interface InformativeMessageProps {
   warning: InformativeColorElements;
   error: InformativeColorElements;
 }
+interface BadgeColorElements {
+  backgroundColor: string;
+  textColor: string;
+}
+interface BadgeStyleProps {
+  alert: BadgeColorElements;
+  default: BadgeColorElements;
+  secondary: BadgeColorElements;
+  warn: BadgeColorElements;
+  ok: BadgeColorElements;
+  grey: BadgeColorElements;
+}
+interface WizardStepColorProps {
+  stepLabelColor: string;
+  selectedStepBG: string;
+  selectedStepLabelColor: string;
+  disabledLabelColor: string;
+}
+interface WizardColorProps {
+  stepsBackground: string;
+  vertical: WizardStepColorProps;
+  modal: WizardStepColorProps;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -300,6 +323,8 @@ interface ThemeDefinitionProps {
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageProps;
+  badge?: BadgeStyleProps;
+  wizard?: WizardColorProps;
 }
 interface SelectorType {
   label: string;
@@ -1233,6 +1258,64 @@ interface AutocompleteProps {
 
 declare const Autocomplete: FC<AutocompleteProps>;
 
+interface BadgeMain {
+  invisible?: boolean;
+  max?: number;
+  showZero?: boolean;
+  badgeContent?: number;
+}
+interface BadgeConstruct {
+  horizontalPosition?: "left" | "right";
+  verticalPosition?: "bottom" | "top";
+  sx?: CSSObject;
+  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
+  shape?: "circular" | "rectangular";
+  dotOnly?: boolean;
+}
+type BadgeProps = BadgeMain & BadgeConstruct;
+
+declare const Badge: FC<HTMLAttributes<HTMLSpanElement> & BadgeProps>;
+
+interface WizardButton {
+  label?: string;
+  type?: "next" | "back" | "to" | "custom";
+  action?: (nextFunction: (to: string | number) => void) => void;
+  enabled?: boolean;
+  toPage?: number;
+  componentRender?: React__default.ReactNode;
+}
+interface WizardElement {
+  label: string;
+  componentRender: any;
+  buttons: WizardButton[];
+  advancedOnly?: boolean;
+  loadingStep?: boolean;
+}
+interface WizardPage {
+  page: WizardElement;
+  pageChange: (to: string | number) => void;
+  loadingStep?: boolean;
+}
+interface WizardMain {
+  loadingStep?: boolean;
+  wizardSteps: WizardElement[];
+  linearMode?: boolean;
+}
+interface WizardConstruct {
+  sx?: CSSObject;
+  forModal?: boolean;
+}
+type WizardProps = WizardMain & WizardConstruct;
+type WizardPageProps = WizardPage & WizardConstruct;
+
+declare const GenericWizard: ({
+  wizardSteps,
+  loadingStep,
+  forModal,
+  linearMode,
+  sx,
+}: WizardProps) => React__default.JSX.Element | null;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React__default.JSX.Element;
@@ -1727,7 +1810,9 @@ declare const ChangePasswordIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LockIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const LockIcon$1: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
 
 declare const BackCaretIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -1989,6 +2074,50 @@ declare const AttachFileIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CheckCircleIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CodeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const CompressIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FindReplaceIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FirstAidIcon$1: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LockIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const LoginIcon$1: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PendingItemsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FirstAidIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LoginIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const WebhookIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ExpandIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2224,6 +2353,10 @@ export {
   BackLink,
   BackLinkProps,
   BackSettingsIcon,
+  Badge,
+  BadgeConstruct,
+  BadgeMain,
+  BadgeProps,
   BaseActionLinkProps,
   Box,
   BoxArrowDown,
@@ -2248,6 +2381,7 @@ export {
   ChangeAccessPolicyIcon,
   ChangePasswordIcon,
   ChatIcon,
+  CheckCircleIcon,
   Checkbox,
   CircleIcon,
   ClosePanelIcon,
@@ -2256,6 +2390,7 @@ export {
   CodeMirrorWrapper as CodeEditor,
   CodeEditorBaseProps,
   CodeEditorProps,
+  CodeIcon,
   CollapseCaret,
   CollapseIcon,
   CollapseMenuIcon,
@@ -2267,6 +2402,7 @@ export {
   CommonActionLinkProps,
   CommonHelpTipPlacement,
   CommonProgressBar,
+  CompressIcon,
   ComputerLineIcon,
   ConfigurationsListIcon,
   ConfirmDeleteIcon,
@@ -2312,6 +2448,7 @@ export {
   EnterpriseLightLogo,
   EventSubscriptionIcon,
   ExpandCaret,
+  ExpandIcon,
   ExpandOptionsButton,
   ExpandOptionsButtonProps,
   ExtraCommentProps,
@@ -2340,6 +2477,8 @@ export {
   FileXlsIcon,
   FileZipIcon,
   FilterIcon,
+  FindReplaceIcon,
+  FirstAidIcon$1 as FirstAidIcon,
   FolderBrowserIcon,
   FolderIcon,
   FormLayout,
@@ -2385,6 +2524,7 @@ export {
   InspectMenuIcon,
   ItemActions,
   JSONIcon,
+  LoginIcon as KeyIcon,
   KeysMenuIcon,
   LDAPIcon,
   LambdaBalloonIcon,
@@ -2397,7 +2537,9 @@ export {
   LinkIcon,
   Loader,
   LockFilledIcon,
-  LockIcon,
+  LockIcon$1 as LockIcon,
+  LockIcon as LockOpenIcon,
+  LoginIcon$1 as LoginIcon,
   LoginWrapper,
   LogoutIcon,
   LogsIcon,
@@ -2449,6 +2591,7 @@ export {
   PageLayout,
   PageLayoutProps,
   PasswordKeyIcon,
+  PendingItemsIcon,
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
   PermissionIcon,
@@ -2460,6 +2603,7 @@ export {
   ProgressBarProps,
   PrometheusErrorIcon,
   PrometheusIcon,
+  FirstAidIcon as PublicIcon,
   RadioGroup,
   RadioGroupProps,
   ReadBox,
@@ -2576,6 +2720,15 @@ export {
   WarnIcon,
   WarpIcon,
   WatchIcon,
+  WebhookIcon,
+  GenericWizard as Wizard,
+  WizardButton,
+  WizardConstruct,
+  WizardElement,
+  WizardMain,
+  WizardPage,
+  WizardPageProps,
+  WizardProps,
   actionsTypes,
   breakPoints,
   calculateBytes,

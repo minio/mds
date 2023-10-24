@@ -19,7 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import WizardPage from "./WizardPage";
 import Grid from "../Grid/Grid";
-import { WizardConstruct, WizardProps } from "./wizard.types";
+import { WizardConstruct, WizardProps } from "./Wizard.types";
 import { lightColors } from "../../global/themes";
 
 const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({

@@ -247,6 +247,29 @@ export interface InformativeMessageProps {
   warning: InformativeColorElements;
   error: InformativeColorElements;
 }
+export interface BadgeColorElements {
+  backgroundColor: string;
+  textColor: string;
+}
+export interface BadgeStyleProps {
+  alert: BadgeColorElements;
+  default: BadgeColorElements;
+  secondary: BadgeColorElements;
+  warn: BadgeColorElements;
+  ok: BadgeColorElements;
+  grey: BadgeColorElements;
+}
+export interface WizardStepColorProps {
+  stepLabelColor: string;
+  selectedStepBG: string;
+  selectedStepLabelColor: string;
+  disabledLabelColor: string;
+}
+export interface WizardColorProps {
+  stepsBackground: string;
+  vertical: WizardStepColorProps;
+  modal: WizardStepColorProps;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -289,6 +312,8 @@ export interface ThemeDefinitionProps {
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageProps;
+  badge?: BadgeStyleProps;
+  wizard?: WizardColorProps;
 }
 export interface SelectorType {
   label: string;
