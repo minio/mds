@@ -22,9 +22,10 @@ export interface InformativeMessageMain {
   message: React.ReactNode;
 }
 
-export interface ConstructProps {
+export interface InformativeConstructProps {
   variant?: "default" | "success" | "warning" | "error";
   sx?: CSSObject;
 }
 
-export type InformativeMessageProps = InformativeMessageMain & ConstructProps;
+export type InformativeMessageProps = InformativeMessageMain &
+  InformativeConstructProps;

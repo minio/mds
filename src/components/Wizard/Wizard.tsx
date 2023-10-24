@@ -49,7 +49,6 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
       margin: "10px 12px",
       "&.stepsModalTitle": {
         textAlign: "center",
-        width: "100%",
       },
     },
     "& .buttonList": {

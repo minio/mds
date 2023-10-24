@@ -36,10 +36,12 @@ const WizardPageMain = styled.div<WizardConstruct>(({ theme }) => ({
   },
   "& .wizardModal": {
     overflowY: "auto",
+    overflowX: "hidden",
     margin: "10px 0",
     minHeight: 350,
     maxHeight: "calc(100vh - 515px)",
     padding: "15px",
+    position: "relative",
   },
   "& .buttonsContainer": {
     display: "flex",
