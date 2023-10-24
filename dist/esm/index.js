@@ -56431,10 +56431,12 @@ var jR,
       },
       "& .wizardModal": {
         overflowY: "auto",
+        overflowX: "hidden",
         margin: "10px 0",
         minHeight: 350,
         maxHeight: "calc(100vh - 515px)",
         padding: "15px",
+        position: "relative",
       },
       "& .buttonsContainer": {
         display: "flex",
@@ -56529,7 +56531,7 @@ var jR,
             color: Oa(t, "fontColor", C),
             fontWeight: 600,
             margin: "10px 12px",
-            "&.stepsModalTitle": { textAlign: "center", width: "100%" },
+            "&.stepsModalTitle": { textAlign: "center" },
           },
           "& .buttonList": {
             backgroundColor: "transparent",
@@ -56728,7 +56730,53 @@ var jR,
       ),
     );
   },
-  kx = function (t) {
+  kx = d.div(function (e) {
+    var t = e.theme,
+      n = e.sx,
+      a = e.variant;
+    return Je(
+      {
+        backgroundColor: Oa(
+          t,
+          "informativeMessage.".concat(a, ".backgroundColor"),
+          O,
+        ),
+        border: "1px solid ".concat(
+          Oa(t, "informativeMessage.".concat(a, ".borderColor"), O),
+        ),
+        borderRadius: 3,
+        padding: "10px 20px",
+        "& .labelHeadline": {
+          color: Oa(t, "informativeMessage.".concat(a, ".textColor"), S),
+          fontSize: 14,
+          fontWeight: "bold",
+          marginBottom: 10,
+        },
+        "& .messageText": {
+          color: Oa(t, "informativeMessage.".concat(a, ".textColor"), S),
+          fontSize: 14,
+        },
+      },
+      n,
+    );
+  }),
+  Ox = function (e) {
+    var n = e.title,
+      a = e.message,
+      r = e.sx,
+      o = e.variant,
+      i = void 0 === o ? "default" : o;
+    return (
+      et(e, ["title", "message", "sx", "variant"]),
+      t.createElement(
+        kx,
+        { sx: r, variant: i, className: "informative-message" },
+        t.createElement("div", { className: "labelHeadline" }, n),
+        t.createElement("div", { className: "messageText" }, a),
+      )
+    );
+  },
+  Lx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -56747,7 +56795,7 @@ var jR,
       }),
     );
   },
-  Ox = function (t) {
+  Mx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -56801,7 +56849,7 @@ var jR,
       ),
     );
   },
-  Lx = function (t) {
+  Px = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -56825,7 +56873,7 @@ var jR,
       ),
     );
   },
-  Mx = function (t) {
+  Dx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -56873,7 +56921,7 @@ var jR,
       ),
     );
   },
-  Px = function (t) {
+  Bx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -56904,7 +56952,7 @@ var jR,
       ),
     );
   },
-  Dx = function (t) {
+  Hx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -56976,7 +57024,7 @@ var jR,
       ),
     );
   },
-  Bx = function (t) {
+  Fx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57033,7 +57081,7 @@ var jR,
       ),
     );
   },
-  Hx = function (t) {
+  zx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57081,7 +57129,7 @@ var jR,
       ),
     );
   },
-  Fx = function (t) {
+  Ux = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57103,7 +57151,7 @@ var jR,
       }),
     );
   },
-  zx = function (t) {
+  Gx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57157,7 +57205,7 @@ var jR,
       ),
     );
   },
-  Ux = function (t) {
+  Vx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57204,7 +57252,7 @@ var jR,
       ),
     );
   },
-  Gx = function (t) {
+  Zx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57252,7 +57300,7 @@ var jR,
       ),
     );
   },
-  Vx = function (t) {
+  $x = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57299,7 +57347,7 @@ var jR,
       ),
     );
   },
-  Zx = function (t) {
+  Wx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57331,7 +57379,7 @@ var jR,
       ),
     );
   },
-  $x = function (t) {
+  jx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57373,7 +57421,7 @@ var jR,
       ),
     );
   },
-  Wx = function (t) {
+  qx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57415,7 +57463,7 @@ var jR,
       ),
     );
   },
-  jx = function (t) {
+  Kx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57469,7 +57517,7 @@ var jR,
       ),
     );
   },
-  qx = function (t) {
+  Yx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57510,7 +57558,7 @@ var jR,
       ),
     );
   },
-  Kx = function (t) {
+  Xx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57564,7 +57612,7 @@ var jR,
       ),
     );
   },
-  Yx = function (t) {
+  Qx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57585,7 +57633,7 @@ var jR,
       }),
     );
   },
-  Xx = function (t) {
+  Jx = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57659,7 +57707,7 @@ var jR,
       ),
     );
   },
-  Qx = function (t) {
+  eI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57703,7 +57751,7 @@ var jR,
       ),
     );
   },
-  Jx = function (t) {
+  tI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57723,7 +57771,7 @@ var jR,
       }),
     );
   },
-  eI = function (t) {
+  nI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57742,7 +57790,7 @@ var jR,
       }),
     );
   },
-  tI = function (t) {
+  aI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57760,7 +57808,7 @@ var jR,
       }),
     );
   },
-  nI = function (t) {
+  rI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57782,7 +57830,7 @@ var jR,
       }),
     );
   },
-  aI = function (t) {
+  oI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57804,7 +57852,7 @@ var jR,
       }),
     );
   },
-  rI = function (t) {
+  iI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57845,7 +57893,7 @@ var jR,
       ),
     );
   },
-  oI = function (t) {
+  lI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57878,7 +57926,7 @@ var jR,
       ),
     );
   },
-  iI = function (t) {
+  sI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57911,7 +57959,7 @@ var jR,
       ),
     );
   },
-  lI = function (t) {
+  cI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57945,7 +57993,7 @@ var jR,
       ),
     );
   },
-  sI = function (t) {
+  dI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -57983,7 +58031,7 @@ var jR,
       ),
     );
   },
-  cI = function (t) {
+  uI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58016,7 +58064,7 @@ var jR,
       ),
     );
   },
-  dI = function (t) {
+  pI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58060,7 +58108,7 @@ var jR,
       ),
     );
   },
-  uI = function (t) {
+  mI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58110,7 +58158,7 @@ var jR,
       ),
     );
   },
-  pI = function (t) {
+  hI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58156,7 +58204,7 @@ var jR,
       ),
     );
   },
-  mI = function (t) {
+  gI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58214,7 +58262,7 @@ var jR,
       ),
     );
   },
-  hI = function (t) {
+  fI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58251,7 +58299,7 @@ var jR,
       ),
     );
   },
-  gI = function (t) {
+  EI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58301,7 +58349,7 @@ var jR,
       ),
     );
   },
-  fI = function (t) {
+  bI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58327,7 +58375,7 @@ var jR,
       }),
     );
   },
-  EI = function (t) {
+  vI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58360,7 +58408,7 @@ var jR,
       ),
     );
   },
-  bI = function (t) {
+  TI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58393,7 +58441,7 @@ var jR,
       ),
     );
   },
-  vI = function (t) {
+  _I = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58426,7 +58474,7 @@ var jR,
       ),
     );
   },
-  TI = function (t) {
+  SI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58462,7 +58510,7 @@ var jR,
       ),
     );
   },
-  _I = function (t) {
+  CI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58495,7 +58543,7 @@ var jR,
       ),
     );
   },
-  SI = function (t) {
+  yI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58528,7 +58576,7 @@ var jR,
       ),
     );
   },
-  CI = function (t) {
+  AI = function (t) {
     return e.createElement(
       "svg",
       Je(
@@ -58564,11 +58612,11 @@ export {
   Rs as AGPLV3DarkLogo,
   ys as AGPLV3LightLogo,
   As as AGPLV3Logo,
-  $x as AccessMenuIcon,
+  jx as AccessMenuIcon,
   ec as AccessRuleIcon,
   _x as Accordion,
   vi as AccountIcon,
-  qx as AccountsMenuIcon,
+  Yx as AccountsMenuIcon,
   ax as ActionLink,
   zm as ActionsList,
   Ti as AddAccessRuleIcon,
@@ -58588,7 +58636,7 @@ export {
   dc as AttachFileIcon,
   ac as AudioIcon,
   rc as AudioIconMute,
-  Ox as AuditLogsMenuIcon,
+  Mx as AuditLogsMenuIcon,
   yx as Autocomplete,
   Gl as AzureTierIcon,
   Il as AzureTierIconXs,
@@ -58605,11 +58653,11 @@ export {
   ci as BucketQuotaIcon,
   Dl as BucketReplicationIcon,
   Ml as BucketsIcon,
-  Xx as BucketsMenuIcon,
+  Jx as BucketsMenuIcon,
   Ja as Button,
   Vl as CalendarIcon,
   Zi as CallHomeFeatureIcon,
-  Yx as CallHomeMenuIcon,
+  Qx as CallHomeMenuIcon,
   lc as CancelledAudioIcon,
   fs as CancelledIcon,
   Ps as CertificateIcon,
@@ -58648,7 +58696,7 @@ export {
   ds as DeleteNonCurrentIcon,
   ll as DiagnosticsFeatureIcon,
   ki as DiagnosticsIcon,
-  Zx as DiagnosticsMenuIcon,
+  Wx as DiagnosticsMenuIcon,
   Ks as DisableIcon,
   xo as DisabledIcon,
   il as DocumentationIcon,
@@ -58656,7 +58704,7 @@ export {
   fl as DownloadStatIcon,
   Gi as DriveFormatErrorsIcon,
   Ai as DrivesIcon,
-  jx as DrivesMenuIcon,
+  Kx as DrivesMenuIcon,
   nh as DropdownSelector,
   Ho as EditIcon,
   Es as EditTagIcon,
@@ -58671,30 +58719,30 @@ export {
   Sc as ExpandIcon,
   Vh as ExpandOptionsButton,
   Os as ExtraFeaturesIcon,
-  dI as FileBookIcon,
-  _I as FileCloudIcon,
-  pI as FileCodeIcon,
-  rI as FileConfigIcon,
-  hI as FileDbIcon,
-  iI as FileFontIcon,
-  sI as FileImageIcon,
-  lI as FileLinkIcon,
-  EI as FileLockIcon,
-  uI as FileMissingIcon,
-  SI as FileMusicIcon,
-  CI as FileNonType,
-  oI as FilePdfIcon,
-  mI as FilePptIcon,
+  pI as FileBookIcon,
+  CI as FileCloudIcon,
+  hI as FileCodeIcon,
+  iI as FileConfigIcon,
+  fI as FileDbIcon,
+  sI as FileFontIcon,
+  dI as FileImageIcon,
+  cI as FileLinkIcon,
+  vI as FileLockIcon,
+  mI as FileMissingIcon,
+  yI as FileMusicIcon,
+  AI as FileNonType,
+  lI as FilePdfIcon,
+  gI as FilePptIcon,
   px as FileSelector,
-  gI as FileTxtIcon,
-  fI as FileVideoIcon,
-  cI as FileWorldIcon,
-  bI as FileXlsIcon,
-  vI as FileZipIcon,
+  EI as FileTxtIcon,
+  bI as FileVideoIcon,
+  uI as FileWorldIcon,
+  TI as FileXlsIcon,
+  _I as FileZipIcon,
   Vs as FilterIcon,
   hc as FindReplaceIcon,
   gc as FirstAidIcon,
-  TI as FolderBrowserIcon,
+  SI as FolderBrowserIcon,
   Zs as FolderIcon,
   wm as FormLayout,
   Ys as FormatDriveIcon,
@@ -58704,10 +58752,10 @@ export {
   ji as GoogleTierIconXs,
   wr as Grid,
   gl as GroupsIcon,
-  Dx as GroupsMenuIcon,
+  Hx as GroupsMenuIcon,
   Wl as HardBucketQuotaIcon,
   oi as HealIcon,
-  Lx as HealthMenuIcon,
+  Px as HealthMenuIcon,
   Cm as HelpBox,
   Ni as HelpIcon,
   Do as HelpIconFilled,
@@ -58715,15 +58763,16 @@ export {
   Ol as HistoryIcon,
   nl as IAMPoliciesIcon,
   Dc as IconButton,
-  aI as IdentitiesMenuIcon,
-  Fx as IdentityMenuIcon,
+  oI as IdentitiesMenuIcon,
+  Ux as IdentityMenuIcon,
   Ts as InfoIcon,
+  Ox as InformativeMessage,
   Mm as InputBox,
   Ic as InputLabel,
-  kx as InspectMenuIcon,
+  Lx as InspectMenuIcon,
   Fo as JSONIcon,
   Tc as KeyIcon,
-  Jx as KeysMenuIcon,
+  tI as KeysMenuIcon,
   xs as LDAPIcon,
   Po as LambdaBalloonIcon,
   hl as LambdaIcon,
@@ -58741,18 +58790,18 @@ export {
   ao as LoginWrapper,
   xl as LogoutIcon,
   $l as LogsIcon,
-  zx as LogsMenuIcon,
+  Gx as LogsMenuIcon,
   km as MainContainer,
   Uh as Menu,
-  Bx as MenuCollapsedIcon,
-  Mx as MenuExpandedIcon,
+  Fx as MenuCollapsedIcon,
+  Dx as MenuExpandedIcon,
   es as MetadataIcon,
-  Hx as MetricsMenuIcon,
+  zx as MetricsMenuIcon,
   Li as MinIOTierIcon,
   qo as MinIOTierIconXs,
   Xo as MirroringIcon,
   jm as ModalBox,
-  Ux as MonitoringMenuIcon,
+  Vx as MonitoringMenuIcon,
   Bi as MultipleBucketsIcon,
   ms as NetworkGetIcon,
   hs as NetworkPutIcon,
@@ -58778,11 +58827,11 @@ export {
   sl as PasswordKeyIcon,
   bc as PendingItemsIcon,
   Ji as PerformanceFeatureIcon,
-  Vx as PerformanceMenuIcon,
+  $x as PerformanceMenuIcon,
   Ei as PermissionIcon,
-  nI as PoliciesMenuIcon,
+  rI as PoliciesMenuIcon,
   si as PreviewIcon,
-  Kx as ProfileMenuIcon,
+  Xx as ProfileMenuIcon,
   dx as ProgressBar,
   zi as PrometheusErrorIcon,
   hi as PrometheusIcon,
@@ -58792,7 +58841,7 @@ export {
   Fl as RecoverIcon,
   Zo as RedoIcon,
   Lo as RefreshIcon,
-  Wx as RegisterMenuIcon,
+  qx as RegisterMenuIcon,
   gs as RemoveAllIcon,
   Xi as RemoveIcon,
   Xs as ReportIcon,
@@ -58803,7 +58852,7 @@ export {
   tl as S3TierIconXs,
   Zm as ScreenTitle,
   zo as SearchIcon,
-  tI as SecretsMenuIcon,
+  aI as SecretsMenuIcon,
   Am as SectionTitle,
   oh as Select,
   ss as SelectAllIcon,
@@ -58821,10 +58870,10 @@ export {
   ko as SpeedtestIcon,
   Ns as StandardLightLogo,
   ks as StarIcon,
-  eI as StatusMenuIcon,
+  nI as StatusMenuIcon,
   Oo as StorageIcon,
   ps as SuccessIcon,
-  Gx as SupportMenuIcon,
+  Zx as SupportMenuIcon,
   Qm as Switch,
   Rl as SyncIcon,
   qh as Tabs,
@@ -58845,7 +58894,7 @@ export {
   No as Tooltip,
   kl as TotalObjectsIcon,
   $i as TraceIcon,
-  Px as TraceMenuIcon,
+  Bx as TraceMenuIcon,
   cl as TrashIcon,
   Al as UploadFile,
   El as UploadFolderIcon,
@@ -58854,7 +58903,7 @@ export {
   _i as UptimeIcon,
   Us as UserFilledIcon,
   al as UsersIcon,
-  Qx as UsersMenuIcon,
+  eI as UsersMenuIcon,
   ox as ValuePair,
   Vi as VerifiedIcon,
   Mo as VersionIcon,
