@@ -20,7 +20,7 @@ import styled from "styled-components";
 import Button from "../Button/Button";
 import Box from "../Box/Box";
 import Loader from "../Loader/Loader";
-import { WizardButton, WizardConstruct, WizardPageProps } from "./wizard.types";
+import { WizardButton, WizardConstruct, WizardPageProps } from "./Wizard.types";
 
 const WizardPageMain = styled.div<WizardConstruct>(({ theme }) => ({
   display: "flex",
