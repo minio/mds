@@ -46738,10 +46738,12 @@ var Wy,
       },
       "& .wizardModal": {
         overflowY: "auto",
+        overflowX: "hidden",
         margin: "10px 0",
         minHeight: 350,
         maxHeight: "calc(100vh - 515px)",
         padding: "15px",
+        position: "relative",
       },
       "& .buttonsContainer": {
         display: "flex",
@@ -46836,7 +46838,7 @@ var Wy,
             color: Sa(t, "fontColor", h),
             fontWeight: 600,
             margin: "10px 12px",
-            "&.stepsModalTitle": { textAlign: "center", width: "100%" },
+            "&.stepsModalTitle": { textAlign: "center" },
           },
           "& .buttonList": {
             backgroundColor: "transparent",
@@ -46892,6 +46894,36 @@ var Wy,
         "& .modalStepsContainer": {
           display: "flex",
           justifyContent: "space-evenly",
+        },
+      },
+      n,
+    );
+  }),
+  vA = l.default.div(function (e) {
+    var t = e.theme,
+      n = e.sx,
+      a = e.variant;
+    return Ve(
+      {
+        backgroundColor: Sa(
+          t,
+          "informativeMessage.".concat(a, ".backgroundColor"),
+          C,
+        ),
+        border: "1px solid ".concat(
+          Sa(t, "informativeMessage.".concat(a, ".borderColor"), C),
+        ),
+        borderRadius: 3,
+        padding: "10px 20px",
+        "& .labelHeadline": {
+          color: Sa(t, "informativeMessage.".concat(a, ".textColor"), m),
+          fontSize: 14,
+          fontWeight: "bold",
+          marginBottom: 10,
+        },
+        "& .messageText": {
+          color: Sa(t, "informativeMessage.".concat(a, ".textColor"), m),
+          fontSize: 14,
         },
       },
       n,
@@ -52758,6 +52790,22 @@ var Wy,
       i.createElement("path", {
         d: "M126.32,0C56.55,0,0,56.55,0,126.32s56.55,126.32,126.32,126.32,126.32-56.55,126.32-126.32S196.08,0,126.32,0Zm13.11,197.19h-26.22V99.24h26.22v97.94Zm1.81-119.6c-.89,1.9-2.08,3.58-3.56,5.04-1.49,1.46-3.23,2.6-5.23,3.42-2,.82-4.13,1.23-6.41,1.23-2.15,0-4.2-.41-6.13-1.23-1.93-.82-3.63-1.96-5.08-3.42-1.46-1.46-2.61-3.14-3.47-5.04s-1.28-3.96-1.28-6.17,.43-4.29,1.28-6.22c.85-1.93,2.01-3.62,3.47-5.08s3.15-2.6,5.08-3.42c1.93-.82,3.97-1.24,6.13-1.24,2.28,0,4.42,.41,6.41,1.24,2,.82,3.74,1.96,5.23,3.42,1.49,1.46,2.67,3.15,3.56,5.08,.89,1.93,1.33,4.01,1.33,6.22s-.44,4.27-1.33,6.17Z",
       }),
+    );
+  }),
+  (exports.InformativeMessage = function (e) {
+    var t = e.title,
+      n = e.message,
+      a = e.sx,
+      r = e.variant,
+      i = void 0 === r ? "default" : r;
+    return (
+      Ze(e, ["title", "message", "sx", "variant"]),
+      o.default.createElement(
+        vA,
+        { sx: a, variant: i, className: "informative-message" },
+        o.default.createElement("div", { className: "labelHeadline" }, t),
+        o.default.createElement("div", { className: "messageText" }, n),
+      )
     );
   }),
   (exports.InputBox = function (t) {

@@ -252,7 +252,7 @@ interface InformativeColorElements {
   borderColor: string;
   textColor: string;
 }
-interface InformativeMessageProps {
+interface InformativeMessageProps$1 {
   default: InformativeColorElements;
   success: InformativeColorElements;
   warning: InformativeColorElements;
@@ -322,7 +322,7 @@ interface ThemeDefinitionProps {
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
-  informativeMessage?: InformativeMessageProps;
+  informativeMessage?: InformativeMessageProps$1;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
 }
@@ -1315,6 +1315,19 @@ declare const GenericWizard: ({
   linearMode,
   sx,
 }: WizardProps) => React__default.JSX.Element | null;
+
+interface InformativeMessageMain {
+  title: React__default.ReactNode;
+  message: React__default.ReactNode;
+}
+interface InformativeConstructProps {
+  variant?: "default" | "success" | "warning" | "error";
+  sx?: CSSObject;
+}
+type InformativeMessageProps = InformativeMessageMain &
+  InformativeConstructProps;
+
+declare const InformativeMessage: FC<InformativeMessageProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2516,6 +2529,10 @@ export {
   IdentityMenuIcon,
   IndicatorProps,
   InfoIcon,
+  InformativeConstructProps,
+  InformativeMessage,
+  InformativeMessageMain,
+  InformativeMessageProps,
   InputBox$1 as InputBox,
   InputBoxProps,
   InputContainerProps,
