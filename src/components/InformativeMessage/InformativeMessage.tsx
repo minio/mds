@@ -17,13 +17,13 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import {
-  ConstructProps,
+  InformativeConstructProps,
   InformativeMessageProps,
 } from "./InformativeMessage.types";
 import get from "lodash/get";
 import { lightColors } from "../../global/themes";
 
-const InformativeMessageMain = styled.div<ConstructProps>(
+const InformativeMessageMain = styled.div<InformativeConstructProps>(
   ({ theme, sx, variant }) => ({
     backgroundColor: get(
       theme,

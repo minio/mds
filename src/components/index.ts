@@ -68,6 +68,7 @@ export { default as HelpTip } from "./HelpTip/HelpTip";
 export { default as Autocomplete } from "./Autocomplete/Autocomplete";
 export { default as Badge } from "./Badge/Badge";
 export { default as Wizard } from "./Wizard/Wizard";
+export { default as InformativeMessage } from "./InformativeMessage/InformativeMessage";
 
 /*Icons*/
 export * from "./Icons";
@@ -119,3 +120,4 @@ export * from "./HelpTip/HelpTip.types";
 export * from "./Autocomplete/Autocomplete.types";
 export * from "./Badge/Badge.types";
 export * from "./Wizard/Wizard.types";
+export * from "./InformativeMessage/InformativeMessage.types";
