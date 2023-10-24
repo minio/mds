@@ -62,3 +62,16 @@ export const Indeterminate = Template.bind({});
 Indeterminate.args = {
   variant: "indeterminate",
 };
+
+export const CustomHeight = Template.bind({});
+CustomHeight.args = {
+  variant: "indeterminate",
+  barHeight: 3,
+};
+
+export const TransparentBackground = Template.bind({});
+TransparentBackground.args = {
+  variant: "indeterminate",
+  barHeight: 5,
+  transparentBG: true,
+};

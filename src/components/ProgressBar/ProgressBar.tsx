@@ -29,41 +29,45 @@ const colorItems = {
   grey: "disabled",
 };
 
-const ProgressBase = styled.div<CommonProgressBar>(({ theme, sx, color }) => ({
-  "& .progBlock": {
-    display: "flex",
-    alignItems: "center",
-    gap: 10,
-  },
-  "& .progressContainer": {
-    position: "relative",
-    width: "100%",
-    height: 8,
-    backgroundColor: get(theme, "boxBackground", lightColors.boxBackground),
-    borderRadius: 8,
-    overflow: "hidden",
-  },
-  "& .notificationLabel": {
-    fontSize: 12,
-    color: get(
-      theme,
-      `signalColors.${colorItems[color || "blue"]}`,
-      lightColors.mainBlue,
-    ),
-  },
-  "& .percentageBar": {
-    display: "block",
-    height: 8,
-    backgroundColor: get(
-      theme,
-      `signalColors.${colorItems[color || "blue"]}`,
-      lightColors.mainBlue,
-    ),
-    transitionDuration: "0.1s",
-    borderRadius: 8,
-  },
-  ...sx,
-}));
+const ProgressBase = styled.div<CommonProgressBar>(
+  ({ theme, sx, color, barHeight, transparentBG }) => ({
+    "& .progBlock": {
+      display: "flex",
+      alignItems: "center",
+      gap: 10,
+    },
+    "& .progressContainer": {
+      position: "relative",
+      width: "100%",
+      height: barHeight,
+      backgroundColor: transparentBG
+        ? "transparent"
+        : get(theme, "boxBackground", lightColors.boxBackground),
+      borderRadius: barHeight,
+      overflow: "hidden",
+    },
+    "& .notificationLabel": {
+      fontSize: 12,
+      color: get(
+        theme,
+        `signalColors.${colorItems[color || "blue"]}`,
+        lightColors.mainBlue,
+      ),
+    },
+    "& .percentageBar": {
+      display: "block",
+      height: barHeight,
+      backgroundColor: get(
+        theme,
+        `signalColors.${colorItems[color || "blue"]}`,
+        lightColors.mainBlue,
+      ),
+      transitionDuration: "0.1s",
+      borderRadius: barHeight,
+    },
+    ...sx,
+  }),
+);
 
 export const innerAnimation = keyframes`0% {
                                           left: -100px;
@@ -83,10 +87,10 @@ export const innerAnimation = keyframes`0% {
 
 const IndeterminateItem = styled.div<CommonProgressBar>`
   width: 100px;
-  height: 8px;
+  height: ${(props) => get(props, "barHeight", 8)}px;
   display: block;
   position: absolute;
-  border-radius: 8px;
+  border-radius: ${(props) => get(props, "barHeight", 8)}px;
   animation: ${innerAnimation} 1000ms linear infinite normal forwards;
   background-color: ${(props) =>
     get(
@@ -104,15 +108,22 @@ const ProgressBar: FC<ProgressBarProps> = ({
   variant = "indeterminate",
   notificationLabel = "",
   color = "blue",
+  barHeight = 8,
+  transparentBG = false,
 }) => {
   const calcPerc = (value * 100) / maxValue;
 
   return (
-    <ProgressBase color={color} sx={sx}>
+    <ProgressBase
+      color={color}
+      sx={sx}
+      barHeight={barHeight}
+      transparentBG={transparentBG}
+    >
       <Box className={"progBlock"}>
         <Box className={"progressContainer"}>
           {variant === "indeterminate" ? (
-            <IndeterminateItem color={color} />
+            <IndeterminateItem color={color} barHeight={barHeight} />
           ) : (
             <Box
               className={"percentageBar"}

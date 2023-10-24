@@ -27,6 +27,8 @@ export interface MainProgressProps {
 export interface CommonProgressBar {
   sx?: CSSObject;
   color?: "blue" | "red" | "green" | "orange" | "grey";
+  barHeight?: number;
+  transparentBG?: boolean;
 }
 
 export type ProgressBarProps = MainProgressProps & CommonProgressBar;
