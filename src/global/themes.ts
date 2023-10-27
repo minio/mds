@@ -194,6 +194,7 @@ export const lightTheme: ThemeDefinitionProps = {
   linkColor: lightColors.linkColor,
   boxBackground: lightColors.boxBackground,
   mutedText: lightColors.mutedText,
+  secondaryText: lightColors.mainGrey,
   signalColors: {
     main: lightColors.mainBlue,
     danger: lightColors.mainRed,
@@ -661,6 +662,7 @@ export const darkTheme: ThemeDefinitionProps = {
   linkColor: darkColors.linkColor,
   boxBackground: darkColors.boxBackground,
   mutedText: darkColors.mutedText,
+  secondaryText: darkColors.mainGrey,
   signalColors: {
     main: darkColors.mainGrey,
     danger: darkColors.mainRed,
