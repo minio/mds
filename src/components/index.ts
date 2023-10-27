@@ -75,6 +75,9 @@ export * from "./Icons";
 export * from "./Icons/SidebarMenus";
 export * from "./Icons/FileIcons";
 
+/*Table Elements*/
+export * from "./Table";
+
 /*Interfaces*/
 export { SelectorType } from "../global/global.types";
 export * from "./ActionsList/ActionsList.types";

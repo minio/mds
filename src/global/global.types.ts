@@ -335,6 +335,7 @@ export interface ThemeDefinitionProps {
   linkColor?: string;
   boxBackground: string;
   mutedText: string;
+  secondaryText: string;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
