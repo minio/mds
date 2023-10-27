@@ -37,11 +37,15 @@ export interface TabsProps {
   useRouteTabs?: boolean;
   routes?: React.ReactElement | null;
   onTabClick: (selectedItem: string) => void;
+  optionsInitialComponent?: React.ReactNode;
+  optionsEndComponent?: React.ReactNode;
+  horizontalBarBackground?: boolean;
   sx?: CSSObject;
 }
 
 export interface TabsContainerProps {
   horizontal: boolean;
+  horizontalBarBackground: boolean;
   sx?: CSSObject;
 }
 

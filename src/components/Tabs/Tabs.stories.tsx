@@ -42,6 +42,9 @@ const Template: Story<TabsProps> = ({
   useRouteTabs = false,
   horizontal,
   options,
+  optionsEndComponent,
+  optionsInitialComponent,
+  horizontalBarBackground = false,
   sx,
 }) => {
   const [currentTab, setCurrentTab] = useState<string>(
@@ -61,6 +64,9 @@ const Template: Story<TabsProps> = ({
         useRouteTabs={useRouteTabs}
         sx={sx}
         routes={<TestComponent page={currentTab} />}
+        optionsEndComponent={optionsEndComponent}
+        optionsInitialComponent={optionsInitialComponent}
+        horizontalBarBackground={horizontalBarBackground}
       />
     </StoryThemeProvider>
   );
@@ -196,4 +202,81 @@ Horizontal.args = {
     },
   ],
   horizontal: true,
+};
+
+export const HorizontalWithExtraComponents = Template.bind({});
+HorizontalWithExtraComponents.args = {
+  options: [
+    {
+      content: <div>Tab1</div>,
+      tabConfig: { label: "Tab1", id: "tab1", icon: <TestIcon /> },
+    },
+    {
+      content: <div>Tab2</div>,
+      tabConfig: {
+        label: "Tab2",
+        id: "tab2",
+        icon: <TestIcon />,
+        disabled: true,
+      },
+    },
+    {
+      content: <div>Tab3</div>,
+      tabConfig: { label: "Tab3", id: "tab3", icon: <TestIcon /> },
+    },
+    {
+      content: <div>Some content for Tab 4</div>,
+      tabConfig: { label: "Tab4", id: "tab4", icon: <UsersIcon /> },
+    },
+  ],
+  horizontal: true,
+  optionsInitialComponent: (
+    <span style={{ padding: "0 15px" }}>
+      <TestIcon />
+    </span>
+  ),
+  optionsEndComponent: (
+    <span style={{ padding: "0 15px" }}>
+      <TestIcon />
+    </span>
+  ),
+};
+
+export const HorizontalWithBackground = Template.bind({});
+HorizontalWithBackground.args = {
+  options: [
+    {
+      content: <div>Tab1</div>,
+      tabConfig: { label: "Tab1", id: "tab1", icon: <TestIcon /> },
+    },
+    {
+      content: <div>Tab2</div>,
+      tabConfig: {
+        label: "Tab2",
+        id: "tab2",
+        icon: <TestIcon />,
+        disabled: true,
+      },
+    },
+    {
+      content: <div>Tab3</div>,
+      tabConfig: { label: "Tab3", id: "tab3", icon: <TestIcon /> },
+    },
+    {
+      content: <div>Some content for Tab 4</div>,
+      tabConfig: { label: "Tab4", id: "tab4", icon: <UsersIcon /> },
+    },
+  ],
+  horizontal: true,
+  optionsInitialComponent: (
+    <span style={{ padding: "0 15px" }}>
+      <TestIcon />
+    </span>
+  ),
+  optionsEndComponent: (
+    <span style={{ padding: "0 15px" }}>
+      <TestIcon />
+    </span>
+  ),
+  horizontalBarBackground: true,
 };
