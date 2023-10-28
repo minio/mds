@@ -208,6 +208,7 @@ const Select: FC<SelectProps> = ({
           }}
           open={isOpen}
           anchorEl={anchorEl}
+          useAnchorWidth
         />
       </Box>
     </InputContainer>

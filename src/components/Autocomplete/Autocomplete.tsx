@@ -234,6 +234,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
           }}
           open={isOpen}
           anchorEl={anchorEl}
+          useAnchorWidth
         />
       </Box>
     </InputContainer>
