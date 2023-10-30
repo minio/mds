@@ -2340,27 +2340,26 @@ declare const Table: FC<
 
 declare const TableBody: FC<
   TableComponentsExtraProps &
-    React__default.TableHTMLAttributes<HTMLTableSectionElement>
+    React__default.HTMLAttributes<HTMLTableSectionElement>
 >;
 
 declare const TableCell: FC<
   TableComponentsExtraProps &
-    React__default.TableHTMLAttributes<HTMLTableDataCellElement>
+    React__default.TdHTMLAttributes<HTMLTableDataCellElement>
 >;
 
 declare const TableHead: FC<
   TableComponentsExtraProps &
-    React__default.TableHTMLAttributes<HTMLTableSectionElement>
+    React__default.HTMLAttributes<HTMLTableSectionElement>
 >;
 
 declare const TableHeadCell: FC<
   TableComponentsExtraProps &
-    React__default.TableHTMLAttributes<HTMLTableHeaderCellElement>
+    React__default.ThHTMLAttributes<HTMLTableHeaderCellElement>
 >;
 
 declare const TableRow: FC<
-  TableComponentsExtraProps &
-    React__default.TableHTMLAttributes<HTMLTableRowElement>
+  TableComponentsExtraProps & React__default.HTMLAttributes<HTMLTableRowElement>
 >;
 
 export {
