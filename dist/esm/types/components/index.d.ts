@@ -52,6 +52,7 @@ export { default as InformativeMessage } from "./InformativeMessage/InformativeM
 export * from "./Icons";
 export * from "./Icons/SidebarMenus";
 export * from "./Icons/FileIcons";
+export * from "./Table";
 export { SelectorType } from "../global/global.types";
 export * from "./ActionsList/ActionsList.types";
 export * from "./ApplicationLogo/ApplicationLogo.types";

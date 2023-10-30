@@ -98,8 +98,8 @@ var o = a(e),
   V = "#8399AB",
   Z = "#0A1C3C",
   $ = "linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(20,88,122,1) 100%)",
-  j = "#CADAE8",
-  W = "#0F446C",
+  W = "#CADAE8",
+  j = "#0F446C",
   q = "#E8E8E8",
   K = "#06274E",
   Y = "#052148",
@@ -159,6 +159,7 @@ var o = a(e),
     linkColor: le,
     boxBackground: E,
     mutedText: se,
+    secondaryText: b,
     signalColors: {
       main: C,
       danger: w,
@@ -306,7 +307,7 @@ var o = a(e),
     menu: {
       vertical: {
         background: G,
-        textColor: j,
+        textColor: W,
         hoverSelectedIconBorder: m,
         iconBorderColor: Y,
         iconBGColor: K,
@@ -315,7 +316,7 @@ var o = a(e),
         hoverSelectedBackground: $,
         hoverSelectedColor: m,
         notificationColor: w,
-        sectionDividerColor: W,
+        sectionDividerColor: j,
         sectionLabelColor: m,
         menuCollapseColor: q,
       },
@@ -330,7 +331,7 @@ var o = a(e),
         hoverSelectedBackground: C,
         hoverSelectedColor: h,
         notificationColor: N,
-        sectionDividerColor: W,
+        sectionDividerColor: j,
         barBackground: E,
         dropBackground: E,
         dropHoverSelectedColor: m,
@@ -363,7 +364,7 @@ var o = a(e),
           selectedBackground: "transparent",
           selectedLabelColor: C,
         },
-        backgroundColor: "transparent",
+        backgroundColor: E,
         selectedIndicatorColor: C,
       },
     },
@@ -437,6 +438,7 @@ var o = a(e),
     linkColor: "#85B3EE",
     boxBackground: he,
     mutedText: "#767a80",
+    secondaryText: fe,
     signalColors: {
       main: fe,
       danger: ye,
@@ -642,7 +644,7 @@ var o = a(e),
           selectedBackground: "transparent",
           selectedLabelColor: Te,
         },
-        backgroundColor: "transparent",
+        backgroundColor: he,
         selectedIndicatorColor: Te,
       },
     },
@@ -762,7 +764,7 @@ function $e(e, t, n, a) {
     s((a = a.apply(e, t || [])).next());
   });
 }
-function je(e, t) {
+function We(e, t) {
   var n,
     a,
     r,
@@ -851,7 +853,7 @@ function je(e, t) {
     };
   }
 }
-function We(e, t) {
+function je(e, t) {
   return (
     Object.defineProperty
       ? Object.defineProperty(e, "raw", { value: t })
@@ -1005,10 +1007,10 @@ var Vt = function (e, t) {
   },
   Zt = Vt(Object, "create"),
   $t = Zt;
-var jt = function () {
+var Wt = function () {
   (this.__data__ = $t ? $t(null) : {}), (this.size = 0);
 };
-var Wt = function (e) {
+var jt = function (e) {
     var t = this.has(e) && delete this.__data__[e];
     return (this.size -= t ? 1 : 0), t;
   },
@@ -1037,8 +1039,8 @@ var tn = function (e, t) {
       this
     );
   },
-  nn = jt,
-  an = Wt,
+  nn = Wt,
+  an = jt,
   rn = Yt,
   on = Jt,
   ln = tn;
@@ -1154,8 +1156,8 @@ var Gn = function (e, t) {
   },
   Zn = Dn,
   $n = Hn,
-  jn = zn,
-  Wn = Gn;
+  Wn = zn,
+  jn = Gn;
 function qn(e) {
   var t = -1,
     n = null == e ? 0 : e.length;
@@ -1167,8 +1169,8 @@ function qn(e) {
 (qn.prototype.clear = Vn),
   (qn.prototype.delete = Zn),
   (qn.prototype.get = $n),
-  (qn.prototype.has = jn),
-  (qn.prototype.set = Wn);
+  (qn.prototype.has = Wn),
+  (qn.prototype.set = jn);
 var Kn = qn;
 function Yn(e, t) {
   if ("function" != typeof e || (null != t && "function" != typeof t))
@@ -1270,7 +1272,7 @@ var Ta,
   Fa = require("../assets/fonts/Inter/Inter-Regular.woff2"),
   za = require("../assets/fonts/Inter/Inter-Thin.woff2"),
   Ua = t.createGlobalStyle(
-    Ta || (Ta = We(["\n    ", "\n"], ["\n    ", "\n"])),
+    Ta || (Ta = je(["\n    ", "\n"], ["\n    ", "\n"])),
     function (e) {
       var t = e.theme;
       return '\n    /* Fonts */\n    @font-face {\n      font-family: "Inter";\n      src: url('
@@ -1620,7 +1622,7 @@ var Ta,
       ),
     );
   },
-  ja = function (e) {
+  Wa = function (e) {
     var t = e.inverse,
       n = e.onClick;
     return o.default.createElement(
@@ -1710,7 +1712,7 @@ var Ta,
       ),
     );
   },
-  Wa = function (e) {
+  ja = function (e) {
     var t = e.inverse,
       n = e.onClick;
     return o.default.createElement(
@@ -2995,9 +2997,9 @@ var Ta,
           case "standard":
             return o.default.createElement($a, { inverse: !!r, onClick: i });
           case "enterprise":
-            return o.default.createElement(Wa, { inverse: !!r, onClick: i });
-          case "AGPL":
             return o.default.createElement(ja, { inverse: !!r, onClick: i });
+          case "AGPL":
+            return o.default.createElement(Wa, { inverse: !!r, onClick: i });
           default:
             return o.default.createElement(Qa, { inverse: !!r, onClick: i });
         }
@@ -3599,9 +3601,9 @@ var Nr,
         t),
     };
   }),
-  jr = t.keyframes(
+  Wr = t.keyframes(
     Nr ||
-      (Nr = We(
+      (Nr = je(
         [
           "0% {\n                                      transform: translate(139.785027px, 140.086989px) rotate(45.236493deg);\n                                      animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n                                    }\n                                      10% {\n                                        transform: translate(139.785027px, 140.086989px) rotate(-197.740907deg);\n                                        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n                                      }\n                                      20% {\n                                        transform: translate(139.785027px, 140.086989px) rotate(-108.6deg);\n                                        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n                                      }\n                                      30% {\n                                        transform: translate(139.785027px, 140.086989px) rotate(-17.484014deg);\n                                        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n                                      }\n                                      33.333333% {\n                                        transform: translate(139.785027px, 140.086989px) rotate(-17.48deg);\n                                        animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n                                      }\n                                      43.333333% {\n                                        transform: translate(139.785027px, 140.086989px) rotate(160.887995deg);\n                                      }\n                                      100% {\n                                        transform: translate(139.785027px, 140.086989px) rotate(160.887995deg);\n                                      }",
         ],
@@ -3610,9 +3612,9 @@ var Nr,
         ],
       )),
   ),
-  Wr = t.keyframes(
+  jr = t.keyframes(
     Rr ||
-      (Rr = We(
+      (Rr = je(
         [
           "\n  0% {\n    transform: scale(1, 0.995019);\n  }\n  33.333333% {\n    transform: scale(1, 0.995019);\n    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n  }\n  43.333333% {\n    transform: scale(0.101121, 0.102033);\n    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n  }\n  50% {\n    transform: scale(0.1, 0.1);\n    animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);\n  }\n  60% {\n    transform: scale(1, 1);\n  }\n  100% {\n    transform: scale(1, 1);\n  }\n",
         ],
@@ -3623,7 +3625,7 @@ var Nr,
   ),
   qr = t.keyframes(
     xr ||
-      (xr = We(
+      (xr = je(
         [
           "\n  0% {\n    opacity: 1;\n  }\n  6.666667% {\n    opacity: 1;\n  }\n  10% {\n    opacity: 0;\n  }\n  13.333333% {\n    opacity: 0;\n  }\n  20% {\n    opacity: 1;\n  }\n  30% {\n    opacity: 1;\n  }\n  36.666667% {\n    opacity: 1;\n  }\n  40% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 0;\n  }\n",
         ],
@@ -3634,7 +3636,7 @@ var Nr,
   ),
   Kr = t.keyframes(
     Ir ||
-      (Ir = We(
+      (Ir = je(
         [
           '\n  0% {\n    d: path("M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z");\n  }\n  10% {\n    d: path("M85.4,249.8C85.4,249.8,85.399999,249.800001,85.399999,249.800001C85.399999,249.800001,85.4,249.800002,85.4,249.800002C85.4,249.800002,90.484102,251.966034,95.043213,248.269966C100.484052,243.859082,98.694728,236.722769,97.073675,234.469349C95.517658,232.306335,94.559418,231.751273,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z");\n  }\n  20% {\n    d: path("M85.4,249.8C85.4,249.8,85.399999,249.800001,85.399999,249.800001C85.399999,249.800001,85.4,249.800002,85.4,249.800002C85.4,249.800002,90.484102,251.966034,95.043213,248.269966C100.484052,243.859082,98.694728,236.722769,97.073675,234.469349C95.517658,232.306335,94.559418,231.751273,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z");\n  }\n  30% {\n    d: path("M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z");\n  }\n  33.333333% {\n    d: path("M85.4,249.8C109.08,255.3,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,110.79,235.19,90.73,230.52C78.19,227.61,72.85,246.88,85.4,249.8C85.4,249.8,85.4,249.8,85.4,249.8Z");\n  }\n  43.333333% {\n    d: path("M84.281285,246.076032C107.50521,254.051555,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,86.465691,239.82846,53.85604,207.193233C41.31604,204.283233,32.439249,213.928672,40.474905,219.54755C40.474905,219.54755,61.310295,238.187372,84.281285,246.076032Z");\n  }\n  100% {\n    d: path("M84.281285,246.076032C107.50521,254.051555,133.72,257.37,157.65,252.14C181.65,246.89,202.95,233.55,219.27,215.35C227.84,205.79,213.74,191.6,205.13,201.21C190.9,217.1,173.27,228.26,152.34,232.86C132.03,237.32,86.465691,239.82846,53.85604,207.193233C41.31604,204.283233,32.439249,213.928672,40.474905,219.54755C40.474905,219.54755,61.310295,238.187372,84.281285,246.076032Z");\n  }\n',
         ],
@@ -3645,7 +3647,7 @@ var Nr,
   ),
   Yr = t.keyframes(
     kr ||
-      (kr = We(
+      (kr = je(
         [
           '\n  0% {\n    d: path("M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z");\n  }\n  10% {\n    d: path("M250.887564,168.08137C250.887564,168.081368,250.887563,168.081375,250.887563,168.081375C250.887563,168.081375,253.7831,157.676613,244.778825,154.781475C235.762034,151.882313,232.694053,158.881918,231.752888,162.486547C231.017121,165.304508,231.564293,168.517464,232.231509,169.666243C233.407087,171.690293,235.517449,173.828597,238.467701,174.606956C241.339242,175.364549,245.542656,175.427978,248.770823,172.704057C248.770823,172.704057,250.400569,171.202441,250.887564,168.08137Z");\n  }\n  20% {\n    d: path("M250.887564,168.08137C250.887564,168.081368,250.887563,168.081375,250.887563,168.081375C250.887563,168.081375,253.7831,157.676613,244.778825,154.781475C235.762034,151.882313,232.694053,158.881918,231.752888,162.486547C231.017121,165.304508,231.564293,168.517464,232.231509,169.666243C233.407087,171.690293,235.517449,173.828597,238.467701,174.606956C241.339242,175.364549,245.542656,175.427978,248.770823,172.704057C248.770823,172.704057,250.400569,171.202441,250.887564,168.08137Z");\n  }\n  30% {\n    d: path("M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z");\n  }\n  33.333333% {\n    d: path("M249.74,169.63C255.24,145.95,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,191.54,41.29,201.15,49.9C217.04,64.13,228.2,81.76,232.8,102.69C237.26,123,235.13,144.24,230.46,164.3C227.54,176.84,246.82,182.18,249.74,169.63C249.74,169.63,249.74,169.63,249.74,169.63Z");\n  }\n  43.333333% {\n    d: path("M241.985702,180.287452C255.201364,145.393106,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,189.760952,38.146938,199.370952,46.756938C229.706596,66.855753,234.126292,101.544407,234.194759,127.574104C235.798839,155.047874,216.192342,185.901625,205.13,201.21C199.980012,208.336696,214.039151,220.128533,219.270001,215.35C219.270001,215.35,237.299554,192.660656,241.985702,180.287452Z");\n  }\n  100% {\n    d: path("M241.985702,180.287452C255.201364,145.393106,257.31,121.31,252.08,97.38C246.83,73.38,233.49,52.08,215.29,35.76C205.73,27.19,189.760952,38.146938,199.370952,46.756938C229.706596,66.855753,234.126292,101.544407,234.194759,127.574104C235.798839,155.047874,216.192342,185.901625,205.13,201.21C199.980012,208.336696,214.039151,220.128533,219.270001,215.35C219.270001,215.35,237.299554,192.660656,241.985702,180.287452Z");\n  }\n',
         ],
@@ -3656,7 +3658,7 @@ var Nr,
   ),
   Xr = t.keyframes(
     Or ||
-      (Or = We(
+      (Or = je(
         [
           '\n  0% {\n    d: path("M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z");\n  }\n  10% {\n    d: path("M171.58686,7.8192C164.834536,7.661923,162.882928,13.414575,162.613915,14.669774C162.613914,14.669774,161.858025,17.37084,162.366976,18.743708C162.782522,19.864622,163.527502,21.022768,164.723558,21.957074C165.842173,22.830886,168.859974,24.254302,168.859974,24.254302C168.859974,24.254302,168.859968,24.254306,168.859967,24.254304C181.289967,27.534304,184.046866,11.109212,171.586866,7.819212C171.586866,7.819212,171.58686,7.8192,171.58686,7.8192Z");\n  }\n  20% {\n    d: path("M171.58686,7.8192C164.834536,7.661923,162.882928,13.414575,162.613915,14.669774C162.613914,14.669774,161.858025,17.37084,162.366976,18.743708C162.782522,19.864622,163.527502,21.022768,164.723558,21.957074C165.842173,22.830886,168.859974,24.254302,168.859974,24.254302C168.859974,24.254302,168.859968,24.254306,168.859967,24.254304C181.289967,27.534304,184.046866,11.109212,171.586866,7.819212C171.586866,7.819212,171.58686,7.8192,171.58686,7.8192Z");\n  }\n  30% {\n    d: path("M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z");\n  }\n  33.333333% {\n    d: path("M171.68,7.71C148.17,1.51,123.61,-1.28,99.53,3.25C75.39,7.79,53.7,20.49,36.85,38.21C28.01,47.52,41.68,62.11,50.57,52.76C65.27,37.3,83.22,26.66,104.27,22.68C124.7,18.82,145.87,21.58,165.79,26.83C178.22,30.11,184.14,11,171.68,7.71C171.68,7.71,171.68,7.71,171.68,7.71Z");\n  }\n  43.333333% {\n    d: path("M154.601291,1.547478C127.732134,-3.659063,101.676041,0.16217,89.834975,4.047622C73.018778,9.565582,43.015709,29.967817,36.85,38.21C28.01,47.52,41.568561,62.002759,50.57,52.76C67.005248,35.884138,77.788003,22.937369,100.935291,18.024709C148.028227,8.029949,175.904245,24.591662,199.370952,46.756938C210.775532,51.88401,219.463487,39.878796,215.289997,35.759998C189.664787,10.470596,154.601291,1.547478,154.601291,1.547478Z");\n  }\n  100% {\n    d: path("M154.601291,1.547478C127.732134,-3.659063,101.676041,0.16217,89.834975,4.047622C73.018778,9.565582,43.015709,29.967817,36.85,38.21C28.01,47.52,41.568561,62.002759,50.57,52.76C67.005248,35.884138,77.788003,22.937369,100.935291,18.024709C148.028227,8.029949,175.904245,24.591662,199.370952,46.756938C210.775532,51.88401,219.463487,39.878796,215.289997,35.759998C189.664787,10.470596,154.601291,1.547478,154.601291,1.547478Z");\n  }\n',
         ],
@@ -3667,7 +3669,7 @@ var Nr,
   ),
   Qr = t.keyframes(
     Lr ||
-      (Lr = We(
+      (Lr = je(
         [
           '\n  0% {\n    d: path("M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z");\n  }\n  3.333333% {\n    d: path("M4.90273,88.748028C1.236063,104.534694,0.694614,122.375568,4.181281,138.328902C7.119767,155.82704,18.329955,178.442148,31.722495,188.944182C39.448991,194.869945,48.960631,181.919808,35.808325,167.974185C27.053341,155.46954,26.778713,144.786038,23.180834,130.168643C19.139468,114.899686,18.114526,100.786543,20.952073,87.411869C21.572437,79.045425,6.897064,77.595457,4.916661,86.915441L4.90273,88.748028Z");\n  }\n  10% {\n    d: path("M3.04819,95.324083C3.04819,95.324083,5.563842,99.566705,5.563842,99.566705C5.563842,99.566705,11.253926,104.287825,15.031546,103.153927C19.091035,103.791214,24.274539,98.764542,25.851733,95.404259C27.275674,92.370488,25.596139,87.698114,24.002501,85.705929C20.798403,80.519057,13.463578,80.659628,12.636219,80.655608C8.65731,80.636275,3.191193,86.96637,3.089982,89.826322L3.04819,95.324083Z");\n  }\n  20% {\n    d: path("M3.04819,95.324083C3.04819,95.324083,5.563842,99.566705,5.563842,99.566705C5.563842,99.566705,11.253926,104.287825,15.031546,103.153927C19.091035,103.791214,24.274539,98.764542,25.851733,95.404259C27.275674,92.370488,25.596139,87.698114,24.002501,85.705929C20.798403,80.519057,13.463578,80.659628,12.636219,80.655608C8.65731,80.636275,3.191193,86.96637,3.089982,89.826322L3.04819,95.324083Z");\n  }\n  30% {\n    d: path("M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z");\n  }\n  33.333333% {\n    d: path("M5.83,85.46C0.33,109.14,-1.74,133.78,3.49,157.71C8.74,181.71,22.08,203.01,40.28,219.33C49.84,227.9,64.03,213.8,54.42,205.19C38.53,190.96,27.37,173.33,22.77,152.4C18.31,132.09,20.44,110.85,25.11,90.79C28.03,78.25,8.75,72.91,5.83,85.46L5.83,85.46Z");\n  }\n  43.333333% {\n    d: path("M36.436007,38.11681C-7.498754,85.801617,-0.826469,134.911183,5.658972,158.164678C15.873566,192.855226,35.43893,215.965329,40.28,219.33C49.84,227.9,63.271136,215.585685,53.661136,206.975685C38.384036,191.128398,25.999041,166.121323,22.77,152.4C12.429986,121.009925,27.020185,73.061168,50.245766,52.61587C65.058304,39.576508,51.054205,23.186387,36.436019,38.116819L36.436007,38.11681Z");\n  }\n  100% {\n    d: path("M36.436007,38.11681C-7.498754,85.801617,-0.826469,134.911183,5.658972,158.164678C15.873566,192.855226,35.43893,215.965329,40.28,219.33C49.84,227.9,63.271136,215.585685,53.661136,206.975685C38.384036,191.128398,25.999041,166.121323,22.77,152.4C12.429986,121.009925,27.020185,73.061168,50.245766,52.61587C65.058304,39.576508,51.054205,23.186387,36.436019,38.116819L36.436007,38.11681Z");\n  }\n',
         ],
@@ -3678,7 +3680,7 @@ var Nr,
   ),
   Jr = t.keyframes(
     Mr ||
-      (Mr = We(
+      (Mr = je(
         [
           "\n  0% {\n    transform: translate(139.784999px, 140.086986px) scale(1, 1);\n  }\n  30% {\n    transform: translate(139.784999px, 140.086986px) scale(1, 1);\n  }\n  43.333333% {\n    transform: translate(139.784999px, 140.086986px) scale(0.102813, 0.102813);\n  }\n  50% {\n    transform: translate(139.784999px, 140.086986px) scale(0.102813, 0.102813);\n  }\n  60% {\n    transform: translate(139.784999px, 140.086986px) scale(1.001075, 1.001075);\n  }\n  100% {\n    transform: translate(139.784999px, 140.086986px) scale(1.001075, 1.001075);\n  }\n",
         ],
@@ -3689,7 +3691,7 @@ var Nr,
   ),
   eo = t.keyframes(
     Pr ||
-      (Pr = We(
+      (Pr = je(
         [
           "\n  0% {\n    opacity: 0;\n  }\n  30% {\n    opacity: 0;\n  }\n  36.666667% {\n    opacity: 0;\n  }\n  40% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 1;\n  }\n",
         ],
@@ -3700,7 +3702,7 @@ var Nr,
   ),
   to = t.keyframes(
     Dr ||
-      (Dr = We(
+      (Dr = je(
         [
           "0% {\n                                       transform: translate(139.785004px, 140.086979px) rotate(0deg);\n                                     }\n                                       10% {\n                                         transform: translate(139.785004px, 140.086979px) rotate(0deg);\n                                       }\n                                       20% {\n                                         transform: translate(139.785004px, 140.086979px) rotate(90.041277deg);\n                                       }\n                                       100% {\n                                         transform: translate(139.785004px, 140.086979px) rotate(90.041277deg);\n                                       }",
         ],
@@ -3711,7 +3713,7 @@ var Nr,
   ),
   no = t.keyframes(
     Br ||
-      (Br = We(
+      (Br = je(
         [
           "\n  0% {\n    opacity: 0;\n  }\n  6.666667% {\n    opacity: 0;\n  }\n  10% {\n    opacity: 1;\n  }\n  13.333333% {\n    opacity: 1;\n  }\n  20% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 0;\n  }\n",
         ],
@@ -3724,7 +3726,7 @@ var Nr,
     { width: 40, height: 40 },
     t.css(
       Hr ||
-        (Hr = We(
+        (Hr = je(
           [
             "\n    path {\n      fill: ",
             ";\n    }\n    #section1 {\n      animation: ",
@@ -3759,8 +3761,8 @@ var Nr,
       function (e) {
         return Sa(e, "theme.loaderColor", "#113053");
       },
-      jr,
       Wr,
+      jr,
       qr,
       Kr,
       Yr,
@@ -3932,7 +3934,7 @@ var Nr,
   }),
   co = t.keyframes(
     Fr ||
-      (Fr = We(
+      (Fr = je(
         ["\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n"],
         ["\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n"],
       )),
@@ -3941,7 +3943,7 @@ var Nr,
     { display: "inline-flex", position: "relative" },
     t.css(
       zr ||
-        (zr = We(
+        (zr = je(
           [
             "\n    &:hover {\n      & .tooltipElement {\n        display: block;\n        animation: ",
             " 1s;\n      }\n    }\n  ",
@@ -5030,7 +5032,7 @@ var Nr,
   },
   Vo = t.keyframes(
     Ur ||
-      (Ur = We(
+      (Ur = je(
         ["\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n"],
         ["\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n"],
       )),
@@ -5039,7 +5041,7 @@ var Nr,
     { display: "inline-flex", position: "relative" },
     t.css(
       Gr ||
-        (Gr = We(
+        (Gr = je(
           [
             "\n    &:hover {\n      & .tooltipElement {\n        display: block;\n        animation: ",
             " 1s;\n      }\n    }\n  ",
@@ -5122,7 +5124,7 @@ var Nr,
       i,
     );
   }),
-  jo = l.default.div(function (e) {
+  Wo = l.default.div(function (e) {
     var t = e.theme,
       n = e.placement,
       a = "6px",
@@ -5175,7 +5177,7 @@ var Nr,
     }
     return Ve({ position: "fixed", color: r, zIndex: 10001 }, o);
   }),
-  Wo = l.default.div(function (e) {
+  jo = l.default.div(function (e) {
     var t = e.theme;
     return {
       border: "1px solid ".concat(Sa(t, "borderColor", "#E2E2E2")),
@@ -5309,7 +5311,7 @@ var Nr,
                         }
                       }
                       return o.default.createElement(
-                        jo,
+                        Wo,
                         { placement: r, style: a, onClick: g },
                         o.default.createElement(fo, {
                           style: { width: 12, height: 12 },
@@ -5385,7 +5387,7 @@ var Nr,
                     {
                       placement: i,
                       content: o.default.createElement(
-                        Wo,
+                        jo,
                         { className: "helpbox-container", ref: b },
                         o.default.createElement(
                           fr,
@@ -6310,20 +6312,20 @@ function $i() {
   Li = 1;
   return (Oi = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
 }
-function ji() {
+function Wi() {
   return Pi
     ? Mi
     : ((Pi = 1), (Mi = Function.call.bind(Object.prototype.hasOwnProperty)));
 }
 if ("production" !== process.env.NODE_ENV) {
-  var Wi = Vi();
+  var ji = Vi();
   Ai.exports = (function () {
     if (Fi) return Hi;
     Fi = 1;
     var e = Vi(),
       t = Zi(),
       n = $i(),
-      a = ji(),
+      a = Wi(),
       r = (function () {
         if (Bi) return Di;
         Bi = 1;
@@ -6331,7 +6333,7 @@ if ("production" !== process.env.NODE_ENV) {
         if ("production" !== process.env.NODE_ENV) {
           var t = $i(),
             n = {},
-            a = ji();
+            a = Wi();
           e = function (e) {
             var t = "Warning: " + e;
             "undefined" != typeof console && console.error(t);
@@ -6881,7 +6883,7 @@ if ("production" !== process.env.NODE_ENV) {
       }),
       Hi
     );
-  })()(Wi.isElement, !0);
+  })()(ji.isElement, !0);
 } else
   Ai.exports = (function () {
     if (Ui) return zi;
@@ -10117,7 +10119,7 @@ var Zl = (function () {
       e
     );
   })();
-function jl(e) {
+function Wl(e) {
   var t = e.align,
     n = void 0 === t ? "auto" : t,
     a = e.cellOffset,
@@ -10137,7 +10139,7 @@ function jl(e) {
       return Math.max(s, Math.min(l, i));
   }
 }
-var Wl = (function (e) {
+var jl = (function (e) {
   function t(e, n) {
     var a;
     return (
@@ -10259,7 +10261,7 @@ var Wl = (function (e) {
             l = this.props.cellCount;
           if (n >= 0 && n < l) {
             var s = this._cellMetadata[n];
-            (r = jl({
+            (r = Wl({
               align: t,
               cellOffset: s.x,
               cellSize: s.width,
@@ -10267,7 +10269,7 @@ var Wl = (function (e) {
               currentOffset: r,
               targetIndex: n,
             })),
-              (o = jl({
+              (o = Wl({
                 align: t,
                 cellOffset: s.y,
                 cellSize: s.height,
@@ -10374,7 +10376,7 @@ function Yl(e) {
     })()
   );
 }
-mi(Wl, "defaultProps", {
+mi(jl, "defaultProps", {
   "aria-label": "grid",
   cellGroupRenderer: function (e) {
     var t = e.cellCache,
@@ -10404,7 +10406,7 @@ mi(Wl, "defaultProps", {
       });
   },
 }),
-  (Wl.propTypes =
+  (jl.propTypes =
     "production" !== process.env.NODE_ENV
       ? {
           "aria-label": qi.string,
@@ -13478,13 +13480,13 @@ function $s() {
     document.body && null != Vs && (document.body.style.pointerEvents = Vs),
     (Vs = null));
 }
-function js() {
+function Ws() {
   $s(),
     Gs.forEach(function (e) {
       return e.__resetIsScrolling();
     });
 }
-function Ws(e) {
+function js(e) {
   e.currentTarget === window &&
     null == Vs &&
     document.body &&
@@ -13496,7 +13498,7 @@ function Ws(e) {
       Gs.forEach(function (t) {
         e = Math.max(e, t.props.scrollingResetTimeInterval);
       }),
-        (Zs = bl(js, e));
+        (Zs = bl(Ws, e));
     })(),
     Gs.forEach(function (t) {
       t.props.scrollElement === e.currentTarget &&
@@ -13506,13 +13508,13 @@ function Ws(e) {
 function qs(e, t) {
   Gs.some(function (e) {
     return e.props.scrollElement === t;
-  }) || t.addEventListener("scroll", Ws),
+  }) || t.addEventListener("scroll", js),
     Gs.push(e);
 }
 function Ks(e, t) {
   (Gs = Gs.filter(function (t) {
     return t !== e;
-  })).length || (t.removeEventListener("scroll", Ws), Zs && (El(Zs), $s()));
+  })).length || (t.removeEventListener("scroll", js), Zs && (El(Zs), $s()));
 }
 var Ys,
   Xs,
@@ -14554,7 +14556,7 @@ var Oc = Ke(function (e, t, n) {
       Ve({ display: "flex", flexDirection: n ? "column" : "row" }, a)
     );
   }),
-  jc = l.default.input(function (e) {
+  Wc = l.default.input(function (e) {
     var t = e.theme,
       n = e.error,
       a = e.startIcon,
@@ -14601,7 +14603,7 @@ var Oc = Ke(function (e, t, n) {
       }
     );
   }),
-  Wc = l.default.div(function (e) {
+  jc = l.default.div(function (e) {
     var t = e.theme,
       n = e.error,
       a = e.sx;
@@ -15066,7 +15068,8 @@ var Oc = Ke(function (e, t, n) {
   }),
   ld = l.default.div(function (e) {
     var t = e.theme,
-      n = e.sx;
+      n = e.sx,
+      a = e.useAnchorWidth;
     return Ve(
       {
         position: "absolute",
@@ -15075,7 +15078,7 @@ var Oc = Ke(function (e, t, n) {
         border: "1px solid ".concat(Sa(t, "borderColor", "#E2E2E2")),
         padding: "10px 0",
         maxHeight: 450,
-        minWidth: 150,
+        minWidth: a ? 150 : 0,
         overflowY: "auto",
         borderRadius: 4,
         boxShadow:
@@ -15097,6 +15100,7 @@ var Oc = Ke(function (e, t, n) {
             display: "flex",
             alignItems: "center",
             gap: 10,
+            whiteSpace: "nowrap",
             "& svg": { width: 16, height: 16 },
             '&:not([class*="Mui"])::before': { content: "' '" },
             "&.selected": {
@@ -15129,10 +15133,18 @@ var Oc = Ke(function (e, t, n) {
       n,
     );
   }),
-  sd = function (e) {
+  sd = function (e, t, n) {
     if (!e) return { top: 0, left: 0, width: 0 };
-    var t = e.getBoundingClientRect();
-    return { top: t.top + t.height, left: t.left, width: t.width };
+    var a = e.getBoundingClientRect(),
+      r = { top: a.top + a.height };
+    return (
+      "start" === t
+        ? ((r.left = a.left), (r.transform = "translateX(0%)"))
+        : "end" === t &&
+          ((r.left = a.left + a.width), (r.transform = "translateX(-100%)")),
+      n && (r.width = a.width),
+      r
+    );
   },
   cd = function (t) {
     var a,
@@ -15146,18 +15158,22 @@ var Oc = Ke(function (e, t, n) {
       p = t.open,
       m = t.anchorEl,
       h = void 0 === m ? null : m,
-      f = e.useState(null),
-      g = f[0],
-      E = f[1],
-      b = e.useState(0),
-      v = b[0],
-      T = b[1],
-      _ = function () {
-        var e = l[v];
+      f = t.useAnchorWidth,
+      g = void 0 !== f && f,
+      E = t.anchorOrigin,
+      b = void 0 === E ? "start" : E,
+      v = e.useState(null),
+      T = v[0],
+      _ = v[1],
+      S = e.useState(0),
+      C = S[0],
+      y = S[1],
+      A = function () {
+        var e = l[C];
         e.disabled || d(e.value, e.extraValue || null, e.label), u();
       };
     return (
-      (a = _),
+      (a = A),
       (r = e.useCallback(
         function (e) {
           "Enter" === e.key && a();
@@ -15198,29 +15214,29 @@ var Oc = Ke(function (e, t, n) {
       })(function (e) {
         if (p)
           if ("ArrowUp" === e) {
-            var t = v - 1;
-            T((a = t >= 0 ? t : 0));
+            var t = C - 1;
+            y((a = t >= 0 ? t : 0));
           } else if ("ArrowDown" === e) {
-            var n = v + 1,
+            var n = C + 1,
               a = n <= l.length - 1 ? n : l.length - 1;
-            T(a);
+            y(a);
           }
       }),
       e.useEffect(
         function () {
-          T(0);
+          y(0);
         },
         [l],
       ),
       e.useEffect(
         function () {
-          E(p ? sd(h) : null);
+          _(p ? sd(h, b, g) : null);
         },
         [p],
       ),
       e.useEffect(function () {
         var e = Oc(function (e) {
-          e && e.getBoundingClientRect() && E(sd(e));
+          e && e.getBoundingClientRect() && _(sd(e, b, g));
         }, 300);
         window.addEventListener("resize", function () {
           u();
@@ -15229,7 +15245,7 @@ var Oc = Ke(function (e, t, n) {
             e(h);
           });
       }),
-      p && g
+      p && T
         ? (h ||
             console.warn(
               "AnchorEl not set. Element will be rendered on the top of the page",
@@ -15240,7 +15256,7 @@ var Oc = Ke(function (e, t, n) {
               { onClick: u },
               o.default.createElement(
                 ld,
-                { id: i, sx: g },
+                { id: i, sx: T, useAnchorWidth: g },
                 o.default.createElement(
                   "ul",
                   null,
@@ -15251,10 +15267,10 @@ var Oc = Ke(function (e, t, n) {
                         className: ""
                           .concat(c === e.value ? "selected" : "", " ")
                           .concat(e.disabled ? "disabled" : "", " ")
-                          .concat(t === v ? "hovered" : ""),
-                        onClick: _,
+                          .concat(t === C ? "hovered" : ""),
+                        onClick: A,
                         onMouseOver: function () {
-                          T(t);
+                          y(t);
                         },
                         key: "option-".concat(t),
                       },
@@ -15850,7 +15866,7 @@ var Oc = Ke(function (e, t, n) {
           gap: 15,
           background: Sa(t, "menu.horizontal.menuHeaderBackground", G),
           borderBottom: "".concat(
-            Sa(t, "menu.horizontal.sectionDividerColor", W),
+            Sa(t, "menu.horizontal.sectionDividerColor", j),
             " 1px solid",
           ),
           "& svg": { width: 200 },
@@ -15945,7 +15961,7 @@ var Oc = Ke(function (e, t, n) {
       width: "100%",
       height: 44,
       padding: "0 25px",
-      color: Sa(e, "menu.vertical.textColor", j),
+      color: Sa(e, "menu.vertical.textColor", W),
       "& .iconContainer": {
         border: "".concat(
           Sa(e, "menu.vertical.iconBorderColor", Y),
@@ -16163,7 +16179,7 @@ var Oc = Ke(function (e, t, n) {
     var t = e.theme;
     return {
       borderBottom: "".concat(
-        Sa(t, "menu.vertical.sectionDividerColor", W),
+        Sa(t, "menu.vertical.sectionDividerColor", j),
         " 1px solid",
       ),
       margin: "30px 25px 0",
@@ -16201,7 +16217,7 @@ var Oc = Ke(function (e, t, n) {
         msOverflowStyle: "none",
         "&::-webkit-scrollbar": { width: 5 },
         "&::-webkit-scrollbar-thumb": {
-          background: Sa(t, "menu.vertical.sectionDividerColor", W),
+          background: Sa(t, "menu.vertical.sectionDividerColor", j),
           borderRadius: 0,
         },
         "&::-webkit-scrollbar-track": {
@@ -16232,7 +16248,7 @@ var Oc = Ke(function (e, t, n) {
           margin: "20px 30px 0",
           paddingBottom: 20,
           borderBottom: "".concat(
-            Sa(t, "menu.vertical.sectionDividerColor", W),
+            Sa(t, "menu.vertical.sectionDividerColor", j),
             " 1px solid",
           ),
         },
@@ -16662,7 +16678,7 @@ var Oc = Ke(function (e, t, n) {
       r = e.children;
     return n || t === a ? o.default.createElement(pc, { id: a }, r) : null;
   },
-  jd = l.default.button(function (e) {
+  Wd = l.default.button(function (e) {
     var t = e.theme,
       n = e.horizontal;
     return {
@@ -16741,7 +16757,7 @@ var Oc = Ke(function (e, t, n) {
       },
     };
   }),
-  Wd = function (e) {
+  jd = function (e) {
     var t = e.horizontal,
       n = e.id,
       a = e.onClick,
@@ -16750,7 +16766,7 @@ var Oc = Ke(function (e, t, n) {
       l = e.icon,
       s = e.selected;
     return o.default.createElement(
-      jd,
+      Wd,
       {
         horizontal: !!t,
         id: n,
@@ -16766,16 +16782,16 @@ var Oc = Ke(function (e, t, n) {
   },
   qd = l.default.div(function (e) {
     var t = e.theme,
-      n = e.horizontal;
+      n = e.horizontal,
+      a = e.horizontalBarBackground
+        ? Sa(t, "tabs.horizontal.backgroundColor", "transparent")
+        : "transparent";
     return {
       display: "flex",
       flexDirection: n ? "column" : "row",
       height: "100%",
-      "& .optionsList": {
+      "& .optionsContainer": {
         display: "flex",
-        flexDirection: n ? "row" : "column",
-        flexGrow: 1,
-        width: n ? "100%" : "auto",
         border: n
           ? "none"
           : "".concat(Sa(t, "tabs.vertical.borders", X), " 1px solid"),
@@ -16783,9 +16799,16 @@ var Oc = Ke(function (e, t, n) {
           n ? Sa(t, "borderColor", g) : Sa(t, "tabs.vertical.borders", X),
           " 1px solid",
         ),
-        backgroundColor: n
-          ? Sa(t, "tabs.horizontal.backgroundColor", "transparent")
-          : Sa(t, "tabs.vertical.backgroundColor", L),
+        backgroundColor: n ? a : Sa(t, "tabs.vertical.backgroundColor", L),
+        width: n ? "100%" : "auto",
+        alignItems: n ? "center" : "flex-start",
+        gap: 10,
+        "& .optionsList": {
+          display: "flex",
+          flexDirection: n ? "row" : "column",
+          flexGrow: 1,
+          width: n ? "100%" : "auto",
+        },
       },
       "& .tabsPanels": {
         flexGrow: 1,
@@ -19014,7 +19037,7 @@ const zu = Hu,
   Vu = Mu,
   Zu = Uu.CODE_POINTS,
   $u = Uu.CODE_POINT_SEQUENCES,
-  ju = {
+  Wu = {
     128: 8364,
     130: 8218,
     131: 402,
@@ -19043,7 +19066,7 @@ const zu = Hu,
     158: 382,
     159: 376,
   },
-  Wu = "DATA_STATE",
+  ju = "DATA_STATE",
   qu = "RCDATA_STATE",
   Ku = "RAWTEXT_STATE",
   Yu = "SCRIPT_DATA_STATE",
@@ -19096,8 +19119,8 @@ const zu = Hu,
   Vp = "COMMENT_END_STATE",
   Zp = "COMMENT_END_BANG_STATE",
   $p = "DOCTYPE_STATE",
-  jp = "BEFORE_DOCTYPE_NAME_STATE",
-  Wp = "DOCTYPE_NAME_STATE",
+  Wp = "BEFORE_DOCTYPE_NAME_STATE",
+  jp = "DOCTYPE_NAME_STATE",
   qp = "AFTER_DOCTYPE_NAME_STATE",
   Kp = "AFTER_DOCTYPE_PUBLIC_KEYWORD_STATE",
   Yp = "BEFORE_DOCTYPE_PUBLIC_IDENTIFIER_STATE",
@@ -19185,7 +19208,7 @@ class km {
     (this.preprocessor = new zu()),
       (this.tokenQueue = []),
       (this.allowCDATA = !1),
-      (this.state = Wu),
+      (this.state = ju),
       (this.returnState = ""),
       (this.charRefCode = -1),
       (this.tempBuff = []),
@@ -19384,12 +19407,12 @@ class km {
     else this._emitSeveralCodePoints(this.tempBuff);
     this.tempBuff = [];
   }
-  [Wu](e) {
+  [ju](e) {
     this.preprocessor.dropParsedChunk(),
       e === Zu.LESS_THAN_SIGN
         ? (this.state = Qu)
         : e === Zu.AMPERSAND
-        ? ((this.returnState = Wu), (this.state = dm))
+        ? ((this.returnState = ju), (this.state = dm))
         : e === Zu.NULL
         ? (this._err(Vu.unexpectedNullCharacter), this._emitCodePoint(e))
         : e === Zu.EOF
@@ -19457,13 +19480,13 @@ class km {
         this._emitEOFToken())
       : (this._err(Vu.invalidFirstCharacterOfTagName),
         this._emitChars("<"),
-        this._reconsumeInState(Wu));
+        this._reconsumeInState(ju));
   }
   [Ju](e) {
     Cm(e)
       ? (this._createEndTagToken(), this._reconsumeInState(ep))
       : e === Zu.GREATER_THAN_SIGN
-      ? (this._err(Vu.missingEndTagName), (this.state = Wu))
+      ? (this._err(Vu.missingEndTagName), (this.state = ju))
       : e === Zu.EOF
       ? (this._err(Vu.eofBeforeTagName),
         this._emitChars("</"),
@@ -19478,7 +19501,7 @@ class km {
       : e === Zu.SOLIDUS
       ? (this.state = Op)
       : e === Zu.GREATER_THAN_SIGN
-      ? ((this.state = Wu), this._emitCurrentToken())
+      ? ((this.state = ju), this._emitCurrentToken())
       : _m(e)
       ? (this.currentToken.tagName += xm(e))
       : e === Zu.NULL
@@ -19506,7 +19529,7 @@ class km {
         if (vm(e)) return void (this.state = yp);
         if (e === Zu.SOLIDUS) return void (this.state = Op);
         if (e === Zu.GREATER_THAN_SIGN)
-          return (this.state = Wu), void this._emitCurrentToken();
+          return (this.state = ju), void this._emitCurrentToken();
       }
       this._emitChars("</"),
         this._emitSeveralCodePoints(this.tempBuff),
@@ -19531,7 +19554,7 @@ class km {
         if (vm(e)) return void (this.state = yp);
         if (e === Zu.SOLIDUS) return void (this.state = Op);
         if (e === Zu.GREATER_THAN_SIGN)
-          return this._emitCurrentToken(), void (this.state = Wu);
+          return this._emitCurrentToken(), void (this.state = ju);
       }
       this._emitChars("</"),
         this._emitSeveralCodePoints(this.tempBuff),
@@ -19558,7 +19581,7 @@ class km {
         if (vm(e)) return void (this.state = yp);
         if (e === Zu.SOLIDUS) return void (this.state = Op);
         if (e === Zu.GREATER_THAN_SIGN)
-          return this._emitCurrentToken(), void (this.state = Wu);
+          return this._emitCurrentToken(), void (this.state = ju);
       }
       this._emitChars("</"),
         this._emitSeveralCodePoints(this.tempBuff),
@@ -19635,7 +19658,7 @@ class km {
         if (vm(e)) return void (this.state = yp);
         if (e === Zu.SOLIDUS) return void (this.state = Op);
         if (e === Zu.GREATER_THAN_SIGN)
-          return this._emitCurrentToken(), void (this.state = Wu);
+          return this._emitCurrentToken(), void (this.state = ju);
       }
       this._emitChars("</"),
         this._emitSeveralCodePoints(this.tempBuff),
@@ -19741,7 +19764,7 @@ class km {
         : e === Zu.EQUALS_SIGN
         ? (this.state = Np)
         : e === Zu.GREATER_THAN_SIGN
-        ? ((this.state = Wu), this._emitCurrentToken())
+        ? ((this.state = ju), this._emitCurrentToken())
         : e === Zu.EOF
         ? (this._err(Vu.eofInTag), this._emitEOFToken())
         : (this._createAttr(""), this._reconsumeInState(Ap)));
@@ -19754,7 +19777,7 @@ class km {
         ? (this.state = xp)
         : e === Zu.GREATER_THAN_SIGN
         ? (this._err(Vu.missingAttributeValue),
-          (this.state = Wu),
+          (this.state = ju),
           this._emitCurrentToken())
         : this._reconsumeInState(Ip));
   }
@@ -19788,7 +19811,7 @@ class km {
       : e === Zu.AMPERSAND
       ? ((this.returnState = Ip), (this.state = dm))
       : e === Zu.GREATER_THAN_SIGN
-      ? (this._leaveAttrValue(Wu), this._emitCurrentToken())
+      ? (this._leaveAttrValue(ju), this._emitCurrentToken())
       : e === Zu.NULL
       ? (this._err(Vu.unexpectedNullCharacter),
         (this.currentAttr.value += Uu.REPLACEMENT_CHARACTER))
@@ -19809,7 +19832,7 @@ class km {
       : e === Zu.SOLIDUS
       ? this._leaveAttrValue(Op)
       : e === Zu.GREATER_THAN_SIGN
-      ? (this._leaveAttrValue(Wu), this._emitCurrentToken())
+      ? (this._leaveAttrValue(ju), this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._err(Vu.eofInTag), this._emitEOFToken())
       : (this._err(Vu.missingWhitespaceBetweenAttributes),
@@ -19818,7 +19841,7 @@ class km {
   [Op](e) {
     e === Zu.GREATER_THAN_SIGN
       ? ((this.currentToken.selfClosing = !0),
-        (this.state = Wu),
+        (this.state = ju),
         this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._err(Vu.eofInTag), this._emitEOFToken())
@@ -19826,7 +19849,7 @@ class km {
   }
   [Lp](e) {
     e === Zu.GREATER_THAN_SIGN
-      ? ((this.state = Wu), this._emitCurrentToken())
+      ? ((this.state = ju), this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._emitCurrentToken(), this._emitEOFToken())
       : e === Zu.NULL
@@ -19856,7 +19879,7 @@ class km {
       ? (this.state = Dp)
       : e === Zu.GREATER_THAN_SIGN
       ? (this._err(Vu.abruptClosingOfEmptyComment),
-        (this.state = Wu),
+        (this.state = ju),
         this._emitCurrentToken())
       : this._reconsumeInState(Bp);
   }
@@ -19865,7 +19888,7 @@ class km {
       ? (this.state = Vp)
       : e === Zu.GREATER_THAN_SIGN
       ? (this._err(Vu.abruptClosingOfEmptyComment),
-        (this.state = Wu),
+        (this.state = ju),
         this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._err(Vu.eofInComment),
@@ -19915,7 +19938,7 @@ class km {
   }
   [Vp](e) {
     e === Zu.GREATER_THAN_SIGN
-      ? ((this.state = Wu), this._emitCurrentToken())
+      ? ((this.state = ju), this._emitCurrentToken())
       : e === Zu.EXCLAMATION_MARK
       ? (this.state = Zp)
       : e === Zu.HYPHEN_MINUS
@@ -19931,7 +19954,7 @@ class km {
       ? ((this.currentToken.data += "--!"), (this.state = Gp))
       : e === Zu.GREATER_THAN_SIGN
       ? (this._err(Vu.incorrectlyClosedComment),
-        (this.state = Wu),
+        (this.state = ju),
         this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._err(Vu.eofInComment),
@@ -19941,9 +19964,9 @@ class km {
   }
   [$p](e) {
     vm(e)
-      ? (this.state = jp)
+      ? (this.state = Wp)
       : e === Zu.GREATER_THAN_SIGN
-      ? this._reconsumeInState(jp)
+      ? this._reconsumeInState(Wp)
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
         this._createDoctypeToken(null),
@@ -19951,35 +19974,35 @@ class km {
         this._emitCurrentToken(),
         this._emitEOFToken())
       : (this._err(Vu.missingWhitespaceBeforeDoctypeName),
-        this._reconsumeInState(jp));
+        this._reconsumeInState(Wp));
   }
-  [jp](e) {
+  [Wp](e) {
     vm(e) ||
       (_m(e)
-        ? (this._createDoctypeToken(xm(e)), (this.state = Wp))
+        ? (this._createDoctypeToken(xm(e)), (this.state = jp))
         : e === Zu.NULL
         ? (this._err(Vu.unexpectedNullCharacter),
           this._createDoctypeToken(Uu.REPLACEMENT_CHARACTER),
-          (this.state = Wp))
+          (this.state = jp))
         : e === Zu.GREATER_THAN_SIGN
         ? (this._err(Vu.missingDoctypeName),
           this._createDoctypeToken(null),
           (this.currentToken.forceQuirks = !0),
           this._emitCurrentToken(),
-          (this.state = Wu))
+          (this.state = ju))
         : e === Zu.EOF
         ? (this._err(Vu.eofInDoctype),
           this._createDoctypeToken(null),
           (this.currentToken.forceQuirks = !0),
           this._emitCurrentToken(),
           this._emitEOFToken())
-        : (this._createDoctypeToken(Rm(e)), (this.state = Wp)));
+        : (this._createDoctypeToken(Rm(e)), (this.state = jp)));
   }
-  [Wp](e) {
+  [jp](e) {
     vm(e)
       ? (this.state = qp)
       : e === Zu.GREATER_THAN_SIGN
-      ? ((this.state = Wu), this._emitCurrentToken())
+      ? ((this.state = ju), this._emitCurrentToken())
       : _m(e)
       ? (this.currentToken.name += xm(e))
       : e === Zu.NULL
@@ -19995,7 +20018,7 @@ class km {
   [qp](e) {
     vm(e) ||
       (e === Zu.GREATER_THAN_SIGN
-        ? ((this.state = Wu), this._emitCurrentToken())
+        ? ((this.state = ju), this._emitCurrentToken())
         : e === Zu.EOF
         ? (this._err(Vu.eofInDoctype),
           (this.currentToken.forceQuirks = !0),
@@ -20024,7 +20047,7 @@ class km {
       : e === Zu.GREATER_THAN_SIGN
       ? (this._err(Vu.missingDoctypePublicIdentifier),
         (this.currentToken.forceQuirks = !0),
-        (this.state = Wu),
+        (this.state = ju),
         this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
@@ -20044,7 +20067,7 @@ class km {
         : e === Zu.GREATER_THAN_SIGN
         ? (this._err(Vu.missingDoctypePublicIdentifier),
           (this.currentToken.forceQuirks = !0),
-          (this.state = Wu),
+          (this.state = ju),
           this._emitCurrentToken())
         : e === Zu.EOF
         ? (this._err(Vu.eofInDoctype),
@@ -20065,7 +20088,7 @@ class km {
       ? (this._err(Vu.abruptDoctypePublicIdentifier),
         (this.currentToken.forceQuirks = !0),
         this._emitCurrentToken(),
-        (this.state = Wu))
+        (this.state = ju))
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
         (this.currentToken.forceQuirks = !0),
@@ -20083,7 +20106,7 @@ class km {
       ? (this._err(Vu.abruptDoctypePublicIdentifier),
         (this.currentToken.forceQuirks = !0),
         this._emitCurrentToken(),
-        (this.state = Wu))
+        (this.state = ju))
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
         (this.currentToken.forceQuirks = !0),
@@ -20095,7 +20118,7 @@ class km {
     vm(e)
       ? (this.state = em)
       : e === Zu.GREATER_THAN_SIGN
-      ? ((this.state = Wu), this._emitCurrentToken())
+      ? ((this.state = ju), this._emitCurrentToken())
       : e === Zu.QUOTATION_MARK
       ? (this._err(
           Vu.missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers,
@@ -20120,7 +20143,7 @@ class km {
   [em](e) {
     vm(e) ||
       (e === Zu.GREATER_THAN_SIGN
-        ? (this._emitCurrentToken(), (this.state = Wu))
+        ? (this._emitCurrentToken(), (this.state = ju))
         : e === Zu.QUOTATION_MARK
         ? ((this.currentToken.systemId = ""), (this.state = am))
         : e === Zu.APOSTROPHE
@@ -20148,7 +20171,7 @@ class km {
       : e === Zu.GREATER_THAN_SIGN
       ? (this._err(Vu.missingDoctypeSystemIdentifier),
         (this.currentToken.forceQuirks = !0),
-        (this.state = Wu),
+        (this.state = ju),
         this._emitCurrentToken())
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
@@ -20168,7 +20191,7 @@ class km {
         : e === Zu.GREATER_THAN_SIGN
         ? (this._err(Vu.missingDoctypeSystemIdentifier),
           (this.currentToken.forceQuirks = !0),
-          (this.state = Wu),
+          (this.state = ju),
           this._emitCurrentToken())
         : e === Zu.EOF
         ? (this._err(Vu.eofInDoctype),
@@ -20189,7 +20212,7 @@ class km {
       ? (this._err(Vu.abruptDoctypeSystemIdentifier),
         (this.currentToken.forceQuirks = !0),
         this._emitCurrentToken(),
-        (this.state = Wu))
+        (this.state = ju))
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
         (this.currentToken.forceQuirks = !0),
@@ -20207,7 +20230,7 @@ class km {
       ? (this._err(Vu.abruptDoctypeSystemIdentifier),
         (this.currentToken.forceQuirks = !0),
         this._emitCurrentToken(),
-        (this.state = Wu))
+        (this.state = ju))
       : e === Zu.EOF
       ? (this._err(Vu.eofInDoctype),
         (this.currentToken.forceQuirks = !0),
@@ -20218,7 +20241,7 @@ class km {
   [om](e) {
     vm(e) ||
       (e === Zu.GREATER_THAN_SIGN
-        ? (this._emitCurrentToken(), (this.state = Wu))
+        ? (this._emitCurrentToken(), (this.state = ju))
         : e === Zu.EOF
         ? (this._err(Vu.eofInDoctype),
           (this.currentToken.forceQuirks = !0),
@@ -20229,7 +20252,7 @@ class km {
   }
   [im](e) {
     e === Zu.GREATER_THAN_SIGN
-      ? (this._emitCurrentToken(), (this.state = Wu))
+      ? (this._emitCurrentToken(), (this.state = ju))
       : e === Zu.NULL
       ? this._err(Vu.unexpectedNullCharacter)
       : e === Zu.EOF && (this._emitCurrentToken(), this._emitEOFToken());
@@ -20248,7 +20271,7 @@ class km {
   }
   [cm](e) {
     e === Zu.GREATER_THAN_SIGN
-      ? (this.state = Wu)
+      ? (this.state = ju)
       : e === Zu.RIGHT_SQUARE_BRACKET
       ? this._emitChars("]")
       : (this._emitChars("]]"), this._reconsumeInState(lm));
@@ -20343,7 +20366,7 @@ class km {
       this.charRefCode === Zu.CARRIAGE_RETURN
     ) {
       this._err(Vu.controlCharacterReference);
-      const e = ju[this.charRefCode];
+      const e = Wu[this.charRefCode];
       e && (this.charRefCode = e);
     }
     (this.tempBuff = [this.charRefCode]),
@@ -20361,7 +20384,7 @@ class km {
   (km.EOF_TOKEN = "EOF_TOKEN"),
   (km.HIBERNATION_TOKEN = "HIBERNATION_TOKEN"),
   (km.MODE = {
-    DATA: Wu,
+    DATA: ju,
     RCDATA: qu,
     RAWTEXT: Ku,
     SCRIPT_DATA: Yu,
@@ -21045,9 +21068,9 @@ $m.install = function (e, t, n) {
   const a = new t(e, n);
   return e.__mixins.push(a), a;
 };
-var jm = $m;
-const Wm = jm;
-var qm = class extends Wm {
+var Wm = $m;
+const jm = Wm;
+var qm = class extends jm {
   constructor(e) {
     super(e),
       (this.preprocessor = e),
@@ -21088,7 +21111,7 @@ var qm = class extends Wm {
     };
   }
 };
-const Km = jm,
+const Km = Wm,
   Ym = Om,
   Xm = qm;
 var Qm = class extends Km {
@@ -21190,7 +21213,7 @@ var Qm = class extends Km {
     );
   }
 };
-const Jm = jm;
+const Jm = Wm;
 var eh = class extends Jm {
   constructor(e, t) {
     super(e), (this.onItemPop = t.onItemPop);
@@ -21210,7 +21233,7 @@ var eh = class extends Jm {
     };
   }
 };
-const th = jm,
+const th = Wm,
   nh = Om,
   ah = Qm,
   rh = eh,
@@ -21361,7 +21384,7 @@ var ih = class extends th {
     };
   }
 };
-const lh = jm;
+const lh = Wm;
 var sh = class extends lh {
   constructor(e, t) {
     super(e), (this.posTracker = null), (this.onParseError = t.onParseError);
@@ -21393,7 +21416,7 @@ var sh = class extends lh {
 };
 const ch = sh,
   dh = qm,
-  uh = jm;
+  uh = Wm;
 var ph = class extends ch {
   constructor(e, t) {
     super(e, t),
@@ -21407,7 +21430,7 @@ var ph = class extends ch {
 };
 const mh = sh,
   hh = ph,
-  fh = jm;
+  fh = Wm;
 var gh = class extends mh {
   constructor(e, t) {
     super(e, t);
@@ -21418,7 +21441,7 @@ var gh = class extends mh {
 const Eh = sh,
   bh = gh,
   vh = Qm,
-  Th = jm;
+  Th = Wm;
 var _h = class extends Eh {
     constructor(e, t) {
       super(e, t),
@@ -21775,7 +21798,7 @@ const Hh = Om,
     ychannelselector: "yChannelSelector",
     zoomandpan: "zoomAndPan",
   },
-  jh = {
+  Wh = {
     "xlink:actuate": { prefix: "xlink", name: "actuate", namespace: Uh.XLINK },
     "xlink:arcrole": { prefix: "xlink", name: "arcrole", namespace: Uh.XLINK },
     "xlink:href": { prefix: "xlink", name: "href", namespace: Uh.XLINK },
@@ -21789,7 +21812,7 @@ const Hh = Om,
     xmlns: { prefix: "", name: "xmlns", namespace: Uh.XMLNS },
     "xmlns:xlink": { prefix: "xmlns", name: "xlink", namespace: Uh.XMLNS },
   },
-  Wh = (Bh.SVG_TAG_NAMES_ADJUSTMENT_MAP = {
+  jh = (Bh.SVG_TAG_NAMES_ADJUSTMENT_MAP = {
     altglyph: "altGlyph",
     altglyphdef: "altGlyphDef",
     altglyphitem: "altGlyphItem",
@@ -21899,7 +21922,7 @@ const Hh = Om,
   }),
   (Bh.adjustTokenXMLAttrs = function (e) {
     for (let t = 0; t < e.attrs.length; t++) {
-      const n = jh[e.attrs[t].name];
+      const n = Wh[e.attrs[t].name];
       n &&
         ((e.attrs[t].prefix = n.prefix),
         (e.attrs[t].name = n.name),
@@ -21907,7 +21930,7 @@ const Hh = Om,
     }
   }),
   (Bh.adjustTokenSVGTagName = function (e) {
-    const t = Wh[e.tagName];
+    const t = jh[e.tagName];
     t && (e.tagName = t);
   }),
   (Bh.isIntegrationPoint = function (e, t, n, a) {
@@ -21947,7 +21970,7 @@ const Kh = Om,
   Xh = Zm,
   Qh = ih,
   Jh = _h,
-  ef = jm,
+  ef = Wm,
   tf = Sh,
   nf = function (e, t) {
     return [e, (t = t || Object.create(null))].reduce(
@@ -23088,7 +23111,7 @@ function $f(e, t, n) {
     !n || l
       ? (l && e.activeFormattingElements.removeEntry(n),
         e.openElements.remove(i))
-      : ((i = jf(e, n)),
+      : ((i = Wf(e, n)),
         a === t && (e.activeFormattingElements.bookmark = n),
         e.treeAdapter.detachNode(a),
         e.treeAdapter.appendChild(i, a),
@@ -23096,12 +23119,12 @@ function $f(e, t, n) {
   }
   return a;
 }
-function jf(e, t) {
+function Wf(e, t) {
   const n = e.treeAdapter.getNamespaceURI(t.element),
     a = e.treeAdapter.createElement(t.token.tagName, n, t.token.attrs);
   return e.openElements.replace(t.element, a), (t.element = a), a;
 }
-function Wf(e, t, n) {
+function jf(e, t, n) {
   if (e._isElementCausesFosterParenting(t)) e._fosterParentElement(n);
   else {
     const a = e.treeAdapter.getTagName(t),
@@ -23131,7 +23154,7 @@ function Kf(e, t) {
     e.activeFormattingElements.bookmark = n;
     const a = $f(e, t, n.element),
       r = e.openElements.getCommonAncestor(n.element);
-    e.treeAdapter.detachNode(a), Wf(e, r, a), qf(e, t, n);
+    e.treeAdapter.detachNode(a), jf(e, r, a), qf(e, t, n);
   }
 }
 function Yf() {}
@@ -23997,8 +24020,8 @@ class Vg {
   (Vg.prototype.defined = !1);
 let Zg = 0;
 const $g = Qg(),
-  jg = Qg(),
   Wg = Qg(),
+  jg = Qg(),
   qg = Qg(),
   Kg = Qg(),
   Yg = Qg(),
@@ -24009,8 +24032,8 @@ function Qg() {
 var Jg = Object.freeze({
   __proto__: null,
   boolean: $g,
-  booleanish: jg,
-  overloadedBoolean: Wg,
+  booleanish: Wg,
+  overloadedBoolean: jg,
   number: qg,
   spaceSeparated: Kg,
   commaSeparated: Yg,
@@ -24084,10 +24107,10 @@ const cE = rE({
       "role" === t ? t : "aria-" + t.slice(4).toLowerCase(),
     properties: {
       ariaActiveDescendant: null,
-      ariaAtomic: jg,
+      ariaAtomic: Wg,
       ariaAutoComplete: null,
-      ariaBusy: jg,
-      ariaChecked: jg,
+      ariaBusy: Wg,
+      ariaChecked: Wg,
       ariaColCount: qg,
       ariaColIndex: qg,
       ariaColSpan: qg,
@@ -24095,36 +24118,36 @@ const cE = rE({
       ariaCurrent: null,
       ariaDescribedBy: Kg,
       ariaDetails: null,
-      ariaDisabled: jg,
+      ariaDisabled: Wg,
       ariaDropEffect: Kg,
       ariaErrorMessage: null,
-      ariaExpanded: jg,
+      ariaExpanded: Wg,
       ariaFlowTo: Kg,
-      ariaGrabbed: jg,
+      ariaGrabbed: Wg,
       ariaHasPopup: null,
-      ariaHidden: jg,
+      ariaHidden: Wg,
       ariaInvalid: null,
       ariaKeyShortcuts: null,
       ariaLabel: null,
       ariaLabelledBy: Kg,
       ariaLevel: qg,
       ariaLive: null,
-      ariaModal: jg,
-      ariaMultiLine: jg,
-      ariaMultiSelectable: jg,
+      ariaModal: Wg,
+      ariaMultiLine: Wg,
+      ariaMultiSelectable: Wg,
       ariaOrientation: null,
       ariaOwns: Kg,
       ariaPlaceholder: null,
       ariaPosInSet: qg,
-      ariaPressed: jg,
-      ariaReadOnly: jg,
+      ariaPressed: Wg,
+      ariaReadOnly: Wg,
       ariaRelevant: null,
-      ariaRequired: jg,
+      ariaRequired: Wg,
       ariaRoleDescription: Kg,
       ariaRowCount: qg,
       ariaRowIndex: qg,
       ariaRowSpan: qg,
-      ariaSelected: jg,
+      ariaSelected: Wg,
       ariaSetSize: qg,
       ariaSort: null,
       ariaValueMax: qg,
@@ -24170,7 +24193,7 @@ const cE = rE({
       cols: qg,
       colSpan: null,
       content: null,
-      contentEditable: jg,
+      contentEditable: Wg,
       controls: $g,
       controlsList: Kg,
       coords: qg | Yg,
@@ -24183,8 +24206,8 @@ const cE = rE({
       dir: null,
       dirName: null,
       disabled: $g,
-      download: Wg,
-      draggable: jg,
+      download: jg,
+      draggable: Wg,
       encType: null,
       enterKeyHint: null,
       fetchPriority: null,
@@ -24351,7 +24374,7 @@ const cE = rE({
       sizes: null,
       slot: null,
       span: qg,
-      spellCheck: jg,
+      spellCheck: Wg,
       src: null,
       srcDoc: null,
       srcLang: null,
@@ -24366,7 +24389,7 @@ const cE = rE({
       type: null,
       typeMustMatch: $g,
       useMap: null,
-      value: jg,
+      value: Wg,
       width: qg,
       wrap: null,
       align: null,
@@ -24412,7 +24435,7 @@ const cE = rE({
       rightMargin: qg,
       rules: null,
       scheme: null,
-      scrolling: jg,
+      scrolling: Wg,
       standby: null,
       summary: null,
       text: null,
@@ -25665,7 +25688,7 @@ const VE = {
   },
   ZE = "https://html.spec.whatwg.org/multipage/parsing.html#parse-error-",
   $E = { 2: !0, 1: !1, 0: null };
-const jE = [
+const WE = [
     "area",
     "base",
     "basefont",
@@ -25690,7 +25713,7 @@ const jE = [
     "track",
     "wbr",
   ],
-  WE = {}.hasOwnProperty;
+  jE = {}.hasOwnProperty;
 function qE(e, t) {
   return (
     (e = e.replace(
@@ -26450,9 +26473,9 @@ const bb = (function (e, t) {
   function a(t, ...n) {
     let r = a.invalid;
     const o = a.handlers;
-    if (t && WE.call(t, e)) {
+    if (t && jE.call(t, e)) {
       const n = String(t[e]);
-      r = WE.call(o, n) ? o[n] : a.unknown;
+      r = jE.call(o, n) ? o[n] : a.unknown;
     }
     if (r) return r.call(this, t, ...n);
   }
@@ -26681,7 +26704,7 @@ const _b = Cu()
                 tightSelfClosing: n.tightSelfClosing || !1,
                 collapseEmptyAttributes: n.collapseEmptyAttributes || !1,
                 allowDangerousHtml: n.allowDangerousHtml || !1,
-                voids: n.voids || jE,
+                voids: n.voids || WE,
                 characterReferences: n.characterReferences || n.entities || {},
                 closeSelfClosing: n.closeSelfClosing || !1,
                 closeEmptyElements: n.closeEmptyElements || !1,
@@ -27824,7 +27847,7 @@ function $b(e) {
     punctuation: /=/,
   };
 }
-function jb(e) {
+function Wb(e) {
   e.register(Pb),
     (function (e) {
       var t =
@@ -27955,7 +27978,7 @@ function jb(e) {
         });
     })(e);
 }
-function Wb(e) {
+function jb(e) {
   !(function (e) {
     var t = { pattern: /\\[\\(){}[\]^$+*?|.]/, alias: "escape" },
       n =
@@ -29896,10 +29919,10 @@ function gv(e) {
   (Zb.aliases = []),
   ($b.displayName = "ini"),
   ($b.aliases = []),
-  (jb.displayName = "java"),
-  (jb.aliases = []),
-  (Wb.displayName = "regex"),
+  (Wb.displayName = "java"),
   (Wb.aliases = []),
+  (jb.displayName = "regex"),
+  (jb.aliases = []),
   (qb.displayName = "javascript"),
   (qb.aliases = ["js"]),
   (Kb.displayName = "json"),
@@ -30540,7 +30563,7 @@ function $v(e) {
     punctuation: /[()\[\]{}:.;,]/,
   };
 }
-function jv(e) {
+function Wv(e) {
   (e.languages.antlr4 = {
     comment: /\/\/.*|\/\*[\s\S]*?(?:\*\/|$)/,
     string: { pattern: /'(?:\\.|[^\\'\r\n])*'/, greedy: !0 },
@@ -30587,7 +30610,7 @@ function jv(e) {
   }),
     (e.languages.g4 = e.languages.antlr4);
 }
-function Wv(e) {
+function jv(e) {
   e.languages.apacheconf = {
     comment: /#.*/,
     "directive-inline": {
@@ -32878,7 +32901,7 @@ function $T(e) {
         });
     })(e);
 }
-function jT(e) {
+function WT(e) {
   (e.languages["dns-zone-file"] = {
     comment: /;.*/,
     string: { pattern: /"(?:\\.|[^"\\\r\n])*"/, greedy: !0 },
@@ -32902,7 +32925,7 @@ function jT(e) {
   }),
     (e.languages["dns-zone"] = e.languages["dns-zone-file"]);
 }
-function WT(e) {
+function jT(e) {
   !(function (e) {
     var t = /\\[\r\n](?:\s|\\[\r\n]|#.*(?!.))*(?![\s#]|\\[\r\n])/.source,
       n = /(?:[ \t]+(?![ \t])(?:<SP_BS>)?|<SP_BS>)/.source.replace(
@@ -35996,7 +36019,7 @@ function $_(e) {
     punctuation: /[{}[\];(),.:]/,
   };
 }
-function j_(e) {
+function W_(e) {
   e.languages.j = {
     comment: { pattern: /\bNB\..*/, greedy: !0 },
     string: { pattern: /'(?:''|[^'\r\n])*'/, greedy: !0 },
@@ -36018,7 +36041,7 @@ function j_(e) {
     punctuation: /[()]/,
   };
 }
-function W_(e) {
+function j_(e) {
   !(function (e) {
     var t = (e.languages.javadoclike = {
       parameter: {
@@ -36069,7 +36092,7 @@ function W_(e) {
   })(e);
 }
 function q_(e) {
-  e.register(jb),
+  e.register(Wb),
     (e.languages.scala = e.languages.extend("java", {
       "triple-quoted-string": {
         pattern: /"""[\s\S]*?"""/,
@@ -36110,8 +36133,8 @@ function q_(e) {
     delete e.languages.scala.constant;
 }
 function K_(e) {
-  e.register(jb),
-    e.register(W_),
+  e.register(Wb),
+    e.register(j_),
     e.register(Ub),
     (function (e) {
       var t = /(^(?:[\t ]*(?:\*\s*)*))[^*\s].*$/m,
@@ -36543,7 +36566,7 @@ function eS(e) {
     })(e);
 }
 function tS(e) {
-  e.register(W_),
+  e.register(j_),
     e.register(qb),
     e.register(hv),
     (function (e) {
@@ -38976,7 +38999,7 @@ function $S(e) {
           e.languages.insertBefore("cpp", "keyword", t));
     })(e);
 }
-function jS(e) {
+function WS(e) {
   (e.languages.openqasm = {
     comment: /\/\*[\s\S]*?\*\/|\/\/.*/,
     string: { pattern: /"[^"\r\n\t]*"|'[^'\r\n\t]*'/, greedy: !0 },
@@ -38996,7 +39019,7 @@ function jS(e) {
   }),
     (e.languages.qasm = e.languages.openqasm);
 }
-function WS(e) {
+function jS(e) {
   e.languages.oz = {
     comment: { pattern: /\/\*[\s\S]*?\*\/|%.*/, greedy: !0 },
     string: { pattern: /"(?:[^"\\]|\\[\s\S])*"/, greedy: !0 },
@@ -39390,7 +39413,7 @@ function eC(e) {
     (e.languages.pcode = e.languages.peoplecode);
 }
 function tC(e) {
-  e.register(W_),
+  e.register(j_),
     e.register(ov),
     (function (e) {
       var t = /(?:\b[a-zA-Z]\w*|[|\\[\]])+/.source;
@@ -42086,7 +42109,7 @@ function $C(e) {
     }),
     (e.languages.rq = e.languages.sparql);
 }
-function jC(e) {
+function WC(e) {
   e.languages["splunk-spl"] = {
     comment: /`comment\("(?:\\.|[^\\"])*"\)`/,
     string: { pattern: /"(?:\\.|[^\\"])*"/, greedy: !0 },
@@ -42108,7 +42131,7 @@ function jC(e) {
     punctuation: /[()[\],]/,
   };
 }
-function WC(e) {
+function jC(e) {
   e.register(Pb),
     (e.languages.sqf = e.languages.extend("clike", {
       string: { pattern: /"(?:(?:"")?[^"])*"(?!")|'(?:[^'])*'/, greedy: !0 },
@@ -42229,7 +42252,7 @@ function KC(e) {
   })(e);
 }
 function YC(e) {
-  e.register(jb),
+  e.register(Wb),
     e.register(CS),
     e.register(iv),
     (e.languages.stata = {
@@ -43973,8 +43996,8 @@ function My(e, t) {
   Fv.register(Vb),
   Fv.register(Zb),
   Fv.register($b),
-  Fv.register(jb),
   Fv.register(Wb),
+  Fv.register(jb),
   Fv.register(qb),
   Fv.register(Kb),
   Fv.register(Yb),
@@ -44010,10 +44033,10 @@ function My(e, t) {
   (Zv.aliases = []),
   ($v.displayName = "al"),
   ($v.aliases = []),
-  (jv.displayName = "antlr4"),
-  (jv.aliases = ["g4"]),
-  (Wv.displayName = "apacheconf"),
-  (Wv.aliases = []),
+  (Wv.displayName = "antlr4"),
+  (Wv.aliases = ["g4"]),
+  (jv.displayName = "apacheconf"),
+  (jv.aliases = []),
   (qv.displayName = "apex"),
   (qv.aliases = []),
   (Kv.displayName = "apl"),
@@ -44118,10 +44141,10 @@ function My(e, t) {
   (ZT.aliases = []),
   ($T.displayName = "django"),
   ($T.aliases = ["jinja2"]),
-  (jT.displayName = "dns-zone-file"),
-  (jT.aliases = ["dns-zone"]),
-  (WT.displayName = "docker"),
-  (WT.aliases = ["dockerfile"]),
+  (WT.displayName = "dns-zone-file"),
+  (WT.aliases = ["dns-zone"]),
+  (jT.displayName = "docker"),
+  (jT.aliases = ["dockerfile"]),
   (qT.displayName = "dot"),
   (qT.aliases = ["gv"]),
   (KT.displayName = "ebnf"),
@@ -44226,10 +44249,10 @@ function My(e, t) {
   (Z_.aliases = []),
   ($_.displayName = "io"),
   ($_.aliases = []),
-  (j_.displayName = "j"),
-  (j_.aliases = []),
-  (W_.displayName = "javadoclike"),
+  (W_.displayName = "j"),
   (W_.aliases = []),
+  (j_.displayName = "javadoclike"),
+  (j_.aliases = []),
   (q_.displayName = "scala"),
   (q_.aliases = []),
   (K_.displayName = "javadoc"),
@@ -44334,10 +44357,10 @@ function My(e, t) {
   (ZS.aliases = []),
   ($S.displayName = "opencl"),
   ($S.aliases = []),
-  (jS.displayName = "openqasm"),
-  (jS.aliases = ["qasm"]),
-  (WS.displayName = "oz"),
-  (WS.aliases = []),
+  (WS.displayName = "openqasm"),
+  (WS.aliases = ["qasm"]),
+  (jS.displayName = "oz"),
+  (jS.aliases = []),
   (qS.displayName = "parigp"),
   (qS.aliases = []),
   (KS.displayName = "parser"),
@@ -44442,10 +44465,10 @@ function My(e, t) {
   (ZC.aliases = ["trig"]),
   ($C.displayName = "sparql"),
   ($C.aliases = ["rq"]),
-  (jC.displayName = "splunk-spl"),
-  (jC.aliases = []),
-  (WC.displayName = "sqf"),
+  (WC.displayName = "splunk-spl"),
   (WC.aliases = []),
+  (jC.displayName = "sqf"),
+  (jC.aliases = []),
   (qC.displayName = "squirrel"),
   (qC.aliases = []),
   (KC.displayName = "stan"),
@@ -44523,7 +44546,7 @@ function My(e, t) {
   Fv.register(Ub),
   Fv.register(Gb),
   Fv.register(Pb),
-  Fv.register(Wb),
+  Fv.register(jb),
   Fv.register(qb),
   Fv.register(zv),
   Fv.register(Uv),
@@ -44531,8 +44554,8 @@ function My(e, t) {
   Fv.register(Vv),
   Fv.register(Zv),
   Fv.register($v),
-  Fv.register(jv),
   Fv.register(Wv),
+  Fv.register(jv),
   Fv.register(pv),
   Fv.register(qv),
   Fv.register(Kv),
@@ -44597,8 +44620,8 @@ function My(e, t) {
   Fv.register(Vb),
   Fv.register(rv),
   Fv.register($T),
-  Fv.register(jT),
   Fv.register(WT),
+  Fv.register(jT),
   Fv.register(qT),
   Fv.register(KT),
   Fv.register(YT),
@@ -44657,10 +44680,10 @@ function My(e, t) {
   Fv.register(Z_),
   Fv.register($b),
   Fv.register($_),
-  Fv.register(j_),
-  Fv.register(jb),
-  Fv.register(ov),
   Fv.register(W_),
+  Fv.register(Wb),
+  Fv.register(ov),
+  Fv.register(j_),
   Fv.register(q_),
   Fv.register(K_),
   Fv.register(Y_),
@@ -44717,8 +44740,8 @@ function My(e, t) {
   Fv.register(VS),
   Fv.register(ZS),
   Fv.register($S),
-  Fv.register(jS),
   Fv.register(WS),
+  Fv.register(jS),
   Fv.register(qS),
   Fv.register(KS),
   Fv.register(YS),
@@ -44776,8 +44799,8 @@ Fv.register(NC),
   Fv.register(VC),
   Fv.register(ZC),
   Fv.register($C),
-  Fv.register(jC),
   Fv.register(WC),
+  Fv.register(jC),
   Fv.register(qC),
   Fv.register(KC),
   Fv.register(YC),
@@ -45198,7 +45221,7 @@ var Fy,
   Vy = { exports: {} },
   Zy = {};
 var $y,
-  jy = {};
+  Wy = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -45535,14 +45558,14 @@ var $y,
             }
             z = new G();
             var $ = Object.prototype.hasOwnProperty,
-              j = {},
-              W = E.ReactDebugCurrentFrame;
+              W = {},
+              j = E.ReactDebugCurrentFrame;
             function q(e) {
               if (e) {
                 var t = e._owner,
                   n = Z(e.type, e._source, t ? t.type : null);
-                W.setExtraStackFrame(n);
-              } else W.setExtraStackFrame(null);
+                j.setExtraStackFrame(n);
+              } else j.setExtraStackFrame(null);
             }
             var K = Array.isArray;
             function Y(e) {
@@ -45831,8 +45854,8 @@ var $y,
                           ),
                           q(null)),
                           l instanceof Error &&
-                            !(l.message in j) &&
-                            ((j[l.message] = !0),
+                            !(l.message in W) &&
+                            ((W[l.message] = !0),
                             q(r),
                             b("Failed %s type: %s", n, l.message),
                             q(null));
@@ -45967,10 +45990,10 @@ var $y,
               be = function (e, t, n) {
                 return ge(e, t, n, !0);
               };
-            (jy.Fragment = a), (jy.jsx = Ee), (jy.jsxs = be);
+            (Wy.Fragment = a), (Wy.jsx = Ee), (Wy.jsxs = be);
           })()),
-      jy));
-var Wy,
+      Wy));
+var jy,
   qy,
   Ky = Vy.exports,
   Yy = [
@@ -46365,16 +46388,18 @@ var Wy,
   aA = l.default.div(function (e) {
     var t = e.theme,
       n = e.sx,
-      a = e.color;
+      a = e.color,
+      r = e.barHeight,
+      o = e.transparentBG;
     return Ve(
       {
         "& .progBlock": { display: "flex", alignItems: "center", gap: 10 },
         "& .progressContainer": {
           position: "relative",
           width: "100%",
-          height: 8,
-          backgroundColor: Sa(t, "boxBackground", E),
-          borderRadius: 8,
+          height: r,
+          backgroundColor: o ? "transparent" : Sa(t, "boxBackground", E),
+          borderRadius: r,
           overflow: "hidden",
         },
         "& .notificationLabel": {
@@ -46383,18 +46408,18 @@ var Wy,
         },
         "& .percentageBar": {
           display: "block",
-          height: 8,
+          height: r,
           backgroundColor: Sa(t, "signalColors.".concat(nA[a || "blue"]), C),
           transitionDuration: "0.1s",
-          borderRadius: 8,
+          borderRadius: r,
         },
       },
       n,
     );
   }),
   rA = t.keyframes(
-    Wy ||
-      (Wy = We(
+    jy ||
+      (jy = je(
         [
           "0% {\n                                          left: -100px;\n                                          visibility: visible;\n                                          width: 100px;\n                                        }\n                                          60% {\n                                            width: 300px\n                                          }\n                                          99% {\n                                            left: calc(100% + 300px);\n                                          }\n                                          100% {\n                                            visibility: hidden;\n                                            width: 100px;\n                                          }",
         ],
@@ -46405,18 +46430,28 @@ var Wy,
   ),
   oA = l.default.div(
     qy ||
-      (qy = We(
+      (qy = je(
         [
-          "\n  width: 100px;\n  height: 8px;\n  display: block;\n  position: absolute;\n  border-radius: 8px;\n  animation: ",
+          "\n  width: 100px;\n  height: ",
+          "px;\n  display: block;\n  position: absolute;\n  border-radius: ",
+          "px;\n  animation: ",
           " 1000ms linear infinite normal forwards;\n  background-color: ",
           ";\n",
         ],
         [
-          "\n  width: 100px;\n  height: 8px;\n  display: block;\n  position: absolute;\n  border-radius: 8px;\n  animation: ",
+          "\n  width: 100px;\n  height: ",
+          "px;\n  display: block;\n  position: absolute;\n  border-radius: ",
+          "px;\n  animation: ",
           " 1000ms linear infinite normal forwards;\n  background-color: ",
           ";\n",
         ],
       )),
+    function (e) {
+      return Sa(e, "barHeight", 8);
+    },
+    function (e) {
+      return Sa(e, "barHeight", 8);
+    },
     rA,
     function (e) {
       return Sa(e.theme, "signalColors.".concat(nA[e.color || "blue"]), C);
@@ -46925,6 +46960,100 @@ var Wy,
           color: Sa(t, "informativeMessage.".concat(a, ".textColor"), m),
           fontSize: 14,
         },
+      },
+      n,
+    );
+  }),
+  TA = l.default.table(function (e) {
+    e.theme;
+    var t = e.sx;
+    return Ve(
+      {
+        display: "table",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  _A = l.default.tbody(function (e) {
+    e.theme;
+    var t = e.sx;
+    return Ve(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  SA = l.default.td(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return Ve(
+      {
+        fontFamily: "'Inter',sans-serif",
+        fontWeight: 400,
+        fontSize: 12,
+        lineHeight: 1.43,
+        display: "table-cell",
+        verticalAlign: "inherit",
+        borderBottom: "1px solid ".concat(Sa(t, "borderColor", g)),
+        textAlign: "left",
+        padding: 16,
+        color: Sa(t, "secondaryText", b),
+      },
+      n,
+    );
+  }),
+  CA = l.default.thead(function (e) {
+    e.theme;
+    var t = e.sx;
+    return Ve(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  yA = l.default.th(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return Ve(
+      {
+        fontFamily: "'Inter',sans-serif",
+        fontSize: 12,
+        lineHeight: 1.43,
+        display: "table-cell",
+        verticalAlign: "inherit",
+        borderBottom: "2px solid ".concat(Sa(t, "borderColor", g)),
+        textAlign: "left",
+        padding: 16,
+        fontWeight: "bold",
+        color: Sa(t, "secondaryText", b),
+      },
+      n,
+    );
+  }),
+  AA = l.default.tr(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return Ve(
+      {
+        color: "inherit",
+        display: "table-row",
+        verticalAlign: "middle",
+        outline: 0,
+        cursor: "pointer",
+        borderLeft: 0,
+        borderRight: 0,
+        backgroundColor: Sa(t, "bgColor", m),
       },
       n,
     );
@@ -47886,6 +48015,7 @@ var Wy,
           },
           open: N,
           anchorEl: D,
+          useAnchorWidth: !0,
         }),
       ),
     );
@@ -49993,10 +50123,10 @@ var Wy,
             return "view" === e.type;
           })
         : null,
-      j = function (e) {
+      W = function (e) {
         z(!F), V(e.currentTarget);
       },
-      W = function () {
+      j = function () {
         z(!1), V(null);
       };
     return o.default.createElement(
@@ -50048,14 +50178,14 @@ var Wy,
                     variant: "regular",
                     icon: o.default.createElement(Lo, null),
                     iconLocation: "end",
-                    onClick: j,
+                    onClick: W,
                   },
                   "Columns",
                 ),
                 F &&
                   o.default.createElement(Dc, {
                     open: F,
-                    closeTriggerAction: W,
+                    closeTriggerAction: j,
                     onSelect: function (e) {
                       return w(e);
                     },
@@ -52860,7 +52990,7 @@ var Wy,
           : o.default.createElement(Fo, null)),
         (N = y ? "text" : "password")),
       o.default.createElement(
-        Wc,
+        jc,
         { error: !!b && "" !== b, sx: v, className: "inputItem ".concat(E) },
         "" !== h &&
           o.default.createElement(
@@ -52895,7 +53025,7 @@ var Wy,
           g &&
             o.default.createElement(pc, { className: "startOverlayIcon" }, g),
           o.default.createElement(
-            jc,
+            Wc,
             Ve(
               {
                 id: n,
@@ -53479,7 +53609,7 @@ var Wy,
       e.useEffect(function () {
         $e(void 0, void 0, void 0, function () {
           var e;
-          return je(this, function (t) {
+          return We(this, function (t) {
             switch (t.label) {
               case 0:
                 return [4, wr()];
@@ -55424,10 +55554,14 @@ var Wy,
       p = void 0 === u ? "" : u,
       m = e.color,
       h = void 0 === m ? "blue" : m,
-      f = (100 * i) / s;
+      f = e.barHeight,
+      g = void 0 === f ? 8 : f,
+      E = e.transparentBG,
+      b = void 0 !== E && E,
+      v = (100 * i) / s;
     return o.default.createElement(
       aA,
-      { color: h, sx: a },
+      { color: h, sx: a, barHeight: g, transparentBG: b },
       o.default.createElement(
         pc,
         { className: "progBlock" },
@@ -55435,10 +55569,10 @@ var Wy,
           pc,
           { className: "progressContainer" },
           "indeterminate" === d
-            ? o.default.createElement(oA, { color: h })
+            ? o.default.createElement(oA, { color: h, barHeight: g })
             : o.default.createElement(pc, {
                 className: "percentageBar",
-                style: { width: "".concat(f, "%") },
+                style: { width: "".concat(v, "%") },
               }),
         ),
         n &&
@@ -55446,7 +55580,7 @@ var Wy,
           o.default.createElement(
             "span",
             { className: "progressPercentage" },
-            Math.floor(f),
+            Math.floor(v),
             "%",
           ),
       ),
@@ -56442,6 +56576,7 @@ var Wy,
             },
             open: N,
             anchorEl: I,
+            useAnchorWidth: !0,
           }),
         ),
       )
@@ -57366,6 +57501,42 @@ var Wy,
       ),
     );
   }),
+  (exports.Table = function (e) {
+    var t = e.children,
+      n = e.sx,
+      a = Ze(e, ["children", "sx"]);
+    return o.default.createElement(TA, Ve({ sx: n }, a), t);
+  }),
+  (exports.TableBody = function (e) {
+    var t = e.children,
+      n = e.sx,
+      a = Ze(e, ["children", "sx"]);
+    return o.default.createElement(_A, Ve({ sx: n }, a), t);
+  }),
+  (exports.TableCell = function (e) {
+    var t = e.children,
+      n = e.sx,
+      a = Ze(e, ["children", "sx"]);
+    return o.default.createElement(SA, Ve({ sx: n }, a), t);
+  }),
+  (exports.TableHead = function (e) {
+    var t = e.children,
+      n = e.sx,
+      a = Ze(e, ["children", "sx"]);
+    return o.default.createElement(CA, Ve({ sx: n }, a), t);
+  }),
+  (exports.TableHeadCell = function (e) {
+    var t = e.children,
+      n = e.sx,
+      a = Ze(e, ["children", "sx"]);
+    return o.default.createElement(yA, Ve({ sx: n }, a), t);
+  }),
+  (exports.TableRow = function (e) {
+    var t = e.children,
+      n = e.sx,
+      a = Ze(e, ["children", "sx"]);
+    return o.default.createElement(AA, Ve({ sx: n }, a), t);
+  }),
   (exports.Tabs = function (e) {
     var t = e.horizontal,
       n = e.options,
@@ -57374,29 +57545,43 @@ var Wy,
       i = void 0 !== r && r,
       l = e.routes,
       s = e.onTabClick,
-      c = e.sx;
+      c = e.optionsInitialComponent,
+      d = e.optionsEndComponent,
+      u = e.horizontalBarBackground,
+      p = e.sx;
     return o.default.createElement(
       qd,
-      { className: "tabs-container", horizontal: !!t, sx: c },
+      {
+        className: "tabs-container",
+        horizontal: !!t,
+        horizontalBarBackground: !!u,
+        sx: p,
+      },
       o.default.createElement(
         pc,
-        { className: "optionsList" },
-        n.map(function (e, n) {
-          return e
-            ? o.default.createElement(Wd, {
-                key: "v-tab-".concat(n),
-                id: e.tabConfig.id,
-                onClick: function () {
-                  s(i ? e.tabConfig.to || "" : e.tabConfig.id);
-                },
-                horizontal: !!t,
-                label: e.tabConfig.label,
-                disabled: !!e.tabConfig.disabled,
-                icon: e.tabConfig.icon,
-                selected: i ? e.tabConfig.to === a : e.tabConfig.id === a,
-              })
-            : null;
-        }),
+        { className: "optionsContainer" },
+        c && o.default.createElement(pc, null, c),
+        o.default.createElement(
+          pc,
+          { className: "optionsList" },
+          n.map(function (e, n) {
+            return e
+              ? o.default.createElement(jd, {
+                  key: "v-tab-".concat(n),
+                  id: e.tabConfig.id,
+                  onClick: function () {
+                    s(i ? e.tabConfig.to || "" : e.tabConfig.id);
+                  },
+                  horizontal: !!t,
+                  label: e.tabConfig.label,
+                  disabled: !!e.tabConfig.disabled,
+                  icon: e.tabConfig.icon,
+                  selected: i ? e.tabConfig.to === a : e.tabConfig.id === a,
+                })
+              : null;
+          }),
+        ),
+        d && o.default.createElement(pc, null, d),
       ),
       o.default.createElement(
         pc,

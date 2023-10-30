@@ -66,6 +66,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
         display: "flex",
         alignItems: "center",
         gap: 10,
+        whiteSpace: "nowrap",
         "& svg": {
           width: 16,
           height: 16,
