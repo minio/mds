@@ -39,8 +39,7 @@ const TableCellMain = styled.td<TableComponentsExtraProps>(({ theme, sx }) => ({
 }));
 
 const TableCell: FC<
-  TableComponentsExtraProps &
-    React.TableHTMLAttributes<HTMLTableDataCellElement>
+  TableComponentsExtraProps & React.TdHTMLAttributes<HTMLTableDataCellElement>
 > = ({ children, sx, ...restProps }) => {
   return (
     <TableCellMain sx={sx} {...restProps}>

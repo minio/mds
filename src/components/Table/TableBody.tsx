@@ -29,7 +29,7 @@ const TableBodyMain = styled.tbody<TableComponentsExtraProps>(
 );
 
 const TableBody: FC<
-  TableComponentsExtraProps & React.TableHTMLAttributes<HTMLTableSectionElement>
+  TableComponentsExtraProps & React.HTMLAttributes<HTMLTableSectionElement>
 > = ({ children, sx, ...restProps }) => {
   return (
     <TableBodyMain sx={sx} {...restProps}>

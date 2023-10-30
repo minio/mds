@@ -33,7 +33,7 @@ const TableRowMain = styled.tr<TableComponentsExtraProps>(({ theme, sx }) => ({
 }));
 
 const TableRow: FC<
-  TableComponentsExtraProps & React.TableHTMLAttributes<HTMLTableRowElement>
+  TableComponentsExtraProps & React.HTMLAttributes<HTMLTableRowElement>
 > = ({ children, sx, ...restProps }) => {
   return (
     <TableRowMain sx={sx} {...restProps}>

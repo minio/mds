@@ -29,7 +29,7 @@ const TableHeadMain = styled.thead<TableComponentsExtraProps>(
 );
 
 const TableHead: FC<
-  TableComponentsExtraProps & React.TableHTMLAttributes<HTMLTableSectionElement>
+  TableComponentsExtraProps & React.HTMLAttributes<HTMLTableSectionElement>
 > = ({ children, sx, ...restProps }) => {
   return (
     <TableHeadMain sx={sx} {...restProps}>
