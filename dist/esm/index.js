@@ -140,6 +140,7 @@ var b = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
     linkColor: fe,
     boxBackground: w,
     mutedText: Ee,
+    secondaryText: N,
     signalColors: {
       main: O,
       danger: P,
@@ -344,7 +345,7 @@ var b = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
           selectedBackground: "transparent",
           selectedLabelColor: O,
         },
-        backgroundColor: "transparent",
+        backgroundColor: w,
         selectedIndicatorColor: O,
       },
     },
@@ -418,6 +419,7 @@ var b = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
     linkColor: "#85B3EE",
     boxBackground: Ce,
     mutedText: "#767a80",
+    secondaryText: ye,
     signalColors: {
       main: ye,
       danger: Le,
@@ -623,7 +625,7 @@ var b = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
           selectedBackground: "transparent",
           selectedLabelColor: xe,
         },
-        backgroundColor: "transparent",
+        backgroundColor: Ce,
         selectedIndicatorColor: xe,
       },
     },
@@ -23681,7 +23683,8 @@ var pm = ot(function (e, t, n) {
   }),
   eh = d.div(function (e) {
     var t = e.theme,
-      n = e.sx;
+      n = e.sx,
+      a = e.useAnchorWidth;
     return Je(
       {
         position: "absolute",
@@ -23690,7 +23693,7 @@ var pm = ot(function (e, t, n) {
         border: "1px solid ".concat(Oa(t, "borderColor", "#E2E2E2")),
         padding: "10px 0",
         maxHeight: 450,
-        minWidth: 150,
+        minWidth: a ? 150 : 0,
         overflowY: "auto",
         borderRadius: 4,
         boxShadow:
@@ -23712,6 +23715,7 @@ var pm = ot(function (e, t, n) {
             display: "flex",
             alignItems: "center",
             gap: 10,
+            whiteSpace: "nowrap",
             "& svg": { width: 16, height: 16 },
             '&:not([class*="Mui"])::before': { content: "' '" },
             "&.selected": {
@@ -23744,10 +23748,18 @@ var pm = ot(function (e, t, n) {
       n,
     );
   }),
-  th = function (e) {
+  th = function (e, t, n) {
     if (!e) return { top: 0, left: 0, width: 0 };
-    var t = e.getBoundingClientRect();
-    return { top: t.top + t.height, left: t.left, width: t.width };
+    var a = e.getBoundingClientRect(),
+      r = { top: a.top + a.height };
+    return (
+      "start" === t
+        ? ((r.left = a.left), (r.transform = "translateX(0%)"))
+        : "end" === t &&
+          ((r.left = a.left + a.width), (r.transform = "translateX(-100%)")),
+      n && (r.width = a.width),
+      r
+    );
   },
   nh = function (e) {
     var n,
@@ -23761,14 +23773,18 @@ var pm = ot(function (e, t, n) {
       m = e.open,
       h = e.anchorEl,
       g = void 0 === h ? null : h,
-      E = a(null),
-      b = E[0],
-      v = E[1],
-      T = a(0),
-      _ = T[0],
-      S = T[1],
-      C = function () {
-        var e = s[_];
+      E = e.useAnchorWidth,
+      b = void 0 !== E && E,
+      v = e.anchorOrigin,
+      T = void 0 === v ? "start" : v,
+      _ = a(null),
+      S = _[0],
+      C = _[1],
+      y = a(0),
+      A = y[0],
+      w = y[1],
+      N = function () {
+        var e = s[A];
         e.disabled || u(e.value, e.extraValue || null, e.label), p();
       };
     return (
@@ -23776,7 +23792,7 @@ var pm = ot(function (e, t, n) {
         function (e) {
           "Enter" === e.key && n();
         },
-        [(n = C)],
+        [(n = N)],
       )),
       r(
         function () {
@@ -23812,29 +23828,29 @@ var pm = ot(function (e, t, n) {
       })(function (e) {
         if (m)
           if ("ArrowUp" === e) {
-            var t = _ - 1;
-            S((a = t >= 0 ? t : 0));
+            var t = A - 1;
+            w((a = t >= 0 ? t : 0));
           } else if ("ArrowDown" === e) {
-            var n = _ + 1,
+            var n = A + 1,
               a = n <= s.length - 1 ? n : s.length - 1;
-            S(a);
+            w(a);
           }
       }),
       r(
         function () {
-          S(0);
+          w(0);
         },
         [s],
       ),
       r(
         function () {
-          v(m ? th(g) : null);
+          C(m ? th(g, T, b) : null);
         },
         [m],
       ),
       r(function () {
         var e = pm(function (e) {
-          e && e.getBoundingClientRect() && v(th(e));
+          e && e.getBoundingClientRect() && C(th(e, T, b));
         }, 300);
         window.addEventListener("resize", function () {
           p();
@@ -23843,7 +23859,7 @@ var pm = ot(function (e, t, n) {
             e(g);
           });
       }),
-      m && b
+      m && S
         ? (g ||
             console.warn(
               "AnchorEl not set. Element will be rendered on the top of the page",
@@ -23854,7 +23870,7 @@ var pm = ot(function (e, t, n) {
               { onClick: p },
               t.createElement(
                 eh,
-                { id: i, sx: b },
+                { id: i, sx: S, useAnchorWidth: b },
                 t.createElement(
                   "ul",
                   null,
@@ -23865,10 +23881,10 @@ var pm = ot(function (e, t, n) {
                         className: ""
                           .concat(d === e.value ? "selected" : "", " ")
                           .concat(e.disabled ? "disabled" : "", " ")
-                          .concat(n === _ ? "hovered" : ""),
-                        onClick: C,
+                          .concat(n === A ? "hovered" : ""),
+                        onClick: N,
                         onMouseOver: function () {
-                          S(n);
+                          w(n);
                         },
                         key: "option-".concat(n),
                       },
@@ -24080,6 +24096,7 @@ var pm = ot(function (e, t, n) {
             },
             open: R,
             anchorEl: k,
+            useAnchorWidth: !0,
           }),
         ),
       )
@@ -25733,16 +25750,16 @@ var pm = ot(function (e, t, n) {
   },
   jh = d.div(function (e) {
     var t = e.theme,
-      n = e.horizontal;
+      n = e.horizontal,
+      a = e.horizontalBarBackground
+        ? Oa(t, "tabs.horizontal.backgroundColor", "transparent")
+        : "transparent";
     return {
       display: "flex",
       flexDirection: n ? "column" : "row",
       height: "100%",
-      "& .optionsList": {
+      "& .optionsContainer": {
         display: "flex",
-        flexDirection: n ? "row" : "column",
-        flexGrow: 1,
-        width: n ? "100%" : "auto",
         border: n
           ? "none"
           : "".concat(Oa(t, "tabs.vertical.borders", ie), " 1px solid"),
@@ -25750,9 +25767,16 @@ var pm = ot(function (e, t, n) {
           n ? Oa(t, "borderColor", A) : Oa(t, "tabs.vertical.borders", ie),
           " 1px solid",
         ),
-        backgroundColor: n
-          ? Oa(t, "tabs.horizontal.backgroundColor", "transparent")
-          : Oa(t, "tabs.vertical.backgroundColor", G),
+        backgroundColor: n ? a : Oa(t, "tabs.vertical.backgroundColor", G),
+        width: n ? "100%" : "auto",
+        alignItems: n ? "center" : "flex-start",
+        gap: 10,
+        "& .optionsList": {
+          display: "flex",
+          flexDirection: n ? "row" : "column",
+          flexGrow: 1,
+          width: n ? "100%" : "auto",
+        },
       },
       "& .tabsPanels": {
         flexGrow: 1,
@@ -25773,29 +25797,43 @@ var pm = ot(function (e, t, n) {
       i = void 0 !== o && o,
       l = e.routes,
       s = e.onTabClick,
-      c = e.sx;
+      c = e.optionsInitialComponent,
+      d = e.optionsEndComponent,
+      u = e.horizontalBarBackground,
+      p = e.sx;
     return t.createElement(
       jh,
-      { className: "tabs-container", horizontal: !!n, sx: c },
+      {
+        className: "tabs-container",
+        horizontal: !!n,
+        horizontalBarBackground: !!u,
+        sx: p,
+      },
       t.createElement(
         Wp,
-        { className: "optionsList" },
-        a.map(function (e, a) {
-          return e
-            ? t.createElement(Wh, {
-                key: "v-tab-".concat(a),
-                id: e.tabConfig.id,
-                onClick: function () {
-                  s(i ? e.tabConfig.to || "" : e.tabConfig.id);
-                },
-                horizontal: !!n,
-                label: e.tabConfig.label,
-                disabled: !!e.tabConfig.disabled,
-                icon: e.tabConfig.icon,
-                selected: i ? e.tabConfig.to === r : e.tabConfig.id === r,
-              })
-            : null;
-        }),
+        { className: "optionsContainer" },
+        c && t.createElement(Wp, null, c),
+        t.createElement(
+          Wp,
+          { className: "optionsList" },
+          a.map(function (e, a) {
+            return e
+              ? t.createElement(Wh, {
+                  key: "v-tab-".concat(a),
+                  id: e.tabConfig.id,
+                  onClick: function () {
+                    s(i ? e.tabConfig.to || "" : e.tabConfig.id);
+                  },
+                  horizontal: !!n,
+                  label: e.tabConfig.label,
+                  disabled: !!e.tabConfig.disabled,
+                  icon: e.tabConfig.icon,
+                  selected: i ? e.tabConfig.to === r : e.tabConfig.id === r,
+                })
+              : null;
+          }),
+        ),
+        d && t.createElement(Wp, null, d),
       ),
       t.createElement(
         Wp,
@@ -55518,16 +55556,18 @@ var jR,
   lx = d.div(function (e) {
     var t = e.theme,
       n = e.sx,
-      a = e.color;
+      a = e.color,
+      r = e.barHeight,
+      o = e.transparentBG;
     return Je(
       {
         "& .progBlock": { display: "flex", alignItems: "center", gap: 10 },
         "& .progressContainer": {
           position: "relative",
           width: "100%",
-          height: 8,
-          backgroundColor: Oa(t, "boxBackground", w),
-          borderRadius: 8,
+          height: r,
+          backgroundColor: o ? "transparent" : Oa(t, "boxBackground", w),
+          borderRadius: r,
           overflow: "hidden",
         },
         "& .notificationLabel": {
@@ -55536,10 +55576,10 @@ var jR,
         },
         "& .percentageBar": {
           display: "block",
-          height: 8,
+          height: r,
           backgroundColor: Oa(t, "signalColors.".concat(ix[a || "blue"]), O),
           transitionDuration: "0.1s",
-          borderRadius: 8,
+          borderRadius: r,
         },
       },
       n,
@@ -55560,16 +55600,26 @@ var jR,
     qR ||
       (qR = at(
         [
-          "\n  width: 100px;\n  height: 8px;\n  display: block;\n  position: absolute;\n  border-radius: 8px;\n  animation: ",
+          "\n  width: 100px;\n  height: ",
+          "px;\n  display: block;\n  position: absolute;\n  border-radius: ",
+          "px;\n  animation: ",
           " 1000ms linear infinite normal forwards;\n  background-color: ",
           ";\n",
         ],
         [
-          "\n  width: 100px;\n  height: 8px;\n  display: block;\n  position: absolute;\n  border-radius: 8px;\n  animation: ",
+          "\n  width: 100px;\n  height: ",
+          "px;\n  display: block;\n  position: absolute;\n  border-radius: ",
+          "px;\n  animation: ",
           " 1000ms linear infinite normal forwards;\n  background-color: ",
           ";\n",
         ],
       )),
+    function (e) {
+      return Oa(e, "barHeight", 8);
+    },
+    function (e) {
+      return Oa(e, "barHeight", 8);
+    },
     sx,
     function (e) {
       return Oa(e.theme, "signalColors.".concat(ix[e.color || "blue"]), O);
@@ -55589,10 +55639,14 @@ var jR,
       p = void 0 === u ? "" : u,
       m = e.color,
       h = void 0 === m ? "blue" : m,
-      g = (100 * i) / s;
+      g = e.barHeight,
+      f = void 0 === g ? 8 : g,
+      E = e.transparentBG,
+      b = void 0 !== E && E,
+      v = (100 * i) / s;
     return t.createElement(
       lx,
-      { color: h, sx: r },
+      { color: h, sx: r, barHeight: f, transparentBG: b },
       t.createElement(
         Wp,
         { className: "progBlock" },
@@ -55600,10 +55654,10 @@ var jR,
           Wp,
           { className: "progressContainer" },
           "indeterminate" === d
-            ? t.createElement(cx, { color: h })
+            ? t.createElement(cx, { color: h, barHeight: f })
             : t.createElement(Wp, {
                 className: "percentageBar",
-                style: { width: "".concat(g, "%") },
+                style: { width: "".concat(v, "%") },
               }),
         ),
         a &&
@@ -55611,7 +55665,7 @@ var jR,
           t.createElement(
             "span",
             { className: "progressPercentage" },
-            Math.floor(g),
+            Math.floor(v),
             "%",
           ),
       ),
@@ -56313,6 +56367,7 @@ var jR,
           },
           open: x,
           anchorEl: H,
+          useAnchorWidth: !0,
         }),
       ),
     );
@@ -58607,6 +58662,136 @@ var jR,
         ),
       ),
     );
+  },
+  wI = d.table(function (e) {
+    e.theme;
+    var t = e.sx;
+    return Je(
+      {
+        display: "table",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  NI = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = et(e, ["children", "sx"]);
+    return t.createElement(wI, Je({ sx: a }, r), n);
+  },
+  RI = d.tbody(function (e) {
+    e.theme;
+    var t = e.sx;
+    return Je(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  xI = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = et(e, ["children", "sx"]);
+    return t.createElement(RI, Je({ sx: a }, r), n);
+  },
+  II = d.td(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return Je(
+      {
+        fontFamily: "'Inter',sans-serif",
+        fontWeight: 400,
+        fontSize: 12,
+        lineHeight: 1.43,
+        display: "table-cell",
+        verticalAlign: "inherit",
+        borderBottom: "1px solid ".concat(Oa(t, "borderColor", A)),
+        textAlign: "left",
+        padding: 16,
+        color: Oa(t, "secondaryText", N),
+      },
+      n,
+    );
+  }),
+  kI = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = et(e, ["children", "sx"]);
+    return t.createElement(II, Je({ sx: a }, r), n);
+  },
+  OI = d.thead(function (e) {
+    e.theme;
+    var t = e.sx;
+    return Je(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  LI = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = et(e, ["children", "sx"]);
+    return t.createElement(OI, Je({ sx: a }, r), n);
+  },
+  MI = d.th(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return Je(
+      {
+        fontFamily: "'Inter',sans-serif",
+        fontSize: 12,
+        lineHeight: 1.43,
+        display: "table-cell",
+        verticalAlign: "inherit",
+        borderBottom: "2px solid ".concat(Oa(t, "borderColor", A)),
+        textAlign: "left",
+        padding: 16,
+        fontWeight: "bold",
+        color: Oa(t, "secondaryText", N),
+      },
+      n,
+    );
+  }),
+  PI = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = et(e, ["children", "sx"]);
+    return t.createElement(MI, Je({ sx: a }, r), n);
+  },
+  DI = d.tr(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return Je(
+      {
+        color: "inherit",
+        display: "table-row",
+        verticalAlign: "middle",
+        outline: 0,
+        cursor: "pointer",
+        borderLeft: 0,
+        borderRight: 0,
+        backgroundColor: Oa(t, "bgColor", S),
+      },
+      n,
+    );
+  }),
+  BI = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = et(e, ["children", "sx"]);
+    return t.createElement(DI, Je({ sx: a }, r), n);
   };
 export {
   Rs as AGPLV3DarkLogo,
@@ -58876,6 +59061,12 @@ export {
   Zx as SupportMenuIcon,
   Qm as Switch,
   Rl as SyncIcon,
+  NI as Table,
+  xI as TableBody,
+  kI as TableCell,
+  LI as TableHead,
+  PI as TableHeadCell,
+  BI as TableRow,
   qh as Tabs,
   tx as Tag,
   as as TagsIcon,
