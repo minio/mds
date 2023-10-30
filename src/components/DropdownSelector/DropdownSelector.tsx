@@ -36,72 +36,78 @@ const SelectorContainer = styled.div(({}) => ({
   overscrollBehavior: "contain",
 }));
 
-const DropdownBlock = styled.div<DropDownBlockProps>(({ theme, sx }) => ({
-  position: "absolute",
-  display: "flex",
-  backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
-  border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
-  padding: "10px 0",
-  maxHeight: 450,
-  minWidth: 150,
-  overflowY: "auto",
-  borderRadius: 4,
-  boxShadow:
-    "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px",
-  "& ul": {
-    padding: 0,
-    margin: 0,
+const DropdownBlock = styled.div<DropDownBlockProps>(
+  ({ theme, sx, useAnchorWidth }) => ({
+    position: "absolute",
     display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    "& > li": {
-      cursor: "pointer",
-      listStyle: "none",
-      width: "100%",
-      color: get(theme, "dropdownSelector.optionTextColor", "#000"),
-      padding: "6px 15px",
-      fontSize: 14,
-      userSelect: "none",
+    backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
+    border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
+    padding: "10px 0",
+    maxHeight: 450,
+    minWidth: useAnchorWidth ? 150 : 0,
+    overflowY: "auto",
+    borderRadius: 4,
+    boxShadow:
+      "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px",
+    "& ul": {
+      padding: 0,
+      margin: 0,
       display: "flex",
-      alignItems: "center",
-      gap: 10,
-      "& svg": {
-        width: 16,
-        height: 16,
-      },
-      '&:not([class*="Mui"])::before': {
-        content: "' '",
-      },
-      "&.selected": {
-        backgroundColor: get(
-          theme,
-          "dropdownSelector.selectedBGColor",
-          "#D5D7D8",
-        ),
+      flexDirection: "column",
+      width: "100%",
+      "& > li": {
+        cursor: "pointer",
+        listStyle: "none",
+        width: "100%",
         color: get(theme, "dropdownSelector.optionTextColor", "#000"),
-      },
-      "&.disabled": {
-        cursor: "not-allowed",
-        color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
-        "&:hover": {
+        padding: "6px 15px",
+        fontSize: 14,
+        userSelect: "none",
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        "& svg": {
+          width: 16,
+          height: 16,
+        },
+        '&:not([class*="Mui"])::before': {
+          content: "' '",
+        },
+        "&.selected": {
           backgroundColor: get(
             theme,
-            "dropdownSelector.backgroundColor",
-            "#fff",
+            "dropdownSelector.selectedBGColor",
+            "#D5D7D8",
           ),
+          color: get(theme, "dropdownSelector.optionTextColor", "#000"),
+        },
+        "&.disabled": {
+          cursor: "not-allowed",
           color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+          "&:hover": {
+            backgroundColor: get(
+              theme,
+              "dropdownSelector.backgroundColor",
+              "#fff",
+            ),
+            color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+          },
+        },
+        "&.hovered:not(.disabled)": {
+          backgroundColor: get(theme, "dropdownSelector.hoverBG", "#E6EAEB"),
+          color: get(theme, "dropdownSelector.hoverText", "#000"),
         },
       },
-      "&.hovered:not(.disabled)": {
-        backgroundColor: get(theme, "dropdownSelector.hoverBG", "#E6EAEB"),
-        color: get(theme, "dropdownSelector.hoverText", "#000"),
-      },
     },
-  },
-  ...sx,
-}));
+    ...sx,
+  }),
+);
 
-const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
+const calcElementPosition = (
+  anchorEl: (EventTarget & HTMLElement) | null,
+  anchorOrigin: "start" | "end",
+  useAnchorWidth: boolean,
+) => {
   if (!anchorEl) {
     return {
       top: 0,
@@ -112,11 +118,21 @@ const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
 
   const bounds = anchorEl.getBoundingClientRect();
 
-  return {
-    top: bounds.top + bounds.height,
-    left: bounds.left,
-    width: bounds.width,
-  };
+  let returnItem: CSSObject = { top: bounds.top + bounds.height };
+
+  if (anchorOrigin === "start") {
+    returnItem.left = bounds.left;
+    returnItem.transform = "translateX(0%)";
+  } else if (anchorOrigin === "end") {
+    returnItem.left = bounds.left + bounds.width;
+    returnItem.transform = "translateX(-100%)";
+  }
+
+  if (useAnchorWidth) {
+    returnItem.width = bounds.width;
+  }
+
+  return returnItem;
 };
 
 const DropdownSelector: FC<DropdownSelectorProps> = ({
@@ -127,6 +143,8 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
   hideTriggerAction,
   open,
   anchorEl = null,
+  useAnchorWidth = false,
+  anchorOrigin = "start",
 }) => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
   const [indexHover, setIndexHover] = useState<number>(0);
@@ -166,7 +184,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
 
   useEffect(() => {
     if (open) {
-      setCoords(calcElementPosition(anchorEl));
+      setCoords(calcElementPosition(anchorEl, anchorOrigin, useAnchorWidth));
       return;
     }
     setCoords(null);
@@ -181,7 +199,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
       if (!anchorEl || !anchorEl.getBoundingClientRect()) {
         return;
       }
-      setCoords(calcElementPosition(anchorEl));
+      setCoords(calcElementPosition(anchorEl, anchorOrigin, useAnchorWidth));
     }, 300);
 
     window.addEventListener("resize", handleResize);
@@ -202,7 +220,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
 
   return createPortal(
     <SelectorContainer onClick={hideTriggerAction}>
-      <DropdownBlock id={id} sx={coords}>
+      <DropdownBlock id={id} sx={coords} useAnchorWidth={useAnchorWidth}>
         <ul>
           {options.map((option, index) => {
             return (

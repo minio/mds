@@ -25,8 +25,11 @@ export interface DropdownSelectorProps {
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
+  anchorOrigin?: "start" | "end";
+  useAnchorWidth?: boolean;
 }
 
 export interface DropDownBlockProps {
+  useAnchorWidth: boolean;
   sx: CSSObject;
 }
