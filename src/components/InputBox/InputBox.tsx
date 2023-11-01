@@ -29,7 +29,6 @@ import InputLabel from "../InputLabel/InputLabel";
 import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
-import HelpTip from "../HelpTip/HelpTip";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {

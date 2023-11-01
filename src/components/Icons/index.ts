@@ -225,3 +225,5 @@ export { default as PublicIcon } from "./PublicIcon";
 export { default as KeyIcon } from "./KeyIcon";
 export { default as WebhookIcon } from "./WebhookIcon";
 export { default as ExpandIcon } from "./ExpandIcon";
+export { default as NextCaretIcon } from "./NextCaretIcon";
+export { default as PrevCaretIcon } from "./PrevCaretIcon";

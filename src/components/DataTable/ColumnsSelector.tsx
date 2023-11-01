@@ -27,17 +27,7 @@ import {
 import { lightColors } from "../../global/themes";
 import Checkbox from "../Checkbox/Checkbox";
 import Box from "../Box/Box";
-
-const SelectorContainer = styled.div(({}) => ({
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100vw",
-  height: "100vh",
-  backgroundColor: "transparent",
-  zIndex: 500,
-  overscrollBehavior: "contain",
-}));
+import SelectorContainer from "../../global/SelectorContainer";
 
 const SelectorBox = styled.div<ColumnSelectorConstructProps>(
   ({ theme, sx }) => ({

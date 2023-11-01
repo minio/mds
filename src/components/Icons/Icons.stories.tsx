@@ -777,6 +777,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.NextCaretIcon />
+              <br />
+              NextCaretIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.ObjectBrowser1Icon />
               <br />
               ObjectBrowser1Icon
@@ -864,6 +870,12 @@ const Template: Story = (args) => {
               <cicons.PermissionIcon />
               <br />
               PermissionIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.PrevCaretIcon />
+              <br />
+              PrevCaretIcon
             </div>
 
             <div className="story-icon">

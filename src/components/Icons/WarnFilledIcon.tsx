@@ -42,7 +42,7 @@ const WarnFilledIcon = (props: SVGProps<SVGSVGElement>) => {
           id="Group_2356"
           data-name="Group 2356"
           transform="translate(0.002 0.003)"
-          clip-path="url(#clip-path)"
+          clipPath="url(#clip-path)"
         >
           <path
             id="Path_7081"

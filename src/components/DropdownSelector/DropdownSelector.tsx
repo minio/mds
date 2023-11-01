@@ -24,17 +24,7 @@ import {
 } from "./DropdownSelector.types";
 import get from "lodash/get";
 import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
-
-const SelectorContainer = styled.div(({}) => ({
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100vw",
-  height: "100vh",
-  backgroundColor: "transparent",
-  zIndex: 5000,
-  overscrollBehavior: "contain",
-}));
+import SelectorContainer from "../../global/SelectorContainer";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth }) => ({
