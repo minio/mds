@@ -37,6 +37,7 @@ import Cache from "./Logos/Cache/Cache";
 import Monitor from "./Logos/Monitor/Monitor";
 import Observe from "./Logos/Observe/Observe";
 import MissionControl from "./Logos/MissionControl/MissionControl";
+import GlobalConsole from "./Logos/Console/GlobalConsole";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -97,6 +98,8 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <Observe inverse={!!inverse} onClick={onClick} />;
     case "missioncontrol":
       return <MissionControl inverse={!!inverse} onClick={onClick} />;
+    case "globalconsole":
+      return <GlobalConsole inverse={!!inverse} onClick={onClick} />;
   }
 };
 
