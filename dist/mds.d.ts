@@ -9,6 +9,7 @@ import React__default, {
 } from "react";
 import * as styled_components from "styled-components";
 import { CSSObject, CSSProperties } from "styled-components";
+import { DateTime } from "luxon";
 
 interface ButtonThemeProps {
   border: string;
@@ -1340,6 +1341,65 @@ type InformativeMessageProps = InformativeMessageMain &
 
 declare const InformativeMessage: FC<InformativeMessageProps>;
 
+interface DateTimeInputMain {
+  pickerStartComponent?: React__default.ReactNode;
+  className?: string;
+  label?: string;
+  required?: boolean;
+  tooltip?: string;
+  name: string;
+  disabled?: boolean;
+  openPickerIcon?: "arrow" | React__default.ReactNode;
+  displayFormat?: string;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  noLabelMinWidth?: boolean;
+  pickerSx?: CSSObject;
+}
+interface DateTimeConstruct {
+  id: string;
+  sx?: CSSObject;
+  mode?: "all" | "date";
+  value: DateTime | null;
+  onChange: (value: DateTime | null) => void;
+  minDate?: DateTime;
+  maxDate?: DateTime;
+  usePortal?: boolean;
+}
+interface DateTimeSelectorMain {
+  open?: boolean;
+  anchorEl?: (EventTarget & HTMLElement) | null;
+  onClose?: () => void;
+}
+interface TimeSelectorProps {
+  value: DateTime | null;
+  onChange: (value: DateTime | null) => void;
+  completeCallback?: () => void;
+  timeFormat: "12h" | "24h";
+  secondsSelector: boolean;
+}
+interface DateSelectorProps {
+  minDate?: DateTime;
+  maxDate?: DateTime;
+  value: DateTime | null;
+  onChange: (value: DateTime | null) => void;
+}
+interface StylesOverrideProps {
+  isPortal: boolean;
+  mode: "all" | "date";
+  sx?: CSSObject;
+}
+type DateTimeInputProps = DateTimeInputMain &
+  DateTimeConstruct &
+  TimeSelectorProps;
+type DateTimeSelectorProps = DateTimeSelectorMain &
+  DateTimeConstruct &
+  TimeSelectorProps;
+
+declare const DateTimeInput: FC<DateTimeInputProps>;
+
+declare const DateTimeSelector: FC<DateTimeSelectorProps>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React__default.JSX.Element;
@@ -2142,6 +2202,14 @@ declare const ExpandIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const NextCaretIcon$1: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const NextCaretIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2479,6 +2547,14 @@ export {
   DataTable,
   DataTableProps,
   DataTableWrapperProps,
+  DateSelectorProps,
+  DateTimeConstruct,
+  DateTimeInput,
+  DateTimeInputMain,
+  DateTimeInputProps,
+  DateTimeSelector,
+  DateTimeSelectorMain,
+  DateTimeSelectorProps,
   DeleteIcon,
   DeleteNonCurrentIcon,
   DiagnosticsFeatureIcon,
@@ -2631,6 +2707,7 @@ export {
   NewPathIcon,
   NewPoolIcon,
   NextArrowIcon,
+  NextCaretIcon$1 as NextCaretIcon,
   OIDCIcon,
   ObjectBrowser1Icon,
   ObjectBrowserFolderIcon,
@@ -2658,6 +2735,7 @@ export {
   PermissionIcon,
   PoliciesMenuIcon,
   PredefinedActionTypes,
+  NextCaretIcon as PrevCaretIcon,
   PreviewIcon,
   ProfileMenuIcon,
   ProgressBar,
@@ -2719,6 +2797,7 @@ export {
   StarIcon,
   StatusMenuIcon,
   StorageIcon,
+  StylesOverrideProps,
   SubItemsBoxProps,
   SuccessIcon,
   SupportMenuIcon,
@@ -2756,6 +2835,7 @@ export {
   TiersIcon,
   TiersNotAvailableIcon,
   TimeIcon,
+  TimeSelectorProps,
   ToolsIcon,
   Tooltip,
   TooltipBuild,

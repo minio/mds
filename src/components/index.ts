@@ -69,6 +69,8 @@ export { default as Autocomplete } from "./Autocomplete/Autocomplete";
 export { default as Badge } from "./Badge/Badge";
 export { default as Wizard } from "./Wizard/Wizard";
 export { default as InformativeMessage } from "./InformativeMessage/InformativeMessage";
+export { default as DateTimeInput } from "./DateTimeInput/DateTimeInput";
+export { default as DateTimeSelector } from "./DateTimeInput/DateTimeSelector";
 
 /*Icons*/
 export * from "./Icons";
@@ -79,7 +81,7 @@ export * from "./Icons/FileIcons";
 export * from "./Table";
 
 /*Interfaces*/
-export * from "../global/global.types";
+export { SelectorType } from "../global/global.types";
 export * from "./ActionsList/ActionsList.types";
 export * from "./ApplicationLogo/ApplicationLogo.types";
 export * from "./BackLink/BackLink.types";
@@ -124,3 +126,4 @@ export * from "./Autocomplete/Autocomplete.types";
 export * from "./Badge/Badge.types";
 export * from "./Wizard/Wizard.types";
 export * from "./InformativeMessage/InformativeMessage.types";
+export * from "./DateTimeInput/DateTimeInput.types";
