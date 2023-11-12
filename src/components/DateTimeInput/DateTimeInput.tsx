@@ -220,7 +220,6 @@ const InputContainer = styled.div<InputContainerProps>(
 const DateTimeInput: FC<DateTimeInputProps> = ({
   sx,
   id,
-  name,
   className,
   pickerStartComponent,
   tooltip = "",
@@ -329,15 +328,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
   };
 
   return (
-    <InputContainer
-      sx={sx}
-      className={`dateTimeInput ${className}`}
-      onKeyDown={() => {
-        if (!isOpen) {
-          setIsOpen(true);
-        }
-      }}
-    >
+    <InputContainer sx={sx} className={`inputItem ${className}`}>
       {label !== "" && (
         <InputLabel
           htmlFor={id}
@@ -366,7 +357,6 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
           <InputBase
             disabled={disabled}
             id={id}
-            name={name}
             value={dateInputVal}
             onChange={onInputChange}
             placeholder={`MM/DD/YYYY${
