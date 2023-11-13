@@ -107,7 +107,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
   usePortal = true,
   anchorEl = null,
   secondsSelector,
-  timeFormat,
+  timeFormat = "24h",
   onClose,
   open = false,
   sx,

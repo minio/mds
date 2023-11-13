@@ -117,7 +117,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
   onChange,
   completeCallback,
   secondsSelector = false,
-  timeFormat = "12h" as "12h" | "24h",
+  timeFormat = "24h" as "12h" | "24h",
 }) => {
   const [selectedElements, setSelectedElements] = useState<string[]>([]);
 
