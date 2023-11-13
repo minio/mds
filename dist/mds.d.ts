@@ -1347,7 +1347,6 @@ interface DateTimeInputMain {
   label?: string;
   required?: boolean;
   tooltip?: string;
-  name: string;
   disabled?: boolean;
   openPickerIcon?: "arrow" | React__default.ReactNode;
   displayFormat?: string;
@@ -1375,7 +1374,7 @@ interface TimeSelectorProps {
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
   completeCallback?: () => void;
-  timeFormat: "12h" | "24h";
+  timeFormat?: "12h" | "24h";
   secondsSelector: boolean;
 }
 interface DateSelectorProps {
