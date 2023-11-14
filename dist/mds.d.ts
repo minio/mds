@@ -2209,6 +2209,10 @@ declare const NextCaretIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const DarkModeIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2542,6 +2546,7 @@ export {
   CreateIcon,
   CreateNewPathIcon,
   CreateUserIcon,
+  DarkModeIcon,
   DashboardIcon,
   DataTable,
   DataTableProps,
