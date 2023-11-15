@@ -105,7 +105,7 @@ export const lightColors = {
 export const darkColors = {
   dark: "#181F2A",
   sectionOneBG: "#283140",
-  defaultFontColor: "#8E98A9",
+  defaultFontColor: "#C4C9D0",
   bulletColor: "#4B586A",
   borderColor: "#8E98A9",
   boxBackground: "#283140",
