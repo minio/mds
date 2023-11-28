@@ -160,19 +160,11 @@ const GlobalStyles = createGlobalStyle`
     }
     
     a {
-        color: ${get(
-          theme,
-          "buttons.callAction.enabled.background",
-          "#07193E",
-        )};
+        color: ${get(theme, "linkColor", lightColors.linkColor)};
     }
     
     a:hover {
-        color: ${get(
-          theme,
-          "buttons.callAction.hover.background",
-          lightColors.hoverBlue,
-        )};
+        color: ${get(theme, "linkColor", lightColors.linkColor)};
     }
     
     hr {

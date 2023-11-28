@@ -14,14 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment } from "react";
+import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { ActionLinkProps, BaseActionLinkProps } from "./ActionLink.types";
 import { lightColors } from "../../global/themes";
-import Loader from "../Loader/Loader";
+import { LinkProps } from "./Link.types";
 
-const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
+const LinkBase = styled.a<LinkProps>(({ theme, sx }) => ({
   cursor: "pointer",
   display: "inline-flex",
   backgroundColor: "transparent",
@@ -30,27 +29,26 @@ const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
   color: get(theme, "linkColor", lightColors.linkColor),
   textDecoration: "none",
   fontSize: "inherit",
+  "&:visited": {
+    color: get(theme, "linkColor", lightColors.linkColor),
+  },
   "&:hover": {
     textDecoration: "underline",
+    color: get(theme, "linkColor", lightColors.linkColor),
   },
   ...sx,
 }));
 
-const ActionLink: FC<
-  ActionLinkProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ label = "", isLoading = false, sx, children, ...props }) => {
+const Link: FC<LinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+  sx,
+  children,
+  ...props
+}) => {
   return (
-    <ActionLinkBase {...props} sx={sx}>
-      {isLoading ? (
-        <Loader style={{ width: 16, height: 16 }} />
-      ) : (
-        <Fragment>
-          {label}
-          {children}
-        </Fragment>
-      )}
-    </ActionLinkBase>
+    <LinkBase {...props} sx={sx}>
+      {children}
+    </LinkBase>
   );
 };
 
-export default ActionLink;
+export default Link;

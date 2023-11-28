@@ -17,40 +17,33 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ActionLink from "./ActionLink";
-import { ActionLinkProps } from "./ActionLink.types";
+import Link from "./Link";
+import { LinkProps } from "./Link.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 
 export default {
-  title: "MDS/Forms/ActionLink",
-  component: ActionLink,
+  title: "MDS/Forms/Link",
+  component: Link,
   argTypes: {},
-} as Meta<typeof ActionLink>;
+} as Meta<typeof Link>;
 
-const Template: Story<ActionLinkProps> = (args) => (
+const Template: Story<LinkProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <span style={{ fontSize: 16 }}>
-      Some Text that can be combined with an{" "}
-      <ActionLink
-        {...args}
-        label={"Action Link"}
-        onClick={() => alert("You clicked me!")}
-      />
-      , this text can continue after it.
+      We can have a{" "}
+      <Link {...args} target={"_blank"} href={"https://min.io"}>
+        Link
+      </Link>
+      , to point to another page.
     </span>
   </StoryThemeProvider>
 );
 
 export const Default = Template.bind({});
 Default.args = {};
-
-export const LoadingLink = Template.bind({});
-LoadingLink.args = {
-  isLoading: true,
-};
 
 export const CustomStyles = Template.bind({});
 CustomStyles.args = {
