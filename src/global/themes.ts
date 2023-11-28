@@ -202,13 +202,15 @@ export const lightTheme: ThemeDefinitionProps = {
     info: lightColors.bulletColor,
     warning: lightColors.mainOrange,
     disabled: lightColors.disabledGrey,
+    dark: lightColors.defaultFontColor,
+    clear: lightColors.white,
   },
   buttons: {
     regular: {
       enabled: {
         border: lightColors.mainGrey,
         text: lightColors.mainGrey,
-        background: lightColors.white,
+        background: "transparent",
         iconColor: lightColors.mainGrey,
       },
       disabled: {
@@ -260,7 +262,7 @@ export const lightTheme: ThemeDefinitionProps = {
       enabled: {
         border: lightColors.mainRed,
         text: lightColors.mainRed,
-        background: lightColors.white,
+        background: "transparent",
         iconColor: lightColors.mainRed,
       },
       disabled: {
@@ -670,13 +672,15 @@ export const darkTheme: ThemeDefinitionProps = {
     info: darkColors.secondActionHover,
     warning: darkColors.mainOrange,
     disabled: darkColors.disabledGrey,
+    dark: darkColors.dark,
+    clear: darkColors.mainWhite,
   },
   buttons: {
     regular: {
       enabled: {
         border: darkColors.mainGrey,
         text: darkColors.mainGrey,
-        background: darkColors.dark,
+        background: "transparent",
         iconColor: darkColors.mainGrey,
       },
       disabled: {
@@ -728,7 +732,7 @@ export const darkTheme: ThemeDefinitionProps = {
       enabled: {
         border: darkColors.mainRed,
         text: darkColors.mainRed,
-        background: darkColors.dark,
+        background: "transparent",
         iconColor: darkColors.mainRed,
       },
       disabled: {
