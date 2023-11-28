@@ -142,6 +142,8 @@ export interface SignalColorsThemeProps {
   good: string;
   info: string;
   disabled: string;
+  dark: string;
+  clear: string;
 }
 export interface MenuThemeProps {
   vertical?: {
