@@ -212,3 +212,6 @@ export { default as ExpandIcon } from "./ExpandIcon";
 export { default as NextCaretIcon } from "./NextCaretIcon";
 export { default as PrevCaretIcon } from "./PrevCaretIcon";
 export { default as DarkModeIcon } from "./DarkModeIcon";
+export { default as ShuffleIcon } from "./ShuffleIcon";
+export { default as LanguageIcon } from "./LanguageIcon";
+export { default as EventBusyIcon } from "./EventBusyIcon";

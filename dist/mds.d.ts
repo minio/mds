@@ -154,6 +154,8 @@ interface SignalColorsThemeProps {
   good: string;
   info: string;
   disabled: string;
+  dark: string;
+  clear: string;
 }
 interface MenuThemeProps {
   vertical?: {
@@ -2213,6 +2215,18 @@ declare const DarkModeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ShuffleIcon$1: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LanguageIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ShuffleIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2583,6 +2597,7 @@ export {
   EgressIcon,
   EnabledIcon,
   EnterpriseLightLogo,
+  ShuffleIcon as EventBusyIcon,
   EventSubscriptionIcon,
   ExpandCaret,
   ExpandIcon,
@@ -2671,6 +2686,7 @@ export {
   LambdaBalloonIcon,
   LambdaIcon,
   LambdaNotificationsIcon,
+  LanguageIcon,
   LegalHoldIcon,
   LicenseDocIcon,
   LicenseIcon,
@@ -2784,6 +2800,7 @@ export {
   ServiceAccountsIcon,
   SettingsIcon,
   ShareIcon,
+  ShuffleIcon$1 as ShuffleIcon,
   SimpleHeader,
   SimpleHeaderContainerProps,
   SimpleHeaderProps,
