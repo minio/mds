@@ -15,7 +15,7 @@
   "types": "dist/mds.d.ts",
   "dependencies": {
     "@types/styled-components": "^5.1.32",
-    "@uiw/react-textarea-code-editor": "^2.1.9",
+    "@uiw/react-textarea-code-editor": "^3.0.2",
     "detect-gpu": "^5.0.37",
     "luxon": "^3.4.4",
     "react-calendar": "^4.6.1",
