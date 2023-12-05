@@ -17,7 +17,11 @@
 import React, { cloneElement, FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import {CustomMainProps, MainContainerProps, ParentBoxProps} from "./MainContainer.types";
+import {
+  CustomMainProps,
+  MainContainerProps,
+  ParentBoxProps,
+} from "./MainContainer.types";
 import { breakPoints } from "../../global/utils";
 
 const CustomMain = styled.main<CustomMainProps>(({ theme, horizontal }) => {
@@ -57,7 +61,7 @@ const MainContainer: FC<MainContainerProps> = ({
   menu,
   horizontal,
   mobileModeAuto = true,
-    sx,
+  sx,
 }) => {
   return (
     <ParentBox
@@ -67,7 +71,9 @@ const MainContainer: FC<MainContainerProps> = ({
       sx={sx}
     >
       {menu && cloneElement(menu, { mobileModeAuto })}
-      <CustomMain horizontal={horizontal} className={"mainPage"}>{children}</CustomMain>
+      <CustomMain horizontal={horizontal} className={"mainPage"}>
+        {children}
+      </CustomMain>
     </ParentBox>
   );
 };

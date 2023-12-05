@@ -718,6 +718,7 @@ interface MainContainerProps {
   children: React__default.ReactElement;
   horizontal?: boolean;
   mobileModeAuto?: boolean;
+  sx?: CSSObject;
 }
 
 declare const MainContainer: FC<MainContainerProps>;
