@@ -17,13 +17,13 @@
 import React, { cloneElement, FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { MainContainerProps, ParentBoxProps } from "./MainContainer.types";
+import {CustomMainProps, MainContainerProps, ParentBoxProps} from "./MainContainer.types";
 import { breakPoints } from "../../global/utils";
 
-const CustomMain = styled.main(({ theme }) => {
+const CustomMain = styled.main<CustomMainProps>(({ theme, horizontal }) => {
   return {
     flexGrow: 1,
-    height: "100vh",
+    height: !!horizontal ? "initial" : "100vh",
     overflow: "auto",
     position: "relative",
     backgroundColor: get(theme, "bgColor", "#fff"),
@@ -32,7 +32,7 @@ const CustomMain = styled.main(({ theme }) => {
 });
 
 const ParentBox = styled.div<ParentBoxProps>(
-  ({ horizontal, mobileModeAuto }) => {
+  ({ horizontal, mobileModeAuto, sx }) => {
     let breakPoint = {};
 
     if (mobileModeAuto) {
@@ -47,6 +47,7 @@ const ParentBox = styled.div<ParentBoxProps>(
       display: "flex",
       flexDirection: !!horizontal ? "column" : "row",
       ...breakPoint,
+      ...sx,
     };
   },
 );
@@ -56,15 +57,17 @@ const MainContainer: FC<MainContainerProps> = ({
   menu,
   horizontal,
   mobileModeAuto = true,
+    sx,
 }) => {
   return (
     <ParentBox
       className={"parentBox"}
       horizontal={horizontal}
       mobileModeAuto={mobileModeAuto}
+      sx={sx}
     >
       {menu && cloneElement(menu, { mobileModeAuto })}
-      <CustomMain>{children}</CustomMain>
+      <CustomMain horizontal={horizontal} className={"mainPage"}>{children}</CustomMain>
     </ParentBox>
   );
 };
