@@ -14784,7 +14784,7 @@ var zc = Qe(function (e, t, n) {
     var t = e.theme;
     return {
       flexGrow: 1,
-      height: "100vh",
+      height: e.horizontal ? "initial" : "100vh",
       overflow: "auto",
       position: "relative",
       backgroundColor: Aa(t, "bgColor", "#fff"),
@@ -14794,14 +14794,16 @@ var zc = Qe(function (e, t, n) {
   ed = l.default.div(function (e) {
     var t,
       n = e.horizontal,
-      a = {};
+      a = e.mobileModeAuto,
+      r = e.sx,
+      o = {};
     return (
-      e.mobileModeAuto &&
+      a &&
         (((t = {})["@media (max-width: ".concat(Aa(c, "md", 0), "px)")] = {
           flexDirection: "column",
         }),
-        (a = t)),
-      $e({ display: "flex", flexDirection: n ? "column" : "row" }, a)
+        (o = t)),
+      $e($e({ display: "flex", flexDirection: n ? "column" : "row" }, o), r)
     );
   }),
   td = l.default.input(function (e) {
@@ -61395,12 +61397,13 @@ var xL = wL,
       a = t.menu,
       r = t.horizontal,
       i = t.mobileModeAuto,
-      l = void 0 === i || i;
+      l = void 0 === i || i,
+      s = t.sx;
     return o.default.createElement(
       ed,
-      { className: "parentBox", horizontal: r, mobileModeAuto: l },
+      { className: "parentBox", horizontal: r, mobileModeAuto: l, sx: s },
       a && e.cloneElement(a, { mobileModeAuto: l }),
-      o.default.createElement(Jc, null, n),
+      o.default.createElement(Jc, { horizontal: r, className: "mainPage" }, n),
     );
   }),
   (exports.Menu = function (t) {
