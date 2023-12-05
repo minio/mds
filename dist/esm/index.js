@@ -23014,7 +23014,7 @@ var Sm = ct(function (e, t, n) {
     var t = e.theme;
     return {
       flexGrow: 1,
-      height: "100vh",
+      height: e.horizontal ? "initial" : "100vh",
       overflow: "auto",
       position: "relative",
       backgroundColor: Ba(t, "bgColor", "#fff"),
@@ -23024,14 +23024,16 @@ var Sm = ct(function (e, t, n) {
   Gm = u.div(function (e) {
     var t,
       n = e.horizontal,
-      a = {};
+      a = e.mobileModeAuto,
+      r = e.sx,
+      o = {};
     return (
-      e.mobileModeAuto &&
+      a &&
         (((t = {})["@media (max-width: ".concat(Ba(v, "md", 0), "px)")] = {
           flexDirection: "column",
         }),
-        (a = t)),
-      nt({ display: "flex", flexDirection: n ? "column" : "row" }, a)
+        (o = t)),
+      nt(nt({ display: "flex", flexDirection: n ? "column" : "row" }, o), r)
     );
   }),
   Vm = function (e) {
@@ -23039,12 +23041,13 @@ var Sm = ct(function (e, t, n) {
       a = e.menu,
       r = e.horizontal,
       i = e.mobileModeAuto,
-      l = void 0 === i || i;
+      l = void 0 === i || i,
+      s = e.sx;
     return t.createElement(
       Gm,
-      { className: "parentBox", horizontal: r, mobileModeAuto: l },
+      { className: "parentBox", horizontal: r, mobileModeAuto: l, sx: s },
       a && o(a, { mobileModeAuto: l }),
-      t.createElement(Um, null, n),
+      t.createElement(Um, { horizontal: r, className: "mainPage" }, n),
     );
   },
   Zm = u.input(function (e) {
