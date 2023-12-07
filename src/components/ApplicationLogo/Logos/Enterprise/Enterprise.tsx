@@ -23,7 +23,7 @@ const Enterprise: FC<SVGProps<any> & LogoBaseProps> = ({
   onClick,
 }) => {
   return (
-    <LogoBase viewBox="0 0 288.6 51" inverse={inverse} onClick={onClick}>
+    <LogoBase viewBox="0 0 249.2 51" inverse={inverse} onClick={onClick}>
       <g transform="translate(26.059 -11)">
         <g transform="translate(-29 11)">
           <g transform="translate(0 0)">

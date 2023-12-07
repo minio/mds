@@ -3090,7 +3090,7 @@ var Da,
       a = e.onClick;
     return t.createElement(
       or,
-      { viewBox: "0 0 288.6 51", inverse: n, onClick: a },
+      { viewBox: "0 0 249.2 51", inverse: n, onClick: a },
       t.createElement(
         "g",
         { transform: "translate(26.059 -11)" },
