@@ -3105,7 +3105,7 @@ var wa,
       n = e.onClick;
     return o.default.createElement(
       qa,
-      { viewBox: "0 0 288.6 51", inverse: t, onClick: n },
+      { viewBox: "0 0 249.2 51", inverse: t, onClick: n },
       o.default.createElement(
         "g",
         { transform: "translate(26.059 -11)" },
