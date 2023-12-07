@@ -35,7 +35,8 @@ export interface ApplicationLogoProps {
     | "monitor"
     | "observe"
     | "missioncontrol"
-    | "globalconsole";
+    | "globalconsole"
+    | "minio";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
   inverse?: boolean;
   onClick?: React.MouseEventHandler<any> | undefined;
