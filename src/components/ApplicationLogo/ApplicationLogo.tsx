@@ -39,6 +39,7 @@ import Observe from "./Logos/Observe/Observe";
 import MissionControl from "./Logos/MissionControl/MissionControl";
 import GlobalConsole from "./Logos/Console/GlobalConsole";
 import ThemedLogo from "../ThemedLogo/ThemedLogo";
+import Enterprise from "./Logos/Enterprise/Enterprise";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -101,6 +102,8 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <MissionControl inverse={!!inverse} onClick={onClick} />;
     case "globalconsole":
       return <GlobalConsole inverse={!!inverse} onClick={onClick} />;
+    case "enterprise":
+      return <Enterprise inverse={!!inverse} onClick={onClick} />;
     case "minio":
       return <ThemedLogo onClick={onClick} />;
   }
