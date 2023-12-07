@@ -409,7 +409,9 @@ interface ApplicationLogoProps {
     | "monitor"
     | "observe"
     | "missioncontrol"
-    | "globalconsole";
+    | "globalconsole"
+    | "minio"
+    | "enterprise";
   subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
   inverse?: boolean;
   onClick?: React__default.MouseEventHandler<any> | undefined;
