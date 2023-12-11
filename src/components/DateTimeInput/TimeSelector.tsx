@@ -31,7 +31,7 @@ const TimeSelectorContainer = styled.div(({ theme }) => ({
       "borderColor",
       lightColors.borderColor,
     )}`,
-    padding: "18px 0 12px",
+    padding: "0 0 12px",
     marginBottom: 10,
     fontWeight: "bold",
     fontSize: 16,
