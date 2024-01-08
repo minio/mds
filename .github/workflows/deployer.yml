@@ -41,6 +41,7 @@ jobs:
 
       - name: Build Storybook
         run: |
+          yarn install
           yarn build
           yarn build-storybook 
           docker buildx build --platform linux/amd64 --push -t registry.min.dev/minio/mds .
