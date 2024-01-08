@@ -40,7 +40,7 @@
     "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^14.1.2",
     "@types/jest": "^29.5.11",
-    "@types/react": "^18.2.46",
+    "@types/react": "^18.2.47",
     "@types/luxon": "^3.3.5",
     "@types/react-virtualized": "^9.21.29",
     "babel-loader": "^9.1.3",
