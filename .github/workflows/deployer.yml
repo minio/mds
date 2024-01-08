@@ -1,10 +1,9 @@
 name: Build Container
 
 on:
-  pull_request:
-#  release:
-#    types:
-#      - published
+  release:
+    types:
+      - published
 
 concurrency:
   group: ${{ github.workflow }}-deployer-${{ github.head_ref }}
@@ -30,11 +29,6 @@ jobs:
           node-version: ${{ env.NVMRC }}
           cache: "yarn"
           cache-dependency-path: yarn.lock
-
-#      - name: Install Dependencies
-#        continue-on-error: false
-#        run: |
-#          yarn install
 
       - name: Log in to private Docker registry
         run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} -u '${{ secrets.REGISTRY_USERNAME }}' --password-stdin
