@@ -1,7 +1,7 @@
 name: Build Container
 
 on:
-  pull_request: 
+  pull_request:
 #  release:
 #    types:
 #      - published
@@ -35,7 +35,7 @@ jobs:
         continue-on-error: false
         run: |
           yarn set version stable
-          yarn install --frozen-lockfile --immutable
+          yarn install
 
       - name: Log in to private Docker registry
         run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
