@@ -25,23 +25,23 @@ jobs:
         id: node_version
         run: echo "$(cat .nvmrc)" && echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NVMRC }}
           cache: "yarn"
           cache-dependency-path: yarn.lock
 
-      - name: Install Dependencies
-        continue-on-error: false
-        run: |
-          yarn set version stable
-          yarn install
+#      - name: Install Dependencies
+#        continue-on-error: false
+#        run: |
+#          yarn install
 
       - name: Log in to private Docker registry
         run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
 
       - name: Build Storybook
         run: |
+          yarn build
           yarn build-storybook 
           docker buildx build --platform linux/amd64 --push -t registry.min.dev/minio/mds .
           echo "${{ secrets.MDS_DEPLOYER_KUBECONFIG }}" > /tmp/kubecconfig
