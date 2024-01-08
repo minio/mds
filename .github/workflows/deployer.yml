@@ -41,6 +41,8 @@ jobs:
 
       - name: Build Storybook
         run: |
+          rm -Rf node_modules/
+          rm yarn.lock
           yarn install
           yarn build
           yarn build-storybook 
