@@ -549,6 +549,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.ExpandLeftCaret />
+              <br />
+              ExpandLeftCaret
+            </div>
+
+            <div className="story-icon">
               <cicons.ExtraFeaturesIcon />
               <br />
               ExtraFeaturesIcon

@@ -231,3 +231,4 @@ export { default as DarkModeIcon } from "./DarkModeIcon";
 export { default as ShuffleIcon } from "./ShuffleIcon";
 export { default as LanguageIcon } from "./LanguageIcon";
 export { default as EventBusyIcon } from "./EventBusyIcon";
+export { default as ExpandLeftCaret } from "./ExpandLeftCaret";
