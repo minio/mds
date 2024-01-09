@@ -49,6 +49,7 @@ const SelectBase = styled.div(({ theme }) => {
     transitionDuration: "0.1s",
     backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
     userSelect: "none",
+    gap: 8,
     "&:placeholder": {
       color: "#858585",
       opacity: 1,
@@ -73,6 +74,10 @@ const SelectBase = styled.div(({ theme }) => {
       "&:focus": {
         borderColor: get(theme, "inputBox.disabledBorder", "#494A4D"),
       },
+    },
+    "& svg": {
+      width: 16,
+      height: 16,
     },
   };
 });
@@ -181,15 +186,17 @@ const Select: FC<SelectProps> = ({
       >
         <SelectBase className={disabled ? "disabled" : ""}>
           <Fragment>
-            {fixedLabel !== "" ? (
+            {fixedLabel && fixedLabel !== "" ? (
               fixedLabel
             ) : (
               <Fragment>
+                {selectedLabel?.icon}
                 {selectedLabel?.label || (
                   <i style={{ opacity: 0.6 }}>
                     {placeholder !== "" ? placeholder : ""}
                   </i>
                 )}
+                {selectedLabel?.indicator}
               </Fragment>
             )}
           </Fragment>

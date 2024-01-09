@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import { Fragment, useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import Select from "./Select";
@@ -27,6 +27,7 @@ import DownloadIcon from "../Icons/DownloadIcon";
 import UploadIcon from "../Icons/UploadIcon";
 import UsersIcon from "../Icons/UsersIcon";
 import { SelectorType } from "../../global/global.types";
+import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Forms/Select",
@@ -170,6 +171,33 @@ WithPlaceholder.args = {
       value: "value1",
       icon: <DownloadIcon />,
       extraValue: { anotherVar: "test1" },
+    },
+    {
+      label: "Option 2",
+      value: "value2",
+      icon: <UploadIcon />,
+      extraValue: { anotherVar: "test2" },
+    },
+    {
+      label: "Option 3",
+      value: "value3",
+      icon: <UsersIcon />,
+      extraValue: { anotherVar: "test3" },
+    },
+    { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
+  ],
+};
+
+export const IndicatorInLabel = Template.bind({});
+IndicatorInLabel.args = {
+  placeholder: "This Select has placeholder",
+  options: [
+    {
+      label: "Option with indicator",
+      value: "value1",
+      icon: <DownloadIcon />,
+      extraValue: { anotherVar: "test1" },
+      indicator: <TestIcon style={{ fill: "#080" }} />,
     },
     {
       label: "Option 2",

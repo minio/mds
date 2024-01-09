@@ -144,7 +144,12 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
     const option = options[indexHover];
 
     if (!option.disabled) {
-      onSelect(option.value, option.extraValue || null, option.label);
+      onSelect(
+        option.value,
+        option.extraValue || null,
+        option.label,
+        indexHover,
+      );
     }
 
     hideTriggerAction();
@@ -229,6 +234,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
               >
                 {option.icon}
                 {option.label}
+                {option.indicator}
               </li>
             );
           })}

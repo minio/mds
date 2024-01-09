@@ -376,6 +376,7 @@ export interface SelectorType {
   label: string;
   value: string;
   icon?: React.ReactNode;
+  indicator?: React.ReactNode;
   extraValue?: any;
   disabled?: boolean;
 }
