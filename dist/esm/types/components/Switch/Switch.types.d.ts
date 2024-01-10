@@ -14,7 +14,7 @@ export interface MainSwitchProps {
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 export interface IndicatorProps {
-  on: boolean;
+  active: boolean;
   children: React.ReactNode;
 }
 export interface SwitchContainerProps {

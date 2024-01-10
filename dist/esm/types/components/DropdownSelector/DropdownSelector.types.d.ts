@@ -4,7 +4,12 @@ export interface DropdownSelectorProps {
   id: string;
   options: SelectorType[];
   selectedOption?: string;
-  onSelect: (value: string, extraValue?: any, label?: string) => void;
+  onSelect: (
+    value: string,
+    extraValue?: any,
+    label?: string,
+    selectedIndex?: number,
+  ) => void;
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
