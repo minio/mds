@@ -57021,11 +57021,7 @@ var aN,
           options: j,
           selectedOption: v,
           onSelect: function (e, t, n, a) {
-            console.log("Selected", a),
-              B(n || ""),
-              V(""),
-              void 0 !== a && U(a),
-              y(e, t);
+            B(n || ""), V(""), void 0 !== a && U(a), y(e, t);
           },
           hideTriggerAction: function () {
             if ((M(!1), ("" !== v && "" === P) || 0 === j.length)) {

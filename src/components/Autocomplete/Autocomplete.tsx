@@ -248,7 +248,6 @@ const Autocomplete: FC<AutocompleteProps> = ({
           options={filteredOptions}
           selectedOption={value}
           onSelect={(nValue, extraValue, label, id) => {
-            console.log("Selected", id);
             setSearchBoxVal(label || "");
             setFilterVal("");
             if (id !== undefined) {

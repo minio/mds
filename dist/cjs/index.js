@@ -55777,11 +55777,7 @@ var Nk = Sk,
           options: $,
           selectedOption: E,
           onSelect: function (e, t, n, a) {
-            console.log("Selected", a),
-              D(n || ""),
-              z(""),
-              void 0 !== a && F(a),
-              T(e, t);
+            D(n || ""), z(""), void 0 !== a && F(a), T(e, t);
           },
           hideTriggerAction: function () {
             if ((O(!1), ("" !== E && "" === M) || 0 === $.length)) {
