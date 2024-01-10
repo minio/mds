@@ -334,6 +334,7 @@ interface SelectorType {
   label: string;
   value: string;
   icon?: React__default.ReactNode;
+  indicator?: React__default.ReactNode;
   extraValue?: any;
   disabled?: boolean;
 }
@@ -854,7 +855,7 @@ interface MainSwitchProps {
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 interface IndicatorProps {
-  on: boolean;
+  active: boolean;
   children: React__default.ReactNode;
 }
 interface SwitchContainerProps {
@@ -892,7 +893,12 @@ interface DropdownSelectorProps {
   id: string;
   options: SelectorType[];
   selectedOption?: string;
-  onSelect: (value: string, extraValue?: any, label?: string) => void;
+  onSelect: (
+    value: string,
+    extraValue?: any,
+    label?: string,
+    selectedIndex?: number,
+  ) => void;
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
@@ -2230,6 +2236,10 @@ declare const ShuffleIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ExpandLeftCaret: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2604,6 +2614,7 @@ export {
   EventSubscriptionIcon,
   ExpandCaret,
   ExpandIcon,
+  ExpandLeftCaret,
   ExpandOptionsButton,
   ExpandOptionsButtonProps,
   ExtraCommentProps,
