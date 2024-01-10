@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useEffect, useState } from "react";
+import React, { FC, Fragment, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { AutocompleteProps } from "./Autocomplete.types";
@@ -47,6 +47,7 @@ const AutocompleteBase = styled.input(({ theme }) => {
     borderRadius: 3,
     outline: "none",
     transitionDuration: "0.1s",
+    transitionProperty: "border",
     backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
     userAutocomplete: "none",
     "&:placeholder": {
@@ -74,6 +75,9 @@ const AutocompleteBase = styled.input(({ theme }) => {
         borderColor: get(theme, "inputBox.disabledBorder", "#494A4D"),
       },
     },
+    "&.withIcon": {
+      paddingLeft: 38,
+    },
   };
 });
 
@@ -82,6 +86,7 @@ const InputContainer = styled.div<InputContainerProps>(
     display: "flex",
     flexGrow: 1,
     width: "100%",
+    height: 38,
     position: "relative",
     "& .AutocompleteContainer": {
       width: "100%",
@@ -112,6 +117,18 @@ const InputContainer = styled.div<InputContainerProps>(
     "& .inputLabel": {
       marginBottom: error ? 18 : 0,
     },
+    "& .iconOption": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      position: "absolute",
+      marginLeft: 15,
+      height: 38,
+      "& svg": {
+        width: 16,
+        height: 16,
+      },
+    },
     ...sx,
   }),
 );
@@ -136,6 +153,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchBoxVal, setSearchBoxVal] = useState<string>("");
+  const [valueSelected, setValueSelected] = useState<number | null>(null);
   const [filterVal, setFilterVal] = useState<string>("");
   const [anchorEl, setAnchorEl] = React.useState<
     (EventTarget & HTMLDivElement) | null
@@ -143,15 +161,20 @@ const Autocomplete: FC<AutocompleteProps> = ({
 
   useEffect(() => {
     if (value !== "") {
-      const option = options.find((option) => option.value === value);
+      const index = options.findIndex((option) => option.value === value);
 
-      setSearchBoxVal(option?.label || "");
+      setValueSelected(index);
+      setSearchBoxVal(options[index]?.label || "");
     }
   }, []);
 
   const filteredOptions = options.filter((item) =>
     item.label.toLowerCase().includes(filterVal.toLowerCase()),
   );
+
+  const optionWithIcon =
+    valueSelected !== null &&
+    (options[valueSelected]?.icon || options[valueSelected]?.indicator);
 
   return (
     <InputContainer
@@ -195,6 +218,13 @@ const Autocomplete: FC<AutocompleteProps> = ({
           }
         }}
       >
+        {optionWithIcon && (
+          <Box className={"iconOption"}>
+            {options[valueSelected]?.indicator
+              ? options[valueSelected]?.indicator
+              : options[valueSelected].icon}
+          </Box>
+        )}
         <AutocompleteBase
           disabled={disabled}
           id={id}
@@ -205,6 +235,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
             setFilterVal(e.target.value);
           }}
           placeholder={placeholder}
+          className={`${optionWithIcon ? "withIcon" : ""}`}
         />
         {displayDropArrow && (
           <Box className={"overlayArrow"}>
@@ -213,12 +244,16 @@ const Autocomplete: FC<AutocompleteProps> = ({
         )}
 
         <DropdownSelector
-          id={`${id}-options-Autocompleteor`}
+          id={`${id}-options-Autocomplete`}
           options={filteredOptions}
           selectedOption={value}
-          onSelect={(nValue, extraValue, label) => {
+          onSelect={(nValue, extraValue, label, id) => {
+            console.log("Selected", id);
             setSearchBoxVal(label || "");
             setFilterVal("");
+            if (id !== undefined) {
+              setValueSelected(id);
+            }
             onChange(nValue, extraValue);
           }}
           hideTriggerAction={() => {

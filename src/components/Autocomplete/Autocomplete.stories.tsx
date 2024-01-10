@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import Autocomplete from "./Autocomplete";
@@ -27,6 +27,7 @@ import DownloadIcon from "../Icons/DownloadIcon";
 import UploadIcon from "../Icons/UploadIcon";
 import UsersIcon from "../Icons/UsersIcon";
 import { SelectorType } from "../../global/global.types";
+import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Forms/Autocomplete",
@@ -204,4 +205,24 @@ NoDropArrow.args = {
     { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
   ],
   displayDropArrow: false,
+};
+
+export const IndicatorInLabel = Template.bind({});
+IndicatorInLabel.args = {
+  options: [
+    {
+      label: "Option with Indicator",
+      value: "value1",
+      indicator: <TestIcon style={{ fill: "#080" }} />,
+    },
+    {
+      label: "Option 2",
+      value: "value2",
+    },
+    {
+      label: "Option 3",
+      value: "value3",
+    },
+    { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
+  ],
 };
