@@ -32,7 +32,7 @@ export interface MainSwitchProps {
 }
 
 export interface IndicatorProps {
-  on: boolean;
+  active: boolean;
   children: React.ReactNode;
 }
 

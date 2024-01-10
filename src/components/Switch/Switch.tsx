@@ -28,13 +28,13 @@ import HelpIcon from "../Icons/HelpIcon";
 import Box from "../Box/Box";
 import FieldContainer from "../../global/FieldContainer";
 
-const SwitchIndicator = styled.span<IndicatorProps>(({ theme, on }) => ({
+const SwitchIndicator = styled.span<IndicatorProps>(({ theme, active }) => ({
   fontSize: 12,
-  color: on
+  color: active
     ? get(theme, "switchButton.onLabelColor", "#081C42")
     : get(theme, "switchButton.offLabelColor", "#E2E2E2"),
   margin: "0 8px 0 10px",
-  fontWeight: on ? "bold" : "normal",
+  fontWeight: active ? "bold" : "normal",
 }));
 
 const SwitchItem = styled.label(({ theme }) => ({
@@ -145,7 +145,7 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
   const switchComponent = (
     <SwitchContainer>
       {!switchOnly && (
-        <SwitchIndicator on={!checked}>
+        <SwitchIndicator active={!checked}>
           {indicatorLabels && indicatorLabels.length > 1
             ? indicatorLabels[1]
             : "OFF"}
@@ -156,7 +156,7 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
         <span className={"switchRail"} />
       </SwitchItem>
       {!switchOnly && (
-        <SwitchIndicator on={!!checked}>
+        <SwitchIndicator active={!!checked}>
           {indicatorLabels ? indicatorLabels[0] : "ON"}
         </SwitchIndicator>
       )}
