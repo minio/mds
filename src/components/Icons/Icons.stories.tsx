@@ -183,6 +183,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.AutoModeIcon />
+              <br />
+              AutoModeIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.AzureTierIcon />
               <br />
               AzureTierIcon
@@ -702,6 +708,12 @@ const Template: Story = (args) => {
               <cicons.LifecycleConfigIcon />
               <br />
               LifecycleConfigIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.LightModeIcon />
+              <br />
+              LightModeIcon
             </div>
 
             <div className="story-icon">

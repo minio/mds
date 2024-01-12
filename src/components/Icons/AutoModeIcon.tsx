@@ -1,5 +1,5 @@
 // This file is part of MinIO Design System
-// Copyright (c) 2023 MinIO, Inc.
+// Copyright (c) 2024 MinIO, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -17,7 +17,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const DarkModeIcon = (props: SVGProps<SVGSVGElement>) => (
+const AutoModeIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={"min-icon"}
@@ -25,10 +25,11 @@ const DarkModeIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <g>
-      <g transform="translate(0 0)">
+      <g id="a">
         <path
-          d="M228.4,151.3c-54.3,14-109.7-18.6-123.7-73c-4.3-16.6-4.3-34.1,0-50.7L111.8,0L84.9,9.4C34,27.3,0,75.3,0,129.2
-			C0,199.1,56.9,256,126.8,256h0.1c53.9-0.1,101.8-34.1,119.6-84.9l9.4-26.9L228.4,151.3z"
+          d="M0,128C0.1,57.3,57.3,0.1,128,0c70.6,0,128,57.4,128,128c-0.1,70.7-57.3,127.9-128,128C57.4,256,0,198.6,0,128z M30.8,128
+			c0,53.7,43.5,97.2,97.2,97.2s97.2-43.5,97.2-97.2S181.7,30.8,128,30.8c0,0,0,0,0,0C74.3,30.8,30.8,74.3,30.8,128z M128,47.3
+			c41.1,4.2,73.2,38.5,73.2,80.7S169,204.4,128,208.7V47.3z"
           fill={"currentcolor"}
         />
       </g>
@@ -36,4 +37,4 @@ const DarkModeIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default DarkModeIcon;
+export default AutoModeIcon;
