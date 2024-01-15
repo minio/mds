@@ -18,7 +18,7 @@
     "@uiw/react-textarea-code-editor": "^3.0.2",
     "detect-gpu": "^5.0.37",
     "luxon": "^3.4.4",
-    "react-calendar": "^4.7.0",
+    "react-calendar": "^4.8.0",
     "react-virtualized": "^9.22.5",
     "styled-components": "^5.3.11"
   },
