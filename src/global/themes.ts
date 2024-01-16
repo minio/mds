@@ -100,6 +100,7 @@ export const lightColors = {
   linkColor: "#2781B0",
   mutedText: "#87888d",
   disabledOnSwitchBG: "#a9d3c5",
+  sliderDisabledBG: "#dbdbdb",
 };
 
 export const darkColors = {
@@ -180,6 +181,7 @@ export const darkColors = {
   codeEditorRegexp: "#ffd582",
   linkColor: "#85B3EE",
   mutedText: "#767a80",
+  disabledSliderBullet: "#939393",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -650,6 +652,12 @@ export const lightTheme: ThemeDefinitionProps = {
       disabledLabelColor: lightColors.disabledGrey,
     },
   },
+  slider: {
+    bulletBG: lightColors.bulletColor,
+    railBG: lightColors.borderColor,
+    disabledRail: lightColors.sliderDisabledBG,
+    disabledBullet: lightColors.disabledInnerGrey,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -1119,5 +1127,11 @@ export const darkTheme: ThemeDefinitionProps = {
       selectedStepLabelColor: darkColors.mainWhite,
       disabledLabelColor: darkColors.disabledGrey,
     },
+  },
+  slider: {
+    bulletBG: darkColors.defaultFontColor,
+    railBG: darkColors.footerDivider,
+    disabledRail: darkColors.disabledSwitchBG,
+    disabledBullet: darkColors.disabledSliderBullet,
   },
 };
