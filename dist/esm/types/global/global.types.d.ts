@@ -272,6 +272,12 @@ export interface WizardColorProps {
   vertical: WizardStepColorProps;
   modal: WizardStepColorProps;
 }
+export interface SliderProps {
+  railBG: string;
+  bulletBG: string;
+  disabledRail: string;
+  disabledBullet: string;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -317,6 +323,7 @@ export interface ThemeDefinitionProps {
   informativeMessage?: InformativeMessageProps;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
+  slider?: SliderProps;
 }
 export interface SelectorType {
   label: string;

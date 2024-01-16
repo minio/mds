@@ -81,6 +81,7 @@ export declare const lightColors: {
   linkColor: string;
   mutedText: string;
   disabledOnSwitchBG: string;
+  sliderDisabledBG: string;
 };
 export declare const darkColors: {
   dark: string;
@@ -160,6 +161,7 @@ export declare const darkColors: {
   codeEditorRegexp: string;
   linkColor: string;
   mutedText: string;
+  disabledSliderBullet: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
