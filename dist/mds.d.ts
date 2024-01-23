@@ -284,6 +284,12 @@ interface WizardColorProps {
   vertical: WizardStepColorProps;
   modal: WizardStepColorProps;
 }
+interface SliderProps {
+  railBG: string;
+  bulletBG: string;
+  disabledRail: string;
+  disabledBullet: string;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -329,6 +335,7 @@ interface ThemeDefinitionProps {
   informativeMessage?: InformativeMessageProps$1;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
+  slider?: SliderProps;
 }
 interface SelectorType {
   label: string;
@@ -2224,6 +2231,14 @@ declare const DarkModeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const LightModeIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const AutoModeIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ShuffleIcon$1: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2499,6 +2514,7 @@ export {
   AudioIcon,
   AudioIconMute,
   AuditLogsMenuIcon,
+  AutoModeIcon,
   Autocomplete,
   AutocompleteProps,
   AzureTierIcon,
@@ -2705,6 +2721,7 @@ export {
   LicenseDocIcon,
   LicenseIcon,
   LifecycleConfigIcon,
+  LightModeIcon,
   LinkIcon,
   Loader,
   LockFilledIcon,
