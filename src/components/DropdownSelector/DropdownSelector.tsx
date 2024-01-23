@@ -25,6 +25,7 @@ import {
 import get from "lodash/get";
 import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
+import Box from "../Box/Box";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth }) => ({
@@ -35,6 +36,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
     padding: "10px 0",
     maxHeight: 450,
     minWidth: useAnchorWidth ? 150 : 0,
+    overflowX: "hidden",
     overflowY: "auto",
     borderRadius: 4,
     boxShadow:
@@ -55,11 +57,19 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
         userSelect: "none",
         display: "flex",
         alignItems: "center",
+        justifyContent: "flex-start",
         gap: 10,
         whiteSpace: "nowrap",
         "& svg": {
           width: 16,
           height: 16,
+          minWidth: 16,
+          minHeight: 16,
+        },
+        "& .truncate": {
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
         },
         '&:not([class*="Mui"])::before': {
           content: "' '",
@@ -219,6 +229,8 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
       <DropdownBlock id={id} sx={coords} useAnchorWidth={useAnchorWidth}>
         <ul>
           {options.map((option, index) => {
+            const maxWidth = !!option.icon || !!option.indicator ? 70 : 0;
+
             return (
               <li
                 className={`${
@@ -233,7 +245,12 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
                 key={`option-${index}`}
               >
                 {option.icon}
-                {option.label}
+                <Box
+                  className={"truncate"}
+                  sx={{ maxWidth: `calc(100% - ${maxWidth}px)` }}
+                >
+                  {option.label}
+                </Box>
                 {option.indicator}
               </li>
             );

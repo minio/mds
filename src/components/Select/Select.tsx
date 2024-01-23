@@ -33,13 +33,9 @@ const SelectBase = styled.div(({ theme }) => {
 
   return {
     display: "flex",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    alignItems: "center",
+    flexGrow: 1,
     height: 38,
-    width: "100%",
-    padding: "0 35px 0 15px",
+    padding: "0 5px 0 15px",
     color: get(theme, "inputBox.color", "#07193E"),
     fontSize: 13,
     fontWeight: 600,
@@ -49,7 +45,15 @@ const SelectBase = styled.div(({ theme }) => {
     transitionDuration: "0.1s",
     backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
     userSelect: "none",
-    gap: 8,
+    width: "100%",
+    minWidth: 0,
+    alignItems: "center",
+    justifyContent: "space-between",
+    "& .truncate": {
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+    },
     "&:placeholder": {
       color: "#858585",
       opacity: 1,
@@ -78,6 +82,13 @@ const SelectBase = styled.div(({ theme }) => {
     "& svg": {
       width: 16,
       height: 16,
+      minWidth: 16,
+      minHeight: 16,
+    },
+    "& .indicatorContainer": {
+      display: "flex",
+      alignItems: "center",
+      width: 16,
     },
   };
 });
@@ -88,8 +99,12 @@ const InputContainer = styled.div<InputContainerProps>(
     flexGrow: 1,
     width: "100%",
     position: "relative",
+
     "& .selectContainer": {
+      display: "flex",
       width: "100%",
+      gap: 8,
+      alignItems: "center",
       flexGrow: 1,
       position: "relative",
       minWidth: 80,
@@ -151,7 +166,7 @@ const Select: FC<SelectProps> = ({
   }
 
   return (
-    <InputContainer sx={sx} className={`inputItem ${className}`}>
+    <InputContainer sx={sx} className={`inputItem ${className || ""}`}>
       {label !== "" && (
         <InputLabel
           htmlFor={id}
@@ -185,39 +200,57 @@ const Select: FC<SelectProps> = ({
         }}
       >
         <SelectBase className={disabled ? "disabled" : ""}>
-          <Fragment>
-            {fixedLabel && fixedLabel !== "" ? (
-              fixedLabel
-            ) : (
-              <Fragment>
-                {selectedLabel?.icon}
-                {selectedLabel?.label || (
-                  <i style={{ opacity: 0.6 }}>
-                    {placeholder !== "" ? placeholder : ""}
-                  </i>
-                )}
-                {selectedLabel?.indicator}
-              </Fragment>
+          <Box
+            sx={{ display: "flex", columnGap: 8, width: "calc(100% - 16px)" }}
+          >
+            {selectedLabel?.icon && (
+              <Box className={"indicatorContainer"}>{selectedLabel?.icon}</Box>
             )}
-          </Fragment>
-          <input type={"hidden"} id={id} name={name} value={value} />
+            <Box
+              sx={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                minWidth: 0,
+              }}
+            >
+              {fixedLabel && fixedLabel !== "" ? (
+                fixedLabel
+              ) : (
+                <Fragment>
+                  {selectedLabel?.label || (
+                    <i style={{ opacity: 0.6 }}>
+                      {placeholder !== "" ? placeholder : ""}
+                    </i>
+                  )}
+                </Fragment>
+              )}
+            </Box>
+            {selectedLabel?.indicator && (
+              <Box className={"indicatorContainer"}>
+                {selectedLabel?.indicator}
+              </Box>
+            )}
+          </Box>
+          <Box sx={{ display: "flex", width: 16 }}>
+            {isOpen ? <CollapseCaret /> : <ExpandCaret />}
+          </Box>
         </SelectBase>
-        <Box className={"overlayArrow"}>
-          {isOpen ? <CollapseCaret /> : <ExpandCaret />}
-        </Box>
-        <DropdownSelector
-          id={`${id}-options-selector`}
-          options={options}
-          selectedOption={value}
-          onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
-          hideTriggerAction={() => {
-            setIsOpen(false);
-          }}
-          open={isOpen}
-          anchorEl={anchorEl}
-          useAnchorWidth
-        />
+        <input type={"hidden"} id={id} name={name} value={value} />
       </Box>
+
+      <DropdownSelector
+        id={`${id}-options-selector`}
+        options={options}
+        selectedOption={value}
+        onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
+        hideTriggerAction={() => {
+          setIsOpen(false);
+        }}
+        open={isOpen}
+        anchorEl={anchorEl}
+        useAnchorWidth
+      />
     </InputContainer>
   );
 };
