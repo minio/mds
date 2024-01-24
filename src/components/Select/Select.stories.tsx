@@ -43,6 +43,7 @@ const Template: Story<SelectProps> = ({
   fixedLabel = "",
   options,
   placeholder,
+  sx,
 }) => {
   const [selectedValue, setSelectedValue] = useState<string>(
     placeholder ? "" : "value1",
@@ -92,6 +93,7 @@ const Template: Story<SelectProps> = ({
           disabled={disabled}
           fixedLabel={fixedLabel}
           placeholder={placeholder}
+          sx={sx}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -213,4 +215,32 @@ IndicatorInLabel.args = {
     },
     { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
   ],
+};
+
+export const LongLabels = Template.bind({});
+LongLabels.args = {
+  placeholder: "This Select has placeholder",
+  options: [
+    {
+      label:
+        "Super long label for an Option with indicator, this label is very long to display how it will look with ellipsis, Super long label for an Option with indicator, this label is very long to display how it will look with ellipsis",
+      value: "value1",
+      icon: <DownloadIcon />,
+      indicator: <TestIcon style={{ fill: "#080" }} />,
+    },
+    {
+      label:
+        "Super long label for an Option without indicator, this label is very long to display how it will look with ellipsis, Super long label for an Option with indicator, this label is very long to display how it will look with ellipsis",
+      value: "value2",
+      icon: <UploadIcon />,
+    },
+    {
+      label:
+        "Super long label for an Option without indicator and icon, this label is very long to display how it will look with ellipsis, Super long label for an Option with indicator, this label is very long to display how it will look with ellipsis",
+      value: "value3",
+    },
+  ],
+  sx: {
+    maxWidth: 500,
+  },
 };
