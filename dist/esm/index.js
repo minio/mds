@@ -24135,6 +24135,7 @@ var Im = ut(function (e, t, n) {
         padding: "10px 0",
         maxHeight: 450,
         minWidth: a ? 150 : 0,
+        overflowX: "hidden",
         overflowY: "auto",
         borderRadius: 4,
         boxShadow:
@@ -24155,9 +24156,15 @@ var Im = ut(function (e, t, n) {
             userSelect: "none",
             display: "flex",
             alignItems: "center",
+            justifyContent: "flex-start",
             gap: 10,
             whiteSpace: "nowrap",
-            "& svg": { width: 16, height: 16 },
+            "& svg": { width: 16, height: 16, minWidth: 16, minHeight: 16 },
+            "& .truncate": {
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            },
             '&:not([class*="Mui"])::before': { content: "' '" },
             "&.selected": {
               backgroundColor: Ha(
@@ -24316,6 +24323,7 @@ var Im = ut(function (e, t, n) {
                   "ul",
                   null,
                   l.map(function (e, n) {
+                    var a = e.icon || e.indicator ? 70 : 0;
                     return t.createElement(
                       "li",
                       {
@@ -24330,7 +24338,14 @@ var Im = ut(function (e, t, n) {
                         key: "option-".concat(n),
                       },
                       e.icon,
-                      e.label,
+                      t.createElement(
+                        dm,
+                        {
+                          className: "truncate",
+                          sx: { maxWidth: "calc(100% - ".concat(a, "px)") },
+                        },
+                        e.label,
+                      ),
                       e.indicator,
                     );
                   }),
@@ -24348,13 +24363,9 @@ var Im = ut(function (e, t, n) {
       a = Ha(t, "inputBox.hoverBorder", "#000110");
     return {
       display: "flex",
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-      alignItems: "center",
+      flexGrow: 1,
       height: 38,
-      width: "100%",
-      padding: "0 35px 0 15px",
+      padding: "0 5px 0 15px",
       color: Ha(t, "inputBox.color", "#07193E"),
       fontSize: 13,
       fontWeight: 600,
@@ -24364,7 +24375,15 @@ var Im = ut(function (e, t, n) {
       transitionDuration: "0.1s",
       backgroundColor: Ha(t, "inputBox.backgroundColor", "#fff"),
       userSelect: "none",
-      gap: 8,
+      width: "100%",
+      minWidth: 0,
+      alignItems: "center",
+      justifyContent: "space-between",
+      "& .truncate": {
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+      },
       "&:placeholder": { color: "#858585", opacity: 1, fontWeight: 400 },
       "&:hover": { borderColor: a },
       "&:focus": { borderColor: a },
@@ -24378,7 +24397,12 @@ var Im = ut(function (e, t, n) {
         "&:hover": { borderColor: Ha(t, "inputBox.disabledBorder", "#494A4D") },
         "&:focus": { borderColor: Ha(t, "inputBox.disabledBorder", "#494A4D") },
       },
-      "& svg": { width: 16, height: 16 },
+      "& svg": { width: 16, height: 16, minWidth: 16, minHeight: 16 },
+      "& .indicatorContainer": {
+        display: "flex",
+        alignItems: "center",
+        width: 16,
+      },
     };
   }),
   _h = u.div(function (e) {
@@ -24392,7 +24416,10 @@ var Im = ut(function (e, t, n) {
         width: "100%",
         position: "relative",
         "& .selectContainer": {
+          display: "flex",
           width: "100%",
+          gap: 8,
+          alignItems: "center",
           flexGrow: 1,
           position: "relative",
           minWidth: 80,
@@ -24460,7 +24487,7 @@ var Im = ut(function (e, t, n) {
         console.warn("The selected value is not included in Options List"),
       t.createElement(
         _h,
-        { sx: f, className: "inputItem ".concat(l) },
+        { sx: f, className: "inputItem ".concat(l || "") },
         "" !== o &&
           t.createElement(
             qc,
@@ -24501,50 +24528,77 @@ var Im = ut(function (e, t, n) {
             Th,
             { className: v ? "disabled" : "" },
             t.createElement(
-              n,
-              null,
-              _ && "" !== _
-                ? _
-                : t.createElement(
-                    n,
-                    null,
-                    null == L ? void 0 : L.icon,
-                    (null == L ? void 0 : L.label) ||
-                      t.createElement(
-                        "i",
-                        { style: { opacity: 0.6 } },
-                        "" !== C ? C : "",
-                      ),
-                    null == L ? void 0 : L.indicator,
-                  ),
+              dm,
+              {
+                sx: {
+                  display: "flex",
+                  columnGap: 8,
+                  width: "calc(100% - 16px)",
+                },
+              },
+              (null == L ? void 0 : L.icon) &&
+                t.createElement(
+                  dm,
+                  { className: "indicatorContainer" },
+                  null == L ? void 0 : L.icon,
+                ),
+              t.createElement(
+                dm,
+                {
+                  sx: {
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    minWidth: 0,
+                  },
+                },
+                _ && "" !== _
+                  ? _
+                  : t.createElement(
+                      n,
+                      null,
+                      (null == L ? void 0 : L.label) ||
+                        t.createElement(
+                          "i",
+                          { style: { opacity: 0.6 } },
+                          "" !== C ? C : "",
+                        ),
+                    ),
+              ),
+              (null == L ? void 0 : L.indicator) &&
+                t.createElement(
+                  dm,
+                  { className: "indicatorContainer" },
+                  null == L ? void 0 : L.indicator,
+                ),
             ),
-            t.createElement("input", {
-              type: "hidden",
-              id: r,
-              name: y,
-              value: h,
-            }),
+            t.createElement(
+              dm,
+              { sx: { display: "flex", width: 16 } },
+              R ? t.createElement(Gl, null) : t.createElement(Vl, null),
+            ),
           ),
-          t.createElement(
-            dm,
-            { className: "overlayArrow" },
-            R ? t.createElement(Gl, null) : t.createElement(Vl, null),
-          ),
-          t.createElement(vh, {
-            id: "".concat(r, "-options-selector"),
-            options: g,
-            selectedOption: h,
-            onSelect: function (e, t) {
-              return E(e, t);
-            },
-            hideTriggerAction: function () {
-              I(!1);
-            },
-            open: R,
-            anchorEl: x,
-            useAnchorWidth: !0,
+          t.createElement("input", {
+            type: "hidden",
+            id: r,
+            name: y,
+            value: h,
           }),
         ),
+        t.createElement(vh, {
+          id: "".concat(r, "-options-selector"),
+          options: g,
+          selectedOption: h,
+          onSelect: function (e, t) {
+            return E(e, t);
+          },
+          hideTriggerAction: function () {
+            I(!1);
+          },
+          open: R,
+          anchorEl: x,
+          useAnchorWidth: !0,
+        }),
       )
     );
   },
