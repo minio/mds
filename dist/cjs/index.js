@@ -15460,6 +15460,7 @@ var Zc = et(function (e, t, n) {
         padding: "10px 0",
         maxHeight: 450,
         minWidth: a ? 150 : 0,
+        overflowX: "hidden",
         overflowY: "auto",
         borderRadius: 4,
         boxShadow:
@@ -15480,9 +15481,15 @@ var Zc = et(function (e, t, n) {
             userSelect: "none",
             display: "flex",
             alignItems: "center",
+            justifyContent: "flex-start",
             gap: 10,
             whiteSpace: "nowrap",
-            "& svg": { width: 16, height: 16 },
+            "& svg": { width: 16, height: 16, minWidth: 16, minHeight: 16 },
+            "& .truncate": {
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            },
             '&:not([class*="Mui"])::before': { content: "' '" },
             "&.selected": {
               backgroundColor: Ia(
@@ -15642,6 +15649,7 @@ var Zc = et(function (e, t, n) {
                   "ul",
                   null,
                   l.map(function (e, t) {
+                    var n = e.icon || e.indicator ? 70 : 0;
                     return o.default.createElement(
                       "li",
                       {
@@ -15656,7 +15664,14 @@ var Zc = et(function (e, t, n) {
                         key: "option-".concat(t),
                       },
                       e.icon,
-                      e.label,
+                      o.default.createElement(
+                        Ac,
+                        {
+                          className: "truncate",
+                          sx: { maxWidth: "calc(100% - ".concat(n, "px)") },
+                        },
+                        e.label,
+                      ),
                       e.indicator,
                     );
                   }),
@@ -15674,13 +15689,9 @@ var Zc = et(function (e, t, n) {
       a = Ia(t, "inputBox.hoverBorder", "#000110");
     return {
       display: "flex",
-      whiteSpace: "nowrap",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-      alignItems: "center",
+      flexGrow: 1,
       height: 38,
-      width: "100%",
-      padding: "0 35px 0 15px",
+      padding: "0 5px 0 15px",
       color: Ia(t, "inputBox.color", "#07193E"),
       fontSize: 13,
       fontWeight: 600,
@@ -15690,7 +15701,15 @@ var Zc = et(function (e, t, n) {
       transitionDuration: "0.1s",
       backgroundColor: Ia(t, "inputBox.backgroundColor", "#fff"),
       userSelect: "none",
-      gap: 8,
+      width: "100%",
+      minWidth: 0,
+      alignItems: "center",
+      justifyContent: "space-between",
+      "& .truncate": {
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+      },
       "&:placeholder": { color: "#858585", opacity: 1, fontWeight: 400 },
       "&:hover": { borderColor: a },
       "&:focus": { borderColor: a },
@@ -15704,7 +15723,12 @@ var Zc = et(function (e, t, n) {
         "&:hover": { borderColor: Ia(t, "inputBox.disabledBorder", "#494A4D") },
         "&:focus": { borderColor: Ia(t, "inputBox.disabledBorder", "#494A4D") },
       },
-      "& svg": { width: 16, height: 16 },
+      "& svg": { width: 16, height: 16, minWidth: 16, minHeight: 16 },
+      "& .indicatorContainer": {
+        display: "flex",
+        alignItems: "center",
+        width: 16,
+      },
     };
   }),
   Sd = l.default.div(function (e) {
@@ -15718,7 +15742,10 @@ var Zc = et(function (e, t, n) {
         width: "100%",
         position: "relative",
         "& .selectContainer": {
+          display: "flex",
           width: "100%",
+          gap: 8,
+          alignItems: "center",
           flexGrow: 1,
           position: "relative",
           minWidth: 80,
@@ -64602,7 +64629,7 @@ var Rk = Ak,
         console.warn("The selected value is not included in Options List"),
       o.default.createElement(
         Sd,
-        { sx: h, className: "inputItem ".concat(l) },
+        { sx: h, className: "inputItem ".concat(l || "") },
         "" !== r &&
           o.default.createElement(
             ci,
@@ -64643,52 +64670,79 @@ var Rk = Ak,
             yd,
             { className: b ? "disabled" : "" },
             o.default.createElement(
-              e.Fragment,
-              null,
-              T && "" !== T
-                ? T
-                : o.default.createElement(
-                    e.Fragment,
-                    null,
-                    null == O ? void 0 : O.icon,
-                    (null == O ? void 0 : O.label) ||
-                      o.default.createElement(
-                        "i",
-                        { style: { opacity: 0.6 } },
-                        "" !== S ? S : "",
-                      ),
-                    null == O ? void 0 : O.indicator,
-                  ),
+              Ac,
+              {
+                sx: {
+                  display: "flex",
+                  columnGap: 8,
+                  width: "calc(100% - 16px)",
+                },
+              },
+              (null == O ? void 0 : O.icon) &&
+                o.default.createElement(
+                  Ac,
+                  { className: "indicatorContainer" },
+                  null == O ? void 0 : O.icon,
+                ),
+              o.default.createElement(
+                Ac,
+                {
+                  sx: {
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    minWidth: 0,
+                  },
+                },
+                T && "" !== T
+                  ? T
+                  : o.default.createElement(
+                      e.Fragment,
+                      null,
+                      (null == O ? void 0 : O.label) ||
+                        o.default.createElement(
+                          "i",
+                          { style: { opacity: 0.6 } },
+                          "" !== S ? S : "",
+                        ),
+                    ),
+              ),
+              (null == O ? void 0 : O.indicator) &&
+                o.default.createElement(
+                  Ac,
+                  { className: "indicatorContainer" },
+                  null == O ? void 0 : O.indicator,
+                ),
             ),
-            o.default.createElement("input", {
-              type: "hidden",
-              id: n,
-              name: _,
-              value: m,
-            }),
+            o.default.createElement(
+              Ac,
+              { sx: { display: "flex", width: 16 } },
+              N
+                ? o.default.createElement(zo, null)
+                : o.default.createElement(Go, null),
+            ),
           ),
-          o.default.createElement(
-            Ac,
-            { className: "overlayArrow" },
-            N
-              ? o.default.createElement(zo, null)
-              : o.default.createElement(Go, null),
-          ),
-          o.default.createElement(_d, {
-            id: "".concat(n, "-options-selector"),
-            options: f,
-            selectedOption: m,
-            onSelect: function (e, t) {
-              return g(e, t);
-            },
-            hideTriggerAction: function () {
-              I(!1);
-            },
-            open: N,
-            anchorEl: x,
-            useAnchorWidth: !0,
+          o.default.createElement("input", {
+            type: "hidden",
+            id: n,
+            name: _,
+            value: m,
           }),
         ),
+        o.default.createElement(_d, {
+          id: "".concat(n, "-options-selector"),
+          options: f,
+          selectedOption: m,
+          onSelect: function (e, t) {
+            return g(e, t);
+          },
+          hideTriggerAction: function () {
+            I(!1);
+          },
+          open: N,
+          anchorEl: x,
+          useAnchorWidth: !0,
+        }),
       )
     );
   }),
