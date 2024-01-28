@@ -38,3 +38,9 @@ export interface DropDownBlockProps {
   useAnchorWidth: boolean;
   sx: CSSObject;
 }
+
+export interface DropdownItemProps {
+  icon?: React.ReactNode;
+  label: string;
+  indicator?: React.ReactNode;
+}

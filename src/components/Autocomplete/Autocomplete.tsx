@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useEffect, useRef, useState } from "react";
+import React, { FC, Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { AutocompleteProps } from "./Autocomplete.types";
@@ -242,34 +242,35 @@ const Autocomplete: FC<AutocompleteProps> = ({
             <Fragment>{isOpen ? <CollapseCaret /> : <ExpandCaret />}</Fragment>
           </Box>
         )}
+        {isOpen && (
+          <DropdownSelector
+            id={`${id}-options-Autocomplete`}
+            options={filteredOptions}
+            selectedOption={value}
+            onSelect={(nValue, extraValue, label, id) => {
+              setSearchBoxVal(label || "");
+              setFilterVal("");
+              if (id !== undefined) {
+                setValueSelected(id);
+              }
+              onChange(nValue, extraValue);
+            }}
+            hideTriggerAction={() => {
+              setIsOpen(false);
+              if (
+                (value !== "" && searchBoxVal === "") ||
+                filteredOptions.length === 0
+              ) {
+                const option = options.find((option) => option.value === value);
 
-        <DropdownSelector
-          id={`${id}-options-Autocomplete`}
-          options={filteredOptions}
-          selectedOption={value}
-          onSelect={(nValue, extraValue, label, id) => {
-            setSearchBoxVal(label || "");
-            setFilterVal("");
-            if (id !== undefined) {
-              setValueSelected(id);
-            }
-            onChange(nValue, extraValue);
-          }}
-          hideTriggerAction={() => {
-            setIsOpen(false);
-            if (
-              (value !== "" && searchBoxVal === "") ||
-              filteredOptions.length === 0
-            ) {
-              const option = options.find((option) => option.value === value);
-
-              setSearchBoxVal(option?.label || "");
-            }
-          }}
-          open={isOpen}
-          anchorEl={anchorEl}
-          useAnchorWidth
-        />
+                setSearchBoxVal(option?.label || "");
+              }
+            }}
+            open={isOpen}
+            anchorEl={anchorEl}
+            useAnchorWidth
+          />
+        )}
       </Box>
     </InputContainer>
   );

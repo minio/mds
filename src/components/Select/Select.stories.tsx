@@ -229,18 +229,24 @@ LongLabels.args = {
       indicator: <TestIcon style={{ fill: "#080" }} />,
     },
     {
+      label: "Common size label",
+      value: "value2",
+      icon: <DownloadIcon />,
+      indicator: <TestIcon style={{ fill: "#080" }} />,
+    },
+    {
       label:
         "Super long label for an Option without indicator, this label is very long to display how it will look with ellipsis, Super long label for an Option with indicator, this label is very long to display how it will look with ellipsis",
-      value: "value2",
+      value: "value3",
       icon: <UploadIcon />,
     },
     {
       label:
         "Super long label for an Option without indicator and icon, this label is very long to display how it will look with ellipsis, Super long label for an Option with indicator, this label is very long to display how it will look with ellipsis",
-      value: "value3",
+      value: "value4",
     },
   ],
   sx: {
-    maxWidth: 500,
+    maxWidth: 300,
   },
 };

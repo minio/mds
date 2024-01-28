@@ -238,19 +238,20 @@ const Select: FC<SelectProps> = ({
         </SelectBase>
         <input type={"hidden"} id={id} name={name} value={value} />
       </Box>
-
-      <DropdownSelector
-        id={`${id}-options-selector`}
-        options={options}
-        selectedOption={value}
-        onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
-        hideTriggerAction={() => {
-          setIsOpen(false);
-        }}
-        open={isOpen}
-        anchorEl={anchorEl}
-        useAnchorWidth
-      />
+      {isOpen && (
+        <DropdownSelector
+          id={`${id}-options-selector`}
+          options={options}
+          selectedOption={value}
+          onSelect={(nValue, extraValue) => onChange(nValue, extraValue)}
+          hideTriggerAction={() => {
+            setIsOpen(false);
+          }}
+          open={isOpen}
+          anchorEl={anchorEl}
+          useAnchorWidth
+        />
+      )}
     </InputContainer>
   );
 };
