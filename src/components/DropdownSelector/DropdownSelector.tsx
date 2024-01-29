@@ -20,6 +20,7 @@ import debounce from "lodash/debounce";
 import { createPortal } from "react-dom";
 import {
   DropDownBlockProps,
+  DropdownItemProps,
   DropdownSelectorProps,
 } from "./DropdownSelector.types";
 import get from "lodash/get";
@@ -30,7 +31,8 @@ import Box from "../Box/Box";
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth }) => ({
     position: "absolute",
-    display: "flex",
+    display: "grid",
+    gridTemplateColumns: "100%",
     backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
     border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
     padding: "10px 0",
@@ -47,62 +49,73 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
       display: "flex",
       flexDirection: "column",
       width: "100%",
-      "& > li": {
-        cursor: "pointer",
-        listStyle: "none",
-        width: "100%",
-        color: get(theme, "dropdownSelector.optionTextColor", "#000"),
-        padding: "6px 15px",
-        fontSize: 14,
-        userSelect: "none",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        gap: 10,
-        whiteSpace: "nowrap",
-        "& svg": {
-          width: 16,
-          height: 16,
-          minWidth: 16,
-          minHeight: 16,
-        },
-        "& .truncate": {
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-        },
-        '&:not([class*="Mui"])::before': {
-          content: "' '",
-        },
-        "&.selected": {
-          backgroundColor: get(
-            theme,
-            "dropdownSelector.selectedBGColor",
-            "#D5D7D8",
-          ),
-          color: get(theme, "dropdownSelector.optionTextColor", "#000"),
-        },
-        "&.disabled": {
-          cursor: "not-allowed",
-          color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
-          "&:hover": {
-            backgroundColor: get(
-              theme,
-              "dropdownSelector.backgroundColor",
-              "#fff",
-            ),
-            color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
-          },
-        },
-        "&.hovered:not(.disabled)": {
-          backgroundColor: get(theme, "dropdownSelector.hoverBG", "#E6EAEB"),
-          color: get(theme, "dropdownSelector.hoverText", "#000"),
-        },
-      },
     },
     ...sx,
   }),
 );
+
+const DropdownItem = styled.div<
+  DropdownItemProps & React.HTMLAttributes<HTMLDivElement>
+>(({ theme, icon, label, indicator }) => {
+  let gridColumns = "";
+
+  if (!!icon) {
+    gridColumns += "16px ";
+  }
+
+  gridColumns += "1fr ";
+
+  if (indicator) {
+    gridColumns += "16px";
+  }
+
+  return {
+    cursor: "pointer",
+    listStyle: "none",
+    width: "100%",
+    color: get(theme, "dropdownSelector.optionTextColor", "#000"),
+    padding: "6px 15px",
+    fontSize: 14,
+    userSelect: "none",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    gap: 10,
+    whiteSpace: "nowrap",
+    display: "grid",
+    gridTemplateColumns: gridColumns,
+    "& svg": {
+      width: 16,
+      height: 16,
+      minWidth: 16,
+      minHeight: 16,
+    },
+    "& .truncate": {
+      whiteSpace: "nowrap",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+    },
+    "&.selected": {
+      backgroundColor: get(
+        theme,
+        "dropdownSelector.selectedBGColor",
+        "#D5D7D8",
+      ),
+      color: get(theme, "dropdownSelector.optionTextColor", "#000"),
+    },
+    "&.disabled": {
+      cursor: "not-allowed",
+      color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+      "&:hover": {
+        backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
+        color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+      },
+    },
+    "&.hovered:not(.disabled)": {
+      backgroundColor: get(theme, "dropdownSelector.hoverBG", "#E6EAEB"),
+      color: get(theme, "dropdownSelector.hoverText", "#000"),
+    },
+  };
+});
 
 const calcElementPosition = (
   anchorEl: (EventTarget & HTMLElement) | null,
@@ -227,35 +240,29 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
   return createPortal(
     <SelectorContainer onClick={hideTriggerAction}>
       <DropdownBlock id={id} sx={coords} useAnchorWidth={useAnchorWidth}>
-        <ul>
-          {options.map((option, index) => {
-            const maxWidth = !!option.icon || !!option.indicator ? 70 : 0;
-
-            return (
-              <li
-                className={`${
-                  selectedOption === option.value ? "selected" : ""
-                } ${option.disabled ? "disabled" : ""} ${
-                  index === indexHover ? "hovered" : ""
-                }`}
-                onClick={selectOption}
-                onMouseOver={() => {
-                  setIndexHover(index);
-                }}
-                key={`option-${index}`}
-              >
-                {option.icon}
-                <Box
-                  className={"truncate"}
-                  sx={{ maxWidth: `calc(100% - ${maxWidth}px)` }}
-                >
-                  {option.label}
-                </Box>
-                {option.indicator}
-              </li>
-            );
-          })}
-        </ul>
+        {options.map((option, index) => {
+          return (
+            <DropdownItem
+              className={`${
+                selectedOption === option.value ? "selected" : ""
+              } ${option.disabled ? "disabled" : ""} ${
+                index === indexHover ? "hovered" : ""
+              }`}
+              onClick={selectOption}
+              onMouseOver={() => {
+                setIndexHover(index);
+              }}
+              key={`option-${index}`}
+              label={option.label}
+              icon={option.icon}
+              indicator={option.indicator}
+            >
+              {option.icon}
+              <Box className={"truncate"}>{option.label}</Box>
+              {option.indicator}
+            </DropdownItem>
+          );
+        })}
       </DropdownBlock>
     </SelectorContainer>,
     document.body,
