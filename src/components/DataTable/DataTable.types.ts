@@ -16,6 +16,7 @@
 
 import React, { HTMLAttributes } from "react";
 import { CSSObject } from "styled-components";
+import { SortDirectionType } from "react-virtualized";
 
 export const actionsTypes = [
   "view",
@@ -52,7 +53,6 @@ export interface IColumns {
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
-  enableSort?: boolean;
 }
 
 export interface IInfiniteScrollConfig {
@@ -61,12 +61,6 @@ export interface IInfiniteScrollConfig {
     stopIndex: number;
   }) => Promise<any>;
   recordsCount: number;
-}
-
-export interface ISortConfig {
-  triggerSort: (val: any) => any;
-  currentSort: string;
-  currentDirection: "ASC" | "DESC" | undefined;
 }
 
 export interface DataTableProps {
@@ -88,7 +82,6 @@ export interface DataTableProps {
   onColumnChange?: (column: string) => any;
   autoScrollToBottom?: boolean;
   infiniteScrollConfig?: IInfiniteScrollConfig;
-  sortConfig?: ISortConfig;
   disabled?: boolean;
   onSelectAll?: () => void;
   rowStyle?: ({
@@ -99,6 +92,11 @@ export interface DataTableProps {
   parentClassName?: string;
   sx?: CSSObject;
   rowHeight?: number;
+  sortEnabled?: boolean | string[];
+  sortCallBack?: (info: {
+    sortBy: string;
+    sortDirection: SortDirectionType;
+  }) => void;
 }
 
 export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {

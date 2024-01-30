@@ -15,7 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, useState } from "react";
-import { AutoSizer, Column, InfiniteLoader, Table } from "react-virtualized";
+import {
+  AutoSizer,
+  Column,
+  InfiniteLoader,
+  SortDirectionType,
+  Table,
+} from "react-virtualized";
 import styled from "styled-components";
 import get from "lodash/get";
 import isString from "lodash/isString";
@@ -32,6 +38,7 @@ import {
   elementActions,
   generateColumnsMap,
   selectWidth,
+  sortRecords,
 } from "./DataTable.utils";
 import ViewColumnIcon from "../Icons/ViewColumnIcon";
 import Box from "../Box/Box";
@@ -241,7 +248,6 @@ const DataTable: FC<DataTableProps> = ({
   columnsShown = [],
   onColumnChange = (column: string) => {},
   infiniteScrollConfig,
-  sortConfig,
   autoScrollToBottom = false,
   disabled = false,
   onSelectAll,
@@ -249,8 +255,16 @@ const DataTable: FC<DataTableProps> = ({
   parentClassName = "",
   sx,
   rowHeight = 40,
+  sortEnabled = false,
+  sortCallBack,
 }) => {
   const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
+  const [currentSortColumn, setCurrentSortColumn] = useState<
+    string | undefined
+  >(undefined);
+  const [currentSortDirection, setCurrentSortDirection] =
+    useState<SortDirectionType>("ASC");
+
   const [anchorEl, setAnchorEl] = useState<any>(null);
   const rowIDField = idField || "";
 
@@ -317,6 +331,29 @@ const DataTable: FC<DataTableProps> = ({
     );
   };
 
+  const triggerSort = (sort: {
+    sortBy: string;
+    sortDirection: SortDirectionType;
+  }) => {
+    const newSortDirection = get(sort, "sortDirection", "DESC");
+    setCurrentSortColumn(sort.sortBy);
+    setCurrentSortDirection(newSortDirection);
+
+    if (sortCallBack) {
+      sortCallBack(sort);
+    }
+  };
+
+  let sortedRecords = records;
+
+  if (sortEnabled && currentSortColumn) {
+    sortedRecords = sortRecords(
+      records,
+      currentSortColumn,
+      currentSortDirection,
+    );
+  }
+
   return (
     <Grid item xs={12} className={parentClassName}>
       <DataTableWrapper
@@ -342,13 +379,13 @@ const DataTable: FC<DataTableProps> = ({
           </Grid>
         )}
 
-        {columnsSelector && !isLoading && records.length > 0 && (
+        {columnsSelector && !isLoading && sortedRecords.length > 0 && (
           <Fragment>{columnsSelection(columns)}</Fragment>
         )}
-        {records && !isLoading && records.length > 0 ? (
+        {sortedRecords && !isLoading && sortedRecords.length > 0 ? (
           // @ts-ignore
           <InfiniteLoader
-            isRowLoaded={({ index }) => !!records[index]}
+            isRowLoaded={({ index }) => !!sortedRecords[index]}
             loadMoreRows={
               infiniteScrollConfig
                 ? infiniteScrollConfig.loadMoreRecords
@@ -357,7 +394,7 @@ const DataTable: FC<DataTableProps> = ({
             rowCount={
               infiniteScrollConfig
                 ? infiniteScrollConfig.recordsCount
-                : records.length
+                : sortedRecords.length
             }
           >
             {({ onRowsRendered, registerChild }) => (
@@ -395,8 +432,8 @@ const DataTable: FC<DataTableProps> = ({
                       overscanRowCount={10}
                       rowHeight={rowHeight}
                       width={width}
-                      rowCount={records.length}
-                      rowGetter={({ index }) => records[index]}
+                      rowCount={sortedRecords.length}
+                      rowGetter={({ index }) => sortedRecords[index]}
                       onRowClick={({ rowData }) => {
                         clickAction(rowData);
                       }}
@@ -406,13 +443,13 @@ const DataTable: FC<DataTableProps> = ({
                         } ${rowStyle ? rowStyle(r) : ""}`
                       }
                       onRowsRendered={onRowsRendered}
-                      sort={sortConfig ? sortConfig.triggerSort : undefined}
-                      sortBy={sortConfig ? sortConfig.currentSort : undefined}
+                      sort={sortEnabled ? triggerSort : undefined}
+                      sortBy={sortEnabled ? currentSortColumn : undefined}
                       sortDirection={
-                        sortConfig ? sortConfig.currentDirection : undefined
+                        sortEnabled ? currentSortDirection : undefined
                       }
                       scrollToIndex={
-                        autoScrollToBottom ? records.length - 1 : -1
+                        autoScrollToBottom ? sortedRecords.length - 1 : -1
                       }
                       rowStyle={(r) => {
                         if (rowStyle) {
@@ -442,7 +479,8 @@ const DataTable: FC<DataTableProps> = ({
                                     id={"selectAll"}
                                     name={"selectAll"}
                                     checked={
-                                      selectedItems?.length === records.length
+                                      selectedItems?.length ===
+                                      sortedRecords.length
                                     }
                                   />
                                 </div>
@@ -482,19 +520,6 @@ const DataTable: FC<DataTableProps> = ({
                           }}
                         />
                       )}
-                      {generateColumnsMap(
-                        columns,
-                        width,
-                        optionsWidth,
-                        hasSelect,
-                        hasOptions,
-                        selectedItems || [],
-                        rowIDField,
-                        columnsSelector,
-                        columnsShown,
-                        sortConfig ? sortConfig.currentSort : "",
-                        sortConfig ? sortConfig.currentDirection : undefined,
-                      )}
                       {hasOptions && (
                         // @ts-ignore
                         <Column
@@ -518,6 +543,20 @@ const DataTable: FC<DataTableProps> = ({
                             );
                           }}
                         />
+                      )}
+                      {generateColumnsMap(
+                        columns,
+                        width,
+                        optionsWidth,
+                        hasSelect,
+                        hasOptions,
+                        selectedItems || [],
+                        rowIDField,
+                        columnsSelector,
+                        columnsShown,
+                        sortEnabled,
+                        sortEnabled ? currentSortColumn : "",
+                        sortEnabled ? currentSortDirection : undefined,
                       )}
                     </Table>
                   );
