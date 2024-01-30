@@ -17,7 +17,8 @@
 import React, { Fragment } from "react";
 import get from "lodash/get";
 import isString from "lodash/isString";
-import { Column } from "react-virtualized";
+import isPlainObject from "lodash/isPlainObject";
+import { Column, SortDirectionType } from "react-virtualized";
 import { IColumns, ItemActions } from "./DataTable.types";
 import ArrowDropUpIcon from "../Icons/ArrowDropUp";
 import ArrowDropDownIcon from "../Icons/ArrowDropDown";
@@ -99,8 +100,9 @@ export const generateColumnsMap = (
   idField: string,
   columnsSelector: boolean,
   columnsShown: string[],
-  sortColumn: string,
-  sortDirection: "ASC" | "DESC" | undefined,
+  sortColumns: boolean | string[],
+  currentSortColumn: string | undefined,
+  currentSortDirection: "ASC" | "DESC" | undefined,
 ) => {
   const commonRestWidth = calculateColumnRest(
     columns,
@@ -116,7 +118,10 @@ export const generateColumnsMap = (
       return null;
     }
 
-    const disableSort = column.enableSort ? !column.enableSort : true;
+    const disableSort =
+      !sortColumns ||
+      (Array.isArray(sortColumns) &&
+        !sortColumns.includes(column?.elementKey || ""));
 
     return (
       // @ts-ignore
@@ -129,21 +134,41 @@ export const generateColumnsMap = (
         headerRenderer={() => (
           <Box
             sx={{
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
+              display: "flex",
+              width: "100%",
+              "& svg": {
+                width: 12,
+                height: 12,
+                minWidth: 12,
+                minHeight: 12,
+              },
             }}
           >
-            {sortColumn === column.elementKey && (
+            {sortColumns ||
+            (Array.isArray(sortColumns) &&
+              sortColumns.includes(column.elementKey)) ? (
               <Fragment>
-                {sortDirection === "ASC" ? (
-                  <ArrowDropUpIcon />
-                ) : (
-                  <ArrowDropDownIcon />
-                )}
+                {currentSortColumn === column.elementKey ||
+                (columns.length === 1 && currentSortColumn === "column-0") ? (
+                  <Fragment>
+                    {currentSortDirection === "ASC" ? (
+                      <ArrowDropUpIcon />
+                    ) : (
+                      <ArrowDropDownIcon />
+                    )}
+                  </Fragment>
+                ) : null}
               </Fragment>
-            )}
-            {column.label}
+            ) : null}
+            <Box
+              sx={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {column.label}
+            </Box>
           </Box>
         )}
         className={
@@ -236,4 +261,77 @@ export const calculateOptionsSize = (
   }
 
   return sizeOptions;
+};
+
+// Function to sort records in the list
+export const sortRecords = (
+  records: any[],
+  sortColumn: string | undefined,
+  sortDirection: SortDirectionType,
+) => {
+  const sortedRecords = records;
+
+  if (records.length === 0) {
+    return records;
+  }
+
+  // Records are objects
+  if (isPlainObject(records[0]) && sortColumn !== undefined) {
+    switch (sortDirection) {
+      case "ASC":
+        sortedRecords.sort((a, b) => {
+          if (a[sortColumn] > b[sortColumn]) {
+            return 1;
+          }
+          if (a[sortColumn] < b[sortColumn]) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        break;
+      case "DESC":
+        sortedRecords.sort((a, b) => {
+          if (a[sortColumn] < b[sortColumn]) {
+            return 1;
+          }
+          if (a[sortColumn] > b[sortColumn]) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        break;
+    }
+  } else {
+    // Record is plain array
+    switch (sortDirection) {
+      case "ASC":
+        sortedRecords.sort((a, b) => {
+          if (a > b) {
+            return 1;
+          }
+          if (a < b) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        break;
+      case "DESC":
+        sortedRecords.sort((a, b) => {
+          if (a < b) {
+            return 1;
+          }
+          if (a > b) {
+            return -1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        break;
+    }
+  }
+
+  return sortedRecords;
 };
