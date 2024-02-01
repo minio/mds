@@ -1,3 +1,4 @@
+import React from "react";
 import { SelectorType } from "../../global/global.types";
 import { CSSObject } from "styled-components";
 export interface DropdownSelectorProps {
@@ -19,4 +20,9 @@ export interface DropdownSelectorProps {
 export interface DropDownBlockProps {
   useAnchorWidth: boolean;
   sx: CSSObject;
+}
+export interface DropdownItemProps {
+  icon?: React.ReactNode;
+  label: string;
+  indicator?: React.ReactNode;
 }

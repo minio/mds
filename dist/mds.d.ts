@@ -9,6 +9,7 @@ import React__default, {
 } from "react";
 import * as styled_components from "styled-components";
 import { CSSObject, CSSProperties } from "styled-components";
+import { SortDirectionType } from "react-virtualized";
 import { DateTime } from "luxon";
 
 interface ButtonThemeProps {
@@ -589,7 +590,6 @@ interface IColumns {
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
-  enableSort?: boolean;
 }
 interface IInfiniteScrollConfig {
   loadMoreRecords: (indexElements: {
@@ -597,11 +597,6 @@ interface IInfiniteScrollConfig {
     stopIndex: number;
   }) => Promise<any>;
   recordsCount: number;
-}
-interface ISortConfig {
-  triggerSort: (val: any) => any;
-  currentSort: string;
-  currentDirection: "ASC" | "DESC" | undefined;
 }
 interface DataTableProps {
   itemActions?: ItemActions[] | null;
@@ -622,7 +617,6 @@ interface DataTableProps {
   onColumnChange?: (column: string) => any;
   autoScrollToBottom?: boolean;
   infiniteScrollConfig?: IInfiniteScrollConfig;
-  sortConfig?: ISortConfig;
   disabled?: boolean;
   onSelectAll?: () => void;
   rowStyle?: ({
@@ -633,6 +627,11 @@ interface DataTableProps {
   parentClassName?: string;
   sx?: CSSObject;
   rowHeight?: number;
+  sortEnabled?: boolean | string[];
+  sortCallBack?: (info: {
+    sortBy: string;
+    sortDirection: SortDirectionType;
+  }) => void;
 }
 interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
@@ -915,6 +914,11 @@ interface DropdownSelectorProps {
 interface DropDownBlockProps {
   useAnchorWidth: boolean;
   sx: CSSObject;
+}
+interface DropdownItemProps {
+  icon?: React__default.ReactNode;
+  label: string;
+  indicator?: React__default.ReactNode;
 }
 
 declare const DropdownSelector: FC<DropdownSelectorProps>;
@@ -2616,6 +2620,7 @@ export {
   DrivesIcon,
   DrivesMenuIcon,
   DropDownBlockProps,
+  DropdownItemProps,
   DropdownSelector,
   DropdownSelectorProps,
   EditIcon,
@@ -2690,7 +2695,6 @@ export {
   IActionButton,
   IColumns,
   IInfiniteScrollConfig,
-  ISortConfig,
   IconBase,
   IconButton,
   IconButtonProps,

@@ -1,4 +1,5 @@
 import React from "react";
+import { SortDirectionType } from "react-virtualized";
 import { IColumns, ItemActions } from "./DataTable.types";
 export declare const selectWidth = 45;
 export declare const generateColumnsMap: (
@@ -11,8 +12,9 @@ export declare const generateColumnsMap: (
   idField: string,
   columnsSelector: boolean,
   columnsShown: string[],
-  sortColumn: string,
-  sortDirection: "ASC" | "DESC" | undefined,
+  sortColumns: boolean | string[],
+  currentSortColumn: string | undefined,
+  currentSortDirection: "ASC" | "DESC" | undefined,
 ) => (React.JSX.Element | null)[];
 export declare const elementActions: (
   actions: ItemActions[],
@@ -24,3 +26,8 @@ export declare const calculateOptionsSize: (
   containerWidth: number,
   totalOptions: number,
 ) => number;
+export declare const sortRecords: (
+  records: any[],
+  sortColumn: string | undefined,
+  sortDirection: SortDirectionType,
+) => any[];
