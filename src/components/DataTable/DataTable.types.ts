@@ -53,6 +53,7 @@ export interface IColumns {
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
+  enableSort?: boolean;
 }
 
 export interface IInfiniteScrollConfig {
@@ -61,6 +62,17 @@ export interface IInfiniteScrollConfig {
     stopIndex: number;
   }) => Promise<any>;
   recordsCount: number;
+}
+
+export interface ITableSortInfo {
+  sortBy: string;
+  sortDirection: SortDirectionType;
+}
+
+export interface ISortConfig {
+  onSortClick: (val: ITableSortInfo) => any;
+  currentSort: string;
+  currentDirection: "ASC" | "DESC" | undefined;
 }
 
 export interface DataTableProps {
@@ -92,11 +104,8 @@ export interface DataTableProps {
   parentClassName?: string;
   sx?: CSSObject;
   rowHeight?: number;
-  sortEnabled?: boolean | string[];
-  sortCallBack?: (info: {
-    sortBy: string;
-    sortDirection: SortDirectionType;
-  }) => void;
+  sortEnabled?: boolean | string[] | ISortConfig;
+  sortCallBack?: (info: ITableSortInfo) => void;
 }
 
 export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {

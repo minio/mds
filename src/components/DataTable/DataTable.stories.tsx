@@ -372,6 +372,63 @@ SortSomeColumnsOnly.args = {
   sortEnabled: ["field1", "field3"],
 };
 
+export const ManualControlledSort = Template.bind({});
+ManualControlledSort.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "field1",
+  customPaperHeight: "250px",
+  records: [
+    { field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+    { field1: "An Item", field2: "A Second Item", field3: "A ThirdItem" },
+    {
+      field1: "One Value",
+      field2: "Two Values",
+      field3: "Three Values",
+    },
+    {
+      field1: "Some Other thing",
+      field2: "Some Other thing",
+      field3: "Some Other thing",
+    },
+    {
+      field1: "My Element",
+      field2: "My Second Element",
+      field3: "My Third Element",
+    },
+  ],
+  columns: [
+    {
+      label: "Super Long Column Name to test ellipsis truncate",
+      elementKey: "field1",
+      width: 200,
+    },
+    {
+      label: "Disabled Manual Sort",
+      elementKey: "field2",
+      width: 100,
+      enableSort: false,
+    },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+  sortEnabled: {
+    currentSort: "field1",
+    currentDirection: "DESC",
+    onSortClick: (data) => {
+      alert("Sort Header clicked");
+      console.log("DATA FROM SORT TRIGGER", data);
+    },
+  },
+};
+
 export const WithItemActions = Template.bind({});
 WithItemActions.args = {
   disabled: false,
@@ -431,7 +488,7 @@ WithItemActions.args = {
   sortConfig: {
     currentSort: "field1",
     currentDirection: "DESC",
-    triggerSort: () => {
+    onSortClick: () => {
       alert("sort triggered");
     },
   },
@@ -549,7 +606,7 @@ FullItemsActions.args = {
   sortConfig: {
     currentSort: "field1",
     currentDirection: "DESC",
-    triggerSort: () => {
+    onSortClick: () => {
       alert("sort triggered");
     },
   },
