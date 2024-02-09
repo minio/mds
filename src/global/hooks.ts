@@ -59,7 +59,7 @@ export const useArrowKeys = (
 ) => {
   const handleArrow = useCallback(
     (event: KeyboardEvent) => {
-      if (event.key.startsWith("Arrow")) {
+      if (event.key?.startsWith("Arrow")) {
         event.preventDefault();
         event.stopPropagation();
         handleAction(event.key);
