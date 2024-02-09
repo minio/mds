@@ -590,6 +590,7 @@ interface IColumns {
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
+  enableSort?: boolean;
 }
 interface IInfiniteScrollConfig {
   loadMoreRecords: (indexElements: {
@@ -597,6 +598,15 @@ interface IInfiniteScrollConfig {
     stopIndex: number;
   }) => Promise<any>;
   recordsCount: number;
+}
+interface ITableSortInfo {
+  sortBy: string;
+  sortDirection: SortDirectionType;
+}
+interface ISortConfig {
+  onSortClick: (val: ITableSortInfo) => any;
+  currentSort: string;
+  currentDirection: "ASC" | "DESC" | undefined;
 }
 interface DataTableProps {
   itemActions?: ItemActions[] | null;
@@ -627,11 +637,8 @@ interface DataTableProps {
   parentClassName?: string;
   sx?: CSSObject;
   rowHeight?: number;
-  sortEnabled?: boolean | string[];
-  sortCallBack?: (info: {
-    sortBy: string;
-    sortDirection: SortDirectionType;
-  }) => void;
+  sortEnabled?: boolean | string[] | ISortConfig;
+  sortCallBack?: (info: ITableSortInfo) => void;
 }
 interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
@@ -2695,6 +2702,8 @@ export {
   IActionButton,
   IColumns,
   IInfiniteScrollConfig,
+  ISortConfig,
+  ITableSortInfo,
   IconBase,
   IconButton,
   IconButtonProps,

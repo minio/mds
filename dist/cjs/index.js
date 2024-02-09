@@ -14410,33 +14410,36 @@ var Oc = function (e) {
     );
   },
   Fc = function (t, n, a, r, i, l, s, c, d, u, p, m) {
-    var h = (function (e, t, n, a, r, o, i) {
-      if (e) {
-        var l = Xe([], e, !0);
-        o &&
-          (l = e.filter(function (e) {
-            return i.includes(e.elementKey);
-          }));
-        var s = t;
-        return (
-          a && (s -= 45),
-          r && (s -= n),
-          l.reduce(function (e, t) {
-            return t.width ? e - t.width : e;
-          }, s) /
-            l.filter(function (e) {
-              return !e.width;
-            }).length
-        );
-      }
-      return t;
-    })(t, n, a, r, i, c, d);
+    var h = u && "object" == typeof u && !Array.isArray(u),
+      f = (function (e, t, n, a, r, o, i) {
+        if (e) {
+          var l = Xe([], e, !0);
+          o &&
+            (l = e.filter(function (e) {
+              return i.includes(e.elementKey);
+            }));
+          var s = t;
+          return (
+            a && (s -= 45),
+            r && (s -= n),
+            l.reduce(function (e, t) {
+              return t.width ? e - t.width : e;
+            }, s) /
+              l.filter(function (e) {
+                return !e.width;
+              }).length
+          );
+        }
+        return t;
+      })(t, n, a, r, i, c, d);
     return t.map(function (n, a) {
       if (c && !d.includes(n.elementKey)) return null;
-      var r =
-        !u ||
-        (Array.isArray(u) &&
-          !u.includes((null == n ? void 0 : n.elementKey) || ""));
+      var r = void 0 === n.enableSort || n.enableSort,
+        i =
+          !u ||
+          (h && !r) ||
+          (Array.isArray(u) &&
+            !u.includes((null == n ? void 0 : n.elementKey) || ""));
       return o.default.createElement(Qs, {
         key: "col-tb-".concat(a.toString()),
         dataKey: n.elementKey || "column-".concat(a),
@@ -14500,8 +14503,8 @@ var Oc = function (e) {
             );
           })(a, n, r);
         },
-        width: n.width || h,
-        disableSort: r,
+        width: n.width || f,
+        disableSort: i,
         defaultSortDirection: "ASC",
       });
     });
@@ -15701,7 +15704,10 @@ var nd = et(function (e, t, n) {
       (function (t) {
         var n = e.useCallback(
           function (e) {
-            e.key.startsWith("Arrow") &&
+            var n;
+            (null === (n = e.key) || void 0 === n
+              ? void 0
+              : n.startsWith("Arrow")) &&
               (e.preventDefault(), e.stopPropagation(), t(e.key));
           },
           [t],
@@ -58082,21 +58088,33 @@ var Gk = Fk,
             return "view" === e.type;
           })
         : null,
-      ee = function (e) {
+      ee = F && "object" == typeof F && !Array.isArray(F),
+      te = function (e) {
         G(!z), X(e.currentTarget);
       },
-      te = function () {
+      ne = function () {
         G(!1), X(null);
       },
-      ne = function (e) {
-        var t = Ia(e, "sortDirection", "DESC");
-        $(e.sortBy), q(t), H && H(e);
-      },
-      ae = i;
+      ae = void 0,
+      re = void 0,
+      oe = void 0;
+    F &&
+      (ee
+        ? ((ae = F.onSortClick),
+          (re = F.currentSort),
+          (oe = F.currentDirection))
+        : ((ae = function (e) {
+            var t = Ia(e, "sortDirection", "DESC");
+            $(e.sortBy), q(t), H && H(e);
+          }),
+          (re = Z),
+          (oe = j)));
+    var ie = i;
     return (
       F &&
         Z &&
-        (ae = (function (e, t, n) {
+        !ee &&
+        (ie = (function (e, t, n) {
           var a = e;
           if (0 === e.length) return e;
           if (Lc(e[0]) && void 0 !== t)
@@ -58153,7 +58171,7 @@ var Gk = Fk,
             ),
           T &&
             !l &&
-            ae.length > 0 &&
+            ie.length > 0 &&
             o.default.createElement(
               e.Fragment,
               null,
@@ -58174,14 +58192,14 @@ var Gk = Fk,
                       variant: "regular",
                       icon: o.default.createElement(Zo, null),
                       iconLocation: "end",
-                      onClick: ee,
+                      onClick: te,
                     },
                     "Columns",
                   ),
                   z &&
                     o.default.createElement(ld, {
                       open: z,
-                      closeTriggerAction: te,
+                      closeTriggerAction: ne,
                       onSelect: function (e) {
                         return w(e);
                       },
@@ -58192,13 +58210,13 @@ var Gk = Fk,
                 );
               })(a),
             ),
-          ae && !l && ae.length > 0
+          ie && !l && ie.length > 0
             ? o.default.createElement(
                 us,
                 {
                   isRowLoaded: function (e) {
                     var t = e.index;
-                    return !!ae[t];
+                    return !!ie[t];
                   },
                   loadMoreRows: N
                     ? N.loadMoreRecords
@@ -58207,7 +58225,7 @@ var Gk = Fk,
                           return !0;
                         });
                       },
-                  rowCount: N ? N.recordsCount : ae.length,
+                  rowCount: N ? N.recordsCount : ie.length,
                 },
                 function (t) {
                   var i = t.onRowsRendered,
@@ -58251,10 +58269,10 @@ var Gk = Fk,
                         overscanRowCount: 10,
                         rowHeight: P,
                         width: f,
-                        rowCount: ae.length,
+                        rowCount: ie.length,
                         rowGetter: function (e) {
                           var t = e.index;
-                          return ae[t];
+                          return ie[t];
                         },
                         onRowClick: function (e) {
                           !(function (e) {
@@ -58277,10 +58295,10 @@ var Gk = Fk,
                             .concat(k ? k(e) : "");
                         },
                         onRowsRendered: i,
-                        sort: F ? ne : void 0,
-                        sortBy: F ? Z : void 0,
-                        sortDirection: F ? j : void 0,
-                        scrollToIndex: R ? ae.length - 1 : -1,
+                        sort: ae,
+                        sortBy: re,
+                        sortDirection: oe,
+                        scrollToIndex: R ? ie.length - 1 : -1,
                         rowStyle: function (e) {
                           if (k) {
                             var t = k(e);
@@ -58307,7 +58325,7 @@ var Gk = Fk,
                                       name: "selectAll",
                                       checked:
                                         (null == u ? void 0 : u.length) ===
-                                        ae.length,
+                                        ie.length,
                                     }),
                                   )
                                 : o.default.createElement(
@@ -58388,20 +58406,7 @@ var Gk = Fk,
                             })(n || [], t, a, Q);
                           },
                         }),
-                      Fc(
-                        a,
-                        f,
-                        E,
-                        b,
-                        v,
-                        u || [],
-                        Q,
-                        T,
-                        C,
-                        F,
-                        F ? Z : "",
-                        F ? j : void 0,
-                      ),
+                      Fc(a, f, E, b, v, u || [], Q, T, C, F, re || "", oe),
                     );
                   });
                 },
