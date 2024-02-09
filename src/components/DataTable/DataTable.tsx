@@ -231,7 +231,7 @@ const TableRowPredefStyles: any = {
 };
 
 // Main function to render the Table Wrapper
-const DataTable: FC<DataTableProps> = ({
+const DataTable = <T,>({
   itemActions,
   columns,
   onSelect,
@@ -258,7 +258,7 @@ const DataTable: FC<DataTableProps> = ({
   rowHeight = 40,
   sortEnabled = false,
   sortCallBack,
-}) => {
+}: DataTableProps<T>) => {
   const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
   const [currentSortColumn, setCurrentSortColumn] = useState<
     string | undefined
@@ -278,7 +278,7 @@ const DataTable: FC<DataTableProps> = ({
     typeof sortEnabled === "object" &&
     !Array.isArray(sortEnabled);
 
-  const clickAction = (rowItem: any) => {
+  const clickAction = (rowItem: T) => {
     if (findView) {
       const valueClick =
         findView.sendOnlyId && idField ? rowItem[rowIDField] : rowItem;
@@ -309,7 +309,7 @@ const DataTable: FC<DataTableProps> = ({
     setAnchorEl(null);
   };
 
-  const columnsSelection = (columns: IColumns[]) => {
+  const columnsSelection = (columns: IColumns<T>[]) => {
     return (
       <Box
         sx={{ margin: "10px 0 0", display: "flex", justifyContent: "flex-end" }}
