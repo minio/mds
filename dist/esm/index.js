@@ -22290,33 +22290,36 @@ var Em = function (e) {
     return t.createElement(_m, rt({}, i, { sx: n, customBorderPadding: r }), a);
   },
   Sm = function (e, a, r, i, o, s, l, c, d, u, p, m) {
-    var h = (function (e, t, n, a, r, i, o) {
-      if (e) {
-        var s = lt([], e, !0);
-        i &&
-          (s = e.filter(function (e) {
-            return o.includes(e.elementKey);
-          }));
-        var l = t;
-        return (
-          a && (l -= 45),
-          r && (l -= n),
-          s.reduce(function (e, t) {
-            return t.width ? e - t.width : e;
-          }, l) /
-            s.filter(function (e) {
-              return !e.width;
-            }).length
-        );
-      }
-      return t;
-    })(e, a, r, i, o, c, d);
+    var h = u && "object" == typeof u && !Array.isArray(u),
+      f = (function (e, t, n, a, r, i, o) {
+        if (e) {
+          var s = lt([], e, !0);
+          i &&
+            (s = e.filter(function (e) {
+              return o.includes(e.elementKey);
+            }));
+          var l = t;
+          return (
+            a && (l -= 45),
+            r && (l -= n),
+            s.reduce(function (e, t) {
+              return t.width ? e - t.width : e;
+            }, l) /
+              s.filter(function (e) {
+                return !e.width;
+              }).length
+          );
+        }
+        return t;
+      })(e, a, r, i, o, c, d);
     return e.map(function (a, r) {
       if (c && !d.includes(a.elementKey)) return null;
-      var i =
-        !u ||
-        (Array.isArray(u) &&
-          !u.includes((null == a ? void 0 : a.elementKey) || ""));
+      var i = void 0 === a.enableSort || a.enableSort,
+        o =
+          !u ||
+          (h && !i) ||
+          (Array.isArray(u) &&
+            !u.includes((null == a ? void 0 : a.elementKey) || ""));
       return t.createElement(Bp, {
         key: "col-tb-".concat(r.toString()),
         dataKey: a.elementKey || "column-".concat(r),
@@ -22376,8 +22379,8 @@ var Em = function (e) {
             );
           })(r, a, i);
         },
-        width: a.width || h,
-        disableSort: i,
+        width: a.width || f,
+        disableSort: o,
         defaultSortDirection: "ASC",
       });
     });
@@ -22832,21 +22835,33 @@ var zm = ut(function (e, t, n) {
             return "view" === e.type;
           })
         : null,
-      te = function (e) {
+      te = H && "object" == typeof H && !Array.isArray(H),
+      ne = function (e) {
         V(!G), Q(e.currentTarget);
       },
-      ne = function () {
+      ae = function () {
         V(!1), Q(null);
       },
-      ae = function (e) {
-        var t = Ha(e, "sortDirection", "DESC");
-        W(e.sortBy), Y(t), U && U(e);
-      },
-      re = s;
+      re = void 0,
+      ie = void 0,
+      oe = void 0;
+    H &&
+      (te
+        ? ((re = H.onSortClick),
+          (ie = H.currentSort),
+          (oe = H.currentDirection))
+        : ((re = function (e) {
+            var t = Ha(e, "sortDirection", "DESC");
+            W(e.sortBy), Y(t), U && U(e);
+          }),
+          (ie = $),
+          (oe = q)));
+    var se = s;
     return (
       H &&
         $ &&
-        (re = (function (e, t, n) {
+        !te &&
+        (se = (function (e, t, n) {
           var a = e;
           if (0 === e.length) return e;
           if (bm(e[0]) && void 0 !== t)
@@ -22903,7 +22918,7 @@ var zm = ut(function (e, t, n) {
             ),
           _ &&
             !l &&
-            re.length > 0 &&
+            se.length > 0 &&
             t.createElement(
               n,
               null,
@@ -22924,14 +22939,14 @@ var zm = ut(function (e, t, n) {
                       variant: "regular",
                       icon: t.createElement(tc, null),
                       iconLocation: "end",
-                      onClick: te,
+                      onClick: ne,
                     },
                     "Columns",
                   ),
                   G &&
                     t.createElement(Wm, {
                       open: G,
-                      closeTriggerAction: ne,
+                      closeTriggerAction: ae,
                       onSelect: function (e) {
                         return N(e);
                       },
@@ -22942,13 +22957,13 @@ var zm = ut(function (e, t, n) {
                 );
               })(i),
             ),
-          re && !l && re.length > 0
+          se && !l && se.length > 0
             ? t.createElement(
                 Ku,
                 {
                   isRowLoaded: function (e) {
                     var t = e.index;
-                    return !!re[t];
+                    return !!se[t];
                   },
                   loadMoreRows: R
                     ? R.loadMoreRecords
@@ -22957,7 +22972,7 @@ var zm = ut(function (e, t, n) {
                           return !0;
                         });
                       },
-                  rowCount: R ? R.recordsCount : re.length,
+                  rowCount: R ? R.recordsCount : se.length,
                 },
                 function (e) {
                   var a = e.onRowsRendered,
@@ -23001,10 +23016,10 @@ var zm = ut(function (e, t, n) {
                         overscanRowCount: 10,
                         rowHeight: B,
                         width: h,
-                        rowCount: re.length,
+                        rowCount: se.length,
                         rowGetter: function (e) {
                           var t = e.index;
-                          return re[t];
+                          return se[t];
                         },
                         onRowClick: function (e) {
                           !(function (e) {
@@ -23027,10 +23042,10 @@ var zm = ut(function (e, t, n) {
                             .concat(O ? O(e) : "");
                         },
                         onRowsRendered: a,
-                        sort: H ? ae : void 0,
-                        sortBy: H ? $ : void 0,
-                        sortDirection: H ? q : void 0,
-                        scrollToIndex: k ? re.length - 1 : -1,
+                        sort: re,
+                        sortBy: ie,
+                        sortDirection: oe,
+                        scrollToIndex: k ? se.length - 1 : -1,
                         rowStyle: function (e) {
                           if (O) {
                             var t = O(e);
@@ -23057,7 +23072,7 @@ var zm = ut(function (e, t, n) {
                                       name: "selectAll",
                                       checked:
                                         (null == p ? void 0 : p.length) ===
-                                        re.length,
+                                        se.length,
                                     }),
                                   )
                                 : t.createElement(n, null, "Select"),
@@ -23134,20 +23149,7 @@ var zm = ut(function (e, t, n) {
                             })(r || [], n, a, J);
                           },
                         }),
-                      Sm(
-                        i,
-                        h,
-                        E,
-                        b,
-                        v,
-                        p || [],
-                        J,
-                        _,
-                        A,
-                        H,
-                        H ? $ : "",
-                        H ? q : void 0,
-                      ),
+                      Sm(i, h, E, b, v, p || [], J, _, A, H, ie || "", oe),
                     );
                   });
                 },
@@ -24426,7 +24428,10 @@ var zm = ut(function (e, t, n) {
       (function (e) {
         var t = s(
           function (t) {
-            t.key.startsWith("Arrow") &&
+            var n;
+            (null === (n = t.key) || void 0 === n
+              ? void 0
+              : n.startsWith("Arrow")) &&
               (t.preventDefault(), t.stopPropagation(), e(t.key));
           },
           [e],

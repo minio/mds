@@ -1,6 +1,6 @@
 import React from "react";
 import { SortDirectionType } from "react-virtualized";
-import { IColumns, ItemActions } from "./DataTable.types";
+import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
 export declare const selectWidth = 45;
 export declare const generateColumnsMap: (
   columns: IColumns[],
@@ -12,7 +12,7 @@ export declare const generateColumnsMap: (
   idField: string,
   columnsSelector: boolean,
   columnsShown: string[],
-  sortColumns: boolean | string[],
+  sortColumns: boolean | string[] | ISortConfig,
   currentSortColumn: string | undefined,
   currentSortDirection: "ASC" | "DESC" | undefined,
 ) => (React.JSX.Element | null)[];
