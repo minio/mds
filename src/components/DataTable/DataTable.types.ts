@@ -34,19 +34,19 @@ export const actionsTypes = [
 
 export type PredefinedActionTypes = (typeof actionsTypes)[number];
 
-export interface ItemActions {
+export interface ItemActions<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
   sendOnlyId?: boolean;
-  isDisabled?: boolean | ((itemValue: any) => boolean);
-  showLoader?: boolean | ((itemValue: any) => boolean);
-  onClick?(valueToSend: any): any;
+  isDisabled?: boolean | ((itemValue: T) => boolean);
+  showLoader?: boolean | ((itemValue: T) => boolean);
+  onClick?(valueToSend: T): void;
 }
 
-export interface IColumns {
+export interface IColumns<T> {
   label: string;
   elementKey?: string;
-  renderFunction?: (input: any) => any;
+  renderFunction?: (input: T) => any;
   renderFullObject?: boolean;
   globalClass?: any;
   rowClass?: any;
@@ -75,14 +75,14 @@ export interface ISortConfig {
   currentDirection: "ASC" | "DESC" | undefined;
 }
 
-export interface DataTableProps {
-  itemActions?: ItemActions[] | null;
-  columns: IColumns[];
+export interface DataTableProps<T> {
+  itemActions?: ItemActions<T>[] | null;
+  columns: IColumns<T>[];
   onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   idField?: string;
   isLoading?: boolean;
   loadingMessage?: React.ReactNode;
-  records: any[];
+  records: T[];
   entityName?: string;
   selectedItems?: string[];
   customEmptyMessage?: string;
@@ -116,22 +116,22 @@ export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   rowHeight: number;
 }
 
-export interface IActionButton {
+export interface IActionButton<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
-  onClick?: (id: string) => any;
-  valueToSend: any;
+  onClick?: (id: string) => void;
+  valueToSend: T;
   selected: boolean;
   sendOnlyId?: boolean;
   idField: string;
   disabled: boolean;
 }
 
-export interface ColumnSelectorProps {
+export interface ColumnSelectorProps<T> {
   open: boolean;
   closeTriggerAction: () => void;
   onSelect: (column: string) => void;
-  columns: IColumns[];
+  columns: IColumns<T>[];
   selectedOptionIDs: string[];
   sx?: CSSObject;
   anchorEl?: (EventTarget & HTMLElement) | null;
