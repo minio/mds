@@ -258,7 +258,7 @@ const DataTable = <T,>({
   rowHeight = 40,
   sortEnabled = false,
   sortCallBack,
-}:DataTableProps<T>) => {
+}: DataTableProps<T>) => {
   const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
   const [currentSortColumn, setCurrentSortColumn] = useState<
     string | undefined
