@@ -32,6 +32,7 @@ import {
   DataTableProps,
   DataTableWrapperProps,
   IColumns,
+  ITableSortInfo,
 } from "./DataTable.types";
 import {
   calculateOptionsSize,
@@ -272,6 +273,11 @@ const DataTable: FC<DataTableProps> = ({
     ? itemActions.find((el) => el.type === "view")
     : null;
 
+  const manualSortEnabled =
+    sortEnabled &&
+    typeof sortEnabled === "object" &&
+    !Array.isArray(sortEnabled);
+
   const clickAction = (rowItem: any) => {
     if (findView) {
       const valueClick =
@@ -331,10 +337,11 @@ const DataTable: FC<DataTableProps> = ({
     );
   };
 
-  const triggerSort = (sort: {
-    sortBy: string;
-    sortDirection: SortDirectionType;
-  }) => {
+  let tableSort: ((val: ITableSortInfo) => any) | undefined = undefined;
+  let tableSortBy: string | undefined = undefined;
+  let tableSortDirection: SortDirectionType | undefined = undefined;
+
+  const onSortClick = (sort: ITableSortInfo) => {
     const newSortDirection = get(sort, "sortDirection", "DESC");
     setCurrentSortColumn(sort.sortBy);
     setCurrentSortDirection(newSortDirection);
@@ -344,9 +351,21 @@ const DataTable: FC<DataTableProps> = ({
     }
   };
 
+  if (sortEnabled) {
+    if (manualSortEnabled) {
+      tableSort = sortEnabled.onSortClick;
+      tableSortBy = sortEnabled.currentSort;
+      tableSortDirection = sortEnabled.currentDirection;
+    } else {
+      tableSort = onSortClick;
+      tableSortBy = currentSortColumn;
+      tableSortDirection = currentSortDirection;
+    }
+  }
+
   let sortedRecords = records;
 
-  if (sortEnabled && currentSortColumn) {
+  if (sortEnabled && currentSortColumn && !manualSortEnabled) {
     sortedRecords = sortRecords(
       records,
       currentSortColumn,
@@ -443,11 +462,9 @@ const DataTable: FC<DataTableProps> = ({
                         } ${rowStyle ? rowStyle(r) : ""}`
                       }
                       onRowsRendered={onRowsRendered}
-                      sort={sortEnabled ? triggerSort : undefined}
-                      sortBy={sortEnabled ? currentSortColumn : undefined}
-                      sortDirection={
-                        sortEnabled ? currentSortDirection : undefined
-                      }
+                      sort={tableSort}
+                      sortBy={tableSortBy}
+                      sortDirection={tableSortDirection}
                       scrollToIndex={
                         autoScrollToBottom ? sortedRecords.length - 1 : -1
                       }
@@ -555,8 +572,8 @@ const DataTable: FC<DataTableProps> = ({
                         columnsSelector,
                         columnsShown,
                         sortEnabled,
-                        sortEnabled ? currentSortColumn : "",
-                        sortEnabled ? currentSortDirection : undefined,
+                        tableSortBy || "",
+                        tableSortDirection,
                       )}
                     </Table>
                   );

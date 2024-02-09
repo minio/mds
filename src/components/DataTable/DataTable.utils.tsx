@@ -19,7 +19,7 @@ import get from "lodash/get";
 import isString from "lodash/isString";
 import isPlainObject from "lodash/isPlainObject";
 import { Column, SortDirectionType } from "react-virtualized";
-import { IColumns, ItemActions } from "./DataTable.types";
+import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
 import ArrowDropUpIcon from "../Icons/ArrowDropUp";
 import ArrowDropDownIcon from "../Icons/ArrowDropDown";
 import Loader from "../Loader/Loader";
@@ -100,10 +100,15 @@ export const generateColumnsMap = (
   idField: string,
   columnsSelector: boolean,
   columnsShown: string[],
-  sortColumns: boolean | string[],
+  sortColumns: boolean | string[] | ISortConfig,
   currentSortColumn: string | undefined,
   currentSortDirection: "ASC" | "DESC" | undefined,
 ) => {
+  const manualSortEnabled =
+    sortColumns &&
+    typeof sortColumns === "object" &&
+    !Array.isArray(sortColumns);
+
   const commonRestWidth = calculateColumnRest(
     columns,
     containerWidth,
@@ -118,8 +123,13 @@ export const generateColumnsMap = (
       return null;
     }
 
+    // Manual Column Sort state, Enabled by default.
+    const manualColumnSortEnabled =
+      column.enableSort !== undefined ? column.enableSort : true;
+
     const disableSort =
       !sortColumns ||
+      (manualSortEnabled && !manualColumnSortEnabled) ||
       (Array.isArray(sortColumns) &&
         !sortColumns.includes(column?.elementKey || ""));
 
