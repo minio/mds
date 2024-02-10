@@ -281,7 +281,7 @@ const DataTable = <T,>({
   const clickAction = (rowItem: T) => {
     if (findView) {
       const valueClick =
-        findView.sendOnlyId && idField ? rowItem[rowIDField] : rowItem;
+        findView.sendOnlyId && idField ? get(rowItem, rowIDField, "") : rowItem;
 
       let disabled = false;
 
@@ -294,7 +294,7 @@ const DataTable = <T,>({
       }
 
       if (findView.onClick && !disabled) {
-        findView.onClick(valueClick);
+        findView.onClick(valueClick as T);
       }
     }
   };
@@ -327,7 +327,7 @@ const DataTable = <T,>({
           <ColumnsSelector
             open={columnSelectorOpen}
             closeTriggerAction={closeColumnSelector}
-            onSelect={(label) => onColumnChange(label)}
+            onSelect={(label: string) => onColumnChange(label)}
             columns={columns}
             selectedOptionIDs={columnsShown}
             anchorEl={anchorEl}
@@ -537,6 +537,20 @@ const DataTable = <T,>({
                           }}
                         />
                       )}
+                      {generateColumnsMap(
+                        columns,
+                        width,
+                        optionsWidth,
+                        hasSelect,
+                        hasOptions,
+                        selectedItems || [],
+                        rowIDField,
+                        columnsSelector,
+                        columnsShown,
+                        sortEnabled,
+                        tableSortBy || "",
+                        tableSortDirection,
+                      )}
                       {hasOptions && (
                         // @ts-ignore
                         <Column
@@ -560,20 +574,6 @@ const DataTable = <T,>({
                             );
                           }}
                         />
-                      )}
-                      {generateColumnsMap(
-                        columns,
-                        width,
-                        optionsWidth,
-                        hasSelect,
-                        hasOptions,
-                        selectedItems || [],
-                        rowIDField,
-                        columnsSelector,
-                        columnsShown,
-                        sortEnabled,
-                        tableSortBy || "",
-                        tableSortDirection,
                       )}
                     </Table>
                   );

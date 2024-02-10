@@ -85,14 +85,14 @@ const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
   };
 };
 
-const ColumnsSelector: FC<ColumnSelectorProps> = ({
+const ColumnsSelector = <T,>({
   columns,
   selectedOptionIDs,
   onSelect,
   closeTriggerAction,
   open,
   anchorEl = null,
-}) => {
+}: ColumnSelectorProps<T>) => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
 
   useEffect(() => {
@@ -142,7 +142,7 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
       >
         <Box className={"columnsSelectorTitle"}>Shown Columns</Box>
         <Box className={"columnsSelectorContainer"}>
-          {columns.map((column: IColumns) => {
+          {columns.map((column: IColumns<T>) => {
             return (
               <Checkbox
                 key={`tableColumns-${column.label}`}
