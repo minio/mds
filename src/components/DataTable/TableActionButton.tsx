@@ -14,8 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
-import get from "lodash/get";
+import React, { FC } from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import CloudIcon from "../Icons/CloudIcon";
 import ConsoleIcon from "../Icons/ConsoleIcon";
@@ -66,7 +65,7 @@ const defineIcon = (type: PredefinedActionTypes) => {
   return null;
 };
 
-const TableActionButton = <T,>({
+const TableActionButton: FC<IActionButton> = ({
   type,
   onClick,
   valueToSend,
@@ -74,8 +73,8 @@ const TableActionButton = <T,>({
   sendOnlyId = false,
   disabled = false,
   tooltip,
-}: IActionButton<T>) => {
-  const valueClick = sendOnlyId ? get(valueToSend, idField, "") : valueToSend;
+}) => {
+  const valueClick = sendOnlyId ? valueToSend[idField] : valueToSend;
 
   const icon = isPredefinedAction(type) ? defineIcon(type) : type;
   let buttonElement = (
@@ -92,7 +91,7 @@ const TableActionButton = <T,>({
           ? (e) => {
               e.stopPropagation();
               if (!disabled) {
-                onClick(valueClick as string);
+                onClick(valueClick);
               } else {
                 e.preventDefault();
               }
