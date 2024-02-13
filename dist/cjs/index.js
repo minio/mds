@@ -58354,6 +58354,7 @@ var Gk = Fk,
                             });
                           },
                         }),
+                      Fc(a, f, E, b, v, u || [], Q, T, C, F, re || "", oe),
                       v &&
                         o.default.createElement(Qs, {
                           dataKey: "column-options",
@@ -58406,7 +58407,6 @@ var Gk = Fk,
                             })(n || [], t, a, Q);
                           },
                         }),
-                      Fc(a, f, E, b, v, u || [], Q, T, C, F, re || "", oe),
                     );
                   });
                 },

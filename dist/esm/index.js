@@ -23097,6 +23097,7 @@ var zm = ut(function (e, t, n) {
                             });
                           },
                         }),
+                      Sm(i, h, E, b, v, p || [], J, _, A, H, ie || "", oe),
                       v &&
                         t.createElement(Bp, {
                           dataKey: "column-options",
@@ -23149,7 +23150,6 @@ var zm = ut(function (e, t, n) {
                             })(r || [], n, a, J);
                           },
                         }),
-                      Sm(i, h, E, b, v, p || [], J, _, A, H, ie || "", oe),
                     );
                   });
                 },

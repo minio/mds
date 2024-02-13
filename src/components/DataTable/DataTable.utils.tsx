@@ -31,7 +31,7 @@ export const selectWidth = 45;
 // Function to render elements in table
 const subRenderFunction = (
   rowData: any,
-  column: IColumns<any>,
+  column: IColumns,
   isSelected: boolean,
 ) => {
   const itemElement = isString(rowData)
@@ -52,7 +52,7 @@ const subRenderFunction = (
 
 // Function to calculate common column width for elements with no with size
 const calculateColumnRest = (
-  columns: IColumns<any>[],
+  columns: IColumns[],
   containerWidth: number,
   actionsWidth: number,
   hasSelect: boolean,
@@ -91,7 +91,7 @@ const calculateColumnRest = (
 
 // Function that renders Columns in table
 export const generateColumnsMap = (
-  columns: IColumns<any>[],
+  columns: IColumns[],
   containerWidth: number,
   actionsWidth: number,
   hasSelect: boolean,
@@ -118,7 +118,7 @@ export const generateColumnsMap = (
     columnsSelector,
     columnsShown,
   );
-  return columns.map((column: IColumns<any>, index: number) => {
+  return columns.map((column: IColumns, index: number) => {
     if (columnsSelector && !columnsShown.includes(column.elementKey!)) {
       return null;
     }
@@ -202,12 +202,12 @@ export const generateColumnsMap = (
 
 // Function to render the action buttons
 export const elementActions = (
-  actions: ItemActions<any>[],
+  actions: ItemActions[],
   valueToSend: any,
   selected: boolean,
   idField: string,
 ) => {
-  return actions.map((action: ItemActions<any>, index: number) => {
+  return actions.map((action: ItemActions, index: number) => {
     if (action.type === "view") {
       return null;
     }

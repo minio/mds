@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof DataTable>;
 
-const Template: Story<DataTableProps<any>> = (args) => {
+const Template: Story<DataTableProps> = (args) => {
   const [selected, setSelected] = useState<string[]>([]);
   const [selectedColumns, setSelectedColumns] = useState<string[]>(["field1"]);
 
@@ -439,7 +439,6 @@ WithItemActions.args = {
     {
       type: "edit",
       onClick: (itemID: string) => {
-        console.log(itemID);
         alert(itemID);
       },
       sendOnlyId: true,
