@@ -24,7 +24,7 @@ import TabPanel from "./TabPanel";
 import TabButton from "./TabButton";
 
 const TabsContainer = styled.div<TabsContainerProps>(
-  ({ theme, horizontal, horizontalBarBackground }) => {
+  ({ theme, horizontal, horizontalBarBackground, sx }) => {
     let horizontalBG = horizontalBarBackground
       ? get(theme, "tabs.horizontal.backgroundColor", "transparent")
       : "transparent";
@@ -79,6 +79,7 @@ const TabsContainer = styled.div<TabsContainerProps>(
             )} 1px solid`,
         borderLeft: "none",
       },
+      ...sx,
     };
   },
 );
