@@ -24,12 +24,13 @@ import TabPanel from "./TabPanel";
 import TabButton from "./TabButton";
 
 const TabsContainer = styled.div<TabsContainerProps>(
-  ({ theme, horizontal, horizontalBarBackground }) => {
+  ({ theme, horizontal, horizontalBarBackground, sx }) => {
     let horizontalBG = horizontalBarBackground
       ? get(theme, "tabs.horizontal.backgroundColor", "transparent")
       : "transparent";
 
     return {
+      ...sx,
       display: "flex",
       flexDirection: horizontal ? "column" : "row",
       height: "100%",
