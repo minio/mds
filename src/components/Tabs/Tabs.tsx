@@ -30,7 +30,6 @@ const TabsContainer = styled.div<TabsContainerProps>(
       : "transparent";
 
     return {
-      ...sx,
       display: "flex",
       flexDirection: horizontal ? "column" : "row",
       height: "100%",
@@ -80,6 +79,7 @@ const TabsContainer = styled.div<TabsContainerProps>(
             )} 1px solid`,
         borderLeft: "none",
       },
+      ...sx,
     };
   },
 );
