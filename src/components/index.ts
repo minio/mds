@@ -71,6 +71,7 @@ export { default as Wizard } from "./Wizard/Wizard";
 export { default as InformativeMessage } from "./InformativeMessage/InformativeMessage";
 export { default as DateTimeInput } from "./DateTimeInput/DateTimeInput";
 export { default as DateTimeSelector } from "./DateTimeInput/DateTimeSelector";
+export { default as Link } from "./Link/Link";
 
 /*Icons*/
 export * from "./Icons";
@@ -127,3 +128,4 @@ export * from "./Badge/Badge.types";
 export * from "./Wizard/Wizard.types";
 export * from "./InformativeMessage/InformativeMessage.types";
 export * from "./DateTimeInput/DateTimeInput.types";
+export * from "./Link/Link.types";
