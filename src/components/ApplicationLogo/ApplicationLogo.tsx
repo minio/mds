@@ -41,6 +41,7 @@ import GlobalConsole from "./Logos/Console/GlobalConsole";
 import ThemedLogo from "../ThemedLogo/ThemedLogo";
 import Enterprise from "./Logos/Enterprise/Enterprise";
 import MinIOEnterprise from "./Logos/MinIO/MinIOEnterprise";
+import MinIOEnterpriseOS from "./Logos/MinIO/MinIOEnterpriseOS";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -109,6 +110,9 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       switch (subVariant) {
         case "enterprise":
           return <MinIOEnterprise inverse={!!inverse} onClick={onClick} />;
+          break;
+        case "enterpriseos":
+          return <MinIOEnterpriseOS inverse={!!inverse} onClick={onClick} />;
         default:
           return <ThemedLogo onClick={onClick} />;
       }
