@@ -38,7 +38,13 @@ export interface ApplicationLogoProps {
     | "globalconsole"
     | "minio"
     | "enterprise";
-  subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
+  subVariant?:
+    | "simple"
+    | "AGPL"
+    | "standard"
+    | "enterprise"
+    | "new"
+    | "enterpriseos";
   inverse?: boolean;
   onClick?: React.MouseEventHandler<any> | undefined;
 }

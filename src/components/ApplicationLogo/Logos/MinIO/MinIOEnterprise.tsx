@@ -18,7 +18,10 @@ import React, { FC, SVGProps } from "react";
 import LogoBase from "../LogoBase/LogoBase";
 import { LogoBaseProps } from "../LogoBase/LogoBase.types";
 
-const KMS: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
+const MinIOEnterprise: FC<SVGProps<any> & LogoBaseProps> = ({
+  inverse,
+  onClick,
+}) => {
   return (
     <LogoBase viewBox="0 0 174.3 51" inverse={inverse} onClick={onClick}>
       <g transform="translate(5485.708 23935.906)">
@@ -75,4 +78,4 @@ const KMS: FC<SVGProps<any> & LogoBaseProps> = ({ inverse, onClick }) => {
   );
 };
 
-export default KMS;
+export default MinIOEnterprise;
