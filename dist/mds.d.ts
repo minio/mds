@@ -421,7 +421,13 @@ interface ApplicationLogoProps {
     | "globalconsole"
     | "minio"
     | "enterprise";
-  subVariant?: "simple" | "AGPL" | "standard" | "enterprise" | "new";
+  subVariant?:
+    | "simple"
+    | "AGPL"
+    | "standard"
+    | "enterprise"
+    | "new"
+    | "enterpriseos";
   inverse?: boolean;
   onClick?: React__default.MouseEventHandler<any> | undefined;
 }
@@ -1427,6 +1433,14 @@ type DateTimeSelectorProps = DateTimeSelectorMain &
 declare const DateTimeInput: FC<DateTimeInputProps>;
 
 declare const DateTimeSelector: FC<DateTimeSelectorProps>;
+
+interface LinkProps {
+  sx?: CSSObject;
+}
+
+declare const Link: FC<
+  LinkProps & React__default.AnchorHTMLAttributes<HTMLAnchorElement>
+>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2735,7 +2749,9 @@ export {
   LicenseIcon,
   LifecycleConfigIcon,
   LightModeIcon,
+  Link,
   LinkIcon,
+  LinkProps,
   Loader,
   LockFilledIcon,
   LockIcon$1 as LockIcon,
