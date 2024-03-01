@@ -27,7 +27,8 @@ export interface ApplicationLogoProps {
     | "standard"
     | "enterprise"
     | "new"
-    | "enterpriseos";
+    | "enterpriseos"
+    | "enterpriseosvertical";
   inverse?: boolean;
   onClick?: React.MouseEventHandler<any> | undefined;
 }
