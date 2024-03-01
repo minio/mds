@@ -42,6 +42,7 @@ import ThemedLogo from "../ThemedLogo/ThemedLogo";
 import Enterprise from "./Logos/Enterprise/Enterprise";
 import MinIOEnterprise from "./Logos/MinIO/MinIOEnterprise";
 import MinIOEnterpriseOS from "./Logos/MinIO/MinIOEnterpriseOS";
+import MinIOEnterpriseOSVertical from "./Logos/MinIO/MinIOEnterpriseOSVertical";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -113,6 +114,10 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
           break;
         case "enterpriseos":
           return <MinIOEnterpriseOS inverse={!!inverse} onClick={onClick} />;
+        case "enterpriseosvertical":
+          return (
+            <MinIOEnterpriseOSVertical inverse={!!inverse} onClick={onClick} />
+          );
         default:
           return <ThemedLogo onClick={onClick} />;
       }
