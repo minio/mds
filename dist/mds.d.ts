@@ -427,7 +427,8 @@ interface ApplicationLogoProps {
     | "standard"
     | "enterprise"
     | "new"
-    | "enterpriseos";
+    | "enterpriseos"
+    | "enterpriseosvertical";
   inverse?: boolean;
   onClick?: React__default.MouseEventHandler<any> | undefined;
 }
