@@ -259,8 +259,8 @@ export const calculateOptionsSize = (
   containerWidth: number,
   totalOptions: number,
 ) => {
-  const minContainerSize = 80;
-  const sizeOptions = totalOptions * 45 + 15;
+  const minContainerSize = 36;
+  const sizeOptions = totalOptions * 36;
 
   if (sizeOptions < minContainerSize) {
     return minContainerSize;
