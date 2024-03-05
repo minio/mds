@@ -34,8 +34,6 @@ interface LoginPageThemeProps {
   footerDivider: string;
 }
 interface PageHeaderThemeProps {
-  background: string;
-  border: string;
   color: string;
 }
 interface TooltipThemeProps {
@@ -57,6 +55,7 @@ interface IconButtonThemeProps {
   hoverBG: string;
   disabledBG: string;
   color: string;
+  disabledColor?: string;
 }
 interface DataTableThemeProps {
   border: string;
@@ -104,7 +103,6 @@ interface ActionsListThemeProps {
   disabledOptionsTextColor: string;
 }
 interface ScreenTitleThemeProps {
-  border: string;
   subtitleColor: string;
   iconColor: string;
 }
@@ -157,6 +155,7 @@ interface SignalColorsThemeProps {
   disabled: string;
   dark: string;
   clear: string;
+  selectBlue?: string;
 }
 interface MenuThemeProps {
   vertical?: {
