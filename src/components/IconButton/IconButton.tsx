@@ -20,7 +20,7 @@ import get from "lodash/get";
 import { IconButtonProps } from "./IconButton.types";
 
 const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
-  let buttonSize: number | string = 30;
+  let buttonSize: number | string = 32;
 
   if (size) {
     if (typeof size === "string") {
@@ -29,7 +29,7 @@ const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
           buttonSize = 28;
           break;
         case "medium":
-          buttonSize = 30;
+          buttonSize = 32;
           break;
         case "large":
           buttonSize = 48;
