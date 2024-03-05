@@ -18,21 +18,21 @@ import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import WizardPage from "./WizardPage";
-import Grid from "../Grid/Grid";
 import { WizardConstruct, WizardProps } from "./Wizard.types";
-import { lightColors } from "../../global/themes";
+import { lightV2 } from "../../global/themes";
+import Box from "../Box/Box";
 
 const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
-  position: forModal ? "relative" : "initial",
+  position: "relative",
   display: "flex",
-  flexDirection: forModal ? "column" : "row",
-  "& .modalWizardSteps": {
-    padding: 5,
+  flexDirection: "column",
+  "& .wizardSteps": {
     borderBottom: `1px solid ${get(
       theme,
-      "borderColor",
-      lightColors.borderColor,
+      "signalColors.disabled",
+      lightV2.disabledGrey,
     )}`,
+    marginBottom: 24,
   },
   "& .paddedContentGrid": {
     marginTop: 8,
@@ -44,7 +44,7 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
     maxHeight: 90,
     "& .stepsLabel": {
       fontSize: 20,
-      color: get(theme, "fontColor", lightColors.defaultFontColor),
+      color: get(theme, "mutedText", lightV2.mutedText),
       fontWeight: 600,
       margin: "10px 12px",
       "&.stepsModalTitle": {
@@ -56,13 +56,15 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
       border: "none",
       cursor: "pointer",
       userSelect: "none",
-      color: get(
-        theme,
-        "wizard.modal.stepLabelColor",
-        lightColors.defaultFontColor,
-      ),
+      position: "relative",
+      lineHeight: "36px" as const,
+      color: get(theme, "wizard.modal.stepLabelColor", lightV2.mutedText),
       "&:not(:disabled):hover": {
-        textDecoration: "underline",
+        color: get(
+          theme,
+          "wizard.modal.selectedStepLabelColor",
+          lightV2.switchBG,
+        ),
       },
       "&:selected, &:active, &:focus, &:focus:active": {
         border: "none",
@@ -74,7 +76,7 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
         color: get(
           theme,
           "wizard.modal.disabledLabelColor",
-          lightColors.mutedText,
+          lightV2.disabledGreyText,
         ),
       },
       "&.selected": {
@@ -82,73 +84,28 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
         color: get(
           theme,
           "wizard.modal.selectedStepLabelColor",
-          lightColors.defaultFontColor,
+          lightV2.switchBG,
         ),
+        "&:after": {
+          content: "' '",
+          position: "absolute",
+          left: 0,
+          bottom: -1,
+          width: "100%",
+          height: 2,
+          backgroundColor: get(
+            theme,
+            "wizard.modal.selectedStepLabelColor",
+            lightV2.switchBG,
+          ),
+        },
       },
     },
   },
-  "& .verticalSteps": {
-    borderRight: `1px solid ${get(
-      theme,
-      "borderColor",
-      lightColors.borderColor,
-    )}`,
-    backgroundColor: get(
-      theme,
-      "wizard.stepsBackground",
-      lightColors.boxBackground,
-    ),
-  },
-  "& .verticalStepsContainer": {
-    paddingTop: 0,
-    "& .stepItem": {
-      cursor: "pointer",
-      width: "100%",
-      minHeight: 50,
-      border: 0,
-      backgroundColor: "transparent",
-      userSelect: "none",
-      borderBottom: `1px solid ${get(
-        theme,
-        "borderColor",
-        lightColors.borderColor,
-      )}`,
-      textAlign: "left",
-      padding: "10px 15px",
-      color: get(
-        theme,
-        "wizard.vertical.stepLabelColor",
-        lightColors.defaultFontColor,
-      ),
-      "&.selected": {
-        background: get(
-          theme,
-          "wizard.vertical.selectedStepBG",
-          lightColors.placeholder,
-        ),
-        fontWeight: "bold",
-        color: get(
-          theme,
-          "wizard.vertical.selectedStepLabelColor",
-          lightColors.defaultFontColor,
-        ),
-      },
-      "&:disabled": {
-        cursor: "not-allowed",
-        color: get(
-          theme,
-          "wizard.vertical.disabledLabelColor",
-          lightColors.defaultFontColor,
-        ),
-      },
-      "&:hover:not(:disabled)": {
-        fontWeight: "bold",
-      },
-    },
-  },
-  "& .modalStepsContainer": {
+  "& .stepsContainer": {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "flex-start",
+    gap: 16,
   },
   ...sx,
 }));
@@ -203,33 +160,10 @@ const GenericWizard = ({
     return null;
   }
 
-  const stepsList = () => {
-    return (
-      <Fragment>
-        <nav className={"wizardNavigation verticalStepsContainer"}>
-          {wizardSteps.map((step, index) => {
-            return (
-              <button
-                id={"wizard-step-" + step.label.toLowerCase().replace(" ", "-")}
-                onClick={() => pageChange(index)}
-                key={`wizard-${index.toString()}`}
-                className={`stepItem ${
-                  currentStep === index ? "selected" : ""
-                }`}
-                disabled={linearMode ? index > currentStep : false}
-              >
-                {step.label}
-              </button>
-            );
-          })}
-        </nav>
-      </Fragment>
-    );
-  };
   const stepsListModal = () => {
     return (
       <Fragment>
-        <nav className={"wizardNavigation modalStepsContainer"}>
+        <nav className={"wizardNavigation stepsContainer"}>
           {wizardSteps.map((step, index) => {
             return (
               <button
@@ -240,7 +174,7 @@ const GenericWizard = ({
                   currentStep === index ? "selected" : ""
                 }`}
               >
-                {index + 1}. {step.label}
+                {step.label}
               </button>
             );
           })}
@@ -250,46 +184,18 @@ const GenericWizard = ({
   };
 
   return (
-    <WizardMain forModal={forModal} sx={sx}>
-      {forModal ? (
-        <Fragment>
-          <div className={"modalSteps"}>
-            <div className={`stepsLabel stepsModalTitle`}>Steps</div>
-            <div className={"modalWizardSteps"}>{stepsListModal()}</div>
-          </div>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <Grid
-            item
-            xs={12}
-            sm={2}
-            md={2}
-            lg={2}
-            xl={2}
-            className={"verticalSteps"}
-          >
-            {stepsList()}
-          </Grid>
-        </Fragment>
-      )}
-
-      <Grid
-        item
-        xs={12}
-        sm={forModal ? 12 : 10}
-        md={forModal ? 12 : 10}
-        lg={forModal ? 12 : 10}
-        xl={forModal ? 12 : 10}
-        className={forModal ? "" : "paddedContentGrid"}
-      >
+    <WizardMain sx={sx}>
+      <Box className={"modalSteps"}>
+        <Box className={"wizardSteps"}>{stepsListModal()}</Box>
+      </Box>
+      <Box>
         <WizardPage
           page={wizardSteps[currentStep]}
           pageChange={pageChange}
           loadingStep={loadingStep}
           forModal={forModal}
         />
-      </Grid>
+      </Box>
     </WizardMain>
   );
 };

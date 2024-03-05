@@ -109,7 +109,7 @@ const CustomButton = styled.button<
       },
       "&:disabled": {
         cursor: "not-allowed",
-        backgroundColor: get(
+        background: get(
           theme,
           `buttons.${neatVariant}.disabled.background`,
           "#fff",
@@ -128,7 +128,7 @@ const CustomButton = styled.button<
         },
       },
       "&:hover:not(:disabled)": {
-        backgroundColor: get(
+        background: get(
           theme,
           `buttons.${neatVariant}.hover.background`,
           "#fff",
@@ -141,7 +141,7 @@ const CustomButton = styled.button<
         },
       },
       "&:active:not(:disabled)": {
-        backgroundColor: get(
+        background: get(
           theme,
           `buttons.${neatVariant}.pressed.background`,
           "#fff",

@@ -205,6 +205,7 @@ const GlobalStyles = createGlobalStyle`
     
     .muted {
         color: ${get(theme, "mutedText", lightV2.mutedText)};
+        font-size: 14px;
     }
     `;
     }}

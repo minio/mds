@@ -203,11 +203,14 @@ export const lightV2 = {
   disabledBlue: "#DCEAFD",
   disabledBlueText: "#64A4F6",
   disabledBlueRegular: "#C1DBFC",
+  disabledSecondary: "#D1D5DB",
+  disabledSecondaryText: "#9CA3AF",
   blueBorderActionButton: "#2241AB",
   redBorder: "#CC1F02",
   disabledRed: "#FFE2E1", // *
   disabledRedText: "#F1756F", // *
   mutedText: "#6B7280",
+  headerLabelText: "#3A3D41",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -237,20 +240,21 @@ export const lightTheme: ThemeDefinitionProps = {
     disabled: lightV2.disabledGrey,
     dark: lightV2.fontColor,
     clear: lightColors.white,
+    selectBlue: lightV2.menuSelectionColor,
   },
   buttons: {
     regular: {
       enabled: {
-        border: lightV2.secondaryBlue,
-        text: lightV2.secondaryBlue,
+        border: lightV2.fontColor,
+        text: lightV2.fontColor,
         background: "transparent",
-        iconColor: lightV2.secondaryBlue,
+        iconColor: lightV2.fontColor,
       },
       disabled: {
-        border: lightV2.disabledBlueRegular,
-        text: lightV2.disabledBlueRegular,
+        border: lightV2.disabledSecondary,
+        text: lightV2.disabledSecondaryText,
         background: "transparent",
-        iconColor: lightV2.disabledBlueRegular,
+        iconColor: lightV2.disabledSecondaryText,
       },
       hover: {
         border: lightColors.mainGrey,
@@ -279,16 +283,16 @@ export const lightTheme: ThemeDefinitionProps = {
         iconColor: lightV2.disabledBlueText,
       },
       hover: {
-        border: lightColors.hoverBlue,
-        text: lightColors.white,
-        background: lightColors.hoverBlue,
-        iconColor: lightColors.white,
+        border: lightV2.blueBorderActionButton,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
+        iconColor: lightV2.white,
       },
       pressed: {
-        border: lightColors.pressedBlue,
-        text: lightColors.white,
-        background: lightColors.pressedBlue,
-        iconColor: lightColors.white,
+        border: lightV2.blueBorderActionButton,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
+        iconColor: lightV2.white,
       },
     },
     secondary: {
@@ -305,16 +309,16 @@ export const lightTheme: ThemeDefinitionProps = {
         iconColor: lightV2.disabledRedText,
       },
       hover: {
-        border: lightColors.lightRed,
-        text: lightColors.mainRed,
-        background: lightColors.hoverRed,
-        iconColor: lightColors.mainRed,
+        border: lightV2.redBorder,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #FF4C0A 0%, #FF3100 100%)",
+        iconColor: lightV2.white,
       },
       pressed: {
-        border: lightColors.mainRed,
-        text: lightColors.white,
-        background: lightColors.mainRed,
-        iconColor: lightColors.white,
+        border: lightV2.redBorder,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #FF4C0A 0%, #FF3100 100%)",
+        iconColor: lightV2.white,
       },
     },
     text: {
@@ -357,16 +361,16 @@ export const lightTheme: ThemeDefinitionProps = {
         iconColor: lightV2.disabledGreyText,
       },
       hover: {
-        border: lightColors.secondActionHover,
-        text: lightColors.white,
-        background: lightColors.secondActionHover,
-        iconColor: lightColors.white,
+        border: lightV2.fontColor,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4B5563 0%, #1D2125 100%)",
+        iconColor: lightV2.white,
       },
       pressed: {
-        border: lightColors.secondActionActive,
-        text: lightColors.white,
-        background: lightColors.secondActionActive,
-        iconColor: lightColors.white,
+        border: lightV2.fontColor,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4B5563 0%, #1D2125 100%)",
+        iconColor: lightV2.white,
       },
     },
   },
@@ -380,8 +384,6 @@ export const lightTheme: ThemeDefinitionProps = {
     footerDivider: lightColors.footerDivider,
   },
   pageHeader: {
-    background: lightColors.headerBG,
-    border: lightColors.headerBorder,
     color: lightColors.headerColor,
   },
   tooltip: {
@@ -398,11 +400,12 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledColor: lightColors.disabledBGGrey,
   },
   iconButton: {
-    buttonBG: lightColors.iconButtonBG,
-    activeBG: lightColors.iconButtonActive,
-    hoverBG: lightColors.iconButtonHover,
-    disabledBG: lightColors.iconButtonDisabled,
-    color: lightColors.iconButtonColor,
+    buttonBG: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
+    activeBG: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
+    hoverBG: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
+    disabledBG: lightV2.disabledBlue,
+    color: lightV2.white,
+    disabledColor: lightV2.disabledBlueText,
   },
   dataTable: {
     border: lightColors.borderColor,
@@ -449,9 +452,8 @@ export const lightTheme: ThemeDefinitionProps = {
     titleColor: lightColors.defaultFontColor,
   },
   screenTitle: {
-    border: lightColors.borderColor,
-    subtitleColor: lightColors.commonLinkColor,
-    iconColor: lightColors.mainBlue,
+    subtitleColor: lightV2.mutedText,
+    iconColor: lightV2.fontColor,
   },
   modalBox: {
     closeColor: lightColors.modalCloseColor,
@@ -677,10 +679,10 @@ export const lightTheme: ThemeDefinitionProps = {
       disabledLabelColor: lightColors.disabledInnerGrey,
     },
     modal: {
-      stepLabelColor: lightColors.defaultFontColor,
-      selectedStepBG: lightColors.borderColor,
-      selectedStepLabelColor: lightColors.defaultFontColor,
-      disabledLabelColor: lightColors.disabledGrey,
+      stepLabelColor: lightV2.mutedText,
+      selectedStepBG: lightV2.switchBG,
+      selectedStepLabelColor: lightV2.switchBG,
+      disabledLabelColor: lightV2.disabledGreyText,
     },
   },
   slider: {
@@ -856,9 +858,7 @@ export const darkTheme: ThemeDefinitionProps = {
     footerDivider: darkColors.footerDivider,
   },
   pageHeader: {
-    background: darkColors.headerBG,
-    border: darkColors.headerBorder,
-    color: darkColors.headerColor,
+    color: lightV2.headerLabelText,
   },
   tooltip: {
     background: darkColors.tooltipBG,
@@ -925,7 +925,6 @@ export const darkTheme: ThemeDefinitionProps = {
     titleColor: darkColors.defaultFontColor,
   },
   screenTitle: {
-    border: darkColors.borderColor,
     subtitleColor: darkColors.hoverGrey,
     iconColor: darkColors.mainGrey,
   },
