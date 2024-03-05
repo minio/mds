@@ -38,7 +38,7 @@ const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
     }
 
     return {
-      fontFamily: "'Inter',sans-serif",
+      fontFamily: "'Geist',sans-serif",
       width: "100%",
       resize: "none",
       padding: "16px 14px",

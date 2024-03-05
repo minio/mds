@@ -207,7 +207,7 @@ export const lightV2 = {
   redBorder: "#CC1F02",
   disabledRed: "#FFE2E1", // *
   disabledRedText: "#F1756F", // *
-
+  mutedText: "#6B7280"
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -221,8 +221,13 @@ export const lightTheme: ThemeDefinitionProps = {
   loaderColor: lightColors.loaderColor,
   linkColor: lightColors.linkColor,
   boxBackground: lightColors.boxBackground,
-  mutedText: lightColors.mutedText,
+  mutedText: lightV2.mutedText,
   secondaryText: lightColors.mainGrey,
+  box: {
+    border: lightV2.disabledGrey,
+    shadow: "0px 2px 8px 0px rgba(156, 163, 175, 0.15)",
+    backgroundColor: lightV2.white,
+  },
   signalColors: {
     main: lightColors.mainBlue,
     danger: lightV2.danger,

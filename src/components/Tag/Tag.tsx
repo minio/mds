@@ -29,7 +29,7 @@ const TagBase = styled.span<TagConstructProps>(
       userSelect: "none",
       appearance: "none",
       maxWidth: "100%",
-      fontFamily: "'Inter', sans-serif",
+      fontFamily: "'Geist', sans-serif",
       fontSize: 13,
       display: "inline-flex",
       alignItems: "center",

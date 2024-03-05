@@ -331,6 +331,12 @@ export interface SliderProps {
   disabledBullet: string;
 }
 
+export interface BoxProps {
+  border: string;
+  backgroundColor: string;
+  shadow: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -344,6 +350,7 @@ export interface ThemeDefinitionProps {
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
+  box?: BoxProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
