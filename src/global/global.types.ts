@@ -41,8 +41,6 @@ export interface LoginPageThemeProps {
 }
 
 export interface PageHeaderThemeProps {
-  background: string;
-  border: string;
   color: string;
 }
 
@@ -68,6 +66,7 @@ export interface IconButtonThemeProps {
   hoverBG: string;
   disabledBG: string;
   color: string;
+  disabledColor?: string;
 }
 
 export interface DataTableThemeProps {
@@ -122,7 +121,6 @@ export interface ActionsListThemeProps {
 }
 
 export interface ScreenTitleThemeProps {
-  border: string;
   subtitleColor: string;
   iconColor: string;
 }
@@ -181,6 +179,7 @@ export interface SignalColorsThemeProps {
   disabled: string;
   dark: string;
   clear: string;
+  selectBlue?: string;
 }
 
 export interface MenuThemeProps {
