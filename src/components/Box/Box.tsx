@@ -14,47 +14,47 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, {FC, HTMLAttributes} from "react";
+import React, { FC, HTMLAttributes } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
-import {BoxProps} from "./Box.types";
-import {lightV2} from "../../global/themes";
+import { BoxProps } from "./Box.types";
+import { lightV2 } from "../../global/themes";
 
 const BoxParent = styled.div<HTMLAttributes<HTMLDivElement> & BoxProps>(
-    ({theme, sx, withBorders, customBorderPadding, useBackground}) => {
-        let extraBorders = {};
+  ({ theme, sx, withBorders, customBorderPadding, useBackground }) => {
+    let extraBorders = {};
 
-        if (withBorders) {
-            extraBorders = {
-                border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
-                borderRadius: 16,
-                padding: customBorderPadding || "32px 56px",
-                boxShadow: get(theme, "box.shadow", "none"),
-                backgroundColor: get(theme, "box.backgroundColor", lightV2.white),
-            };
-        }
+    if (withBorders) {
+      extraBorders = {
+        border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
+        borderRadius: 16,
+        padding: customBorderPadding || "32px 56px",
+        boxShadow: get(theme, "box.shadow", "none"),
+        backgroundColor: get(theme, "box.backgroundColor", lightV2.white),
+      };
+    }
 
-        return {
-            backgroundColor: useBackground
-                ? get(theme, "boxBackground", "#FBFAFA")
-                : "transparent",
-            ...extraBorders,
-            ...sx,
-        };
-    },
+    return {
+      backgroundColor: useBackground
+        ? get(theme, "boxBackground", "#FBFAFA")
+        : "transparent",
+      ...extraBorders,
+      ...sx,
+    };
+  },
 );
 
 const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps> = ({
-                                                                sx,
-                                                                children,
-                                                                customBorderPadding,
-                                                                ...props
-                                                            }) => {
-    return (
-        <BoxParent {...props} sx={sx} customBorderPadding={customBorderPadding}>
-            {children}
-        </BoxParent>
-    );
+  sx,
+  children,
+  customBorderPadding,
+  ...props
+}) => {
+  return (
+    <BoxParent {...props} sx={sx} customBorderPadding={customBorderPadding}>
+      {children}
+    </BoxParent>
+  );
 };
 
 export default Box;

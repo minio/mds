@@ -291,6 +291,11 @@ interface SliderProps {
   disabledRail: string;
   disabledBullet: string;
 }
+interface BoxProps$1 {
+  border: string;
+  backgroundColor: string;
+  shadow: string;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -304,6 +309,7 @@ interface ThemeDefinitionProps {
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
+  box?: BoxProps$1;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;

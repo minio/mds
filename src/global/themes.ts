@@ -207,7 +207,7 @@ export const lightV2 = {
   redBorder: "#CC1F02",
   disabledRed: "#FFE2E1", // *
   disabledRedText: "#F1756F", // *
-  mutedText: "#6B7280"
+  mutedText: "#6B7280",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
