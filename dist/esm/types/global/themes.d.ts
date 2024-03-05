@@ -182,11 +182,14 @@ export declare const lightV2: {
   disabledBlue: string;
   disabledBlueText: string;
   disabledBlueRegular: string;
+  disabledSecondary: string;
+  disabledSecondaryText: string;
   blueBorderActionButton: string;
   redBorder: string;
   disabledRed: string;
   disabledRedText: string;
   mutedText: string;
+  headerLabelText: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
