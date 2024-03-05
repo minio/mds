@@ -184,10 +184,36 @@ export const darkColors = {
   disabledSliderBullet: "#939393",
 };
 
+export const lightV2 = {
+  white: "#FFF",
+  fontColor: "#1D2125",
+  mainBackgroundColor: "#F3F4F6",
+  menuSelectionColor: "#DCEAFD",
+  switchBG: "#2B64E5",
+  secondaryBlue: "#4082F1",
+  green: "#15CBCE",
+  lightGreen: "#CCFBF7",
+  orange: "#FDBC2E",
+  lightOrange: "#FEF1C7",
+  danger: "#FE5F57",
+  lightRed: "#FFE2E1",
+  borderColor: "#D1D5DB",
+  disabledGrey: "#E5E7EB",
+  disabledGreyText: "#9CA3AF",
+  disabledBlue: "#DCEAFD",
+  disabledBlueText: "#64A4F6",
+  disabledBlueRegular: "#C1DBFC",
+  blueBorderActionButton: "#2241AB",
+  redBorder: "#CC1F02",
+  disabledRed: "#FFE2E1", // *
+  disabledRedText: "#F1756F", // *
+
+};
+
 export const lightTheme: ThemeDefinitionProps = {
-  bgColor: lightColors.white,
-  fontColor: lightColors.defaultFontColor,
-  borderColor: lightColors.borderColor,
+  bgColor: lightV2.mainBackgroundColor,
+  fontColor: lightV2.fontColor,
+  borderColor: lightV2.borderColor,
   bulletColor: lightColors.bulletColor,
   logoColor: lightColors.mainRed,
   logoLabelColor: lightColors.logoLabel,
@@ -199,27 +225,27 @@ export const lightTheme: ThemeDefinitionProps = {
   secondaryText: lightColors.mainGrey,
   signalColors: {
     main: lightColors.mainBlue,
-    danger: lightColors.mainRed,
-    good: lightColors.mainGreen,
-    info: lightColors.bulletColor,
-    warning: lightColors.mainOrange,
-    disabled: lightColors.disabledGrey,
-    dark: lightColors.defaultFontColor,
+    danger: lightV2.danger,
+    good: lightV2.green,
+    info: lightV2.secondaryBlue,
+    warning: lightV2.orange,
+    disabled: lightV2.disabledGrey,
+    dark: lightV2.fontColor,
     clear: lightColors.white,
   },
   buttons: {
     regular: {
       enabled: {
-        border: lightColors.mainGrey,
-        text: lightColors.mainGrey,
+        border: lightV2.secondaryBlue,
+        text: lightV2.secondaryBlue,
         background: "transparent",
-        iconColor: lightColors.mainGrey,
+        iconColor: lightV2.secondaryBlue,
       },
       disabled: {
-        border: lightColors.disabledInnerGrey,
-        text: lightColors.disabledInnerGrey,
-        background: lightColors.disabledBGGrey,
-        iconColor: lightColors.disabledInnerGrey,
+        border: lightV2.disabledBlueRegular,
+        text: lightV2.disabledBlueRegular,
+        background: "transparent",
+        iconColor: lightV2.disabledBlueRegular,
       },
       hover: {
         border: lightColors.mainGrey,
@@ -236,16 +262,16 @@ export const lightTheme: ThemeDefinitionProps = {
     },
     callAction: {
       enabled: {
-        border: lightColors.mainBlue,
-        text: lightColors.white,
-        background: lightColors.mainBlue,
-        iconColor: lightColors.white,
+        border: lightV2.blueBorderActionButton,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
+        iconColor: lightV2.white,
       },
       disabled: {
-        border: lightColors.actionDisabledGrey,
-        text: lightColors.mainGrey,
-        background: lightColors.actionDisabledGrey,
-        iconColor: lightColors.mainGrey,
+        border: lightV2.disabledBlue,
+        text: lightV2.disabledBlueText,
+        background: lightV2.disabledBlue,
+        iconColor: lightV2.disabledBlueText,
       },
       hover: {
         border: lightColors.hoverBlue,
@@ -262,16 +288,16 @@ export const lightTheme: ThemeDefinitionProps = {
     },
     secondary: {
       enabled: {
-        border: lightColors.mainRed,
-        text: lightColors.mainRed,
-        background: "transparent",
-        iconColor: lightColors.mainRed,
+        border: lightV2.redBorder,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #FF4C0A 0%, #FF3100 100%)",
+        iconColor: lightV2.white,
       },
       disabled: {
-        border: lightColors.disabledInnerGrey,
-        text: lightColors.disabledInnerGrey,
-        background: lightColors.disabledBGGrey,
-        iconColor: lightColors.disabledInnerGrey,
+        border: lightV2.lightRed,
+        text: lightV2.disabledRedText,
+        background: lightV2.disabledRed,
+        iconColor: lightV2.disabledRedText,
       },
       hover: {
         border: lightColors.lightRed,
@@ -314,16 +340,16 @@ export const lightTheme: ThemeDefinitionProps = {
     },
     subAction: {
       enabled: {
-        border: lightColors.secondAction,
-        text: lightColors.white,
-        background: lightColors.secondAction,
-        iconColor: lightColors.white,
+        border: lightV2.fontColor,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4B5563 0%, #1D2125 100%)",
+        iconColor: lightV2.white,
       },
       disabled: {
-        border: lightColors.actionDisabledGrey,
-        text: lightColors.mainGrey,
-        background: lightColors.actionDisabledGrey,
-        iconColor: lightColors.mainGrey,
+        border: lightV2.disabledGrey,
+        text: lightV2.disabledGreyText,
+        background: lightV2.disabledGrey,
+        iconColor: lightV2.disabledGreyText,
       },
       hover: {
         border: lightColors.secondActionHover,

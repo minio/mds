@@ -65,12 +65,12 @@ const CustomButton = styled.button<
     }
 
     return {
-      borderRadius: 3,
+      borderRadius: 6,
       cursor: "pointer",
       width: fullWidth ? "100%" : "initial",
-      height: 39,
-      fontFamily: "'Inter', sans-serif",
-      fontWeight: "400",
+      height: 32,
+      fontFamily: "'Geist', sans-serif",
+      fontWeight: "600",
       fontSize: 14,
       display: "flex",
       flexDirection: "row",
@@ -80,10 +80,10 @@ const CustomButton = styled.button<
       margin: 0,
       padding:
         (!label || label.trim() === "") && !parentChildren
-          ? "0 14px"
+          ? "0 12px"
           : "0 25px",
       transition: "all 0.2s linear",
-      backgroundColor: get(
+      background: get(
         theme,
         `buttons.${neatVariant}.enabled.background`,
         "#fff",
