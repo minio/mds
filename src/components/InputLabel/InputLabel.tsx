@@ -19,7 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { InputLabelProps } from "./InputLabel.types";
 import HelpTip from "../HelpTip/HelpTip";
-import {lightV2} from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 
 const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
   fontWeight: "normal" as const,

@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {useState} from "react";
+import { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import DropdownSelector from "./DropdownSelector";
@@ -71,11 +71,11 @@ Default.args = {
 
 export const ForSelectInput = Template.bind({});
 ForSelectInput.args = {
-    options: [
-        { label: "Test Label 1", value: "tl1" },
-        { label: "Test Label 2", value: "tl2" },
-    ],
-    forSelectInput: true,
+  options: [
+    { label: "Test Label 1", value: "tl1" },
+    { label: "Test Label 2", value: "tl2" },
+  ],
+  forSelectInput: true,
 };
 
 export const AnchorEnd = Template.bind({});
