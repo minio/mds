@@ -26,7 +26,7 @@ import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
-import {lightV2} from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 
 const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
   ({ theme, error, originType }) => {

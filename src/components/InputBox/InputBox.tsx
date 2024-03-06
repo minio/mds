@@ -29,7 +29,7 @@ import InputLabel from "../InputLabel/InputLabel";
 import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
-import {lightV2} from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {

@@ -27,7 +27,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import HelpIcon from "../Icons/HelpIcon";
 import Box from "../Box/Box";
 import FieldContainer from "../../global/FieldContainer";
-import {lightV2} from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 
 const SwitchIndicator = styled.span<IndicatorProps>(({ theme, active }) => ({
   fontSize: 12,
@@ -75,7 +75,11 @@ const SwitchItem = styled.label(({ theme }) => ({
       },
     },
     "&:checked ~.switchRail": {
-      backgroundColor: get(theme, "switchButton.onBackgroundColor", lightV2.switchBG),
+      backgroundColor: get(
+        theme,
+        "switchButton.onBackgroundColor",
+        lightV2.switchBG,
+      ),
       boxShadow: "0px 2px 8px 0px rgba(156, 163, 175, 0.15)",
       "&:before": {
         left: "calc(100% - 22px)" as const,

@@ -27,21 +27,27 @@ import get from "lodash/get";
 import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
 import Box from "../Box/Box";
-import {lightV2} from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth, forSelectInput }) => ({
     position: "absolute",
     display: "grid",
     gridTemplateColumns: "100%",
-    backgroundColor: get(theme, "dropdownSelector.backgroundColor", lightV2.white),
+    backgroundColor: get(
+      theme,
+      "dropdownSelector.backgroundColor",
+      lightV2.white,
+    ),
     padding: 8,
     maxHeight: 450,
     minWidth: useAnchorWidth ? 160 : 0,
     overflowX: "hidden",
     overflowY: "auto",
     borderRadius: forSelectInput ? 16 : 12,
-    border: forSelectInput ? 0 : `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
+    border: forSelectInput
+      ? 0
+      : `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
     boxShadow:
       "0px 2px 8px 0px rgba(156, 163, 175, 0.15), 0px 4px 12px 0px rgba(156, 163, 175, 0.25)",
     "& ul": {
@@ -163,7 +169,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
   open,
   anchorEl = null,
   useAnchorWidth = false,
-                                                       forSelectInput = false,
+  forSelectInput = false,
   anchorOrigin = "start",
 }) => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
@@ -245,7 +251,12 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
 
   return createPortal(
     <SelectorContainer onClick={hideTriggerAction}>
-      <DropdownBlock id={id} sx={coords} useAnchorWidth={useAnchorWidth} forSelectInput={forSelectInput}>
+      <DropdownBlock
+        id={id}
+        sx={coords}
+        useAnchorWidth={useAnchorWidth}
+        forSelectInput={forSelectInput}
+      >
         {options.map((option, index) => {
           return (
             <DropdownItem

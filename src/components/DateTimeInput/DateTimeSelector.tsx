@@ -27,7 +27,7 @@ import CalendarIcon from "../Icons/CalendarIcon";
 import TimeIcon from "../Icons/TimeIcon";
 import DateSelector from "./DateSelector";
 import TimeSelector from "./TimeSelector";
-import {lightV2} from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 import { DateTime } from "luxon";
 import SelectorContainer from "../../global/SelectorContainer";
 import debounce from "lodash/debounce";
@@ -60,7 +60,7 @@ const OptionChangeButton = styled.button(({ theme }) => ({
 
 const DateTimeContainer = styled.div<StylesOverrideProps>(
   ({ theme, sx, isPortal, mode }) => ({
-    position: isPortal ? "absolute" : "relative" as const,
+    position: isPortal ? "absolute" : ("relative" as const),
     border: `1px solid ${get(theme, "borderColor", lightV2.borderColor)}`,
     backgroundColor: get(theme, "signalColors.clear", lightV2.white),
     width: globalWidth,
