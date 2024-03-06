@@ -23,14 +23,16 @@ import Tooltip from "../Tooltip/Tooltip";
 import Box from "../Box/Box";
 import InputLabel from "../InputLabel/InputLabel";
 import { CodeEditorBaseProps, CodeEditorProps } from "./CodeEditor.types";
-import { lightColors } from "../../global/themes";
+import { lightV2, lightColors } from "../../global/themes";
 
 const CodeEditorBase = styled.div<CodeEditorBaseProps>(
   ({ theme, editorHeight, sx }) => ({
     "& .editorContainer": {
       maxHeight: editorHeight,
       overflow: "auto",
-      border: `${get(theme, "borderColor", lightColors.borderColor)} 1px solid`,
+      border: `${get(theme, "borderColor", lightV2.borderColor)} 1px solid`,
+      borderTopLeftRadius: 4,
+      borderTopRightRadius: 4,
     },
     "& .tooltipContainer": {
       marginLeft: 5,
@@ -46,9 +48,9 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
         backgroundColor: get(
           theme,
           "codeEditor.backgroundColor",
-          lightColors.white,
+          lightV2.white,
         ),
-        color: get(theme, "codeEditor.textColor", lightColors.defaultFontColor),
+        color: get(theme, "codeEditor.textColor", lightV2.fontColor),
         fontFamily:
           "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
         minHeight: editorHeight || "initial",
@@ -212,11 +214,13 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
         "codeEditor.helpToolsBarBG",
         lightColors.boxBackground,
       ),
-      border: `${get(theme, "borderColor", lightColors.borderColor)} 1px solid`,
+      border: `${get(theme, "borderColor", lightV2.borderColor)} 1px solid`,
       borderTop: 0,
       padding: "2px",
       paddingRight: "5px",
       justifyContent: "flex-end",
+      borderBottomLeftRadius: 4,
+      borderBottomRightRadius: 4,
       "& button": {
         height: "26px",
         width: "26px",
