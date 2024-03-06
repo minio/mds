@@ -624,42 +624,42 @@ export const lightTheme: ThemeDefinitionProps = {
   },
   snackbar: {
     error: {
-      backgroundColor: lightColors.mainRed,
-      labelColor: lightColors.white,
+      backgroundColor: lightV2.lightRed,
+      labelColor: lightV2.fontColor,
     },
     default: {
-      backgroundColor: lightColors.mainBlue,
-      labelColor: lightColors.white,
+      backgroundColor: lightV2.disabledBlueRegular,
+      labelColor: lightV2.fontColor,
     },
     success: {
-      backgroundColor: lightColors.mainGreen,
-      labelColor: lightColors.white,
+      backgroundColor: lightV2.lightGreen,
+      labelColor: lightV2.fontColor,
     },
     warning: {
-      backgroundColor: lightColors.mainOrange,
-      labelColor: lightColors.defaultFontColor,
+      backgroundColor: lightV2.lightOrange,
+      labelColor: lightV2.fontColor,
     },
   },
   informativeMessage: {
     error: {
-      backgroundColor: lightColors.mainRed,
-      borderColor: lightColors.mainRed,
-      textColor: lightColors.white,
+      backgroundColor: lightV2.lightRed,
+      borderColor: lightV2.lightRed,
+      textColor: lightV2.fontColor,
     },
     default: {
-      backgroundColor: lightColors.mainBlue,
-      borderColor: lightColors.mainBlue,
-      textColor: lightColors.white,
+      backgroundColor: lightV2.disabledBlueRegular,
+      borderColor: lightV2.disabledBlueRegular,
+      textColor: lightV2.fontColor,
     },
     success: {
-      backgroundColor: lightColors.mainGreen,
-      borderColor: lightColors.mainGreen,
-      textColor: lightColors.white,
+      backgroundColor: lightV2.lightGreen,
+      borderColor: lightV2.lightGreen,
+      textColor: lightV2.fontColor,
     },
     warning: {
-      backgroundColor: lightColors.mainOrange,
-      borderColor: lightColors.mainOrange,
-      textColor: lightColors.defaultFontColor,
+      backgroundColor: lightV2.lightOrange,
+      borderColor: lightV2.lightOrange,
+      textColor: lightV2.fontColor,
     },
   },
   badge: {

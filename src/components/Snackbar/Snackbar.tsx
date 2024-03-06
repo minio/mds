@@ -40,18 +40,19 @@ const SnackBarContainer = styled.div<SnackbarConstructProps>(
     fontSize: condensed ? 12 : 14,
     top: 0,
     left: condensed ? "50%" : 0,
-    gap: condensed ? 5 : 0,
+    gap: condensed ? 8 : 0,
     transform: condensed ? "translateX(-50%)" : "initial",
     padding: condensed ? "0 15px" : "0 60px 0 25px",
     borderBottomLeftRadius: condensed ? 8 : 0,
     borderBottomRightRadius: condensed ? 8 : 0,
+    letterSpacing: "0.16px",
     backgroundColor: get(
       theme,
       `snackbar.${variant}.backgroundColor`,
       lightColors.mainBlue,
     ),
     color: get(theme, `snackbar.${variant}.labelColor`, lightColors.white),
-    fontWeight: condensed ? "normal" : "bold",
+    fontWeight: 400,
     marginTop: open ? 0 : "-100%",
     transition: "all 0.5s",
     "& .messageTruncation": {
@@ -67,7 +68,6 @@ const SnackBarContainer = styled.div<SnackbarConstructProps>(
 
 const CloseButton = styled.button<SnackbarButtonProps>(
   ({ theme, variant, condensed }) => ({
-    backgroundColor: condensed ? "transparent" : "#00000030",
     color: get(theme, `snackbar.${variant}.labelColor`, lightColors.white),
     display: "flex",
     position: condensed ? "initial" : "absolute",
@@ -76,12 +76,13 @@ const CloseButton = styled.button<SnackbarButtonProps>(
     cursor: "pointer",
     width: condensed ? 15 : 25,
     height: condensed ? 15 : 25,
-    borderRadius: condensed ? 0 : "100%",
     border: "none",
     top: "50%",
     right: 25,
     transform: condensed ? "initial" : "translateY(-50%)",
+    borderRadius: "100%",
     padding: 0,
+    backgroundColor: "transparent",
     "&:hover": {
       backgroundColor: condensed ? "transparent" : "#00000040",
     },
