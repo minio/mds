@@ -44,6 +44,20 @@ export interface IconButtonThemeProps {
   color: string;
   disabledColor?: string;
 }
+export interface ActionCustomButton {
+  border: string;
+  background: string;
+  iconColor: string;
+  disabledBorder: string;
+  disabledBackground: string;
+  disabledIconColor: string;
+  hoverBorder: string;
+  hoverBackground: string;
+  hoverIconColor: string;
+  activeBorder: string;
+  activeBackground: string;
+  activeIconColor: string;
+}
 export interface DataTableThemeProps {
   border: string;
   disabledBorder: string;
@@ -51,6 +65,7 @@ export interface DataTableThemeProps {
   selected: string;
   deletedDisabled: string;
   hoverColor: string;
+  actionButton?: ActionCustomButton;
 }
 export interface BackLinkThemeProps {
   color: string;
@@ -127,6 +142,7 @@ export interface DropdownSelectorThemeProps {
   hoverText: string;
   hoverBG: string;
   disabledText: string;
+  border?: string;
 }
 export interface ReadBoxThemeProps {
   borderColor: string;

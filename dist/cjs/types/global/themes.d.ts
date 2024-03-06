@@ -190,6 +190,9 @@ export declare const lightV2: {
   disabledRedText: string;
   mutedText: string;
   headerLabelText: string;
+  plainIconButtonBorder: string;
+  plainIconButtonBG: string;
+  plainIconButtonColor: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;

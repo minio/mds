@@ -16,9 +16,11 @@ export interface DropdownSelectorProps {
   anchorEl?: (EventTarget & HTMLElement) | null;
   anchorOrigin?: "start" | "end";
   useAnchorWidth?: boolean;
+  forSelectInput?: boolean;
 }
 export interface DropDownBlockProps {
   useAnchorWidth: boolean;
+  forSelectInput: boolean;
   sx: CSSObject;
 }
 export interface DropdownItemProps {
