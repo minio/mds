@@ -211,6 +211,9 @@ export const lightV2 = {
   disabledRedText: "#F1756F", // *
   mutedText: "#6B7280",
   headerLabelText: "#3A3D41",
+  plainIconButtonBorder: "#CBD5E1",
+  plainIconButtonBG: "#F1F5F9",
+  plainIconButtonColor: "#475569",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -414,6 +417,20 @@ export const lightTheme: ThemeDefinitionProps = {
     selected: lightColors.mainBlue,
     deletedDisabled: lightColors.mainRed,
     hoverColor: lightColors.hoverGrey,
+    actionButton: {
+      border: lightV2.plainIconButtonBorder,
+      background: lightV2.plainIconButtonBG,
+      iconColor: lightV2.plainIconButtonColor,
+      hoverBorder: lightV2.plainIconButtonBorder,
+      hoverBackground: lightV2.plainIconButtonBG,
+      hoverIconColor: lightV2.plainIconButtonColor,
+      activeBorder: lightV2.plainIconButtonBorder,
+      activeBackground: lightV2.plainIconButtonBG,
+      activeIconColor: lightV2.plainIconButtonColor,
+      disabledBackground: "transparent",
+      disabledBorder: lightV2.disabledSecondary,
+      disabledIconColor: lightV2.disabledSecondaryText,
+    },
   },
   backLink: {
     color: lightColors.backLinkColor,
