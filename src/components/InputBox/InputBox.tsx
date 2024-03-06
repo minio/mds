@@ -29,37 +29,40 @@ import InputLabel from "../InputLabel/InputLabel";
 import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
+import {lightV2} from "../../global/themes";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {
-    let borderColor = get(theme, "inputBox.border", "#E2E2E2");
+    let borderColor = get(theme, "inputBox.border", lightV2.borderColor);
     let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 
     if (error && error !== "") {
-      borderColor = get(theme, "inputBox.error", "#C51B3F");
-      borderHover = get(theme, "inputBox.error", "#C51B3F");
+      borderColor = get(theme, "inputBox.error", lightV2.danger);
+      borderHover = get(theme, "inputBox.error", lightV2.danger);
     }
 
     return {
-      height: 38,
+      height: 40,
       width: "100%",
       paddingTop: 0,
       paddingRight:
         !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 15,
       paddingLeft: !!startIcon ? 35 : 15,
       paddingBottom: 0,
-      color: get(theme, "inputBox.color", "#07193E"),
-      fontSize: 13,
-      fontWeight: 600,
+      color: get(theme, "inputBox.color", lightV2.fontColor),
+      fontSize: 14,
+      fontWeight: 400,
       border: `${borderColor} 1px solid`,
-      borderRadius: 3,
+      borderRadius: 4,
       outline: "none",
       transitionDuration: "0.1s",
       backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
+      letterSpacing: "0.16px",
       "&:placeholder": {
         color: get(theme, "inputBox.placeholderColor", "#858585"),
         opacity: 1,
         fontWeight: 400,
+        letterSpacing: "0.16px",
       },
       "&:hover": {
         borderColor: borderHover,
@@ -106,7 +109,7 @@ const InputContainer = styled.div<InputContainerProps>(
     "& .overlayAction": {
       position: "absolute",
       right: 5,
-      top: 6,
+      top: 8,
     },
     "& .inputLabel": {
       marginBottom: error ? 18 : 0,
@@ -114,7 +117,7 @@ const InputContainer = styled.div<InputContainerProps>(
     "& .startOverlayIcon": {
       position: "absolute",
       left: 10,
-      top: 10,
+      top: 12,
       "& svg": {
         width: 14,
         height: 14,

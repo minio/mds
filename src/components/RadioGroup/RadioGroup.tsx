@@ -23,6 +23,7 @@ import { InputLabelProps } from "../InputLabel/InputLabel.types";
 import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import HelpIcon from "../Icons/HelpIcon";
+import {lightV2} from "../../global/themes";
 
 const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
   "& input": {
@@ -66,7 +67,7 @@ const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
   ...sx,
 }));
 
-const OptionsContainer = styled.div<OptionsContainerProps>(({ inColumn }) => ({
+const OptionsContainer = styled.div<OptionsContainerProps>(({ inColumn, theme }) => ({
   flexGrow: 1,
   width: "100%",
   display: "flex",
@@ -77,6 +78,10 @@ const OptionsContainer = styled.div<OptionsContainerProps>(({ inColumn }) => ({
     userSelect: "none",
     "&.checked": {
       fontWeight: "bold",
+    },
+    "&.disabled": {
+      color: get(theme, "checkbox.disabledBorder", lightV2.disabledSecondary),
+      cursor: "not-allowed",
     },
   },
 }));
@@ -151,7 +156,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
                   htmlFor={`option-${id}-${selector.value}`}
                   className={`optionLabel ${
                     currentValue === selector.value ? "checked" : ""
-                  }`}
+                  } ${disableOptions || !!selector.disabled ? "disabled" : ""}`}
                 >
                   {selector.label}
                 </label>

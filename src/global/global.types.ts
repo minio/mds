@@ -162,6 +162,7 @@ export interface DropdownSelectorThemeProps {
   hoverText: string;
   hoverBG: string;
   disabledText: string;
+  border?: string;
 }
 
 export interface ReadBoxThemeProps {

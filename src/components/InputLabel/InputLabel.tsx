@@ -19,14 +19,15 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { InputLabelProps } from "./InputLabel.types";
 import HelpTip from "../HelpTip/HelpTip";
+import {lightV2} from "../../global/themes";
 
 const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
-  fontWeight: 600,
+  fontWeight: "normal" as const,
   marginRight: 10,
   fontSize: 14,
-  color: get(theme, "commonInput.labelColor", "#07193E"),
+  color: get(theme, "commonInput.labelColor", lightV2.fontColor),
   textAlign: "left" as const,
-  alignItems: "center",
+  alignItems: "flex-start" as const,
   display: "flex",
   userSelect: "none",
   whiteSpace: "nowrap",
