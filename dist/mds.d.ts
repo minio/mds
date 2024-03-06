@@ -57,6 +57,20 @@ interface IconButtonThemeProps {
   color: string;
   disabledColor?: string;
 }
+interface ActionCustomButton {
+  border: string;
+  background: string;
+  iconColor: string;
+  disabledBorder: string;
+  disabledBackground: string;
+  disabledIconColor: string;
+  hoverBorder: string;
+  hoverBackground: string;
+  hoverIconColor: string;
+  activeBorder: string;
+  activeBackground: string;
+  activeIconColor: string;
+}
 interface DataTableThemeProps {
   border: string;
   disabledBorder: string;
@@ -64,6 +78,7 @@ interface DataTableThemeProps {
   selected: string;
   deletedDisabled: string;
   hoverColor: string;
+  actionButton?: ActionCustomButton;
 }
 interface BackLinkThemeProps {
   color: string;
@@ -140,6 +155,7 @@ interface DropdownSelectorThemeProps {
   hoverText: string;
   hoverBG: string;
   disabledText: string;
+  border?: string;
 }
 interface ReadBoxThemeProps {
   borderColor: string;
@@ -710,7 +726,7 @@ interface SectionTitleProps {
 
 declare const SectionTitle: FC<SectionTitleProps>;
 
-interface BoxProps {
+interface BoxProps extends React__default.HTMLAttributes<HTMLDivElement> {
   sx?: CSSObject;
   children?: React__default.ReactNode;
   withBorders?: boolean;
@@ -718,7 +734,10 @@ interface BoxProps {
   useBackground?: boolean;
 }
 
-declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
+declare const Box: React__default.ForwardRefExoticComponent<
+  BoxProps &
+    React__default.RefAttributes<React__default.HTMLAttributes<HTMLDivElement>>
+>;
 
 interface FormLayoutProps {
   sx?: CSSObject;
@@ -929,9 +948,11 @@ interface DropdownSelectorProps {
   anchorEl?: (EventTarget & HTMLElement) | null;
   anchorOrigin?: "start" | "end";
   useAnchorWidth?: boolean;
+  forSelectInput?: boolean;
 }
 interface DropDownBlockProps {
   useAnchorWidth: boolean;
+  forSelectInput: boolean;
   sx: CSSObject;
 }
 interface DropdownItemProps {
