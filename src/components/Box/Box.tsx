@@ -45,13 +45,18 @@ const BoxParent = styled.div<BoxProps & React.HTMLAttributes<HTMLDivElement>>(
 );
 
 const Box = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, BoxProps>(
-  ({ sx, children, customBorderPadding, ...props }, ref) => {
+  (
+    { sx, children, customBorderPadding, className, withBorders, ...props },
+    ref,
+  ) => {
     return (
       <BoxParent
         {...props}
         sx={sx}
         customBorderPadding={customBorderPadding}
         ref={ref as RefObject<HTMLDivElement> | null | undefined}
+        withBorders={withBorders}
+        className={`${withBorders ? "with-borders" : ""} ${className || ""}`}
       >
         {children}
       </BoxParent>

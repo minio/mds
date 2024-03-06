@@ -374,7 +374,7 @@ const DataTable: FC<DataTableProps> = ({
   }
 
   return (
-    <Grid item xs={12} className={parentClassName}>
+    <Grid item xs={12} className={`data-table ${parentClassName}`}>
       <DataTableWrapper
         className={`${noBackground ? "noBackground" : ""}`}
         customPaperHeight={customPaperHeight}
