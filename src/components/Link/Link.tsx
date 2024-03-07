@@ -27,8 +27,9 @@ const LinkBase = styled.a<LinkProps>(({ theme, sx }) => ({
   border: 0,
   padding: 0,
   color: get(theme, "linkColor", lightColors.linkColor),
-  textDecoration: "none",
+  textDecoration: "underline",
   fontSize: "inherit",
+  fontWeight: 700,
   "&:visited": {
     color: get(theme, "linkColor", lightColors.linkColor),
   },
