@@ -1378,6 +1378,7 @@ interface WizardMain {
 interface WizardConstruct {
   sx?: CSSObject;
   forModal?: boolean;
+  actionButtonsPortalID?: HTMLElement;
 }
 type WizardProps = WizardMain & WizardConstruct;
 type WizardPageProps = WizardPage & WizardConstruct;
@@ -1387,6 +1388,7 @@ declare const GenericWizard: ({
   loadingStep,
   forModal,
   linearMode,
+  actionButtonsPortalID,
   sx,
 }: WizardProps) => React__default.JSX.Element | null;
 

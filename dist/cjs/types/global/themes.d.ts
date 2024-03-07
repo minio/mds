@@ -193,6 +193,7 @@ export declare const lightV2: {
   plainIconButtonBorder: string;
   plainIconButtonBG: string;
   plainIconButtonColor: string;
+  linkColor: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;

@@ -5,5 +5,6 @@ declare const WizardPage: ({
   pageChange,
   loadingStep,
   forModal,
+  actionButtonsPortalID,
 }: WizardPageProps) => React.JSX.Element;
 export default WizardPage;
