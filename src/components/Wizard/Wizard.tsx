@@ -115,6 +115,7 @@ const GenericWizard = ({
   loadingStep,
   forModal,
   linearMode = true,
+  actionButtonsPortalID,
   sx,
 }: WizardProps) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
@@ -194,6 +195,7 @@ const GenericWizard = ({
           pageChange={pageChange}
           loadingStep={loadingStep}
           forModal={forModal}
+          actionButtonsPortalID={actionButtonsPortalID}
         />
       </Box>
     </WizardMain>

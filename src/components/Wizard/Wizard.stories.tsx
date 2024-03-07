@@ -25,6 +25,7 @@ import Select from "../Select/Select";
 import InputBox from "../InputBox/InputBox";
 import Switch from "../Switch/Switch";
 import FormLayout from "../FormLayout/FormLayout";
+import Box from "../Box/Box";
 
 export default {
   title: "MDS/Layout/Wizard",
@@ -32,12 +33,15 @@ export default {
   argTypes: {},
 } as Meta<typeof Wizard>;
 
-const Template: Story<WizardProps> = ({ ...props }) => (
-  <StoryThemeProvider>
-    <GlobalStyles />
-    <Wizard {...props} />
-  </StoryThemeProvider>
-);
+const Template: Story<WizardProps> = ({ ...props }) => {
+  return (
+    <StoryThemeProvider>
+      <GlobalStyles />
+      <div id={"buttonsHere"}></div>
+      <Wizard {...props} />
+    </StoryThemeProvider>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {
