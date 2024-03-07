@@ -28,8 +28,9 @@ const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
   border: 0,
   padding: 0,
   color: get(theme, "linkColor", lightColors.linkColor),
-  textDecoration: "none",
+  textDecoration: "underline",
   fontSize: "inherit",
+  fontWeight: 700,
   "&:hover": {
     textDecoration: "underline",
   },

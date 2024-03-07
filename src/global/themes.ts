@@ -214,6 +214,7 @@ export const lightV2 = {
   plainIconButtonBorder: "#CBD5E1",
   plainIconButtonBG: "#F1F5F9",
   plainIconButtonColor: "#475569",
+  linkColor: "#306CE8",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -225,7 +226,7 @@ export const lightTheme: ThemeDefinitionProps = {
   logoLabelColor: lightColors.logoLabel,
   logoLabelInverse: lightColors.logoLabelInverse,
   loaderColor: lightColors.loaderColor,
-  linkColor: lightColors.linkColor,
+  linkColor: lightV2.linkColor,
   boxBackground: lightColors.boxBackground,
   mutedText: lightV2.mutedText,
   secondaryText: lightColors.mainGrey,
