@@ -191,12 +191,12 @@ CustomRowStyle.args = {
   rowStyle: ({ index }) => (index === 1 ? "deleted" : ""),
 };
 
-export const NoBackground = Template.bind({});
-NoBackground.args = {
+export const BackgroundEnabled = Template.bind({});
+BackgroundEnabled.args = {
   disabled: false,
   entityName: "Elements",
   idField: "field1",
-  noBackground: true,
+  noBackground: false,
   records: [
     { field1: "Value1", field2: "Value2", field3: "Value3" },
     {
