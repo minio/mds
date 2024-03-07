@@ -5,6 +5,7 @@ declare const GenericWizard: ({
   loadingStep,
   forModal,
   linearMode,
+  actionButtonsPortalID,
   sx,
 }: WizardProps) => React.JSX.Element | null;
 export default GenericWizard;
