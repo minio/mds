@@ -21,6 +21,7 @@ export interface ButtonThemeProps {
   text: string;
   background: string;
   iconColor: string;
+  shadow?: string;
 }
 
 export interface ButtonThemeStatesProps {

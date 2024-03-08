@@ -92,6 +92,7 @@ const CustomButton = styled.button<
       borderWidth: 1,
       borderStyle: "solid",
       color: get(theme, `buttons.${neatVariant}.enabled.text`, "#000"),
+      boxShadow: get(theme, `buttons.${neatVariant}.enabled.shadow`, "none"),
       "& .button-label": {
         whiteSpace: fullWidth ? "normal" : "nowrap",
         ...buttonLabel,
@@ -122,6 +123,7 @@ const CustomButton = styled.button<
         borderWeight: 1,
         borderStyle: "solid",
         color: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
+        boxShadow: get(theme, `buttons.${neatVariant}.disabled.shadow`, "none"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
@@ -135,6 +137,7 @@ const CustomButton = styled.button<
         ),
         borderColor: get(theme, `buttons.${neatVariant}.hover.border`, "#000"),
         color: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
+        boxShadow: get(theme, `buttons.${neatVariant}.hover.shadow`, "none"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
@@ -152,6 +155,7 @@ const CustomButton = styled.button<
           "#000",
         ),
         color: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
+        boxShadow: get(theme, `buttons.${neatVariant}.pressed.shadow`, "none"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
