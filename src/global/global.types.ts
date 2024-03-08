@@ -154,6 +154,7 @@ export interface ModalBoxThemeProps {
   closeHoverColor: string;
   closeHoverBG: string;
   titleColor: string;
+  border?: string;
   iconColor: IconThemeColorProps;
 }
 

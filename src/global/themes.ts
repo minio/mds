@@ -215,6 +215,10 @@ export const lightV2 = {
   plainIconButtonBG: "#F1F5F9",
   plainIconButtonColor: "#475569",
   linkColor: "#306CE8",
+  modalCloseColor: "#454D59",
+  modalBorderColor: "#E3E6EA",
+  modalOverlayBG: "rgba(55, 59, 66, 0.50)",
+  modalTitleColor: "#21242B",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -474,16 +478,17 @@ export const lightTheme: ThemeDefinitionProps = {
     iconColor: lightV2.fontColor,
   },
   modalBox: {
-    closeColor: lightColors.modalCloseColor,
+    closeColor: lightV2.modalCloseColor,
     closeHoverBG: lightColors.modalCloseHoverBG,
     closeHoverColor: lightColors.defaultFontColor,
-    containerColor: lightColors.white,
-    overlayColor: lightColors.modalOverlayBG,
-    titleColor: lightColors.defaultFontColor,
+    containerColor: lightV2.white,
+    overlayColor: lightV2.modalOverlayBG,
+    titleColor: lightV2.modalTitleColor,
+    border: lightV2.modalBorderColor,
     iconColor: {
-      default: lightColors.mainBlue,
-      accept: lightColors.mainGreen,
-      delete: lightColors.mainRed,
+      default: lightV2.modalTitleColor,
+      accept: lightV2.green,
+      delete: lightV2.danger,
     },
   },
   switchButton: {
