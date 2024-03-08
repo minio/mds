@@ -25,39 +25,18 @@ const AlertCloseIcon = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 256 256"
     {...props}
   >
-    <defs>
-      <clipPath id="clip-path-alert-close-icon">
-        <rect
-          id="Rectángulo_1612"
-          data-name="Rectángulo 1612"
-          width="256"
-          height="256"
-          fill="none"
+    <g>
+      <g>
+        <path
+          d="M29,244.5c-4.2,0-8.5-1.6-11.7-4.9c-6.5-6.5-6.5-17,0-23.5L216.2,17.3c6.5-6.5,16.9-6.5,23.5,0
+			c6.5,6.5,6.5,17,0,23.4L40.7,239.6C37.5,242.9,33.2,244.5,29,244.5z"
         />
-      </clipPath>
-      <clipPath id="clip-path-2-alert-close-icon">
-        <rect
-          id="Rectángulo_1611"
-          data-name="Rectángulo 1611"
-          width="256"
-          height="256"
+      </g>
+      <g>
+        <path
+          d="M227.9,244.5c-4.2,0-8.5-1.6-11.7-4.9L17.3,40.7c-6.5-6.5-6.5-17,0-23.4c6.5-6.5,17-6.5,23.4,0l198.9,198.9
+			c6.5,6.5,6.5,17,0,23.5C236.4,242.9,232.1,244.5,227.9,244.5z"
         />
-      </clipPath>
-    </defs>
-    <g id="AlertCloseIcon" clipPath="url(#clip-path-alert-close-icon)">
-      <g id="AlertCloseIcon-2" data-name="AlertCloseIcon">
-        <g
-          id="Grupo_2527"
-          data-name="Grupo 2527"
-          clipPath="url(#clip-path-2-alert-close-icon)"
-        >
-          <path
-            id="Trazado_7276"
-            data-name="Trazado 7276"
-            d="M230.082,256.006a25.853,25.853,0,0,1-18.328-7.6l-83.761-83.735L44.259,248.41A25.92,25.92,0,0,1,7.6,211.754l83.735-83.735L7.6,44.259A25.92,25.92,0,0,1,44.259,7.6l83.735,83.735L211.754,7.6A25.92,25.92,0,0,1,248.41,44.259l-83.735,83.761,83.735,83.735a25.924,25.924,0,0,1-18.328,44.252"
-            transform="translate(-0.006 -0.006)"
-          />
-        </g>
       </g>
     </g>
   </svg>
