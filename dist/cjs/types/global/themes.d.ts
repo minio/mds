@@ -194,6 +194,13 @@ export declare const lightV2: {
   plainIconButtonBG: string;
   plainIconButtonColor: string;
   linkColor: string;
+  modalCloseColor: string;
+  modalBorderColor: string;
+  modalOverlayBG: string;
+  modalTitleColor: string;
+  buttonDisabledBG: string;
+  buttonDisabledLabel: string;
+  defaultButtonPressed: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
