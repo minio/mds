@@ -133,18 +133,18 @@ const GlobalStyles = createGlobalStyle`
     }
     
     a {
-        color: ${get(theme, "linkColor", lightColors.linkColor)};
+        color: ${get(theme, "linkColor", lightV2.linkColor)};
     }
     
     a:hover {
-        color: ${get(theme, "linkColor", lightColors.linkColor)};
+        color: ${get(theme, "linkColor", lightV2.linkColor)};
     }
     
     hr {
         border-top: 0;
         border-left: 0;
-        borderR-right: 0;
-        border-color: ${get(theme, "borderColor", lightV2.borderColor)};
+        border-right: 0;
+        border-bottom: 1px solid ${get(theme, "borderColor", lightV2.borderColor)};
         background-color: transparent;
     }
     
