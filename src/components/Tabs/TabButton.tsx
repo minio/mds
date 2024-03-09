@@ -27,12 +27,12 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
     alignItems: "center",
     justifyContent: "flex-start",
     gap: 10,
-    height: 36,
+    height: horizontal ? 34 : 26,
     width: horizontal ? "auto" : 255,
     padding: "0 6px",
     border: "none",
     fontSize: 14,
-    fontWeight: horizontal ? "normal" : "inherit",
+    fontWeight: "600",
     backgroundColor: "transparent",
     color: horizontal
       ? get(theme, "tabs.horizontal.buttons.labelColor", lightColors.mainGrey)
@@ -45,7 +45,18 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
           lightColors.tabBorder,
         )} 1px solid`,
     "&:hover": {
-      backgroundColor: "transparent",
+      cursor: "pointer",
+      backgroundColor: horizontal
+        ? get(
+            theme,
+            "tabs.horizontal.buttons.hoverBackground",
+            lightV2.modalBorderColor,
+          )
+        : get(
+            theme,
+            "tabs.vertical.buttons.hoverBackground",
+            lightV2.modalBorderColor,
+          ),
       color: horizontal
         ? get(
             theme,
@@ -93,6 +104,7 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
             lightColors.mainBlue,
           ),
       "&:after": {
+        display: horizontal ? "block" : "none",
         content: "' '",
         position: "absolute" as const,
         left: 0,

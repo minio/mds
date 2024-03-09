@@ -257,6 +257,7 @@ export interface TabThemeProps {
     backgroundColor: string;
     selectedIndicatorColor: string;
     buttons: TabButtonProps;
+    bottomBorder?: string;
   };
 }
 
@@ -334,6 +335,8 @@ export interface WizardStepColorProps {
   selectedStepBG: string;
   selectedStepLabelColor: string;
   disabledLabelColor: string;
+  borderColor?: string;
+  buttonHoverBG?: string;
 }
 
 export interface WizardColorProps {

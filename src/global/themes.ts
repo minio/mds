@@ -570,24 +570,24 @@ export const lightTheme: ThemeDefinitionProps = {
   tabs: {
     vertical: {
       buttons: {
-        hoverLabelColor: lightV2.switchBG,
-        hoverBackground: "transparent",
+        hoverLabelColor: lightV2.modalCloseColor,
+        hoverBackground: lightV2.modalBorderColor,
         backgroundColor: "transparent",
-        labelColor: lightV2.mutedText,
+        labelColor: lightV2.modalCloseColor,
         disabledBackgroundColor: "transparent",
         disabledColor: lightV2.disabledGreyText,
         selectedBackground: "transparent",
         selectedLabelColor: lightV2.switchBG,
       },
-      backgroundColor: lightColors.iconButtonBG,
-      borders: lightColors.tabBorder,
+      backgroundColor: "transparent",
+      borders: "transparent",
     },
     horizontal: {
       buttons: {
-        hoverLabelColor: lightV2.switchBG,
-        hoverBackground: "transparent",
+        hoverLabelColor: lightV2.modalCloseColor,
+        hoverBackground: lightV2.modalBorderColor,
         backgroundColor: "transparent",
-        labelColor: lightV2.mutedText,
+        labelColor: lightV2.modalCloseColor,
         disabledBackgroundColor: "transparent",
         disabledColor: lightV2.disabledGreyText,
         selectedBackground: "transparent",
@@ -595,6 +595,7 @@ export const lightTheme: ThemeDefinitionProps = {
       },
       backgroundColor: "transparent",
       selectedIndicatorColor: lightV2.switchBG,
+      bottomBorder: lightV2.defaultButtonPressed,
     },
   },
   codeEditor: {
@@ -718,10 +719,12 @@ export const lightTheme: ThemeDefinitionProps = {
       disabledLabelColor: lightColors.disabledInnerGrey,
     },
     modal: {
-      stepLabelColor: lightV2.mutedText,
+      stepLabelColor: lightV2.modalCloseColor,
       selectedStepBG: lightV2.switchBG,
       selectedStepLabelColor: lightV2.switchBG,
       disabledLabelColor: lightV2.disabledGreyText,
+      borderColor: lightV2.defaultButtonPressed,
+      buttonHoverBG: lightV2.modalBorderColor,
     },
   },
   slider: {

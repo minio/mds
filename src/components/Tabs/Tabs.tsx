@@ -45,8 +45,8 @@ const TabsContainer = styled.div<TabsContainerProps>(
         borderBottom: horizontal
           ? `1px solid ${get(
               theme,
-              "signalColors.disabled",
-              lightV2.disabledGrey,
+              "buttons.horizontal.bottomBorder",
+              lightV2.defaultButtonPressed,
             )}`
           : `${get(
               theme,
