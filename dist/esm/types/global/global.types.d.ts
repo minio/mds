@@ -4,6 +4,7 @@ export interface ButtonThemeProps {
   text: string;
   background: string;
   iconColor: string;
+  shadow?: string;
 }
 export interface ButtonThemeStatesProps {
   enabled: ButtonThemeProps;
@@ -13,6 +14,8 @@ export interface ButtonThemeStatesProps {
 }
 export interface LoginPageThemeProps {
   formBG: string;
+  formBorder?: string;
+  formShadow?: string;
   bgFilter: string;
   promoBG: string;
   promoHeader: string;
@@ -120,6 +123,7 @@ export interface ModalBoxThemeProps {
   closeHoverColor: string;
   closeHoverBG: string;
   titleColor: string;
+  border?: string;
   iconColor: IconThemeColorProps;
 }
 export interface SwitchThemeProps {
@@ -214,6 +218,7 @@ export interface TabThemeProps {
     backgroundColor: string;
     selectedIndicatorColor: string;
     buttons: TabButtonProps;
+    bottomBorder?: string;
   };
 }
 export interface CodeEditorThemeProps {
@@ -281,6 +286,8 @@ export interface WizardStepColorProps {
   selectedStepBG: string;
   selectedStepLabelColor: string;
   disabledLabelColor: string;
+  borderColor?: string;
+  buttonHoverBG?: string;
 }
 export interface WizardColorProps {
   stepsBackground: string;
