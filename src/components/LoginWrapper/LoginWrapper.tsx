@@ -19,27 +19,123 @@ import get from "lodash/get";
 import styled from "styled-components";
 import { getGPUTier } from "detect-gpu";
 import ApplicationLogo from "../ApplicationLogo/ApplicationLogo";
-import Grid from "../Grid/Grid";
 import { LoginWrapperProps } from "./LoginWrapper.types";
 import { breakPoints } from "../../global/utils";
+import Box from "../Box/Box";
+import { lightV2 } from "../../global/themes";
 
 const bgVideo = require("../assets/video/videoBG.mp4");
 const poster = require("../assets/background/loginAnimationPoster.png");
 
 const CustomLogin = styled.div(({ theme }) => {
   return {
+    width: "100vw",
+    height: "100vh",
+    position: "relative",
+    backgroundColor: get(theme, "login.promoBG", "#000110"),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
     "& .mainContainer": {
-      height: "100vh",
+      width: "100%",
+      maxWidth: 1120,
+      display: "flex",
+      justifyContent: "space-between",
+      marginRight: 120,
+      paddingLeft: 30,
+      gap: 30,
+      zIndex: 500,
+      "& .promoContainer": {
+        width: "100%",
+        maxWidth: "580px",
+        "& .promoHeader": {
+          color: get(theme, "login.promoHeader", lightV2.white),
+          fontSize: "44px",
+          textAlign: "left",
+          fontWeight: "700",
+          lineHeight: "49px",
+          letterSpacing: "0.16px",
+        },
+        "& .promoInfo": {
+          marginTop: "31px",
+          maxWidth: "542px",
+          color: get(theme, "login.promoText", lightV2.white),
+          fontSize: "14px",
+          textAlign: "left",
+          fontWeight: 400,
+          lineHeight: "20px",
+          letterSpacing: "0.16px",
+          textShadow: "0 0 5ppx #000",
+          "& a": {
+            color: get(theme, "login.promoText", lightV2.white),
+            textDecoration: "none",
+            fontWeight: "bold",
+            "&:hover": {
+              textDecoration: "underline",
+            },
+          },
+        },
+      },
+      "& .loginForm": {
+        backgroundColor: get(theme, "login.formBF", lightV2.white),
+        width: 405,
+        minHeight: 540,
+        borderRadius: 16,
+        border: `1px solid ${get(theme, "login.formBorder", lightV2.disabledGrey)}`,
+        boxShadow: get(theme, "login.formShadow", "none"),
+        boxSizing: "border-box",
+        padding: "48px 46px",
+        "& .footer": {
+          display: "flex",
+          borderTop: `${get(
+            theme,
+            "login.footerDivider",
+            "#f2f2f2",
+          )} 1px solid`,
+          padding: "35px 0",
+          textAlign: "center",
+          alignItems: "flex-end",
+          justifyContent: "center",
+        },
+        "& .footer, & .footer a": {
+          color: get(theme, "login.footerElements", "#000"),
+          fontSize: "14px",
+          textDecoration: "none",
+        },
+      },
+      [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
+        marginRight: "initial",
+        maxWidth: "initial",
+        paddingLeft: 0,
+        "& .promoContainer": {
+          display: "none",
+          marginRight: 0,
+          maxWidth: "initial",
+          width: "100%",
+        },
+        "& .loginForm": {
+          width: "100%",
+          height: "100vh",
+          borderRadius: 0,
+        },
+      },
     },
-    "& .decorationPanel": {
-      position: "relative",
-      backgroundColor: get(theme, "login.promoBG", "#000110"),
-      "& .videoContainer": {
+    "& .videoContainer": {
+      position: "absolute",
+      width: "100%",
+      height: "auto",
+      minHeight: 200,
+      bottom: "0",
+      right: 0,
+      filter: get(theme, "login.bgFilter", "none"),
+      transform: "rotateY(180deg)",
+
+      "& .videoBG": {
         width: "100%",
         height: "auto",
         minHeight: 200,
         position: "absolute",
-        bottom: "0",
+        bottom: -200,
         right: 0,
         filter: get(theme, "login.bgFilter", "none"),
         "&:before": {
@@ -66,97 +162,8 @@ const CustomLogin = styled.div(({ theme }) => {
           width: "100%",
         },
       },
-      "& .bgExtend": {
-        backgroundImage:
-          "linear-gradient(45deg,rgba(172,223,234,0) 0,#7fc0e4 100%)",
-        position: "absolute",
-        width: 500,
-        left: 0,
-      },
-      "& .promoContainer": {
-        zIndex: 100,
-        width: "80%",
-        maxWidth: "687px",
-        position: "absolute",
-        top: "190px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        "& .promoHeader": {
-          color: get(theme, "login.promoHeader", "#fff"),
-          fontSize: "46px",
-          textAlign: "left",
-          fontWeight: "900",
-          lineHeight: "60px",
-        },
-        "& .promoInfo": {
-          marginTop: "31px",
-          maxWidth: "542px",
-          color: get(theme, "login.promoText", "#fff"),
-          fontSize: "18px",
-          textAlign: "left",
-          fontWeight: "300",
-          lineHeight: "30px",
-          textShadow: "0 0 5ppx #000",
-          "& a": {
-            color: get(theme, "login.promoText", "#fff"),
-            textDecoration: "none",
-            fontWeight: "bold",
-            "&:hover": {
-              textDecoration: "underline",
-            },
-          },
-        },
-      },
-    },
-    "& .formPanel": {
-      maxWidth: "520px",
-      backgroundColor: get(theme, "login.formBG", "#fff"),
-      [`@media (min-width: ${get(
-        breakPoints,
-        "xs",
-        0,
-      )}px) and (max-width: ${get(breakPoints, "md", 0)}px)`]: {
-        maxWidth: "100%",
-      },
-      "& .logoContainer": {
-        display: "flex",
-        height: "215px",
-        alignItems: "center",
-        justifyContent: "center",
-        boxShadow: "0 3px 10px 2px #00000010",
-        "& svg": {
-          width: "325px",
-        },
-      },
-      "& .formContainer": {
-        paddingTop: "40px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        minHeight: "calc(100vh - 215px)",
-        "& .form": {
-          width: "328px",
-          flexGrow: "1",
-          height: "100%",
-        },
-        "& .footer": {
-          display: "flex",
-          width: "328px",
-          borderTop: `${get(
-            theme,
-            "login.footerDivider",
-            "#f2f2f2",
-          )} 1px solid`,
-          padding: "35px 0",
-          textAlign: "center",
-          alignItems: "flex-end",
-          justifyContent: "center",
-        },
-        "& .footer, & .footer a": {
-          color: get(theme, "login.footerElements", "#000"),
-          fontSize: "14px",
-          textDecoration: "none",
-        },
+      [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
+        display: "none",
       },
     },
   };
@@ -183,56 +190,40 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
 
   return (
     <CustomLogin>
-      <Grid container className={"mainContainer"} wrap={"nowrap"}>
-        <Grid item xs={"hidden"} sm={"hidden"} md className={"decorationPanel"}>
-          {(promoInfo || promoHeader) && (
-            <Grid container>
-              <Grid item className={"promoContainer"}>
-                <Grid item className={"promoHeader"}>
-                  {promoHeader}
-                </Grid>
-                <Grid item className={"promoInfo"}>
-                  {promoInfo}
-                </Grid>
-              </Grid>
-            </Grid>
-          )}
-          <Grid item className={"videoContainer"}>
-            {GPUAvailable && backgroundAnimation ? (
-              <video
-                autoPlay
-                playsInline
-                muted
-                loop
-                disablePictureInPicture
-                poster={poster}
-                className={"videoBG"}
-              >
-                <source src={bgVideo} type={"video/mp4"} />
-              </video>
-            ) : (
-              <img src={poster} className={"videoBG"} />
-            )}
-          </Grid>
-        </Grid>
-        <Grid item xs={12} className={"formPanel"}>
-          <Grid container>
-            <Grid item xs={12} className={"logoContainer"}>
-              <ApplicationLogo {...logoProps} />
-            </Grid>
-            <Grid item xs={12} className={"formContainer"}>
-              <Grid item xs className={"form"}>
-                {form}
-              </Grid>
-              {formFooter && (
-                <Grid item xs className={"footer"}>
-                  {formFooter}
-                </Grid>
-              )}
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+      <Box className={"mainContainer"}>
+        {(promoInfo || promoHeader) && (
+          <Box className={"promoContainer"}>
+            <Box className={"promoHeader"}>{promoHeader}</Box>
+            <Box className={"promoInfo"}>{promoInfo}</Box>
+          </Box>
+        )}
+        <Box className={"loginForm"}>
+          <Box className={"logoContainer"}>
+            <ApplicationLogo {...logoProps} />
+          </Box>
+          <Box className={"formContainer"}>
+            <Box className={"form"}>{form}</Box>
+            {formFooter && <Box className={"footer"}>{formFooter}</Box>}
+          </Box>
+        </Box>
+      </Box>
+      <Box className={"videoContainer"}>
+        {GPUAvailable && backgroundAnimation ? (
+          <video
+            autoPlay
+            playsInline
+            muted
+            loop
+            disablePictureInPicture
+            poster={poster}
+            className={"videoBG"}
+          >
+            <source src={bgVideo} type={"video/mp4"} />
+          </video>
+        ) : (
+          <img src={poster} className={"videoBG"} />
+        )}
+      </Box>
     </CustomLogin>
   );
 };
