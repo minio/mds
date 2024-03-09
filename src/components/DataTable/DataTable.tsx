@@ -51,9 +51,9 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
     display: "flex",
     overflow: "auto",
-    boxSizing: "border-box",
-    flexDirection: "column",
-    padding: "32px 56px",
+    boxSizing: "border-box" as const,
+    flexDirection: "column" as const,
+    padding: "10px 20px",
     boxShadow: get(theme, "box.shadow", "none"),
     border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
     borderRadius: 16,
@@ -67,7 +67,6 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
     "&.noBackground": {
       backgroundColor: "transparent",
       border: 0,
-      padding: "0",
       boxShadow: "none",
     },
     "& .loadingBox": {
