@@ -36,6 +36,7 @@ const CustomLogin = styled.div(({ theme }) => {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
+    overflow: "hidden",
     "& .mainContainer": {
       width: "100%",
       maxWidth: 1120,
