@@ -59,8 +59,8 @@ Default.args = {
     </Fragment>
   ),
   logoProps: {
-    applicationName: "console",
-    subVariant: "AGPL",
+    applicationName: "minio",
+    subVariant: "enterpriseosvertical",
   },
   form: (
     <Fragment>
@@ -79,7 +79,6 @@ Default.args = {
         type={"button"}
         label={"Login"}
         variant={"callAction"}
-        fullWidth
       />
     </Fragment>
   ),
