@@ -33,6 +33,8 @@ export interface ButtonThemeStatesProps {
 
 export interface LoginPageThemeProps {
   formBG: string;
+  formBorder?: string;
+  formShadow?: string;
   bgFilter: string;
   promoBG: string;
   promoHeader: string;
