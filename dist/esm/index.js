@@ -4225,6 +4225,7 @@ var ii,
       display: "flex",
       alignItems: "center",
       justifyContent: "flex-end",
+      overflow: "hidden",
       "& .mainContainer":
         ((t = {
           width: "100%",
