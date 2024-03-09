@@ -85,19 +85,22 @@ const CustomLogin = styled.div(({ theme }) => {
         boxShadow: get(theme, "login.formShadow", "none"),
         boxSizing: "border-box",
         padding: "48px 46px",
+        "& .logoContainer": {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          marginBottom: 40,
+          "& svg": {
+            width: "100%",
+            maxWidth: 250,
+          },
+        },
         "& .footer": {
           display: "flex",
-          borderTop: `${get(
-            theme,
-            "login.footerDivider",
-            "#f2f2f2",
-          )} 1px solid`,
           padding: "35px 0",
           textAlign: "center",
           alignItems: "flex-end",
           justifyContent: "center",
-        },
-        "& .footer, & .footer a": {
           color: get(theme, "login.footerElements", "#000"),
           fontSize: "14px",
           textDecoration: "none",
