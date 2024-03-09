@@ -25,12 +25,12 @@ import Box from "../Box/Box";
 const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
   position: "relative",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "column" as const,
   "& .wizardSteps": {
     borderBottom: `1px solid ${get(
       theme,
-      "signalColors.disabled",
-      lightV2.disabledGrey,
+      "wizard.modal.borderColor",
+      lightV2.defaultButtonPressed,
     )}`,
     marginBottom: 24,
   },
@@ -57,13 +57,14 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
       cursor: "pointer",
       userSelect: "none",
       position: "relative",
-      lineHeight: "36px" as const,
+      lineHeight: "34px" as const,
+      fontWeight: 600,
       color: get(theme, "wizard.modal.stepLabelColor", lightV2.mutedText),
       "&:not(:disabled):hover": {
-        color: get(
+        backgroundColor: get(
           theme,
-          "wizard.modal.selectedStepLabelColor",
-          lightV2.switchBG,
+          "wizard.modal.buttonHoverBG",
+          lightV2.modalBorderColor,
         ),
       },
       "&:selected, &:active, &:focus, &:focus:active": {
