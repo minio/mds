@@ -360,6 +360,12 @@ export interface BoxThemeProps {
   shadow: string;
 }
 
+export interface ValuePairThemeProps {
+  labelColor: string;
+  textColor: string;
+  linkColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -407,6 +413,7 @@ export interface ThemeDefinitionProps {
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
   slider?: SliderProps;
+  valuePair?: ValuePairThemeProps;
 }
 
 export interface SelectorType {
