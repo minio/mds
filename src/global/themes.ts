@@ -735,6 +735,11 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledRail: lightColors.sliderDisabledBG,
     disabledBullet: lightColors.disabledInnerGrey,
   },
+  valuePair: {
+    labelColor: lightV2.modalTitleColor,
+    textColor: lightV2.modalTitleColor,
+    linkColor: lightV2.modalCloseColor,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
