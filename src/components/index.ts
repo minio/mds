@@ -82,7 +82,7 @@ export * from "./Icons/FileIcons";
 export * from "./Table";
 
 /*Interfaces*/
-export { SelectorType } from "../global/global.types";
+export * from "../global/global.types";
 export * from "./ActionsList/ActionsList.types";
 export * from "./ApplicationLogo/ApplicationLogo.types";
 export * from "./BackLink/BackLink.types";
