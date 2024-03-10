@@ -280,6 +280,7 @@ export interface CodeEditorThemeProps {
 
 export interface TagVariantProps {
   background: string;
+  outlineColor?: string;
   label: string;
   deleteColor: string;
 }

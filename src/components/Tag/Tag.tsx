@@ -19,7 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { TagConstructProps, TagProps } from "./Tag.types";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
-import { lightColors } from "../../global/themes";
+import { lightColors, lightV2 } from "../../global/themes";
 
 const TagBase = styled.span<TagConstructProps>(
   ({ theme, color, variant, square, sx }) => {
@@ -37,12 +37,13 @@ const TagBase = styled.span<TagConstructProps>(
       height: 24,
       color:
         variant === "regular"
-          ? get(theme, `tag.${color}.label`, lightColors.white)
-          : get(theme, `tag.${color}.background`, lightColors.mainBlue),
-      backgroundColor:
+          ? get(theme, `tag.${color}.label`, lightV2.white)
+          : get(theme, `tag.${color}.outlineColor`, lightV2.switchBG),
+      background:
         variant === "regular"
           ? get(theme, `tag.${color}.background`, lightColors.mainBlue)
           : "transparent",
+      boxShadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
       borderRadius: square ? 3 : 16,
       whiteSpace: "nowrap",
       cursor: "default",
@@ -53,7 +54,7 @@ const TagBase = styled.span<TagConstructProps>(
           ? 0
           : `${get(
               theme,
-              `tag.${color}.background`,
+              `tag.${color}.outlineColor`,
               lightColors.mainBlue,
             )} 1px solid`,
       padding: "0 10px",
@@ -65,7 +66,7 @@ const TagBase = styled.span<TagConstructProps>(
         fill:
           variant === "regular"
             ? get(theme, `tag.${color}.label`, lightColors.white)
-            : get(theme, `tag.${color}.background`, lightColors.mainBlue),
+            : get(theme, `tag.${color}.outlineColor`, lightV2.switchBG),
       },
       "& .deleteTagButton": {
         backgroundColor: "transparent",
