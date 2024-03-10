@@ -55,6 +55,7 @@ const SectionTitle: FC<SectionTitleProps> = ({
           "& svg": { marginRight: "10px" },
           "& h3": {
             fontWeight: "normal",
+            fontSize: 20,
           },
         }}
       >
