@@ -389,6 +389,9 @@ export interface ThemeDefinitionProps {
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
   };
+  roundedButtons?: {
+    regular?: ButtonThemeStatesProps;
+  };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
   tooltip?: TooltipThemeProps;

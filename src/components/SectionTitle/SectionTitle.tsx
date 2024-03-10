@@ -51,7 +51,6 @@ const SectionTitle: FC<SectionTitleProps> = ({
           flexGrow: 1,
           justifyContent: "flex-start",
           alignItems: "center",
-          marginLeft: "10px",
           "& svg": { marginRight: "10px" },
           "& h3": {
             fontWeight: "normal",
