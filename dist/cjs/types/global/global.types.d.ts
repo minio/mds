@@ -263,7 +263,7 @@ export interface InformativeColorElements {
   borderColor: string;
   textColor: string;
 }
-export interface InformativeMessageProps {
+export interface InformativeMessageThemeProps {
   default: InformativeColorElements;
   success: InformativeColorElements;
   warning: InformativeColorElements;
@@ -300,10 +300,15 @@ export interface SliderProps {
   disabledRail: string;
   disabledBullet: string;
 }
-export interface BoxProps {
+export interface BoxThemeProps {
   border: string;
   backgroundColor: string;
   shadow: string;
+}
+export interface ValuePairThemeProps {
+  labelColor: string;
+  textColor: string;
+  linkColor: string;
 }
 export interface ThemeDefinitionProps {
   bgColor: string;
@@ -318,7 +323,7 @@ export interface ThemeDefinitionProps {
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
-  box?: BoxProps;
+  box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
@@ -348,10 +353,11 @@ export interface ThemeDefinitionProps {
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
-  informativeMessage?: InformativeMessageProps;
+  informativeMessage?: InformativeMessageThemeProps;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
   slider?: SliderProps;
+  valuePair?: ValuePairThemeProps;
 }
 export interface SelectorType {
   label: string;

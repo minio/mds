@@ -276,7 +276,7 @@ interface InformativeColorElements {
   borderColor: string;
   textColor: string;
 }
-interface InformativeMessageProps$1 {
+interface InformativeMessageThemeProps {
   default: InformativeColorElements;
   success: InformativeColorElements;
   warning: InformativeColorElements;
@@ -313,10 +313,15 @@ interface SliderProps {
   disabledRail: string;
   disabledBullet: string;
 }
-interface BoxProps$1 {
+interface BoxThemeProps {
   border: string;
   backgroundColor: string;
   shadow: string;
+}
+interface ValuePairThemeProps {
+  labelColor: string;
+  textColor: string;
+  linkColor: string;
 }
 interface ThemeDefinitionProps {
   bgColor: string;
@@ -331,7 +336,7 @@ interface ThemeDefinitionProps {
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
-  box?: BoxProps$1;
+  box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
@@ -361,10 +366,11 @@ interface ThemeDefinitionProps {
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
-  informativeMessage?: InformativeMessageProps$1;
+  informativeMessage?: InformativeMessageThemeProps;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
   slider?: SliderProps;
+  valuePair?: ValuePairThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -2537,6 +2543,212 @@ declare const TableRow: FC<
   TableComponentsExtraProps & React__default.HTMLAttributes<HTMLTableRowElement>
 >;
 
+declare const lightColors: {
+  white: string;
+  sectionOneBG: string;
+  defaultFontColor: string;
+  bulletColor: string;
+  borderColor: string;
+  boxBackground: string;
+  mainGrey: string;
+  disabledGrey: string;
+  hoverGrey: string;
+  pressedGrey: string;
+  actionDisabledGrey: string;
+  mainBlue: string;
+  hoverBlue: string;
+  pressedBlue: string;
+  mainRed: string;
+  hoverRed: string;
+  lightRed: string;
+  divisorColor: string;
+  disabledBGGrey: string;
+  disabledInnerGrey: string;
+  logoLabel: string;
+  logoLabelInverse: string;
+  promoBlue: string;
+  footerDivider: string;
+  promoBG: string;
+  loaderColor: string;
+  headerBG: string;
+  headerBorder: string;
+  headerColor: string;
+  tooltipBG: string;
+  tooltipColor: string;
+  labelColor: string;
+  mainGreen: string;
+  checkBoxBorder: string;
+  iconButtonBG: string;
+  iconButtonActive: string;
+  iconButtonHover: string;
+  iconButtonDisabled: string;
+  iconButtonColor: string;
+  backLinkColor: string;
+  backLinkArrow: string;
+  backLinkHover: string;
+  commonLinkColor: string;
+  breadcrumbsBackground: string;
+  breadcrumbsBackBorder: string;
+  breadcrumbsText: string;
+  actionsListBorder: string;
+  disabledActionsColor: string;
+  optionTextColor: string;
+  modalCloseColor: string;
+  modalCloseHoverBG: string;
+  modalOverlayBG: string;
+  bulletBGColor: string;
+  placeholder: string;
+  readBoxTextColor: string;
+  secondAction: string;
+  secondActionHover: string;
+  secondActionActive: string;
+  mainOrange: string;
+  menuBackground: string;
+  menuDropArrowColor: string;
+  menuDropArrowBackground: string;
+  menuSelectedOption: string;
+  menuCommonColor: string;
+  menuColorDivider: string;
+  menuCollapseColor: string;
+  menuIconBG: string;
+  menuIconBorder: string;
+  tabBorder: string;
+  codeEditorComment: string;
+  codeEditorEntityTag: string;
+  codeEditorEntity: string;
+  codeEditorSublimelinterGutterMark: string;
+  codeEditorConstant: string;
+  codeEditorString: string;
+  codeEditorKeyword: string;
+  codeEditorMarkupBold: string;
+  codeEditorRegexp: string;
+  linkColor: string;
+  mutedText: string;
+  disabledOnSwitchBG: string;
+  sliderDisabledBG: string;
+};
+declare const darkColors: {
+  dark: string;
+  sectionOneBG: string;
+  defaultFontColor: string;
+  bulletColor: string;
+  borderColor: string;
+  boxBackground: string;
+  mainGrey: string;
+  disabledGrey: string;
+  hoverGrey: string;
+  borderPressedGrey: string;
+  pressedGrey: string;
+  mainWhite: string;
+  disabledWhite: string;
+  hoverWhite: string;
+  pressedWhite: string;
+  mainRed: string;
+  hoverRed: string;
+  divisorColor: string;
+  disabledBGGrey: string;
+  disabledInnerGrey: string;
+  logoLabel: string;
+  logoLabelInverse: string;
+  footerDivider: string;
+  footerColor: string;
+  promoBG: string;
+  loaderColor: string;
+  headerBG: string;
+  headerBorder: string;
+  headerColor: string;
+  tooltipBG: string;
+  tooltipColor: string;
+  labelColor: string;
+  mainGreen: string;
+  checkBoxBorder: string;
+  iconButtonBG: string;
+  iconButtonActive: string;
+  iconButtonHover: string;
+  iconButtonDisabled: string;
+  iconButtonColor: string;
+  backLinkColor: string;
+  backLinkArrow: string;
+  backLinkHover: string;
+  modalCloseColor: string;
+  modalCloseHoverBG: string;
+  modalOverlayBG: string;
+  bulletBGColor: string;
+  disabledSwitchBG: string;
+  disabledOnSwitchBG: string;
+  disabledBulletBG: string;
+  placeholder: string;
+  readBoxTextColor: string;
+  secondAction: string;
+  secondActionHover: string;
+  secondActionActive: string;
+  mainOrange: string;
+  menuBackground: string;
+  menuDropArrowColor: string;
+  menuDropArrowBackground: string;
+  menuSelectedOption: string;
+  menuCommonColor: string;
+  menuColorDivider: string;
+  menuCollapseColor: string;
+  menuIconBG: string;
+  menuIconBorder: string;
+  menuHoverSelectedBorderIcon: string;
+  menuHoverSelectedBG: string;
+  codeEditorComment: string;
+  codeEditorEntityTag: string;
+  codeEditorEntity: string;
+  codeEditorSublimelinterGutterMark: string;
+  codeEditorConstant: string;
+  codeEditorString: string;
+  codeEditorKeyword: string;
+  codeEditorMarkupBold: string;
+  codeEditorRegexp: string;
+  linkColor: string;
+  mutedText: string;
+  disabledSliderBullet: string;
+};
+declare const lightV2: {
+  white: string;
+  fontColor: string;
+  mainBackgroundColor: string;
+  menuSelectionColor: string;
+  switchBG: string;
+  secondaryBlue: string;
+  green: string;
+  lightGreen: string;
+  orange: string;
+  lightOrange: string;
+  danger: string;
+  lightRed: string;
+  borderColor: string;
+  disabledGrey: string;
+  disabledGreyText: string;
+  disabledBlue: string;
+  disabledBlueText: string;
+  disabledBlueRegular: string;
+  disabledSecondary: string;
+  disabledSecondaryText: string;
+  blueBorderActionButton: string;
+  redBorder: string;
+  disabledRed: string;
+  disabledRedText: string;
+  mutedText: string;
+  headerLabelText: string;
+  plainIconButtonBorder: string;
+  plainIconButtonBG: string;
+  plainIconButtonColor: string;
+  linkColor: string;
+  modalCloseColor: string;
+  modalBorderColor: string;
+  modalOverlayBG: string;
+  modalTitleColor: string;
+  buttonDisabledBG: string;
+  buttonDisabledLabel: string;
+  defaultButtonPressed: string;
+};
+declare const lightTheme: ThemeDefinitionProps;
+declare const darkTheme: ThemeDefinitionProps;
+
 export {
   AGPLV3DarkLogo,
   AGPLV3LightLogo,
@@ -2550,12 +2762,14 @@ export {
   AccountIcon$1 as AccountIcon,
   AccountsMenuIcon,
   ActionButtonProps,
+  ActionCustomButton,
   ActionItem,
   ActionLink,
   ActionLinkProps,
   ActionsList,
   ActionsListPanelProps,
   ActionsListProps,
+  ActionsListThemeProps,
   AddAccessRuleIcon,
   AddFolderIcon,
   AddIcon,
@@ -2584,19 +2798,25 @@ export {
   BackIcon,
   BackLink,
   BackLinkProps,
+  BackLinkThemeProps,
   BackSettingsIcon,
   Badge,
+  BadgeColorElements,
   BadgeConstruct,
   BadgeMain,
   BadgeProps,
+  BadgeStyleProps,
   BaseActionLinkProps,
   Box,
   BoxArrowDown,
   BoxArrowUp,
   BoxProps,
+  BoxThemeProps,
   Breadcrumbs,
+  BreadcrumbsBackStyle,
   BreadcrumbsContainerProps,
   BreadcrumbsProps,
+  BreadcrumbsThemeProps,
   BucketEncryptionIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
@@ -2604,6 +2824,8 @@ export {
   BucketsMenuIcon,
   Button,
   ButtonProps,
+  ButtonThemeProps,
+  ButtonThemeStatesProps,
   CalendarIcon,
   CallHomeFeatureIcon,
   CallHomeMenuIcon,
@@ -2613,6 +2835,7 @@ export {
   ChangeAccessPolicyIcon,
   ChangePasswordIcon,
   ChatIcon,
+  CheckBoxThemeProps,
   CheckCircleIcon,
   Checkbox,
   CircleIcon,
@@ -2622,6 +2845,7 @@ export {
   CodeMirrorWrapper as CodeEditor,
   CodeEditorBaseProps,
   CodeEditorProps,
+  CodeEditorThemeProps,
   CodeIcon,
   CollapseCaret,
   CollapseIcon,
@@ -2633,6 +2857,7 @@ export {
   CommentContainerProps,
   CommonActionLinkProps,
   CommonHelpTipPlacement,
+  CommonInputThemeProps,
   CommonProgressBar,
   CompressIcon,
   ComputerLineIcon,
@@ -2654,6 +2879,7 @@ export {
   DashboardIcon,
   DataTable,
   DataTableProps,
+  DataTableThemeProps,
   DataTableWrapperProps,
   DateSelectorProps,
   DateTimeConstruct,
@@ -2680,6 +2906,7 @@ export {
   DropdownItemProps,
   DropdownSelector,
   DropdownSelectorProps,
+  DropdownSelectorThemeProps,
   EditIcon,
   EditTagIcon,
   EditTenantIcon,
@@ -2750,6 +2977,7 @@ export {
   HistoryIcon,
   IAMPoliciesIcon,
   IActionButton,
+  IBytesCalc,
   IColumns,
   IInfiniteScrollConfig,
   ISortConfig,
@@ -2757,16 +2985,21 @@ export {
   IconBase,
   IconButton,
   IconButtonProps,
+  IconButtonThemeProps,
+  IconThemeColorProps,
   IdentitiesMenuIcon,
   IdentityMenuIcon,
   IndicatorProps,
   InfoIcon,
+  InformativeColorElements,
   InformativeConstructProps,
   InformativeMessage,
   InformativeMessageMain,
   InformativeMessageProps,
+  InformativeMessageThemeProps,
   InputBox$1 as InputBox,
   InputBoxProps,
+  InputBoxThemeProps,
   InputContainerProps,
   InputLabel,
   InputLabelProps,
@@ -2793,6 +3026,7 @@ export {
   LockIcon$1 as LockIcon,
   LockIcon as LockOpenIcon,
   LoginIcon$1 as LoginIcon,
+  LoginPageThemeProps,
   LoginWrapper,
   LogoutIcon,
   LogsIcon,
@@ -2807,6 +3041,7 @@ export {
   MenuCollapsedIcon$1 as MenuExpandedIcon,
   MenuItemProps,
   MenuProps,
+  MenuThemeProps,
   MetadataIcon,
   MetricsMenuIcon,
   MinIOTierIcon,
@@ -2815,6 +3050,7 @@ export {
   ModalBox,
   ModalBoxContainerProps,
   ModalBoxProps,
+  ModalBoxThemeProps,
   MonitoringMenuIcon,
   MultipleBucketsIcon,
   NetworkGetIcon,
@@ -2842,6 +3078,7 @@ export {
   PageHeaderConstruct,
   PageHeaderMainProps,
   PageHeaderProps,
+  PageHeaderThemeProps,
   PageLayout,
   PageLayoutProps,
   PasswordKeyIcon,
@@ -2864,6 +3101,7 @@ export {
   ReadBox,
   ReadBoxBaseProps,
   ReadBoxProps,
+  ReadBoxThemeProps,
   RecoverIcon,
   RedoIcon,
   RefreshIcon,
@@ -2879,6 +3117,7 @@ export {
   ScreenTitle,
   ScreenTitleContainerProps,
   ScreenTitleProps,
+  ScreenTitleThemeProps,
   SearchIcon,
   SecretsMenuIcon,
   SectionHeaderProps,
@@ -2897,6 +3136,7 @@ export {
   SettingsIcon,
   ShareIcon,
   ShuffleIcon$1 as ShuffleIcon,
+  SignalColorsThemeProps,
   SimpleHeader,
   SimpleHeaderContainerProps,
   SimpleHeaderProps,
@@ -2904,6 +3144,8 @@ export {
   SizeChartConstructProps,
   SizeChartMain,
   SizeChartProps,
+  SliderProps,
+  SnackBarThemeProps,
   Snackbar,
   SnackbarButtonProps,
   SnackbarConstructProps,
@@ -2921,12 +3163,14 @@ export {
   Switch,
   SwitchContainerProps,
   SwitchProps,
+  SwitchThemeProps,
   SyncIcon,
   TabButtonConstructProps,
   TabButtonProps,
   TabItemProps,
   TabPanelProps,
   TabProps,
+  TabThemeProps,
   Table,
   TableBody,
   TableCell,
@@ -2940,9 +3184,12 @@ export {
   TagConstructProps,
   TagMainProps,
   TagProps,
+  TagThemeProps,
+  TagVariantProps,
   TagsIcon,
   TenantsIcon,
   TenantsOutlineIcon,
+  ThemeDefinitionProps,
   ThemeHandler,
   ThemedLogo,
   ThumbsDownIcon,
@@ -2958,6 +3205,7 @@ export {
   TooltipBuild,
   TooltipConstructProps,
   TooltipProps,
+  TooltipThemeProps,
   TotalObjectsIcon,
   TraceIcon,
   TraceMenuIcon,
@@ -2974,6 +3222,7 @@ export {
   ValuePairCommon,
   ValuePairMain,
   ValuePairProps,
+  ValuePairThemeProps,
   VerifiedIcon,
   VersionIcon,
   VersionsIcon,
@@ -2987,13 +3236,20 @@ export {
   WebhookIcon,
   GenericWizard as Wizard,
   WizardButton,
+  WizardColorProps,
   WizardConstruct,
   WizardElement,
   WizardMain,
   WizardPage,
   WizardPageProps,
   WizardProps,
+  WizardStepColorProps,
   actionsTypes,
   breakPoints,
   calculateBytes,
+  darkColors,
+  darkTheme,
+  lightColors,
+  lightTheme,
+  lightV2,
 };
