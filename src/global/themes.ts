@@ -397,6 +397,37 @@ export const lightTheme: ThemeDefinitionProps = {
       },
     },
   },
+  roundedButtons: {
+    regular: {
+      enabled: {
+        border: lightV2.modalBorderColor,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #4B5563 0%, #4B5563 100%)",
+        iconColor: lightV2.modalTitleColor,
+        shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
+      },
+      disabled: {
+        border: lightV2.buttonDisabledBG,
+        text: lightV2.buttonDisabledLabel,
+        background: lightV2.buttonDisabledBG,
+        iconColor: lightV2.buttonDisabledLabel,
+      },
+      hover: {
+        border: lightV2.buttonDisabledLabel,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #585f68 0%, #585f68 100%)",
+        iconColor: lightV2.modalTitleColor,
+        shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
+      },
+      pressed: {
+        border: lightV2.buttonDisabledLabel,
+        text: lightV2.white,
+        background: "linear-gradient(180deg, #3A3D41 0%, #3A3D41 100%)",
+        iconColor: lightV2.modalTitleColor,
+        shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
+      },
+    },
+  },
   login: {
     formBG: lightV2.white,
     bgFilter: "none",
