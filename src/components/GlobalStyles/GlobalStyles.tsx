@@ -207,6 +207,10 @@ const GlobalStyles = createGlobalStyle`
         color: ${get(theme, "mutedText", lightV2.mutedText)};
         font-size: 14px;
     }
+    
+    .error {
+        color: ${get(theme, "signalColors.danger", lightV2.danger)};
+    }
     `;
     }}
 `;
