@@ -1928,7 +1928,7 @@ declare const CreateUserIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BucketsIcon: (
+declare const BucketsIcon$1: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2327,6 +2327,84 @@ declare const ShuffleIcon: (
 ) => React$1.JSX.Element;
 
 declare const ExpandLeftCaret: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BucketsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CatalogMetricsIcon$1: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CatalogIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CatalogMetricsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const DBIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const EnvironmentVariablesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FirewallIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ImagesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const IngestIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const KeyManagementIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const NetworkingIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ObjectsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ObservabilityOverviewIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ObservabilityIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PorPlacementIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PoliciesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const QueryEditorIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ResourcesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SettingsInMenuIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SystemIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2828,17 +2906,20 @@ export {
   BucketEncryptionIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
-  BucketsIcon,
+  BucketsIcon$1 as BucketsIcon,
   BucketsMenuIcon,
   Button,
   ButtonProps,
   ButtonThemeProps,
   ButtonThemeStatesProps,
+  BucketsIcon as CacheIcon,
   CalendarIcon,
   CallHomeFeatureIcon,
   CallHomeMenuIcon,
   CancelledAudioIcon,
   CancelledIcon,
+  CatalogIcon,
+  CatalogMetricsIcon$1 as CatalogMetricsIcon,
   CertificateIcon,
   ChangeAccessPolicyIcon,
   ChangePasswordIcon,
@@ -2879,10 +2960,12 @@ export {
   ConstructExpandOptionsProps,
   ConstructProps,
   CopyIcon,
+  CatalogMetricsIcon as CountObjectsIcon,
   CreateGroupIcon,
   CreateIcon,
   CreateNewPathIcon,
   CreateUserIcon,
+  DBIcon,
   DarkModeIcon,
   DashboardIcon,
   DataTable,
@@ -2923,6 +3006,7 @@ export {
   EgressIcon,
   EnabledIcon,
   EnterpriseLightLogo,
+  EnvironmentVariablesIcon,
   ShuffleIcon as EventBusyIcon,
   EventSubscriptionIcon,
   ExpandCaret,
@@ -2957,6 +3041,7 @@ export {
   FileZipIcon,
   FilterIcon,
   FindReplaceIcon,
+  FirewallIcon,
   FirstAidIcon$1 as FirstAidIcon,
   FolderBrowserIcon,
   FolderIcon,
@@ -2997,6 +3082,7 @@ export {
   IconThemeColorProps,
   IdentitiesMenuIcon,
   IdentityMenuIcon,
+  ImagesIcon,
   IndicatorProps,
   InfoIcon,
   InformativeColorElements,
@@ -3005,6 +3091,7 @@ export {
   InformativeMessageMain,
   InformativeMessageProps,
   InformativeMessageThemeProps,
+  IngestIcon,
   InputBox$1 as InputBox,
   InputBoxProps,
   InputBoxThemeProps,
@@ -3015,6 +3102,7 @@ export {
   ItemActions,
   JSONIcon,
   LoginIcon as KeyIcon,
+  KeyManagementIcon,
   KeysMenuIcon,
   LDAPIcon,
   LambdaBalloonIcon,
@@ -3063,6 +3151,7 @@ export {
   MultipleBucketsIcon,
   NetworkGetIcon,
   NetworkPutIcon,
+  NetworkingIcon,
   NewAccountIcon,
   NewPathIcon,
   NewPoolIcon,
@@ -3075,6 +3164,9 @@ export {
   ObjectInfoIcon,
   ObjectManagerIcon$1 as ObjectManagerIcon,
   ObjectPreviewIcon,
+  ObjectsIcon,
+  ObservabilityIcon,
+  ObservabilityOverviewIcon,
   OfflineRegistrationBackIcon,
   OfflineRegistrationIcon,
   OnlineRegistrationBackIcon,
@@ -3094,6 +3186,8 @@ export {
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
   PermissionIcon,
+  PorPlacementIcon as PodPlacementIcon,
+  PoliciesIcon,
   PoliciesMenuIcon,
   PredefinedActionTypes,
   NextCaretIcon as PrevCaretIcon,
@@ -3104,6 +3198,7 @@ export {
   PrometheusErrorIcon,
   PrometheusIcon,
   FirstAidIcon as PublicIcon,
+  QueryEditorIcon,
   RadioGroup,
   RadioGroupProps,
   ReadBox,
@@ -3119,6 +3214,7 @@ export {
   ReportIcon,
   ReportedUsageFullIcon,
   ReportedUsageIcon,
+  ResourcesIcon,
   RetentionIcon,
   RoundedButton,
   S3TierIcon$1 as S3TierIcon,
@@ -3143,6 +3239,7 @@ export {
   ServiceAccountIcon,
   ServiceAccountsIcon,
   SettingsIcon,
+  SettingsInMenuIcon,
   ShareIcon,
   ShuffleIcon$1 as ShuffleIcon,
   SignalColorsThemeProps,
@@ -3174,6 +3271,7 @@ export {
   SwitchProps,
   SwitchThemeProps,
   SyncIcon,
+  SystemIcon,
   TabButtonConstructProps,
   TabButtonProps,
   TabItemProps,
