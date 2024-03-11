@@ -66086,7 +66086,257 @@ var CM = TM,
       r = k(e, ["sx", "children"]);
     return t.createElement(FM, I({}, r, { sx: n }), a);
   },
-  zM = function (t) {
+  zM = u.button(function (e) {
+    var t,
+      n = e.theme,
+      a = e.fullWidth,
+      r = e.variant,
+      o = e.iconLocation,
+      i = e.icon,
+      s = e.label,
+      l = e.collapseOnSmall,
+      c = e.parentChildren,
+      d = e.sx,
+      u = r || "regular",
+      p =
+        (s || c) && i
+          ? {
+              marginLeft: "end" === o ? "0" : "10px",
+              marginRight: "start" === o ? "0" : "10px",
+            }
+          : { marginRight: 0, marginLeft: 0 },
+      m = {};
+    return (
+      l &&
+        i &&
+        ((s && "" !== s.trim()) || c) &&
+        (((t = {})["@media (max-width: ".concat(dn(v, "md", 0), "px)")] = {
+          padding: "0 14px",
+          "& .button-label": { display: "none" },
+        }),
+        (m = t)),
+      I(
+        I(
+          {
+            borderRadius: 20,
+            cursor: "pointer",
+            width: a ? "100%" : "initial",
+            height: 32,
+            fontFamily: "'Geist', sans-serif",
+            fontWeight: "600",
+            fontSize: 14,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            textTransform: "text" === u ? "uppercase" : "none",
+            margin: 0,
+            padding: "0 16px",
+            transition: "all 0.2s linear",
+            background: dn(
+              n,
+              "roundedButtons.".concat(u, ".enabled.background"),
+              "#fff",
+            ),
+            borderColor: dn(
+              n,
+              "roundedButtons.".concat(u, ".enabled.border"),
+              "#000",
+            ),
+            borderWidth: 1,
+            borderStyle: "solid",
+            color: dn(n, "roundedButtons.".concat(u, ".enabled.text"), "#000"),
+            boxShadow: dn(
+              n,
+              "roundedButtons.".concat(u, ".enabled.shadow"),
+              "none",
+            ),
+            "& .button-label": I({ whiteSpace: a ? "normal" : "nowrap" }, p),
+            "& .buttonIcon": {
+              display: "block",
+              height: 14,
+              "& > svg": {
+                fill: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".enabled.text"),
+                  "#000",
+                ),
+                color: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".enabled.text"),
+                  "#000",
+                ),
+                width: 14,
+                height: 14,
+              },
+            },
+            "&:disabled": {
+              cursor: "not-allowed",
+              background: dn(
+                n,
+                "roundedButtons.".concat(u, ".disabled.background"),
+                "#fff",
+              ),
+              borderColor: dn(
+                n,
+                "roundedButtons.".concat(u, ".disabled.border"),
+                "#000",
+              ),
+              borderWeight: 1,
+              borderStyle: "solid",
+              color: dn(
+                n,
+                "roundedButtons.".concat(u, ".disabled.text"),
+                "#000",
+              ),
+              boxShadow: dn(
+                n,
+                "roundedButtons.".concat(u, ".disabled.shadow"),
+                "none",
+              ),
+              "& .buttonIcon > svg": {
+                fill: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".disabled.text"),
+                  "#000",
+                ),
+                color: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".disabled.text"),
+                  "#000",
+                ),
+              },
+            },
+            "&:hover:not(:disabled)": {
+              background: dn(
+                n,
+                "roundedButtons.".concat(u, ".hover.background"),
+                "#fff",
+              ),
+              borderColor: dn(
+                n,
+                "roundedButtons.".concat(u, ".hover.border"),
+                "#000",
+              ),
+              color: dn(n, "roundedButtons.".concat(u, ".hover.text"), "#000"),
+              boxShadow: dn(
+                n,
+                "roundedButtons.".concat(u, ".hover.shadow"),
+                "none",
+              ),
+              "& .buttonIcon > svg": {
+                fill: dn(n, "roundedButtons.".concat(u, ".hover.text"), "#000"),
+                color: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".hover.text"),
+                  "#000",
+                ),
+              },
+            },
+            "&:active:not(:disabled)": {
+              background: dn(
+                n,
+                "roundedButtons.".concat(u, ".pressed.background"),
+                "#fff",
+              ),
+              borderColor: dn(
+                n,
+                "roundedButtons.".concat(u, ".pressed.border"),
+                "#000",
+              ),
+              color: dn(
+                n,
+                "roundedButtons.".concat(u, ".pressed.text"),
+                "#000",
+              ),
+              boxShadow: dn(
+                n,
+                "roundedButtons.".concat(u, ".pressed.shadow"),
+                "none",
+              ),
+              "& .buttonIcon > svg": {
+                fill: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".pressed.text"),
+                  "#000",
+                ),
+                color: dn(
+                  n,
+                  "roundedButtons.".concat(u, ".pressed.text"),
+                  "#000",
+                ),
+              },
+            },
+          },
+          m,
+        ),
+        d,
+      )
+    );
+  }),
+  UM = function (e) {
+    var a = e.label,
+      r = e.variant,
+      o = void 0 === r ? "regular" : r,
+      i = e.icon,
+      s = e.iconLocation,
+      l = void 0 === s ? "end" : s,
+      c = e.onClick,
+      d = e.disabled,
+      u = e.fullWidth,
+      p = e.collapseOnSmall,
+      m = void 0 === p || p,
+      h = e.children,
+      f = e.className,
+      g = k(e, [
+        "label",
+        "variant",
+        "icon",
+        "iconLocation",
+        "onClick",
+        "disabled",
+        "fullWidth",
+        "collapseOnSmall",
+        "children",
+        "className",
+      ]),
+      E = null;
+    return (
+      i && (E = t.createElement("span", { className: "buttonIcon" }, i)),
+      t.createElement(
+        zM,
+        I(
+          {
+            onClick: c,
+            disabled: d || !1,
+            variant: o || "regular",
+            iconLocation: l || "end",
+            label: a || "",
+            fullWidth: u || !1,
+            collapseOnSmall: !!m,
+            icon: E,
+            parentChildren: h || null,
+            className: "".concat(f || "", " button-").concat(o),
+          },
+          g,
+        ),
+        t.createElement(
+          n,
+          null,
+          i && "start" === l && E,
+          t.createElement(
+            "span",
+            { className: "button-label" },
+            h,
+            h && a ? " " : "",
+            a,
+          ),
+          i && "end" === l && E,
+        ),
+      )
+    );
+  },
+  GM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66105,7 +66355,7 @@ var CM = TM,
       }),
     );
   },
-  UM = function (t) {
+  VM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66159,7 +66409,7 @@ var CM = TM,
       ),
     );
   },
-  GM = function (t) {
+  ZM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66183,7 +66433,7 @@ var CM = TM,
       ),
     );
   },
-  VM = function (t) {
+  $M = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66231,7 +66481,7 @@ var CM = TM,
       ),
     );
   },
-  ZM = function (t) {
+  WM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66262,7 +66512,7 @@ var CM = TM,
       ),
     );
   },
-  $M = function (t) {
+  jM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66334,7 +66584,7 @@ var CM = TM,
       ),
     );
   },
-  WM = function (t) {
+  qM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66391,7 +66641,7 @@ var CM = TM,
       ),
     );
   },
-  jM = function (t) {
+  YM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66439,7 +66689,7 @@ var CM = TM,
       ),
     );
   },
-  qM = function (t) {
+  KM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66461,7 +66711,7 @@ var CM = TM,
       }),
     );
   },
-  YM = function (t) {
+  XM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66515,7 +66765,7 @@ var CM = TM,
       ),
     );
   },
-  KM = function (t) {
+  QM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66562,7 +66812,7 @@ var CM = TM,
       ),
     );
   },
-  XM = function (t) {
+  JM = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66610,7 +66860,7 @@ var CM = TM,
       ),
     );
   },
-  QM = function (t) {
+  eD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66657,7 +66907,7 @@ var CM = TM,
       ),
     );
   },
-  JM = function (t) {
+  tD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66689,7 +66939,7 @@ var CM = TM,
       ),
     );
   },
-  eD = function (t) {
+  nD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66731,7 +66981,7 @@ var CM = TM,
       ),
     );
   },
-  tD = function (t) {
+  aD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66773,7 +67023,7 @@ var CM = TM,
       ),
     );
   },
-  nD = function (t) {
+  rD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66827,7 +67077,7 @@ var CM = TM,
       ),
     );
   },
-  aD = function (t) {
+  oD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66868,7 +67118,7 @@ var CM = TM,
       ),
     );
   },
-  rD = function (t) {
+  iD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66922,7 +67172,7 @@ var CM = TM,
       ),
     );
   },
-  oD = function (t) {
+  sD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -66943,7 +67193,7 @@ var CM = TM,
       }),
     );
   },
-  iD = function (t) {
+  lD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67017,7 +67267,7 @@ var CM = TM,
       ),
     );
   },
-  sD = function (t) {
+  cD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67061,7 +67311,7 @@ var CM = TM,
       ),
     );
   },
-  lD = function (t) {
+  dD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67081,7 +67331,7 @@ var CM = TM,
       }),
     );
   },
-  cD = function (t) {
+  uD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67100,7 +67350,7 @@ var CM = TM,
       }),
     );
   },
-  dD = function (t) {
+  pD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67118,7 +67368,7 @@ var CM = TM,
       }),
     );
   },
-  uD = function (t) {
+  mD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67140,7 +67390,7 @@ var CM = TM,
       }),
     );
   },
-  pD = function (t) {
+  hD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67162,7 +67412,7 @@ var CM = TM,
       }),
     );
   },
-  mD = function (t) {
+  fD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67203,7 +67453,7 @@ var CM = TM,
       ),
     );
   },
-  hD = function (t) {
+  gD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67236,7 +67486,7 @@ var CM = TM,
       ),
     );
   },
-  fD = function (t) {
+  ED = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67269,7 +67519,7 @@ var CM = TM,
       ),
     );
   },
-  gD = function (t) {
+  bD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67303,7 +67553,7 @@ var CM = TM,
       ),
     );
   },
-  ED = function (t) {
+  vD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67341,7 +67591,7 @@ var CM = TM,
       ),
     );
   },
-  bD = function (t) {
+  TD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67374,7 +67624,7 @@ var CM = TM,
       ),
     );
   },
-  vD = function (t) {
+  yD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67418,7 +67668,7 @@ var CM = TM,
       ),
     );
   },
-  TD = function (t) {
+  _D = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67468,7 +67718,7 @@ var CM = TM,
       ),
     );
   },
-  yD = function (t) {
+  SD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67514,7 +67764,7 @@ var CM = TM,
       ),
     );
   },
-  _D = function (t) {
+  CD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67572,7 +67822,7 @@ var CM = TM,
       ),
     );
   },
-  SD = function (t) {
+  wD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67609,7 +67859,7 @@ var CM = TM,
       ),
     );
   },
-  CD = function (t) {
+  AD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67659,7 +67909,7 @@ var CM = TM,
       ),
     );
   },
-  wD = function (t) {
+  ND = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67685,7 +67935,7 @@ var CM = TM,
       }),
     );
   },
-  AD = function (t) {
+  RD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67718,7 +67968,7 @@ var CM = TM,
       ),
     );
   },
-  ND = function (t) {
+  ID = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67751,7 +68001,7 @@ var CM = TM,
       ),
     );
   },
-  RD = function (t) {
+  kD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67784,7 +68034,7 @@ var CM = TM,
       ),
     );
   },
-  ID = function (t) {
+  xD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67820,7 +68070,7 @@ var CM = TM,
       ),
     );
   },
-  kD = function (t) {
+  OD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67853,7 +68103,7 @@ var CM = TM,
       ),
     );
   },
-  xD = function (t) {
+  LD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67886,7 +68136,7 @@ var CM = TM,
       ),
     );
   },
-  OD = function (t) {
+  MD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67918,31 +68168,12 @@ var CM = TM,
       ),
     );
   },
-  LD = u.table(function (e) {
+  DD = u.table(function (e) {
     e.theme;
     var t = e.sx;
     return I(
       {
         display: "table",
-        width: "100%",
-        borderCollapse: "collapse",
-        borderSpacing: 0,
-      },
-      t,
-    );
-  }),
-  MD = function (e) {
-    var n = e.children,
-      a = e.sx,
-      r = k(e, ["children", "sx"]);
-    return t.createElement(LD, I({ sx: a }, r), n);
-  },
-  DD = u.tbody(function (e) {
-    e.theme;
-    var t = e.sx;
-    return I(
-      {
-        display: "table-row-group",
         width: "100%",
         borderCollapse: "collapse",
         borderSpacing: 0,
@@ -67956,7 +68187,26 @@ var CM = TM,
       r = k(e, ["children", "sx"]);
     return t.createElement(DD, I({ sx: a }, r), n);
   },
-  BD = u.td(function (e) {
+  BD = u.tbody(function (e) {
+    e.theme;
+    var t = e.sx;
+    return I(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  FD = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = k(e, ["children", "sx"]);
+    return t.createElement(BD, I({ sx: a }, r), n);
+  },
+  HD = u.td(function (e) {
     var t = e.theme,
       n = e.sx;
     return I(
@@ -67975,13 +68225,13 @@ var CM = TM,
       n,
     );
   }),
-  FD = function (e) {
+  zD = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(BD, I({ sx: a }, r), n);
+    return t.createElement(HD, I({ sx: a }, r), n);
   },
-  HD = u.thead(function (e) {
+  UD = u.thead(function (e) {
     e.theme;
     var t = e.sx;
     return I(
@@ -67994,13 +68244,13 @@ var CM = TM,
       t,
     );
   }),
-  zD = function (e) {
+  GD = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(HD, I({ sx: a }, r), n);
+    return t.createElement(UD, I({ sx: a }, r), n);
   },
-  UD = u.th(function (e) {
+  VD = u.th(function (e) {
     var t = e.theme,
       n = e.sx;
     return I(
@@ -68019,13 +68269,13 @@ var CM = TM,
       n,
     );
   }),
-  GD = function (e) {
+  ZD = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(UD, I({ sx: a }, r), n);
+    return t.createElement(VD, I({ sx: a }, r), n);
   },
-  VD = u.tr(function (e) {
+  $D = u.tr(function (e) {
     var t = e.theme,
       n = e.sx;
     return I(
@@ -68042,21 +68292,21 @@ var CM = TM,
       n,
     );
   }),
-  ZD = function (e) {
+  WD = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(VD, I({ sx: a }, r), n);
+    return t.createElement($D, I({ sx: a }, r), n);
   };
 export {
   as as AGPLV3DarkLogo,
   Ji as AGPLV3LightLogo,
   es as AGPLV3Logo,
-  eD as AccessMenuIcon,
+  nD as AccessMenuIcon,
   Is as AccessRuleIcon,
   pA as Accordion,
   jr as AccountIcon,
-  aD as AccountsMenuIcon,
+  oD as AccountsMenuIcon,
   qw as ActionLink,
   Mp as ActionsList,
   qr as AddAccessRuleIcon,
@@ -68076,7 +68326,7 @@ export {
   Hs as AttachFileIcon,
   Os as AudioIcon,
   Ls as AudioIconMute,
-  UM as AuditLogsMenuIcon,
+  VM as AuditLogsMenuIcon,
   nl as AutoModeIcon,
   fA as Autocomplete,
   Ei as AzureTierIcon,
@@ -68094,11 +68344,11 @@ export {
   Br as BucketQuotaIcon,
   ui as BucketReplicationIcon,
   ci as BucketsIcon,
-  iD as BucketsMenuIcon,
+  lD as BucketsMenuIcon,
   yn as Button,
   bi as CalendarIcon,
   vo as CallHomeFeatureIcon,
-  oD as CallHomeMenuIcon,
+  sD as CallHomeMenuIcon,
   Ps as CancelledAudioIcon,
   $i as CancelledIcon,
   ds as CertificateIcon,
@@ -68140,7 +68390,7 @@ export {
   Hi as DeleteNonCurrentIcon,
   Po as DiagnosticsFeatureIcon,
   oo as DiagnosticsIcon,
-  JM as DiagnosticsMenuIcon,
+  tD as DiagnosticsMenuIcon,
   Cs as DisableIcon,
   ar as DisabledIcon,
   Do as DocumentationIcon,
@@ -68148,7 +68398,7 @@ export {
   $o as DownloadStatIcon,
   Eo as DriveFormatErrorsIcon,
   Jr as DrivesIcon,
-  nD as DrivesMenuIcon,
+  rD as DrivesMenuIcon,
   Kp as DropdownSelector,
   pr as EditIcon,
   Wi as EditTagIcon,
@@ -68165,30 +68415,30 @@ export {
   il as ExpandLeftCaret,
   Bm as ExpandOptionsButton,
   ss as ExtraFeaturesIcon,
-  vD as FileBookIcon,
-  kD as FileCloudIcon,
-  yD as FileCodeIcon,
-  mD as FileConfigIcon,
-  SD as FileDbIcon,
-  fD as FileFontIcon,
-  ED as FileImageIcon,
-  gD as FileLinkIcon,
-  AD as FileLockIcon,
-  TD as FileMissingIcon,
-  xD as FileMusicIcon,
-  OD as FileNonType,
-  hD as FilePdfIcon,
-  _D as FilePptIcon,
+  yD as FileBookIcon,
+  OD as FileCloudIcon,
+  SD as FileCodeIcon,
+  fD as FileConfigIcon,
+  wD as FileDbIcon,
+  ED as FileFontIcon,
+  vD as FileImageIcon,
+  bD as FileLinkIcon,
+  RD as FileLockIcon,
+  _D as FileMissingIcon,
+  LD as FileMusicIcon,
+  MD as FileNonType,
+  gD as FilePdfIcon,
+  CD as FilePptIcon,
   aA as FileSelector,
-  CD as FileTxtIcon,
-  wD as FileVideoIcon,
-  bD as FileWorldIcon,
-  ND as FileXlsIcon,
-  RD as FileZipIcon,
+  AD as FileTxtIcon,
+  ND as FileVideoIcon,
+  TD as FileWorldIcon,
+  ID as FileXlsIcon,
+  kD as FileZipIcon,
   bs as FilterIcon,
   Vs as FindReplaceIcon,
   Zs as FirstAidIcon,
-  ID as FolderBrowserIcon,
+  xD as FolderBrowserIcon,
   vs as FolderIcon,
   Tp as FormLayout,
   ws as FormatDriveIcon,
@@ -68198,10 +68448,10 @@ export {
   _o as GoogleTierIconXs,
   Jn as Grid,
   Zo as GroupsIcon,
-  $M as GroupsMenuIcon,
+  jM as GroupsMenuIcon,
   yi as HardBucketQuotaIcon,
   Lr as HealIcon,
-  GM as HealthMenuIcon,
+  ZM as HealthMenuIcon,
   Ep as HelpBox,
   to as HelpIcon,
   dr as HelpIconFilled,
@@ -68209,16 +68459,16 @@ export {
   si as HistoryIcon,
   xo as IAMPoliciesIcon,
   Tl as IconButton,
-  pD as IdentitiesMenuIcon,
-  qM as IdentityMenuIcon,
+  hD as IdentitiesMenuIcon,
+  KM as IdentityMenuIcon,
   Yi as InfoIcon,
   SA as InformativeMessage,
   Rp as InputBox,
   hl as InputLabel,
-  zM as InspectMenuIcon,
+  GM as InspectMenuIcon,
   mr as JSONIcon,
   Ys as KeyIcon,
-  lD as KeysMenuIcon,
+  dD as KeysMenuIcon,
   rs as LDAPIcon,
   cr as LambdaBalloonIcon,
   Vo as LambdaIcon,
@@ -68239,18 +68489,18 @@ export {
   Oa as LoginWrapper,
   ri as LogoutIcon,
   Ti as LogsIcon,
-  YM as LogsMenuIcon,
+  XM as LogsMenuIcon,
   wp as MainContainer,
   Dm as Menu,
-  WM as MenuCollapsedIcon,
-  VM as MenuExpandedIcon,
+  qM as MenuCollapsedIcon,
+  $M as MenuExpandedIcon,
   Ii as MetadataIcon,
-  jM as MetricsMenuIcon,
+  YM as MetricsMenuIcon,
   so as MinIOTierIcon,
   _r as MinIOTierIconXs,
   wr as MirroringIcon,
   Up as ModalBox,
-  KM as MonitoringMenuIcon,
+  QM as MonitoringMenuIcon,
   po as MultipleBucketsIcon,
   Gi as NetworkGetIcon,
   Vi as NetworkPutIcon,
@@ -68277,12 +68527,12 @@ export {
   Bo as PasswordKeyIcon,
   js as PendingItemsIcon,
   Ro as PerformanceFeatureIcon,
-  QM as PerformanceMenuIcon,
+  eD as PerformanceMenuIcon,
   $r as PermissionIcon,
-  uD as PoliciesMenuIcon,
+  mD as PoliciesMenuIcon,
   Js as PrevCaretIcon,
   Pr as PreviewIcon,
-  rD as ProfileMenuIcon,
+  iD as ProfileMenuIcon,
   tA as ProgressBar,
   fo as PrometheusErrorIcon,
   Gr as PrometheusIcon,
@@ -68292,18 +68542,19 @@ export {
   hi as RecoverIcon,
   br as RedoIcon,
   sr as RefreshIcon,
-  tD as RegisterMenuIcon,
+  aD as RegisterMenuIcon,
   Zi as RemoveAllIcon,
   Ao as RemoveIcon,
   As as ReportIcon,
   no as ReportedUsageFullIcon,
   Ur as ReportedUsageIcon,
   xi as RetentionIcon,
+  UM as RoundedButton,
   Mr as S3TierIcon,
   ko as S3TierIconXs,
   Fp as ScreenTitle,
   hr as SearchIcon,
-  dD as SecretsMenuIcon,
+  pD as SecretsMenuIcon,
   vp as SectionTitle,
   Jp as Select,
   Bi as SelectAllIcon,
@@ -68322,18 +68573,18 @@ export {
   or as SpeedtestIcon,
   ns as StandardLightLogo,
   is as StarIcon,
-  cD as StatusMenuIcon,
+  uD as StatusMenuIcon,
   ir as StorageIcon,
   Ui as SuccessIcon,
-  XM as SupportMenuIcon,
+  JM as SupportMenuIcon,
   Wp as Switch,
   ai as SyncIcon,
-  MD as Table,
-  PD as TableBody,
-  FD as TableCell,
-  zD as TableHead,
-  GD as TableHeadCell,
-  ZD as TableRow,
+  PD as Table,
+  FD as TableBody,
+  zD as TableCell,
+  GD as TableHead,
+  ZD as TableHeadCell,
+  WD as TableRow,
   Gm as Tabs,
   Ww as Tag,
   Oi as TagsIcon,
@@ -68352,7 +68603,7 @@ export {
   tr as Tooltip,
   ii as TotalObjectsIcon,
   To as TraceIcon,
-  ZM as TraceMenuIcon,
+  WM as TraceMenuIcon,
   Fo as TrashIcon,
   ei as UploadFile,
   Wo as UploadFolderIcon,
@@ -68361,7 +68612,7 @@ export {
   Yr as UptimeIcon,
   gs as UserFilledIcon,
   Oo as UsersIcon,
-  sD as UsersMenuIcon,
+  cD as UsersMenuIcon,
   Kw as ValuePair,
   bo as VerifiedIcon,
   lr as VersionIcon,

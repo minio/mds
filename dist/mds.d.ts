@@ -1488,6 +1488,10 @@ declare const Link: FC<
   LinkProps & React__default.AnchorHTMLAttributes<HTMLAnchorElement>
 >;
 
+declare const RoundedButton: FC<
+  ButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React__default.JSX.Element;
@@ -3116,6 +3120,7 @@ export {
   ReportedUsageFullIcon,
   ReportedUsageIcon,
   RetentionIcon,
+  RoundedButton,
   S3TierIcon$1 as S3TierIcon,
   S3TierIcon as S3TierIconXs,
   ScreenTitle,
