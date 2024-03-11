@@ -250,6 +250,7 @@ interface CodeEditorThemeProps {
 }
 interface TagVariantProps {
   background: string;
+  outlineColor?: string;
   label: string;
   deleteColor: string;
 }
@@ -344,6 +345,9 @@ interface ThemeDefinitionProps {
     secondary?: ButtonThemeStatesProps;
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
+  };
+  roundedButtons?: {
+    regular?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
