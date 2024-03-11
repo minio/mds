@@ -425,6 +425,37 @@ var v = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
         },
       },
     },
+    roundedButtons: {
+      regular: {
+        enabled: {
+          border: w.modalBorderColor,
+          text: w.white,
+          background: "linear-gradient(180deg, #4B5563 0%, #4B5563 100%)",
+          iconColor: w.modalTitleColor,
+          shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
+        },
+        disabled: {
+          border: w.buttonDisabledBG,
+          text: w.buttonDisabledLabel,
+          background: w.buttonDisabledBG,
+          iconColor: w.buttonDisabledLabel,
+        },
+        hover: {
+          border: w.buttonDisabledLabel,
+          text: w.white,
+          background: "linear-gradient(180deg, #585f68 0%, #585f68 100%)",
+          iconColor: w.modalTitleColor,
+          shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
+        },
+        pressed: {
+          border: w.buttonDisabledLabel,
+          text: w.white,
+          background: "linear-gradient(180deg, #3A3D41 0%, #3A3D41 100%)",
+          iconColor: w.modalTitleColor,
+          shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
+        },
+      },
+    },
     login: {
       formBG: w.white,
       bgFilter: "none",
@@ -630,27 +661,41 @@ var v = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
       codeEditorRegexp: S.codeEditorRegexp,
     },
     tag: {
-      alert: { background: S.mainRed, label: S.white, deleteColor: S.white },
-      default: { background: S.mainBlue, label: S.white, deleteColor: S.white },
+      alert: {
+        background: "linear-gradient(180deg, #FF4E42 0%, #ED2315 100%)",
+        label: w.white,
+        deleteColor: w.white,
+        outlineColor: w.danger,
+      },
+      default: {
+        background: "linear-gradient(180deg, #4182F0 0%, #2B64E5 100%)",
+        label: w.white,
+        deleteColor: w.white,
+        outlineColor: w.switchBG,
+      },
       secondary: {
-        background: S.secondAction,
-        label: S.white,
-        deleteColor: S.white,
+        background: "linear-gradient(180deg, #4B5563 0%, #1D2125 100%)",
+        label: w.white,
+        deleteColor: w.white,
+        outlineColor: w.fontColor,
       },
       warn: {
-        background: S.mainOrange,
-        label: S.defaultFontColor,
-        deleteColor: S.defaultFontColor,
+        background: "linear-gradient(180deg, #fccb62 0%, #FDBC2E 100%)",
+        label: w.fontColor,
+        deleteColor: w.fontColor,
+        outlineColor: w.orange,
       },
       ok: {
-        background: S.mainGreen,
-        label: S.defaultFontColor,
-        deleteColor: S.defaultFontColor,
+        background: "linear-gradient(180deg, #48d6d6 0%, #15CBCE 100%)",
+        label: w.fontColor,
+        deleteColor: w.fontColor,
+        outlineColor: w.green,
       },
       grey: {
-        background: S.actionDisabledGrey,
-        label: S.defaultFontColor,
-        deleteColor: S.defaultFontColor,
+        background: w.modalBorderColor,
+        label: w.modalTitleColor,
+        deleteColor: w.modalTitleColor,
+        outlineColor: w.modalTitleColor,
       },
     },
     snackbar: {
@@ -23957,7 +24002,8 @@ var op = P(function (e, t, n) {
     var t = e.theme;
     return {
       border: "1px solid ".concat(dn(t, "borderColor", "#E2E2E2")),
-      borderRadius: 2,
+      boxShadow: dn(t, "box.shadow", "none"),
+      borderRadius: 12,
       backgroundColor: dn(t, "boxBackground", "#FBFAFA"),
       paddingLeft: 25,
       paddingTop: 20,
@@ -24026,7 +24072,6 @@ var op = P(function (e, t, n) {
             flexGrow: 1,
             justifyContent: "flex-start",
             alignItems: "center",
-            marginLeft: "10px",
             "& svg": { marginRight: "10px" },
             "& h3": { fontWeight: "normal", fontSize: 20 },
           },
@@ -42045,7 +42090,7 @@ function RT(e) {
     (e >= 13 && e <= 31) ||
     (e >= 127 && e <= 159) ||
     (e >= 64976 && e <= 65007) ||
-    65535 == (65535 & e) ||
+    !(65535 & ~e) ||
     65534 == (65535 & e)
   );
 }
@@ -57152,12 +57197,13 @@ var Fw,
         height: 24,
         color:
           "regular" === a
-            ? dn(t, "tag.".concat(n, ".label"), S.white)
-            : dn(t, "tag.".concat(n, ".background"), S.mainBlue),
-        backgroundColor:
+            ? dn(t, "tag.".concat(n, ".label"), w.white)
+            : dn(t, "tag.".concat(n, ".outlineColor"), w.switchBG),
+        background:
           "regular" === a
             ? dn(t, "tag.".concat(n, ".background"), S.mainBlue)
             : "transparent",
+        boxShadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
         borderRadius: r ? 3 : 16,
         whiteSpace: "nowrap",
         cursor: "default",
@@ -57167,7 +57213,7 @@ var Fw,
           "regular" === a
             ? 0
             : "".concat(
-                dn(t, "tag.".concat(n, ".background"), S.mainBlue),
+                dn(t, "tag.".concat(n, ".outlineColor"), S.mainBlue),
                 " 1px solid",
               ),
         padding: "0 10px",
@@ -57179,7 +57225,7 @@ var Fw,
           fill:
             "regular" === a
               ? dn(t, "tag.".concat(n, ".label"), S.white)
-              : dn(t, "tag.".concat(n, ".background"), S.mainBlue),
+              : dn(t, "tag.".concat(n, ".outlineColor"), w.switchBG),
         },
         "& .deleteTagButton": {
           backgroundColor: "transparent",

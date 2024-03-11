@@ -237,6 +237,7 @@ export interface CodeEditorThemeProps {
 }
 export interface TagVariantProps {
   background: string;
+  outlineColor?: string;
   label: string;
   deleteColor: string;
 }
@@ -331,6 +332,9 @@ export interface ThemeDefinitionProps {
     secondary?: ButtonThemeStatesProps;
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
+  };
+  roundedButtons?: {
+    regular?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;

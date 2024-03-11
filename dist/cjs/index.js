@@ -443,6 +443,37 @@ var o = a(e),
         },
       },
     },
+    roundedButtons: {
+      regular: {
+        enabled: {
+          border: f.modalBorderColor,
+          text: f.white,
+          background: "linear-gradient(180deg, #4B5563 0%, #4B5563 100%)",
+          iconColor: f.modalTitleColor,
+          shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
+        },
+        disabled: {
+          border: f.buttonDisabledBG,
+          text: f.buttonDisabledLabel,
+          background: f.buttonDisabledBG,
+          iconColor: f.buttonDisabledLabel,
+        },
+        hover: {
+          border: f.buttonDisabledLabel,
+          text: f.white,
+          background: "linear-gradient(180deg, #585f68 0%, #585f68 100%)",
+          iconColor: f.modalTitleColor,
+          shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
+        },
+        pressed: {
+          border: f.buttonDisabledLabel,
+          text: f.white,
+          background: "linear-gradient(180deg, #3A3D41 0%, #3A3D41 100%)",
+          iconColor: f.modalTitleColor,
+          shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
+        },
+      },
+    },
     login: {
       formBG: f.white,
       bgFilter: "none",
@@ -648,27 +679,41 @@ var o = a(e),
       codeEditorRegexp: m.codeEditorRegexp,
     },
     tag: {
-      alert: { background: m.mainRed, label: m.white, deleteColor: m.white },
-      default: { background: m.mainBlue, label: m.white, deleteColor: m.white },
+      alert: {
+        background: "linear-gradient(180deg, #FF4E42 0%, #ED2315 100%)",
+        label: f.white,
+        deleteColor: f.white,
+        outlineColor: f.danger,
+      },
+      default: {
+        background: "linear-gradient(180deg, #4182F0 0%, #2B64E5 100%)",
+        label: f.white,
+        deleteColor: f.white,
+        outlineColor: f.switchBG,
+      },
       secondary: {
-        background: m.secondAction,
-        label: m.white,
-        deleteColor: m.white,
+        background: "linear-gradient(180deg, #4B5563 0%, #1D2125 100%)",
+        label: f.white,
+        deleteColor: f.white,
+        outlineColor: f.fontColor,
       },
       warn: {
-        background: m.mainOrange,
-        label: m.defaultFontColor,
-        deleteColor: m.defaultFontColor,
+        background: "linear-gradient(180deg, #fccb62 0%, #FDBC2E 100%)",
+        label: f.fontColor,
+        deleteColor: f.fontColor,
+        outlineColor: f.orange,
       },
       ok: {
-        background: m.mainGreen,
-        label: m.defaultFontColor,
-        deleteColor: m.defaultFontColor,
+        background: "linear-gradient(180deg, #48d6d6 0%, #15CBCE 100%)",
+        label: f.fontColor,
+        deleteColor: f.fontColor,
+        outlineColor: f.green,
       },
       grey: {
-        background: m.actionDisabledGrey,
-        label: m.defaultFontColor,
-        deleteColor: m.defaultFontColor,
+        background: f.modalBorderColor,
+        label: f.modalTitleColor,
+        deleteColor: f.modalTitleColor,
+        outlineColor: f.modalTitleColor,
       },
     },
     snackbar: {
@@ -15696,7 +15741,8 @@ var Ts = w(function (e, t, n) {
     var t = e.theme;
     return {
       border: "1px solid ".concat(Qt(t, "borderColor", "#E2E2E2")),
-      borderRadius: 2,
+      boxShadow: Qt(t, "box.shadow", "none"),
+      borderRadius: 12,
       backgroundColor: Qt(t, "boxBackground", "#FBFAFA"),
       paddingLeft: 25,
       paddingTop: 20,
@@ -15744,7 +15790,6 @@ var Ts = w(function (e, t, n) {
             flexGrow: 1,
             justifyContent: "flex-start",
             alignItems: "center",
-            marginLeft: "10px",
             "& svg": { marginRight: "10px" },
             "& h3": { fontWeight: "normal", fontSize: 20 },
           },
@@ -32886,7 +32931,7 @@ function Sg(e) {
     (e >= 13 && e <= 31) ||
     (e >= 127 && e <= 159) ||
     (e >= 64976 && e <= 65007) ||
-    65535 == (65535 & e) ||
+    !(65535 & ~e) ||
     65534 == (65535 & e)
   );
 }
@@ -47938,12 +47983,13 @@ var Ly,
         height: 24,
         color:
           "regular" === a
-            ? Qt(t, "tag.".concat(n, ".label"), m.white)
-            : Qt(t, "tag.".concat(n, ".background"), m.mainBlue),
-        backgroundColor:
+            ? Qt(t, "tag.".concat(n, ".label"), f.white)
+            : Qt(t, "tag.".concat(n, ".outlineColor"), f.switchBG),
+        background:
           "regular" === a
             ? Qt(t, "tag.".concat(n, ".background"), m.mainBlue)
             : "transparent",
+        boxShadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
         borderRadius: r ? 3 : 16,
         whiteSpace: "nowrap",
         cursor: "default",
@@ -47953,7 +47999,7 @@ var Ly,
           "regular" === a
             ? 0
             : "".concat(
-                Qt(t, "tag.".concat(n, ".background"), m.mainBlue),
+                Qt(t, "tag.".concat(n, ".outlineColor"), m.mainBlue),
                 " 1px solid",
               ),
         padding: "0 10px",
@@ -47965,7 +48011,7 @@ var Ly,
           fill:
             "regular" === a
               ? Qt(t, "tag.".concat(n, ".label"), m.white)
-              : Qt(t, "tag.".concat(n, ".background"), m.mainBlue),
+              : Qt(t, "tag.".concat(n, ".outlineColor"), f.switchBG),
         },
         "& .deleteTagButton": {
           backgroundColor: "transparent",
