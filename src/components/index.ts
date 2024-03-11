@@ -72,6 +72,7 @@ export { default as InformativeMessage } from "./InformativeMessage/InformativeM
 export { default as DateTimeInput } from "./DateTimeInput/DateTimeInput";
 export { default as DateTimeSelector } from "./DateTimeInput/DateTimeSelector";
 export { default as Link } from "./Link/Link";
+export { default as RoundedButton } from "./RoundedButton/RoundedButton";
 
 /*Icons*/
 export * from "./Icons";
