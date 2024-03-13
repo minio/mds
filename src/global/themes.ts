@@ -234,6 +234,7 @@ export const lightTheme: ThemeDefinitionProps = {
   logoLabelInverse: lightColors.logoLabelInverse,
   loaderColor: lightColors.loaderColor,
   linkColor: lightV2.linkColor,
+  secondaryLinkColor: lightV2.modalCloseColor,
   boxBackground: lightColors.boxBackground,
   mutedText: lightV2.mutedText,
   secondaryText: lightColors.mainGrey,
