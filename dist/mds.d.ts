@@ -334,6 +334,7 @@ interface ThemeDefinitionProps {
   logoLabelInverse: string;
   loaderColor: string;
   linkColor?: string;
+  secondaryLinkColor?: string;
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
