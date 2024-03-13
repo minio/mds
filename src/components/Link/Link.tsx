@@ -17,7 +17,7 @@
 import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { lightColors } from "../../global/themes";
+import { lightColors, lightV2 } from "../../global/themes";
 import { LinkProps } from "./Link.types";
 
 const LinkBase = styled.a<LinkProps>(({ theme, sx }) => ({
@@ -36,6 +36,15 @@ const LinkBase = styled.a<LinkProps>(({ theme, sx }) => ({
   "&:hover": {
     textDecoration: "underline",
     color: get(theme, "linkColor", lightColors.linkColor),
+  },
+  "&.dark": {
+    color: get(theme, "secondaryLinkColor", lightV2.modalCloseColor),
+    "&:visited": {
+      color: get(theme, "secondaryLinkColor", lightV2.modalCloseColor),
+    },
+    "&:hover": {
+      color: get(theme, "secondaryLinkColor", lightV2.modalCloseColor),
+    },
   },
   ...sx,
 }));

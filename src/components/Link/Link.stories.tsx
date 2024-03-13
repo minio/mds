@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import Link from "./Link";
@@ -38,6 +37,7 @@ const Template: Story<LinkProps> = (args) => (
         Link
       </Link>
       , to point to another page.
+      <Link className={"dark"}>This is a Dark Link</Link>
     </span>
   </StoryThemeProvider>
 );
