@@ -67070,7 +67070,214 @@ var ZM = zM,
       )
     );
   },
-  sD = function (t) {
+  sD = u.input(function (e) {
+    var t = e.theme,
+      n = {
+        "-webkit-appearance": "none",
+        appearance: "none",
+        backgroundColor: dn(t, "slider.bulletBG", S.bulletColor),
+        height: 15,
+        width: 15,
+        borderRadius: "100%",
+      };
+    return {
+      '&[type="range"]': {
+        width: "100%",
+        height: 6,
+        zIndex: 100,
+        margin: 0,
+        "-webkit-appearance": "none",
+        appearance: "none",
+        background: "transparent",
+        cursor: "pointer",
+        "&:focus": { outline: "none" },
+        "&::-webkit-slider-thumb": I({}, n),
+        "&::-moz-range-thumb": I(I({}, n), { border: "none" }),
+      },
+      '&[type="range"]:disabled': {
+        cursor: "not-allowed",
+        "&::-webkit-slider-thumb": {
+          backgroundColor: dn(t, "slider.disabledBullet", S.disabledGrey),
+        },
+        "&::-moz-range-thumb": {
+          backgroundColor: dn(t, "slider.disabledBullet", S.disabledGrey),
+        },
+      },
+    };
+  }),
+  cD = u.div(function (e) {
+    var t = e.theme,
+      n = e.error,
+      a = e.sx;
+    return I(
+      {
+        display: "flex",
+        alignItems: "center",
+        flexGrow: 1,
+        width: "100%",
+        "& .errorText": {
+          fontSize: 12,
+          color: dn(t, "inputBox.error", "#C51B3F"),
+          marginTop: 3,
+        },
+        "& .textBoxContainer": {
+          width: "100%",
+          flexGrow: 1,
+          position: "relative",
+          minWidth: 160,
+        },
+        "& .tooltipContainer": {
+          marginLeft: 5,
+          display: "flex",
+          alignItems: "center",
+          "& .min-icon": { width: 13 },
+        },
+        "& .inputLabel": { marginBottom: n ? 18 : 0 },
+        "& .displayValue": { fontSize: 12, fontWeight: "bold" },
+      },
+      a,
+    );
+  }),
+  dD = u.div(function (e) {
+    var t = e.theme;
+    return {
+      position: "absolute",
+      width: "100%",
+      height: 6,
+      top: "50%",
+      transform: "translateY(-50%)",
+      backgroundColor: dn(t, "slider.railBG", S.borderColor),
+      borderRadius: 15,
+      display: "flex",
+      alignItems: "center",
+      zIndex: 90,
+      "&.disabled": {
+        backgroundColor: dn(t, "slider.disabledRail", S.disabledBGGrey),
+      },
+    };
+  }),
+  uD = function (e) {
+    var n = e.id,
+      a = e.tooltip,
+      r = void 0 === a ? "" : a,
+      o = e.noLabelMinWidth,
+      i = e.label,
+      l = void 0 === i ? "" : i,
+      s = e.required,
+      c = e.className,
+      d = e.error,
+      u = e.sx,
+      p = e.helpTip,
+      m = e.helpTipPlacement,
+      h = e.min,
+      f = void 0 === h ? 0 : h,
+      g = e.max,
+      E = void 0 === g ? 100 : g;
+    e.type;
+    var b = e.value,
+      v = e.displayValue,
+      T = e.displayValueFunction,
+      y = e.step,
+      _ = void 0 === y ? 1 : y,
+      S = e.disabled,
+      C = void 0 !== S && S,
+      w = x(e, [
+        "id",
+        "tooltip",
+        "noLabelMinWidth",
+        "label",
+        "required",
+        "className",
+        "error",
+        "sx",
+        "helpTip",
+        "helpTipPlacement",
+        "min",
+        "max",
+        "type",
+        "value",
+        "displayValue",
+        "displayValueFunction",
+        "step",
+        "disabled",
+      ]);
+    return t.createElement(
+      cD,
+      { error: !!d && "" !== d, sx: u, className: "slider ".concat(c) },
+      "" !== l &&
+        t.createElement(
+          Ms,
+          {
+            htmlFor: n,
+            noMinWidth: o,
+            className: "inputLabel",
+            helpTip: p,
+            helpTipPlacement: m,
+          },
+          l,
+          s ? "*" : "",
+          "" !== r &&
+            t.createElement(
+              Ra,
+              { className: "tooltipContainer" },
+              t.createElement(
+                tr,
+                { tooltip: r, placement: "top" },
+                t.createElement(
+                  Ra,
+                  { className: r },
+                  t.createElement(to, null),
+                ),
+              ),
+            ),
+        ),
+      t.createElement(
+        Ra,
+        { className: "textBoxContainer" },
+        t.createElement(
+          Ra,
+          { sx: { display: "flex", alignItems: "center", gap: 8 } },
+          t.createElement(
+            Ra,
+            {
+              sx: {
+                flexGrow: 1,
+                position: "relative",
+                height: 6,
+                display: "flex",
+                alignItems: "flex-start",
+              },
+            },
+            t.createElement(
+              sD,
+              I(
+                {
+                  id: n,
+                  type: "range",
+                  className: "rangeSelector",
+                  min: f,
+                  max: E,
+                  step: _,
+                  disabled: C,
+                },
+                w,
+              ),
+            ),
+            t.createElement(dD, { className: "".concat(C ? "disabled" : "") }),
+          ),
+          v
+            ? t.createElement(
+                "span",
+                { className: "displayValue" },
+                T ? T(b || 0) : b,
+              )
+            : null,
+        ),
+        "" !== d && t.createElement(Ra, { className: "errorText" }, d),
+      ),
+    );
+  },
+  pD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67089,7 +67296,7 @@ var ZM = zM,
       }),
     );
   },
-  cD = function (t) {
+  mD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67143,7 +67350,7 @@ var ZM = zM,
       ),
     );
   },
-  dD = function (t) {
+  hD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67167,7 +67374,7 @@ var ZM = zM,
       ),
     );
   },
-  uD = function (t) {
+  fD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67215,7 +67422,7 @@ var ZM = zM,
       ),
     );
   },
-  pD = function (t) {
+  gD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67246,7 +67453,7 @@ var ZM = zM,
       ),
     );
   },
-  mD = function (t) {
+  ED = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67318,7 +67525,7 @@ var ZM = zM,
       ),
     );
   },
-  hD = function (t) {
+  bD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67375,7 +67582,7 @@ var ZM = zM,
       ),
     );
   },
-  fD = function (t) {
+  vD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67423,7 +67630,7 @@ var ZM = zM,
       ),
     );
   },
-  gD = function (t) {
+  TD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67445,7 +67652,7 @@ var ZM = zM,
       }),
     );
   },
-  ED = function (t) {
+  yD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67499,7 +67706,7 @@ var ZM = zM,
       ),
     );
   },
-  bD = function (t) {
+  _D = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67546,7 +67753,7 @@ var ZM = zM,
       ),
     );
   },
-  vD = function (t) {
+  SD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67594,7 +67801,7 @@ var ZM = zM,
       ),
     );
   },
-  TD = function (t) {
+  CD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67641,7 +67848,7 @@ var ZM = zM,
       ),
     );
   },
-  yD = function (t) {
+  wD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67673,7 +67880,7 @@ var ZM = zM,
       ),
     );
   },
-  _D = function (t) {
+  AD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67715,7 +67922,7 @@ var ZM = zM,
       ),
     );
   },
-  SD = function (t) {
+  ND = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67757,7 +67964,7 @@ var ZM = zM,
       ),
     );
   },
-  CD = function (t) {
+  RD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67811,7 +68018,7 @@ var ZM = zM,
       ),
     );
   },
-  wD = function (t) {
+  ID = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67852,7 +68059,7 @@ var ZM = zM,
       ),
     );
   },
-  AD = function (t) {
+  xD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67906,7 +68113,7 @@ var ZM = zM,
       ),
     );
   },
-  ND = function (t) {
+  kD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -67927,7 +68134,7 @@ var ZM = zM,
       }),
     );
   },
-  RD = function (t) {
+  OD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68001,7 +68208,7 @@ var ZM = zM,
       ),
     );
   },
-  ID = function (t) {
+  LD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68045,7 +68252,7 @@ var ZM = zM,
       ),
     );
   },
-  xD = function (t) {
+  MD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68065,7 +68272,7 @@ var ZM = zM,
       }),
     );
   },
-  kD = function (t) {
+  DD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68084,7 +68291,7 @@ var ZM = zM,
       }),
     );
   },
-  OD = function (t) {
+  PD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68102,7 +68309,7 @@ var ZM = zM,
       }),
     );
   },
-  LD = function (t) {
+  BD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68124,7 +68331,7 @@ var ZM = zM,
       }),
     );
   },
-  MD = function (t) {
+  FD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68146,7 +68353,7 @@ var ZM = zM,
       }),
     );
   },
-  DD = function (t) {
+  HD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68187,7 +68394,7 @@ var ZM = zM,
       ),
     );
   },
-  PD = function (t) {
+  zD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68220,7 +68427,7 @@ var ZM = zM,
       ),
     );
   },
-  BD = function (t) {
+  UD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68253,7 +68460,7 @@ var ZM = zM,
       ),
     );
   },
-  FD = function (t) {
+  GD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68287,7 +68494,7 @@ var ZM = zM,
       ),
     );
   },
-  HD = function (t) {
+  VD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68325,7 +68532,7 @@ var ZM = zM,
       ),
     );
   },
-  zD = function (t) {
+  ZD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68358,7 +68565,7 @@ var ZM = zM,
       ),
     );
   },
-  UD = function (t) {
+  $D = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68402,7 +68609,7 @@ var ZM = zM,
       ),
     );
   },
-  GD = function (t) {
+  WD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68452,7 +68659,7 @@ var ZM = zM,
       ),
     );
   },
-  VD = function (t) {
+  jD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68498,7 +68705,7 @@ var ZM = zM,
       ),
     );
   },
-  ZD = function (t) {
+  qD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68556,7 +68763,7 @@ var ZM = zM,
       ),
     );
   },
-  $D = function (t) {
+  YD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68593,7 +68800,7 @@ var ZM = zM,
       ),
     );
   },
-  WD = function (t) {
+  KD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68643,7 +68850,7 @@ var ZM = zM,
       ),
     );
   },
-  jD = function (t) {
+  XD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68669,7 +68876,7 @@ var ZM = zM,
       }),
     );
   },
-  qD = function (t) {
+  QD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68702,7 +68909,7 @@ var ZM = zM,
       ),
     );
   },
-  YD = function (t) {
+  JD = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68735,7 +68942,7 @@ var ZM = zM,
       ),
     );
   },
-  KD = function (t) {
+  eP = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68768,7 +68975,7 @@ var ZM = zM,
       ),
     );
   },
-  XD = function (t) {
+  tP = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68804,7 +69011,7 @@ var ZM = zM,
       ),
     );
   },
-  QD = function (t) {
+  nP = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68837,7 +69044,7 @@ var ZM = zM,
       ),
     );
   },
-  JD = function (t) {
+  aP = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68870,7 +69077,7 @@ var ZM = zM,
       ),
     );
   },
-  eP = function (t) {
+  rP = function (t) {
     return e.createElement(
       "svg",
       I(
@@ -68902,7 +69109,7 @@ var ZM = zM,
       ),
     );
   },
-  tP = u.table(function (e) {
+  oP = u.table(function (e) {
     e.theme;
     var t = e.sx;
     return I(
@@ -68915,57 +69122,13 @@ var ZM = zM,
       t,
     );
   }),
-  nP = function (e) {
-    var n = e.children,
-      a = e.sx,
-      r = x(e, ["children", "sx"]);
-    return t.createElement(tP, I({ sx: a }, r), n);
-  },
-  aP = u.tbody(function (e) {
-    e.theme;
-    var t = e.sx;
-    return I(
-      {
-        display: "table-row-group",
-        width: "100%",
-        borderCollapse: "collapse",
-        borderSpacing: 0,
-      },
-      t,
-    );
-  }),
-  rP = function (e) {
-    var n = e.children,
-      a = e.sx,
-      r = x(e, ["children", "sx"]);
-    return t.createElement(aP, I({ sx: a }, r), n);
-  },
-  oP = u.td(function (e) {
-    var t = e.theme,
-      n = e.sx;
-    return I(
-      {
-        fontFamily: "'Geist',sans-serif",
-        fontWeight: 400,
-        fontSize: 12,
-        lineHeight: 1.43,
-        display: "table-cell",
-        verticalAlign: "inherit",
-        borderBottom: "1px solid ".concat(dn(t, "borderColor", S.borderColor)),
-        textAlign: "left",
-        padding: 16,
-        color: dn(t, "secondaryText", S.mainGrey),
-      },
-      n,
-    );
-  }),
   iP = function (e) {
     var n = e.children,
       a = e.sx,
       r = x(e, ["children", "sx"]);
     return t.createElement(oP, I({ sx: a }, r), n);
   },
-  lP = u.thead(function (e) {
+  lP = u.tbody(function (e) {
     e.theme;
     var t = e.sx;
     return I(
@@ -68984,7 +69147,51 @@ var ZM = zM,
       r = x(e, ["children", "sx"]);
     return t.createElement(lP, I({ sx: a }, r), n);
   },
-  cP = u.th(function (e) {
+  cP = u.td(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return I(
+      {
+        fontFamily: "'Geist',sans-serif",
+        fontWeight: 400,
+        fontSize: 12,
+        lineHeight: 1.43,
+        display: "table-cell",
+        verticalAlign: "inherit",
+        borderBottom: "1px solid ".concat(dn(t, "borderColor", S.borderColor)),
+        textAlign: "left",
+        padding: 16,
+        color: dn(t, "secondaryText", S.mainGrey),
+      },
+      n,
+    );
+  }),
+  dP = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = x(e, ["children", "sx"]);
+    return t.createElement(cP, I({ sx: a }, r), n);
+  },
+  uP = u.thead(function (e) {
+    e.theme;
+    var t = e.sx;
+    return I(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  pP = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = x(e, ["children", "sx"]);
+    return t.createElement(uP, I({ sx: a }, r), n);
+  },
+  mP = u.th(function (e) {
     var t = e.theme,
       n = e.sx;
     return I(
@@ -69003,13 +69210,13 @@ var ZM = zM,
       n,
     );
   }),
-  dP = function (e) {
+  hP = function (e) {
     var n = e.children,
       a = e.sx,
       r = x(e, ["children", "sx"]);
-    return t.createElement(cP, I({ sx: a }, r), n);
+    return t.createElement(mP, I({ sx: a }, r), n);
   },
-  uP = u.tr(function (e) {
+  fP = u.tr(function (e) {
     var t = e.theme,
       n = e.sx;
     return I(
@@ -69026,21 +69233,21 @@ var ZM = zM,
       n,
     );
   }),
-  pP = function (e) {
+  gP = function (e) {
     var n = e.children,
       a = e.sx,
       r = x(e, ["children", "sx"]);
-    return t.createElement(uP, I({ sx: a }, r), n);
+    return t.createElement(fP, I({ sx: a }, r), n);
   };
 export {
   al as AGPLV3DarkLogo,
   Ji as AGPLV3LightLogo,
   el as AGPLV3Logo,
-  _D as AccessMenuIcon,
+  AD as AccessMenuIcon,
   Il as AccessRuleIcon,
   OA as Accordion,
   jr as AccountIcon,
-  wD as AccountsMenuIcon,
+  ID as AccountsMenuIcon,
   hA as ActionLink,
   em as ActionsList,
   qr as AddAccessRuleIcon,
@@ -69060,7 +69267,7 @@ export {
   Hl as AttachFileIcon,
   Ol as AudioIcon,
   Ll as AudioIconMute,
-  cD as AuditLogsMenuIcon,
+  mD as AuditLogsMenuIcon,
   ns as AutoModeIcon,
   DA as Autocomplete,
   Ei as AzureTierIcon,
@@ -69078,12 +69285,12 @@ export {
   Br as BucketQuotaIcon,
   ui as BucketReplicationIcon,
   ci as BucketsIcon,
-  RD as BucketsMenuIcon,
+  OD as BucketsMenuIcon,
   yn as Button,
   ls as CacheIcon,
   bi as CalendarIcon,
   vo as CallHomeFeatureIcon,
-  ND as CallHomeMenuIcon,
+  kD as CallHomeMenuIcon,
   Pl as CancelledAudioIcon,
   $i as CancelledIcon,
   cs as CatalogIcon,
@@ -69129,7 +69336,7 @@ export {
   Hi as DeleteNonCurrentIcon,
   Po as DiagnosticsFeatureIcon,
   oo as DiagnosticsIcon,
-  yD as DiagnosticsMenuIcon,
+  wD as DiagnosticsMenuIcon,
   Cl as DisableIcon,
   ar as DisabledIcon,
   Do as DocumentationIcon,
@@ -69137,7 +69344,7 @@ export {
   $o as DownloadStatIcon,
   Eo as DriveFormatErrorsIcon,
   Jr as DrivesIcon,
-  CD as DrivesMenuIcon,
+  RD as DrivesMenuIcon,
   gm as DropdownSelector,
   pr as EditIcon,
   Wi as EditTagIcon,
@@ -69155,31 +69362,31 @@ export {
   is as ExpandLeftCaret,
   ah as ExpandOptionsButton,
   ll as ExtraFeaturesIcon,
-  UD as FileBookIcon,
-  QD as FileCloudIcon,
-  VD as FileCodeIcon,
-  DD as FileConfigIcon,
-  $D as FileDbIcon,
-  BD as FileFontIcon,
-  HD as FileImageIcon,
-  FD as FileLinkIcon,
-  qD as FileLockIcon,
-  GD as FileMissingIcon,
-  JD as FileMusicIcon,
-  eP as FileNonType,
-  PD as FilePdfIcon,
-  ZD as FilePptIcon,
+  $D as FileBookIcon,
+  nP as FileCloudIcon,
+  jD as FileCodeIcon,
+  HD as FileConfigIcon,
+  YD as FileDbIcon,
+  UD as FileFontIcon,
+  VD as FileImageIcon,
+  GD as FileLinkIcon,
+  QD as FileLockIcon,
+  WD as FileMissingIcon,
+  aP as FileMusicIcon,
+  rP as FileNonType,
+  zD as FilePdfIcon,
+  qD as FilePptIcon,
   SA as FileSelector,
-  WD as FileTxtIcon,
-  jD as FileVideoIcon,
-  zD as FileWorldIcon,
-  YD as FileXlsIcon,
-  KD as FileZipIcon,
+  KD as FileTxtIcon,
+  XD as FileVideoIcon,
+  ZD as FileWorldIcon,
+  JD as FileXlsIcon,
+  eP as FileZipIcon,
   bl as FilterIcon,
   Vl as FindReplaceIcon,
   ms as FirewallIcon,
   Zl as FirstAidIcon,
-  XD as FolderBrowserIcon,
+  tP as FolderBrowserIcon,
   vl as FolderIcon,
   zp as FormLayout,
   wl as FormatDriveIcon,
@@ -69189,10 +69396,10 @@ export {
   _o as GoogleTierIconXs,
   Jn as Grid,
   Zo as GroupsIcon,
-  mD as GroupsMenuIcon,
+  ED as GroupsMenuIcon,
   yi as HardBucketQuotaIcon,
   Lr as HealIcon,
-  dD as HealthMenuIcon,
+  hD as HealthMenuIcon,
   Bp as HelpBox,
   to as HelpIcon,
   dr as HelpIconFilled,
@@ -69200,19 +69407,19 @@ export {
   li as HistoryIcon,
   ko as IAMPoliciesIcon,
   zs as IconButton,
-  MD as IdentitiesMenuIcon,
-  gD as IdentityMenuIcon,
+  FD as IdentitiesMenuIcon,
+  TD as IdentityMenuIcon,
   hs as ImagesIcon,
   Yi as InfoIcon,
   VA as InformativeMessage,
   fs as IngestIcon,
   qp as InputBox,
   Ms as InputLabel,
-  sD as InspectMenuIcon,
+  pD as InspectMenuIcon,
   mr as JSONIcon,
   Yl as KeyIcon,
   gs as KeyManagementIcon,
-  xD as KeysMenuIcon,
+  MD as KeysMenuIcon,
   rl as LDAPIcon,
   cr as LambdaBalloonIcon,
   Vo as LambdaIcon,
@@ -69233,18 +69440,18 @@ export {
   Oa as LoginWrapper,
   ri as LogoutIcon,
   Ti as LogsIcon,
-  ED as LogsMenuIcon,
+  yD as LogsMenuIcon,
   $p as MainContainer,
   th as Menu,
-  hD as MenuCollapsedIcon,
-  uD as MenuExpandedIcon,
+  bD as MenuCollapsedIcon,
+  fD as MenuExpandedIcon,
   Ii as MetadataIcon,
-  fD as MetricsMenuIcon,
+  vD as MetricsMenuIcon,
   lo as MinIOTierIcon,
   _r as MinIOTierIconXs,
   wr as MirroringIcon,
   lm as ModalBox,
-  bD as MonitoringMenuIcon,
+  _D as MonitoringMenuIcon,
   po as MultipleBucketsIcon,
   Gi as NetworkGetIcon,
   Vi as NetworkPutIcon,
@@ -69275,14 +69482,14 @@ export {
   Bo as PasswordKeyIcon,
   jl as PendingItemsIcon,
   Ro as PerformanceFeatureIcon,
-  TD as PerformanceMenuIcon,
+  CD as PerformanceMenuIcon,
   $r as PermissionIcon,
   ys as PodPlacementIcon,
   _s as PoliciesIcon,
-  LD as PoliciesMenuIcon,
+  BD as PoliciesMenuIcon,
   Jl as PrevCaretIcon,
   Pr as PreviewIcon,
-  AD as ProfileMenuIcon,
+  xD as ProfileMenuIcon,
   yA as ProgressBar,
   fo as PrometheusErrorIcon,
   Gr as PrometheusIcon,
@@ -69293,7 +69500,7 @@ export {
   hi as RecoverIcon,
   br as RedoIcon,
   lr as RefreshIcon,
-  SD as RegisterMenuIcon,
+  ND as RegisterMenuIcon,
   Zi as RemoveAllIcon,
   Ao as RemoveIcon,
   Al as ReportIcon,
@@ -69306,7 +69513,7 @@ export {
   xo as S3TierIconXs,
   rm as ScreenTitle,
   hr as SearchIcon,
-  OD as SecretsMenuIcon,
+  PD as SecretsMenuIcon,
   Hp as SectionTitle,
   vm as Select,
   Bi as SelectAllIcon,
@@ -69322,23 +69529,24 @@ export {
   as as ShuffleIcon,
   nm as SimpleHeader,
   wA as SizeChart,
+  uD as Slider,
   RA as Snackbar,
   or as SpeedtestIcon,
   nl as StandardLightLogo,
   il as StarIcon,
-  kD as StatusMenuIcon,
+  DD as StatusMenuIcon,
   ir as StorageIcon,
   Ui as SuccessIcon,
-  vD as SupportMenuIcon,
+  SD as SupportMenuIcon,
   pm as Switch,
   ai as SyncIcon,
   As as SystemIcon,
-  nP as Table,
-  rP as TableBody,
-  iP as TableCell,
-  sP as TableHead,
-  dP as TableHeadCell,
-  pP as TableRow,
+  iP as Table,
+  sP as TableBody,
+  dP as TableCell,
+  pP as TableHead,
+  hP as TableHeadCell,
+  gP as TableRow,
   sh as Tabs,
   pA as Tag,
   Oi as TagsIcon,
@@ -69357,7 +69565,7 @@ export {
   tr as Tooltip,
   ii as TotalObjectsIcon,
   To as TraceIcon,
-  pD as TraceMenuIcon,
+  gD as TraceMenuIcon,
   Fo as TrashIcon,
   ei as UploadFile,
   Wo as UploadFolderIcon,
@@ -69366,7 +69574,7 @@ export {
   Yr as UptimeIcon,
   gl as UserFilledIcon,
   Oo as UsersIcon,
-  ID as UsersMenuIcon,
+  LD as UsersMenuIcon,
   gA as ValuePair,
   bo as VerifiedIcon,
   sr as VersionIcon,
