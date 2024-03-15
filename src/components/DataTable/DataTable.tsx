@@ -108,7 +108,6 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       "&:hover:not(.ReactVirtualized__Table__headerRow)": {
         userSelect: "none",
         backgroundColor: get(theme, "dataTable.hoverColor", "#ececec"),
-        fontWeight: 600,
         "&.canClick": {
           cursor: "pointer",
         },
