@@ -348,7 +348,7 @@ export interface WizardColorProps {
   modal: WizardStepColorProps;
 }
 
-export interface SliderProps {
+export interface SliderColorProps {
   railBG: string;
   bulletBG: string;
   disabledRail: string;
@@ -417,7 +417,7 @@ export interface ThemeDefinitionProps {
   informativeMessage?: InformativeMessageThemeProps;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
-  slider?: SliderProps;
+  slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
 }
 

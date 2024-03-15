@@ -73,6 +73,7 @@ export { default as DateTimeInput } from "./DateTimeInput/DateTimeInput";
 export { default as DateTimeSelector } from "./DateTimeInput/DateTimeSelector";
 export { default as Link } from "./Link/Link";
 export { default as RoundedButton } from "./RoundedButton/RoundedButton";
+export { default as Slider } from "./Slider/Slider";
 
 /*Icons*/
 export * from "./Icons";
@@ -131,3 +132,4 @@ export * from "./Wizard/Wizard.types";
 export * from "./InformativeMessage/InformativeMessage.types";
 export * from "./DateTimeInput/DateTimeInput.types";
 export * from "./Link/Link.types";
+export * from "./Slider/Slider.types";
