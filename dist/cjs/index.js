@@ -56139,7 +56139,93 @@ var ix = nx,
       )
     );
   }),
-  yx = l.default.table(function (e) {
+  yx = l.default.input(function (e) {
+    var t = e.theme,
+      n = {
+        "-webkit-appearance": "none",
+        appearance: "none",
+        backgroundColor: Qt(t, "slider.bulletBG", m.bulletColor),
+        height: 15,
+        width: 15,
+        borderRadius: "100%",
+      };
+    return {
+      '&[type="range"]': {
+        width: "100%",
+        height: 6,
+        zIndex: 100,
+        margin: 0,
+        "-webkit-appearance": "none",
+        appearance: "none",
+        background: "transparent",
+        cursor: "pointer",
+        "&:focus": { outline: "none" },
+        "&::-webkit-slider-thumb": b({}, n),
+        "&::-moz-range-thumb": b(b({}, n), { border: "none" }),
+      },
+      '&[type="range"]:disabled': {
+        cursor: "not-allowed",
+        "&::-webkit-slider-thumb": {
+          backgroundColor: Qt(t, "slider.disabledBullet", m.disabledGrey),
+        },
+        "&::-moz-range-thumb": {
+          backgroundColor: Qt(t, "slider.disabledBullet", m.disabledGrey),
+        },
+      },
+    };
+  }),
+  _x = l.default.div(function (e) {
+    var t = e.theme,
+      n = e.error,
+      a = e.sx;
+    return b(
+      {
+        display: "flex",
+        alignItems: "center",
+        flexGrow: 1,
+        width: "100%",
+        "& .errorText": {
+          fontSize: 12,
+          color: Qt(t, "inputBox.error", "#C51B3F"),
+          marginTop: 3,
+        },
+        "& .textBoxContainer": {
+          width: "100%",
+          flexGrow: 1,
+          position: "relative",
+          minWidth: 160,
+        },
+        "& .tooltipContainer": {
+          marginLeft: 5,
+          display: "flex",
+          alignItems: "center",
+          "& .min-icon": { width: 13 },
+        },
+        "& .inputLabel": { marginBottom: n ? 18 : 0 },
+        "& .displayValue": { fontSize: 12, fontWeight: "bold" },
+      },
+      a,
+    );
+  }),
+  Sx = l.default.div(function (e) {
+    var t = e.theme;
+    return {
+      position: "absolute",
+      width: "100%",
+      height: 6,
+      top: "50%",
+      transform: "translateY(-50%)",
+      backgroundColor: Qt(t, "slider.railBG", m.borderColor),
+      borderRadius: 15,
+      display: "flex",
+      alignItems: "center",
+      zIndex: 90,
+      "&.disabled": {
+        backgroundColor: Qt(t, "slider.disabledRail", m.disabledBGGrey),
+      },
+    };
+  }),
+  Cx = l.default.table(function (e) {
     e.theme;
     var t = e.sx;
     return b(
@@ -56152,7 +56238,7 @@ var ix = nx,
       t,
     );
   }),
-  _x = l.default.tbody(function (e) {
+  wx = l.default.tbody(function (e) {
     e.theme;
     var t = e.sx;
     return b(
@@ -56165,7 +56251,7 @@ var ix = nx,
       t,
     );
   }),
-  Sx = l.default.td(function (e) {
+  Ax = l.default.td(function (e) {
     var t = e.theme,
       n = e.sx;
     return b(
@@ -56184,7 +56270,7 @@ var ix = nx,
       n,
     );
   }),
-  Cx = l.default.thead(function (e) {
+  Nx = l.default.thead(function (e) {
     e.theme;
     var t = e.sx;
     return b(
@@ -56197,7 +56283,7 @@ var ix = nx,
       t,
     );
   }),
-  wx = l.default.th(function (e) {
+  Rx = l.default.th(function (e) {
     var t = e.theme,
       n = e.sx;
     return b(
@@ -56216,7 +56302,7 @@ var ix = nx,
       n,
     );
   }),
-  Ax = l.default.tr(function (e) {
+  Ix = l.default.tr(function (e) {
     var t = e.theme,
       n = e.sx;
     return b(
@@ -67319,6 +67405,129 @@ var ix = nx,
         ),
     );
   }),
+  (exports.Slider = function (e) {
+    var t = e.id,
+      n = e.tooltip,
+      a = void 0 === n ? "" : n,
+      r = e.noLabelMinWidth,
+      i = e.label,
+      l = void 0 === i ? "" : i,
+      s = e.required,
+      c = e.className,
+      d = e.error,
+      u = e.sx,
+      p = e.helpTip,
+      m = e.helpTipPlacement,
+      h = e.min,
+      f = void 0 === h ? 0 : h,
+      g = e.max,
+      E = void 0 === g ? 100 : g;
+    e.type;
+    var T = e.value,
+      y = e.displayValue,
+      _ = e.displayValueFunction,
+      S = e.step,
+      C = void 0 === S ? 1 : S,
+      w = e.disabled,
+      A = void 0 !== w && w,
+      N = v(e, [
+        "id",
+        "tooltip",
+        "noLabelMinWidth",
+        "label",
+        "required",
+        "className",
+        "error",
+        "sx",
+        "helpTip",
+        "helpTipPlacement",
+        "min",
+        "max",
+        "type",
+        "value",
+        "displayValue",
+        "displayValueFunction",
+        "step",
+        "disabled",
+      ]);
+    return o.default.createElement(
+      _x,
+      { error: !!d && "" !== d, sx: u, className: "slider ".concat(c) },
+      "" !== l &&
+        o.default.createElement(
+          Rr,
+          {
+            htmlFor: t,
+            noMinWidth: r,
+            className: "inputLabel",
+            helpTip: p,
+            helpTipPlacement: m,
+          },
+          l,
+          s ? "*" : "",
+          "" !== a &&
+            o.default.createElement(
+              Ea,
+              { className: "tooltipContainer" },
+              o.default.createElement(
+                Ga,
+                { tooltip: a, placement: "top" },
+                o.default.createElement(
+                  Ea,
+                  { className: a },
+                  o.default.createElement(Ya, null),
+                ),
+              ),
+            ),
+        ),
+      o.default.createElement(
+        Ea,
+        { className: "textBoxContainer" },
+        o.default.createElement(
+          Ea,
+          { sx: { display: "flex", alignItems: "center", gap: 8 } },
+          o.default.createElement(
+            Ea,
+            {
+              sx: {
+                flexGrow: 1,
+                position: "relative",
+                height: 6,
+                display: "flex",
+                alignItems: "flex-start",
+              },
+            },
+            o.default.createElement(
+              yx,
+              b(
+                {
+                  id: t,
+                  type: "range",
+                  className: "rangeSelector",
+                  min: f,
+                  max: E,
+                  step: C,
+                  disabled: A,
+                },
+                N,
+              ),
+            ),
+            o.default.createElement(Sx, {
+              className: "".concat(A ? "disabled" : ""),
+            }),
+          ),
+          y
+            ? o.default.createElement(
+                "span",
+                { className: "displayValue" },
+                _ ? _(T || 0) : T,
+              )
+            : null,
+        ),
+        "" !== d && o.default.createElement(Ea, { className: "errorText" }, d),
+      ),
+    );
+  }),
   (exports.Snackbar = function (t) {
     var a = t.autoHideDuration,
       r = void 0 === a ? 5 : a,
@@ -67844,37 +68053,37 @@ var ix = nx,
     var t = e.children,
       n = e.sx,
       a = v(e, ["children", "sx"]);
-    return o.default.createElement(yx, b({ sx: n }, a), t);
+    return o.default.createElement(Cx, b({ sx: n }, a), t);
   }),
   (exports.TableBody = function (e) {
     var t = e.children,
       n = e.sx,
       a = v(e, ["children", "sx"]);
-    return o.default.createElement(_x, b({ sx: n }, a), t);
+    return o.default.createElement(wx, b({ sx: n }, a), t);
   }),
   (exports.TableCell = function (e) {
     var t = e.children,
       n = e.sx,
       a = v(e, ["children", "sx"]);
-    return o.default.createElement(Sx, b({ sx: n }, a), t);
+    return o.default.createElement(Ax, b({ sx: n }, a), t);
   }),
   (exports.TableHead = function (e) {
     var t = e.children,
       n = e.sx,
       a = v(e, ["children", "sx"]);
-    return o.default.createElement(Cx, b({ sx: n }, a), t);
+    return o.default.createElement(Nx, b({ sx: n }, a), t);
   }),
   (exports.TableHeadCell = function (e) {
     var t = e.children,
       n = e.sx,
       a = v(e, ["children", "sx"]);
-    return o.default.createElement(wx, b({ sx: n }, a), t);
+    return o.default.createElement(Rx, b({ sx: n }, a), t);
   }),
   (exports.TableRow = function (e) {
     var t = e.children,
       n = e.sx,
       a = v(e, ["children", "sx"]);
-    return o.default.createElement(Ax, b({ sx: n }, a), t);
+    return o.default.createElement(Ix, b({ sx: n }, a), t);
   }),
   (exports.Tabs = function (e) {
     var t = e.horizontal,

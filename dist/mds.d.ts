@@ -308,7 +308,7 @@ interface WizardColorProps {
   vertical: WizardStepColorProps;
   modal: WizardStepColorProps;
 }
-interface SliderProps {
+interface SliderColorProps {
   railBG: string;
   bulletBG: string;
   disabledRail: string;
@@ -374,7 +374,7 @@ interface ThemeDefinitionProps {
   informativeMessage?: InformativeMessageThemeProps;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
-  slider?: SliderProps;
+  slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
 }
 interface SelectorType {
@@ -1491,6 +1491,29 @@ declare const Link: FC<
 
 declare const RoundedButton: FC<
   ButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+interface SliderProps {
+  id: string;
+  label?: string;
+  noLabelMinWidth?: boolean;
+  error?: string;
+  tooltip?: string;
+  sx?: CSSObject;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  displayValue?: boolean;
+  displayValueFunction?: (value: any) => React__default.ReactNode;
+}
+interface SliderContainerProps {
+  children?: React__default.ReactNode;
+  sx?: CSSObject;
+  error?: boolean;
+  className?: string;
+}
+
+declare const Slider: FC<
+  SliderProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
 
 declare const EditorThemeSwitchIcon: (
@@ -3251,6 +3274,9 @@ export {
   SizeChartConstructProps,
   SizeChartMain,
   SizeChartProps,
+  Slider,
+  SliderColorProps,
+  SliderContainerProps,
   SliderProps,
   SnackBarThemeProps,
   Snackbar,
