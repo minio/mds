@@ -24,7 +24,6 @@ interface IStoryThemeProvider {
 }
 
 const StoryThemeProvider = ({ children }: IStoryThemeProvider) => {
-
   return <ThemeHandler darkMode={useDarkMode()}>{children}</ThemeHandler>;
 };
 

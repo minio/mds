@@ -24175,7 +24175,6 @@ var wp = P(function (e, t, n) {
           "&:hover:not(.ReactVirtualized__Table__headerRow)": {
             userSelect: "none",
             backgroundColor: dn(t, "dataTable.hoverColor", "#ececec"),
-            fontWeight: 600,
             "&.canClick": { cursor: "pointer" },
             "&.canSelectText": { userSelect: "text" },
           },
