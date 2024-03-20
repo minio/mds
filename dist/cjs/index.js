@@ -15592,7 +15592,6 @@ var Ts = w(function (e, t, n) {
           "&:hover:not(.ReactVirtualized__Table__headerRow)": {
             userSelect: "none",
             backgroundColor: Qt(t, "dataTable.hoverColor", "#ececec"),
-            fontWeight: 600,
             "&.canClick": { cursor: "pointer" },
             "&.canSelectText": { userSelect: "text" },
           },
