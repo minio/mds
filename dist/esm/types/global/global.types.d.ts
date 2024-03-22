@@ -311,6 +311,15 @@ export interface ValuePairThemeProps {
   textColor: string;
   linkColor: string;
 }
+export interface ActionsBarThemeProps {
+  border: string;
+  labelColor: string;
+  background: string;
+  hoverBackground: string;
+  hoverLabelColor: string;
+  activeBackground: string;
+  activeLabelColor: string;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -363,6 +372,7 @@ export interface ThemeDefinitionProps {
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
+  actionsBar?: ActionsBarThemeProps;
 }
 export interface SelectorType {
   label: string;
