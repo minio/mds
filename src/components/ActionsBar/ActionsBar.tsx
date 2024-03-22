@@ -91,10 +91,10 @@ const ActionsBar: FC<ActionsBarProps> = ({
   sx,
   narrow,
   children,
-  ...props
+  ...restProps
 }) => {
   return (
-    <ActionsBarMain {...props} sx={sx} narrow={narrow}>
+    <ActionsBarMain {...restProps} sx={sx} narrow={narrow}>
       {children}
     </ActionsBarMain>
   );

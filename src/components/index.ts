@@ -75,6 +75,7 @@ export { default as Link } from "./Link/Link";
 export { default as RoundedButton } from "./RoundedButton/RoundedButton";
 export { default as Slider } from "./Slider/Slider";
 export { default as ActionsBar } from "./ActionsBar/ActionsBar";
+export { default as FormActionsTray } from "./FormActionsTray/FormActionsTray";
 
 /*Icons*/
 export * from "./Icons";
@@ -135,3 +136,4 @@ export * from "./DateTimeInput/DateTimeInput.types";
 export * from "./Link/Link.types";
 export * from "./Slider/Slider.types";
 export * from "./ActionsBar/ActionsBar.types";
+export * from "./FormActionsTray/FormActionsTray.types";
