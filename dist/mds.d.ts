@@ -324,6 +324,15 @@ interface ValuePairThemeProps {
   textColor: string;
   linkColor: string;
 }
+interface ActionsBarThemeProps {
+  border: string;
+  labelColor: string;
+  background: string;
+  hoverBackground: string;
+  hoverLabelColor: string;
+  activeBackground: string;
+  activeLabelColor: string;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -376,6 +385,7 @@ interface ThemeDefinitionProps {
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
+  actionsBar?: ActionsBarThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -1515,6 +1525,23 @@ interface SliderContainerProps {
 declare const Slider: FC<
   SliderProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
+
+interface ActionsBarProps
+  extends React__default.HTMLAttributes<HTMLDivElement> {
+  narrow?: boolean;
+  sx?: CSSProperties;
+}
+
+declare const ActionsBar: FC<ActionsBarProps>;
+
+interface FormActionsTrayProps
+  extends React__default.HTMLAttributes<HTMLDivElement> {
+  marginTop?: number;
+  separator?: boolean;
+  sx?: CSSObject;
+}
+
+declare const FormActionsTray: FC<FormActionsTrayProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2855,6 +2882,9 @@ declare const lightV2: {
   buttonDisabledBG: string;
   buttonDisabledLabel: string;
   defaultButtonPressed: string;
+  bgColorBgShell: string;
+  colorTextLabel: string;
+  colorBorderSubtle: string;
 };
 declare const lightTheme: ThemeDefinitionProps;
 declare const darkTheme: ThemeDefinitionProps;
@@ -2876,6 +2906,9 @@ export {
   ActionItem,
   ActionLink,
   ActionLinkProps,
+  ActionsBar,
+  ActionsBarProps,
+  ActionsBarThemeProps,
   ActionsList,
   ActionsListPanelProps,
   ActionsListProps,
@@ -3069,6 +3102,8 @@ export {
   FirstAidIcon$1 as FirstAidIcon,
   FolderBrowserIcon,
   FolderIcon,
+  FormActionsTray,
+  FormActionsTrayProps,
   FormLayout,
   FormLayoutProps,
   FormatDriveIcon,

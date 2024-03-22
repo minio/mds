@@ -201,6 +201,9 @@ export declare const lightV2: {
   buttonDisabledBG: string;
   buttonDisabledLabel: string;
   defaultButtonPressed: string;
+  bgColorBgShell: string;
+  colorTextLabel: string;
+  colorBorderSubtle: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;
