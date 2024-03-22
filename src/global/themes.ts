@@ -222,6 +222,10 @@ export const lightV2 = {
   buttonDisabledBG: "#E3E6EA",
   buttonDisabledLabel: "#798797",
   defaultButtonPressed: "#CAD1D7",
+  // NEW VARS NAMES
+  bgColorBgShell: "#F4F6F7",
+  colorTextLabel: "rgba(0,0,0,0.65)",
+  colorBorderSubtle: "#CAD1D7",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -777,6 +781,15 @@ export const lightTheme: ThemeDefinitionProps = {
     labelColor: lightV2.modalTitleColor,
     textColor: lightV2.modalTitleColor,
     linkColor: lightV2.modalCloseColor,
+  },
+  actionsBar: {
+    border: lightV2.colorBorderSubtle,
+    labelColor: lightV2.colorTextLabel,
+    activeBackground: lightV2.bgColorBgShell,
+    activeLabelColor: lightV2.colorTextLabel,
+    hoverBackground: lightV2.bgColorBgShell,
+    hoverLabelColor: lightV2.colorTextLabel,
+    background: lightV2.bgColorBgShell,
   },
 };
 
