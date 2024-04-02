@@ -20,81 +20,124 @@ import get from "lodash/get";
 import { ActionsBarProps } from "./ActionsBar.types";
 import { lightV2 } from "../../global/themes";
 
-const ActionsBarMain = styled.div<ActionsBarProps>(({ theme, narrow, sx }) => ({
-  display: "inline-flex",
-  flexDirection: "row" as const,
-  border: `1px solid ${get(theme, "actionsBar.border", lightV2.colorBorderSubtle)}`,
-  backgroundColor: get(theme, "actionsBar.background", lightV2.bgColorBgShell),
-  borderRadius: 8,
-  overflow: "hidden",
-  width: "initial",
-  "& > *:not(:last-child)": {
-    borderRight: `1px solid   ${get(theme, "actionsBar.border", lightV2.colorBorderSubtle)}`,
-  },
-  "& button": {
-    display: "flex",
-    alignItems: "center",
-    boxShadow: "none",
-    border: 0,
-    borderRadius: 0,
-    fontSize: 12,
-    fontStyle: "normal",
-    fontWeight: 400,
-    letterSpacing: "0.16px",
-    fontFamily: "'Geist', sans-serif",
-    color: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
-    padding: narrow ? "0 8px" : "0 12px",
-    margin: narrow ? "2px 0px" : 0,
-    height: narrow ? 28 : 32,
-    "& .buttonIcon": {
-      height: 16,
+const ActionsBarMain = styled.div<ActionsBarProps>(
+  ({ theme, sx, displayLabels }) => ({
+    display: "inline-flex",
+    flexDirection: "row" as const,
+    border: `1px solid ${get(theme, "actionsBar.border", lightV2.colorBorderSubtle)}`,
+    backgroundColor: get(
+      theme,
+      "actionsBar.background",
+      lightV2.bgColorBgShell,
+    ),
+    borderRadius: 4,
+    overflow: "hidden",
+    width: "initial",
+    height: 28,
+    boxSizing: "border-box" as const,
+    "& > *:not(:last-child)": {
+      borderRight: `1px solid   ${get(theme, "actionsBar.border", lightV2.colorBorderSubtle)}`,
     },
-    "& .button-label": {
-      display: narrow ? "none" : "initial",
-    },
-    "& .buttonIcon > svg": {
-      width: 16,
-      height: 16,
-      minWidth: 16,
-      minHeight: 16,
-      fill: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
-    },
-    "&:hover:not(:disabled)": {
-      backgroundColor: get(
-        theme,
-        "actionsBar.hoverBackground",
-        lightV2.bgColorBgShell,
-      ),
-      color: get(theme, "actionsBar.hoverLabelColor", lightV2.colorTextLabel),
-      borderColor: get(theme, "actionsBar.border", lightV2.colorBorderSubtle),
-      "& .buttonIcon > svg": {
-        fill: get(theme, "actionsBar.hoverLabelColor", lightV2.colorTextLabel),
+    "& button": {
+      display: "flex",
+      alignItems: "center",
+      boxShadow: "none",
+      border: 0,
+      borderRadius: 0,
+      fontSize: 14,
+      lineHeight: "20px",
+      fontStyle: "normal",
+      fontWeight: 400,
+      letterSpacing: "0.16px",
+      fontFamily: "'Geist', sans-serif",
+      color: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
+      padding: displayLabels ? "4px 12px" : "0 6px",
+      height: 26,
+      width: displayLabels ? "initial" : 28,
+      gap: 4,
+      "& .buttonIcon": {
+        height: 16,
+        "& > svg": {
+          width: 16,
+          height: 16,
+          minWidth: 16,
+          minHeight: 16,
+          fill: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
+        },
+      },
+      "& .button-label, & .menu-option": {
+        display: displayLabels ? "initial" : "none",
+        margin: 0,
+      },
+      "&:disabled": {
+        cursor: "not-allowed",
+        color: get(
+          theme,
+          "actionsBar.disabledLabelColor",
+          lightV2.colorTextDisabled,
+        ),
+        backgroundColor: get(
+          theme,
+          "actionsBar.disabledBackground",
+          lightV2.colorBgDisabled,
+        ),
+        "& .buttonIcon > svg": {
+          fill: get(
+            theme,
+            "actionsBar.disabledLabelColor",
+            lightV2.colorTextDisabled,
+          ),
+        },
+      },
+      "&:hover:not(:disabled)": {
+        backgroundColor: get(
+          theme,
+          "actionsBar.hoverBackground",
+          lightV2.bgColorBgShell,
+        ),
+        color: get(theme, "actionsBar.hoverLabelColor", lightV2.colorTextLabel),
+        borderColor: get(theme, "actionsBar.border", lightV2.colorBorderSubtle),
+        "& .buttonIcon > svg": {
+          fill: get(
+            theme,
+            "actionsBar.hoverLabelColor",
+            lightV2.colorTextLabel,
+          ),
+        },
+      },
+      "&:active": {
+        backgroundColor: get(
+          theme,
+          "actionsBar.activeBackground",
+          lightV2.bgColorBgShell,
+        ),
+        color: get(
+          theme,
+          "actionsBar.activeLabelColor",
+          lightV2.colorTextLabel,
+        ),
+        borderColor: get(theme, "actionsBar.border", lightV2.colorBorderSubtle),
+        "& .buttonIcon > svg": {
+          fill: get(
+            theme,
+            "actionsBar.activeLabelColor",
+            lightV2.colorTextLabel,
+          ),
+        },
       },
     },
-    "&:active": {
-      backgroundColor: get(
-        theme,
-        "actionsBar.activeBackground",
-        lightV2.bgColorBgShell,
-      ),
-      color: get(theme, "actionsBar.activeLabelColor", lightV2.colorTextLabel),
-      borderColor: get(theme, "actionsBar.border", lightV2.colorBorderSubtle),
-      "& .buttonIcon > svg": {
-        fill: get(theme, "actionsBar.activeLabelColor", lightV2.colorTextLabel),
-      },
-    },
-  },
-  ...sx,
-}));
+    ...sx,
+  }),
+);
 
 const ActionsBar: FC<ActionsBarProps> = ({
+  displayLabels = true,
   sx,
-  narrow,
   children,
   ...restProps
 }) => {
   return (
-    <ActionsBarMain {...restProps} sx={sx} narrow={narrow}>
+    <ActionsBarMain {...restProps} sx={sx} displayLabels={displayLabels}>
       {children}
     </ActionsBarMain>
   );

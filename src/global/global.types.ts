@@ -375,6 +375,8 @@ export interface ActionsBarThemeProps {
   hoverLabelColor: string;
   activeBackground: string;
   activeLabelColor: string;
+  disabledLabelColor: string;
+  disabledBackground: string;
 }
 
 export interface DropdownOptionsThemeProps {

@@ -43,6 +43,7 @@ const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
   border: `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
   boxShadow:
     "0px 2px 8px 0px rgba(156, 163, 175, 0.15), 0px 4px 12px 0px rgba(156, 163, 175, 0.25)",
+  marginTop: 10,
   "& ul": {
     padding: 0,
     margin: 0,
