@@ -226,6 +226,8 @@ export const lightV2 = {
   bgColorBgShell: "#F4F6F7",
   colorTextLabel: "rgba(0,0,0,0.65)",
   colorBorderSubtle: "#CAD1D7",
+  colorBgHover: "#E3E6EA",
+  errorColorPrimaryText: "#FF3100",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -790,6 +792,14 @@ export const lightTheme: ThemeDefinitionProps = {
     hoverBackground: lightV2.bgColorBgShell,
     hoverLabelColor: lightV2.colorTextLabel,
     background: lightV2.bgColorBgShell,
+  },
+  dropdownOptions: {
+    optionLabel: lightV2.colorTextLabel,
+    optionBG: "transparent",
+    hoverOptionBG: lightV2.colorBgHover,
+    activeOptionBG: lightV2.colorBgHover,
+    dangerLabel: lightV2.errorColorPrimaryText,
+    disabledLabel: lightV2.disabledGreyText,
   },
 };
 
