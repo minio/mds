@@ -377,6 +377,15 @@ export interface ActionsBarThemeProps {
   activeLabelColor: string;
 }
 
+export interface DropdownOptionsThemeProps {
+  hoverOptionBG: string;
+  activeOptionBG: string;
+  optionBG: string;
+  optionLabel: string;
+  dangerLabel: string;
+  disabledLabel: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -430,6 +439,7 @@ export interface ThemeDefinitionProps {
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
   actionsBar?: ActionsBarThemeProps;
+  dropdownOptions?: DropdownOptionsThemeProps;
 }
 
 export interface SelectorType {

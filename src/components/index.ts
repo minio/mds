@@ -76,6 +76,8 @@ export { default as RoundedButton } from "./RoundedButton/RoundedButton";
 export { default as Slider } from "./Slider/Slider";
 export { default as ActionsBar } from "./ActionsBar/ActionsBar";
 export { default as FormActionsTray } from "./FormActionsTray/FormActionsTray";
+export { default as ExpandMenu } from "./ExpandMenu/ExpandMenu";
+export { default as ExpandMenuOption } from "./ExpandMenu/ExpandMenuOption";
 
 /*Icons*/
 export * from "./Icons";
@@ -137,3 +139,4 @@ export * from "./Link/Link.types";
 export * from "./Slider/Slider.types";
 export * from "./ActionsBar/ActionsBar.types";
 export * from "./FormActionsTray/FormActionsTray.types";
+export * from "./ExpandMenu/ExpandMenu.types";
