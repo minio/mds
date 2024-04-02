@@ -26,6 +26,10 @@ import Link from "../Link/Link";
 import Button from "../Button/Button";
 import TestIcon from "../../utils/TestIcon";
 import Tooltip from "../Tooltip/Tooltip";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import EditIcon from "../Icons/EditIcon";
+import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import AddIcon from "../Icons/AddIcon";
 
 export default {
   title: "MDS/Forms/ActionsBar",
@@ -37,20 +41,41 @@ const Template: Story<ActionsBarProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <ActionsBar {...args}>
-      <Button id={"test"} icon={<TestIcon />}>
+      <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
         Button one
       </Button>
-      <Button id={"test"} icon={<TestIcon />}>
+      <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
         Button one
       </Button>
-      <Button id={"test"} icon={<TestIcon />}>
+      <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
         Button one
       </Button>
       <Tooltip tooltip={"with tooltip"}>
-        <Button id={"test"} icon={<TestIcon />}>
+        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
           Button one
         </Button>
       </Tooltip>
+      <Button id={"test"} icon={<TestIcon />} disabled iconLocation={"start"}>
+        Button one
+      </Button>
+      <ExpandMenuOption id={"expand-option-test"} icon={<EditIcon />}>
+        Expand Option Only
+      </ExpandMenuOption>
+      <ExpandMenu
+        icon={<AddIcon />}
+        label={"Expand Menu"}
+        dropMenuPosition={"end"}
+      >
+        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+          Button one
+        </Button>
+        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+          Button one
+        </Button>
+        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+          Button one
+        </Button>
+      </ExpandMenu>
     </ActionsBar>
   </StoryThemeProvider>
 );
@@ -58,7 +83,7 @@ const Template: Story<ActionsBarProps> = (args) => (
 export const Default = Template.bind({});
 Default.args = {};
 
-export const Narrow = Template.bind({});
-Narrow.args = {
-  narrow: true,
+export const IconsOnly = Template.bind({});
+IconsOnly.args = {
+  displayLabels: false,
 };

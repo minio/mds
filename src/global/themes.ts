@@ -207,8 +207,8 @@ export const lightV2 = {
   disabledSecondaryText: "#9CA3AF",
   blueBorderActionButton: "#2350D2",
   redBorder: "#A5190F",
-  disabledRed: "#FFE2E1", // *
-  disabledRedText: "#F1756F", // *
+  disabledRed: "#FFE2E1",
+  disabledRedText: "#F1756F",
   mutedText: "#6B7280",
   headerLabelText: "#3A3D41",
   plainIconButtonBorder: "#CBD5E1",
@@ -228,6 +228,10 @@ export const lightV2 = {
   colorBorderSubtle: "#CAD1D7",
   colorBgHover: "#E3E6EA",
   errorColorPrimaryText: "#FF3100",
+  colorBorder: "#CFD0D2",
+  colorText: "#000000E0",
+  colorBgDisabled: "#E3E6EA",
+  colorTextDisabled: "#00000040",
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -785,12 +789,14 @@ export const lightTheme: ThemeDefinitionProps = {
     linkColor: lightV2.modalCloseColor,
   },
   actionsBar: {
-    border: lightV2.colorBorderSubtle,
-    labelColor: lightV2.colorTextLabel,
-    activeBackground: lightV2.bgColorBgShell,
+    border: lightV2.colorBorder,
+    labelColor: lightV2.colorText,
+    activeBackground: lightV2.colorBgHover,
     activeLabelColor: lightV2.colorTextLabel,
-    hoverBackground: lightV2.bgColorBgShell,
+    hoverBackground: lightV2.colorBgHover,
     hoverLabelColor: lightV2.colorTextLabel,
+    disabledLabelColor: lightV2.colorTextDisabled,
+    disabledBackground: lightV2.colorBgDisabled,
     background: lightV2.bgColorBgShell,
   },
   dropdownOptions: {
