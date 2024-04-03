@@ -18,7 +18,7 @@ import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 import { ActionLinkProps, BaseActionLinkProps } from "./ActionLink.types";
-import { lightColors } from "../../global/themes";
+import { lightColors, lightV2 } from "../../global/themes";
 import Loader from "../Loader/Loader";
 
 const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
@@ -27,9 +27,13 @@ const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
   backgroundColor: "transparent",
   border: 0,
   padding: 0,
-  color: get(theme, "linkColor", lightColors.linkColor),
-  textDecoration: "none",
+  color: get(theme, "linkColor", lightV2.linkColor),
+  textDecoration: "underline",
   fontSize: "inherit",
+  fontWeight: 700,
+  "&.dark": {
+    color: get(theme, "secondaryLinkColor", lightV2.modalCloseColor),
+  },
   "&:hover": {
     textDecoration: "underline",
   },

@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import DataTable from "./DataTable";
@@ -191,12 +191,12 @@ CustomRowStyle.args = {
   rowStyle: ({ index }) => (index === 1 ? "deleted" : ""),
 };
 
-export const NoBackground = Template.bind({});
-NoBackground.args = {
+export const BackgroundEnabled = Template.bind({});
+BackgroundEnabled.args = {
   disabled: false,
   entityName: "Elements",
   idField: "field1",
-  noBackground: true,
+  noBackground: false,
   records: [
     { field1: "Value1", field2: "Value2", field3: "Value3" },
     {

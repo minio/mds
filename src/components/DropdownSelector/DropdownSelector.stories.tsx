@@ -22,7 +22,6 @@ import { DropdownSelectorProps } from "./DropdownSelector.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Box from "../Box/Box";
 import Button from "../Button/Button";
 import TestIcon from "../../utils/TestIcon";
 
@@ -33,7 +32,7 @@ export default {
 } as Meta<typeof DropdownSelector>;
 
 const Template: Story<DropdownSelectorProps> = (args) => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openDownloadMenu = Boolean(anchorEl);
 
   const handleCloseDownload = () => {
@@ -68,6 +67,15 @@ Default.args = {
     { label: "Test Label 1", value: "tl1" },
     { label: "Test Label 2", value: "tl2" },
   ],
+};
+
+export const ForSelectInput = Template.bind({});
+ForSelectInput.args = {
+  options: [
+    { label: "Test Label 1", value: "tl1" },
+    { label: "Test Label 2", value: "tl2" },
+  ],
+  forSelectInput: true,
 };
 
 export const AnchorEnd = Template.bind({});

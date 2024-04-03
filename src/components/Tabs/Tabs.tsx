@@ -18,7 +18,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { TabsContainerProps, TabsProps } from "./Tabs.types";
-import { lightColors } from "../../global/themes";
+import { lightColors, lightV2 } from "../../global/themes";
 import Box from "../Box/Box";
 import TabPanel from "./TabPanel";
 import TabButton from "./TabButton";
@@ -43,7 +43,11 @@ const TabsContainer = styled.div<TabsContainerProps>(
               lightColors.tabBorder,
             )} 1px solid`,
         borderBottom: horizontal
-          ? `${get(theme, "borderColor", lightColors.borderColor)} 1px solid`
+          ? `1px solid ${get(
+              theme,
+              "buttons.horizontal.bottomBorder",
+              lightV2.defaultButtonPressed,
+            )}`
           : `${get(
               theme,
               "tabs.vertical.borders",
@@ -64,6 +68,7 @@ const TabsContainer = styled.div<TabsContainerProps>(
           flexDirection: horizontal ? "row" : "column",
           flexGrow: 1,
           width: horizontal ? "100%" : "auto",
+          gap: horizontal ? 16 : 0,
         },
       },
       "& .tabsPanels": {

@@ -22,7 +22,8 @@ import Grid from "../Grid/Grid";
 
 const BaseHelpBox = styled.div(({ theme }) => ({
   border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
-  borderRadius: 2,
+  boxShadow: get(theme, "box.shadow", "none"),
+  borderRadius: 12,
   backgroundColor: get(theme, "boxBackground", "#FBFAFA"),
   paddingLeft: 25,
   paddingTop: 20,

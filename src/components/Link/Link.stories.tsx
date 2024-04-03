@@ -38,6 +38,7 @@ const Template: Story<LinkProps> = (args) => (
         Link
       </Link>
       , to point to another page.
+      <Link className={"dark"}>This is a Dark Link</Link>
     </span>
   </StoryThemeProvider>
 );

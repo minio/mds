@@ -1,4 +1,6 @@
-import { FC, HTMLAttributes } from "react";
+import React from "react";
 import { BoxProps } from "./Box.types";
-declare const Box: FC<HTMLAttributes<HTMLDivElement> & BoxProps>;
+declare const Box: React.ForwardRefExoticComponent<
+  BoxProps & React.RefAttributes<React.HTMLAttributes<HTMLDivElement>>
+>;
 export default Box;

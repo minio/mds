@@ -21,6 +21,7 @@ export interface ButtonThemeProps {
   text: string;
   background: string;
   iconColor: string;
+  shadow?: string;
 }
 
 export interface ButtonThemeStatesProps {
@@ -32,6 +33,8 @@ export interface ButtonThemeStatesProps {
 
 export interface LoginPageThemeProps {
   formBG: string;
+  formBorder?: string;
+  formShadow?: string;
   bgFilter: string;
   promoBG: string;
   promoHeader: string;
@@ -41,8 +44,6 @@ export interface LoginPageThemeProps {
 }
 
 export interface PageHeaderThemeProps {
-  background: string;
-  border: string;
   color: string;
 }
 
@@ -68,6 +69,22 @@ export interface IconButtonThemeProps {
   hoverBG: string;
   disabledBG: string;
   color: string;
+  disabledColor?: string;
+}
+
+export interface ActionCustomButton {
+  border: string;
+  background: string;
+  iconColor: string;
+  disabledBorder: string;
+  disabledBackground: string;
+  disabledIconColor: string;
+  hoverBorder: string;
+  hoverBackground: string;
+  hoverIconColor: string;
+  activeBorder: string;
+  activeBackground: string;
+  activeIconColor: string;
 }
 
 export interface DataTableThemeProps {
@@ -77,6 +94,7 @@ export interface DataTableThemeProps {
   selected: string;
   deletedDisabled: string;
   hoverColor: string;
+  actionButton?: ActionCustomButton;
 }
 
 export interface BackLinkThemeProps {
@@ -122,7 +140,6 @@ export interface ActionsListThemeProps {
 }
 
 export interface ScreenTitleThemeProps {
-  border: string;
   subtitleColor: string;
   iconColor: string;
 }
@@ -140,6 +157,7 @@ export interface ModalBoxThemeProps {
   closeHoverColor: string;
   closeHoverBG: string;
   titleColor: string;
+  border?: string;
   iconColor: IconThemeColorProps;
 }
 
@@ -164,6 +182,7 @@ export interface DropdownSelectorThemeProps {
   hoverText: string;
   hoverBG: string;
   disabledText: string;
+  border?: string;
 }
 
 export interface ReadBoxThemeProps {
@@ -181,6 +200,7 @@ export interface SignalColorsThemeProps {
   disabled: string;
   dark: string;
   clear: string;
+  selectBlue?: string;
 }
 
 export interface MenuThemeProps {
@@ -239,6 +259,7 @@ export interface TabThemeProps {
     backgroundColor: string;
     selectedIndicatorColor: string;
     buttons: TabButtonProps;
+    bottomBorder?: string;
   };
 }
 
@@ -259,6 +280,7 @@ export interface CodeEditorThemeProps {
 
 export interface TagVariantProps {
   background: string;
+  outlineColor?: string;
   label: string;
   deleteColor: string;
 }
@@ -290,7 +312,7 @@ export interface InformativeColorElements {
   textColor: string;
 }
 
-export interface InformativeMessageProps {
+export interface InformativeMessageThemeProps {
   default: InformativeColorElements;
   success: InformativeColorElements;
   warning: InformativeColorElements;
@@ -316,6 +338,8 @@ export interface WizardStepColorProps {
   selectedStepBG: string;
   selectedStepLabelColor: string;
   disabledLabelColor: string;
+  borderColor?: string;
+  buttonHoverBG?: string;
 }
 
 export interface WizardColorProps {
@@ -324,11 +348,44 @@ export interface WizardColorProps {
   modal: WizardStepColorProps;
 }
 
-export interface SliderProps {
+export interface SliderColorProps {
   railBG: string;
   bulletBG: string;
   disabledRail: string;
   disabledBullet: string;
+}
+
+export interface BoxThemeProps {
+  border: string;
+  backgroundColor: string;
+  shadow: string;
+}
+
+export interface ValuePairThemeProps {
+  labelColor: string;
+  textColor: string;
+  linkColor: string;
+}
+
+export interface ActionsBarThemeProps {
+  border: string;
+  labelColor: string;
+  background: string;
+  hoverBackground: string;
+  hoverLabelColor: string;
+  activeBackground: string;
+  activeLabelColor: string;
+  disabledLabelColor: string;
+  disabledBackground: string;
+}
+
+export interface DropdownOptionsThemeProps {
+  hoverOptionBG: string;
+  activeOptionBG: string;
+  optionBG: string;
+  optionLabel: string;
+  dangerLabel: string;
+  disabledLabel: string;
 }
 
 export interface ThemeDefinitionProps {
@@ -341,9 +398,11 @@ export interface ThemeDefinitionProps {
   logoLabelInverse: string;
   loaderColor: string;
   linkColor?: string;
+  secondaryLinkColor?: string;
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
+  box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
     regular?: ButtonThemeStatesProps;
@@ -351,6 +410,9 @@ export interface ThemeDefinitionProps {
     secondary?: ButtonThemeStatesProps;
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
+  };
+  roundedButtons?: {
+    regular?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
@@ -373,10 +435,13 @@ export interface ThemeDefinitionProps {
   codeEditor?: CodeEditorThemeProps;
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
-  informativeMessage?: InformativeMessageProps;
+  informativeMessage?: InformativeMessageThemeProps;
   badge?: BadgeStyleProps;
   wizard?: WizardColorProps;
-  slider?: SliderProps;
+  slider?: SliderColorProps;
+  valuePair?: ValuePairThemeProps;
+  actionsBar?: ActionsBarThemeProps;
+  dropdownOptions?: DropdownOptionsThemeProps;
 }
 
 export interface SelectorType {

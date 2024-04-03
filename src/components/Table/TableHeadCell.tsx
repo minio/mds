@@ -22,7 +22,7 @@ import { lightColors } from "../../global/themes";
 
 const TableHeadCellMain = styled.th<TableComponentsExtraProps>(
   ({ theme, sx }) => ({
-    fontFamily: "'Inter',sans-serif",
+    fontFamily: "'Geist',sans-serif",
     fontSize: 12,
     lineHeight: 1.43,
     display: "table-cell",

@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Fragment, ReactNode, useState } from "react";
+import React, { Fragment, ReactNode, useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import * as cicons from "./";
@@ -243,6 +243,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.CacheIcon />
+              <br />
+              CacheIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.CalendarIcon />
               <br />
               CalendarIcon
@@ -264,6 +270,18 @@ const Template: Story = (args) => {
               <cicons.CancelledIcon />
               <br />
               CancelledIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.CatalogIcon />
+              <br />
+              CatalogIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.CatalogMetricsIcon />
+              <br />
+              CatalogMetricsIcon
             </div>
 
             <div className="story-icon">
@@ -387,6 +405,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.CountObjectsIcon />
+              <br />
+              CountObjectsIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.CreateGroupIcon />
               <br />
               CreateGroupIcon
@@ -420,6 +444,12 @@ const Template: Story = (args) => {
               <cicons.DashboardIcon />
               <br />
               DashboardIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.DBIcon />
+              <br />
+              DBIcon
             </div>
 
             <div className="story-icon">
@@ -531,6 +561,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.EnvironmentVariablesIcon />
+              <br />
+              EnvironmentVariablesIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.EventBusyIcon />
               <br />
               EventBusyIcon
@@ -564,6 +600,12 @@ const Template: Story = (args) => {
               <cicons.ExtraFeaturesIcon />
               <br />
               ExtraFeaturesIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.FirewallIcon />
+              <br />
+              FirewallIcon
             </div>
 
             <div className="story-icon">
@@ -651,9 +693,21 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.ImagesIcon />
+              <br />
+              ImagesIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.InfoIcon />
               <br />
               InfoIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.IngestIcon />
+              <br />
+              IngestIcon
             </div>
 
             <div className="story-icon">
@@ -666,6 +720,12 @@ const Template: Story = (args) => {
               <cicons.KeyIcon />
               <br />
               KeyIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.KeyManagementIcon />
+              <br />
+              KeyManagementIcon
             </div>
 
             <div className="story-icon">
@@ -855,6 +915,24 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.ObjectsIcon />
+              <br />
+              ObjectsIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.ObservabilityIcon />
+              <br />
+              ObservabilityIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.ObservabilityOverviewIcon />
+              <br />
+              ObservabilityOverviewIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.OfflineRegistrationBackIcon />
               <br />
               OfflineRegistrationBackIcon
@@ -909,6 +987,18 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.PodPlacementIcon />
+              <br />
+              PodPlacementIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.PoliciesIcon />
+              <br />
+              PoliciesIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.PrevCaretIcon />
               <br />
               PrevCaretIcon
@@ -936,6 +1026,12 @@ const Template: Story = (args) => {
               <cicons.PublicIcon />
               <br />
               PublicIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.QueryEditorIcon />
+              <br />
+              QueryEditorIcon
             </div>
 
             <div className="story-icon">
@@ -984,6 +1080,12 @@ const Template: Story = (args) => {
               <cicons.ReportedUsageIcon />
               <br />
               ReportedUsageIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.ResourcesIcon />
+              <br />
+              ResourcesIcon
             </div>
 
             <div className="story-icon">
@@ -1059,6 +1161,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.SettingsInMenuIcon />
+              <br />
+              SettingsInMenuIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.ShareIcon />
               <br />
               ShareIcon
@@ -1092,6 +1200,12 @@ const Template: Story = (args) => {
               <cicons.SyncIcon />
               <br />
               SyncIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.SystemIcon />
+              <br />
+              SystemIcon
             </div>
 
             <div className="story-icon">
@@ -1288,6 +1402,12 @@ const Template: Story = (args) => {
               <cicons.NetworkPutIcon />
               <br />
               NetworkPutIcon
+            </div>
+
+            <div className="story-icon">
+              <cicons.NetworkingIcon />
+              <br />
+              NetworkingIcon
             </div>
             <div className="story-icon">
               <cicons.UserFilledIcon />

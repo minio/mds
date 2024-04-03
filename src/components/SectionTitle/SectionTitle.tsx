@@ -26,9 +26,6 @@ const SectionParent = styled.div<
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-start",
-  borderBottom: separator
-    ? `1px solid ${get(theme, "borderColor", "#eaeaea")}`
-    : "",
   gap: "10px",
   ...sx,
 }));
@@ -54,8 +51,11 @@ const SectionTitle: FC<SectionTitleProps> = ({
           flexGrow: 1,
           justifyContent: "flex-start",
           alignItems: "center",
-          marginLeft: "10px",
           "& svg": { marginRight: "10px" },
+          "& h3": {
+            fontWeight: "normal",
+            fontSize: 20,
+          },
         }}
       >
         {icon}

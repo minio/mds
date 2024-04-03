@@ -21,6 +21,7 @@ import {
   SimpleHeaderProps,
 } from "./SimpleHeader.types";
 import get from "lodash/get";
+import { lightV2 } from "../../global/themes";
 
 const ParentContainer = styled.div<
   HTMLAttributes<HTMLDivElement> & SimpleHeaderContainerProps
@@ -29,10 +30,9 @@ const ParentContainer = styled.div<
   justifyContent: "space-between",
   alignItems: "center",
   paddingBottom: 15,
-  borderBottom: `1px solid ${get(theme, `borderColor`, "#E5E5E5")}`,
-  fontWeight: "bold",
-  fontSize: 18,
-  color: get(theme, `fontColor`, "#000"),
+  fontWeight: "normal",
+  fontSize: 20,
+  color: get(theme, `fontColor`, lightV2.fontColor),
   margin: "20px 22px",
   ...sx,
 }));
