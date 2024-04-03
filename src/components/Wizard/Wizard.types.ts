@@ -49,6 +49,7 @@ export interface WizardMain {
 export interface WizardConstruct {
   sx?: CSSObject;
   forModal?: boolean;
+  actionButtonsPortalID?: HTMLElement;
 }
 
 export type WizardProps = WizardMain & WizardConstruct;

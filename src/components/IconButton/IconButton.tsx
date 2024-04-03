@@ -20,7 +20,7 @@ import get from "lodash/get";
 import { IconButtonProps } from "./IconButton.types";
 
 const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
-  let buttonSize: number | string = 30;
+  let buttonSize: number | string = 32;
 
   if (size) {
     if (typeof size === "string") {
@@ -29,7 +29,7 @@ const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
           buttonSize = 28;
           break;
         case "medium":
-          buttonSize = 30;
+          buttonSize = 32;
           break;
         case "large":
           buttonSize = 48;
@@ -50,20 +50,23 @@ const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
     position: "relative",
     cursor: "pointer",
     transitionDuration: "0.2s",
-    backgroundColor: get(theme, `iconButton.buttonBG`, "#000"),
+    background: get(theme, `iconButton.buttonBG`, "#000"),
     "& svg": {
       fill: get(theme, `iconButton.color`, "#000"),
       margin: "calc(25% - 2px)",
     },
     "&:hover:not(:disabled)": {
-      backgroundColor: get(theme, `iconButton.hoverBG`, "#000"),
+      background: get(theme, `iconButton.hoverBG`, "#000"),
     },
     "&:active:not(:disabled)": {
-      backgroundColor: get(theme, `iconButton.activeBG`, "#000"),
+      background: get(theme, `iconButton.activeBG`, "#000"),
     },
     "&:disabled": {
       cursor: "not-allowed",
-      backgroundColor: get(theme, `iconButton.disabledBG`, "#000"),
+      background: get(theme, `iconButton.disabledBG`, "#000"),
+      "& svg": {
+        fill: get(theme, `iconButton.disabledColor`, "#fff"),
+      },
     },
   };
 });

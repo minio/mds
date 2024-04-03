@@ -23,6 +23,7 @@ import { breakPoints } from "../../global/utils";
 import styled from "styled-components";
 import Box from "../Box/Box";
 import get from "lodash/get";
+import { lightV2 } from "../../global/themes";
 
 const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
   ({ theme, sx, bottomBorder }) => ({
@@ -37,19 +38,17 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       justifyContent: "space-between",
       padding: 8,
       width: "100%",
-      borderBottom: !bottomBorder
-        ? "none"
-        : `1px solid ${get(theme, `screenTitle.border`, "#E5E5E5")}`,
     },
     "& .headerBarIcon": {
-      color: get(theme, `screenTitle.iconColor`, "#000"),
+      color: get(theme, `screenTitle.iconColor`, lightV2.fontColor),
       "& .min-icon": {
         width: 44,
         height: 44,
       },
     },
     "& .headerBarSubheader": {
-      color: get(theme, `screenTitle.subtitleColor`, "#5B5C5C"),
+      color: get(theme, `screenTitle.subtitleColor`, lightV2.mutedText),
+      fontSize: 14,
     },
     "& .titleColumn": {
       height: "auto",
@@ -59,6 +58,8 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       alignItems: "flex-start",
       "& h1": {
         fontSize: 20,
+        fontWeight: "normal",
+        color: get(theme, `screenTitle.iconColor`, lightV2.fontColor),
       },
     },
     "& .leftItems": {

@@ -72,6 +72,12 @@ export { default as InformativeMessage } from "./InformativeMessage/InformativeM
 export { default as DateTimeInput } from "./DateTimeInput/DateTimeInput";
 export { default as DateTimeSelector } from "./DateTimeInput/DateTimeSelector";
 export { default as Link } from "./Link/Link";
+export { default as RoundedButton } from "./RoundedButton/RoundedButton";
+export { default as Slider } from "./Slider/Slider";
+export { default as ActionsBar } from "./ActionsBar/ActionsBar";
+export { default as FormActionsTray } from "./FormActionsTray/FormActionsTray";
+export { default as ExpandMenu } from "./ExpandMenu/ExpandMenu";
+export { default as ExpandMenuOption } from "./ExpandMenu/ExpandMenuOption";
 
 /*Icons*/
 export * from "./Icons";
@@ -82,7 +88,8 @@ export * from "./Icons/FileIcons";
 export * from "./Table";
 
 /*Interfaces*/
-export { SelectorType } from "../global/global.types";
+export * from "../global/global.types";
+export * from "../global/themes";
 export * from "./ActionsList/ActionsList.types";
 export * from "./ApplicationLogo/ApplicationLogo.types";
 export * from "./BackLink/BackLink.types";
@@ -129,3 +136,7 @@ export * from "./Wizard/Wizard.types";
 export * from "./InformativeMessage/InformativeMessage.types";
 export * from "./DateTimeInput/DateTimeInput.types";
 export * from "./Link/Link.types";
+export * from "./Slider/Slider.types";
+export * from "./ActionsBar/ActionsBar.types";
+export * from "./FormActionsTray/FormActionsTray.types";
+export * from "./ExpandMenu/ExpandMenu.types";

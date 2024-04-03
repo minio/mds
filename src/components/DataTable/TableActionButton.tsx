@@ -26,12 +26,88 @@ import ShareIcon from "../Icons/ShareIcon";
 import EditIcon from "../Icons/EditIcon";
 import TrashIcon from "../Icons/TrashIcon";
 import DownloadIcon from "../Icons/DownloadIcon";
-import IconButton from "../IconButton/IconButton";
 import {
   actionsTypes,
   IActionButton,
   PredefinedActionTypes,
 } from "./DataTable.types";
+import styled from "styled-components";
+import get from "lodash/get";
+import { lightV2 } from "../../global/themes";
+
+const TableActionCustomIcon = styled.button(({ theme }) => {
+  let buttonSize: number | string = 30;
+
+  return {
+    width: buttonSize,
+    height: buttonSize,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "100%",
+    border: `1px solid ${get(theme, `dataTable.actionButton.border`, lightV2.plainIconButtonBorder)}`,
+    position: "relative",
+    cursor: "pointer",
+    transitionDuration: "0.2s",
+    background: get(
+      theme,
+      `dataTable.actionButton.background`,
+      lightV2.plainIconButtonBG,
+    ),
+    "& svg": {
+      fill: get(
+        theme,
+        `dataTable.actionButton.iconColor`,
+        lightV2.plainIconButtonColor,
+      ),
+      margin: "calc(25% - 2px)",
+    },
+    "&:hover:not(:disabled)": {
+      background: get(
+        theme,
+        `dataTable.actionButton.hoverBackground`,
+        lightV2.plainIconButtonBG,
+      ),
+      borderColor: get(
+        theme,
+        `dataTable.actionButton.hoverBorder`,
+        lightV2.plainIconButtonBorder,
+      ),
+    },
+    "&:active:not(:disabled)": {
+      background: get(
+        theme,
+        `dataTable.actionButton.activeBackground`,
+        lightV2.plainIconButtonBG,
+      ),
+      borderColor: get(
+        theme,
+        `dataTable.actionButton.activeBorder`,
+        lightV2.plainIconButtonBorder,
+      ),
+    },
+    "&:disabled": {
+      cursor: "not-allowed",
+      background: get(
+        theme,
+        `dataTable.actionButton.disabledBackground`,
+        "transparent",
+      ),
+      borderColor: get(
+        theme,
+        `dataTable.actionButton.disabledBorder`,
+        lightV2.disabledSecondary,
+      ),
+      "& svg": {
+        fill: get(
+          theme,
+          `dataTable.actionButton.disabledIconColor`,
+          lightV2.disabledSecondaryText,
+        ),
+      },
+    },
+  };
+});
 
 export const isPredefinedAction = (val: any): val is PredefinedActionTypes =>
   actionsTypes.includes(val);
@@ -78,13 +154,9 @@ const TableActionButton: FC<IActionButton> = ({
 
   const icon = isPredefinedAction(type) ? defineIcon(type) : type;
   let buttonElement = (
-    <IconButton
+    <TableActionCustomIcon
       type={"button"}
       aria-label={typeof type === "string" ? type : ""}
-      size={"30px"}
-      sx={{
-        margin: "0 8px",
-      }}
       disabled={disabled}
       onClick={
         onClick
@@ -100,7 +172,7 @@ const TableActionButton: FC<IActionButton> = ({
       }
     >
       {icon}
-    </IconButton>
+    </TableActionCustomIcon>
   );
 
   if (tooltip && tooltip !== "") {

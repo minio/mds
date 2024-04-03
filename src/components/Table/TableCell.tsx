@@ -21,7 +21,7 @@ import get from "lodash/get";
 import { lightColors } from "../../global/themes";
 
 const TableCellMain = styled.td<TableComponentsExtraProps>(({ theme, sx }) => ({
-  fontFamily: "'Inter',sans-serif",
+  fontFamily: "'Geist',sans-serif",
   fontWeight: 400,
   fontSize: 12,
   lineHeight: 1.43,

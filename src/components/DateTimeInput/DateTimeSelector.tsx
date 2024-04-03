@@ -27,7 +27,7 @@ import CalendarIcon from "../Icons/CalendarIcon";
 import TimeIcon from "../Icons/TimeIcon";
 import DateSelector from "./DateSelector";
 import TimeSelector from "./TimeSelector";
-import { lightColors } from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 import { DateTime } from "luxon";
 import SelectorContainer from "../../global/SelectorContainer";
 import debounce from "lodash/debounce";
@@ -40,10 +40,10 @@ const OptionChangeButton = styled.button(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   gap: 10,
-  border: `2px solid ${get(theme, "borderColor", lightColors.borderColor)}`,
+  border: `2px solid ${get(theme, "borderColor", lightV2.borderColor)}`,
   borderRadius: 4,
-  backgroundColor: get(theme, "bgColor", lightColors.white),
-  color: get(theme, "signalColors.main", lightColors.mainBlue),
+  backgroundColor: get(theme, "signalColors.clear", lightV2.white),
+  color: get(theme, "signalColors.main", lightV2.switchBG),
   fontSize: 14,
   fontWeight: "bold",
   "& svg": {
@@ -51,18 +51,18 @@ const OptionChangeButton = styled.button(({ theme }) => ({
     height: 12,
   },
   "&.selected": {
-    backgroundColor: get(theme, "signalColors.main", lightColors.mainBlue),
-    color: get(theme, "bgColor", lightColors.white),
-    borderColor: get(theme, "signalColors.main", lightColors.mainBlue),
+    backgroundColor: get(theme, "signalColors.main", lightV2.switchBG),
+    color: get(theme, "bgColor", lightV2.white),
+    borderColor: get(theme, "signalColors.main", lightV2.switchBG),
     boxShadow: `0px 3px 6px #00000029;`,
   },
 }));
 
 const DateTimeContainer = styled.div<StylesOverrideProps>(
   ({ theme, sx, isPortal, mode }) => ({
-    position: isPortal ? "absolute" : "relative",
-    border: `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`,
-    backgroundColor: get(theme, "bgColor", lightColors.white),
+    position: isPortal ? "absolute" : ("relative" as const),
+    border: `1px solid ${get(theme, "borderColor", lightV2.borderColor)}`,
+    backgroundColor: get(theme, "signalColors.clear", lightV2.white),
     width: globalWidth,
     minHeight: mode === "all" ? 340 : 285,
     boxShadow: `0px 0px 10px #00000029`,

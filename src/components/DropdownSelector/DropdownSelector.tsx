@@ -27,22 +27,29 @@ import get from "lodash/get";
 import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
 import Box from "../Box/Box";
+import { lightV2 } from "../../global/themes";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
-  ({ theme, sx, useAnchorWidth }) => ({
+  ({ theme, sx, useAnchorWidth, forSelectInput }) => ({
     position: "absolute",
     display: "grid",
     gridTemplateColumns: "100%",
-    backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
-    border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
-    padding: "10px 0",
+    backgroundColor: get(
+      theme,
+      "dropdownSelector.backgroundColor",
+      lightV2.white,
+    ),
+    padding: 8,
     maxHeight: 450,
-    minWidth: useAnchorWidth ? 150 : 0,
+    minWidth: useAnchorWidth ? 160 : 0,
     overflowX: "hidden",
     overflowY: "auto",
-    borderRadius: 4,
+    borderRadius: forSelectInput ? 16 : 12,
+    border: forSelectInput
+      ? 0
+      : `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
     boxShadow:
-      "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px",
+      "0px 2px 8px 0px rgba(156, 163, 175, 0.15), 0px 4px 12px 0px rgba(156, 163, 175, 0.25)",
     "& ul": {
       padding: 0,
       margin: 0,
@@ -74,13 +81,17 @@ const DropdownItem = styled.div<
     listStyle: "none",
     width: "100%",
     color: get(theme, "dropdownSelector.optionTextColor", "#000"),
-    padding: "6px 15px",
+    padding: "6px 10px",
     fontSize: 14,
+    fontWeight: 600,
+    lineHeight: "18px",
+    letterSpacing: "0.16px",
     userSelect: "none",
     alignItems: "center",
     justifyContent: "flex-start",
     gap: 10,
     whiteSpace: "nowrap",
+    borderRadius: 6,
     display: "grid",
     gridTemplateColumns: gridColumns,
     "& svg": {
@@ -158,6 +169,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
   open,
   anchorEl = null,
   useAnchorWidth = false,
+  forSelectInput = false,
   anchorOrigin = "start",
 }) => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
@@ -239,7 +251,12 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
 
   return createPortal(
     <SelectorContainer onClick={hideTriggerAction}>
-      <DropdownBlock id={id} sx={coords} useAnchorWidth={useAnchorWidth}>
+      <DropdownBlock
+        id={id}
+        sx={coords}
+        useAnchorWidth={useAnchorWidth}
+        forSelectInput={forSelectInput}
+      >
         {options.map((option, index) => {
           return (
             <DropdownItem

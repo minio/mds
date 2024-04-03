@@ -45,30 +45,29 @@ import ViewColumnIcon from "../Icons/ViewColumnIcon";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 import ColumnsSelector from "./ColumnsSelector";
+import { lightV2 } from "../../global/themes";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
     display: "flex",
     overflow: "auto",
-    flexDirection: "column",
-    padding: "0 16px 8px",
-    boxShadow: "none",
-    border: `${
-      disabled
-        ? get(theme, "dataTable.disabledBorder", "#E2E2E2")
-        : get(theme, "dataTable.border", "#E2E2E2")
-    } 1px solid`,
-    borderRadius: 3,
+    boxSizing: "border-box" as const,
+    flexDirection: "column" as const,
+    padding: "10px 20px",
+    boxShadow: get(theme, "box.shadow", "none"),
+    border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
+    borderRadius: 16,
     minHeight: 200,
     overflowY: "scroll",
     position: "relative",
     height: customPaperHeight || "calc(100vh - 205px)",
     backgroundColor: disabled
       ? get(theme, "dataTable.disabledBG", "transparent")
-      : "transparent",
+      : get(theme, "box.backgroundColor", lightV2.white),
     "&.noBackground": {
       backgroundColor: "transparent",
       border: 0,
+      boxShadow: "none",
     },
     "& .loadingBox": {
       padding: "100px 0",
@@ -109,7 +108,6 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       "&:hover:not(.ReactVirtualized__Table__headerRow)": {
         userSelect: "none",
         backgroundColor: get(theme, "dataTable.hoverColor", "#ececec"),
-        fontWeight: 600,
         "&.canClick": {
           cursor: "pointer",
         },
@@ -139,12 +137,12 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
     "& .ReactVirtualized__Table__row": {
       width: "100% !important",
       display: "flex",
-      flexDirection: "row",
+      flexDirection: "row" as const,
       alignItems: "center",
     },
     "& .ReactVirtualized__Table__headerRow": {
       display: "flex",
-      flexDirection: "row",
+      flexDirection: "row" as const,
       alignItems: "center",
       fontWeight: 700,
       fontSize: 14,
@@ -243,7 +241,7 @@ const DataTable: FC<DataTableProps> = ({
   idField,
   customEmptyMessage = "",
   customPaperHeight = "",
-  noBackground = false,
+  noBackground = true,
   columnsSelector = false,
   textSelectable = false,
   columnsShown = [],
@@ -374,7 +372,7 @@ const DataTable: FC<DataTableProps> = ({
   }
 
   return (
-    <Grid item xs={12} className={parentClassName}>
+    <Grid item xs={12} className={`data-table ${parentClassName}`}>
       <DataTableWrapper
         className={`${noBackground ? "noBackground" : ""}`}
         customPaperHeight={customPaperHeight}

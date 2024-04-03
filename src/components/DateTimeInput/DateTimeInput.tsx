@@ -45,7 +45,7 @@ const InputBase = styled.input(({ theme }) => {
     padding: "0 35px 0 15px",
     color: get(theme, "inputBox.color", lightColors.labelColor),
     fontSize: 13,
-    fontWeight: 600,
+    fontWeight: 400,
     border: `${borderColor} 1px solid`,
     borderRadius: 3,
     outline: "none",

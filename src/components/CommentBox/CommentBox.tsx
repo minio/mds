@@ -26,6 +26,7 @@ import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
+import { lightV2 } from "../../global/themes";
 
 const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
   ({ theme, error, originType }) => {
@@ -33,23 +34,23 @@ const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
     let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 
     if (error && error !== "") {
-      borderColor = get(theme, "inputBox.error", "#C51B3F");
-      borderHover = get(theme, "inputBox.error", "#C51B3F");
+      borderColor = get(theme, "inputBox.error", lightV2.danger);
+      borderHover = get(theme, "inputBox.error", lightV2.danger);
     }
 
     return {
-      fontFamily: "'Inter',sans-serif",
+      fontFamily: "'Geist',sans-serif",
       width: "100%",
-      resize: "none",
+      resize: "none" as const,
       padding: "16px 14px",
-      color: get(theme, "inputBox.color", "#07193E"),
-      fontSize: 13,
-      fontWeight: 600,
+      color: get(theme, "inputBox.color", lightV2.fontColor),
+      fontSize: 14,
+      fontWeight: 400,
       border: `${borderColor} 1px solid`,
       borderRadius: 3,
       outline: "none",
       transitionDuration: "0.1s",
-      backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
+      backgroundColor: get(theme, "inputBox.backgroundColor", "transparent"),
       "&:placeholder": {
         color: get(theme, "inputBox.placeholderColor", "#858585"),
         opacity: 1,

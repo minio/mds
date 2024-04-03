@@ -27,10 +27,8 @@ const ParentContainer = styled.div<
   display: "flex",
   flexDirection: "row",
   width: "100%",
-  minHeight: 83,
-  backgroundColor: get(theme, `pageHeader.background`, "#fff"),
+  minHeight: 63,
   left: 0,
-  borderBottom: `1px solid ${get(theme, `pageHeader.border`, "#E5E5E5")}`,
   flexWrap: "wrap",
   justifyContent: "space-between",
   alignItems: "center",
@@ -46,12 +44,11 @@ const ParentContainer = styled.div<
 const LabelContainer = styled.div<HTMLAttributes<HTMLDivElement>>(
   ({ theme }) => ({
     color: get(theme, `pageHeader.color`, "#000"),
-    fontSize: 18,
-    fontWeight: 700,
-    paddingLeft: 20,
+    fontSize: 20,
+    paddingLeft: 0,
     display: "flex",
     flexGrow: 1,
-    marginRight: 10,
+    marginRight: 0,
     "& a": {
       color: get(theme, `pageHeader.color`, "#000"),
       textDecoration: "none",
@@ -70,12 +67,10 @@ const MiddleContainer = styled.div<HTMLAttributes<HTMLDivElement>>(() => ({
 const ActionsContainer = styled.div<HTMLAttributes<HTMLDivElement>>(() => ({
   display: "flex",
   justifyContent: "flex-end",
-  paddingRight: 20,
+  paddingRight: 0,
   flexGrow: 1,
   marginLeft: 10,
-  "& button": {
-    marginLeft: 8,
-  },
+  gap: 8,
 }));
 
 const PageHeader: FC<PageHeaderProps> = ({

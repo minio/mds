@@ -22,6 +22,7 @@ import { ActionLinkProps } from "./ActionLink.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Link from "../Link/Link";
 
 export default {
   title: "MDS/Forms/ActionLink",
@@ -39,7 +40,8 @@ const Template: Story<ActionLinkProps> = (args) => (
         label={"Action Link"}
         onClick={() => alert("You clicked me!")}
       />
-      , this text can continue after it.
+      , this text can continue after it. This action link can be a{" "}
+      <Link className={"dark"}>Dark Link</Link>
     </span>
   </StoryThemeProvider>
 );

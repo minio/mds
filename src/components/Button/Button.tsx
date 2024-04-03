@@ -65,12 +65,12 @@ const CustomButton = styled.button<
     }
 
     return {
-      borderRadius: 3,
+      borderRadius: 6,
       cursor: "pointer",
       width: fullWidth ? "100%" : "initial",
-      height: 39,
-      fontFamily: "'Inter', sans-serif",
-      fontWeight: "400",
+      height: 32,
+      fontFamily: "'Geist', sans-serif",
+      fontWeight: "600",
       fontSize: 14,
       display: "flex",
       flexDirection: "row",
@@ -80,10 +80,10 @@ const CustomButton = styled.button<
       margin: 0,
       padding:
         (!label || label.trim() === "") && !parentChildren
-          ? "0 14px"
+          ? "0 12px"
           : "0 25px",
       transition: "all 0.2s linear",
-      backgroundColor: get(
+      background: get(
         theme,
         `buttons.${neatVariant}.enabled.background`,
         "#fff",
@@ -92,6 +92,7 @@ const CustomButton = styled.button<
       borderWidth: 1,
       borderStyle: "solid",
       color: get(theme, `buttons.${neatVariant}.enabled.text`, "#000"),
+      boxShadow: get(theme, `buttons.${neatVariant}.enabled.shadow`, "none"),
       "& .button-label": {
         whiteSpace: fullWidth ? "normal" : "nowrap",
         ...buttonLabel,
@@ -109,7 +110,7 @@ const CustomButton = styled.button<
       },
       "&:disabled": {
         cursor: "not-allowed",
-        backgroundColor: get(
+        background: get(
           theme,
           `buttons.${neatVariant}.disabled.background`,
           "#fff",
@@ -122,26 +123,28 @@ const CustomButton = styled.button<
         borderWeight: 1,
         borderStyle: "solid",
         color: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
+        boxShadow: get(theme, `buttons.${neatVariant}.disabled.shadow`, "none"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.disabled.text`, "#000"),
         },
       },
       "&:hover:not(:disabled)": {
-        backgroundColor: get(
+        background: get(
           theme,
           `buttons.${neatVariant}.hover.background`,
           "#fff",
         ),
         borderColor: get(theme, `buttons.${neatVariant}.hover.border`, "#000"),
         color: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
+        boxShadow: get(theme, `buttons.${neatVariant}.hover.shadow`, "none"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.hover.text`, "#000"),
         },
       },
       "&:active:not(:disabled)": {
-        backgroundColor: get(
+        background: get(
           theme,
           `buttons.${neatVariant}.pressed.background`,
           "#fff",
@@ -152,6 +155,7 @@ const CustomButton = styled.button<
           "#000",
         ),
         color: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
+        boxShadow: get(theme, `buttons.${neatVariant}.pressed.shadow`, "none"),
         "& .buttonIcon > svg": {
           fill: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),
           color: get(theme, `buttons.${neatVariant}.pressed.text`, "#000"),

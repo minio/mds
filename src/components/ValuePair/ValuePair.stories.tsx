@@ -31,7 +31,16 @@ export default {
 const Template: Story<ValuePairProps> = ({ sx, direction }) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <ValuePair label={"Label"} value={"Value"} sx={sx} direction={direction} />
+    <ValuePair
+      label={"State"}
+      value={
+        <span>
+          "Value"<a href={"#"}>Link</a>
+        </span>
+      }
+      sx={sx}
+      direction={direction}
+    />
   </StoryThemeProvider>
 );
 

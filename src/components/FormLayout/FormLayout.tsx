@@ -36,10 +36,10 @@ const FormLayout: FC<FormLayoutProps> = ({
       sx={{
         display: "grid",
         padding: containerPadding ? 25 : 0,
-        gap: "25px",
+        gap: 25,
         gridTemplateColumns: "1fr",
         "& .inputItem:not(:last-of-type)": {
-          marginBottom: 12,
+          marginBottom: 20,
         },
         [`@media (min-width: ${get(breakPoints, "md", 0)}px)`]: {
           gridTemplateColumns: helpBox ? "2fr 1.2fr" : "1fr",
