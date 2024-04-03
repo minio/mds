@@ -204,6 +204,12 @@ export declare const lightV2: {
   bgColorBgShell: string;
   colorTextLabel: string;
   colorBorderSubtle: string;
+  colorBgHover: string;
+  errorColorPrimaryText: string;
+  colorBorder: string;
+  colorText: string;
+  colorBgDisabled: string;
+  colorTextDisabled: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;

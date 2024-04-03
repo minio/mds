@@ -332,6 +332,16 @@ interface ActionsBarThemeProps {
   hoverLabelColor: string;
   activeBackground: string;
   activeLabelColor: string;
+  disabledLabelColor: string;
+  disabledBackground: string;
+}
+interface DropdownOptionsThemeProps {
+  hoverOptionBG: string;
+  activeOptionBG: string;
+  optionBG: string;
+  optionLabel: string;
+  dangerLabel: string;
+  disabledLabel: string;
 }
 interface ThemeDefinitionProps {
   bgColor: string;
@@ -386,6 +396,7 @@ interface ThemeDefinitionProps {
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
   actionsBar?: ActionsBarThemeProps;
+  dropdownOptions?: DropdownOptionsThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -1528,7 +1539,7 @@ declare const Slider: FC<
 
 interface ActionsBarProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
-  narrow?: boolean;
+  displayLabels?: boolean;
   sx?: CSSProperties;
 }
 
@@ -1542,6 +1553,45 @@ interface FormActionsTrayProps
 }
 
 declare const FormActionsTray: FC<FormActionsTrayProps>;
+
+interface ExpandMenuProps {
+  id: string;
+  name?: string;
+  label?: string;
+  variant?: "regular" | "callAction" | "secondary" | "text" | "subAction";
+  icon?: ReactNode;
+  iconLocation?: "start" | "end";
+  children?: ReactNode | string;
+  dropMenuPosition?: "start" | "end";
+  sx?: CSSObject;
+}
+interface ExpandMenuOptionProps {
+  id: string;
+  variant?: "regular" | "secondary";
+  icon?: ReactNode;
+  sx?: CSSObject;
+  children: ReactNode;
+}
+interface ExpandDropBaseProps {
+  selectedOption?: string;
+  hideTriggerAction: () => void;
+  open: boolean;
+  anchorEl?: (EventTarget & HTMLElement) | null;
+  anchorOrigin?: "start" | "end";
+  children: React__default.ReactNode;
+}
+interface DropdownMainProps {
+  sx?: CSSObject;
+}
+type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
+
+declare const ExpandMenu: FC<
+  ExpandMenuProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+declare const ExpandMenuOption: FC<
+  ExpandMenuOptionProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2885,6 +2935,12 @@ declare const lightV2: {
   bgColorBgShell: string;
   colorTextLabel: string;
   colorBorderSubtle: string;
+  colorBgHover: string;
+  errorColorPrimaryText: string;
+  colorBorder: string;
+  colorText: string;
+  colorBgDisabled: string;
+  colorTextDisabled: string;
 };
 declare const lightTheme: ThemeDefinitionProps;
 declare const darkTheme: ThemeDefinitionProps;
@@ -3052,6 +3108,8 @@ export {
   DrivesMenuIcon,
   DropDownBlockProps,
   DropdownItemProps,
+  DropdownMainProps,
+  DropdownOptionsThemeProps,
   DropdownSelector,
   DropdownSelectorProps,
   DropdownSelectorThemeProps,
@@ -3067,8 +3125,14 @@ export {
   ShuffleIcon as EventBusyIcon,
   EventSubscriptionIcon,
   ExpandCaret,
+  ExpandDropBaseProps,
+  ExpandDropdownProps,
   ExpandIcon,
   ExpandLeftCaret,
+  ExpandMenu,
+  ExpandMenuOption,
+  ExpandMenuOptionProps,
+  ExpandMenuProps,
   ExpandOptionsButton,
   ExpandOptionsButtonProps,
   ExtraCommentProps,
