@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import {
   ScreenTitleContainerProps,
   ScreenTitleProps,
@@ -93,19 +93,21 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
   }),
 );
 
-const ScreenTitle: FC<ScreenTitleProps> = ({
+const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
   icon,
   subTitle = "",
   title,
   actions,
   bottomBorder = true,
   sx,
+  ...restProps
 }) => {
   return (
     <ScreenTitleContainer
-      className={"screenTitle-container"}
+      className={"screen-title"}
       sx={sx}
       bottomBorder={bottomBorder}
+      {...restProps}
     >
       <Box className={"stContainer"}>
         <Box className={"leftItems"}>

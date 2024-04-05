@@ -30,10 +30,10 @@ export default {
   argTypes: {},
 } as Meta<typeof PageHeader>;
 
-const Template: Story<PageHeaderProps> = (args) => (
+const Template: Story<PageHeaderProps> = (args: PageHeaderProps) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <PageHeader {...args} />
+    <PageHeader id={"demo-page-header"} {...args} />
   </StoryThemeProvider>
 );
 

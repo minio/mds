@@ -89,7 +89,7 @@ const TabsContainer = styled.div<TabsContainerProps>(
   },
 );
 
-const Tabs: FC<TabsProps> = ({
+const Tabs: FC<TabsProps & HTMLAttributes<HTMLDivElement>> = ({
   horizontal,
   options,
   currentTabOrPath,
@@ -100,13 +100,15 @@ const Tabs: FC<TabsProps> = ({
   optionsEndComponent,
   horizontalBarBackground,
   sx,
+  ...restProps
 }) => {
   return (
     <TabsContainer
-      className={"tabs-container"}
+      className={"tabs"}
       horizontal={!!horizontal}
       horizontalBarBackground={!!horizontalBarBackground}
       sx={sx}
+      {...restProps}
     >
       <Box className={"optionsContainer"}>
         {optionsInitialComponent && <Box>{optionsInitialComponent}</Box>}

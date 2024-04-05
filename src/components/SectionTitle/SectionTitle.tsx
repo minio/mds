@@ -30,18 +30,20 @@ const SectionParent = styled.div<
   ...sx,
 }));
 
-const SectionTitle: FC<SectionTitleProps> = ({
+const SectionTitle: FC<SectionTitleProps & HTMLAttributes<HTMLDivElement>> = ({
   separator,
   icon,
   children,
   actions,
   sx,
+  ...restProps
 }) => {
   return (
     <SectionParent
-      className={"sectionTitle-container"}
+      className={"section-title"}
       separator={separator}
       sx={sx}
+      {...restProps}
     >
       <Grid
         item

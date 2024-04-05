@@ -30,10 +30,10 @@ export default {
   argTypes: {},
 } as Meta<typeof SectionTitle>;
 
-const Template: Story<SectionTitleProps> = (args) => (
+const Template: Story<SectionTitleProps> = (args: SectionTitleProps) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <SectionTitle {...args} />
+    <SectionTitle id={"section-title-demo"} {...args} />
   </StoryThemeProvider>
 );
 
