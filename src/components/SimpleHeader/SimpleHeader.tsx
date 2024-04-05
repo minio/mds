@@ -30,16 +30,24 @@ const ParentContainer = styled.div<
   justifyContent: "space-between",
   alignItems: "center",
   paddingBottom: 15,
-  fontWeight: "normal",
-  fontSize: 20,
   color: get(theme, `fontColor`, lightV2.fontColor),
   margin: "20px 22px",
+  fontSize: 14,
+  fontStyle: "normal",
+  fontWeight: 600,
+  lineHeight: "18px",
+  letterSpacing: "0.16px",
   ...sx,
 }));
 
-const SimpleHeader: FC<SimpleHeaderProps> = ({ label, icon, sx }) => {
+const SimpleHeader: FC<SimpleHeaderProps & HTMLAttributes<HTMLDivElement>> = ({
+  label,
+  icon,
+  sx,
+  ...restProps
+}) => {
   return (
-    <ParentContainer className={"simpleHeader-container"} sx={sx}>
+    <ParentContainer className={"simple-header"} sx={sx} {...restProps}>
       <span>{label}</span>
       {icon}
     </ParentContainer>

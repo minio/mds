@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { HelpBoxProps } from "./HelpBox.types";
@@ -23,8 +23,10 @@ import Grid from "../Grid/Grid";
 const BaseHelpBox = styled.div(({ theme }) => ({
   border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
   boxShadow: get(theme, "box.shadow", "none"),
-  borderRadius: 12,
-  backgroundColor: get(theme, "boxBackground", "#FBFAFA"),
+  backgroundColor: get(theme, "boxBackground", "#F9FAFC"),
+  borderRadius: 10,
+  stroke: "#E5E7EB",
+  color: "#3A3D41",
   paddingLeft: 25,
   paddingTop: 20,
   paddingBottom: 20,
@@ -47,9 +49,14 @@ const BaseHelpBox = styled.div(({ theme }) => ({
   },
 }));
 
-const HelpBox: FC<HelpBoxProps> = ({ iconComponent, title, help }) => {
+const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>> = ({
+  iconComponent,
+  title,
+  help,
+  ...restProps
+}) => {
   return (
-    <BaseHelpBox className={"helpbox-container"}>
+    <BaseHelpBox className={"help-box"} {...restProps}>
       <Grid container>
         <Grid item xs={12} className={"leftItems"}>
           {iconComponent || null}

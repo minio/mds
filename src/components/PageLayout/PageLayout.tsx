@@ -28,7 +28,7 @@ const PageLayoutContainer = styled.div<
   ...sx,
 }));
 
-const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps> = ({
+const PageLayout: FC<PageLayoutProps & HTMLAttributes<HTMLDivElement>> = ({
   sx,
   children,
   variant,
@@ -36,7 +36,12 @@ const PageLayout: FC<HTMLAttributes<HTMLDivElement> & PageLayoutProps> = ({
   ...props
 }) => {
   return (
-    <PageLayoutContainer sx={sx} variant={variant} {...props}>
+    <PageLayoutContainer
+      className={"page-layout"}
+      sx={sx}
+      variant={variant}
+      {...props}
+    >
       <Grid container>
         <Grid item xs={12} className={className}>
           {children}

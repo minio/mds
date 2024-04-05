@@ -32,10 +32,10 @@ export default {
   argTypes: {},
 } as Meta<typeof ScreenTitle>;
 
-const Template: Story<ScreenTitleProps> = (args) => (
+const Template: Story<ScreenTitleProps> = (args: ScreenTitleProps) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <ScreenTitle {...args} />
+    <ScreenTitle id={"screen-title-demo"} {...args} />
   </StoryThemeProvider>
 );
 

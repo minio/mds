@@ -27,16 +27,28 @@ const ParentContainer = styled.div<
   display: "flex",
   flexDirection: "row",
   width: "100%",
-  minHeight: 63,
   left: 0,
   flexWrap: "wrap",
   justifyContent: "space-between",
-  alignItems: "center",
   [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
     "& > div": {
       margin: "4px 0",
       padding: "0 20px,",
     },
+  },
+  paddingLeft: 32,
+  paddingRight: 32,
+  borderBottom: 0,
+  paddingTop: 24,
+  paddingBottom: 0,
+  marginBottom: 0,
+  alignItems: "start",
+  "& .page-header-label": {
+    color: "#21242B",
+    fontSize: 24,
+    fontStyle: " normal",
+    fontWeight: "bold",
+    lineHeight: " 28px",
   },
   ...sx,
 }));
@@ -73,14 +85,15 @@ const ActionsContainer = styled.div<HTMLAttributes<HTMLDivElement>>(() => ({
   gap: 8,
 }));
 
-const PageHeader: FC<PageHeaderProps> = ({
+const PageHeader: FC<PageHeaderProps & HTMLAttributes<HTMLDivElement>> = ({
   label,
   middleComponent,
   actions,
   sx,
+  ...restProps
 }) => {
   return (
-    <ParentContainer sx={sx} className={"page-header"}>
+    <ParentContainer {...restProps} sx={sx} className={"page-header"}>
       <Grid
         className={"page-header-label"}
         item
