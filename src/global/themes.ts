@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { ThemeDefinitionProps } from "./global.types";
+import { themeColors } from "./themeColors";
 
 export const lightColors = {
   white: "#fff",
@@ -800,12 +801,13 @@ export const lightTheme: ThemeDefinitionProps = {
     background: lightV2.bgColorBgShell,
   },
   dropdownOptions: {
-    optionLabel: lightV2.colorTextLabel,
+    optionLabel: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
     optionBG: "transparent",
-    hoverOptionBG: lightV2.colorBgHover,
-    activeOptionBG: lightV2.colorBgHover,
-    dangerLabel: lightV2.errorColorPrimaryText,
-    disabledLabel: lightV2.disabledGreyText,
+    hoverOptionBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+    activeOptionBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+    dangerLabel: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+    disabledLabel:
+      themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
   },
 };
 
