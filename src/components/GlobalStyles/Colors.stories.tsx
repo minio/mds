@@ -19,7 +19,7 @@ import { Meta, Story } from "@storybook/react";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "./GlobalStyles";
 import Box from "../Box/Box";
-import { darkColors, lightV2 } from "../../global/themes";
+import { themeColors } from "../../global/themeColors";
 
 export default {
   title: "MDS/Global/Colors",
@@ -39,12 +39,18 @@ const renderItems = (variants: object, varName: string) => {
           flexWrap: "wrap",
           gap: 15,
           "& .item": {
-            display: "flex",
-            gap: 5,
+            gap: 15,
+            "& .itemColor": {
+              display: "grid",
+              gridTemplateColumns: "1fr 16px 1fr",
+              gap: 5,
+            },
           },
           "& .colorElement": {
             width: 16,
             height: 16,
+            minWidth: 16,
+            minHeight: 16,
             display: "block",
             border: "1px solid #000",
           },
@@ -52,11 +58,25 @@ const renderItems = (variants: object, varName: string) => {
       >
         {Object.keys(variants).map((varName) => (
           <Box className={"item"}>
-            <Box
-              className={"colorElement"}
-              sx={{ backgroundColor: variants[varName] }}
-            />
-            {varName} {variants[varName]}
+            <Box>
+              <strong>{varName}</strong>
+            </Box>
+            <Box className={"itemColor"}>
+              <span>lightMode:</span>
+              <Box
+                className={"colorElement"}
+                sx={{ backgroundColor: variants[varName].lightMode }}
+              />
+              <span>{variants[varName].lightMode}</span>
+            </Box>
+            <Box className={"itemColor"}>
+              <span>darkMode:</span>
+              <Box
+                className={"colorElement"}
+                sx={{ backgroundColor: variants[varName].darkMode }}
+              />
+              <span>{variants[varName].darkMode}</span>
+            </Box>
           </Box>
         ))}
       </Box>
@@ -67,8 +87,16 @@ const renderItems = (variants: object, varName: string) => {
 const Template: Story = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    {renderItems(lightV2, "lightV2")}
-    {renderItems(darkColors, "darkColors (Don't use yet)")}
+    <Box>
+      <h1>Color vars Usage</h1>
+      <code>
+        themeColors["varName"].lightMode <br />
+        themeColors["varName"].darkMode <br />
+        <br />
+        Eg.: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode
+      </code>
+    </Box>
+    {renderItems(themeColors, "themeColors")}
   </StoryThemeProvider>
 );
 
