@@ -90,6 +90,7 @@ export * from "./Table";
 /*Interfaces*/
 export * from "../global/global.types";
 export * from "../global/themes";
+export * from "../global/themeColors";
 export * from "./ActionsList/ActionsList.types";
 export * from "./ApplicationLogo/ApplicationLogo.types";
 export * from "./BackLink/BackLink.types";
