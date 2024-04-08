@@ -809,6 +809,10 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledLabel:
       themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
   },
+  boxedIcon: {
+    iconColor: themeColors["Color/Neutral/Icon/colorIcon"].lightMode,
+    bgColor: themeColors["Color/Neutral/Bg/colorBgSections"].lightMode,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
