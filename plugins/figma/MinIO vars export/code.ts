@@ -23,8 +23,8 @@ interface IVarsCollection {
   [key: string]: IVarPropVals;
 }
 
-const lightModeID = `153:0`;
-const darkModeID = `153:1`;
+const lightModeID = `153:1`;
+const darkModeID = `153:0`;
 
 const namesRGB = ["r", "g", "b"];
 

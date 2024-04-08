@@ -388,6 +388,11 @@ export interface DropdownOptionsThemeProps {
   disabledLabel: string;
 }
 
+export interface BoxedIconThemeProps {
+  bgColor: string;
+  iconColor: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -442,6 +447,7 @@ export interface ThemeDefinitionProps {
   valuePair?: ValuePairThemeProps;
   actionsBar?: ActionsBarThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
+  boxedIcon?: BoxedIconThemeProps;
 }
 
 export interface SelectorType {
