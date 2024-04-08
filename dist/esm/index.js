@@ -47,164 +47,164 @@ var v = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
     return { total: parseFloat(l.toFixed(o)), unit: _[r] };
   },
   C = {
-    "Color/Base/Royal/0": { lightMode: "#192652", darkMode: "#eff6ff" },
-    "Color/Base/Royal/1": { lightMode: "#213b87", darkMode: "#dceafd" },
-    "Color/Base/Royal/2": { lightMode: "#2241ab", darkMode: "#c1dbfc" },
-    "Color/Base/Royal/3": { lightMode: "#2350d2", darkMode: "#96c4fa" },
-    "Color/Base/Royal/4": { lightMode: "#2b64e5", darkMode: "#65a4f5" },
+    "Color/Base/Royal/0": { lightMode: "#eff6ff", darkMode: "#192652" },
+    "Color/Base/Royal/1": { lightMode: "#dceafd", darkMode: "#213b87" },
+    "Color/Base/Royal/2": { lightMode: "#c1dbfc", darkMode: "#2241ab" },
+    "Color/Base/Royal/3": { lightMode: "#96c4fa", darkMode: "#2350d2" },
+    "Color/Base/Royal/4": { lightMode: "#65a4f5", darkMode: "#2b64e5" },
     "Color/Base/Royal/5": { lightMode: "#4182f0", darkMode: "#4182f0" },
-    "Color/Base/Royal/6": { lightMode: "#65a4f5", darkMode: "#2b64e5" },
-    "Color/Base/Royal/7": { lightMode: "#96c4fa", darkMode: "#2350d2" },
-    "Color/Base/Royal/8": { lightMode: "#c1dbfc", darkMode: "#2241ab" },
-    "Color/Base/Royal/9": { lightMode: "#dceafd", darkMode: "#213b87" },
-    "Color/Base/Royal/10": { lightMode: "#eff6ff", darkMode: "#192652" },
-    "Color/Base/Java/0": { lightMode: "#022c31", darkMode: "#effefc" },
-    "Color/Base/Java/1": { lightMode: "#104e51", darkMode: "#cafdf8" },
-    "Color/Base/Java/2": { lightMode: "#0e5c61", darkMode: "#95faf4" },
-    "Color/Base/Java/3": { lightMode: "#0a767b", darkMode: "#58f0eb" },
-    "Color/Base/Java/4": { lightMode: "#07949a", darkMode: "#26dadb" },
+    "Color/Base/Royal/6": { lightMode: "#2b64e5", darkMode: "#65a4f5" },
+    "Color/Base/Royal/7": { lightMode: "#2350d2", darkMode: "#96c4fa" },
+    "Color/Base/Royal/8": { lightMode: "#2241ab", darkMode: "#c1dbfc" },
+    "Color/Base/Royal/9": { lightMode: "#213b87", darkMode: "#dceafd" },
+    "Color/Base/Royal/10": { lightMode: "#192652", darkMode: "#eff6ff" },
+    "Color/Base/Java/0": { lightMode: "#effefc", darkMode: "#022c31" },
+    "Color/Base/Java/1": { lightMode: "#cafdf8", darkMode: "#104e51" },
+    "Color/Base/Java/2": { lightMode: "#95faf4", darkMode: "#0e5c61" },
+    "Color/Base/Java/3": { lightMode: "#58f0eb", darkMode: "#0a767b" },
+    "Color/Base/Java/4": { lightMode: "#26dadb", darkMode: "#07949a" },
     "Color/Base/Java/5": { lightMode: "#0dc1c4", darkMode: "#0dc1c4" },
-    "Color/Base/Java/6": { lightMode: "#26dadb", darkMode: "#07949a" },
-    "Color/Base/Java/7": { lightMode: "#58f0eb", darkMode: "#0a767b" },
-    "Color/Base/Java/8": { lightMode: "#95faf4", darkMode: "#0e5c61" },
-    "Color/Base/Java/9": { lightMode: "#cafdf8", darkMode: "#104e51" },
-    "Color/Base/Java/10": { lightMode: "#effefc", darkMode: "#022c31" },
-    "Color/Base/Orange/0": { lightMode: "#481a00", darkMode: "#fffcea" },
-    "Color/Base/Orange/1": { lightMode: "#7c360b", darkMode: "#fff5c5" },
-    "Color/Base/Orange/2": { lightMode: "#984108", darkMode: "#ffeb85" },
-    "Color/Base/Orange/3": { lightMode: "#bb5502", darkMode: "#ffda46" },
-    "Color/Base/Orange/4": { lightMode: "#e27b00", darkMode: "#ffc61b" },
+    "Color/Base/Java/6": { lightMode: "#07949a", darkMode: "#26dadb" },
+    "Color/Base/Java/7": { lightMode: "#0a767b", darkMode: "#58f0eb" },
+    "Color/Base/Java/8": { lightMode: "#0e5c61", darkMode: "#95faf4" },
+    "Color/Base/Java/9": { lightMode: "#104e51", darkMode: "#cafdf8" },
+    "Color/Base/Java/10": { lightMode: "#022c31", darkMode: "#effefc" },
+    "Color/Base/Orange/0": { lightMode: "#fffcea", darkMode: "#481a00" },
+    "Color/Base/Orange/1": { lightMode: "#fff5c5", darkMode: "#7c360b" },
+    "Color/Base/Orange/2": { lightMode: "#ffeb85", darkMode: "#984108" },
+    "Color/Base/Orange/3": { lightMode: "#ffda46", darkMode: "#bb5502" },
+    "Color/Base/Orange/4": { lightMode: "#ffc61b", darkMode: "#e27b00" },
     "Color/Base/Orange/5": { lightMode: "#ffa400", darkMode: "#ffa400" },
-    "Color/Base/Orange/6": { lightMode: "#ffc61b", darkMode: "#e27b00" },
-    "Color/Base/Orange/7": { lightMode: "#ffda46", darkMode: "#bb5502" },
-    "Color/Base/Orange/8": { lightMode: "#ffeb85", darkMode: "#984108" },
-    "Color/Base/Orange/9": { lightMode: "#fff5c5", darkMode: "#7c360b" },
-    "Color/Base/Orange/10": { lightMode: "#fffcea", darkMode: "#481a00" },
-    "Color/Base/Sunset/0": { lightMode: "#460804", darkMode: "#fff4ec" },
-    "Color/Base/Sunset/1": { lightMode: "#82180c", darkMode: "#ffe6d3" },
-    "Color/Base/Sunset/2": { lightMode: "#a1190b", darkMode: "#ffc9a5" },
-    "Color/Base/Sunset/3": { lightMode: "#cc1f02", darkMode: "#ffa46d" },
-    "Color/Base/Sunset/4": { lightMode: "#ff3100", darkMode: "#ff7232" },
+    "Color/Base/Orange/6": { lightMode: "#e27b00", darkMode: "#ffc61b" },
+    "Color/Base/Orange/7": { lightMode: "#bb5502", darkMode: "#ffda46" },
+    "Color/Base/Orange/8": { lightMode: "#984108", darkMode: "#ffeb85" },
+    "Color/Base/Orange/9": { lightMode: "#7c360b", darkMode: "#fff5c5" },
+    "Color/Base/Orange/10": { lightMode: "#481a00", darkMode: "#fffcea" },
+    "Color/Base/Sunset/0": { lightMode: "#fff4ec", darkMode: "#460804" },
+    "Color/Base/Sunset/1": { lightMode: "#ffe6d3", darkMode: "#82180c" },
+    "Color/Base/Sunset/2": { lightMode: "#ffc9a5", darkMode: "#a1190b" },
+    "Color/Base/Sunset/3": { lightMode: "#ffa46d", darkMode: "#cc1f02" },
+    "Color/Base/Sunset/4": { lightMode: "#ff7232", darkMode: "#ff3100" },
     "Color/Base/Sunset/5": { lightMode: "#ff4c0a", darkMode: "#ff4c0a" },
-    "Color/Base/Sunset/6": { lightMode: "#ff7232", darkMode: "#ff3100" },
-    "Color/Base/Sunset/7": { lightMode: "#ffa46d", darkMode: "#cc1f02" },
-    "Color/Base/Sunset/8": { lightMode: "#ffc9a5", darkMode: "#a1190b" },
-    "Color/Base/Sunset/9": { lightMode: "#ffe6d3", darkMode: "#82180c" },
-    "Color/Base/Sunset/10": { lightMode: "#fff4ec", darkMode: "#460804" },
+    "Color/Base/Sunset/6": { lightMode: "#ff3100", darkMode: "#ff7232" },
+    "Color/Base/Sunset/7": { lightMode: "#cc1f02", darkMode: "#ffa46d" },
+    "Color/Base/Sunset/8": { lightMode: "#a1190b", darkMode: "#ffc9a5" },
+    "Color/Base/Sunset/9": { lightMode: "#82180c", darkMode: "#ffe6d3" },
+    "Color/Base/Sunset/10": { lightMode: "#460804", darkMode: "#fff4ec" },
     "Color/Neutral/Text/colorText": {
-      lightMode: "#ffffffe0",
-      darkMode: "#000000e0",
+      lightMode: "#000000e0",
+      darkMode: "#ffffffe0",
     },
     "Color/Base/Black": { lightMode: "#000000", darkMode: "#000000" },
     "Color/Base/White": { lightMode: "#ffffff", darkMode: "#ffffff" },
     "Color/Neutral/Text/colorTextSecondary": {
-      lightMode: "#ffffffa6",
-      darkMode: "#000000a6",
+      lightMode: "#000000a6",
+      darkMode: "#ffffffa6",
     },
     "Color/Neutral/Text/colorTextTertiary": {
-      lightMode: "#ffffff73",
-      darkMode: "#00000073",
+      lightMode: "#00000073",
+      darkMode: "#ffffff73",
     },
     "Color/Neutral/Text/colorTextQuaternary": {
-      lightMode: "#ffffff40",
-      darkMode: "#00000040",
+      lightMode: "#00000040",
+      darkMode: "#ffffff40",
     },
     "Color/Neutral/Text/colorTextLightSolid": {
       lightMode: "#ffffff",
       darkMode: "#ffffff",
     },
     "Color/Neutral/Text/colorTextHeading": {
-      lightMode: "#ffffffe0",
-      darkMode: "#000000e0",
+      lightMode: "#000000e0",
+      darkMode: "#ffffffe0",
     },
     "Color/Neutral/Text/colorTextLabel": {
-      lightMode: "#ffffffa6",
-      darkMode: "#000000a6",
+      lightMode: "#000000a6",
+      darkMode: "#ffffffa6",
     },
     "Color/Neutral/Text/colorTextDescription": {
-      lightMode: "#ffffff73",
-      darkMode: "#00000073",
+      lightMode: "#00000073",
+      darkMode: "#ffffff73",
     },
     "Color/Neutral/Text/colorTextDisabled": {
-      lightMode: "#ffffff40",
-      darkMode: "#00000040",
+      lightMode: "#00000040",
+      darkMode: "#ffffff40",
     },
     "Color/Neutral/Text/colorTextPlaceholder": {
-      lightMode: "#ffffff40",
-      darkMode: "#00000040",
+      lightMode: "#00000040",
+      darkMode: "#ffffff40",
     },
     "Color/Neutral/Icon/colorIcon": {
-      lightMode: "#cfd0d2",
-      darkMode: "#434347",
+      lightMode: "#434347",
+      darkMode: "#cfd0d2",
     },
     "Color/Neutral/Icon/colorIconHover": {
-      lightMode: "#e3e6ea",
-      darkMode: "#2d2d2f",
+      lightMode: "#2d2d2f",
+      darkMode: "#e3e6ea",
     },
     "Color/Neutral/colorWhite": { lightMode: "#ffffff", darkMode: "#ffffff" },
-    "Color/Neutral/colorBgBase": { lightMode: "#202022", darkMode: "#f4f6f7" },
+    "Color/Neutral/colorBgBase": { lightMode: "#f4f6f7", darkMode: "#202022" },
     "Color/Neutral/transparent": {
-      lightMode: "#ffffff00",
-      darkMode: "#00000000",
+      lightMode: "#00000000",
+      darkMode: "#ffffff00",
     },
     "Color/Neutral/Bg/colorBgContainer": {
-      lightMode: "#ffffff",
-      darkMode: "#e3e6ea",
+      lightMode: "#e3e6ea",
+      darkMode: "#ffffff",
     },
     "Color/Neutral/Bg/colorBgOverlay": {
       lightMode: "#202022a6",
       darkMode: "#202022a6",
     },
     "Color/Neutral/Bg/colorBgShell": {
-      lightMode: "#202022",
-      darkMode: "#f4f6f7",
+      lightMode: "#f4f6f7",
+      darkMode: "#202022",
     },
     "Color/Neutral/colorBlack": { lightMode: "#000000", darkMode: "#000000" },
     "Color/Neutral/Bg/colorBgSections": {
-      lightMode: "#20202280",
-      darkMode: "#e3e6ea80",
+      lightMode: "#e3e6ea80",
+      darkMode: "#20202280",
     },
     "Color/Neutral/Border/colorBorderMinimal": {
-      lightMode: "#2d2d2f",
-      darkMode: "#cfd0d2",
+      lightMode: "#cfd0d2",
+      darkMode: "#2d2d2f",
     },
     "Color/Neutral/Border/colorBorderSubtle": {
-      lightMode: "#434347",
-      darkMode: "#84858c",
+      lightMode: "#84858c",
+      darkMode: "#434347",
     },
     "Color/Neutral/Border/colorBorderBold": {
       lightMode: "#5a5b60",
       darkMode: "#5a5b60",
     },
-    "Color/Base/Shark/0": { lightMode: "#202022", darkMode: "#f4f6f7" },
-    "Color/Base/Shark/1": { lightMode: "#2d2d2f", darkMode: "#e3e6ea" },
-    "Color/Base/Shark/2": { lightMode: "#434347", darkMode: "#cfd0d2" },
-    "Color/Base/Shark/3": { lightMode: "#4d4d51", darkMode: "#adaeb3" },
-    "Color/Base/Shark/4": { lightMode: "#5a5b60", darkMode: "#84858c" },
+    "Color/Base/Shark/0": { lightMode: "#f4f6f7", darkMode: "#202022" },
+    "Color/Base/Shark/1": { lightMode: "#e3e6ea", darkMode: "#2d2d2f" },
+    "Color/Base/Shark/2": { lightMode: "#cfd0d2", darkMode: "#434347" },
+    "Color/Base/Shark/3": { lightMode: "#adaeb3", darkMode: "#4d4d51" },
+    "Color/Base/Shark/4": { lightMode: "#84858c", darkMode: "#5a5b60" },
     "Color/Base/Shark/5": { lightMode: "#696a71", darkMode: "#696a71" },
-    "Color/Base/Shark/6": { lightMode: "#84858c", darkMode: "#5a5b60" },
-    "Color/Base/Shark/7": { lightMode: "#adaeb3", darkMode: "#4d4d51" },
-    "Color/Base/Shark/8": { lightMode: "#cfd0d2", darkMode: "#434347" },
-    "Color/Base/Shark/9": { lightMode: "#e3e6ea", darkMode: "#2d2d2f" },
-    "Color/Base/Shark/10": { lightMode: "#f4f6f7", darkMode: "#202022" },
+    "Color/Base/Shark/6": { lightMode: "#5a5b60", darkMode: "#84858c" },
+    "Color/Base/Shark/7": { lightMode: "#4d4d51", darkMode: "#adaeb3" },
+    "Color/Base/Shark/8": { lightMode: "#434347", darkMode: "#cfd0d2" },
+    "Color/Base/Shark/9": { lightMode: "#2d2d2f", darkMode: "#e3e6ea" },
+    "Color/Base/Shark/10": { lightMode: "#202022", darkMode: "#f4f6f7" },
     "Color/Neutral/Bg/colorBgElevated": {
-      lightMode: "#ffffff",
-      darkMode: "#cfd0d2",
+      lightMode: "#cfd0d2",
+      darkMode: "#ffffff",
     },
     "Color/Brand/Primary/colorPrimary": {
-      lightMode: "#65a4f5",
-      darkMode: "#2b64e5",
+      lightMode: "#2b64e5",
+      darkMode: "#65a4f5",
     },
     "Color/Brand/Primary/colorPrimaryBg": {
-      lightMode: "#213b87",
-      darkMode: "#dceafd",
+      lightMode: "#dceafd",
+      darkMode: "#213b87",
     },
     "Color/Brand/Primary/colorPrimaryBgHover": {
-      lightMode: "#2350d2",
-      darkMode: "#96c4fa",
+      lightMode: "#96c4fa",
+      darkMode: "#2350d2",
     },
-    "Color/Brand/Link/colorLink": { lightMode: "#65a4f5", darkMode: "#2b64e5" },
-    "Color/Documentation": { lightMode: "#947bff", darkMode: "#9747ff" },
+    "Color/Brand/Link/colorLink": { lightMode: "#2b64e5", darkMode: "#65a4f5" },
+    "Color/Documentation": { lightMode: "#9747ff", darkMode: "#947bff" },
     "Color/Brand/Link/colorLinkHover": {
       lightMode: "#4182f0",
       darkMode: "#4182f0",
@@ -214,220 +214,220 @@ var v = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
       darkMode: "#4182f0",
     },
     "Color/Brand/Primary/colorPrimaryBorder": {
-      lightMode: "#65a4f5",
-      darkMode: "#2b64e5",
+      lightMode: "#2b64e5",
+      darkMode: "#65a4f5",
     },
     "Color/Brand/Primary/colorPrimaryBorderHover": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
+      lightMode: "#2350d2",
+      darkMode: "#96c4fa",
     },
     "Color/Brand/Primary/colorPrimaryText": {
-      lightMode: "#65a4f5",
-      darkMode: "#2b64e5",
+      lightMode: "#2b64e5",
+      darkMode: "#65a4f5",
     },
     "Color/Brand/Primary/colorPrimaryTextHover": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
+      lightMode: "#2350d2",
+      darkMode: "#96c4fa",
     },
     "Color/Brand/Link/colorLinkVisited": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
+      lightMode: "#2350d2",
+      darkMode: "#96c4fa",
     },
     "Color/Brand/Primary/colorPrimaryActive": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
+      lightMode: "#2350d2",
+      darkMode: "#96c4fa",
     },
     "Color/Brand/Warning/colorPrimary": {
-      lightMode: "#ffc61b",
-      darkMode: "#e27b00",
+      lightMode: "#e27b00",
+      darkMode: "#ffc61b",
     },
     "Color/Brand/Warning/colorPrimaryActive": {
-      lightMode: "#ffda46",
-      darkMode: "#bb5502",
+      lightMode: "#bb5502",
+      darkMode: "#ffda46",
     },
     "Color/Brand/Warning/colorPrimaryHover": {
       lightMode: "#ffa400",
       darkMode: "#ffa400",
     },
     "Color/Brand/Warning/colorPrimaryBg": {
-      lightMode: "#7c360b",
-      darkMode: "#fff5c5",
+      lightMode: "#fff5c5",
+      darkMode: "#7c360b",
     },
     "Color/Brand/Warning/colorPrimaryBgHover": {
+      lightMode: "#ffda46",
+      darkMode: "#bb5502",
+    },
+    "Color/Brand/Warning/colorPrimaryBorder": {
+      lightMode: "#e27b00",
+      darkMode: "#ffc61b",
+    },
+    "Color/Brand/Warning/colorPrimaryBorderHover": {
       lightMode: "#bb5502",
       darkMode: "#ffda46",
     },
-    "Color/Brand/Warning/colorPrimaryBorder": {
-      lightMode: "#ffc61b",
-      darkMode: "#e27b00",
-    },
-    "Color/Brand/Warning/colorPrimaryBorderHover": {
-      lightMode: "#ffda46",
-      darkMode: "#bb5502",
-    },
     "Color/Brand/Warning/colorPrimaryText": {
-      lightMode: "#ffc61b",
-      darkMode: "#e27b00",
+      lightMode: "#e27b00",
+      darkMode: "#ffc61b",
     },
     "Color/Brand/Warning/colorPrimaryTextHover": {
-      lightMode: "#ffda46",
-      darkMode: "#bb5502",
+      lightMode: "#bb5502",
+      darkMode: "#ffda46",
     },
     "Color/Brand/Success/colorPrimary": {
-      lightMode: "#26dadb",
-      darkMode: "#07949a",
+      lightMode: "#07949a",
+      darkMode: "#26dadb",
     },
     "Color/Brand/Success/colorPrimaryActive": {
-      lightMode: "#58f0eb",
-      darkMode: "#0a767b",
+      lightMode: "#0a767b",
+      darkMode: "#58f0eb",
     },
     "Color/Brand/Success/colorPrimaryHover": {
       lightMode: "#0dc1c4",
       darkMode: "#0dc1c4",
     },
     "Color/Brand/Success/colorPrimaryBg": {
-      lightMode: "#104e51",
-      darkMode: "#cafdf8",
+      lightMode: "#cafdf8",
+      darkMode: "#104e51",
     },
     "Color/Brand/Success/colorPrimaryBgHover": {
+      lightMode: "#58f0eb",
+      darkMode: "#0a767b",
+    },
+    "Color/Brand/Success/colorPrimaryBorder": {
+      lightMode: "#07949a",
+      darkMode: "#26dadb",
+    },
+    "Color/Brand/Success/colorPrimaryBorderHover": {
       lightMode: "#0a767b",
       darkMode: "#58f0eb",
     },
-    "Color/Brand/Success/colorPrimaryBorder": {
-      lightMode: "#26dadb",
-      darkMode: "#07949a",
-    },
-    "Color/Brand/Success/colorPrimaryBorderHover": {
-      lightMode: "#58f0eb",
-      darkMode: "#0a767b",
-    },
     "Color/Brand/Success/colorPrimaryText": {
-      lightMode: "#26dadb",
-      darkMode: "#07949a",
+      lightMode: "#07949a",
+      darkMode: "#26dadb",
     },
     "Color/Brand/Success/colorPrimaryTextHover": {
-      lightMode: "#58f0eb",
-      darkMode: "#0a767b",
+      lightMode: "#0a767b",
+      darkMode: "#58f0eb",
     },
     "Color/Brand/Error/colorPrimary": {
-      lightMode: "#ff7232",
-      darkMode: "#ff3100",
+      lightMode: "#ff3100",
+      darkMode: "#ff7232",
     },
     "Color/Brand/Error/colorPrimaryActive": {
-      lightMode: "#ffa46d",
-      darkMode: "#cc1f02",
+      lightMode: "#cc1f02",
+      darkMode: "#ffa46d",
     },
     "Color/Brand/Error/colorPrimaryHover": {
       lightMode: "#ff4c0a",
       darkMode: "#ff4c0a",
     },
     "Color/Brand/Error/colorPrimaryBg": {
-      lightMode: "#82180c",
-      darkMode: "#ffe6d3",
+      lightMode: "#ffe6d3",
+      darkMode: "#82180c",
     },
     "Color/Brand/Error/colorPrimaryBgHover": {
-      lightMode: "#cc1f02",
-      darkMode: "#ffa46d",
-    },
-    "Color/Brand/Error/colorPrimaryBorder": {
-      lightMode: "#ff7232",
-      darkMode: "#ff3100",
-    },
-    "Color/Brand/Error/colorPrimaryBorderHover": {
       lightMode: "#ffa46d",
       darkMode: "#cc1f02",
     },
+    "Color/Brand/Error/colorPrimaryBorder": {
+      lightMode: "#ff3100",
+      darkMode: "#ff7232",
+    },
+    "Color/Brand/Error/colorPrimaryBorderHover": {
+      lightMode: "#cc1f02",
+      darkMode: "#ffa46d",
+    },
     "Color/Brand/Error/colorPrimaryText": {
-      lightMode: "#ff7232",
-      darkMode: "#ff4c0a",
+      lightMode: "#ff4c0a",
+      darkMode: "#ff7232",
     },
     "Color/Brand/Error/colorPrimaryTextHover": {
-      lightMode: "#ffa46d",
-      darkMode: "#ff3100",
+      lightMode: "#ff3100",
+      darkMode: "#ffa46d",
     },
     "Color/Brand/Control/colorBgActive": {
-      lightMode: "#213b87",
-      darkMode: "#dceafd",
+      lightMode: "#dceafd",
+      darkMode: "#213b87",
     },
     "Color/Brand/Control/colorBgHover": {
-      lightMode: "#2d2d2f",
-      darkMode: "#adaeb3",
+      lightMode: "#adaeb3",
+      darkMode: "#2d2d2f",
     },
     "Color/Brand/Info/colorPrimary": {
-      lightMode: "#65a4f5",
-      darkMode: "#2b64e5",
+      lightMode: "#2b64e5",
+      darkMode: "#65a4f5",
     },
     "Color/Brand/Info/colorPrimaryActive": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
+      lightMode: "#2350d2",
+      darkMode: "#96c4fa",
     },
     "Color/Brand/Info/colorPrimaryHover": {
       lightMode: "#4182f0",
       darkMode: "#4182f0",
     },
     "Color/Brand/Info/colorPrimaryBg": {
-      lightMode: "#213b87",
-      darkMode: "#dceafd",
+      lightMode: "#dceafd",
+      darkMode: "#213b87",
     },
     "Color/Brand/Info/colorPrimaryBgHover": {
+      lightMode: "#96c4fa",
+      darkMode: "#2350d2",
+    },
+    "Color/Brand/Info/colorPrimaryBorder": {
+      lightMode: "#2b64e5",
+      darkMode: "#65a4f5",
+    },
+    "Color/Brand/Info/colorPrimaryBorderHover": {
       lightMode: "#2350d2",
       darkMode: "#96c4fa",
     },
-    "Color/Brand/Info/colorPrimaryBorder": {
-      lightMode: "#65a4f5",
-      darkMode: "#2b64e5",
-    },
-    "Color/Brand/Info/colorPrimaryBorderHover": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
-    },
     "Color/Brand/Info/colorPrimaryText": {
-      lightMode: "#65a4f5",
-      darkMode: "#2b64e5",
+      lightMode: "#2b64e5",
+      darkMode: "#65a4f5",
     },
     "Color/Brand/Info/colorPrimaryTextHover": {
-      lightMode: "#96c4fa",
-      darkMode: "#2350d2",
+      lightMode: "#2350d2",
+      darkMode: "#96c4fa",
     },
     "Color/Brand/Neutral/colorPrimary": {
-      lightMode: "#84858c",
-      darkMode: "#5a5b60",
+      lightMode: "#5a5b60",
+      darkMode: "#84858c",
     },
     "Color/Brand/Neutral/colorPrimaryActive": {
-      lightMode: "#adaeb3",
-      darkMode: "#4d4d51",
+      lightMode: "#4d4d51",
+      darkMode: "#adaeb3",
     },
     "Color/Brand/Neutral/colorPrimaryHover": {
       lightMode: "#696a71",
       darkMode: "#696a71",
     },
     "Color/Brand/Neutral/colorPrimaryBg": {
-      lightMode: "#2d2d2f",
-      darkMode: "#e3e6ea",
+      lightMode: "#e3e6ea",
+      darkMode: "#2d2d2f",
     },
     "Color/Brand/Neutral/colorPrimaryBgHover": {
-      lightMode: "#4d4d51",
-      darkMode: "#adaeb3",
+      lightMode: "#adaeb3",
+      darkMode: "#4d4d51",
     },
     "Color/Brand/Neutral/colorPrimaryBorder": {
-      lightMode: "#434347",
-      darkMode: "#84858c",
+      lightMode: "#84858c",
+      darkMode: "#434347",
     },
     "Color/Brand/Neutral/colorPrimaryBorderHover": {
       lightMode: "#5a5b60",
       darkMode: "#5a5b60",
     },
     "Color/Brand/Neutral/colorPrimaryText": {
-      lightMode: "#84858c",
-      darkMode: "#5a5b60",
+      lightMode: "#5a5b60",
+      darkMode: "#84858c",
     },
     "Color/Brand/Neutral/colorPrimaryTextHover": {
-      lightMode: "#adaeb3",
-      darkMode: "#4d4d51",
+      lightMode: "#4d4d51",
+      darkMode: "#adaeb3",
     },
     "Color/Neutral/Bg/colorBgDisabled": {
-      lightMode: "#2d2d2f",
-      darkMode: "#e3e6ea",
+      lightMode: "#e3e6ea",
+      darkMode: "#2d2d2f",
     },
     "Color/Brand/_minio/Raspberry": {
       lightMode: "#c72e49",
@@ -447,12 +447,12 @@ var v = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
     },
     "Color/Brand/_minio/Glaicer": { lightMode: "#edf7f7", darkMode: "#edf7f7" },
     "Color/Neutral/Border/colorBorderStrong": {
-      lightMode: "#e3e6ea",
-      darkMode: "#2d2d2f",
+      lightMode: "#2d2d2f",
+      darkMode: "#e3e6ea",
     },
     "Color/Neutral/Bg/colorBgContrast": {
-      lightMode: "#000000",
-      darkMode: "#ffffff",
+      lightMode: "#ffffff",
+      darkMode: "#000000",
     },
     "Color/Set/Border/colorBorderSubtle": { lightMode: "", darkMode: "" },
   },
@@ -1206,6 +1206,10 @@ var v = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 },
       activeOptionBG: C["Color/Brand/Control/colorBgHover"].lightMode,
       dangerLabel: C["Color/Brand/Error/colorPrimaryText"].lightMode,
       disabledLabel: C["Color/Neutral/Text/colorTextDisabled"].lightMode,
+    },
+    boxedIcon: {
+      iconColor: C["Color/Neutral/Icon/colorIcon"].lightMode,
+      bgColor: C["Color/Neutral/Bg/colorBgSections"].lightMode,
     },
   },
   R = {
@@ -72951,7 +72955,47 @@ var OD = kD.exports,
       t.createElement("span", { className: "menu-option" }, n),
     );
   },
-  GD = function (t) {
+  GD = u.div(function (e) {
+    var t = e.theme,
+      n = e.sx;
+    return x(
+      {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        boxSizing: "border-box",
+        padding: 16,
+        width: 60,
+        height: 60,
+        minHeight: 60,
+        minWidth: 60,
+        borderRadius: 12,
+        backgroundColor: un(
+          t,
+          "boxedIcon.bgColor",
+          C["Color/Neutral/Bg/colorBgSections"].lightMode,
+        ),
+        "& svg": {
+          fill: un(
+            t,
+            "boxedIcon.iconColor",
+            C["Color/Neutral/Icon/colorIcon"].lightMode,
+          ),
+          width: 24,
+          height: 24,
+          minWidth: 24,
+          minHeight: 24,
+        },
+      },
+      n,
+    );
+  }),
+  VD = function (e) {
+    var n = e.sx,
+      a = e.children;
+    return t.createElement(GD, { sx: n }, a);
+  },
+  ZD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -72970,7 +73014,7 @@ var OD = kD.exports,
       }),
     );
   },
-  VD = function (t) {
+  WD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73024,7 +73068,7 @@ var OD = kD.exports,
       ),
     );
   },
-  ZD = function (t) {
+  $D = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73048,7 +73092,7 @@ var OD = kD.exports,
       ),
     );
   },
-  WD = function (t) {
+  jD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73096,7 +73140,7 @@ var OD = kD.exports,
       ),
     );
   },
-  $D = function (t) {
+  qD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73127,7 +73171,7 @@ var OD = kD.exports,
       ),
     );
   },
-  jD = function (t) {
+  YD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73199,7 +73243,7 @@ var OD = kD.exports,
       ),
     );
   },
-  qD = function (t) {
+  KD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73256,7 +73300,7 @@ var OD = kD.exports,
       ),
     );
   },
-  YD = function (t) {
+  XD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73304,7 +73348,7 @@ var OD = kD.exports,
       ),
     );
   },
-  KD = function (t) {
+  QD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73326,7 +73370,7 @@ var OD = kD.exports,
       }),
     );
   },
-  XD = function (t) {
+  JD = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73380,7 +73424,7 @@ var OD = kD.exports,
       ),
     );
   },
-  QD = function (t) {
+  eP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73427,7 +73471,7 @@ var OD = kD.exports,
       ),
     );
   },
-  JD = function (t) {
+  tP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73475,7 +73519,7 @@ var OD = kD.exports,
       ),
     );
   },
-  eP = function (t) {
+  nP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73522,7 +73566,7 @@ var OD = kD.exports,
       ),
     );
   },
-  tP = function (t) {
+  aP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73554,7 +73598,7 @@ var OD = kD.exports,
       ),
     );
   },
-  nP = function (t) {
+  rP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73596,7 +73640,7 @@ var OD = kD.exports,
       ),
     );
   },
-  aP = function (t) {
+  oP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73638,7 +73682,7 @@ var OD = kD.exports,
       ),
     );
   },
-  rP = function (t) {
+  iP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73692,7 +73736,7 @@ var OD = kD.exports,
       ),
     );
   },
-  oP = function (t) {
+  lP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73733,7 +73777,7 @@ var OD = kD.exports,
       ),
     );
   },
-  iP = function (t) {
+  sP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73787,7 +73831,7 @@ var OD = kD.exports,
       ),
     );
   },
-  lP = function (t) {
+  cP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73808,7 +73852,7 @@ var OD = kD.exports,
       }),
     );
   },
-  sP = function (t) {
+  dP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73882,7 +73926,7 @@ var OD = kD.exports,
       ),
     );
   },
-  cP = function (t) {
+  uP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73926,7 +73970,7 @@ var OD = kD.exports,
       ),
     );
   },
-  dP = function (t) {
+  pP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73946,7 +73990,7 @@ var OD = kD.exports,
       }),
     );
   },
-  uP = function (t) {
+  mP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73965,7 +74009,7 @@ var OD = kD.exports,
       }),
     );
   },
-  pP = function (t) {
+  hP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -73983,7 +74027,7 @@ var OD = kD.exports,
       }),
     );
   },
-  mP = function (t) {
+  fP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74005,7 +74049,7 @@ var OD = kD.exports,
       }),
     );
   },
-  hP = function (t) {
+  gP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74027,7 +74071,7 @@ var OD = kD.exports,
       }),
     );
   },
-  fP = function (t) {
+  EP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74068,7 +74112,7 @@ var OD = kD.exports,
       ),
     );
   },
-  gP = function (t) {
+  bP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74101,7 +74145,7 @@ var OD = kD.exports,
       ),
     );
   },
-  EP = function (t) {
+  vP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74134,7 +74178,7 @@ var OD = kD.exports,
       ),
     );
   },
-  bP = function (t) {
+  _P = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74168,7 +74212,7 @@ var OD = kD.exports,
       ),
     );
   },
-  vP = function (t) {
+  yP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74206,7 +74250,7 @@ var OD = kD.exports,
       ),
     );
   },
-  _P = function (t) {
+  TP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74239,7 +74283,7 @@ var OD = kD.exports,
       ),
     );
   },
-  yP = function (t) {
+  CP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74283,7 +74327,7 @@ var OD = kD.exports,
       ),
     );
   },
-  TP = function (t) {
+  SP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74333,7 +74377,7 @@ var OD = kD.exports,
       ),
     );
   },
-  CP = function (t) {
+  wP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74379,7 +74423,7 @@ var OD = kD.exports,
       ),
     );
   },
-  SP = function (t) {
+  AP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74437,7 +74481,7 @@ var OD = kD.exports,
       ),
     );
   },
-  wP = function (t) {
+  NP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74474,7 +74518,7 @@ var OD = kD.exports,
       ),
     );
   },
-  AP = function (t) {
+  RP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74524,7 +74568,7 @@ var OD = kD.exports,
       ),
     );
   },
-  NP = function (t) {
+  IP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74550,7 +74594,7 @@ var OD = kD.exports,
       }),
     );
   },
-  RP = function (t) {
+  xP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74583,7 +74627,7 @@ var OD = kD.exports,
       ),
     );
   },
-  IP = function (t) {
+  kP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74616,7 +74660,7 @@ var OD = kD.exports,
       ),
     );
   },
-  xP = function (t) {
+  OP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74649,7 +74693,7 @@ var OD = kD.exports,
       ),
     );
   },
-  kP = function (t) {
+  LP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74685,7 +74729,7 @@ var OD = kD.exports,
       ),
     );
   },
-  OP = function (t) {
+  MP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74718,7 +74762,7 @@ var OD = kD.exports,
       ),
     );
   },
-  LP = function (t) {
+  DP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74751,7 +74795,7 @@ var OD = kD.exports,
       ),
     );
   },
-  MP = function (t) {
+  PP = function (t) {
     return e.createElement(
       "svg",
       x(
@@ -74783,31 +74827,12 @@ var OD = kD.exports,
       ),
     );
   },
-  DP = u.table(function (e) {
+  BP = u.table(function (e) {
     e.theme;
     var t = e.sx;
     return x(
       {
         display: "table",
-        width: "100%",
-        borderCollapse: "collapse",
-        borderSpacing: 0,
-      },
-      t,
-    );
-  }),
-  PP = function (e) {
-    var n = e.children,
-      a = e.sx,
-      r = k(e, ["children", "sx"]);
-    return t.createElement(DP, x({ sx: a }, r), n);
-  },
-  BP = u.tbody(function (e) {
-    e.theme;
-    var t = e.sx;
-    return x(
-      {
-        display: "table-row-group",
         width: "100%",
         borderCollapse: "collapse",
         borderSpacing: 0,
@@ -74821,7 +74846,26 @@ var OD = kD.exports,
       r = k(e, ["children", "sx"]);
     return t.createElement(BP, x({ sx: a }, r), n);
   },
-  HP = u.td(function (e) {
+  HP = u.tbody(function (e) {
+    e.theme;
+    var t = e.sx;
+    return x(
+      {
+        display: "table-row-group",
+        width: "100%",
+        borderCollapse: "collapse",
+        borderSpacing: 0,
+      },
+      t,
+    );
+  }),
+  zP = function (e) {
+    var n = e.children,
+      a = e.sx,
+      r = k(e, ["children", "sx"]);
+    return t.createElement(HP, x({ sx: a }, r), n);
+  },
+  UP = u.td(function (e) {
     var t = e.theme,
       n = e.sx;
     return x(
@@ -74840,13 +74884,13 @@ var OD = kD.exports,
       n,
     );
   }),
-  zP = function (e) {
+  GP = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(HP, x({ sx: a }, r), n);
+    return t.createElement(UP, x({ sx: a }, r), n);
   },
-  UP = u.thead(function (e) {
+  VP = u.thead(function (e) {
     e.theme;
     var t = e.sx;
     return x(
@@ -74859,13 +74903,13 @@ var OD = kD.exports,
       t,
     );
   }),
-  GP = function (e) {
+  ZP = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(UP, x({ sx: a }, r), n);
+    return t.createElement(VP, x({ sx: a }, r), n);
   },
-  VP = u.th(function (e) {
+  WP = u.th(function (e) {
     var t = e.theme,
       n = e.sx;
     return x(
@@ -74884,13 +74928,13 @@ var OD = kD.exports,
       n,
     );
   }),
-  ZP = function (e) {
+  $P = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(VP, x({ sx: a }, r), n);
+    return t.createElement(WP, x({ sx: a }, r), n);
   },
-  WP = u.tr(function (e) {
+  jP = u.tr(function (e) {
     var t = e.theme,
       n = e.sx;
     return x(
@@ -74907,21 +74951,21 @@ var OD = kD.exports,
       n,
     );
   }),
-  $P = function (e) {
+  qP = function (e) {
     var n = e.children,
       a = e.sx,
       r = k(e, ["children", "sx"]);
-    return t.createElement(WP, x({ sx: a }, r), n);
+    return t.createElement(jP, x({ sx: a }, r), n);
   };
 export {
   rl as AGPLV3DarkLogo,
   el as AGPLV3LightLogo,
   tl as AGPLV3Logo,
-  nP as AccessMenuIcon,
+  rP as AccessMenuIcon,
   xl as AccessRuleIcon,
   jA as Accordion,
   qr as AccountIcon,
-  oP as AccountsMenuIcon,
+  lP as AccountsMenuIcon,
   IA as ActionLink,
   xD as ActionsBar,
   tm as ActionsList,
@@ -74942,7 +74986,7 @@ export {
   zl as AttachFileIcon,
   Ll as AudioIcon,
   Ml as AudioIconMute,
-  VD as AuditLogsMenuIcon,
+  WD as AuditLogsMenuIcon,
   as as AutoModeIcon,
   KA as Autocomplete,
   bi as AzureTierIcon,
@@ -74955,17 +74999,18 @@ export {
   Ia as Box,
   gl as BoxArrowDown,
   fl as BoxArrowUp,
+  VD as BoxedIcon,
   Xp as Breadcrumbs,
   Do as BucketEncryptionIcon,
   Fr as BucketQuotaIcon,
   pi as BucketReplicationIcon,
   di as BucketsIcon,
-  sP as BucketsMenuIcon,
+  dP as BucketsMenuIcon,
   Tn as Button,
   ss as CacheIcon,
   vi as CalendarIcon,
   _o as CallHomeFeatureIcon,
-  lP as CallHomeMenuIcon,
+  cP as CallHomeMenuIcon,
   Bl as CancelledAudioIcon,
   $i as CancelledIcon,
   ds as CatalogIcon,
@@ -75011,7 +75056,7 @@ export {
   zi as DeleteNonCurrentIcon,
   Bo as DiagnosticsFeatureIcon,
   io as DiagnosticsIcon,
-  tP as DiagnosticsMenuIcon,
+  aP as DiagnosticsMenuIcon,
   wl as DisableIcon,
   rr as DisabledIcon,
   Po as DocumentationIcon,
@@ -75019,7 +75064,7 @@ export {
   $o as DownloadStatIcon,
   bo as DriveFormatErrorsIcon,
   eo as DrivesIcon,
-  rP as DrivesMenuIcon,
+  iP as DrivesMenuIcon,
   Em as DropdownSelector,
   mr as EditIcon,
   ji as EditTagIcon,
@@ -75039,31 +75084,31 @@ export {
   UD as ExpandMenuOption,
   rh as ExpandOptionsButton,
   sl as ExtraFeaturesIcon,
-  yP as FileBookIcon,
-  OP as FileCloudIcon,
-  CP as FileCodeIcon,
-  fP as FileConfigIcon,
-  wP as FileDbIcon,
-  EP as FileFontIcon,
-  vP as FileImageIcon,
-  bP as FileLinkIcon,
-  RP as FileLockIcon,
-  TP as FileMissingIcon,
-  LP as FileMusicIcon,
-  MP as FileNonType,
-  gP as FilePdfIcon,
-  SP as FilePptIcon,
+  CP as FileBookIcon,
+  MP as FileCloudIcon,
+  wP as FileCodeIcon,
+  EP as FileConfigIcon,
+  NP as FileDbIcon,
+  vP as FileFontIcon,
+  yP as FileImageIcon,
+  _P as FileLinkIcon,
+  xP as FileLockIcon,
+  SP as FileMissingIcon,
+  DP as FileMusicIcon,
+  PP as FileNonType,
+  bP as FilePdfIcon,
+  AP as FilePptIcon,
   FA as FileSelector,
-  AP as FileTxtIcon,
-  NP as FileVideoIcon,
-  _P as FileWorldIcon,
-  IP as FileXlsIcon,
-  xP as FileZipIcon,
+  RP as FileTxtIcon,
+  IP as FileVideoIcon,
+  TP as FileWorldIcon,
+  kP as FileXlsIcon,
+  OP as FileZipIcon,
   vl as FilterIcon,
   Zl as FindReplaceIcon,
   hs as FirewallIcon,
   Wl as FirstAidIcon,
-  kP as FolderBrowserIcon,
+  LP as FolderBrowserIcon,
   _l as FolderIcon,
   MD as FormActionsTray,
   Up as FormLayout,
@@ -75074,10 +75119,10 @@ export {
   Co as GoogleTierIconXs,
   ea as Grid,
   Wo as GroupsIcon,
-  jD as GroupsMenuIcon,
+  YD as GroupsMenuIcon,
   Ti as HardBucketQuotaIcon,
   Mr as HealIcon,
-  ZD as HealthMenuIcon,
+  $D as HealthMenuIcon,
   Fp as HelpBox,
   no as HelpIcon,
   ur as HelpIconFilled,
@@ -75085,19 +75130,19 @@ export {
   si as HistoryIcon,
   Oo as IAMPoliciesIcon,
   Us as IconButton,
-  hP as IdentitiesMenuIcon,
-  KD as IdentityMenuIcon,
+  gP as IdentitiesMenuIcon,
+  QD as IdentityMenuIcon,
   fs as ImagesIcon,
   Ki as InfoIcon,
   rN as InformativeMessage,
   gs as IngestIcon,
   Yp as InputBox,
   Ds as InputLabel,
-  GD as InspectMenuIcon,
+  ZD as InspectMenuIcon,
   hr as JSONIcon,
   Kl as KeyIcon,
   Es as KeyManagementIcon,
-  dP as KeysMenuIcon,
+  pP as KeysMenuIcon,
   ol as LDAPIcon,
   dr as LambdaBalloonIcon,
   Zo as LambdaIcon,
@@ -75118,18 +75163,18 @@ export {
   La as LoginWrapper,
   oi as LogoutIcon,
   yi as LogsIcon,
-  XD as LogsMenuIcon,
+  JD as LogsMenuIcon,
   $p as MainContainer,
   nh as Menu,
-  qD as MenuCollapsedIcon,
-  WD as MenuExpandedIcon,
+  KD as MenuCollapsedIcon,
+  jD as MenuExpandedIcon,
   xi as MetadataIcon,
-  YD as MetricsMenuIcon,
+  XD as MetricsMenuIcon,
   so as MinIOTierIcon,
   Cr as MinIOTierIconXs,
   Ar as MirroringIcon,
   sm as ModalBox,
-  QD as MonitoringMenuIcon,
+  eP as MonitoringMenuIcon,
   mo as MultipleBucketsIcon,
   Vi as NetworkGetIcon,
   Zi as NetworkPutIcon,
@@ -75160,14 +75205,14 @@ export {
   Fo as PasswordKeyIcon,
   ql as PendingItemsIcon,
   Io as PerformanceFeatureIcon,
-  eP as PerformanceMenuIcon,
+  nP as PerformanceMenuIcon,
   $r as PermissionIcon,
   Ts as PodPlacementIcon,
   Cs as PoliciesIcon,
-  mP as PoliciesMenuIcon,
+  fP as PoliciesMenuIcon,
   es as PrevCaretIcon,
   Br as PreviewIcon,
-  iP as ProfileMenuIcon,
+  sP as ProfileMenuIcon,
   PA as ProgressBar,
   go as PrometheusErrorIcon,
   Vr as PrometheusIcon,
@@ -75178,7 +75223,7 @@ export {
   fi as RecoverIcon,
   vr as RedoIcon,
   sr as RefreshIcon,
-  aP as RegisterMenuIcon,
+  oP as RegisterMenuIcon,
   Wi as RemoveAllIcon,
   No as RemoveIcon,
   Nl as ReportIcon,
@@ -75191,7 +75236,7 @@ export {
   ko as S3TierIconXs,
   om as ScreenTitle,
   fr as SearchIcon,
-  pP as SecretsMenuIcon,
+  hP as SecretsMenuIcon,
   zp as SectionTitle,
   _m as Select,
   Fi as SelectAllIcon,
@@ -75212,19 +75257,19 @@ export {
   ir as SpeedtestIcon,
   al as StandardLightLogo,
   ll as StarIcon,
-  uP as StatusMenuIcon,
+  mP as StatusMenuIcon,
   lr as StorageIcon,
   Gi as SuccessIcon,
-  JD as SupportMenuIcon,
+  tP as SupportMenuIcon,
   mm as Switch,
   ri as SyncIcon,
   Ns as SystemIcon,
-  PP as Table,
-  FP as TableBody,
-  zP as TableCell,
-  GP as TableHead,
-  ZP as TableHeadCell,
-  $P as TableRow,
+  FP as Table,
+  zP as TableBody,
+  GP as TableCell,
+  ZP as TableHead,
+  $P as TableHeadCell,
+  qP as TableRow,
   ch as Tabs,
   NA as Tag,
   Li as TagsIcon,
@@ -75243,7 +75288,7 @@ export {
   nr as Tooltip,
   li as TotalObjectsIcon,
   yo as TraceIcon,
-  $D as TraceMenuIcon,
+  qD as TraceMenuIcon,
   Ho as TrashIcon,
   ti as UploadFile,
   jo as UploadFolderIcon,
@@ -75252,7 +75297,7 @@ export {
   Kr as UptimeIcon,
   El as UserFilledIcon,
   Lo as UsersIcon,
-  cP as UsersMenuIcon,
+  uP as UsersMenuIcon,
   kA as ValuePair,
   vo as VerifiedIcon,
   cr as VersionIcon,

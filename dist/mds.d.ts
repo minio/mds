@@ -343,6 +343,10 @@ interface DropdownOptionsThemeProps {
   dangerLabel: string;
   disabledLabel: string;
 }
+interface BoxedIconThemeProps {
+  bgColor: string;
+  iconColor: string;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -397,6 +401,7 @@ interface ThemeDefinitionProps {
   valuePair?: ValuePairThemeProps;
   actionsBar?: ActionsBarThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
+  boxedIcon?: BoxedIconThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -1598,6 +1603,13 @@ declare const ExpandMenu: FC<
 declare const ExpandMenuOption: FC<
   ExpandMenuOptionProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
 >;
+
+interface IBoxedIconProps {
+  children: React__default.ReactNode;
+  sx?: CSSObject;
+}
+
+declare const BoxedIcon: FC<IBoxedIconProps>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -3620,6 +3632,8 @@ export {
   BoxArrowUp,
   BoxProps,
   BoxThemeProps,
+  BoxedIcon,
+  BoxedIconThemeProps,
   Breadcrumbs,
   BreadcrumbsBackStyle,
   BreadcrumbsContainerProps,
@@ -3802,6 +3816,7 @@ export {
   HistoryIcon,
   IAMPoliciesIcon,
   IActionButton,
+  IBoxedIconProps,
   IBytesCalc,
   IColumns,
   IInfiniteScrollConfig,

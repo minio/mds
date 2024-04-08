@@ -78,6 +78,7 @@ export { default as ActionsBar } from "./ActionsBar/ActionsBar";
 export { default as FormActionsTray } from "./FormActionsTray/FormActionsTray";
 export { default as ExpandMenu } from "./ExpandMenu/ExpandMenu";
 export { default as ExpandMenuOption } from "./ExpandMenu/ExpandMenuOption";
+export { default as BoxedIcon } from "./BoxedIcon/BoxedIcon";
 
 /*Icons*/
 export * from "./Icons";
@@ -141,3 +142,4 @@ export * from "./Slider/Slider.types";
 export * from "./ActionsBar/ActionsBar.types";
 export * from "./FormActionsTray/FormActionsTray.types";
 export * from "./ExpandMenu/ExpandMenu.types";
+export * from "./BoxedIcon/BoxedIcon.types";
