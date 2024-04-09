@@ -24,17 +24,19 @@ import styled from "styled-components";
 import Box from "../Box/Box";
 import get from "lodash/get";
 import { lightV2 } from "../../global/themes";
+import BoxedIcon from "../BoxedIcon/BoxedIcon";
+import { themeColors } from "../../global/themeColors";
 
 const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
-  ({ theme, sx, bottomBorder }) => ({
-    boxSizing: "border-box",
+  ({ theme, sx }) => ({
+    boxSizing: "border-box" as const,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     width: "100%",
     "& .stContainer": {
       display: "flex",
-      alignItems: "center",
+      alignItems: "flex-start" as const,
       justifyContent: "space-between",
       padding: 8,
       width: "100%",
@@ -56,16 +58,51 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       display: "flex",
       flexFlow: "column",
       alignItems: "flex-start",
-      "& h1": {
-        fontSize: 20,
-        fontWeight: "normal",
-        color: get(theme, `screenTitle.iconColor`, lightV2.fontColor),
+      gap: 4,
+      "& .titleElement": {
+        fontSize: 24,
+        fontWeight: 600,
+        fontStyle: "normal" as const,
+        lineHeight: "28px",
+        color: get(
+          theme,
+          `screenTitle.titleColor`,
+          themeColors["Color/Neutral/Text/colorText"].lightMode,
+        ),
+      },
+      "& .options": {
+        display: "flex",
+        gap: 28,
+        "& .title": {
+          fontSize: 12,
+          fontStyle: "normal",
+          fontWeight: "normal" as const,
+          lineHeight: "16px",
+          letterSpacing: "0.5px",
+          color: get(
+            theme,
+            `screenTitle.subtitleColor`,
+            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+          ),
+        },
+        "& .value": {
+          fontSize: 12,
+          fontStyle: "normal",
+          fontWeight: 600,
+          lineHeight: "16px",
+          letterSpacing: "0.5px",
+          color: get(
+            theme,
+            `screenTitle.subtitleColor`,
+            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+          ),
+        },
       },
     },
     "& .leftItems": {
       display: "flex",
-      alignItems: "center",
-      gap: 12,
+      alignItems: "flex-start" as const,
+      gap: 16,
     },
     "& .rightItems": {
       display: "flex",
@@ -86,7 +123,13 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       },
       "& .rightItems": {
         width: "100%",
-        justifyContent: "center",
+        justifyContent: "flex-start",
+      },
+      "& .titleColumn": {
+        "& .options": {
+          flexDirection: "column",
+          gap: 4,
+        },
       },
     },
     ...sx,
@@ -98,23 +141,26 @@ const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
   subTitle = "",
   title,
   actions,
-  bottomBorder = true,
   sx,
+  titleOptions,
   ...restProps
 }) => {
   return (
-    <ScreenTitleContainer
-      className={"screen-title"}
-      sx={sx}
-      bottomBorder={bottomBorder}
-      {...restProps}
-    >
+    <ScreenTitleContainer className={"screen-title"} sx={sx} {...restProps}>
       <Box className={"stContainer"}>
         <Box className={"leftItems"}>
-          {icon ? <Box className={"headerBarIcon"}>{icon}</Box> : null}
+          {icon ? <BoxedIcon>{icon}</BoxedIcon> : null}
           <Box className={"titleColumn"}>
-            <h1 style={{ margin: 0 }}>{title}</h1>
+            <Box className={"titleElement"}>{title}</Box>
             <span className={"headerBarSubheader"}>{subTitle}</span>
+            <Box className={"options"}>
+              {titleOptions?.map((optionItem) => (
+                <Box className={"optionElement"}>
+                  <Box className={"title"}>{optionItem.title}</Box>
+                  <Box className={"value"}>{optionItem.value}</Box>
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
         <Box className={"rightItems"}>{actions}</Box>

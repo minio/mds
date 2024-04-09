@@ -32,6 +32,7 @@ const CustomButton = styled.button<
     label,
     collapseOnSmall,
     parentChildren,
+    compact,
     sx,
   }) => {
     const neatVariant = variant || "regular";
@@ -64,13 +65,16 @@ const CustomButton = styled.button<
       };
     }
 
+    const padding =
+      (!label || label.trim() === "") && !parentChildren ? "0 12px" : "0 25px";
+
     return {
       borderRadius: 6,
       cursor: "pointer",
       width: fullWidth ? "100%" : "initial",
-      height: 32,
+      height: compact ? 28 : 32,
       fontFamily: "'Geist', sans-serif",
-      fontWeight: "600",
+      fontWeight: compact ? "normal" : "600",
       fontSize: 14,
       display: "flex",
       flexDirection: "row",
@@ -78,10 +82,7 @@ const CustomButton = styled.button<
       justifyContent: "center",
       textTransform: neatVariant === "text" ? "uppercase" : "none",
       margin: 0,
-      padding:
-        (!label || label.trim() === "") && !parentChildren
-          ? "0 12px"
-          : "0 25px",
+      padding: compact ? "0 12px" : padding,
       transition: "all 0.2s linear",
       background: get(
         theme,
@@ -178,6 +179,7 @@ const Button: FC<
   fullWidth,
   collapseOnSmall = true,
   children,
+  compact = false,
   className,
   ...props
 }) => {
@@ -199,6 +201,7 @@ const Button: FC<
       icon={iconToPlace}
       parentChildren={children || null}
       className={`${className || ""} button-${variant}`}
+      compact={compact}
       {...props}
     >
       <Fragment>

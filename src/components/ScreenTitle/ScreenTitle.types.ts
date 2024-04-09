@@ -22,11 +22,16 @@ export interface ScreenTitleProps {
   subTitle?: React.ReactNode;
   title: string;
   actions: React.ReactNode;
+  titleOptions?: ScreenTitleOptions[];
   sx?: CSSObject;
-  bottomBorder?: boolean;
 }
 
 export interface ScreenTitleContainerProps {
   sx?: CSSObject;
   bottomBorder?: boolean;
+}
+
+export interface ScreenTitleOptions {
+  title: string;
+  value: string;
 }

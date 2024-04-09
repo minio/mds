@@ -141,7 +141,7 @@ export interface ActionsListThemeProps {
 
 export interface ScreenTitleThemeProps {
   subtitleColor: string;
-  iconColor: string;
+  titleColor: string;
 }
 
 export interface IconThemeColorProps {
