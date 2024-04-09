@@ -46,6 +46,14 @@ Default.args = {
   variant: "regular",
 };
 
+export const Compact = Template.bind({});
+Compact.args = {
+  disabled: false,
+  label: "Test Button",
+  variant: "regular",
+  compact: true,
+};
+
 export const CallToAction = Template.bind({});
 CallToAction.args = {
   disabled: false,

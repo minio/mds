@@ -534,8 +534,8 @@ export const lightTheme: ThemeDefinitionProps = {
     titleColor: lightColors.defaultFontColor,
   },
   screenTitle: {
-    subtitleColor: lightV2.mutedText,
-    iconColor: lightV2.fontColor,
+    subtitleColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+    titleColor: themeColors["Color/Neutral/Text/colorText"].lightMode,
   },
   modalBox: {
     closeColor: lightV2.modalCloseColor,
@@ -1047,8 +1047,8 @@ export const darkTheme: ThemeDefinitionProps = {
     titleColor: darkColors.defaultFontColor,
   },
   screenTitle: {
-    subtitleColor: darkColors.hoverGrey,
-    iconColor: darkColors.mainGrey,
+    subtitleColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+    titleColor: themeColors["Color/Neutral/Text/colorText"].darkMode,
   },
   modalBox: {
     closeColor: darkColors.modalCloseColor,

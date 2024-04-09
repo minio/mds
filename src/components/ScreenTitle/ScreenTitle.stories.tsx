@@ -22,9 +22,10 @@ import { ScreenTitleProps } from "./ScreenTitle.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import Button from "../Button/Button";
 import TestIcon from "../../utils/TestIcon";
+import ActionsBar from "../ActionsBar/ActionsBar";
+import Box from "../Box/Box";
 
 export default {
   title: "MDS/Layout/ScreenTitle",
@@ -42,27 +43,19 @@ const Template: Story<ScreenTitleProps> = (args: ScreenTitleProps) => (
 export const Default = Template.bind({});
 Default.args = {
   title: "Object Title",
-  subTitle: (
-    <Fragment>
-      <span>
-        Some Variable: <strong>Variable value</strong>
-      </span>
-      <span>
-        Some Variable: <strong>Variable value</strong>
-      </span>
-      <span>
-        Some Variable: <strong>Variable value</strong>
-      </span>
-    </Fragment>
-  ),
+  titleOptions: [
+    { title: "Created", value: "Wed, Feb 28 2024 · 23:56:02" },
+    { title: "Access", value: "PUBLIC" },
+    { title: "Size", value: "1,2024 MiB - 2 Objects" },
+  ],
   actions: (
     <Fragment>
-      <Button id={"testButton1"}>Button1</Button>
-      <Button id={"testButton2"} variant={"callAction"}>
+      <ActionsBar>
+        <Button id={"testButton1"}>Button1</Button>
+        <Button id={"testButton3"}>Button3</Button>
+      </ActionsBar>
+      <Button id={"testButton2"} variant={"callAction"} compact>
         Button2
-      </Button>
-      <Button id={"testButton3"} variant={"secondary"}>
-        Button3
       </Button>
     </Fragment>
   ),
@@ -72,13 +65,11 @@ Default.args = {
 export const NoIcon = Template.bind({});
 NoIcon.args = {
   title: "Object Title",
-  subTitle: (
-    <Fragment>
-      <span>
-        Some Variable: <strong>Variable value</strong>
-      </span>
-    </Fragment>
-  ),
+  titleOptions: [
+    { title: "Created", value: "Wed, Feb 28 2024 · 23:56:02" },
+    { title: "Access", value: "PUBLIC" },
+    { title: "Size", value: "1,2024 MiB - 2 Objects" },
+  ],
   actions: (
     <Fragment>
       <Button id={"testButton1"}>Button1</Button>
@@ -92,41 +83,45 @@ NoIcon.args = {
   ),
 };
 
-export const NoBottomBorder = Template.bind({});
-NoBottomBorder.args = {
+export const CustomSubElement = Template.bind({});
+CustomSubElement.args = {
   title: "Object Title",
-  subTitle: (
-    <Fragment>
-      <span>
-        Some Variable: <strong>Variable value</strong>
-      </span>
-    </Fragment>
-  ),
+  titleOptions: [
+    { title: "Created", value: "Wed, Feb 28 2024 · 23:56:02" },
+    { title: "Access", value: "PUBLIC" },
+    { title: "Size", value: "1,2024 MiB - 2 Objects" },
+  ],
   actions: (
     <Fragment>
-      <Button id={"testButton1"}>Button1</Button>
-      <Button id={"testButton2"} variant={"callAction"}>
+      <ActionsBar>
+        <Button id={"testButton1"}>Button1</Button>
+        <Button id={"testButton3"}>Button3</Button>
+      </ActionsBar>
+      <Button id={"testButton2"} variant={"callAction"} compact>
         Button2
-      </Button>
-      <Button id={"testButton3"} variant={"secondary"}>
-        Button3
       </Button>
     </Fragment>
   ),
   icon: <TestIcon />,
-  bottomBorder: false,
+  subTitle: (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        color: "#080",
+        fontSize: 12,
+        gap: 6,
+        "& svg": { width: 12, height: 12, minWidth: 12, minHeight: 12 },
+      }}
+    >
+      <TestIcon /> <span>Online</span>
+    </Box>
+  ),
 };
 
 export const CustomStyles = Template.bind({});
 CustomStyles.args = {
   title: "Object Title",
-  subTitle: (
-    <Fragment>
-      <span>
-        Some Variable: <strong>Variable value</strong>
-      </span>
-    </Fragment>
-  ),
   actions: (
     <Fragment>
       <Button id={"testButton1"}>Button1</Button>
