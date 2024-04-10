@@ -14,16 +14,23 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
-import get from "lodash/get";
+import React, { FC, Fragment } from "react";
 import {
   BreadcrumbsContainerProps,
+  BreadcrumbsOption,
   BreadcrumbsProps,
 } from "./Breadcrumbs.types";
-import IconButton from "../IconButton/IconButton";
 import styled from "styled-components";
 import BackCaretIcon from "../Icons/BackCaretIcon";
 import Box from "../Box/Box";
+import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import BreadcrumbButton from "./BreadcrumbButton";
+import ActionsBar from "../ActionsBar/ActionsBar";
+import Button from "../Button/Button";
+import get from "lodash/get";
+import { themeColors } from "../../global/themeColors";
+import ExpandOptionsIcon from "../Icons/ExpandOptionsIcon";
 
 const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
   return {
@@ -31,55 +38,51 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
     flexBasis: "100%",
     width: "100%",
     fontSize: 12,
-    color: get(theme, "breadcrumbs.textColor", "#969FA8"),
     fontWeight: "bold",
-    border: `${get(theme, "breadcrumbs.border", "#eaeaea")} 1px solid`,
     height: 38,
     display: "flex",
     alignItems: "center",
-    backgroundColor: get(theme, "breadcrumbs.backgroundColor", "#FCFCFD"),
     marginRight: 10,
-    "& a": {
-      textDecoration: "none",
-      color: get(theme, "breadcrumbs.linksColor", "#969FA8"),
-      "&:hover": {
-        textDecoration: "underline",
-      },
-    },
-    "& .min-icon": {
-      width: 16,
-      minWidth: 16,
-    },
-    "& .backButton": {
-      border: `${get(
-        theme,
-        "breadcrumbs.backButton.border",
-        "#EAEDEE",
-      )} 1px solid`,
-      backgroundColor: get(
-        theme,
-        "breadcrumbs.backButton.backgroundColor",
-        "#FFF",
-      ),
-      borderLeft: 0,
-      borderRadius: 0,
-      width: 38,
-      height: 38,
-      marginRight: "10px",
-      "& > svg": {
-        fill: get(theme, "breadcrumbs.textColor", "#969FA8"),
-      },
-    },
     "& .breadcrumbsList": {
-      textOverflow: "ellipsis" as const,
-      overflow: "hidden" as const,
-      whiteSpace: "nowrap" as const,
-      display: "inline-block" as const,
+      display: "flex",
+      flexWrap: "nowrap",
       flexGrow: 1,
       textAlign: "left" as const,
       marginLeft: 15,
       marginRight: 10,
-      width: 0, // WA to avoid overflow if child elements in flexbox list.**
+      overflow: "hidden",
+      "& .divider": {
+        boxSizing: "content-box",
+        display: "inline-flex",
+        justifyContent: "center",
+        width: 12,
+        minWidth: 12,
+        color: get(
+          theme,
+          "elementsColor",
+          themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+        ),
+        fontSize: 12,
+        fontStyle: "normal",
+        fontWeight: 400,
+        lineHeight: "16px",
+        letterSpacing: "0.5px",
+        padding: "2px 4px",
+      },
+      "& svg": {
+        fill: get(
+          theme,
+          "elementsColor",
+          themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+        ),
+        "&:hover": {
+          fill: get(
+            theme,
+            "hoverColor",
+            themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+          ),
+        },
+      },
     },
     "& .slashSpacingStyle": {
       margin: "0 5px",
@@ -90,19 +93,122 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
 
 const Breadcrumbs: FC<BreadcrumbsProps> = ({
   sx,
-  children,
-  additionalOptions,
   goBackFunction,
+  options,
+  displayLastItems = false,
+  onClickOption,
+  markCurrentItem = false,
+  children,
 }) => {
+  const hasCollapsedOpts =
+    typeof displayLastItems === "number" &&
+    options.length > displayLastItems + 1 &&
+    options.length > 0;
+
+  let collapsedOptions = null;
+
+  const clickFunction = (option: BreadcrumbsOption) => {
+    if (onClickOption) {
+      onClickOption(option.to);
+    }
+
+    if (option.onClick) {
+      option.onClick(option.to);
+    }
+  };
+
+  const Divider = () => {
+    return <Box className={"divider"}>/</Box>;
+  };
+
+  // Collapsed options
+  if (hasCollapsedOpts) {
+    const colOpts = options.slice(1, displayLastItems * -1);
+
+    collapsedOptions = (
+      <ExpandMenu
+        id={"breadcrumbs-expand"}
+        className={"breadcrumbElement"}
+        icon={<ExpandOptionsIcon />}
+        variant={"text"}
+        sx={{
+          height: 20,
+          padding: "2px 4px",
+          borderRadius: 2,
+        }}
+        compact
+      >
+        {colOpts.map((option) => (
+          <ExpandMenuOption
+            id={`expandOption-${option.label}`}
+            onClick={() => clickFunction(option)}
+          >
+            {option.label}
+          </ExpandMenuOption>
+        ))}
+      </ExpandMenu>
+    );
+  }
+
+  const itSlide = displayLastItems
+    ? options.slice(displayLastItems * -1)
+    : options;
+
   return (
     <BoxParent className={"breadcrumbs-bar"} sx={sx}>
-      <IconButton onClick={goBackFunction} className={"backButton"}>
-        <BackCaretIcon />
-      </IconButton>
-      <Box className={"breadcrumbsList"} dir="rtl">
-        {children}
+      {goBackFunction && (
+        <ActionsBar displayLabels={false}>
+          <Button
+            id={"back-button"}
+            icon={<BackCaretIcon />}
+            onClick={goBackFunction}
+            iconLocation={"start"}
+          />
+        </ActionsBar>
+      )}
+      <Box className={"breadcrumbsList"}>
+        {hasCollapsedOpts ? (
+          <Fragment>
+            <BreadcrumbButton
+              id={`breadcrumb-option-${options[0].label}`}
+              onClick={() => clickFunction(options[0])}
+            >
+              {options[0].label}
+            </BreadcrumbButton>
+            <Divider />
+            {collapsedOptions}
+            <Divider />
+            {itSlide.map((itm, index) => (
+              <Fragment>
+                {index !== 0 && <Divider />}
+                <BreadcrumbButton
+                  id={`breadcrumb-option-${itm.label}`}
+                  onClick={() => clickFunction(itm)}
+                  className={`${index === itSlide.length - 1 && markCurrentItem ? "current" : ""}`}
+                >
+                  {itm.label}
+                </BreadcrumbButton>
+              </Fragment>
+            ))}
+          </Fragment>
+        ) : (
+          <Fragment>
+            {itSlide.map((itm, index) => (
+              <Fragment>
+                {index !== 0 && <Divider />}
+                <BreadcrumbButton
+                  id={`breadcrumb-option-${itm.label}`}
+                  onClick={() => clickFunction(itm)}
+                  className={`${index === options.length - 1 && markCurrentItem ? "current" : ""}`}
+                >
+                  {itm.label}
+                </BreadcrumbButton>
+              </Fragment>
+            ))}
+            {children!!}
+          </Fragment>
+        )}
       </Box>
-      {additionalOptions}
     </BoxParent>
   );
 };

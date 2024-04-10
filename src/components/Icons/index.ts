@@ -254,3 +254,4 @@ export { default as QueryEditorIcon } from "./QueryEditorIcon";
 export { default as ResourcesIcon } from "./ResourcesIcon";
 export { default as SettingsInMenuIcon } from "./SettingsInMenuIcon";
 export { default as SystemIcon } from "./SystemIcon";
+export { default as ExpandOptionsIcon } from "./ExpandOptionsIcon";

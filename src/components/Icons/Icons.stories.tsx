@@ -597,6 +597,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.ExpandOptionsIcon />
+              <br />
+              ExpandOptionsIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.ExtraFeaturesIcon />
               <br />
               ExtraFeaturesIcon

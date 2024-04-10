@@ -32,6 +32,7 @@ const ExpandMenu: FC<
   label,
   children,
   disabled,
+  compact = false,
 }) => {
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -49,6 +50,7 @@ const ExpandMenu: FC<
         sx={sx}
         label={label}
         disabled={disabled}
+        compact={compact}
         onClick={(e) => {
           setExpandedMenu(!expandedMenu);
           setAnchorEl(e.currentTarget);

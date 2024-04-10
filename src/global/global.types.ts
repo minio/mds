@@ -116,17 +116,11 @@ export interface InputBoxThemeProps {
   disabledPlaceholder: string;
 }
 
-export interface BreadcrumbsBackStyle {
-  border: string;
-  backgroundColor: string;
-}
-
 export interface BreadcrumbsThemeProps {
-  border: string;
-  backgroundColor: string;
-  linksColor: string;
-  backButton: BreadcrumbsBackStyle;
-  textColor: string;
+  elementsColor: string;
+  selectedColor: string;
+  hoverColor: string;
+  hoverBG: string;
 }
 
 export interface ActionsListThemeProps {

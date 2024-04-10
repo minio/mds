@@ -14,16 +14,38 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 import { CSSObject } from "styled-components";
 
 export interface BreadcrumbsProps {
   sx?: CSSObject;
-  children: React.ReactNode;
-  additionalOptions?: React.ReactNode;
-  goBackFunction: () => void;
+  options: BreadcrumbsOption[];
+  goBackFunction?: () => void;
+  displayLastItems?: false | number;
+  onClickOption?: (to?: string) => void;
+  children?: React.ReactNode;
+  markCurrentItem?: boolean;
+}
+
+export interface BreadcrumbsOption {
+  label: string;
+  to?: string;
+  onClick?: (to?: string) => void;
 }
 
 export interface BreadcrumbsContainerProps {
+  sx?: CSSObject;
+}
+
+export interface BreadcrumbsOptionProps {
+  id: string;
+  name?: string;
+  label?: string;
+  icon?: ReactNode;
+  iconLocation?: "start" | "end";
+  disabled?: boolean;
+  current?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  children?: ReactNode | string;
   sx?: CSSObject;
 }
