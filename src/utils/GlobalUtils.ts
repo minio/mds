@@ -33,6 +33,7 @@ export const expandMenuOptionStyles = (theme: any) => {
     fontWeight: 400,
     height: 28,
     boxShadow: "none",
+    textDecoration: "none",
     "&:hover:not(:disabled)": {
       backgroundColor: get(
         theme,

@@ -515,14 +515,11 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledText: lightV2.mutedText,
   },
   breadcrumbs: {
-    border: lightColors.borderColor,
-    linksColor: lightColors.commonLinkColor,
-    textColor: lightColors.breadcrumbsText,
-    backgroundColor: lightColors.breadcrumbsBackground,
-    backButton: {
-      border: lightColors.breadcrumbsBackBorder,
-      backgroundColor: lightColors.white,
-    },
+    elementsColor:
+      themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+    selectedColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    hoverBG: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+    hoverColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
   },
   actionsList: {
     containerBorderColor: lightColors.actionsListBorder,
@@ -1028,14 +1025,11 @@ export const darkTheme: ThemeDefinitionProps = {
     disabledText: darkColors.disabledBGGrey,
   },
   breadcrumbs: {
-    border: darkColors.borderColor,
-    linksColor: darkColors.mainGrey,
-    textColor: darkColors.mainGrey,
-    backgroundColor: darkColors.sectionOneBG,
-    backButton: {
-      border: darkColors.borderColor,
-      backgroundColor: darkColors.sectionOneBG,
-    },
+    elementsColor:
+      themeColors["Color/Neutral/Text/colorTextDescription"].darkMode,
+    selectedColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    hoverBG: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+    hoverColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
   },
   actionsList: {
     containerBorderColor: darkColors.bulletColor,
