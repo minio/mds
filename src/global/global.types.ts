@@ -387,6 +387,18 @@ export interface BoxedIconThemeProps {
   iconColor: string;
 }
 
+export interface PillElementThemeProps {
+  bgColor: string;
+  labelColor: string;
+  borderColor: string;
+}
+
+export interface PillThemeProps {
+  current: PillElementThemeProps;
+  secondary: PillElementThemeProps;
+  default: PillElementThemeProps;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -442,6 +454,7 @@ export interface ThemeDefinitionProps {
   actionsBar?: ActionsBarThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
+  pill?: PillThemeProps;
 }
 
 export interface SelectorType {
