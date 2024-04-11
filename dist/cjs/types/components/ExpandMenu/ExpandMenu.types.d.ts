@@ -9,6 +9,7 @@ export interface ExpandMenuProps {
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
   dropMenuPosition?: "start" | "end";
+  compact?: boolean;
   sx?: CSSObject;
 }
 export interface ExpandMenuOptionProps {

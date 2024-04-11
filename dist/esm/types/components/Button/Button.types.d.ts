@@ -12,6 +12,7 @@ export interface ButtonProps {
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
+  compact?: boolean;
   sx?: CSSObject;
 }
 export interface ConstructProps {
