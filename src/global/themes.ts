@@ -810,6 +810,23 @@ export const lightTheme: ThemeDefinitionProps = {
     iconColor: themeColors["Color/Neutral/Icon/colorIcon"].lightMode,
     bgColor: themeColors["Color/Neutral/Bg/colorBgSections"].lightMode,
   },
+  pill: {
+    default: {
+      labelColor: themeColors["Color/Brand/Neutral/colorPrimary"].lightMode,
+      bgColor: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      borderColor: themeColors["Color/Brand/Neutral/colorPrimary"].lightMode,
+    },
+    secondary: {
+      labelColor: themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+      bgColor: themeColors["Color/Brand/Error/colorPrimaryBg"].lightMode,
+      borderColor: themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+    },
+    current: {
+      labelColor: themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+      bgColor: themeColors["Color/Brand/Primary/colorPrimaryBg"].lightMode,
+      borderColor: themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -1279,5 +1296,22 @@ export const darkTheme: ThemeDefinitionProps = {
     railBG: darkColors.footerDivider,
     disabledRail: darkColors.disabledSwitchBG,
     disabledBullet: darkColors.disabledSliderBullet,
+  },
+  pill: {
+    default: {
+      labelColor: themeColors["Color/Brand/Neutral/colorPrimary"].darkMode,
+      bgColor: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      borderColor: themeColors["Color/Brand/Neutral/colorPrimary"].darkMode,
+    },
+    secondary: {
+      labelColor: themeColors["Color/Brand/Error/colorPrimary"].darkMode,
+      bgColor: themeColors["Color/Brand/Error/colorPrimaryBg"].darkMode,
+      borderColor: themeColors["Color/Brand/Error/colorPrimary"].darkMode,
+    },
+    current: {
+      labelColor: themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+      bgColor: themeColors["Color/Brand/Primary/colorPrimaryBg"].darkMode,
+      borderColor: themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    },
   },
 };
