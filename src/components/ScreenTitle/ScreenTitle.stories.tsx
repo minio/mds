@@ -24,7 +24,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
 import Button from "../Button/Button";
 import TestIcon from "../../utils/TestIcon";
-import ActionsBar from "../ActionsBar/ActionsBar";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Box from "../Box/Box";
 
 export default {
@@ -50,10 +50,10 @@ Default.args = {
   ],
   actions: (
     <Fragment>
-      <ActionsBar>
+      <ButtonGroup>
         <Button id={"testButton1"}>Button1</Button>
         <Button id={"testButton3"}>Button3</Button>
-      </ActionsBar>
+      </ButtonGroup>
       <Button id={"testButton2"} variant={"callAction"} compact>
         Button2
       </Button>
@@ -93,10 +93,10 @@ CustomSubElement.args = {
   ],
   actions: (
     <Fragment>
-      <ActionsBar>
+      <ButtonGroup>
         <Button id={"testButton1"}>Button1</Button>
         <Button id={"testButton3"}>Button3</Button>
-      </ActionsBar>
+      </ButtonGroup>
       <Button id={"testButton2"} variant={"callAction"} compact>
         Button2
       </Button>

@@ -26,7 +26,7 @@ import Box from "../Box/Box";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
 import BreadcrumbButton from "./BreadcrumbButton";
-import ActionsBar from "../ActionsBar/ActionsBar";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Button from "../Button/Button";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
@@ -157,14 +157,14 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
   return (
     <BoxParent className={"breadcrumbs-bar"} sx={sx}>
       {goBackFunction && (
-        <ActionsBar displayLabels={false}>
+        <ButtonGroup displayLabels={false}>
           <Button
             id={"back-button"}
             icon={<BackCaretIcon />}
             onClick={goBackFunction}
             iconLocation={"start"}
           />
-        </ActionsBar>
+        </ButtonGroup>
       )}
       <Box className={"breadcrumbsList"}>
         {hasCollapsedOpts ? (

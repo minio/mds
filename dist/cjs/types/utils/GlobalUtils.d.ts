@@ -13,6 +13,7 @@ export declare const expandMenuOptionStyles: (theme: any) => {
   fontWeight: number;
   height: number;
   boxShadow: string;
+  textDecoration: string;
   "&:hover:not(:disabled)": {
     backgroundColor: any;
     color: any;

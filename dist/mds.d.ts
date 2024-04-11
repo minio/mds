@@ -100,16 +100,11 @@ interface InputBoxThemeProps {
   disabledText: string;
   disabledPlaceholder: string;
 }
-interface BreadcrumbsBackStyle {
-  border: string;
-  backgroundColor: string;
-}
 interface BreadcrumbsThemeProps {
-  border: string;
-  backgroundColor: string;
-  linksColor: string;
-  backButton: BreadcrumbsBackStyle;
-  textColor: string;
+  elementsColor: string;
+  selectedColor: string;
+  hoverColor: string;
+  hoverBG: string;
 }
 interface ActionsListThemeProps {
   titleColor: string;
@@ -122,7 +117,7 @@ interface ActionsListThemeProps {
 }
 interface ScreenTitleThemeProps {
   subtitleColor: string;
-  iconColor: string;
+  titleColor: string;
 }
 interface IconThemeColorProps {
   accept: string;
@@ -347,6 +342,16 @@ interface BoxedIconThemeProps {
   bgColor: string;
   iconColor: string;
 }
+interface PillElementThemeProps {
+  bgColor: string;
+  labelColor: string;
+  borderColor: string;
+}
+interface PillThemeProps {
+  current: PillElementThemeProps;
+  secondary: PillElementThemeProps;
+  default: PillElementThemeProps;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -402,6 +407,7 @@ interface ThemeDefinitionProps {
   actionsBar?: ActionsBarThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
+  pill?: PillThemeProps;
 }
 interface SelectorType {
   label: string;
@@ -454,6 +460,7 @@ interface ButtonProps {
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
+  compact?: boolean;
   sx?: CSSObject;
 }
 interface ConstructProps {
@@ -851,15 +858,40 @@ declare const InputBox$1: FC<InputBoxProps>;
 
 interface BreadcrumbsProps {
   sx?: CSSObject;
-  children: React__default.ReactNode;
-  additionalOptions?: React__default.ReactNode;
-  goBackFunction: () => void;
+  options: BreadcrumbsOption[];
+  goBackFunction?: () => void;
+  displayLastItems?: false | number;
+  onClickOption?: (to?: string) => void;
+  children?: React__default.ReactNode;
+  markCurrentItem?: boolean;
+}
+interface BreadcrumbsOption {
+  label: string;
+  to?: string;
+  onClick?: (to?: string) => void;
 }
 interface BreadcrumbsContainerProps {
   sx?: CSSObject;
 }
+interface BreadcrumbsOptionProps {
+  id: string;
+  name?: string;
+  label?: string;
+  icon?: ReactNode;
+  iconLocation?: "start" | "end";
+  disabled?: boolean;
+  current?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  children?: ReactNode | string;
+  sx?: CSSObject;
+}
 
 declare const Breadcrumbs: FC<BreadcrumbsProps>;
+
+declare const BreadcrumbButton: FC<
+  BreadcrumbsOptionProps &
+    React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 interface ActionItem {
   action: () => void;
@@ -902,12 +934,16 @@ interface ScreenTitleProps {
   subTitle?: React__default.ReactNode;
   title: string;
   actions: React__default.ReactNode;
+  titleOptions?: ScreenTitleOptions[];
   sx?: CSSObject;
-  bottomBorder?: boolean;
 }
 interface ScreenTitleContainerProps {
   sx?: CSSObject;
   bottomBorder?: boolean;
+}
+interface ScreenTitleOptions {
+  title: string;
+  value: string;
 }
 
 declare const ScreenTitle: FC<
@@ -1548,13 +1584,14 @@ declare const Slider: FC<
   SliderProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
 
-interface ActionsBarProps
+interface ButtonGroupProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
+  children: React__default.ReactNode;
   displayLabels?: boolean;
   sx?: CSSProperties;
 }
 
-declare const ActionsBar: FC<ActionsBarProps>;
+declare const ButtonGroup: FC<ButtonGroupProps>;
 
 interface FormActionsTrayProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
@@ -1574,6 +1611,7 @@ interface ExpandMenuProps {
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
   dropMenuPosition?: "start" | "end";
+  compact?: boolean;
   sx?: CSSObject;
 }
 interface ExpandMenuOptionProps {
@@ -1610,6 +1648,15 @@ interface IBoxedIconProps {
 }
 
 declare const BoxedIcon: FC<IBoxedIconProps>;
+
+interface PillProps {
+  type: "current" | "secondary" | "default";
+  sx?: CSSObject;
+}
+
+declare const Pill: FC<
+  PillProps & React__default.HTMLAttributes<HTMLSpanElement>
+>;
 
 declare const EditorThemeSwitchIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2524,6 +2571,10 @@ declare const SettingsInMenuIcon: (
 ) => React$1.JSX.Element;
 
 declare const SystemIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ExpandOptionsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3583,8 +3634,6 @@ export {
   ActionItem,
   ActionLink,
   ActionLinkProps,
-  ActionsBar,
-  ActionsBarProps,
   ActionsBarThemeProps,
   ActionsList,
   ActionsListPanelProps,
@@ -3634,9 +3683,11 @@ export {
   BoxThemeProps,
   BoxedIcon,
   BoxedIconThemeProps,
+  BreadcrumbButton,
   Breadcrumbs,
-  BreadcrumbsBackStyle,
   BreadcrumbsContainerProps,
+  BreadcrumbsOption,
+  BreadcrumbsOptionProps,
   BreadcrumbsProps,
   BreadcrumbsThemeProps,
   BucketEncryptionIcon,
@@ -3645,6 +3696,8 @@ export {
   BucketsIcon$1 as BucketsIcon,
   BucketsMenuIcon,
   Button,
+  ButtonGroup,
+  ButtonGroupProps,
   ButtonProps,
   ButtonThemeProps,
   ButtonThemeStatesProps,
@@ -3758,6 +3811,7 @@ export {
   ExpandMenuProps,
   ExpandOptionsButton,
   ExpandOptionsButtonProps,
+  ExpandOptionsIcon,
   ExtraCommentProps,
   AccountIcon as ExtraFeaturesIcon,
   ExtraInputProps,
@@ -3933,6 +3987,10 @@ export {
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
   PermissionIcon,
+  Pill,
+  PillElementThemeProps,
+  PillProps,
+  PillThemeProps,
   PorPlacementIcon as PodPlacementIcon,
   PoliciesIcon,
   PoliciesMenuIcon,
@@ -3968,6 +4026,7 @@ export {
   S3TierIcon as S3TierIconXs,
   ScreenTitle,
   ScreenTitleContainerProps,
+  ScreenTitleOptions,
   ScreenTitleProps,
   ScreenTitleThemeProps,
   SearchIcon,

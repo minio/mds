@@ -87,16 +87,11 @@ export interface InputBoxThemeProps {
   disabledText: string;
   disabledPlaceholder: string;
 }
-export interface BreadcrumbsBackStyle {
-  border: string;
-  backgroundColor: string;
-}
 export interface BreadcrumbsThemeProps {
-  border: string;
-  backgroundColor: string;
-  linksColor: string;
-  backButton: BreadcrumbsBackStyle;
-  textColor: string;
+  elementsColor: string;
+  selectedColor: string;
+  hoverColor: string;
+  hoverBG: string;
 }
 export interface ActionsListThemeProps {
   titleColor: string;
@@ -109,7 +104,7 @@ export interface ActionsListThemeProps {
 }
 export interface ScreenTitleThemeProps {
   subtitleColor: string;
-  iconColor: string;
+  titleColor: string;
 }
 export interface IconThemeColorProps {
   accept: string;
@@ -334,6 +329,16 @@ export interface BoxedIconThemeProps {
   bgColor: string;
   iconColor: string;
 }
+export interface PillElementThemeProps {
+  bgColor: string;
+  labelColor: string;
+  borderColor: string;
+}
+export interface PillThemeProps {
+  current: PillElementThemeProps;
+  secondary: PillElementThemeProps;
+  default: PillElementThemeProps;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -389,6 +394,7 @@ export interface ThemeDefinitionProps {
   actionsBar?: ActionsBarThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
+  pill?: PillThemeProps;
 }
 export interface SelectorType {
   label: string;
