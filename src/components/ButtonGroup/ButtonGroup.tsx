@@ -68,6 +68,7 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
       "& .button-label, & .menu-option": {
         display: displayLabels ? "initial" : "none",
         margin: 0,
+        whiteSpace: "nowrap",
       },
       "&:disabled": {
         cursor: "not-allowed",
