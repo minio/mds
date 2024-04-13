@@ -102,7 +102,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
 }) => {
   const hasCollapsedOpts =
     typeof displayLastItems === "number" &&
-    options.length > displayLastItems + 1 &&
+    options.length - 1 > displayLastItems &&
     options.length > 0;
 
   let collapsedOptions = null;
@@ -122,7 +122,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
   };
 
   // Collapsed options
-  if (hasCollapsedOpts) {
+  if (hasCollapsedOpts && options.length > displayLastItems - 1) {
     const colOpts = options.slice(1, displayLastItems * -1);
 
     collapsedOptions = (
@@ -150,7 +150,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
     );
   }
 
-  const itSlide = displayLastItems
+  const itSlide = hasCollapsedOpts
     ? options.slice(displayLastItems * -1)
     : options;
 
