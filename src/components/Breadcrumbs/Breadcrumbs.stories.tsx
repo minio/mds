@@ -71,3 +71,9 @@ MarkCurrentItem.args = {
   markCurrentItem: true,
   displayLastItems: 2,
 };
+
+export const LimitAsListSize = Template.bind({});
+LimitAsListSize.args = {
+  options: brOptions,
+  displayLastItems: 6,
+};
