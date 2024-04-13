@@ -86,6 +86,7 @@ export const expandMenuOptionStyles = (theme: any) => {
       fontWeight: 400,
       lineHeight: "20px",
       letterSpacing: "0.16px",
+      whiteSpace: "nowrap",
     },
     "& .button-label": {
       marginLeft: 0,
