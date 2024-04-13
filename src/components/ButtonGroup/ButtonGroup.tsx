@@ -54,7 +54,7 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
       color: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
       padding: displayLabels ? "4px 12px" : "0 6px",
       height: 26,
-      width: displayLabels ? "initial" : 40,
+      width: displayLabels ? "initial" : 44,
       gap: 4,
       "& .buttonIcon": {
         height: 16,

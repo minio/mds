@@ -789,12 +789,18 @@ export const lightTheme: ThemeDefinitionProps = {
   actionsBar: {
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
     labelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-    activeBackground: themeColors[ "Color/Brand/Neutral/colorPrimaryBg"].lightMode,
-    activeLabelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-    hoverBackground: themeColors[ "Color/Brand/Neutral/colorPrimaryBg"].lightMode,
-    hoverLabelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-    disabledLabelColor: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
-    disabledBackground: themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
+    activeBackground:
+      themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+    activeLabelColor:
+      themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+    hoverBackground:
+      themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+    hoverLabelColor:
+      themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+    disabledLabelColor:
+      themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+    disabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
     background: "transparent",
   },
   dropdownOptions: {
@@ -1317,12 +1323,17 @@ export const darkTheme: ThemeDefinitionProps = {
   actionsBar: {
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].darkMode,
     labelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
-    activeBackground: themeColors[ "Color/Brand/Neutral/colorPrimaryBg"].darkMode,
-    activeLabelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
-    hoverBackground: themeColors[ "Color/Brand/Neutral/colorPrimaryBg"].darkMode,
-    hoverLabelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
-    disabledLabelColor: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
-    disabledBackground: themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
+    activeBackground:
+      themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+    activeLabelColor:
+      themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
+    hoverBackground: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+    hoverLabelColor:
+      themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
+    disabledLabelColor:
+      themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+    disabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
     background: "transparent",
   },
 };
