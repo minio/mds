@@ -41,6 +41,7 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
     "& button": {
       display: "flex",
       alignItems: "center",
+      justifyContent: "center",
       boxShadow: "none",
       border: 0,
       borderRadius: 0,
@@ -53,7 +54,7 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
       color: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
       padding: displayLabels ? "4px 12px" : "0 6px",
       height: 26,
-      width: displayLabels ? "initial" : 28,
+      width: displayLabels ? "initial" : 40,
       gap: 4,
       "& .buttonIcon": {
         height: 16,
