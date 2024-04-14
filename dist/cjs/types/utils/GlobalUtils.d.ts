@@ -46,6 +46,7 @@ export declare const expandMenuOptionStyles: (theme: any) => {
     fontWeight: number;
     lineHeight: string;
     letterSpacing: string;
+    whiteSpace: string;
   };
   "& .button-label": {
     marginLeft: number;

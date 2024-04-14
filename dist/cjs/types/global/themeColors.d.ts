@@ -595,7 +595,199 @@ export declare const themeColors: {
     lightMode: string;
     darkMode: string;
   };
-  "Color/Set/Border/colorBorderSubtle": {
+  "Color/Base/Purple/0": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/1": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/2": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/3": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/4": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/5": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/6": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/7": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/8": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/9": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Purple/10": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/0": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/1": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/2": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/3": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/4": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/5": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/6": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/7": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/8": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/9": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Scooter/10": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/0": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/1": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/2": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/3": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/4": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/5": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/6": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/7": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/8": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/9": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Base/Rose/10": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/1": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/2": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/3": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/4": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/5": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/6": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/7": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/8": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/9": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/10": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/11": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/12": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/13": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/14": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/15": {
+    lightMode: string;
+    darkMode: string;
+  };
+  "Color/Dataviz/none": {
     lightMode: string;
     darkMode: string;
   };
