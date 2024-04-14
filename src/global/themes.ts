@@ -503,16 +503,22 @@ export const lightTheme: ThemeDefinitionProps = {
     hover: lightColors.backLinkHover,
   },
   inputBox: {
-    border: lightV2.borderColor,
-    hoverBorder: lightColors.promoBG,
-    color: lightV2.fontColor,
+    border: themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+    hoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+    color: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
     backgroundColor: "transparent",
-    error: lightV2.danger,
-    placeholderColor: lightV2.mutedText,
-    disabledBorder: lightV2.disabledSecondary,
-    disabledBackground: lightV2.disabledGrey,
-    disabledPlaceholder: lightV2.mutedText,
-    disabledText: lightV2.mutedText,
+    error: themeColors["Color/Brand/Error/colorPrimaryBorder"].lightMode,
+    placeholderColor:
+      themeColors["Color/Neutral/Text/colorTextPlaceholder"].lightMode,
+    disabledBorder:
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+    disabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
+    disabledPlaceholder:
+      themeColors["Color/Neutral/Text/colorTextPlaceholder"].lightMode,
+    disabledText:
+      themeColors["Color/Neutral/Text/colorTextPlaceholder"].lightMode,
   },
   breadcrumbs: {
     elementsColor:

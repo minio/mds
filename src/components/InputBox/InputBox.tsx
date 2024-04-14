@@ -69,6 +69,7 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       },
       "&:focus": {
         borderColor: borderHover,
+        boxShadow: "0px 0px 0px 2px rgba(43, 100, 229, 0.30)",
       },
       "&:disabled": {
         border: get(theme, "inputBox.disabledBorder", "#494A4D"),
