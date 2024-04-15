@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, {Fragment, HTMLAttributes} from "react";
+import React, { Fragment, HTMLAttributes } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import HelpBox from "./HelpBox";
@@ -30,7 +30,9 @@ export default {
   argTypes: {},
 } as Meta<typeof HelpBox>;
 
-const Template: Story<HelpBoxProps> = (args:HelpBoxProps & HTMLAttributes<HTMLDivElement>) => (
+const Template: Story<HelpBoxProps> = (
+  args: HelpBoxProps & HTMLAttributes<HTMLDivElement>,
+) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <HelpBox {...args} />
