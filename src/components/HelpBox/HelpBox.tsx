@@ -14,61 +14,26 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, HTMLAttributes } from "react";
-import styled from "styled-components";
-import get from "lodash/get";
+import React, { FC, Fragment, HTMLAttributes } from "react";
 import { HelpBoxProps } from "./HelpBox.types";
-import Grid from "../Grid/Grid";
-
-const BaseHelpBox = styled.div(({ theme }) => ({
-  border: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
-  boxShadow: get(theme, "box.shadow", "none"),
-  backgroundColor: get(theme, "boxBackground", "#F9FAFC"),
-  borderRadius: 10,
-  stroke: "#E5E7EB",
-  color: "#3A3D41",
-  paddingLeft: 25,
-  paddingTop: 20,
-  paddingBottom: 20,
-  paddingRight: 30,
-  "& .leftItems": {
-    fontSize: 16,
-    fontWeight: "bold",
-    display: "flex",
-    alignItems: "center",
-    "& .min-icon": {
-      marginRight: 15,
-      height: 28,
-      width: 38,
-    },
-  },
-  "& .helpText": {
-    fontSize: 16,
-    paddingLeft: 5,
-    marginTop: 15,
-  },
-}));
+import Box from "../Box/Box";
+import ScreenTitle from "../ScreenTitle/ScreenTitle";
 
 const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>> = ({
-  iconComponent,
+  icon,
   title,
   help,
   ...restProps
 }) => {
   return (
-    <BaseHelpBox className={"help-box"} {...restProps}>
-      <Grid container>
-        <Grid item xs={12} className={"leftItems"}>
-          {iconComponent || null}
-          {title}
-        </Grid>
-        {help && (
-          <Grid item xs={12} className={"helpText"}>
-            {help}
-          </Grid>
-        )}
-      </Grid>
-    </BaseHelpBox>
+    <Box className={"help-box"} withBorders sx={{ padding: 8 }} {...restProps}>
+      <ScreenTitle
+        icon={icon}
+        title={title}
+        subTitle={help}
+        actions={<Fragment />}
+      />
+    </Box>
   );
 };
 
