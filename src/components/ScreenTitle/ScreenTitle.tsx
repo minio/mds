@@ -28,7 +28,7 @@ import BoxedIcon from "../BoxedIcon/BoxedIcon";
 import { themeColors } from "../../global/themeColors";
 
 const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
-  ({ theme, sx }) => ({
+  ({ theme, sx, subTitle, titleOptions }) => ({
     boxSizing: "border-box" as const,
     display: "flex",
     flexDirection: "row",
@@ -36,7 +36,8 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
     width: "100%",
     "& .stContainer": {
       display: "flex",
-      alignItems: "flex-start" as const,
+      alignItems:
+        !subTitle && !titleOptions ? "center" : ("flex-start" as const),
       justifyContent: "space-between",
       padding: 8,
       width: "100%",
@@ -53,12 +54,12 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       fontSize: 14,
     },
     "& .titleColumn": {
-      height: "auto",
+      height: !subTitle && !titleOptions ? "60px" : ("auto" as const),
       justifyContent: "center",
       display: "flex",
       flexFlow: "column",
       alignItems: "flex-start",
-      gap: 4,
+      gap: 4 as const,
       "& .titleElement": {
         fontSize: 24,
         fontWeight: 600,
@@ -146,21 +147,31 @@ const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
   ...restProps
 }) => {
   return (
-    <ScreenTitleContainer className={"screen-title"} sx={sx} {...restProps}>
+    <ScreenTitleContainer
+      className={"screen-title"}
+      sx={sx}
+      subTitle={subTitle}
+      titleOptions={titleOptions}
+      {...restProps}
+    >
       <Box className={"stContainer"}>
         <Box className={"leftItems"}>
           {icon ? <BoxedIcon>{icon}</BoxedIcon> : null}
           <Box className={"titleColumn"}>
             <Box className={"titleElement"}>{title}</Box>
-            <span className={"headerBarSubheader"}>{subTitle}</span>
-            <Box className={"options"}>
-              {titleOptions?.map((optionItem) => (
-                <Box className={"optionElement"}>
-                  <Box className={"title"}>{optionItem.title}</Box>
-                  <Box className={"value"}>{optionItem.value}</Box>
-                </Box>
-              ))}
-            </Box>
+            {subTitle && (
+              <span className={"headerBarSubheader"}>{subTitle}</span>
+            )}
+            {titleOptions && (
+              <Box className={"options"}>
+                {titleOptions?.map((optionItem) => (
+                  <Box className={"optionElement"}>
+                    <Box className={"title"}>{optionItem.title}</Box>
+                    <Box className={"value"}>{optionItem.value}</Box>
+                  </Box>
+                ))}
+              </Box>
+            )}
           </Box>
         </Box>
         <Box className={"rightItems"}>{actions}</Box>

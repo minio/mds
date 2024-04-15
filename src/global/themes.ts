@@ -238,7 +238,7 @@ export const lightV2 = {
 export const lightTheme: ThemeDefinitionProps = {
   bgColor: lightV2.mainBackgroundColor,
   fontColor: lightV2.fontColor,
-  borderColor: lightV2.colorBorderSubtle,
+  borderColor: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
   bulletColor: lightColors.bulletColor,
   logoColor: lightColors.mainRed,
   logoLabelColor: lightColors.logoLabel,
