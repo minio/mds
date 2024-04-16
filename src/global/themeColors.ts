@@ -1,4 +1,6 @@
-export const themeColors = {
+import { ThemeColorItem } from "./global.types";
+
+export const themeColors: ThemeColorItem = {
   "Color/Base/Royal/0": { lightMode: "#eff6ff", darkMode: "#192652" },
   "Color/Base/Royal/1": { lightMode: "#dceafd", darkMode: "#213b87" },
   "Color/Base/Royal/2": { lightMode: "#c1dbfc", darkMode: "#2241ab" },
