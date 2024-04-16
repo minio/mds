@@ -32,7 +32,7 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
     padding: "0 6px",
     border: "none",
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: 400,
     backgroundColor: "transparent",
     color: horizontal
       ? get(theme, "tabs.horizontal.buttons.labelColor", lightColors.mainGrey)
@@ -90,7 +90,7 @@ const TabButtonBase = styled.button<TabButtonConstructProps>(
     },
     "&.selected": {
       position: "relative" as const,
-      fontWeight: "bold",
+      fontWeight: 600,
       backgroundColor: "transparent",
       color: horizontal
         ? get(
