@@ -119,6 +119,23 @@ CustomSubElement.args = {
   ),
 };
 
+export const NoSubItems = Template.bind({});
+NoSubItems.args = {
+  title: "Object Title",
+  actions: (
+    <Fragment>
+      <ButtonGroup>
+        <Button id={"testButton1"}>Button1</Button>
+        <Button id={"testButton3"}>Button3</Button>
+      </ButtonGroup>
+      <Button id={"testButton2"} variant={"callAction"} compact>
+        Button2
+      </Button>
+    </Fragment>
+  ),
+  icon: <TestIcon />,
+};
+
 export const CustomStyles = Template.bind({});
 CustomStyles.args = {
   title: "Object Title",
