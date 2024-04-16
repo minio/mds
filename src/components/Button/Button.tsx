@@ -181,6 +181,7 @@ const Button: FC<
   children,
   compact = false,
   className,
+  sx,
   ...props
 }) => {
   let iconToPlace: React.ReactNode = null;
@@ -202,6 +203,7 @@ const Button: FC<
       parentChildren={children || null}
       className={`${className || ""} button-${variant}`}
       compact={compact}
+      sx={sx}
       {...props}
     >
       <Fragment>

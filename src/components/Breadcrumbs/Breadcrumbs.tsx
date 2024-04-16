@@ -157,14 +157,17 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
   return (
     <BoxParent className={"breadcrumbs-bar"} sx={sx}>
       {goBackFunction && (
-        <ButtonGroup displayLabels={false}>
-          <Button
-            id={"back-button"}
-            icon={<BackCaretIcon />}
-            onClick={goBackFunction}
-            iconLocation={"start"}
-          />
-        </ButtonGroup>
+        <Button
+          id={"back-button"}
+          icon={<BackCaretIcon />}
+          onClick={goBackFunction}
+          iconLocation={"start"}
+          compact
+          sx={{
+            width: 28,
+            height: 28,
+          }}
+        />
       )}
       <Box className={"breadcrumbsList"}>
         {hasCollapsedOpts ? (
