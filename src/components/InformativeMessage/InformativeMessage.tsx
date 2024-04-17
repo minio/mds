@@ -22,6 +22,7 @@ import {
 } from "./InformativeMessage.types";
 import get from "lodash/get";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const InformativeMessageMain = styled.div<InformativeConstructProps>(
   ({ theme, sx, variant }) => ({
@@ -55,7 +56,7 @@ const InformativeMessageMain = styled.div<InformativeConstructProps>(
       ),
       fontSize: 14,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

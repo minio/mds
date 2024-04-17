@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface InformativeMessageMain {
   title: React.ReactNode;
@@ -24,7 +24,7 @@ export interface InformativeMessageMain {
 
 export interface InformativeConstructProps {
   variant?: "default" | "success" | "warning" | "error";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export type InformativeMessageProps = InformativeMessageMain &

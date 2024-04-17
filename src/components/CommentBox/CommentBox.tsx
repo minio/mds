@@ -27,6 +27,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
   ({ theme, error, originType }) => {
@@ -102,7 +103,7 @@ const BoxContainer = styled.div<CommentContainerProps>(
     "& .inputLabel": {
       marginBottom: error ? 18 : 0,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

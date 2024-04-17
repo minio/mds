@@ -17,13 +17,14 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { TableComponentsExtraProps } from "./Table.types";
+import { overridePropsParse } from "../../global/utils";
 
 const TableMain = styled.table<TableComponentsExtraProps>(({ theme, sx }) => ({
   display: "table",
   width: "100%",
   borderCollapse: "collapse",
   borderSpacing: 0,
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const Table: FC<

@@ -15,8 +15,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface CommentBoxProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -24,7 +24,7 @@ export interface CommentBoxProps
   fullWidth?: boolean;
   label?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   index?: number;
   noLabelMinWidth?: boolean;
   required?: boolean;
@@ -36,7 +36,7 @@ export interface CommentBoxProps
 
 export interface CommentContainerProps {
   children?: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React.ReactNode;
   className?: string;

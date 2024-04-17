@@ -36,6 +36,16 @@ const Template: Story<ButtonProps> = (args) => (
     <Button {...args} onClick={() => alert("You clicked me!")} />
     <br />
     <Button {...args}>With Children</Button>
+    <br />
+    <Button
+      id={"asdf"}
+      sx={(theme) => ({
+        backgroundColor: theme.colors["Color/Base/Royal/9"],
+        color: theme.colors["Color/Base/Royal/0"],
+      })}
+    >
+      Func
+    </Button>
   </StoryThemeProvider>
 );
 

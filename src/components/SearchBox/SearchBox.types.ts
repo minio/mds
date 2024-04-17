@@ -15,11 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface SearchBoxProps {
   id: string;
   placeholder?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   icon?: React.ReactNode;
 }

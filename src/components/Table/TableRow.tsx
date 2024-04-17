@@ -19,6 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { TableComponentsExtraProps } from "./Table.types";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const TableRowMain = styled.tr<TableComponentsExtraProps>(({ theme, sx }) => ({
   color: "inherit",
@@ -29,7 +30,7 @@ const TableRowMain = styled.tr<TableComponentsExtraProps>(({ theme, sx }) => ({
   borderLeft: 0,
   borderRight: 0,
   backgroundColor: get(theme, "bgColor", lightColors.white),
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const TableRow: FC<

@@ -20,6 +20,7 @@ import get from "lodash/get";
 import { TagConstructProps, TagProps } from "./Tag.types";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import { lightColors, lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const TagBase = styled.span<TagConstructProps>(
   ({ theme, color, variant, square, sx }) => {
@@ -91,7 +92,7 @@ const TagBase = styled.span<TagConstructProps>(
           minHeight: 10,
         },
       },
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

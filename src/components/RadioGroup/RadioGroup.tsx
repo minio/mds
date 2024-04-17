@@ -24,6 +24,7 @@ import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import HelpIcon from "../Icons/HelpIcon";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
   "& input": {
@@ -64,7 +65,7 @@ const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
       },
     },
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const OptionsContainer = styled.div<OptionsContainerProps>(

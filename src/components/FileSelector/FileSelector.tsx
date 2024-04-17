@@ -29,6 +29,7 @@ import {
 } from "./FileSelector.types";
 import { fileProcess } from "./FileSelector.utils";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const FileSelectorContainer = styled.div<FileSelectorConstructorProps>(
   ({ theme, error, sx }) => ({
@@ -81,7 +82,7 @@ const FileSelectorContainer = styled.div<FileSelectorConstructorProps>(
       alignItems: "center",
       gap: 12,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

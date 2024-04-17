@@ -19,6 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
 import { IBoxedIconProps } from "./BoxedIcon.types";
+import { overridePropsParse } from "../../global/utils";
 
 const IconContainer = styled.div<IBoxedIconProps>(({ theme, sx }) => ({
   display: "flex",
@@ -47,7 +48,7 @@ const IconContainer = styled.div<IBoxedIconProps>(({ theme, sx }) => ({
     minWidth: 24,
     minHeight: 24,
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const BoxedIcon: FC<IBoxedIconProps> = ({ sx, children }) => {

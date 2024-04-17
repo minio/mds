@@ -15,8 +15,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface SliderProps {
   id: string;
@@ -24,7 +24,7 @@ export interface SliderProps {
   noLabelMinWidth?: boolean;
   error?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
   displayValue?: boolean;
@@ -33,7 +33,7 @@ export interface SliderProps {
 
 export interface SliderContainerProps {
   children?: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   className?: string;
 }

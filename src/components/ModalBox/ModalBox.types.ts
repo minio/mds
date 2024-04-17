@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface ModalBoxProps {
   onClose: () => void;
@@ -27,7 +27,7 @@ export interface ModalBoxProps {
   backgroundOverlay?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export interface ModalBoxContainerProps {
@@ -35,5 +35,5 @@ export interface ModalBoxContainerProps {
   widthLimit?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

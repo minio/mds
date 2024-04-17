@@ -30,6 +30,7 @@ import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {
@@ -125,7 +126,7 @@ const InputContainer = styled.div<InputContainerProps>(
         fill: get(theme, "inputBox.color", "#07193E"),
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

@@ -24,6 +24,7 @@ import LogoutIcon from "../../Icons/LogoutIcon";
 import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
 import HorizontalMenuItem from "./HorizontalMenuItem";
 import IconButton from "../../IconButton/IconButton";
+import { overridePropsParse } from "../../../global/utils";
 
 const HorizontalMenuContainer = styled.div<MenuConstructProps>(
   ({ theme, sx }) => {
@@ -84,7 +85,7 @@ const HorizontalMenuContainer = styled.div<MenuConstructProps>(
           height: 0,
         },
       },
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

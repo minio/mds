@@ -23,9 +23,17 @@ import { ModalBoxContainerProps, ModalBoxProps } from "./ModalBox.types";
 import Box from "../Box/Box";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
-  ({ theme, backgroundOverlay, widthLimit, iconColor, customMaxWidth }) => ({
+  ({
+    theme,
+    backgroundOverlay,
+    widthLimit,
+    iconColor,
+    customMaxWidth,
+    sx,
+  }) => ({
     "& .overlay": {
       position: "fixed" as const,
       zIndex: 1200,
@@ -111,6 +119,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
       maxHeight: "calc(100vh - 150px)",
       overflowY: "auto",
     },
+    ...overridePropsParse(sx, theme),
   }),
 );
 

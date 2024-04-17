@@ -15,14 +15,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface MainSwitchProps {
   id: string;
   label?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   className?: string;
   switchOnly?: boolean;
   indicatorLabels?: string[];
@@ -37,7 +37,7 @@ export interface IndicatorProps {
 }
 
 export interface SwitchContainerProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export type SwitchProps = MainSwitchProps &

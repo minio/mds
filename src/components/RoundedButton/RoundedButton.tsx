@@ -17,7 +17,7 @@
 import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 import { ButtonProps, ConstructProps } from "../Button/Button.types";
 
 const RoundedCustomButton = styled.button<
@@ -211,7 +211,7 @@ const RoundedCustomButton = styled.button<
         },
       },
       ...smallScreenStyles,
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

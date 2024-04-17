@@ -19,7 +19,7 @@ import {
   ScreenTitleContainerProps,
   ScreenTitleProps,
 } from "./ScreenTitle.types";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 import styled from "styled-components";
 import Box from "../Box/Box";
 import get from "lodash/get";
@@ -133,7 +133,7 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
         },
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

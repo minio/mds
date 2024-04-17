@@ -26,6 +26,7 @@ import Box from "../Box/Box";
 import CollapseCaret from "../Icons/CollapseCaret";
 import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
+import { overridePropsParse } from "../../global/utils";
 
 const AutocompleteBase = styled.input(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", "#E2E2E2");
@@ -129,7 +130,7 @@ const InputContainer = styled.div<InputContainerProps>(
         height: 16,
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

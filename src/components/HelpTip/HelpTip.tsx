@@ -26,7 +26,6 @@ import styled, { css, keyframes } from "styled-components";
 import { createPortal } from "react-dom";
 import get from "lodash/get";
 import {
-  CommonHelpTipPlacement,
   HelpTipBuild,
   HelpTipConstructProps,
   HelpTipProps,

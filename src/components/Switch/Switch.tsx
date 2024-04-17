@@ -28,6 +28,7 @@ import HelpIcon from "../Icons/HelpIcon";
 import Box from "../Box/Box";
 import FieldContainer from "../../global/FieldContainer";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const SwitchIndicator = styled.span<IndicatorProps>(({ theme, active }) => ({
   fontSize: 12,
@@ -129,7 +130,7 @@ const SwitchMainContainer = styled.div<SwitchContainerProps>(
       marginTop: 4,
       color: get(theme, "mutedText", lightV2.mutedText),
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

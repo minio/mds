@@ -24,6 +24,7 @@ import Box from "../Box/Box";
 import InputLabel from "../InputLabel/InputLabel";
 import { CodeEditorBaseProps, CodeEditorProps } from "./CodeEditor.types";
 import { lightV2, lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const CodeEditorBase = styled.div<CodeEditorBaseProps>(
   ({ theme, editorHeight, sx }) => ({
@@ -230,7 +231,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
         },
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

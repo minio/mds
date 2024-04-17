@@ -15,18 +15,19 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import { breakPoints } from "./utils";
-import styled, { CSSObject } from "styled-components";
+import { breakPoints, overridePropsParse } from "./utils";
+import styled from "styled-components";
+import { OverrideTheme } from "./global.types";
 
 export interface FieldContainerProps {
   children: React.ReactNode;
   className?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 const MainContainer = styled.div<
   HTMLAttributes<HTMLDivElement> & FieldContainerProps
->(({ sx }) => ({
+>(({ sx, theme }) => ({
   position: "relative",
   display: "flex",
   flexWrap: "wrap",
@@ -43,7 +44,7 @@ const MainContainer = styled.div<
       width: 13,
     },
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 export const FieldContainer: FC<FieldContainerProps> = ({

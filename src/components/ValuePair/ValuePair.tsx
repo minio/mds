@@ -19,7 +19,7 @@ import styled from "styled-components";
 import { ValuePairCommon, ValuePairProps } from "./ValuePair.types";
 import Box from "../Box/Box";
 import get from "lodash/get";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 import { lightV2 } from "../../global/themes";
 
 const ValuePairBase = styled.div<ValuePairCommon>(
@@ -43,7 +43,7 @@ const ValuePairBase = styled.div<ValuePairCommon>(
     [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
       flexDirection: "column",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

@@ -19,7 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { PageHeaderConstruct, PageHeaderProps } from "./PageHeader.types";
 import Grid from "../Grid/Grid";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 
 const ParentContainer = styled.div<
   PageHeaderConstruct & HTMLAttributes<HTMLDivElement>
@@ -50,7 +50,7 @@ const ParentContainer = styled.div<
     fontWeight: "bold",
     lineHeight: " 28px",
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const LabelContainer = styled.div<HTMLAttributes<HTMLDivElement>>(

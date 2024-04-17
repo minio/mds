@@ -18,8 +18,9 @@ import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 import { ActionLinkProps, BaseActionLinkProps } from "./ActionLink.types";
-import { lightColors, lightV2 } from "../../global/themes";
+import { lightV2 } from "../../global/themes";
 import Loader from "../Loader/Loader";
+import { overridePropsParse } from "../../global/utils";
 
 const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
   cursor: "pointer",
@@ -37,7 +38,7 @@ const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
   "&:hover": {
     textDecoration: "underline",
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const ActionLink: FC<

@@ -23,6 +23,7 @@ import { InputLabelProps } from "../InputLabel/InputLabel.types";
 import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import HelpIcon from "../Icons/HelpIcon";
+import { overridePropsParse } from "../../global/utils";
 
 const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
   "& input": {
@@ -61,7 +62,7 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
       },
     },
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const Checkbox: FC<

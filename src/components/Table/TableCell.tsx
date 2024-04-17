@@ -19,6 +19,7 @@ import styled from "styled-components";
 import { TableComponentsExtraProps } from "./Table.types";
 import get from "lodash/get";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const TableCellMain = styled.td<TableComponentsExtraProps>(({ theme, sx }) => ({
   fontFamily: "'Geist',sans-serif",
@@ -35,7 +36,7 @@ const TableCellMain = styled.td<TableComponentsExtraProps>(({ theme, sx }) => ({
   textAlign: "left",
   padding: 16,
   color: get(theme, "secondaryText", lightColors.mainGrey),
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const TableCell: FC<

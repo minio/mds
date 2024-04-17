@@ -14,8 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { CSSObject } from "styled-components";
-import { SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectorType } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface AutocompleteProps {
@@ -32,7 +31,7 @@ export interface AutocompleteProps {
   noLabelMinWidth?: boolean;
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }

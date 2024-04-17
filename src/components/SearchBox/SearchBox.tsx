@@ -20,6 +20,7 @@ import { SearchBoxProps } from "./SearchBox.types";
 import SearchIcon from "../Icons/SearchIcon";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
 
 const SearchBoxContainer = styled.div(({ theme }) => ({
   position: "relative",
@@ -41,7 +42,7 @@ const SearchBoxContainer = styled.div(({ theme }) => ({
   },
 }));
 
-const SearchBoxBase = styled.input<SearchBoxProps>(({ theme }) => {
+const SearchBoxBase = styled.input<SearchBoxProps>(({ sx, theme }) => {
   let borderColor = get(
     theme,
     "inputBox.border",
@@ -117,6 +118,7 @@ const SearchBoxBase = styled.input<SearchBoxProps>(({ theme }) => {
         ),
       },
     },
+    ...overridePropsParse(sx, theme),
   };
 });
 

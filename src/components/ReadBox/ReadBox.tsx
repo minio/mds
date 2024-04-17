@@ -20,6 +20,7 @@ import get from "lodash/get";
 import { ReadBoxBaseProps, ReadBoxProps } from "./ReadBox.types";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
+import { overridePropsParse } from "../../global/utils";
 
 const ReadBoxBase = styled.div<ReadBoxBaseProps>(
   ({ theme, sx, label, multiLine }) => ({
@@ -66,7 +67,7 @@ const ReadBoxBase = styled.div<ReadBoxBaseProps>(
       top: "50%",
       transform: "translate(0, -50%)",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 
