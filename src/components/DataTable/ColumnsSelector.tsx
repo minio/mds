@@ -28,6 +28,7 @@ import { lightColors } from "../../global/themes";
 import Checkbox from "../Checkbox/Checkbox";
 import Box from "../Box/Box";
 import SelectorContainer from "../../global/SelectorContainer";
+import { overridePropsParse } from "../../global/utils";
 
 const SelectorBox = styled.div<ColumnSelectorConstructProps>(
   ({ theme, sx }) => ({
@@ -64,7 +65,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
       maxHeight: 250,
       overflowY: "auto",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

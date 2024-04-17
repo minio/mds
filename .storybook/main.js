@@ -21,7 +21,7 @@ module.exports = {
       },
     },
     "@storybook/addon-webpack5-compiler-babel",
-    "@chromatic-com/storybook"
+    "@chromatic-com/storybook",
   ],
   framework: {
     name: "@storybook/react-webpack5",

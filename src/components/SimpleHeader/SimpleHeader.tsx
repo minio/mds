@@ -22,6 +22,7 @@ import {
 } from "./SimpleHeader.types";
 import get from "lodash/get";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const ParentContainer = styled.div<
   HTMLAttributes<HTMLDivElement> & SimpleHeaderContainerProps
@@ -37,7 +38,7 @@ const ParentContainer = styled.div<
   fontWeight: 600,
   lineHeight: "18px",
   letterSpacing: "0.16px",
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const SimpleHeader: FC<SimpleHeaderProps & HTMLAttributes<HTMLDivElement>> = ({

@@ -22,7 +22,7 @@ import {
   MainContainerProps,
   ParentBoxProps,
 } from "./MainContainer.types";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 
 const CustomMain = styled.main<CustomMainProps>(({ theme, horizontal }) => {
   return {
@@ -36,7 +36,7 @@ const CustomMain = styled.main<CustomMainProps>(({ theme, horizontal }) => {
 });
 
 const ParentBox = styled.div<ParentBoxProps>(
-  ({ horizontal, mobileModeAuto, sx }) => {
+  ({ horizontal, mobileModeAuto, sx, theme }) => {
     let breakPoint = {};
 
     if (mobileModeAuto) {
@@ -51,7 +51,7 @@ const ParentBox = styled.div<ParentBoxProps>(
       display: "flex",
       flexDirection: !!horizontal ? "column" : "row",
       ...breakPoint,
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

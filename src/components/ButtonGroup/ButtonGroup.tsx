@@ -19,6 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const ActionsBarMain = styled.div<ButtonGroupProps>(
   ({ theme, sx, displayLabels }) => ({
@@ -128,7 +129,7 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
         },
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

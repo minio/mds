@@ -16,10 +16,42 @@
 
 import React, { FC } from "react";
 import get from "lodash/get";
+import styled from "styled-components";
 import Box from "../Box/Box";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 import { FormLayoutProps } from "./FormLayout.types";
+import { lightV2 } from "../../global/themes";
+
+const FormLayoutContainer = styled.div<FormLayoutProps>(
+  ({ theme, sx, containerPadding, helpBox, withBorders }) => {
+    let extraBorders = {};
+
+    if (withBorders) {
+      extraBorders = {
+        border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
+        borderRadius: 16,
+        boxShadow: get(theme, "box.shadow", "none"),
+        backgroundColor: get(theme, "box.backgroundColor", lightV2.white),
+      };
+    }
+
+    return {
+      ...extraBorders,
+      display: "grid",
+      padding: containerPadding ? 25 : 0,
+      gap: 25,
+      gridTemplateColumns: "1fr",
+      "& .inputItem:not(:last-of-type)": {
+        marginBottom: 20,
+      },
+      [`@media (min-width: ${get(breakPoints, "md", 0)}px)`]: {
+        gridTemplateColumns: helpBox ? "2fr 1.2fr" : "1fr",
+      },
+      ...overridePropsParse(sx, theme),
+    };
+  },
+);
 
 const FormLayout: FC<FormLayoutProps> = ({
   children,
@@ -31,21 +63,10 @@ const FormLayout: FC<FormLayoutProps> = ({
   withBorders = true,
 }) => {
   return (
-    <Box
+    <FormLayoutContainer
+      sx={sx}
+      containerPadding={containerPadding}
       withBorders={withBorders}
-      sx={{
-        display: "grid",
-        padding: containerPadding ? 25 : 0,
-        gap: 25,
-        gridTemplateColumns: "1fr",
-        "& .inputItem:not(:last-of-type)": {
-          marginBottom: 20,
-        },
-        [`@media (min-width: ${get(breakPoints, "md", 0)}px)`]: {
-          gridTemplateColumns: helpBox ? "2fr 1.2fr" : "1fr",
-        },
-        ...sx,
-      }}
     >
       <Box>
         {title !== "" && (
@@ -56,7 +77,7 @@ const FormLayout: FC<FormLayoutProps> = ({
         {children}
       </Box>
       {helpBox}
-    </Box>
+    </FormLayoutContainer>
   );
 };
 

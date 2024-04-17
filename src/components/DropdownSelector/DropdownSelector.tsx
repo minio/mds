@@ -28,6 +28,7 @@ import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
 import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth, forSelectInput }) => ({
@@ -57,7 +58,7 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
       flexDirection: "column",
       width: "100%",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

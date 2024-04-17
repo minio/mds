@@ -14,9 +14,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { MouseEventHandler, ReactNode } from "react";
-import { CSSObject } from "styled-components";
-import { SelectorType } from "../../global/global.types";
+import React, { ReactNode } from "react";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface ExpandMenuProps {
   id: string;
@@ -28,14 +27,14 @@ export interface ExpandMenuProps {
   children?: ReactNode | string;
   dropMenuPosition?: "start" | "end";
   compact?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export interface ExpandMenuOptionProps {
   id: string;
   variant?: "regular" | "secondary";
   icon?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children: ReactNode;
 }
 
@@ -49,7 +48,7 @@ export interface ExpandDropBaseProps {
 }
 
 export interface DropdownMainProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;

@@ -15,8 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
-import { SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectorType } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface RadioGroupProps {
@@ -33,7 +32,7 @@ export interface RadioGroupProps {
     event: React.ChangeEvent<HTMLInputElement>,
     extraValue?: any,
   ) => void;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }

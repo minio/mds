@@ -18,7 +18,7 @@ import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 import { ButtonProps, ConstructProps } from "./Button.types";
-import { breakPoints } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 
 const CustomButton = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps
@@ -163,7 +163,7 @@ const CustomButton = styled.button<
         },
       },
       ...smallScreenStyles,
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

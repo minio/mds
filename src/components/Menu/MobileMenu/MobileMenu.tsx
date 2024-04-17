@@ -25,6 +25,7 @@ import IconButton from "../../IconButton/IconButton";
 import MobileMenuList from "./MobileMenuList";
 import { createPortal } from "react-dom";
 import { lightColors } from "../../../global/themes";
+import { overridePropsParse } from "../../../global/utils";
 
 const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
@@ -56,7 +57,7 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
         height: 0,
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   };
 });
 

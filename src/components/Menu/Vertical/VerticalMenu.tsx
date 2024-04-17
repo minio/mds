@@ -27,6 +27,7 @@ import MenuSectionHeader from "./MenuSectionHeader";
 import LogoutIcon from "../../Icons/LogoutIcon";
 import Tooltip from "../../Tooltip/Tooltip";
 import MinIOTierIconXs from "../../Icons/MinIOTierIconXs";
+import { overridePropsParse } from "../../../global/utils";
 
 const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
@@ -195,7 +196,7 @@ const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
         transform: "translateX(50%) translateY(20%)",
       },
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   };
 });
 

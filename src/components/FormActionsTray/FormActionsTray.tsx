@@ -19,6 +19,7 @@ import styled from "styled-components";
 import { FormActionsTrayProps } from "./FormActionsTray.types";
 import { lightV2 } from "../../global/themes";
 import { get } from "lodash";
+import { overridePropsParse } from "../../global/utils";
 
 const FormActionsTrayMain = styled.div<FormActionsTrayProps>(
   ({ theme, sx, marginTop, separator }) => ({
@@ -30,7 +31,7 @@ const FormActionsTrayMain = styled.div<FormActionsTrayProps>(
     borderTop: separator
       ? `1px solid ${get(theme, "borderColor", lightV2.colorBorderSubtle)}`
       : "0",
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

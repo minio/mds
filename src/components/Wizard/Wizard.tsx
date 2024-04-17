@@ -21,6 +21,7 @@ import WizardPage from "./WizardPage";
 import { WizardConstruct, WizardProps } from "./Wizard.types";
 import { lightV2 } from "../../global/themes";
 import Box from "../Box/Box";
+import { overridePropsParse } from "../../global/utils";
 
 const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
   position: "relative",
@@ -108,7 +109,7 @@ const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
     justifyContent: "flex-start",
     gap: 16,
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const GenericWizard = ({

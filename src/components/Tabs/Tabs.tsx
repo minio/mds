@@ -22,6 +22,7 @@ import { lightColors, lightV2 } from "../../global/themes";
 import Box from "../Box/Box";
 import TabPanel from "./TabPanel";
 import TabButton from "./TabButton";
+import { overridePropsParse } from "../../global/utils";
 
 const TabsContainer = styled.div<TabsContainerProps>(
   ({ theme, horizontal, horizontalBarBackground, sx }) => {
@@ -84,7 +85,7 @@ const TabsContainer = styled.div<TabsContainerProps>(
             )} 1px solid`,
         borderLeft: "none",
       },
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

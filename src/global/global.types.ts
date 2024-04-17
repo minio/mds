@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
+import { CSSObject } from "styled-components";
 
 export interface ThemeColorItem {
   [key: string]: ColorVariant;
@@ -480,3 +481,10 @@ export interface IBytesCalc {
   total: number;
   unit: string;
 }
+
+// Components Styling Override type
+
+export type OverrideTheme =
+  | CSSObject
+  | ((theme: ThemeDefinitionProps) => CSSObject)
+  | undefined;

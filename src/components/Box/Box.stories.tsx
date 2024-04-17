@@ -21,7 +21,7 @@ import Box from "./Box";
 import { BoxProps } from "./Box.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
+import { GlobalStyles, ThemeDefinitionProps } from "../index";
 
 export default {
   title: "MDS/Layout/Box",
@@ -76,4 +76,15 @@ BoxWithCustomStyles.args = {
     backgroundColor: "#460",
     borderColor: "#f9a",
   },
+};
+
+export const BoxWithFunctionCustomStyles = Template.bind({});
+BoxWithFunctionCustomStyles.args = {
+  withBorders: true,
+  sx: (theme: ThemeDefinitionProps) => ({
+    backgroundColor: theme.signalColors?.danger || "#000",
+    color: theme.bgColor,
+    borderRadius: 5,
+    padding: 8,
+  }),
 };

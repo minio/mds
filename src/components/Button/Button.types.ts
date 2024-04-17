@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { MouseEventHandler, ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface ButtonProps {
   id: string;
@@ -30,7 +30,7 @@ export interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   compact?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export interface ConstructProps {

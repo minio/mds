@@ -20,6 +20,7 @@ import get from "lodash/get";
 import { InputLabelProps } from "./InputLabel.types";
 import HelpTip from "../HelpTip/HelpTip";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
   fontWeight: "normal" as const,
@@ -39,7 +40,7 @@ const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
       minWidth: "initial",
     },
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const InputLabel: FC<InputLabelProps> = ({

@@ -19,6 +19,7 @@ import styled from "styled-components";
 import { PillProps } from "./Pill.types";
 import { themeColors } from "../../global/themeColors";
 import get from "lodash/get";
+import { overridePropsParse } from "../../global/utils";
 
 const PillBase = styled.span<PillProps>(({ theme, sx, type }) => ({
   backgroundColor: get(
@@ -42,7 +43,7 @@ const PillBase = styled.span<PillProps>(({ theme, sx, type }) => ({
   borderRadius: 4,
   whiteSpace: "nowrap",
   userSelect: "none",
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const Pill: FC<PillProps & React.HTMLAttributes<HTMLSpanElement>> = ({

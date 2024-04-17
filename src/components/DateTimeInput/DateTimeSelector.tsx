@@ -31,6 +31,7 @@ import { lightV2 } from "../../global/themes";
 import { DateTime } from "luxon";
 import SelectorContainer from "../../global/SelectorContainer";
 import debounce from "lodash/debounce";
+import { overridePropsParse } from "../../global/utils";
 
 const globalWidth = 315;
 
@@ -59,7 +60,7 @@ const OptionChangeButton = styled.button(({ theme }) => ({
 }));
 
 const DateTimeContainer = styled.div<StylesOverrideProps>(
-  ({ theme, sx, isPortal, mode }) => ({
+  ({ theme, sx, isPortal, mode, coords }) => ({
     position: isPortal ? "absolute" : ("relative" as const),
     border: `1px solid ${get(theme, "borderColor", lightV2.borderColor)}`,
     backgroundColor: get(theme, "signalColors.clear", lightV2.white),
@@ -73,7 +74,8 @@ const DateTimeContainer = styled.div<StylesOverrideProps>(
       gap: 16,
       marginBottom: 18,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
+    ...coords,
   }),
 );
 
@@ -176,7 +178,8 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
       onClick={(e) => e.stopPropagation()}
       id={`timeSelector-${id}`}
       isPortal={usePortal}
-      sx={{ ...sx, ...coords }}
+      coords={coords || {}}
+      sx={sx}
     >
       {mode === "all" && value && (
         <Box className={"modeBar"}>

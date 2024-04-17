@@ -26,6 +26,7 @@ import { createPortal } from "react-dom";
 import { lightColors } from "../../global/themes";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import Box from "../Box/Box";
+import { overridePropsParse } from "../../global/utils";
 
 const SnackBarContainer = styled.div<SnackbarConstructProps>(
   ({ theme, sx, open, variant, condensed }) => ({
@@ -62,7 +63,7 @@ const SnackBarContainer = styled.div<SnackbarConstructProps>(
       textOverflow: "ellipsis",
       textAlign: "center",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

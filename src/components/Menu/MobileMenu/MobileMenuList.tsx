@@ -27,6 +27,7 @@ import MenuSectionHeader from "../Vertical/MenuSectionHeader";
 import MenuItem from "../Vertical/MenuItem";
 import LogoutIcon from "../../Icons/LogoutIcon";
 import AlertCloseIcon from "../../Icons/AlertCloseIcon";
+import { overridePropsParse } from "../../../global/utils";
 
 const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
@@ -83,7 +84,7 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
     "& .menuHeaderContainer": {
       cursor: "pointer",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   };
 });
 

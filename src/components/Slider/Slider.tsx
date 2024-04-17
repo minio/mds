@@ -23,6 +23,7 @@ import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
 import { SliderContainerProps, SliderProps } from "./Slider.types";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const InputBase = styled.input(({ theme }) => {
   const thumb: CSSObject = {
@@ -107,7 +108,7 @@ const SliderContainer = styled.div<SliderContainerProps>(
       fontSize: 12,
       fontWeight: "bold",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

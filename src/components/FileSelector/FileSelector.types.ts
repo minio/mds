@@ -15,8 +15,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface FileSelectorProps {
   label: string;
@@ -36,14 +36,14 @@ export interface FileSelectorProps {
   value: string;
   className?: string;
   noLabelMinWidth?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface FileSelectorConstructorProps {
   children?: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React.ReactNode;
   className?: string;

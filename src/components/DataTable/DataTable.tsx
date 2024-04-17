@@ -46,6 +46,7 @@ import Box from "../Box/Box";
 import Button from "../Button/Button";
 import ColumnsSelector from "./ColumnsSelector";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
@@ -214,7 +215,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       width: 30,
       height: 30,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

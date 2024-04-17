@@ -24,6 +24,7 @@ import {
 import CollapseCaret from "../Icons/CollapseCaret";
 import ExpandCaret from "../Icons/ExpandCaret";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const ExpandButtonBase = styled.button<ConstructExpandOptionsProps>(
   ({ sx, theme }) => ({
@@ -66,7 +67,7 @@ const ExpandButtonBase = styled.button<ConstructExpandOptionsProps>(
       backgroundColor: "transparent",
       cursor: "not-allowed",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

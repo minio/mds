@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface SnackbarMainProps {
   autoHideDuration?: number;
@@ -29,7 +29,7 @@ export interface SnackbarConstructProps {
   open: boolean;
   condensed?: boolean;
   variant?: "default" | "success" | "warning" | "error";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export interface SnackbarButtonProps {

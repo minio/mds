@@ -20,6 +20,7 @@ import get from "lodash/get";
 import { CommonProgressBar, ProgressBarProps } from "./ProgressBar.types";
 import { lightColors } from "../../global/themes";
 import Box from "../Box/Box";
+import { overridePropsParse } from "../../global/utils";
 
 const colorItems = {
   blue: "main",
@@ -65,7 +66,7 @@ const ProgressBase = styled.div<CommonProgressBar>(
       transitionDuration: "0.1s",
       borderRadius: barHeight,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

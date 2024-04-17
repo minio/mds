@@ -19,6 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { BoxProps } from "./Box.types";
 import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const BoxParent = styled.div<BoxProps & React.HTMLAttributes<HTMLDivElement>>(
   ({ theme, sx, withBorders, customBorderPadding, useBackground }) => {
@@ -39,7 +40,7 @@ const BoxParent = styled.div<BoxProps & React.HTMLAttributes<HTMLDivElement>>(
         ? get(theme, "boxBackground", "#FBFAFA")
         : "transparent",
       ...extraBorders,
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

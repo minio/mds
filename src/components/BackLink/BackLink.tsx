@@ -19,6 +19,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { BackLinkProps } from "./BackLink.types";
 import BackSettingsIcon from "../Icons/BackSettingsIcon";
+import { overridePropsParse } from "../../global/utils";
 
 const BackLinkBasic = styled.button<BackLinkProps>(({ theme, sx }) => ({
   display: "flex",
@@ -58,7 +59,7 @@ const BackLinkBasic = styled.button<BackLinkProps>(({ theme, sx }) => ({
       color: get(theme, "backLink.arrow", "#081C42"),
     },
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const BackLink: FC<BackLinkProps> = ({ label, sx, ...props }) => {

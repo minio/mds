@@ -24,6 +24,7 @@ import SelectorContainer from "../../global/SelectorContainer";
 import { lightV2 } from "../../global/themes";
 import { DropdownMainProps, ExpandDropdownProps } from "./ExpandMenu.types";
 import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
+import { overridePropsParse } from "../../global/utils";
 
 const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
   position: "absolute",
@@ -55,7 +56,7 @@ const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
     marginBottom: 4,
   },
   "& button": expandMenuOptionStyles(theme),
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const calcElementPosition = (

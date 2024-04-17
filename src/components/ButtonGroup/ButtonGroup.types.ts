@@ -15,10 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSProperties } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   displayLabels?: boolean;
-  sx?: CSSProperties;
+  sx?: OverrideTheme;
 }

@@ -31,6 +31,7 @@ import Button from "../Button/Button";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
 import ExpandOptionsIcon from "../Icons/ExpandOptionsIcon";
+import { overridePropsParse } from "../../global/utils";
 
 const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
   return {
@@ -87,7 +88,7 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
     "& .slashSpacingStyle": {
       margin: "0 5px",
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   };
 });
 

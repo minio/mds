@@ -18,7 +18,7 @@ import React, { FC, HTMLAttributes } from "react";
 import Grid from "../Grid/Grid";
 import { SectionTitleProps } from "./SectionTitle.types";
 import styled from "styled-components";
-import get from "lodash/get";
+import { overridePropsParse } from "../../global/utils";
 
 const SectionParent = styled.div<
   HTMLAttributes<HTMLDivElement> & SectionTitleProps
@@ -27,7 +27,7 @@ const SectionParent = styled.div<
   alignItems: "center",
   justifyContent: "flex-start",
   gap: "10px",
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const SectionTitle: FC<SectionTitleProps & HTMLAttributes<HTMLDivElement>> = ({

@@ -29,6 +29,7 @@ import { InputContainerProps } from "../InputBox/InputBox.types";
 import DateTimeSelector from "./DateTimeSelector";
 import { useEscapeKey } from "../../global/hooks";
 import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
 
 const InputBase = styled.input(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", lightColors.borderColor);
@@ -213,7 +214,7 @@ const InputContainer = styled.div<InputContainerProps>(
     "& .inputLabel": {
       marginBottom: error ? 18 : 0,
     },
-    ...sx,
+    ...overridePropsParse(sx, theme),
   }),
 );
 

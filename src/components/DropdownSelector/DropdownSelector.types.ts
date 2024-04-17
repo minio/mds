@@ -14,8 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import React from "react";
-import { SelectorType } from "../../global/global.types";
-import { CSSObject } from "styled-components";
+import { OverrideTheme, SelectorType } from "../../global/global.types";
 
 export interface DropdownSelectorProps {
   id: string;
@@ -38,7 +37,7 @@ export interface DropdownSelectorProps {
 export interface DropDownBlockProps {
   useAnchorWidth: boolean;
   forSelectInput: boolean;
-  sx: CSSObject;
+  sx: OverrideTheme;
 }
 
 export interface DropdownItemProps {

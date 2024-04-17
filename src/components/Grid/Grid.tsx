@@ -18,7 +18,11 @@ import React, { FC } from "react";
 import styled, { CSSObject } from "styled-components";
 import get from "lodash/get";
 import { GridProps } from "./Grid.types";
-import { breakPoints, fractionToPerc } from "../../global/utils";
+import {
+  breakPoints,
+  fractionToPerc,
+  overridePropsParse,
+} from "../../global/utils";
 
 const CustomDiv = styled.div<GridProps>((props) => {
   let constructProps: CSSObject = {
@@ -83,7 +87,7 @@ const CustomDiv = styled.div<GridProps>((props) => {
     });
   }
 
-  return { ...constructProps, ...props.sx };
+  return { ...constructProps, ...overridePropsParse(props.sx, props.theme) };
 });
 
 const Grid: FC<GridProps> = (props) => {

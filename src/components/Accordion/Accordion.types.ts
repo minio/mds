@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface AccordionProps {
   expanded: boolean;
@@ -24,11 +24,11 @@ export interface AccordionProps {
   title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export interface AccordionMainProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 export interface AccordionContentProps {

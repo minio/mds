@@ -19,6 +19,7 @@ import styled from "styled-components";
 import { BadgeConstruct, BadgeProps } from "./Badge.types";
 import { lightColors } from "../../global/themes";
 import get from "lodash/get";
+import { overridePropsParse } from "../../global/utils";
 
 const BadgeParent = styled.span<
   HTMLAttributes<HTMLDivElement> & BadgeConstruct
@@ -66,7 +67,7 @@ const BadgeParent = styled.span<
           horizontalPosition === "right" ? "" : "-"
         }50%, ${verticalPosition === "bottom" ? "" : "-"}50%)`,
       },
-      ...sx,
+      ...overridePropsParse(sx, theme),
     };
   },
 );

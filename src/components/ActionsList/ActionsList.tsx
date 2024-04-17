@@ -20,6 +20,7 @@ import styled from "styled-components";
 import Tooltip from "../Tooltip/Tooltip";
 import ObjectActionButton from "./ObjectActionButton";
 import get from "lodash/get";
+import { overridePropsParse } from "../../global/utils";
 
 const ActionsListPanel = styled.div<
   HTMLAttributes<HTMLDivElement> & ActionsListPanelProps
@@ -70,7 +71,7 @@ const ActionsListPanel = styled.div<
       },
     },
   },
-  ...sx,
+  ...overridePropsParse(sx, theme),
 }));
 
 const ActionsList: FC<ActionsListProps> = ({ sx, items, title }) => {

@@ -15,12 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 
 export interface SectionTitleProps {
   separator?: boolean;
   actions?: React.ReactNode;
   icon?: React.ReactNode;
   children: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
