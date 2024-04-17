@@ -16,6 +16,7 @@
 
 import { ThemeDefinitionProps } from "./global.types";
 import { themeColors } from "./themeColors";
+import { getThemeColors } from "./utils";
 
 export const lightColors = {
   white: "#fff",
@@ -249,6 +250,7 @@ export const lightTheme: ThemeDefinitionProps = {
   boxBackground: lightColors.boxBackground,
   mutedText: lightV2.mutedText,
   secondaryText: lightColors.mainGrey,
+  colors: getThemeColors("lightMode"),
   box: {
     border: lightV2.disabledGrey,
     shadow: "0px 2px 8px 0px rgba(156, 163, 175, 0.15)",
@@ -618,32 +620,42 @@ export const lightTheme: ThemeDefinitionProps = {
   tabs: {
     vertical: {
       buttons: {
-        hoverLabelColor: themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].lightMode,
-        hoverBackground: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+        hoverLabelColor:
+          themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].lightMode,
+        hoverBackground:
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
         backgroundColor: "transparent",
         labelColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
         disabledBackgroundColor: "transparent",
-        disabledColor: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+        disabledColor:
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
         selectedBackground: "transparent",
-        selectedLabelColor: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+        selectedLabelColor:
+          themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
       },
       backgroundColor: "transparent",
       borders: "transparent",
     },
     horizontal: {
       buttons: {
-        hoverLabelColor: themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].lightMode,
-        hoverBackground: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+        hoverLabelColor:
+          themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].lightMode,
+        hoverBackground:
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
         backgroundColor: "transparent",
         labelColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
         disabledBackgroundColor: "transparent",
-        disabledColor: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+        disabledColor:
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
         selectedBackground: "transparent",
-        selectedLabelColor: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+        selectedLabelColor:
+          themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
       },
       backgroundColor: "transparent",
-      selectedIndicatorColor: themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
-      bottomBorder: themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+      selectedIndicatorColor:
+        themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+      bottomBorder:
+        themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
     },
   },
   codeEditor: {
@@ -854,6 +866,7 @@ export const darkTheme: ThemeDefinitionProps = {
   boxBackground: darkColors.boxBackground,
   mutedText: darkColors.mutedText,
   secondaryText: darkColors.mainGrey,
+  colors: getThemeColors("darkMode"),
   signalColors: {
     main: darkColors.mainGrey,
     danger: darkColors.mainRed,
@@ -1149,32 +1162,42 @@ export const darkTheme: ThemeDefinitionProps = {
   tabs: {
     vertical: {
       buttons: {
-        hoverLabelColor: themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].darkMode,
-        hoverBackground: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+        hoverLabelColor:
+          themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].darkMode,
+        hoverBackground:
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
         backgroundColor: "transparent",
         labelColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
         disabledBackgroundColor: "transparent",
-        disabledColor: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+        disabledColor:
+          themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
         selectedBackground: "transparent",
-        selectedLabelColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+        selectedLabelColor:
+          themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
       },
       backgroundColor: "transparent",
       borders: "transparent",
     },
     horizontal: {
       buttons: {
-        hoverLabelColor: themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].darkMode,
-        hoverBackground: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+        hoverLabelColor:
+          themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].darkMode,
+        hoverBackground:
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
         backgroundColor: "transparent",
         labelColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
         disabledBackgroundColor: "transparent",
-        disabledColor: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+        disabledColor:
+          themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
         selectedBackground: "transparent",
-        selectedLabelColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+        selectedLabelColor:
+          themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
       },
       backgroundColor: "transparent",
-      selectedIndicatorColor: themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
-      bottomBorder: themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
+      selectedIndicatorColor:
+        themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
+      bottomBorder:
+        themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
     },
   },
   codeEditor: {
