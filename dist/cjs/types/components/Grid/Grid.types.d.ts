@@ -1,8 +1,8 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type ConditionalProps =
   | {

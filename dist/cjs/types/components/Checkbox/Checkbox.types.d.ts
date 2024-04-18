@@ -1,11 +1,11 @@
 import React, { HTMLAttributes } from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 export interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
   tooltip?: string;
   overrideLabelClasses?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }

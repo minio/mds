@@ -1,9 +1,9 @@
 import React, { HTMLAttributes } from "react";
-import { CSSObject } from "styled-components";
 import { ApplicationLogoProps } from "../ApplicationLogo/ApplicationLogo.types";
+import { OverrideTheme } from "../../global/global.types";
 export interface MenuProps {
   options?: MenuItemProps[];
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   applicationLogo: ApplicationLogoProps;
   callPathAction: (path: string) => void;
   horizontal?: boolean;
@@ -37,7 +37,7 @@ export interface MainHeaderProps {
   divider?: boolean;
 }
 export interface MenuConstructProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface SubItemsBoxProps {
   anchorEl: (EventTarget & HTMLElement) | null;

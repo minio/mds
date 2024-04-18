@@ -1,16 +1,16 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface MainContainerProps {
   menu?: React.ReactElement;
   children: React.ReactElement;
   horizontal?: boolean;
   mobileModeAuto?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ParentBoxProps {
   horizontal?: boolean;
   mobileModeAuto: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface CustomMainProps {
   horizontal?: boolean;

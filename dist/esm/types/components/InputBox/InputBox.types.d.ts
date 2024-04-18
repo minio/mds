@@ -1,13 +1,13 @@
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 export interface InputBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   fullWidth?: boolean;
   label?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   index?: number;
   overlayId?: "index";
   overlayIcon?: React.ReactNode;
@@ -23,7 +23,7 @@ export interface InputBoxProps
 }
 export interface InputContainerProps {
   children?: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React.ReactNode;
   className?: string;

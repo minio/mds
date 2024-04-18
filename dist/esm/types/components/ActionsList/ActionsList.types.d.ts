@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ActionItem {
   action: () => void;
   label: string;
@@ -8,12 +8,12 @@ export interface ActionItem {
   tooltip: string;
 }
 export interface ActionsListProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   items: ActionItem[];
   title: React.ReactNode;
 }
 export interface ActionsListPanelProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ActionButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

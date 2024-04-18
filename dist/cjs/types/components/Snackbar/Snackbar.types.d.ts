@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface SnackbarMainProps {
   autoHideDuration?: number;
   message?: ReactNode;
@@ -11,7 +11,7 @@ export interface SnackbarConstructProps {
   open: boolean;
   condensed?: boolean;
   variant?: "default" | "success" | "warning" | "error";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface SnackbarButtonProps {
   variant: "default" | "success" | "warning" | "error";

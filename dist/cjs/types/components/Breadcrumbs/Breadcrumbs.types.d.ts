@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface BreadcrumbsProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   options: BreadcrumbsOption[];
   goBackFunction?: () => void;
   displayLastItems?: false | number;
@@ -15,7 +15,7 @@ export interface BreadcrumbsOption {
   onClick?: (to?: string) => void;
 }
 export interface BreadcrumbsContainerProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface BreadcrumbsOptionProps {
   id: string;
@@ -27,5 +27,5 @@ export interface BreadcrumbsOptionProps {
   current?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

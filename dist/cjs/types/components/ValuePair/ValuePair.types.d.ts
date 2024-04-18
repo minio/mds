@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ValuePairMain {
   label?: ReactNode;
   value?: ReactNode;
 }
 export interface ValuePairCommon {
   direction?: "column" | "row";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export type ValuePairProps = ValuePairMain & ValuePairCommon;

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface TagMainProps {
   label: string;
   onDelete?: (item: string) => void;
@@ -8,7 +8,7 @@ export interface TagMainProps {
 }
 export interface TagConstructProps {
   color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   variant?: "regular" | "outlined";
   square?: boolean;
 }

@@ -1,6 +1,5 @@
 /// <reference types="react" />
-import { CSSObject } from "styled-components";
-import { SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectorType } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface SelectProps {
   options: SelectorType[];
@@ -16,7 +15,7 @@ export interface SelectProps {
   fixedLabel?: string;
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }

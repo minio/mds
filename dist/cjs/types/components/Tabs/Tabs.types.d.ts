@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface TabProps {
   label: string;
   icon?: React.ReactNode;
@@ -21,12 +21,12 @@ export interface TabsProps {
   optionsInitialComponent?: React.ReactNode;
   optionsEndComponent?: React.ReactNode;
   horizontalBarBackground?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface TabsContainerProps {
   horizontal: boolean;
   horizontalBarBackground: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface TabButtonProps {
   id: string;

@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface WizardButton {
   label?: string;
   type?: "next" | "back" | "to" | "custom";
@@ -26,7 +26,7 @@ export interface WizardMain {
   linearMode?: boolean;
 }
 export interface WizardConstruct {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   forModal?: boolean;
   actionButtonsPortalID?: HTMLElement;
 }

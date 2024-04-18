@@ -1,6 +1,5 @@
 import React from "react";
-import { SelectorType } from "../../global/global.types";
-import { CSSObject } from "styled-components";
+import { OverrideTheme, SelectorType } from "../../global/global.types";
 export interface DropdownSelectorProps {
   id: string;
   options: SelectorType[];
@@ -21,7 +20,7 @@ export interface DropdownSelectorProps {
 export interface DropDownBlockProps {
   useAnchorWidth: boolean;
   forSelectInput: boolean;
-  sx: CSSObject;
+  sx: OverrideTheme;
 }
 export interface DropdownItemProps {
   icon?: React.ReactNode;
