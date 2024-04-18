@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "./global.types";
 export interface FieldContainerProps {
   children: React.ReactNode;
   className?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export declare const FieldContainer: FC<FieldContainerProps>;
 export default FieldContainer;

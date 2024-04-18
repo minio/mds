@@ -1,5 +1,5 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ModalBoxProps {
   onClose: () => void;
   open: boolean;
@@ -10,12 +10,12 @@ export interface ModalBoxProps {
   backgroundOverlay?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ModalBoxContainerProps {
   backgroundOverlay?: boolean;
   widthLimit?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

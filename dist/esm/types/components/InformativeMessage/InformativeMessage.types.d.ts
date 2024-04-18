@@ -1,12 +1,12 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface InformativeMessageMain {
   title: React.ReactNode;
   message: React.ReactNode;
 }
 export interface InformativeConstructProps {
   variant?: "default" | "success" | "warning" | "error";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export type InformativeMessageProps = InformativeMessageMain &
   InformativeConstructProps;

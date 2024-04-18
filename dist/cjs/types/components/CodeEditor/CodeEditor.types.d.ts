@@ -1,6 +1,6 @@
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 export interface CodeEditorProps {
   value: string;
   label?: string;
@@ -10,12 +10,12 @@ export interface CodeEditorProps {
   onChange: (value: string) => any;
   className?: string;
   helpTools?: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 export interface CodeEditorBaseProps {
   editorHeight: string | number;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   className?: string;
 }

@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ExpandMenuProps {
   id: string;
   name?: string;
@@ -10,13 +10,13 @@ export interface ExpandMenuProps {
   children?: ReactNode | string;
   dropMenuPosition?: "start" | "end";
   compact?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ExpandMenuOptionProps {
   id: string;
   variant?: "regular" | "secondary";
   icon?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children: ReactNode;
 }
 export interface ExpandDropBaseProps {
@@ -28,6 +28,6 @@ export interface ExpandDropBaseProps {
   children: React.ReactNode;
 }
 export interface DropdownMainProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;

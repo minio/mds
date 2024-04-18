@@ -1,7 +1,7 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface FormLayoutProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children?: React.ReactNode;
   title?: string;
   icon?: React.ReactNode;

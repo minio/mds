@@ -1,5 +1,5 @@
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface PillProps {
   type: "current" | "secondary" | "default";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

@@ -1,4 +1,12 @@
 import React from "react";
+import { CSSObject } from "styled-components";
+export interface ThemeColorItem {
+  [key: string]: ColorVariant;
+}
+export interface ColorVariant {
+  lightMode: string;
+  darkMode: string;
+}
 export interface ButtonThemeProps {
   border: string;
   text: string;
@@ -353,6 +361,9 @@ export interface ThemeDefinitionProps {
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
+  colors: {
+    [key: string]: string;
+  };
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
@@ -408,4 +419,8 @@ export interface IBytesCalc {
   total: number;
   unit: string;
 }
+export type OverrideTheme =
+  | CSSObject
+  | ((theme: ThemeDefinitionProps) => CSSObject)
+  | undefined;
 export {};

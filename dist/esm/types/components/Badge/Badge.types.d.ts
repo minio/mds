@@ -1,4 +1,4 @@
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface BadgeMain {
   invisible?: boolean;
   max?: number;
@@ -8,7 +8,7 @@ export interface BadgeMain {
 export interface BadgeConstruct {
   horizontalPosition?: "left" | "right";
   verticalPosition?: "bottom" | "top";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
   shape?: "circular" | "rectangular";
   dotOnly?: boolean;

@@ -1,9 +1,9 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface IconBase {
   label?: string;
   size?: "small" | "medium" | "large" | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children: React.ReactNode;
 }
 export type IconButtonProps = IconBase &

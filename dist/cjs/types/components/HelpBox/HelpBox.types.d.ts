@@ -1,6 +1,6 @@
-import React from "react";
+import { ReactNode } from "react";
 export interface HelpBoxProps {
-  iconComponent?: any;
-  title: string | React.ReactNode;
-  help: any;
+  icon?: ReactNode;
+  title: string;
+  help: string | ReactNode | ReactNode[];
 }

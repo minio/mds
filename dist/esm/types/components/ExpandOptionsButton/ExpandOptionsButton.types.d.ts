@@ -1,9 +1,9 @@
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ExpandOptionsButtonProps {
   label: string;
   open: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ConstructExpandOptionsProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

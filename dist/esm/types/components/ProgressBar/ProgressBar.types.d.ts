@@ -1,4 +1,4 @@
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface MainProgressProps {
   variant?: "determinate" | "indeterminate";
   notificationLabel?: string;
@@ -7,7 +7,7 @@ export interface MainProgressProps {
   progressLabel?: boolean;
 }
 export interface CommonProgressBar {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   color?: "blue" | "red" | "green" | "orange" | "grey";
   barHeight?: number;
   transparentBG?: boolean;

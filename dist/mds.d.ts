@@ -8,10 +8,17 @@ import React__default, {
   HTMLAttributes,
 } from "react";
 import * as styled_components from "styled-components";
-import { CSSObject, CSSProperties } from "styled-components";
+import { CSSObject } from "styled-components";
 import { SortDirectionType } from "react-virtualized";
 import { DateTime } from "luxon";
 
+interface ThemeColorItem {
+  [key: string]: ColorVariant;
+}
+interface ColorVariant {
+  lightMode: string;
+  darkMode: string;
+}
 interface ButtonThemeProps {
   border: string;
   text: string;
@@ -366,6 +373,9 @@ interface ThemeDefinitionProps {
   boxBackground: string;
   mutedText: string;
   secondaryText: string;
+  colors: {
+    [key: string]: string;
+  };
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
@@ -421,6 +431,10 @@ interface IBytesCalc {
   total: number;
   unit: string;
 }
+type OverrideTheme =
+  | CSSObject
+  | ((theme: ThemeDefinitionProps) => CSSObject)
+  | undefined;
 
 declare const breakPoints: {
   xs: number;
@@ -461,7 +475,7 @@ interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   compact?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface ConstructProps {
   parentChildren: ReactNode | string | undefined;
@@ -511,7 +525,7 @@ declare const ThemedLogo: FC<SVGProps<any>>;
 
 interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type ConditionalProps =
   | {
@@ -563,7 +577,7 @@ interface PageHeaderMainProps {
   actions?: React__default.ReactNode;
 }
 interface PageHeaderConstruct {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type PageHeaderProps = PageHeaderMainProps & PageHeaderConstruct;
 
@@ -606,7 +620,7 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
   tooltip?: string;
   overrideLabelClasses?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
@@ -617,7 +631,7 @@ declare const Checkbox: FC<
 
 interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   children?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   noMinWidth?: boolean;
   htmlFor?: string;
   helpTip?: ReactNode;
@@ -629,7 +643,7 @@ declare const InputLabel: FC<InputLabelProps>;
 interface IconBase {
   label?: string;
   size?: "small" | "medium" | "large" | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children: React__default.ReactNode;
 }
 type IconButtonProps = IconBase &
@@ -714,7 +728,7 @@ interface DataTableProps {
     index: number;
   }) => "deleted" | "" | React__default.CSSProperties;
   parentClassName?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   rowHeight?: number;
   sortEnabled?: boolean | string[] | ISortConfig;
   sortCallBack?: (info: ITableSortInfo) => void;
@@ -723,7 +737,7 @@ interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   customPaperHeight?: string | number;
   noBackground?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   rowHeight: number;
 }
 interface IActionButton {
@@ -742,27 +756,27 @@ interface ColumnSelectorProps {
   onSelect: (column: string) => void;
   columns: IColumns[];
   selectedOptionIDs: string[];
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   anchorEl?: (EventTarget & HTMLElement) | null;
 }
 interface ColumnSelectorConstructProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const DataTable: FC<DataTableProps>;
 
 interface BackLinkProps
   extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
-  sx?: CSSProperties;
+  sx?: OverrideTheme;
   label?: string;
 }
 
 declare const BackLink: FC<BackLinkProps>;
 
 interface HelpBoxProps {
-  iconComponent?: any;
-  title: string | React__default.ReactNode;
-  help: any;
+  icon?: ReactNode;
+  title: string;
+  help: string | ReactNode | ReactNode[];
 }
 
 declare const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>>;
@@ -772,7 +786,7 @@ interface SectionTitleProps {
   actions?: React__default.ReactNode;
   icon?: React__default.ReactNode;
   children: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const SectionTitle: FC<
@@ -780,7 +794,7 @@ declare const SectionTitle: FC<
 >;
 
 interface BoxProps extends React__default.HTMLAttributes<HTMLDivElement> {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children?: React__default.ReactNode;
   withBorders?: boolean;
   customBorderPadding?: number | string;
@@ -793,7 +807,7 @@ declare const Box: React__default.ForwardRefExoticComponent<
 >;
 
 interface FormLayoutProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children?: React__default.ReactNode;
   title?: string;
   icon?: React__default.ReactNode;
@@ -808,7 +822,7 @@ interface PageLayoutProps {
   variant?: "constrained" | "full";
   children: React__default.ReactNode;
   className?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const PageLayout: FC<PageLayoutProps & HTMLAttributes<HTMLDivElement>>;
@@ -818,7 +832,7 @@ interface MainContainerProps {
   children: React__default.ReactElement;
   horizontal?: boolean;
   mobileModeAuto?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const MainContainer: FC<MainContainerProps>;
@@ -829,7 +843,7 @@ interface InputBoxProps
   fullWidth?: boolean;
   label?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   index?: number;
   overlayId?: "index";
   overlayIcon?: React__default.ReactNode;
@@ -845,7 +859,7 @@ interface InputBoxProps
 }
 interface InputContainerProps {
   children?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React__default.ReactNode;
   className?: string;
@@ -857,7 +871,7 @@ interface ExtraInputProps {
 declare const InputBox$1: FC<InputBoxProps>;
 
 interface BreadcrumbsProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   options: BreadcrumbsOption[];
   goBackFunction?: () => void;
   displayLastItems?: false | number;
@@ -871,7 +885,7 @@ interface BreadcrumbsOption {
   onClick?: (to?: string) => void;
 }
 interface BreadcrumbsContainerProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface BreadcrumbsOptionProps {
   id: string;
@@ -883,7 +897,7 @@ interface BreadcrumbsOptionProps {
   current?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const Breadcrumbs: FC<BreadcrumbsProps>;
@@ -901,12 +915,12 @@ interface ActionItem {
   tooltip: string;
 }
 interface ActionsListProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   items: ActionItem[];
   title: React__default.ReactNode;
 }
 interface ActionsListPanelProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface ActionButtonProps
   extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -919,10 +933,10 @@ declare const ActionsList: FC<ActionsListProps>;
 interface SimpleHeaderProps {
   label: React__default.ReactNode;
   icon?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface SimpleHeaderContainerProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const SimpleHeader: FC<
@@ -935,10 +949,12 @@ interface ScreenTitleProps {
   title: string;
   actions: React__default.ReactNode;
   titleOptions?: ScreenTitleOptions[];
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface ScreenTitleContainerProps {
-  sx?: CSSObject;
+  subTitle?: React__default.ReactNode;
+  titleOptions?: ScreenTitleOptions[];
+  sx?: OverrideTheme;
   bottomBorder?: boolean;
 }
 interface ScreenTitleOptions {
@@ -960,14 +976,14 @@ interface ModalBoxProps {
   backgroundOverlay?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface ModalBoxContainerProps {
   backgroundOverlay?: boolean;
   widthLimit?: boolean;
   iconColor?: "accept" | "delete" | "default";
   customMaxWidth?: number | string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const ModalBox: FC<ModalBoxProps>;
@@ -976,7 +992,7 @@ interface MainSwitchProps {
   id: string;
   label?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   className?: string;
   switchOnly?: boolean;
   indicatorLabels?: string[];
@@ -989,7 +1005,7 @@ interface IndicatorProps {
   children: React__default.ReactNode;
 }
 interface SwitchContainerProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type SwitchProps = MainSwitchProps &
   React__default.InputHTMLAttributes<HTMLInputElement>;
@@ -1012,7 +1028,7 @@ interface SelectProps {
   fixedLabel?: string;
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
@@ -1039,7 +1055,7 @@ interface DropdownSelectorProps {
 interface DropDownBlockProps {
   useAnchorWidth: boolean;
   forSelectInput: boolean;
-  sx: CSSObject;
+  sx: OverrideTheme;
 }
 interface DropdownItemProps {
   icon?: React__default.ReactNode;
@@ -1063,7 +1079,7 @@ interface RadioGroupProps {
     event: React__default.ChangeEvent<HTMLInputElement>,
     extraValue?: any,
   ) => void;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
@@ -1078,13 +1094,13 @@ interface ReadBoxProps {
   children: React__default.ReactNode;
   multiLine?: boolean;
   actionButton?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 interface ReadBoxBaseProps {
   label?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   multiLine?: boolean;
 }
 
@@ -1096,7 +1112,7 @@ interface CommentBoxProps
   fullWidth?: boolean;
   label?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   index?: number;
   noLabelMinWidth?: boolean;
   required?: boolean;
@@ -1107,7 +1123,7 @@ interface CommentBoxProps
 }
 interface CommentContainerProps {
   children?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React__default.ReactNode;
   className?: string;
@@ -1120,7 +1136,7 @@ declare const InputBox: FC<CommentBoxProps>;
 
 interface MenuProps {
   options?: MenuItemProps[];
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   applicationLogo: ApplicationLogoProps;
   callPathAction: (path: string) => void;
   horizontal?: boolean;
@@ -1154,7 +1170,7 @@ interface MainHeaderProps {
   divider?: boolean;
 }
 interface MenuConstructProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface SubItemsBoxProps {
   anchorEl: (EventTarget & HTMLElement) | null;
@@ -1168,10 +1184,10 @@ declare const Menu: FC<MenuProps>;
 interface ExpandOptionsButtonProps {
   label: string;
   open: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface ConstructExpandOptionsProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const ExpandOptionsButton: FC<
@@ -1200,12 +1216,12 @@ interface TabsProps {
   optionsInitialComponent?: React__default.ReactNode;
   optionsEndComponent?: React__default.ReactNode;
   horizontalBarBackground?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface TabsContainerProps {
   horizontal: boolean;
   horizontalBarBackground: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface TabButtonProps {
   id: string;
@@ -1237,13 +1253,13 @@ interface CodeEditorProps {
   onChange: (value: string) => any;
   className?: string;
   helpTools?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 interface CodeEditorBaseProps {
   editorHeight: string | number;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   className?: string;
 }
 
@@ -1257,7 +1273,7 @@ interface TagMainProps {
 }
 interface TagConstructProps {
   color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   variant?: "regular" | "outlined";
   square?: boolean;
 }
@@ -1272,7 +1288,7 @@ interface CommonActionLinkProps {
   label?: any;
 }
 interface BaseActionLinkProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type ActionLinkProps = CommonActionLinkProps & BaseActionLinkProps;
 
@@ -1286,7 +1302,7 @@ interface ValuePairMain {
 }
 interface ValuePairCommon {
   direction?: "column" | "row";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type ValuePairProps = ValuePairMain & ValuePairCommon;
 
@@ -1300,7 +1316,7 @@ interface MainProgressProps {
   progressLabel?: boolean;
 }
 interface CommonProgressBar {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   color?: "blue" | "red" | "green" | "orange" | "grey";
   barHeight?: number;
   transparentBG?: boolean;
@@ -1327,13 +1343,13 @@ interface FileSelectorProps {
   value: string;
   className?: string;
   noLabelMinWidth?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
 interface FileSelectorConstructorProps {
   children?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React__default.ReactNode;
   className?: string;
@@ -1350,7 +1366,7 @@ interface SizeChartConstructProps {
   usedBytes: number;
   totalBytes: number;
   chartLabel?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type SizeChartProps = SizeChartMain & SizeChartConstructProps;
 
@@ -1367,7 +1383,7 @@ interface SnackbarConstructProps {
   open: boolean;
   condensed?: boolean;
   variant?: "default" | "success" | "warning" | "error";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface SnackbarButtonProps {
   variant: "default" | "success" | "warning" | "error";
@@ -1384,10 +1400,10 @@ interface AccordionProps {
   title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface AccordionMainProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface AccordionContentProps {
   expanded: boolean;
@@ -1411,7 +1427,7 @@ interface AutocompleteProps {
   noLabelMinWidth?: boolean;
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
@@ -1427,7 +1443,7 @@ interface BadgeMain {
 interface BadgeConstruct {
   horizontalPosition?: "left" | "right";
   verticalPosition?: "bottom" | "top";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
   shape?: "circular" | "rectangular";
   dotOnly?: boolean;
@@ -1462,7 +1478,7 @@ interface WizardMain {
   linearMode?: boolean;
 }
 interface WizardConstruct {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   forModal?: boolean;
   actionButtonsPortalID?: HTMLElement;
 }
@@ -1484,7 +1500,7 @@ interface InformativeMessageMain {
 }
 interface InformativeConstructProps {
   variant?: "default" | "success" | "warning" | "error";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type InformativeMessageProps = InformativeMessageMain &
   InformativeConstructProps;
@@ -1503,11 +1519,11 @@ interface DateTimeInputMain {
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
   noLabelMinWidth?: boolean;
-  pickerSx?: CSSObject;
+  pickerSx?: OverrideTheme;
 }
 interface DateTimeConstruct {
   id: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   mode?: "all" | "date";
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
@@ -1536,7 +1552,8 @@ interface DateSelectorProps {
 interface StylesOverrideProps {
   isPortal: boolean;
   mode: "all" | "date";
-  sx?: CSSObject;
+  coords: CSSObject;
+  sx?: OverrideTheme;
 }
 type DateTimeInputProps = DateTimeInputMain &
   DateTimeConstruct &
@@ -1550,7 +1567,7 @@ declare const DateTimeInput: FC<DateTimeInputProps>;
 declare const DateTimeSelector: FC<DateTimeSelectorProps>;
 
 interface LinkProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const Link: FC<
@@ -1567,7 +1584,7 @@ interface SliderProps {
   noLabelMinWidth?: boolean;
   error?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
   displayValue?: boolean;
@@ -1575,7 +1592,7 @@ interface SliderProps {
 }
 interface SliderContainerProps {
   children?: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   className?: string;
 }
@@ -1588,7 +1605,7 @@ interface ButtonGroupProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
   children: React__default.ReactNode;
   displayLabels?: boolean;
-  sx?: CSSProperties;
+  sx?: OverrideTheme;
 }
 
 declare const ButtonGroup: FC<ButtonGroupProps>;
@@ -1597,7 +1614,7 @@ interface FormActionsTrayProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
   marginTop?: number;
   separator?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const FormActionsTray: FC<FormActionsTrayProps>;
@@ -1612,13 +1629,13 @@ interface ExpandMenuProps {
   children?: ReactNode | string;
   dropMenuPosition?: "start" | "end";
   compact?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 interface ExpandMenuOptionProps {
   id: string;
   variant?: "regular" | "secondary";
   icon?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children: ReactNode;
 }
 interface ExpandDropBaseProps {
@@ -1630,7 +1647,7 @@ interface ExpandDropBaseProps {
   children: React__default.ReactNode;
 }
 interface DropdownMainProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
 
@@ -1644,14 +1661,14 @@ declare const ExpandMenuOption: FC<
 
 interface IBoxedIconProps {
   children: React__default.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const BoxedIcon: FC<IBoxedIconProps>;
 
 interface PillProps {
   type: "current" | "secondary" | "default";
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 
 declare const Pill: FC<
@@ -1661,7 +1678,7 @@ declare const Pill: FC<
 interface SearchBoxProps {
   id: string;
   placeholder?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   icon?: React__default.ReactNode;
 }
 
@@ -2778,7 +2795,7 @@ declare const FileNonType: (
 ) => React$1.JSX.Element;
 
 interface TableComponentsExtraProps {
-  sx?: CSSProperties;
+  sx?: OverrideTheme;
 }
 
 declare const Table: FC<
@@ -3025,800 +3042,7 @@ declare const lightV2: {
 declare const lightTheme: ThemeDefinitionProps;
 declare const darkTheme: ThemeDefinitionProps;
 
-declare const themeColors: {
-  "Color/Base/Royal/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Royal/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Java/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Orange/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Sunset/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Black": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/White": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextSecondary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextTertiary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextQuaternary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextLightSolid": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextHeading": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextLabel": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextDescription": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextDisabled": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Text/colorTextPlaceholder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Icon/colorIcon": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Icon/colorIconHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/colorWhite": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/colorBgBase": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/transparent": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgContainer": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgOverlay": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgShell": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/colorBlack": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgSections": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Border/colorBorderMinimal": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Border/colorBorderSubtle": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Border/colorBorderBold": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Shark/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgElevated": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryBg": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Link/colorLink": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Documentation": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Link/colorLinkHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryBorder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryBorderHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryTextHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Link/colorLinkVisited": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Primary/colorPrimaryActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryBg": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryBorder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryBorderHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Warning/colorPrimaryTextHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryBg": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryBorder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryBorderHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Success/colorPrimaryTextHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryBg": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryBorder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryBorderHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Error/colorPrimaryTextHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Control/colorBgActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Control/colorBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryBg": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryBorder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryBorderHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Info/colorPrimaryTextHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimary": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryActive": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryBg": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryBgHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryBorder": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryBorderHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryText": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/Neutral/colorPrimaryTextHover": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgDisabled": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/_minio/Raspberry": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/_minio/Midnight": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/_minio/Nautical": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/_minio/Meridian": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Brand/_minio/Glaicer": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Border/colorBorderStrong": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Neutral/Bg/colorBgContrast": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Purple/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Scooter/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/0": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Base/Rose/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/1": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/2": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/3": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/4": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/5": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/6": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/7": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/8": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/9": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/10": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/11": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/12": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/13": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/14": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/15": {
-    lightMode: string;
-    darkMode: string;
-  };
-  "Color/Dataviz/none": {
-    lightMode: string;
-    darkMode: string;
-  };
-};
+declare const themeColors: ThemeColorItem;
 
 export {
   AGPLV3DarkLogo,
@@ -3931,6 +3155,7 @@ export {
   CollapseCaret,
   CollapseIcon,
   CollapseMenuIcon,
+  ColorVariant,
   ColumnSelectorConstructProps,
   ColumnSelectorProps,
   InputBox as CommentBox,
@@ -4178,6 +3403,7 @@ export {
   OpenListIcon,
   OpenSourceIcon,
   OptionsContainerProps,
+  OverrideTheme,
   PageHeader,
   PageHeaderConstruct,
   PageHeaderMainProps,
@@ -4310,6 +3536,7 @@ export {
   TagsIcon,
   TenantsIcon,
   TenantsOutlineIcon,
+  ThemeColorItem,
   ThemeDefinitionProps,
   ThemeHandler,
   ThemedLogo,

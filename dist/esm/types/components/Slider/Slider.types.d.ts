@@ -1,13 +1,13 @@
 import React from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 export interface SliderProps {
   id: string;
   label?: string;
   noLabelMinWidth?: boolean;
   error?: string;
   tooltip?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
   displayValue?: boolean;
@@ -15,7 +15,7 @@ export interface SliderProps {
 }
 export interface SliderContainerProps {
   children?: React.ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   error?: boolean;
   className?: string;
 }

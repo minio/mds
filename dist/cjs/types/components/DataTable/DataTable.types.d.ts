@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react";
-import { CSSObject } from "styled-components";
 import { SortDirectionType } from "react-virtualized";
+import { OverrideTheme } from "../../global/global.types";
 export declare const actionsTypes: readonly [
   "view",
   "edit",
@@ -78,7 +78,7 @@ export interface DataTableProps {
     index: number;
   }) => "deleted" | "" | React.CSSProperties;
   parentClassName?: string;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   rowHeight?: number;
   sortEnabled?: boolean | string[] | ISortConfig;
   sortCallBack?: (info: ITableSortInfo) => void;
@@ -87,7 +87,7 @@ export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   customPaperHeight?: string | number;
   noBackground?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   rowHeight: number;
 }
 export interface IActionButton {
@@ -106,9 +106,9 @@ export interface ColumnSelectorProps {
   onSelect: (column: string) => void;
   columns: IColumns[];
   selectedOptionIDs: string[];
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   anchorEl?: (EventTarget & HTMLElement) | null;
 }
 export interface ColumnSelectorConstructProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

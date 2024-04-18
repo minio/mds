@@ -1,5 +1,5 @@
 import { MouseEventHandler, ReactNode } from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ButtonProps {
   id: string;
   name?: string;
@@ -13,7 +13,7 @@ export interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   compact?: boolean;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ConstructProps {
   parentChildren: ReactNode | string | undefined;

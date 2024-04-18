@@ -1,7 +1,7 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   children?: React.ReactNode;
   withBorders?: boolean;
   customBorderPadding?: number | string;

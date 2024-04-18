@@ -1,4 +1,4 @@
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface LinkProps {
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }

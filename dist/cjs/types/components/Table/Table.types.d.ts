@@ -1,4 +1,4 @@
-import { CSSProperties } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface TableComponentsExtraProps {
-  sx?: CSSProperties;
+  sx?: OverrideTheme;
 }

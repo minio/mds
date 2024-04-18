@@ -1,15 +1,17 @@
 import React from "react";
-import { CSSObject } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface ScreenTitleProps {
   icon: React.ReactNode;
   subTitle?: React.ReactNode;
   title: string;
   actions: React.ReactNode;
   titleOptions?: ScreenTitleOptions[];
-  sx?: CSSObject;
+  sx?: OverrideTheme;
 }
 export interface ScreenTitleContainerProps {
-  sx?: CSSObject;
+  subTitle?: React.ReactNode;
+  titleOptions?: ScreenTitleOptions[];
+  sx?: OverrideTheme;
   bottomBorder?: boolean;
 }
 export interface ScreenTitleOptions {

@@ -1,7 +1,7 @@
 import React from "react";
-import { CSSProperties } from "styled-components";
+import { OverrideTheme } from "../../global/global.types";
 export interface BackLinkProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  sx?: CSSProperties;
+  sx?: OverrideTheme;
   label?: string;
 }

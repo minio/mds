@@ -1,9 +1,9 @@
 import { HTMLAttributes, ReactNode } from "react";
-import { CSSObject } from "styled-components";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { OverrideTheme } from "../../global/global.types";
 export interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   children?: ReactNode;
-  sx?: CSSObject;
+  sx?: OverrideTheme;
   noMinWidth?: boolean;
   htmlFor?: string;
   helpTip?: ReactNode;

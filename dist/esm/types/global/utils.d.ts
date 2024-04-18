@@ -1,4 +1,8 @@
-import { IBytesCalc } from "./global.types";
+import {
+  IBytesCalc,
+  OverrideTheme,
+  ThemeDefinitionProps,
+} from "./global.types";
 export declare const breakPoints: {
   xs: number;
   sm: number;
@@ -15,3 +19,10 @@ export declare const calculateBytes: (
   showDecimals?: boolean,
   roundFloor?: boolean,
 ) => IBytesCalc;
+export declare const getThemeColors: (themeSubVar: string) => {
+  [key: string]: string;
+};
+export declare const overridePropsParse: (
+  overrideValue: OverrideTheme,
+  theme: ThemeDefinitionProps,
+) => import("styled-components").CSSObject | undefined;
