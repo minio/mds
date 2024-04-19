@@ -1,5 +1,5 @@
 {
-  "name": "MinIO-vars-export",
+  "name": "MinIO-All-Vars-Extract",
   "version": "1.0.0",
   "description": "MinIO plugin for exporting Figma files vars so they can be used in mds theming",
   "main": "code.js",
