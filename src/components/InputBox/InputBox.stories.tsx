@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Fragment } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import InputBox from "./InputBox";
@@ -22,7 +22,6 @@ import { InputBoxProps } from "./InputBox.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormLayout from "../FormLayout/FormLayout";
 import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
 import UsersIcon from "../Icons/UsersIcon";

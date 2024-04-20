@@ -24,12 +24,8 @@ import {
 } from "./InputBox.types";
 import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
-import IconButton from "../IconButton/IconButton";
 import InputLabel from "../InputLabel/InputLabel";
-import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
-import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
-import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
 import {
