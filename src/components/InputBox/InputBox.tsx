@@ -35,6 +35,7 @@ import {
   WarningAlertIcon,
 } from "../Icons";
 import Button from "../Button/Button";
+import EyeOffIcon from "../Icons/EyeOffIcon";
 
 const InputBase = styled.input.attrs({
   className: "Base_Normal",
@@ -187,7 +188,7 @@ const InputBox: FC<InputBoxProps> = ({
   let inputBoxWrapperType = type;
 
   if (type === "password" && !overlayIcon) {
-    inputBoxWrapperIcon = toggleTextInput ? <EyeIcon /> : <EyeIcon />;
+    inputBoxWrapperIcon = toggleTextInput ? <EyeOffIcon /> : <EyeIcon />;
     inputBoxWrapperType = toggleTextInput ? "text" : "password";
   }
 
