@@ -1,0 +1,82 @@
+<style>
+  body {
+    background-color: #f4f6f7;
+  }
+
+  .center-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  h2 {
+    font-family: "Geist", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 5px;
+  }
+
+  button {
+    width: 100%;
+    text-align: center;
+    font-family: "Geist", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.16px;
+    color: rgba(0, 0, 0, 0.88);
+    box-shadow: 0px 1px 2px 0px rgba(32, 32, 34, 0.1);
+    border-radius: 4px;
+    border: 1px solid #cfd0d2;
+  }
+</style>
+<div class="center-items">
+  <img
+    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYyLjYgMjQuNSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogI2M3MmM0ODsKICAgICAgICBzdHJva2Utd2lkdGg6IDBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNNTIuOC40aDkuMXYyMy42aC05LjFWLjRaTTQxLjcuN2wtMTguNSw5LjljLS4zLjEtLjYuMS0uOSwwTDMuOS43Yy0uNC0uMi0uOS0uMy0xLjMtLjNoMEMxLjIuMywwLDEuMywwLDIuNnYyMS40aDkuMXYtMTAuMmMwLS41LjUtLjksMS0uOC4xLDAsLjMsMCwuNC4xbDEwLjQsNS42YzEsLjUsMi4zLjYsMy4zLDBsMTAuOS01LjZjLjQtLjMsMS0uMSwxLjMuMywwLC4xLjEuMi4xLjR2MTAuMmg5LjFWMi42YzAtMS4zLTEuMi0yLjMtMi41LTIuMmgwYy0uNSwwLS45LjEtMS4zLjNaTTEwNy4zLjRoLTkuMnYxMC44YzAsLjUtLjUuOS0xLC44LS4xLDAtLjIsMC0uMy0uMUw3Mi44LjdjLS40LS4yLS44LS4zLTEuMi0uM2gwYy0xLjMsMC0yLjQuOS0yLjUsMi4ydjIxLjRoOS4ydi0xMC43YzAtLjUuNS0uOSwxLS44LjEsMCwuMiwwLC4zLjFsMjQsMTEuMmMuNC4yLjguMywxLjIuMywxLjMsMCwyLjQtLjksMi41LTIuMlYuNFpNMTE0LjQsMjRWLjRoNC4ydjIzLjZoLTQuMlpNMTQzLjMsMjQuNWMtMTEuMywwLTE5LjMtNC43LTE5LjMtMTIuMiwwLTcuNSw4LTEyLjIsMTkuMy0xMi4yczE5LjMsNC43LDE5LjMsMTIuMi03LjksMTIuMi0xOS4zLDEyLjJoMFpNMTQzLjMsMy4xYy04LjQsMC0xNC44LDMuMi0xNC44LDkuMXM2LjUsOS4xLDE0LjgsOS4xLDE0LjktMy4yLDE0LjktOS4xLTYuNS05LjEtMTQuOS05LjFaIi8+Cjwvc3ZnPg=="
+    width="200px"
+  />
+  <h2>Fetch Vars Plugin</h2>
+  <button id="fetch">Fetch Variables Locally</button>
+  <button id="getcolors" disabled>Download Color Variables</button>
+</div>
+<script>
+  parent.postMessage({ pluginMessage: { type: "fetch-vars" } }, "*");
+
+  onmessage = (event) => {
+    const message = event.data.pluginMessage;
+
+    switch (message.type) {
+      case "vars-loaded":
+        document.getElementById("getcolors").removeAttribute("disabled");
+        break;
+      case "generated-colors":
+        let element = document.createElement("a");
+        element.setAttribute(
+          "href",
+          "data:application/json;charset=utf-8," +
+            encodeURIComponent(message.data),
+        );
+        element.setAttribute("download", "color_vars.json");
+        element.style.display = "none";
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+
+        break;
+    }
+  };
+
+  document.getElementById("fetch").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "fetch-vars" } }, "*");
+  };
+
+  document.getElementById("getcolors").onclick = () => {
+    parent.postMessage({ pluginMessage: { type: "get-colors" } }, "*");
+  };
+</script>
