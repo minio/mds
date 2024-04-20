@@ -47,6 +47,7 @@ import Button from "../Button/Button";
 import ColumnsSelector from "./ColumnsSelector";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { themeColors } from "../../global/themeColors";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
@@ -82,7 +83,11 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         overflowY: "auto",
         padding: "0 10px 10px",
         "& .shownColumnsLabel": {
-          color: get(theme, "mainGrey", "#000"),
+          color: get(
+            theme,
+            "dataTable.titleColor",
+            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+          ),
           fontSize: 12,
           padding: 10,
           borderBottom: `${get(
@@ -99,7 +104,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       height: 3,
     },
     "& .rowLine": {
-      borderBottom: `${get(theme, "dataTable.border", "#E2E2E2")} 1px solid`,
+      borderBottom: `${get(theme, "dataTable.border", themeColors["Color/Neutral/Border/colorBorderBold"].lightMode)} 1px solid`,
       height: rowHeight,
       fontSize: 14,
       transitionDuration: "0.3s",
@@ -108,7 +113,11 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       },
       "&:hover:not(.ReactVirtualized__Table__headerRow)": {
         userSelect: "none",
-        backgroundColor: get(theme, "dataTable.hoverColor", "#ececec"),
+        backgroundColor: get(
+          theme,
+          "dataTable.hoverColor",
+          themeColors["Color/Brand/Control/colorBgActive"].lightMode,
+        ),
         "&.canClick": {
           cursor: "pointer",
         },
@@ -120,10 +129,18 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         fontWeight: 600,
       },
       "&:not(.deleted) .selected": {
-        color: get(theme, "dataTable.selected", "#081C42"),
+        color: get(
+          theme,
+          "dataTable.selected",
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+        ),
       },
       "&.deleted .selected": {
-        color: get(theme, "dataTable.selectedDisabled", "#C51B3F"),
+        color: get(
+          theme,
+          "dataTable.itemDisabled",
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+        ),
       },
     },
     "& .headerItem": {
