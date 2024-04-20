@@ -38,16 +38,16 @@ export interface InputBoxProps
   state?: "normal" | "error" | "success" | "warning";
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
-  size?: "small" | "large";
+  sizeMode?: "small" | "large";
   orientation?: "horizontal" | "vertical";
 }
 
 export interface InputContainerProps {
   children?: React.ReactNode;
   sx?: OverrideTheme;
-  error?: boolean;
   startIcon?: React.ReactNode;
   className?: string;
+  sizeMode?: "small" | "large";
 }
 
 export interface ExtraInputProps {

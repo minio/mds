@@ -74,8 +74,10 @@ export interface DataTableThemeProps {
   disabledBorder: string;
   disabledBG: string;
   selected: string;
-  deletedDisabled: string;
+  itemDisabled: string;
   hoverColor: string;
+  titleColor: string;
+  itemColor: string;
   actionButton?: ActionCustomButton;
 }
 export interface BackLinkThemeProps {

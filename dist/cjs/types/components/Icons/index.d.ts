@@ -239,3 +239,8 @@ export { default as ResourcesIcon } from "./ResourcesIcon";
 export { default as SettingsInMenuIcon } from "./SettingsInMenuIcon";
 export { default as SystemIcon } from "./SystemIcon";
 export { default as ExpandOptionsIcon } from "./ExpandOptionsIcon";
+export { default as ErrorAlertIcon } from "./ErrorAlertIcon";
+export { default as WarningAlertIcon } from "./WarningAlertIcon";
+export { default as SuccessAlertIcon } from "./SuccessAlertIcon";
+export { default as EyeIcon } from "./EyeIcon";
+export { default as EyeOffIcon } from "./EyeOffIcon";

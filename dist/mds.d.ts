@@ -86,8 +86,10 @@ interface DataTableThemeProps {
   disabledBorder: string;
   disabledBG: string;
   selected: string;
-  deletedDisabled: string;
+  itemDisabled: string;
   hoverColor: string;
+  titleColor: string;
+  itemColor: string;
   actionButton?: ActionCustomButton;
 }
 interface BackLinkThemeProps {
@@ -636,6 +638,7 @@ interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   htmlFor?: string;
   helpTip?: ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  orientation?: "horizontal" | "vertical";
 }
 
 declare const InputLabel: FC<InputLabelProps>;
@@ -853,16 +856,19 @@ interface InputBoxProps
   startIcon?: React__default.ReactNode;
   required?: boolean;
   className?: string;
-  error?: string;
+  helper?: string;
+  state?: "normal" | "error" | "success" | "warning";
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
 }
 interface InputContainerProps {
   children?: React__default.ReactNode;
   sx?: OverrideTheme;
-  error?: boolean;
   startIcon?: React__default.ReactNode;
   className?: string;
+  sizeMode?: "small" | "large";
 }
 interface ExtraInputProps {
   originType?: string;
@@ -2606,6 +2612,24 @@ declare const ExpandOptionsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ErrorAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const WarningAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SuccessAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const EyeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const EyeOffIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3226,6 +3250,7 @@ export {
   EnabledIcon,
   EnterpriseLightLogo,
   EnvironmentVariablesIcon,
+  ErrorAlertIcon,
   ShuffleIcon as EventBusyIcon,
   EventSubscriptionIcon,
   ExpandCaret,
@@ -3243,6 +3268,8 @@ export {
   ExtraCommentProps,
   AccountIcon as ExtraFeaturesIcon,
   ExtraInputProps,
+  EyeIcon,
+  EyeOffIcon,
   FileBookIcon,
   FileCloudIcon,
   FileCodeIcon,
@@ -3504,6 +3531,7 @@ export {
   StorageIcon,
   StylesOverrideProps,
   SubItemsBoxProps,
+  SuccessAlertIcon,
   SuccessIcon,
   SupportMenuIcon,
   Switch,
@@ -3579,6 +3607,7 @@ export {
   ViewColumnIcon$1 as VisibilityOnIcon,
   WarnFilledIcon,
   WarnIcon,
+  WarningAlertIcon,
   WarpIcon,
   WatchIcon,
   WebhookIcon,

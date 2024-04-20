@@ -8,4 +8,5 @@ export interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   htmlFor?: string;
   helpTip?: ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  orientation?: "horizontal" | "vertical";
 }

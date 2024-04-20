@@ -94,48 +94,43 @@ const SelectBase = styled.div(({ theme }) => {
   };
 });
 
-const InputContainer = styled.div<InputContainerProps>(
-  ({ theme, error, sx }) => ({
-    display: "flex",
-    flexGrow: 1,
-    width: "100%",
-    position: "relative",
+const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
+  display: "flex",
+  flexGrow: 1,
+  width: "100%",
+  position: "relative",
 
-    "& .selectContainer": {
-      display: "flex",
-      width: "100%",
-      gap: 8,
-      alignItems: "center",
-      flexGrow: 1,
-      position: "relative",
-      minWidth: 80,
+  "& .selectContainer": {
+    display: "flex",
+    width: "100%",
+    gap: 8,
+    alignItems: "center",
+    flexGrow: 1,
+    position: "relative",
+    minWidth: 80,
+  },
+  "& .tooltipContainer": {
+    marginLeft: 5,
+    display: "flex",
+    alignItems: "center",
+    "& .min-icon": {
+      width: 13,
     },
-    "& .tooltipContainer": {
-      marginLeft: 5,
-      display: "flex",
-      alignItems: "center",
-      "& .min-icon": {
-        width: 13,
-      },
+  },
+  "& .overlayArrow": {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    marginTop: "2px",
+    right: "5px",
+    "& svg": {
+      width: 26,
+      height: 26,
+      fill: get(theme, "inputBox.color", "#07193E"),
     },
-    "& .overlayArrow": {
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      marginTop: "2px",
-      right: "5px",
-      "& svg": {
-        width: 26,
-        height: 26,
-        fill: get(theme, "inputBox.color", "#07193E"),
-      },
-    },
-    "& .inputLabel": {
-      marginBottom: error ? 18 : 0,
-    },
-    ...overridePropsParse(sx, theme),
-  }),
-);
+  },
+  ...overridePropsParse(sx, theme),
+}));
 
 const Select: FC<SelectProps> = ({
   id,

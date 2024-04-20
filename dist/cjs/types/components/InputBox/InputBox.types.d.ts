@@ -17,16 +17,19 @@ export interface InputBoxProps
   startIcon?: React.ReactNode;
   required?: boolean;
   className?: string;
-  error?: string;
+  helper?: string;
+  state?: "normal" | "error" | "success" | "warning";
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
 }
 export interface InputContainerProps {
   children?: React.ReactNode;
   sx?: OverrideTheme;
-  error?: boolean;
   startIcon?: React.ReactNode;
   className?: string;
+  sizeMode?: "small" | "large";
 }
 export interface ExtraInputProps {
   originType?: string;

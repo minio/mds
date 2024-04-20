@@ -150,73 +150,68 @@ const InputPlaceholder = styled.div(({ theme }) => {
   };
 });
 
-const InputContainer = styled.div<InputContainerProps>(
-  ({ theme, error, sx }) => ({
+const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
+  display: "flex",
+  flexGrow: 1,
+  width: "100%",
+  position: "relative",
+  "& .dateTimeInputContainer": {
     display: "flex",
-    flexGrow: 1,
+    gap: 10,
     width: "100%",
+    flexGrow: 1,
     position: "relative",
-    "& .dateTimeInputContainer": {
-      display: "flex",
-      gap: 10,
-      width: "100%",
-      flexGrow: 1,
-      position: "relative",
-      minWidth: 80,
+    minWidth: 80,
+  },
+  "& .tooltipContainer": {
+    marginLeft: 5,
+    display: "flex",
+    alignItems: "center",
+    "& .min-icon": {
+      width: 13,
     },
-    "& .tooltipContainer": {
-      marginLeft: 5,
-      display: "flex",
-      alignItems: "center",
-      "& .min-icon": {
-        width: 13,
+  },
+  "& .startComponent": {
+    display: "flex",
+    alignItems: "center",
+    gap: 5,
+    color: get(theme, "inputBox.mutedText", lightColors.mutedText),
+    fontWeight: "bold",
+    fontSize: 12,
+    whiteSpace: "nowrap",
+    "& svg": {
+      width: 18,
+      height: 18,
+      fill: get(theme, "inputBox.mutedText", lightColors.mutedText),
+    },
+  },
+  "& .overlayArrow": {
+    cursor: "pointer",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    marginTop: 2,
+    right: 5,
+    "& svg": {
+      width: 24,
+      height: 24,
+      fill: get(theme, "inputBox.mutedText", lightColors.mutedText),
+    },
+    "&:hover": {
+      "& svg": {
+        fill: get(theme, "inputBox.color", lightColors.labelColor),
       },
     },
-    "& .startComponent": {
-      display: "flex",
-      alignItems: "center",
-      gap: 5,
-      color: get(theme, "inputBox.mutedText", lightColors.mutedText),
-      fontWeight: "bold",
-      fontSize: 12,
-      whiteSpace: "nowrap",
+    "& .customIcon": {
       "& svg": {
         width: 18,
         height: 18,
-        fill: get(theme, "inputBox.mutedText", lightColors.mutedText),
+        marginRight: 5,
       },
     },
-    "& .overlayArrow": {
-      cursor: "pointer",
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      marginTop: 2,
-      right: 5,
-      "& svg": {
-        width: 24,
-        height: 24,
-        fill: get(theme, "inputBox.mutedText", lightColors.mutedText),
-      },
-      "&:hover": {
-        "& svg": {
-          fill: get(theme, "inputBox.color", lightColors.labelColor),
-        },
-      },
-      "& .customIcon": {
-        "& svg": {
-          width: 18,
-          height: 18,
-          marginRight: 5,
-        },
-      },
-    },
-    "& .inputLabel": {
-      marginBottom: error ? 18 : 0,
-    },
-    ...overridePropsParse(sx, theme),
-  }),
-);
+  },
+  ...overridePropsParse(sx, theme),
+}));
 
 const DateTimeInput: FC<DateTimeInputProps> = ({
   sx,
