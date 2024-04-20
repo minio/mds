@@ -210,21 +210,69 @@ const GlobalStyles = createGlobalStyle`
     .error {
         color: ${get(theme, "signalColors.danger", lightV2.danger)};
     }
+    
+    /* Text Vars */
+    .TY_Normal {
+        font-family: 'Geist', sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 84;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+    }
+    .TY_Strong {
+        font-family: 'Geist', sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 126;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+    }
+    .SM_Normal {
+        font-family: 'Geist', sans-serif;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+    }
+    .SM_Strong {
+        font-family: 'Geist', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 126;
+        line-height: 20px; 
+        letter-spacing: 0.16px;
+    }
     .Base_Normal {
-        font-family: Geist;
+        font-family: 'Geist', sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         line-height: 20px;
         letter-spacing: 0.16px;
     }
-    .SM_Normal {
-        font-family: Geist;
-        font-size: 12px;
+    .Base_Strong {
+        font-family: 'Geist', sans-serif;
+        font-size: 16px;
         font-style: normal;
-        font-weight: 400;
-        line-height: 16px;
-        letter-spacing: 0.5px;
+        font-weight: 126;
+        line-height: 24px;
+        letter-spacing: 0.16px;
+    }
+    .LG_Normal {
+        font-family: 'Geist', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 84;
+        line-height: 28px;
+    }
+    .LG_Strong {
+        font-family: 'Geist', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 126;
+        line-height: 28px;
     }
     `;
     }}
