@@ -27,7 +27,6 @@ import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
 import { overridePropsParse } from "../../global/utils";
-import { themeColors } from "../../global/themeColors";
 import {
   ErrorAlertIcon,
   EyeIcon,
@@ -37,24 +36,13 @@ import {
 import Button from "../Button/Button";
 import EyeOffIcon from "../Icons/EyeOffIcon";
 
-const InputBase = styled.input.attrs({
-  className: "Base_Normal",
-})<InputBoxProps & ExtraInputProps>(
-  ({
-    theme,
-    helper,
-    state = "normal",
-    startIcon,
-    overlayIcon,
-    overlayObject,
-    originType,
-    size,
-  }) => {
+const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
+  ({ theme, startIcon, overlayIcon, overlayObject, originType, sizeMode }) => {
     return {
       lineHeight: "20px",
       width: "100%",
-      paddingTop: size === "small" ? 4 : 8,
-      paddingBottom: size === "small" ? 4 : 8,
+      paddingTop: sizeMode === "small" ? 4 : 8,
+      paddingBottom: sizeMode === "small" ? 4 : 8,
       paddingRight:
         !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 8,
       paddingLeft: !!startIcon ? 35 : 8,
@@ -93,8 +81,8 @@ const InputBase = styled.input.attrs({
   },
 );
 
-const InputContainer = styled.div<InputContainerProps & InputBoxProps>(
-  ({ theme, error, size, sx }) => ({
+const InputContainer = styled.div<InputContainerProps>(
+  ({ theme, sizeMode, sx }) => ({
     display: "flex",
     flexGrow: 1,
     width: "100%",
@@ -137,7 +125,7 @@ const InputContainer = styled.div<InputContainerProps & InputBoxProps>(
         borderBottomRightRadius: 4,
         borderLeft: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
         boxShadow: "none",
-        height: size === "small" ? 28 : 36,
+        height: sizeMode === "small" ? 28 : 36,
         "& .min-icon": {
           width: 16,
           height: 16,
@@ -148,7 +136,7 @@ const InputContainer = styled.div<InputContainerProps & InputBoxProps>(
     "& .startOverlayIcon": {
       position: "absolute",
       left: 8,
-      top: size === "small" ? 6 : 10,
+      top: sizeMode === "small" ? 6 : 10,
       "& svg": {
         width: 16,
         height: 16,
@@ -174,11 +162,11 @@ const InputBox: FC<InputBoxProps> = ({
   startIcon,
   className,
   helper,
-  state,
+  state = "normal",
   sx,
   helpTip,
   helpTipPlacement,
-  size = "small",
+  sizeMode = "small",
   orientation = "horizontal",
   ...props
 }) => {
@@ -194,14 +182,13 @@ const InputBox: FC<InputBoxProps> = ({
 
   return (
     <InputContainer
-      error={!!helper && helper !== ""}
       sx={{
         "& .accessoryIcon": {
           float: "right",
           position: "absolute",
           right: overlayIcon || type === "password" ? 8 + 29 : 8,
           top: "50%",
-          marginTop: size === "small" ? -22 : -18,
+          marginTop: sizeMode === "small" ? -22 : -18,
           width: 16,
           height: 16,
         },
@@ -209,7 +196,7 @@ const InputBox: FC<InputBoxProps> = ({
         ...sx,
       }}
       className={`inputItem inputBox Base_Normal ${className}`}
-      size={size}
+      sizeMode={sizeMode}
     >
       {label !== "" && (
         <InputLabel
@@ -242,13 +229,13 @@ const InputBox: FC<InputBoxProps> = ({
           type={inputBoxWrapperType}
           helper={helper}
           state={state}
-          className={`inputRebase ${state}State`}
+          className={`Base_Normal inputRebase ${state}State`}
           data-index={index}
           startIcon={startIcon}
           overlayObject={overlayObject}
           overlayIcon={overlayIcon}
           originType={type}
-          size={size}
+          sizeMode={sizeMode}
           {...props}
         />
         {state === "error" && (
@@ -281,10 +268,10 @@ const InputBox: FC<InputBoxProps> = ({
         )}
         {helper !== "" && (
           <Box
-            sx={{
-              color: themeColors["Color/Neutral/Text/colorTextLabel"],
+            sx={(theme) => ({
+              color: theme.colors["Color/Neutral/Text/colorTextLabel"],
               marginTop: 4,
-            }}
+            })}
             className={`SM_Normal ${state}State`}
           >
             {helper}

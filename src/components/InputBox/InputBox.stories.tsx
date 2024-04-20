@@ -37,8 +37,8 @@ const Template: Story<InputBoxProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Box sx={{ display: "flex", gap: 24, flexBasis: "50%" }}>
-      <InputBox {...args} size={"small"} />
-      <InputBox {...args} size={"large"} />
+      <InputBox {...args} sizeMode={"small"} />
+      <InputBox {...args} sizeMode={"large"} />
     </Box>
   </StoryThemeProvider>
 );

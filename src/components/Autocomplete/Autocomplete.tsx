@@ -82,57 +82,52 @@ const AutocompleteBase = styled.input(({ theme }) => {
   };
 });
 
-const InputContainer = styled.div<InputContainerProps>(
-  ({ theme, error, sx }) => ({
-    display: "flex",
-    flexGrow: 1,
+const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
+  display: "flex",
+  flexGrow: 1,
+  width: "100%",
+  height: 38,
+  position: "relative",
+  "& .AutocompleteContainer": {
     width: "100%",
-    height: 38,
+    flexGrow: 1,
     position: "relative",
-    "& .AutocompleteContainer": {
-      width: "100%",
-      flexGrow: 1,
-      position: "relative",
-      minWidth: 80,
+    minWidth: 80,
+  },
+  "& .tooltipContainer": {
+    marginLeft: 5,
+    display: "flex",
+    alignItems: "center",
+    "& .min-icon": {
+      width: 13,
     },
-    "& .tooltipContainer": {
-      marginLeft: 5,
-      display: "flex",
-      alignItems: "center",
-      "& .min-icon": {
-        width: 13,
-      },
+  },
+  "& .overlayArrow": {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    marginTop: 2,
+    right: 5,
+    "& svg": {
+      width: 26,
+      height: 26,
+      fill: get(theme, "inputBox.color", "#07193E"),
     },
-    "& .overlayArrow": {
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%)",
-      marginTop: 2,
-      right: 5,
-      "& svg": {
-        width: 26,
-        height: 26,
-        fill: get(theme, "inputBox.color", "#07193E"),
-      },
+  },
+  "& .iconOption": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    marginLeft: 15,
+    height: 38,
+    "& svg": {
+      width: 16,
+      height: 16,
     },
-    "& .inputLabel": {
-      marginBottom: error ? 18 : 0,
-    },
-    "& .iconOption": {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      position: "absolute",
-      marginLeft: 15,
-      height: 38,
-      "& svg": {
-        width: 16,
-        height: 16,
-      },
-    },
-    ...overridePropsParse(sx, theme),
-  }),
-);
+  },
+  ...overridePropsParse(sx, theme),
+}));
 
 const Autocomplete: FC<AutocompleteProps> = ({
   id,
