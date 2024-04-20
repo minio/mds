@@ -801,6 +801,41 @@ LongTitles.args = {
   ],
 };
 
+export const SelectOptions = Template.bind({});
+SelectOptions.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "id",
+  records: [
+    { id: 1, field1: "Value1", field2: "Value2", field3: "Value3" },
+    {
+      id: 2,
+      field1: "Value1-1",
+      field2: "Value2-1",
+      field3: "Value3-1",
+    },
+    { id: 3, field1: "Value1-2", field2: "Value2-2", field3: "Value3-2" },
+    {
+      id: 4,
+      field1: "Value1-3",
+      field2: "Value2-3",
+      field3: "Value3-3",
+    },
+  ],
+  columns: [
+    { label: "ID", elementKey: "id" },
+    {
+      label: "Super long title name for a single column that needs to truncate",
+      elementKey: "field1",
+    },
+    { label: "Column2", elementKey: "field2" },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+};
+
 export const CustomRowHeight = Template.bind({});
 CustomRowHeight.args = {
   disabled: false,
