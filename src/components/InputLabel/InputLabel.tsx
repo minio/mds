@@ -23,9 +23,6 @@ import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 
 const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
-  fontWeight: "normal" as const,
-  marginRight: 10,
-  fontSize: 14,
   color: get(theme, "commonInput.labelColor", lightV2.fontColor),
   textAlign: "left" as const,
   alignItems: "flex-start" as const,
@@ -50,11 +47,12 @@ const InputLabel: FC<InputLabelProps> = ({
   htmlFor,
   helpTip,
   helpTipPlacement,
+  orientation = "horizontal",
   ...props
 }) => {
   return (
     <CustomLabel sx={sx} htmlFor={htmlFor} {...props}>
-      <span className={`${noMinWidth ? "noMinWidthLabel" : ""}`}>
+      <span className={`Base_Normal ${noMinWidth ? "noMinWidthLabel" : ""}`}>
         {helpTip ? (
           <HelpTip placement={helpTipPlacement} content={helpTip}>
             {children}

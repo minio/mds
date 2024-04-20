@@ -34,9 +34,12 @@ export interface InputBoxProps
   startIcon?: React.ReactNode;
   required?: boolean;
   className?: string;
-  error?: string;
+  helper?: string;
+  state?: "normal" | "error" | "success" | "warning";
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  size?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
 }
 
 export interface InputContainerProps {

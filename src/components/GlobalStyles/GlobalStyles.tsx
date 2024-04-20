@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
 import { createGlobalStyle } from "styled-components";
 import get from "lodash/get";
 import { lightColors, lightV2 } from "../../global/themes";
@@ -210,6 +209,22 @@ const GlobalStyles = createGlobalStyle`
     
     .error {
         color: ${get(theme, "signalColors.danger", lightV2.danger)};
+    }
+    .Base_Normal {
+        font-family: Geist;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+    }
+    .SM_Normal {
+        font-family: Geist;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0.5px;
     }
     `;
     }}

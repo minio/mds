@@ -22,7 +22,6 @@ import { InputBoxProps } from "./InputBox.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormLayout from "../FormLayout/FormLayout";
 import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
 import UsersIcon from "../Icons/UsersIcon";
@@ -37,22 +36,26 @@ export default {
 const Template: Story<InputBoxProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <FormLayout>
-      <InputBox {...args} />
-      <InputBox {...args} />
-    </FormLayout>
+    <Box sx={{ display: "flex", gap: 24, flexBasis: "50%" }}>
+      <InputBox {...args} size={"small"} />
+      <InputBox {...args} size={"large"} />
+    </Box>
   </StoryThemeProvider>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "An input box",
+  label: "Label",
+  placeholder: "Placeholder",
+  helper: "Helper Text",
   required: true,
 };
 
 export const DisabledInput = Template.bind({});
 DisabledInput.args = {
-  label: "An input box",
+  label: "Label",
+  placeholder: "Placeholder",
+  helper: "Helper Text",
   required: true,
   disabled: true,
   value: "Demo Text",
