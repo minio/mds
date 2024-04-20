@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
+import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import InputBox from "./InputBox";
@@ -37,22 +37,26 @@ export default {
 const Template: Story<InputBoxProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <FormLayout>
-      <InputBox {...args} />
-      <InputBox {...args} />
-    </FormLayout>
+    <Box sx={{ display: "flex", gap: 24, flexBasis: "50%" }}>
+      <InputBox {...args} size={"small"} />
+      <InputBox {...args} size={"large"} />
+    </Box>
   </StoryThemeProvider>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "An input box",
+  label: "Label",
+  placeholder: "Placeholder",
+  helper: "Helper Text",
   required: true,
 };
 
 export const DisabledInput = Template.bind({});
 DisabledInput.args = {
-  label: "An input box",
+  label: "Label",
+  placeholder: "Placeholder",
+  helper: "Helper Text",
   required: true,
   disabled: true,
   value: "Demo Text",

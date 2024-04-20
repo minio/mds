@@ -31,29 +31,41 @@ import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { themeColors } from "../../global/themeColors";
+import {
+  ErrorAlertIcon,
+  EyeIcon,
+  SuccessAlertIcon,
+  WarningAlertIcon,
+} from "../Icons";
+import Button from "../Button/Button";
 
-const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
-  ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {
-    let borderColor = get(theme, "inputBox.border", lightV2.borderColor);
-    let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
-
-    if (error && error !== "") {
-      borderColor = get(theme, "inputBox.error", lightV2.danger);
-      borderHover = get(theme, "inputBox.error", lightV2.danger);
-    }
-
+const InputBase = styled.input.attrs({
+  className: "Base_Normal",
+})<InputBoxProps & ExtraInputProps>(
+  ({
+    theme,
+    helper,
+    state = "normal",
+    startIcon,
+    overlayIcon,
+    overlayObject,
+    originType,
+    size,
+  }) => {
     return {
-      height: 40,
+      lineHeight: "20px",
       width: "100%",
-      paddingTop: 0,
+      paddingTop: size === "small" ? 4 : 8,
+      paddingBottom: size === "small" ? 4 : 8,
       paddingRight:
-        !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 15,
-      paddingLeft: !!startIcon ? 35 : 15,
-      paddingBottom: 0,
-      color: get(theme, "inputBox.color", lightV2.fontColor),
+        !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 8,
+      paddingLeft: !!startIcon ? 35 : 8,
+      color: theme.colors["Color/Neutral/Text/colorTextHeading"] + "!important",
       fontSize: 14,
       fontWeight: 400,
-      border: `${borderColor} 1px solid`,
+      borderWidth: "1px",
+      borderStyle: "solid",
       borderRadius: 4,
       outline: "none",
       transitionDuration: "0.1s",
@@ -66,16 +78,16 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
         letterSpacing: "0.16px",
       },
       "&:hover": {
-        borderColor: borderHover,
+        borderColor: theme.colors["Color/Neutral/Border/colorBorderBold"],
       },
       "&:focus": {
-        borderColor: borderHover,
+        borderColor: theme.colors["Color/Brand/Primary/colorPrimaryBorder"],
         boxShadow: "0px 0px 0px 2px rgba(43, 100, 229, 0.30)",
       },
-      "&:disabled": {
-        border: get(theme, "inputBox.disabledBorder", "#494A4D"),
-        backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
-        color: get(theme, "inputBox.disabledText", "#E6EBEB"),
+      "&:disabled, &:read-only": {
+        color: theme.colors["Color/Neutral/Text/colorTextHeading"],
+        borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
+        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgDisabled"],
         "&:placeholder": {
           color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
         },
@@ -84,15 +96,23 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   },
 );
 
-const InputContainer = styled.div<InputContainerProps>(
-  ({ theme, error, sx }) => ({
+const InputContainer = styled.div<InputContainerProps & InputBoxProps>(
+  ({ theme, error, size, sx }) => ({
     display: "flex",
     flexGrow: 1,
     width: "100%",
-    "& .errorText": {
-      fontSize: 12,
-      color: get(theme, "inputBox.error", "#C51B3F"),
-      marginTop: 3,
+
+    "& .errorState": {
+      color: theme.colors["Color/Brand/Error/colorPrimaryText"],
+      borderColor: theme.colors["Color/Brand/Error/colorPrimaryBorder"],
+    },
+    "& .warningState": {
+      color: theme.colors["Color/Brand/Warning/colorPrimaryText"],
+      borderColor: theme.colors["Color/Brand/Warning/colorPrimaryBorder"],
+    },
+    "& .successState": {
+      color: theme.colors["Color/Brand/Success/colorPrimaryText"],
+      borderColor: theme.colors["Color/Brand/Success/colorPrimaryBorder"],
     },
     "& .textBoxContainer": {
       width: "100%",
@@ -110,19 +130,31 @@ const InputContainer = styled.div<InputContainerProps>(
     },
     "& .overlayAction": {
       position: "absolute",
-      right: 5,
-      top: 8,
+      right: 1,
+      top: 1,
+      "& button": {
+        padding: 6,
+        border: 0,
+        borderRadius: 0,
+        borderTopRightRadius: 4,
+        borderBottomRightRadius: 4,
+        borderLeft: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
+        boxShadow: "none",
+        height: size === "small" ? 28 : 36,
+        "& .min-icon": {
+          width: 16,
+          height: 16,
+        },
+      },
     },
-    "& .inputLabel": {
-      marginBottom: error ? 18 : 0,
-    },
+
     "& .startOverlayIcon": {
       position: "absolute",
-      left: 10,
-      top: 12,
+      left: 8,
+      top: size === "small" ? 6 : 10,
       "& svg": {
-        width: 14,
-        height: 14,
+        width: 16,
+        height: 16,
         fill: get(theme, "inputBox.color", "#07193E"),
       },
     },
@@ -144,10 +176,13 @@ const InputBox: FC<InputBoxProps> = ({
   required,
   startIcon,
   className,
-  error,
+  helper,
+  state,
   sx,
   helpTip,
   helpTipPlacement,
+  size = "small",
+  orientation = "horizontal",
   ...props
 }) => {
   const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
@@ -156,19 +191,28 @@ const InputBox: FC<InputBoxProps> = ({
   let inputBoxWrapperType = type;
 
   if (type === "password" && !overlayIcon) {
-    inputBoxWrapperIcon = toggleTextInput ? (
-      <VisibilityOffIcon />
-    ) : (
-      <VisibilityOnIcon />
-    );
+    inputBoxWrapperIcon = toggleTextInput ? <EyeIcon /> : <EyeIcon />;
     inputBoxWrapperType = toggleTextInput ? "text" : "password";
   }
 
   return (
     <InputContainer
-      error={!!error && error !== ""}
-      sx={sx}
-      className={`inputItem ${className}`}
+      error={!!helper && helper !== ""}
+      sx={{
+        "& .accessoryIcon": {
+          float: "right",
+          position: "absolute",
+          right: overlayIcon || type === "password" ? 8 + 29 : 8,
+          top: "50%",
+          marginTop: size === "small" ? -22 : -18,
+          width: 16,
+          height: 16,
+        },
+        flexDirection: orientation === "vertical" ? "column" : "row",
+        ...sx,
+      }}
+      className={`inputItem inputBox Base_Normal ${className}`}
+      size={size}
     >
       {label !== "" && (
         <InputLabel
@@ -177,6 +221,7 @@ const InputBox: FC<InputBoxProps> = ({
           className={"inputLabel"}
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
+          orientation={orientation}
         >
           {label}
           {required ? "*" : ""}
@@ -198,18 +243,29 @@ const InputBox: FC<InputBoxProps> = ({
           id={id}
           fullWidth
           type={inputBoxWrapperType}
-          error={error}
-          className={"inputRebase"}
+          helper={helper}
+          state={state}
+          className={`inputRebase ${state}State`}
           data-index={index}
           startIcon={startIcon}
           overlayObject={overlayObject}
           overlayIcon={overlayIcon}
           originType={type}
+          size={size}
           {...props}
         />
+        {state === "error" && (
+          <ErrorAlertIcon className={"accessoryIcon errorState"} />
+        )}
+        {state === "warning" && (
+          <WarningAlertIcon className={"accessoryIcon warningState"} />
+        )}
+        {state === "success" && (
+          <SuccessAlertIcon className={"accessoryIcon successState"} />
+        )}
         {inputBoxWrapperIcon && (
           <Box className={"overlayAction"}>
-            <IconButton
+            <Button
               onClick={
                 overlayAction
                   ? () => {
@@ -217,18 +273,26 @@ const InputBox: FC<InputBoxProps> = ({
                     }
                   : () => setToggleTextInput(!toggleTextInput)
               }
-              id={overlayId}
-              size={"25px"}
+              id={`${id}-button`}
               type={"button"}
-            >
-              {inputBoxWrapperIcon}
-            </IconButton>
+              icon={inputBoxWrapperIcon}
+            />
           </Box>
         )}
         {overlayObject && (
           <Box className={"overlayAction"}>{overlayObject}</Box>
         )}
-        {error !== "" && <Box className={"errorText"}>{error}</Box>}
+        {helper !== "" && (
+          <Box
+            sx={{
+              color: themeColors["Color/Neutral/Text/colorTextLabel"],
+              marginTop: 4,
+            }}
+            className={`SM_Normal ${state}State`}
+          >
+            {helper}
+          </Box>
+        )}
       </Box>
     </InputContainer>
   );

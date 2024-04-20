@@ -1446,6 +1446,21 @@ const Template: Story = (args) => {
               <br />
               WebhookIcon
             </div>
+            <div className="story-icon">
+              <cicons.ErrorAlertIcon />
+              <br />
+              ErrorAlertIcon
+            </div>
+            <div className="story-icon">
+              <cicons.WarningAlertIcon />
+              <br />
+              WarningAlertIcon
+            </div>
+            <div className="story-icon">
+              <cicons.SuccessAlertIcon />
+              <br />
+              SuccessAlertIcon
+            </div>
           </IconDisplay>
           <h1>Menu Icons</h1>
           <IconDisplay applyColor={color}>

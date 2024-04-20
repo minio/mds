@@ -14,16 +14,26 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { HTMLAttributes, ReactNode } from "react";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
-import { OverrideTheme } from "../../global/global.types";
+import * as React from "react";
+import { SVGProps } from "react";
 
-export interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
-  children?: ReactNode;
-  sx?: OverrideTheme;
-  noMinWidth?: boolean;
-  htmlFor?: string;
-  helpTip?: ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-  orientation?: "horizontal" | "vertical";
-}
+const SuccessAlertIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      id="Vector"
+      d="M5.99967 7.99998L7.33301 9.33331L9.99967 6.66665M14.6663 7.99998C14.6663 11.6819 11.6816 14.6666 7.99967 14.6666C4.31778 14.6666 1.33301 11.6819 1.33301 7.99998C1.33301 4.31808 4.31778 1.33331 7.99967 1.33331C11.6816 1.33331 14.6663 4.31808 14.6663 7.99998Z"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export default SuccessAlertIcon;

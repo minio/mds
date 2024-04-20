@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import EyeIcon from "./EyeIcon";
+
 export { default as EditorThemeSwitchIcon } from "./EditorThemeSwitchIcon";
 export { default as DisabledIcon } from "./DisabledIcon";
 export { default as FormatDrivesIcon } from "./FormatDrivesIcon";
@@ -255,3 +257,7 @@ export { default as ResourcesIcon } from "./ResourcesIcon";
 export { default as SettingsInMenuIcon } from "./SettingsInMenuIcon";
 export { default as SystemIcon } from "./SystemIcon";
 export { default as ExpandOptionsIcon } from "./ExpandOptionsIcon";
+export { default as ErrorAlertIcon } from "./ErrorAlertIcon";
+export { default as WarningAlertIcon } from "./WarningAlertIcon";
+export { default as SuccessAlertIcon } from "./SuccessAlertIcon";
+export { default as EyeIcon } from "./EyeIcon";
