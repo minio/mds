@@ -1,5 +1,5 @@
 // This file is part of MinIO Design System
-// Copyright (c) 2023 MinIO, Inc.
+// Copyright (c) 2024 MinIO, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -14,29 +14,21 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
-import { OverrideTheme, SelectOption } from "../../global/global.types";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import * as React from "react";
+import { SVGProps } from "react";
 
-export interface RadioGroupProps {
-  label?: string;
-  tooltip?: string;
-  selectorOptions: SelectOption[];
-  currentValue: string;
-  id: string;
-  name: string;
-  disableOptions?: boolean;
-  displayInColumn?: boolean;
-  className?: string;
-  onChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    extraValue?: any,
-  ) => void;
-  sx?: OverrideTheme;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
+const CaretFilledIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={`min-icon`}
+    {...props}
+  >
+    <g id="caret-filled">
+      <path id="Vector" d="M13 5L8 10L3 5H13Z" fill="currentColor" />
+    </g>
+  </svg>
+);
 
-export interface OptionsContainerProps {
-  inColumn: boolean;
-}
+export default CaretFilledIcon;

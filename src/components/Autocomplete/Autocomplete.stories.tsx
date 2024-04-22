@@ -26,7 +26,7 @@ import FormLayout from "../FormLayout/FormLayout";
 import DownloadIcon from "../Icons/DownloadIcon";
 import UploadIcon from "../Icons/UploadIcon";
 import UsersIcon from "../Icons/UsersIcon";
-import { SelectorType } from "../../global/global.types";
+import { SelectOption } from "../../global/global.types";
 import TestIcon from "../../utils/TestIcon";
 
 export default {
@@ -48,7 +48,7 @@ const Template: Story<AutocompleteProps> = ({
     placeholder ? "" : "value1",
   );
 
-  let useOpts: SelectorType[] = [
+  let useOpts: SelectOption[] = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     {

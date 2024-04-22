@@ -1474,6 +1474,16 @@ const Template: Story = (args) => {
               <br />
               EyeOffIcon
             </div>
+            <div className="story-icon">
+              <cicons.CaretIcon />
+              <br />
+              CaretIcon
+            </div>
+            <div className="story-icon">
+              <cicons.CaretFilledIcon />
+              <br />
+              CaretFilledIcon
+            </div>
           </IconDisplay>
           <h1>Menu Icons</h1>
           <IconDisplay applyColor={color}>

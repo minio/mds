@@ -14,11 +14,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import React from "react";
-import { OverrideTheme, SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectOption } from "../../global/global.types";
 
 export interface DropdownSelectorProps {
   id: string;
-  options: SelectorType[];
+  options: SelectOption[];
   selectedOption?: string;
   onSelect: (
     value: string,

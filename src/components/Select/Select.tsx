@@ -27,6 +27,8 @@ import CollapseCaret from "../Icons/CollapseCaret";
 import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import { overridePropsParse } from "../../global/utils";
+import InputBox from "../InputBox/InputBox";
+import { CaretFilledIcon, CaretIcon } from "../Icons";
 
 const SelectBase = styled.div(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", "#E2E2E2");
@@ -149,6 +151,11 @@ const Select: FC<SelectProps> = ({
   placeholder = "",
   helpTip,
   helpTipPlacement,
+  sizeMode = "small",
+  orientation = "horizontal",
+  state = "normal",
+  readOnly = false,
+  helper,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -162,78 +169,54 @@ const Select: FC<SelectProps> = ({
   }
 
   return (
-    <InputContainer sx={sx} className={`inputItem ${className || ""}`}>
-      {label !== "" && (
-        <InputLabel
-          htmlFor={id}
-          noMinWidth={noLabelMinWidth}
-          className={"inputLabel"}
-          helpTip={helpTip}
-          helpTipPlacement={helpTipPlacement}
-        >
-          {label}
-          {required ? "*" : ""}
-          {tooltip !== "" && (
-            <Box className={"tooltipContainer"}>
-              <Tooltip tooltip={tooltip} placement="top">
-                <Box className={tooltip}>
-                  <HelpIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-          )}
-        </InputLabel>
-      )}
-
+    <InputBox
+      className={`select ${className || ""}`}
+      id={id}
+      label={label}
+      required={required}
+      tooltip={tooltip}
+      noLabelMinWidth={noLabelMinWidth}
+      value={value}
+      sx={{
+        ...sx,
+        "& .overlayAction > button": {
+          borderLeft: 0,
+        },
+        "& .accessoryIcon": {
+          display: "none",
+        },
+      }}
+      disabled={disabled}
+      disableErrorUntilFocus={true}
+      name={name}
+      placeholder={placeholder}
+      helpTip={helpTip}
+      helpTipPlacement={helpTipPlacement}
+      sizeMode={sizeMode}
+      helper={helper}
+      orientation={orientation}
+      state={state}
+      readOnly={readOnly}
+      overlayIcon={isOpen ? <CaretIcon /> : <CaretFilledIcon />}
+    >
       <Box
-        id={`${id}-select`}
-        className={"selectContainer"}
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: sizeMode === "small" ? 30 : 38,
+          "&:hover": {
+            cursor: "pointer",
+          },
+        }}
         onClick={(e) => {
           if (!disabled) {
-            setIsOpen(!isOpen);
             setAnchorEl(e.currentTarget);
+            setIsOpen(!isOpen);
           }
         }}
-      >
-        <SelectBase className={disabled ? "disabled" : ""}>
-          <Box
-            sx={{ display: "flex", columnGap: 8, width: "calc(100% - 16px)" }}
-          >
-            {selectedLabel?.icon && (
-              <Box className={"indicatorContainer"}>{selectedLabel?.icon}</Box>
-            )}
-            <Box
-              sx={{
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                minWidth: 0,
-              }}
-            >
-              {fixedLabel && fixedLabel !== "" ? (
-                fixedLabel
-              ) : (
-                <Fragment>
-                  {selectedLabel?.label || (
-                    <i style={{ opacity: 0.6 }}>
-                      {placeholder !== "" ? placeholder : ""}
-                    </i>
-                  )}
-                </Fragment>
-              )}
-            </Box>
-            {selectedLabel?.indicator && (
-              <Box className={"indicatorContainer"}>
-                {selectedLabel?.indicator}
-              </Box>
-            )}
-          </Box>
-          <Box sx={{ display: "flex", width: 16 }}>
-            {isOpen ? <CollapseCaret /> : <ExpandCaret />}
-          </Box>
-        </SelectBase>
-        <input type={"hidden"} id={id} name={name} value={value} />
-      </Box>
+      ></Box>
       {isOpen && (
         <DropdownSelector
           id={`${id}-options-selector`}
@@ -249,7 +232,7 @@ const Select: FC<SelectProps> = ({
           forSelectInput
         />
       )}
-    </InputContainer>
+    </InputBox>
   );
 };
 

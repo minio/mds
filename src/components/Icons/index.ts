@@ -262,3 +262,5 @@ export { default as WarningAlertIcon } from "./WarningAlertIcon";
 export { default as SuccessAlertIcon } from "./SuccessAlertIcon";
 export { default as EyeIcon } from "./EyeIcon";
 export { default as EyeOffIcon } from "./EyeOffIcon";
+export { default as CaretIcon } from "./CaretIcon";
+export { default as CaretFilledIcon } from "./CaretFilledIcon";

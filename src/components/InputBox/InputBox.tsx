@@ -129,6 +129,8 @@ const InputContainer = styled.div<InputContainerProps>(
         "& .min-icon": {
           width: 16,
           height: 16,
+          color: theme.colors["Color/Neutral/Text/colorText"],
+          fill: theme.colors["Color/Neutral/Text/colorText"],
         },
       },
     },
@@ -170,6 +172,7 @@ const InputBox: FC<InputBoxProps> = ({
   orientation = "horizontal",
   onFocus,
   disableErrorUntilFocus = false,
+  children,
   ...props
 }) => {
   const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
@@ -300,6 +303,7 @@ const InputBox: FC<InputBoxProps> = ({
             {helper}
           </Box>
         )}
+        {children}
       </Box>
     </InputContainer>
   );
