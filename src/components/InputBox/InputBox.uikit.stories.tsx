@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
+import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import InputBox from "./InputBox";
@@ -30,210 +30,295 @@ export default {
   argTypes: {},
 } as Meta<typeof InputBox>;
 
-const Template: Story<InputBoxProps> = (args: InputBoxProps) => (
-  <StoryThemeProvider>
-    <GlobalStyles />
-    <h1>Horizontal</h1>
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "2%",
-        "& .inputBox": { flex: "49%" },
-      }}
-    >
-      <InputBox {...args} size={"small"} />
-      <InputBox {...args} size={"large"} />
+const Template: Story<InputBoxProps> = (args: InputBoxProps) => {
+  const [val, setVal] = useState("");
 
-      <InputBox {...args} disabled size={"small"} />
-      <InputBox {...args} disabled size={"large"} />
+  return (
+    <StoryThemeProvider>
+      <GlobalStyles />
+      <h1>Horizontal</h1>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "2%",
+          "& .inputBox": { flex: "49%" },
+        }}
+      >
+        <InputBox {...args} sizeMode={"small"} />
+        <InputBox {...args} sizeMode={"large"} />
 
-      <InputBox {...args} readOnly size={"small"} />
-      <InputBox {...args} readOnly size={"large"} />
+        <InputBox {...args} disabled sizeMode={"small"} />
+        <InputBox {...args} disabled sizeMode={"large"} />
 
-      <InputBox {...args} size={"small"} state={"error"} />
-      <InputBox {...args} size={"large"} state={"error"} />
-      <InputBox {...args} size={"small"} state={"warning"} />
-      <InputBox {...args} size={"large"} state={"warning"} />
-      <InputBox {...args} size={"small"} state={"success"} />
-      <InputBox {...args} size={"large"} state={"success"} />
-    </Box>
-    <h1>Vertical</h1>
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "2%",
-        "& .inputBox": { flex: "49%" },
-      }}
-    >
-      <InputBox {...args} orientation={"vertical"} size={"small"} />
-      <InputBox {...args} orientation={"vertical"} size={"large"} />
-      <InputBox {...args} orientation={"vertical"} disabled size={"small"} />
-      <InputBox {...args} orientation={"vertical"} disabled size={"large"} />
-      <InputBox {...args} orientation={"vertical"} readOnly size={"small"} />
-      <InputBox {...args} orientation={"vertical"} readOnly size={"large"} />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        size={"small"}
-        state={"error"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        size={"large"}
-        state={"error"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        size={"small"}
-        state={"warning"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        size={"large"}
-        state={"warning"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        size={"small"}
-        state={"success"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        size={"large"}
-        state={"success"}
-      />
-    </Box>
-    <h1>Horizontal Icons</h1>
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "2%",
-        "& .inputBox": { flex: "49%" },
-      }}
-    >
-      <InputBox {...args} type={"password"} size={"small"} />
-      <InputBox {...args} type={"password"} size={"large"} />
+        <InputBox {...args} readOnly sizeMode={"small"} />
+        <InputBox {...args} readOnly sizeMode={"large"} />
 
-      <InputBox {...args} type={"password"} disabled size={"small"} />
-      <InputBox {...args} type={"password"} disabled size={"large"} />
+        <InputBox
+          {...args}
+          sizeMode={"small"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          sizeMode={"large"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox {...args} sizeMode={"small"} state={"warning"} />
+        <InputBox {...args} sizeMode={"large"} state={"warning"} />
+        <InputBox {...args} sizeMode={"small"} state={"success"} />
+        <InputBox {...args} sizeMode={"large"} state={"success"} />
+        <InputBox
+          {...args}
+          sizeMode={"small"}
+          helper={
+            "Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem "
+          }
+        />
+        <InputBox
+          {...args}
+          sizeMode={"large"}
+          helper={
+            "Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem Lorem ipsum dolorem "
+          }
+        />
+      </Box>
+      <h1>Vertical</h1>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "2%",
+          "& .inputBox": { flex: "49%" },
+        }}
+      >
+        <InputBox {...args} orientation={"vertical"} sizeMode={"small"} />
+        <InputBox {...args} orientation={"vertical"} sizeMode={"large"} />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          disabled
+          sizeMode={"small"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          disabled
+          sizeMode={"large"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          readOnly
+          sizeMode={"small"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          readOnly
+          sizeMode={"large"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          sizeMode={"small"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          sizeMode={"large"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          sizeMode={"small"}
+          state={"warning"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          sizeMode={"large"}
+          state={"warning"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          sizeMode={"small"}
+          state={"success"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          sizeMode={"large"}
+          state={"success"}
+        />
+      </Box>
+      <h1>Horizontal Icons</h1>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "2%",
+          "& .inputBox": { flex: "49%" },
+        }}
+      >
+        <InputBox {...args} type={"password"} sizeMode={"small"} />
+        <InputBox {...args} type={"password"} sizeMode={"large"} />
 
-      <InputBox {...args} type={"password"} readOnly size={"small"} />
-      <InputBox {...args} type={"password"} readOnly size={"large"} />
+        <InputBox {...args} type={"password"} disabled sizeMode={"small"} />
+        <InputBox {...args} type={"password"} disabled sizeMode={"large"} />
 
-      <InputBox {...args} type={"password"} size={"small"} state={"error"} />
-      <InputBox {...args} type={"password"} size={"large"} state={"error"} />
-      <InputBox {...args} type={"password"} size={"small"} state={"warning"} />
-      <InputBox {...args} type={"password"} size={"large"} state={"warning"} />
-      <InputBox {...args} type={"password"} size={"small"} state={"success"} />
-      <InputBox {...args} type={"password"} size={"large"} state={"success"} />
-    </Box>
-    <h1>Vertical Icons</h1>
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "2%",
-        "& .inputBox": { flex: "49%" },
-      }}
-    >
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        disabled
-        size={"small"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        disabled
-        size={"large"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        readOnly
-        size={"small"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        readOnly
-        size={"large"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-        state={"error"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-        state={"error"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-        state={"warning"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-        state={"warning"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-        state={"success"}
-      />
-      <InputBox
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-        state={"success"}
-      />
-    </Box>
-  </StoryThemeProvider>
-);
+        <InputBox {...args} type={"password"} readOnly sizeMode={"small"} />
+        <InputBox {...args} type={"password"} readOnly sizeMode={"large"} />
+
+        <InputBox
+          {...args}
+          type={"password"}
+          sizeMode={"small"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          type={"password"}
+          sizeMode={"large"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          type={"password"}
+          sizeMode={"small"}
+          state={"warning"}
+        />
+        <InputBox
+          {...args}
+          type={"password"}
+          sizeMode={"large"}
+          state={"warning"}
+        />
+        <InputBox
+          {...args}
+          type={"password"}
+          sizeMode={"small"}
+          state={"success"}
+        />
+        <InputBox
+          {...args}
+          type={"password"}
+          sizeMode={"large"}
+          state={"success"}
+        />
+      </Box>
+      <h1>Vertical Icons</h1>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "2%",
+          "& .inputBox": { flex: "49%" },
+        }}
+      >
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"small"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"large"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          disabled
+          sizeMode={"small"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          disabled
+          sizeMode={"large"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          readOnly
+          sizeMode={"small"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          readOnly
+          sizeMode={"large"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"small"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"large"}
+          state={"error"}
+          disableErrorUntilFocus={true}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"small"}
+          state={"warning"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"large"}
+          state={"warning"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"small"}
+          state={"success"}
+        />
+        <InputBox
+          {...args}
+          orientation={"vertical"}
+          type={"password"}
+          sizeMode={"large"}
+          state={"success"}
+        />
+      </Box>
+    </StoryThemeProvider>
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {
   label: "Label",
   value: "Value",
   placeholder: "Placeholder",
+  // helper: "",
   helper: "Helper Text",
 };

@@ -40,6 +40,7 @@ export interface InputBoxProps
   helpTipPlacement?: CommonHelpTipPlacement;
   sizeMode?: "small" | "large";
   orientation?: "horizontal" | "vertical";
+  disableErrorUntilFocus?: boolean;
 }
 
 export interface InputContainerProps {

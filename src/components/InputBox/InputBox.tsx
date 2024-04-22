@@ -168,6 +168,8 @@ const InputBox: FC<InputBoxProps> = ({
   helpTipPlacement,
   sizeMode = "small",
   orientation = "horizontal",
+  onFocus,
+  disableErrorUntilFocus = false,
   ...props
 }) => {
   const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
@@ -180,15 +182,27 @@ const InputBox: FC<InputBoxProps> = ({
     inputBoxWrapperType = toggleTextInput ? "text" : "password";
   }
 
+  const [hasReceivedFocus, setHasReceivedFocus] = useState<boolean>(false);
+
+  if (
+    !disableErrorUntilFocus &&
+    state === "error" &&
+    !hasReceivedFocus &&
+    helper
+  ) {
+    helper = "";
+    state = "normal";
+  }
+
   return (
     <InputContainer
       sx={{
         "& .accessoryIcon": {
-          float: "right",
           position: "absolute",
           right: overlayIcon || type === "password" ? 8 + 29 : 8,
           top: "50%",
-          marginTop: sizeMode === "small" ? -22 : -18,
+          // marginTop: sizeMode === "small" ? -18 : -18,
+          transform: "translateY(-50%)",
           width: 16,
           height: 16,
         },
@@ -222,55 +236,65 @@ const InputBox: FC<InputBoxProps> = ({
       )}
 
       <Box className={"textBoxContainer"}>
-        {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
-        <InputBase
-          id={id}
-          fullWidth
-          type={inputBoxWrapperType}
-          helper={helper}
-          state={state}
-          className={`Base_Normal inputRebase ${state}State`}
-          data-index={index}
-          startIcon={startIcon}
-          overlayObject={overlayObject}
-          overlayIcon={overlayIcon}
-          originType={type}
-          sizeMode={sizeMode}
-          {...props}
-        />
-        {state === "error" && (
-          <ErrorAlertIcon className={"accessoryIcon errorState"} />
-        )}
-        {state === "warning" && (
-          <WarningAlertIcon className={"accessoryIcon warningState"} />
-        )}
-        {state === "success" && (
-          <SuccessAlertIcon className={"accessoryIcon successState"} />
-        )}
-        {inputBoxWrapperIcon && (
-          <Box className={"overlayAction"}>
-            <Button
-              onClick={
-                overlayAction
-                  ? () => {
-                      overlayAction();
-                    }
-                  : () => setToggleTextInput(!toggleTextInput)
+        <Box sx={{ position: "relative" }}>
+          {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
+          <InputBase
+            id={id}
+            fullWidth
+            type={inputBoxWrapperType}
+            helper={helper}
+            state={state}
+            className={`Base_Normal inputRebase ${state}State`}
+            data-index={index}
+            startIcon={startIcon}
+            overlayObject={overlayObject}
+            overlayIcon={overlayIcon}
+            originType={type}
+            sizeMode={sizeMode}
+            onFocus={(e) => {
+              setHasReceivedFocus(true);
+              if (onFocus) {
+                onFocus(e);
               }
-              id={`${id}-button`}
-              type={"button"}
-              icon={inputBoxWrapperIcon}
-            />
-          </Box>
-        )}
-        {overlayObject && (
-          <Box className={"overlayAction"}>{overlayObject}</Box>
-        )}
-        {helper !== "" && (
+            }}
+            {...props}
+          />
+          {state === "error" && (
+            <ErrorAlertIcon className={"accessoryIcon errorState"} />
+          )}
+          {state === "warning" && (
+            <WarningAlertIcon className={"accessoryIcon warningState"} />
+          )}
+          {state === "success" && (
+            <SuccessAlertIcon className={"accessoryIcon successState"} />
+          )}
+          {inputBoxWrapperIcon && (
+            <Box className={"overlayAction"}>
+              <Button
+                onClick={
+                  overlayAction
+                    ? () => {
+                        overlayAction();
+                      }
+                    : () => setToggleTextInput(!toggleTextInput)
+                }
+                id={`${id}-button`}
+                type={"button"}
+                icon={inputBoxWrapperIcon}
+              />
+            </Box>
+          )}
+          {overlayObject && (
+            <Box className={"overlayAction"}>{overlayObject}</Box>
+          )}
+        </Box>
+        {helper !== undefined && (
           <Box
             sx={(theme) => ({
               color: theme.colors["Color/Neutral/Text/colorTextLabel"],
               marginTop: 4,
+              lineHeight: "16px",
+              minHeight: 16,
             })}
             className={`SM_Normal ${state}State`}
           >
