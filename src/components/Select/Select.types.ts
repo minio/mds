@@ -14,11 +14,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { OverrideTheme, SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectOption } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface SelectProps {
-  options: SelectorType[];
+  options: SelectOption[];
   value?: string;
   id: string;
   name?: string;
@@ -34,4 +34,8 @@ export interface SelectProps {
   sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  size?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  state?: "normal" | "error" | "success" | "warning";
+  readOnly?: boolean;
 }

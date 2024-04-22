@@ -170,6 +170,7 @@ const InputBox: FC<InputBoxProps> = ({
   orientation = "horizontal",
   onFocus,
   disableErrorUntilFocus = false,
+  children,
   ...props
 }) => {
   const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
@@ -300,6 +301,7 @@ const InputBox: FC<InputBoxProps> = ({
             {helper}
           </Box>
         )}
+        {children}
       </Box>
     </InputContainer>
   );

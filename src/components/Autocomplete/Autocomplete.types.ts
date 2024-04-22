@@ -14,11 +14,11 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { OverrideTheme, SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectOption } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface AutocompleteProps {
-  options: SelectorType[];
+  options: SelectOption[];
   value?: string;
   id: string;
   name?: string;

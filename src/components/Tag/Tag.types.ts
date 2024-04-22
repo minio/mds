@@ -14,14 +14,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { ReactNode } from "react";
+import React from "react";
 import { OverrideTheme } from "../../global/global.types";
 
 export interface TagMainProps {
   label: string;
   onDelete?: (item: string) => void;
   id: string;
-  icon?: ReactNode;
+  icon?: React.ReactNode;
 }
 
 export interface TagConstructProps {
