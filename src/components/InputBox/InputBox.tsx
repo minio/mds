@@ -201,7 +201,6 @@ const InputBox: FC<InputBoxProps> = ({
           position: "absolute",
           right: overlayIcon || type === "password" ? 8 + 29 : 8,
           top: "50%",
-          // marginTop: sizeMode === "small" ? -18 : -18,
           transform: "translateY(-50%)",
           width: 16,
           height: 16,

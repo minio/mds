@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import InputBox from "./InputBox";
@@ -31,8 +31,6 @@ export default {
 } as Meta<typeof InputBox>;
 
 const Template: Story<InputBoxProps> = (args: InputBoxProps) => {
-  const [val, setVal] = useState("");
-
   return (
     <StoryThemeProvider>
       <GlobalStyles />
@@ -319,6 +317,5 @@ Default.args = {
   label: "Label",
   value: "Value",
   placeholder: "Placeholder",
-  // helper: "",
   helper: "Helper Text",
 };
