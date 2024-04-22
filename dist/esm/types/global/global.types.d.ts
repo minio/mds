@@ -409,7 +409,7 @@ export interface ThemeDefinitionProps {
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
 }
-export interface SelectorType {
+export interface SelectOption {
   label: string;
   value: string;
   icon?: React.ReactNode;
