@@ -129,6 +129,8 @@ const InputContainer = styled.div<InputContainerProps>(
         "& .min-icon": {
           width: 16,
           height: 16,
+          color: theme.colors["Color/Neutral/Text/colorText"],
+          fill: theme.colors["Color/Neutral/Text/colorText"],
         },
       },
     },

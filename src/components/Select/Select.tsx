@@ -28,6 +28,7 @@ import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import { overridePropsParse } from "../../global/utils";
 import InputBox from "../InputBox/InputBox";
+import { CaretFilledIcon, CaretIcon } from "../Icons";
 
 const SelectBase = styled.div(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", "#E2E2E2");
@@ -185,6 +186,7 @@ const Select: FC<SelectProps> = ({
       orientation={orientation}
       state={state}
       readOnly={readOnly}
+      overlayIcon={isOpen ? <CaretIcon /> : <CaretFilledIcon />}
     >
       <Box
         sx={{
