@@ -2439,7 +2439,7 @@
     chai "^4.4.1"
     util "^0.12.4"
 
-"@storybook/theming@8.0.8", "@storybook/theming@^8.0.0", "@storybook/theming@^8.0.8":
+"@storybook/theming@8.0.8":
   version "8.0.8"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-8.0.8.tgz#ef72edf6b7f37c0e7e2d6134eccfdff54618d8c6"
   integrity sha512-43hkNz7yo8Bl97AO2WbxIGprUqMhUZyK9g8383bd30gSxy9nfND/bdSdcgmA8IokDn8qp37Q4QmxtUZdhjMzZQ==
@@ -2449,7 +2449,7 @@
     "@storybook/global" "^5.0.0"
     memoizerific "^1.11.3"
 
-"@storybook/theming@8.0.9":
+"@storybook/theming@8.0.9", "@storybook/theming@^8.0.0", "@storybook/theming@^8.0.9":
   version "8.0.9"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-8.0.9.tgz#cb5a4f6ddc4a15faa64905cfad60422c3db252f2"
   integrity sha512-jgfDuYoiNMMirQiASN3Eg0hGDXsEtpdAcMxyShqYGwu9elxgD9yUnYC2nSckYsM74a3ZQ3JaViZ9ZFSe2FHmeQ==
