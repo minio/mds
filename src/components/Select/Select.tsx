@@ -176,7 +176,7 @@ const Select: FC<SelectProps> = ({
       required={required}
       tooltip={tooltip}
       noLabelMinWidth={noLabelMinWidth}
-      value={value}
+      value={selectedLabel?.label}
       sx={{
         ...sx,
         "& .overlayAction > button": {
@@ -198,6 +198,7 @@ const Select: FC<SelectProps> = ({
       state={state}
       readOnly={readOnly}
       overlayIcon={isOpen ? <CaretIcon /> : <CaretFilledIcon />}
+      startIcon={selectedLabel?.icon}
     >
       <Box
         sx={{
