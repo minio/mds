@@ -56,21 +56,21 @@ const Template: Story<SelectProps> = (args: SelectProps) => (
         "& .inputBox": { flex: "49%" },
       }}
     >
-      <Select {...args} size={"small"} />
-      <Select {...args} size={"large"} />
+      <Select {...args} sizeMode={"small"} />
+      <Select {...args} sizeMode={"large"} />
 
-      <Select {...args} disabled size={"small"} />
-      <Select {...args} disabled size={"large"} />
+      <Select {...args} disabled sizeMode={"small"} />
+      <Select {...args} disabled sizeMode={"large"} />
 
-      <Select {...args} readOnly size={"small"} />
-      <Select {...args} readOnly size={"large"} />
+      <Select {...args} readOnly sizeMode={"small"} />
+      <Select {...args} readOnly sizeMode={"large"} />
 
-      <Select {...args} size={"small"} state={"error"} />
-      <Select {...args} size={"large"} state={"error"} />
-      <Select {...args} size={"small"} state={"warning"} />
-      <Select {...args} size={"large"} state={"warning"} />
-      <Select {...args} size={"small"} state={"success"} />
-      <Select {...args} size={"large"} state={"success"} />
+      <Select {...args} sizeMode={"small"} state={"error"} />
+      <Select {...args} sizeMode={"large"} state={"error"} />
+      <Select {...args} sizeMode={"small"} state={"warning"} />
+      <Select {...args} sizeMode={"large"} state={"warning"} />
+      <Select {...args} sizeMode={"small"} state={"success"} />
+      <Select {...args} sizeMode={"large"} state={"success"} />
     </Box>
     <h1>Vertical</h1>
     <Box
@@ -81,163 +81,46 @@ const Template: Story<SelectProps> = (args: SelectProps) => (
         "& .inputBox": { flex: "49%" },
       }}
     >
-      <Select {...args} orientation={"vertical"} size={"small"} />
-      <Select {...args} orientation={"vertical"} size={"large"} />
-      <Select {...args} orientation={"vertical"} disabled size={"small"} />
-      <Select {...args} orientation={"vertical"} disabled size={"large"} />
-      <Select {...args} orientation={"vertical"} readOnly size={"small"} />
-      <Select {...args} orientation={"vertical"} readOnly size={"large"} />
+      <Select {...args} orientation={"vertical"} sizeMode={"small"} />
+      <Select {...args} orientation={"vertical"} sizeMode={"large"} />
+      <Select {...args} orientation={"vertical"} disabled sizeMode={"small"} />
+      <Select {...args} orientation={"vertical"} disabled sizeMode={"large"} />
+      <Select {...args} orientation={"vertical"} readOnly sizeMode={"small"} />
+      <Select {...args} orientation={"vertical"} readOnly sizeMode={"large"} />
       <Select
         {...args}
         orientation={"vertical"}
-        size={"small"}
+        sizeMode={"small"}
         state={"error"}
       />
       <Select
         {...args}
         orientation={"vertical"}
-        size={"large"}
+        sizeMode={"large"}
         state={"error"}
       />
       <Select
         {...args}
         orientation={"vertical"}
-        size={"small"}
+        sizeMode={"small"}
         state={"warning"}
       />
       <Select
         {...args}
         orientation={"vertical"}
-        size={"large"}
+        sizeMode={"large"}
         state={"warning"}
       />
       <Select
         {...args}
         orientation={"vertical"}
-        size={"small"}
+        sizeMode={"small"}
         state={"success"}
       />
       <Select
         {...args}
         orientation={"vertical"}
-        size={"large"}
-        state={"success"}
-      />
-    </Box>
-    <h1>Horizontal Icons</h1>
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "2%",
-        "& .inputBox": { flex: "49%" },
-      }}
-    >
-      <Select {...args} type={"password"} size={"small"} />
-      <Select {...args} type={"password"} size={"large"} />
-
-      <Select {...args} type={"password"} disabled size={"small"} />
-      <Select {...args} type={"password"} disabled size={"large"} />
-
-      <Select {...args} type={"password"} readOnly size={"small"} />
-      <Select {...args} type={"password"} readOnly size={"large"} />
-
-      <Select {...args} type={"password"} size={"small"} state={"error"} />
-      <Select {...args} type={"password"} size={"large"} state={"error"} />
-      <Select {...args} type={"password"} size={"small"} state={"warning"} />
-      <Select {...args} type={"password"} size={"large"} state={"warning"} />
-      <Select {...args} type={"password"} size={"small"} state={"success"} />
-      <Select {...args} type={"password"} size={"large"} state={"success"} />
-    </Box>
-    <h1>Vertical Icons</h1>
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        gap: "2%",
-        "& .inputBox": { flex: "49%" },
-      }}
-    >
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        disabled
-        size={"small"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        disabled
-        size={"large"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        readOnly
-        size={"small"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        readOnly
-        size={"large"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-        state={"error"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-        state={"error"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-        state={"warning"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
-        state={"warning"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"small"}
-        state={"success"}
-      />
-      <Select
-        {...args}
-        orientation={"vertical"}
-        type={"password"}
-        size={"large"}
+        sizeMode={"large"}
         state={"success"}
       />
     </Box>
