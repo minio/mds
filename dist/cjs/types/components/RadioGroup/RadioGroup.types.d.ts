@@ -1,10 +1,10 @@
 import React from "react";
-import { OverrideTheme, SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectOption } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface RadioGroupProps {
   label?: string;
   tooltip?: string;
-  selectorOptions: SelectorType[];
+  selectorOptions: SelectOption[];
   currentValue: string;
   id: string;
   name: string;

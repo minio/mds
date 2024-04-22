@@ -1,8 +1,8 @@
 import React from "react";
-import { OverrideTheme, SelectorType } from "../../global/global.types";
+import { OverrideTheme, SelectOption } from "../../global/global.types";
 export interface DropdownSelectorProps {
   id: string;
-  options: SelectorType[];
+  options: SelectOption[];
   selectedOption?: string;
   onSelect: (
     value: string,

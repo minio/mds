@@ -421,7 +421,7 @@ interface ThemeDefinitionProps {
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
 }
-interface SelectorType {
+interface SelectOption {
   label: string;
   value: string;
   icon?: React__default.ReactNode;
@@ -777,9 +777,9 @@ interface BackLinkProps
 declare const BackLink: FC<BackLinkProps>;
 
 interface HelpBoxProps {
-  icon?: ReactNode;
+  icon?: React__default.ReactNode;
   title: string;
-  help: string | ReactNode | ReactNode[];
+  help: string | React__default.ReactNode | React__default.ReactNode[];
 }
 
 declare const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>>;
@@ -862,6 +862,7 @@ interface InputBoxProps
   helpTipPlacement?: CommonHelpTipPlacement;
   sizeMode?: "small" | "large";
   orientation?: "horizontal" | "vertical";
+  disableErrorUntilFocus?: boolean;
 }
 interface InputContainerProps {
   children?: React__default.ReactNode;
@@ -1021,7 +1022,7 @@ declare const Switch: FC<
 >;
 
 interface SelectProps {
-  options: SelectorType[];
+  options: SelectOption[];
   value?: string;
   id: string;
   name?: string;
@@ -1037,13 +1038,18 @@ interface SelectProps {
   sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  state?: "normal" | "error" | "success" | "warning";
+  readOnly?: boolean;
+  helper?: string;
 }
 
 declare const Select: FC<SelectProps>;
 
 interface DropdownSelectorProps {
   id: string;
-  options: SelectorType[];
+  options: SelectOption[];
   selectedOption?: string;
   onSelect: (
     value: string,
@@ -1074,7 +1080,7 @@ declare const DropdownSelector: FC<DropdownSelectorProps>;
 interface RadioGroupProps {
   label?: string;
   tooltip?: string;
-  selectorOptions: SelectorType[];
+  selectorOptions: SelectOption[];
   currentValue: string;
   id: string;
   name: string;
@@ -1275,7 +1281,7 @@ interface TagMainProps {
   label: string;
   onDelete?: (item: string) => void;
   id: string;
-  icon?: ReactNode;
+  icon?: React__default.ReactNode;
 }
 interface TagConstructProps {
   color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
@@ -1420,7 +1426,7 @@ declare const Accordion: FC<AccordionProps>;
 declare const HelpTip: FC<HelpTipProps>;
 
 interface AutocompleteProps {
-  options: SelectorType[];
+  options: SelectOption[];
   value?: string;
   id: string;
   name?: string;
@@ -2630,6 +2636,14 @@ declare const EyeOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CaretIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CaretFilledIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3158,6 +3172,8 @@ export {
   CallHomeMenuIcon,
   CancelledAudioIcon,
   CancelledIcon,
+  CaretFilledIcon,
+  CaretIcon,
   CatalogIcon,
   CatalogMetricsIcon$1 as CatalogMetricsIcon,
   CertificateIcon,
@@ -3495,8 +3511,8 @@ export {
   Select,
   SelectAllIcon,
   SelectMultipleIcon,
+  SelectOption,
   SelectProps,
-  SelectorType,
   SendMessageIcon,
   ServersIcon,
   ServiceAccountCredentialsIcon,
