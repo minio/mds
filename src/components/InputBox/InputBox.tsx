@@ -52,6 +52,7 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       borderWidth: "1px",
       borderStyle: "solid",
       borderRadius: 4,
+      borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
       outline: "none",
       transitionDuration: "0.1s",
       backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
