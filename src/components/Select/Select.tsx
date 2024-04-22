@@ -151,10 +151,11 @@ const Select: FC<SelectProps> = ({
   placeholder = "",
   helpTip,
   helpTipPlacement,
-  size = "small",
+  sizeMode = "small",
   orientation = "horizontal",
   state = "normal",
   readOnly = false,
+  helper,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -176,13 +177,23 @@ const Select: FC<SelectProps> = ({
       tooltip={tooltip}
       noLabelMinWidth={noLabelMinWidth}
       value={value}
-      sx={sx}
+      sx={{
+        ...sx,
+        "& .overlayAction > button": {
+          borderLeft: 0,
+        },
+        "& .accessoryIcon": {
+          display: "none",
+        },
+      }}
       disabled={disabled}
+      disableErrorUntilFocus={true}
       name={name}
       placeholder={placeholder}
       helpTip={helpTip}
       helpTipPlacement={helpTipPlacement}
-      size={size}
+      sizeMode={sizeMode}
+      helper={helper}
       orientation={orientation}
       state={state}
       readOnly={readOnly}
@@ -194,7 +205,7 @@ const Select: FC<SelectProps> = ({
           top: 0,
           left: 0,
           width: "100%",
-          height: size === "small" ? 30 : 38,
+          height: sizeMode === "small" ? 30 : 38,
           "&:hover": {
             cursor: "pointer",
           },

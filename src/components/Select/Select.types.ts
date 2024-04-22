@@ -34,8 +34,9 @@ export interface SelectProps {
   sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
-  size?: "small" | "large";
+  sizeMode?: "small" | "large";
   orientation?: "horizontal" | "vertical";
   state?: "normal" | "error" | "success" | "warning";
   readOnly?: boolean;
+  helper?: string;
 }
