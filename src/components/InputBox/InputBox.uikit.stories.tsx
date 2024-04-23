@@ -43,6 +43,9 @@ const Template: Story<InputBoxProps> = (args: InputBoxProps) => {
           "& .inputBox": { flex: "49%" },
         }}
       >
+        <InputBox {...args} value={""} sizeMode={"small"} />
+        <InputBox {...args} value={""} sizeMode={"large"} />
+
         <InputBox {...args} sizeMode={"small"} />
         <InputBox {...args} sizeMode={"large"} />
 
