@@ -57,6 +57,9 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       transitionDuration: "0.1s",
       backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
       letterSpacing: "0.16px",
+      "&.filled": {
+        borderColor: theme.colors["Color/Neutral/Border/colorBorderBold"],
+      },
       "&:placeholder": {
         color: get(theme, "inputBox.placeholderColor", "#858585"),
         opacity: 1,
@@ -174,6 +177,7 @@ const InputBox: FC<InputBoxProps> = ({
   onFocus,
   disableErrorUntilFocus = false,
   children,
+  value,
   ...props
 }) => {
   const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
@@ -247,7 +251,8 @@ const InputBox: FC<InputBoxProps> = ({
             type={inputBoxWrapperType}
             helper={helper}
             state={state}
-            className={`Base_Normal inputRebase ${state}State`}
+            className={`Base_Normal inputRebase ${state}State ${value && value !== "" ? "filled" : ""}`}
+            value={value}
             data-index={index}
             startIcon={startIcon}
             overlayObject={overlayObject}
