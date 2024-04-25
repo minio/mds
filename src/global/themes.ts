@@ -807,7 +807,7 @@ export const lightTheme: ThemeDefinitionProps = {
     textColor: lightV2.modalTitleColor,
     linkColor: lightV2.modalCloseColor,
   },
-  actionsBar: {
+  buttonGroup: {
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
     labelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
     activeBackground:
@@ -823,6 +823,9 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledBackground:
       themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
     background: "transparent",
+    secondaryBackground: "transparent",
+    secondaryLabelColor:
+      themeColors["Color/Brand/Error/colorPrimary"].lightMode,
   },
   dropdownOptions: {
     optionLabel: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
@@ -1370,7 +1373,7 @@ export const darkTheme: ThemeDefinitionProps = {
       borderColor: themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
     },
   },
-  actionsBar: {
+  buttonGroup: {
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].darkMode,
     labelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
     activeBackground:
@@ -1385,5 +1388,7 @@ export const darkTheme: ThemeDefinitionProps = {
     disabledBackground:
       themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
     background: "transparent",
+    secondaryBackground: "transparent",
+    secondaryLabelColor: themeColors["Color/Brand/Error/colorPrimary"].darkMode,
   },
 };
