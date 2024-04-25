@@ -20,15 +20,16 @@ import get from "lodash/get";
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { themeColors } from "../../global/themeColors";
 
-const ActionsBarMain = styled.div<ButtonGroupProps>(
+const ButtonGroupMain = styled.div<ButtonGroupProps>(
   ({ theme, sx, displayLabels }) => ({
     display: "inline-flex",
     flexDirection: "row" as const,
-    border: `1px solid ${get(theme, "actionsBar.border", lightV2.colorBorderSubtle)}`,
+    border: `1px solid ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
     backgroundColor: get(
       theme,
-      "actionsBar.background",
+      "buttonGroup.background",
       lightV2.bgColorBgShell,
     ),
     borderRadius: 4,
@@ -37,7 +38,7 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
     height: 28,
     boxSizing: "border-box" as const,
     "& > *:not(:last-child)": {
-      borderRight: `1px solid   ${get(theme, "actionsBar.border", lightV2.colorBorderSubtle)}`,
+      borderRight: `1px solid   ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
     },
     "& button": {
       display: "flex",
@@ -52,11 +53,16 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
       fontWeight: 400,
       letterSpacing: "0.16px",
       fontFamily: "'Geist', sans-serif",
-      color: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
+      color: get(
+        theme,
+        "buttonGroup.labelColor",
+        themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+      ),
       padding: displayLabels ? "4px 12px" : "0 6px",
       height: 26,
       width: displayLabels ? "initial" : 44,
       gap: 4,
+      background: "transparent",
       "& .buttonIcon": {
         height: 16,
         "& > svg": {
@@ -64,7 +70,25 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
           height: 16,
           minWidth: 16,
           minHeight: 16,
-          fill: get(theme, "actionsBar.labelColor", lightV2.colorTextLabel),
+          fill: get(
+            theme,
+            "buttonGroup.labelColor",
+            themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+          ),
+        },
+      },
+      "&.button-secondary": {
+        color: get(
+          theme,
+          "buttonGroup.secondaryLabelColor",
+          themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+        ),
+        "& .buttonIcon > svg": {
+          fill: get(
+            theme,
+            "buttonGroup.secondaryLabelColor",
+            themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+          ),
         },
       },
       "& .button-label, & .menu-option": {
@@ -76,55 +100,81 @@ const ActionsBarMain = styled.div<ButtonGroupProps>(
         cursor: "not-allowed",
         color: get(
           theme,
-          "actionsBar.disabledLabelColor",
-          lightV2.colorTextDisabled,
+          "buttonGroup.disabledLabelColor",
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
         ),
         backgroundColor: get(
           theme,
-          "actionsBar.disabledBackground",
-          lightV2.colorBgDisabled,
+          "buttonGroup.disabledBackground",
+          themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
         ),
         "& .buttonIcon > svg": {
           fill: get(
             theme,
-            "actionsBar.disabledLabelColor",
-            lightV2.colorTextDisabled,
+            "buttonGroup.disabledLabelColor",
+            themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
           ),
         },
       },
       "&:hover:not(:disabled)": {
-        backgroundColor: get(
+        background: get(
           theme,
-          "actionsBar.hoverBackground",
-          lightV2.bgColorBgShell,
+          "buttonGroup.hoverBackground",
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
         ),
-        color: get(theme, "actionsBar.hoverLabelColor", lightV2.colorTextLabel),
-        borderColor: get(theme, "actionsBar.border", lightV2.colorBorderSubtle),
+        color: get(
+          theme,
+          "buttonGroup.hoverLabelColor",
+          themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+        ),
+        borderColor: get(
+          theme,
+          "buttonGroup.border",
+          themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
+        ),
         "& .buttonIcon > svg": {
           fill: get(
             theme,
-            "actionsBar.hoverLabelColor",
-            lightV2.colorTextLabel,
+            "buttonGroup.hoverLabelColor",
+            themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
           ),
+        },
+        "&.button-secondary": {
+          color: get(
+            theme,
+            "buttonGroup.secondaryLabelColor",
+            themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+          ),
+          "& .buttonIcon > svg": {
+            fill: get(
+              theme,
+              "buttonGroup.secondaryLabelColor",
+              themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+            ),
+          },
         },
       },
       "&:active": {
         backgroundColor: get(
           theme,
-          "actionsBar.activeBackground",
-          lightV2.bgColorBgShell,
+          "buttonGroup.activeBackground",
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
         ),
         color: get(
           theme,
-          "actionsBar.activeLabelColor",
-          lightV2.colorTextLabel,
+          "buttonGroup.activeLabelColor",
+          themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
         ),
-        borderColor: get(theme, "actionsBar.border", lightV2.colorBorderSubtle),
+        borderColor: get(
+          theme,
+          "buttonGroup.border",
+          themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
+        ),
         "& .buttonIcon > svg": {
           fill: get(
             theme,
-            "actionsBar.activeLabelColor",
-            lightV2.colorTextLabel,
+            "buttonGroup.activeLabelColor",
+            themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
           ),
         },
       },
@@ -140,9 +190,9 @@ const ButtonGroup: FC<ButtonGroupProps> = ({
   ...restProps
 }) => {
   return (
-    <ActionsBarMain {...restProps} sx={sx} displayLabels={displayLabels}>
+    <ButtonGroupMain {...restProps} sx={sx} displayLabels={displayLabels}>
       {children}
-    </ActionsBarMain>
+    </ButtonGroupMain>
   );
 };
 
