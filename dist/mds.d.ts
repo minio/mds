@@ -328,7 +328,7 @@ interface ValuePairThemeProps {
   textColor: string;
   linkColor: string;
 }
-interface ActionsBarThemeProps {
+interface ButtonGroupThemeProps {
   border: string;
   labelColor: string;
   background: string;
@@ -338,6 +338,8 @@ interface ActionsBarThemeProps {
   activeLabelColor: string;
   disabledLabelColor: string;
   disabledBackground: string;
+  secondaryLabelColor: string;
+  secondaryBackground: string;
 }
 interface DropdownOptionsThemeProps {
   hoverOptionBG: string;
@@ -416,7 +418,7 @@ interface ThemeDefinitionProps {
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
-  actionsBar?: ActionsBarThemeProps;
+  buttonGroup?: ButtonGroupThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
@@ -3099,7 +3101,6 @@ export {
   ActionItem,
   ActionLink,
   ActionLinkProps,
-  ActionsBarThemeProps,
   ActionsList,
   ActionsListPanelProps,
   ActionsListProps,
@@ -3163,6 +3164,7 @@ export {
   Button,
   ButtonGroup,
   ButtonGroupProps,
+  ButtonGroupThemeProps,
   ButtonProps,
   ButtonThemeProps,
   ButtonThemeStatesProps,
