@@ -212,22 +212,6 @@ const GlobalStyles = createGlobalStyle`
     }
     
     /* Text Vars */
-    .TY_Normal {
-        font-family: 'Geist', sans-serif;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 84;
-        line-height: 16px;
-        letter-spacing: 0.5px;
-    }
-    .TY_Strong {
-        font-family: 'Geist', sans-serif;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 126;
-        line-height: 16px;
-        letter-spacing: 0.5px;
-    }
     .SM_Normal {
         font-family: 'Geist', sans-serif;
         font-size: 12px;
@@ -238,40 +222,56 @@ const GlobalStyles = createGlobalStyle`
     }
     .SM_Strong {
         font-family: 'Geist', sans-serif;
-        font-size: 14px;
+        font-size: 12px;
         font-style: normal;
-        font-weight: 126;
-        line-height: 20px; 
-        letter-spacing: 0.16px;
+        font-weight: 600;
+        line-height: 16px;
+        letter-spacing: 0.5px;
     }
     .Base_Normal {
         font-family: 'Geist', sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0.16px;
+        line-height: 16px;
+        letter-spacing: 0.5px;
     }
     .Base_Strong {
         font-family: 'Geist', sans-serif;
-        font-size: 16px;
+        font-size: 14px;
         font-style: normal;
-        font-weight: 126;
-        line-height: 24px;
+        font-weight: 600;
+        line-height: 20px; 
         letter-spacing: 0.16px;
     }
     .LG_Normal {
         font-family: 'Geist', sans-serif;
-        font-size: 20px;
+        font-size: 16px;
         font-style: normal;
-        font-weight: 84;
-        line-height: 28px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.16px;
     }
     .LG_Strong {
         font-family: 'Geist', sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.16px;
+    }
+    .XL_Normal {
+        font-family: 'Geist', sans-serif;
+        font-size: 20px;
+        font-style: 400;
+        font-weight: 84;
+        line-height: 28px;
+    }
+    .XL_Strong {
+        font-family: 'Geist', sans-serif;
         font-size: 20px;
         font-style: normal;
-        font-weight: 126;
+        font-weight: 600;
         line-height: 28px;
     }
     `;
