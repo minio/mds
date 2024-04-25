@@ -29,6 +29,7 @@ import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
 import EditIcon from "../Icons/EditIcon";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import AddIcon from "../Icons/AddIcon";
+import DeleteIcon from "../Icons/DeleteIcon";
 
 export default {
   title: "MDS/Forms/ButtonGroup",
@@ -57,10 +58,19 @@ const Template: Story<ButtonGroupProps> = (args) => (
       <Button id={"test"} icon={<TestIcon />} disabled iconLocation={"start"}>
         Button one
       </Button>
+      <Button
+        id="secondaryButton"
+        variant={"secondary"}
+        icon={<DeleteIcon />}
+        iconLocation={"start"}
+      >
+        Delete
+      </Button>
       <ExpandMenuOption id={"expand-option-test"} icon={<EditIcon />}>
         Expand Option Only
       </ExpandMenuOption>
       <ExpandMenu
+        id={"expand-menu"}
         icon={<AddIcon />}
         label={"Expand Menu"}
         dropMenuPosition={"end"}

@@ -373,7 +373,7 @@ export interface ValuePairThemeProps {
   linkColor: string;
 }
 
-export interface ActionsBarThemeProps {
+export interface ButtonGroupThemeProps {
   border: string;
   labelColor: string;
   background: string;
@@ -383,6 +383,8 @@ export interface ActionsBarThemeProps {
   activeLabelColor: string;
   disabledLabelColor: string;
   disabledBackground: string;
+  secondaryLabelColor: string;
+  secondaryBackground: string;
 }
 
 export interface DropdownOptionsThemeProps {
@@ -464,7 +466,7 @@ export interface ThemeDefinitionProps {
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
-  actionsBar?: ActionsBarThemeProps;
+  buttonGroup?: ButtonGroupThemeProps;
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
