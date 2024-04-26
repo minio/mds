@@ -26,7 +26,6 @@ import Box from "../Box/Box";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
 import BreadcrumbButton from "./BreadcrumbButton";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import Button from "../Button/Button";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
@@ -52,6 +51,7 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
       marginLeft: 15,
       marginRight: 10,
       overflow: "hidden",
+      userSelect: "none",
       "& .divider": {
         boxSizing: "content-box",
         display: "inline-flex",
@@ -83,6 +83,9 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
             themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
           ),
         },
+      },
+      "& .last": {
+        pointerEvents: "none",
       },
     },
     "& .slashSpacingStyle": {
@@ -182,33 +185,43 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
             <Divider />
             {collapsedOptions}
             <Divider />
-            {itSlide.map((itm, index) => (
-              <Fragment>
-                {index !== 0 && <Divider />}
-                <BreadcrumbButton
-                  id={`breadcrumb-option-${itm.label}`}
-                  onClick={() => clickFunction(itm)}
-                  className={`${index === itSlide.length - 1 && markCurrentItem ? "current" : ""}`}
-                >
-                  {itm.label}
-                </BreadcrumbButton>
-              </Fragment>
-            ))}
+            {itSlide.map((itm, index) => {
+              const lastItem = index === itSlide.length - 1;
+
+              return (
+                <Fragment>
+                  {index !== 0 && <Divider />}
+                  <BreadcrumbButton
+                    id={`breadcrumb-option-${itm.label}`}
+                    onClick={() => clickFunction(itm)}
+                    className={`${lastItem ? "last" : ""} ${lastItem && markCurrentItem ? "current" : ""}`}
+                  >
+                    {itm.label}
+                  </BreadcrumbButton>
+                </Fragment>
+              );
+            })}
           </Fragment>
         ) : (
           <Fragment>
-            {itSlide.map((itm, index) => (
-              <Fragment>
-                {index !== 0 && <Divider />}
-                <BreadcrumbButton
-                  id={`breadcrumb-option-${itm.label}`}
-                  onClick={() => clickFunction(itm)}
-                  className={`${index === options.length - 1 && markCurrentItem ? "current" : ""}`}
-                >
-                  {itm.label}
-                </BreadcrumbButton>
-              </Fragment>
-            ))}
+            {itSlide.map((itm, index) => {
+              const lastItem = index === options.length - 1;
+
+              return (
+                <Fragment>
+                  {index !== 0 && <Divider />}
+                  <BreadcrumbButton
+                    id={`breadcrumb-option-${itm.label}`}
+                    onClick={() => {
+                      clickFunction(itm);
+                    }}
+                    className={`${lastItem ? "last" : ""} ${lastItem && markCurrentItem ? "current" : ""}`}
+                  >
+                    {itm.label}
+                  </BreadcrumbButton>
+                </Fragment>
+              );
+            })}
             {children!!}
           </Fragment>
         )}
