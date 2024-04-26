@@ -40,6 +40,8 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, startIcon, overlayIcon, overlayObject, originType, sizeMode }) => {
     return {
       lineHeight: "20px",
+      height: sizeMode === "small" ? 30 : 38,
+      boxSizing: "border-box",
       width: "100%",
       paddingTop: sizeMode === "small" ? 4 : 8,
       paddingBottom: sizeMode === "small" ? 4 : 8,
@@ -129,7 +131,7 @@ const InputContainer = styled.div<InputContainerProps>(
         borderBottomRightRadius: 4,
         borderLeft: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
         boxShadow: "none",
-        height: sizeMode === "small" ? 25 : 33,
+        height: sizeMode === "small" ? 28 : 36,
         "& .min-icon": {
           width: 16,
           height: 16,
