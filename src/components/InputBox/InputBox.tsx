@@ -40,6 +40,8 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, startIcon, overlayIcon, overlayObject, originType, sizeMode }) => {
     return {
       lineHeight: "20px",
+      height: sizeMode === "small" ? 30 : 38,
+      boxSizing: "border-box",
       width: "100%",
       paddingTop: sizeMode === "small" ? 4 : 8,
       paddingBottom: sizeMode === "small" ? 4 : 8,
@@ -172,7 +174,7 @@ const InputBox: FC<InputBoxProps> = ({
   sx,
   helpTip,
   helpTipPlacement,
-  sizeMode = "small",
+  sizeMode = "large",
   orientation = "horizontal",
   onFocus,
   disableErrorUntilFocus = false,
