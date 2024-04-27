@@ -22,7 +22,7 @@ import { BadgeProps } from "./Badge.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DownloadIcon from "../Icons/DownloadIcon";
+import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 
 export default {
   title: "MDS/Information/Badge",

@@ -20,6 +20,7 @@ import { Meta, Story } from "@storybook/react";
 import * as cicons from "./";
 import * as micons from "./SidebarMenus";
 import * as ficons from "./FileIcons";
+import * as nvicons from "./NewDesignIcons";
 import Grid from "../Grid/Grid";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
@@ -451,13 +452,6 @@ const Template: Story = (args) => {
               <br />
               DBIcon
             </div>
-
-            <div className="story-icon">
-              <cicons.DeleteIcon />
-              <br />
-              DeleteIcon
-            </div>
-
             <div className="story-icon">
               <cicons.DeleteNonCurrentIcon />
               <br />
@@ -492,12 +486,6 @@ const Template: Story = (args) => {
               <cicons.DocumentationIcon />
               <br />
               DocumentationIcon
-            </div>
-
-            <div className="story-icon">
-              <cicons.DownloadIcon />
-              <br />
-              DownloadIcon
             </div>
 
             <div className="story-icon">
@@ -684,12 +672,6 @@ const Template: Story = (args) => {
               <cicons.HelpIconFilled />
               <br />
               HelpIconFilled
-            </div>
-
-            <div className="story-icon">
-              <cicons.HistoryIcon />
-              <br />
-              HistoryIcon
             </div>
 
             <div className="story-icon">
@@ -1053,12 +1035,6 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
-              <cicons.RefreshIcon />
-              <br />
-              RefreshIcon
-            </div>
-
-            <div className="story-icon">
               <cicons.RemoveAllIcon />
               <br />
               RemoveAllIcon
@@ -1113,12 +1089,6 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
-              <cicons.SearchIcon />
-              <br />
-              SearchIcon
-            </div>
-
-            <div className="story-icon">
               <cicons.SelectAllIcon />
               <br />
               SelectAllIcon
@@ -1158,12 +1128,6 @@ const Template: Story = (args) => {
               <cicons.ServiceAccountsIcon />
               <br />
               ServiceAccountsIcon
-            </div>
-
-            <div className="story-icon">
-              <cicons.SettingsIcon />
-              <br />
-              SettingsIcon
             </div>
 
             <div className="story-icon">
@@ -1311,12 +1275,6 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
-              <cicons.UploadIcon />
-              <br />
-              UploadIcon
-            </div>
-
-            <div className="story-icon">
               <cicons.UploadStatIcon />
               <br />
               UploadStatIcon
@@ -1450,39 +1408,154 @@ const Template: Story = (args) => {
           <h1>New Design Icons</h1>
           <IconDisplay applyColor={color}>
             <div className="story-icon">
-              <cicons.ErrorAlertIcon />
+              <nvicons.ArrowLeftIcon />
               <br />
-              ErrorAlertIcon
+              ArrowLeftIcon
             </div>
             <div className="story-icon">
-              <cicons.WarningAlertIcon />
+              <nvicons.BucketIcon />
               <br />
-              WarningAlertIcon
+              BucketIcon
             </div>
             <div className="story-icon">
-              <cicons.SuccessAlertIcon />
-              <br />
-              SuccessAlertIcon
-            </div>
-            <div className="story-icon">
-              <cicons.EyeIcon />
-              <br />
-              EyeIcon
-            </div>
-            <div className="story-icon">
-              <cicons.EyeOffIcon />
-              <br />
-              EyeOffIcon
-            </div>
-            <div className="story-icon">
-              <cicons.CaretIcon />
+              <nvicons.CaretIcon />
               <br />
               CaretIcon
             </div>
             <div className="story-icon">
-              <cicons.CaretFilledIcon />
+              <nvicons.CaretFilledIcon />
               <br />
               CaretFilledIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.CheckIcon />
+              <br />
+              CheckIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ChevronLeftIcon />
+              <br />
+              ChevronLeftIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ChevronRightIcon />
+              <br />
+              ChevronRightIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.CircleHelpIcon />
+              <br />
+              CircleHelpIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.DeleteIcon />
+              <br />
+              DeleteIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.DownloadIcon />
+              <br />
+              DownloadIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.EllipsisIcon />
+              <br />
+              EllipsisIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.EllipsisVerticalIcon />
+              <br />
+              EllipsisVerticalIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ErrorAlertIcon />
+              <br />
+              ErrorAlertIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.EyeIcon />
+              <br />
+              EyeIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.EyeOffIcon />
+              <br />
+              EyeOffIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.HistoryIcon />
+              <br />
+              HistoryIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ListFilterIcon />
+              <br />
+              ListFilterIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.LogOutIcon />
+              <br />
+              LogOutIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.PanelLeftOpenIcon />
+              <br />
+              PanelLeftOpenIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.PenLineIcon />
+              <br />
+              PenLineIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.RefreshCCWDotIcon />
+              <br />
+              RefreshCCWDotIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.RefreshIcon />
+              <br />
+              RefreshIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.SearchIcon />
+              <br />
+              SearchIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.SettingsIcon />
+              <br />
+              SettingsIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.SquareStackIcon />
+              <br />
+              SquareStackIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.SuccessAlertIcon />
+              <br />
+              SuccessAlertIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.TagIcon />
+              <br />
+              TagIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.UploadIcon />
+              <br />
+              UploadIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.WarningAlertIcon />
+              <br />
+              WarningAlertIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.XIcon />
+              <br />
+              XIcon
             </div>
           </IconDisplay>
           <h1>Menu Icons</h1>

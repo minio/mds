@@ -17,18 +17,22 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const CaretFilledIcon = (props: SVGProps<SVGSVGElement>) => (
+const ChevronRightIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
     fill="none"
-    xmlns="http://www.w3.org/2000/svg"
     className={`min-icon`}
     {...props}
   >
-    <g id="caret-filled">
-      <path id="Vector" d="M13 5L8 10L3 5H13Z" fill="currentColor" />
-    </g>
+    <path
+      d="M6 12L10 8L6 4"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
-export default CaretFilledIcon;
+export default ChevronRightIcon;

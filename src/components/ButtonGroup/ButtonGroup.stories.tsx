@@ -23,13 +23,13 @@ import { ButtonGroupProps } from "./ButtonGroup.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Button from "../Button/Button";
-import TestIcon from "../../utils/TestIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
-import EditIcon from "../Icons/EditIcon";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import TestIcon from "../../utils/TestIcon";
+import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
+import EditIcon from "../Icons/EditIcon";
 import AddIcon from "../Icons/AddIcon";
-import DeleteIcon from "../Icons/DeleteIcon";
 
 export default {
   title: "MDS/Forms/ButtonGroup",

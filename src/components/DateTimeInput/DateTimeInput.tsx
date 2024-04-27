@@ -182,7 +182,7 @@ const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
     "& svg": {
       width: 18,
       height: 18,
-      fill: get(theme, "inputBox.mutedText", lightColors.mutedText),
+      color: get(theme, "inputBox.mutedText", lightColors.mutedText),
     },
   },
   "& .overlayArrow": {
@@ -195,11 +195,11 @@ const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
     "& svg": {
       width: 24,
       height: 24,
-      fill: get(theme, "inputBox.mutedText", lightColors.mutedText),
+      color: get(theme, "inputBox.mutedText", lightColors.mutedText),
     },
     "&:hover": {
       "& svg": {
-        fill: get(theme, "inputBox.color", lightColors.labelColor),
+        color: get(theme, "inputBox.color", lightColors.labelColor),
       },
     },
     "& .customIcon": {

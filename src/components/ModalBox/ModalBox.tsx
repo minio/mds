@@ -105,7 +105,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
         color: get(theme, "modalBox.titleColor", lightV2.modalTitleColor),
         fontWeight: "500",
         "& > svg": {
-          fill: get(
+          color: get(
             theme,
             `modalBox.iconColor.${iconColor}`,
             lightV2.modalTitleColor,

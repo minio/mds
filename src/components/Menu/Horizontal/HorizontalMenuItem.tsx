@@ -122,7 +122,7 @@ const OptionElement = styled.span(({ theme }) => ({
     "& svg.badgeIcon": {
       width: 8,
       height: 8,
-      fill: get(
+      color: get(
         theme,
         "menu.horizontal.notificationColor",
         lightColors.mainRed,

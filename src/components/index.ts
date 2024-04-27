@@ -87,6 +87,7 @@ export { default as SearchBox } from "./SearchBox/SearchBox";
 export * from "./Icons";
 export * from "./Icons/SidebarMenus";
 export * from "./Icons/FileIcons";
+export * from "./Icons/NewDesignIcons";
 
 /*Table Elements*/
 export * from "./Table";

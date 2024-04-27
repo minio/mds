@@ -52,7 +52,7 @@ const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
     transitionDuration: "0.2s",
     background: get(theme, `iconButton.buttonBG`, "#000"),
     "& svg": {
-      fill: get(theme, `iconButton.color`, "#000"),
+      color: get(theme, `iconButton.color`, "#000"),
       margin: "calc(25% - 2px)",
     },
     "&:hover:not(:disabled)": {
@@ -65,7 +65,7 @@ const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
       cursor: "not-allowed",
       background: get(theme, `iconButton.disabledBG`, "#000"),
       "& svg": {
-        fill: get(theme, `iconButton.disabledColor`, "#fff"),
+        color: get(theme, `iconButton.disabledColor`, "#fff"),
       },
     },
   };
