@@ -1720,10 +1720,6 @@ declare const StorageIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const RefreshIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const VersionIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -1743,10 +1739,6 @@ declare const ShareIcon: (
 declare const EditIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const JSONIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const SearchIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
 
 declare const WarnIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
@@ -1835,10 +1827,6 @@ declare const BucketQuotaIcon: (
 ) => React$1.JSX.Element;
 
 declare const SelectMultipleIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const DeleteIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2046,10 +2034,6 @@ declare const EventSubscriptionIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const DownloadIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const ComputerLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2128,10 +2112,6 @@ declare const TotalObjectsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const HistoryIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const CreateUserIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2157,14 +2137,6 @@ declare const ObjectBrowserIcon: (
 ) => React$1.JSX.Element;
 
 declare const RecoverIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SettingsIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const UploadIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2620,32 +2592,6 @@ declare const ExpandOptionsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ErrorAlertIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const WarningAlertIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SuccessAlertIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const EyeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const EyeOffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CaretIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CaretFilledIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const InspectMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2831,6 +2777,120 @@ declare const FileMusicIcon: (
 ) => React$1.JSX.Element;
 
 declare const FileNonType: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CaretFilledIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CaretIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ErrorAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const EyeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const EyeOffIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SuccessAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const WarningAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ListFilterIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PanelLeftOpenIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BucketIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const HistoryIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const RefreshIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PenLineIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const UploadIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const DownloadIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const TagIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const EllipsisVerticalIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ArrowLeftIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SquareStackIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const RefreshCCWDotIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CheckIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const XIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const CircleHelpIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SettingsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LogOutIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SearchIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ChevronLeftIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ChevronRightIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const EllipsisIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const DeleteIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3118,6 +3178,7 @@ export {
   ArrowDropUp as ArrowDropDown,
   ArrowDropUp$1 as ArrowDropUp,
   ArrowIcon,
+  ArrowLeftIcon,
   ArrowRightIcon,
   ArrowRightLink,
   AttachFileIcon,
@@ -3157,6 +3218,7 @@ export {
   BreadcrumbsProps,
   BreadcrumbsThemeProps,
   BucketEncryptionIcon,
+  BucketIcon,
   BucketQuotaIcon,
   BucketReplicationIcon,
   BucketsIcon$1 as BucketsIcon,
@@ -3184,7 +3246,11 @@ export {
   ChatIcon,
   CheckBoxThemeProps,
   CheckCircleIcon,
+  CheckIcon,
   Checkbox,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CircleHelpIcon,
   CircleIcon,
   ClosePanelIcon,
   CloudIcon,
@@ -3265,6 +3331,8 @@ export {
   EditYamlIcon,
   EditorThemeSwitchIcon,
   EgressIcon,
+  EllipsisIcon,
+  EllipsisVerticalIcon,
   EnabledIcon,
   EnterpriseLightLogo,
   EnvironmentVariablesIcon,
@@ -3391,10 +3459,12 @@ export {
   Link,
   LinkIcon,
   LinkProps,
+  ListFilterIcon,
   Loader,
   LockFilledIcon,
   LockIcon$1 as LockIcon,
   LockIcon as LockOpenIcon,
+  LogOutIcon,
   LoginIcon$1 as LoginIcon,
   LoginPageThemeProps,
   LoginWrapper,
@@ -3456,7 +3526,9 @@ export {
   PageHeaderThemeProps,
   PageLayout,
   PageLayoutProps,
+  PanelLeftOpenIcon,
   PasswordKeyIcon,
+  PenLineIcon,
   PendingItemsIcon,
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
@@ -3486,6 +3558,7 @@ export {
   ReadBoxThemeProps,
   RecoverIcon,
   RedoIcon,
+  RefreshCCWDotIcon,
   RefreshIcon,
   RegisterMenuIcon,
   ObjectManagerIcon as RemoveAllIcon,
@@ -3543,6 +3616,7 @@ export {
   SnackbarMainProps,
   SnackbarProps,
   SpeedtestIcon,
+  SquareStackIcon,
   StandardLightLogo,
   StarIcon,
   StatusMenuIcon,
@@ -3575,6 +3649,7 @@ export {
   TabsProps,
   Tag,
   TagConstructProps,
+  TagIcon,
   TagMainProps,
   TagProps,
   TagThemeProps,
@@ -3639,6 +3714,7 @@ export {
   WizardPageProps,
   WizardProps,
   WizardStepColorProps,
+  XIcon,
   actionsTypes,
   breakPoints,
   calculateBytes,
