@@ -107,11 +107,6 @@ const RoundedCustomButton = styled.button<
         height: 14,
 
         "& > svg": {
-          fill: get(
-            theme,
-            `roundedButtons.${neatVariant}.enabled.text`,
-            "#000",
-          ),
           color: get(
             theme,
             `roundedButtons.${neatVariant}.enabled.text`,
@@ -146,11 +141,6 @@ const RoundedCustomButton = styled.button<
           "none",
         ),
         "& .buttonIcon > svg": {
-          fill: get(
-            theme,
-            `roundedButtons.${neatVariant}.disabled.text`,
-            "#000",
-          ),
           color: get(
             theme,
             `roundedButtons.${neatVariant}.disabled.text`,
@@ -176,7 +166,6 @@ const RoundedCustomButton = styled.button<
           "none",
         ),
         "& .buttonIcon > svg": {
-          fill: get(theme, `roundedButtons.${neatVariant}.hover.text`, "#000"),
           color: get(theme, `roundedButtons.${neatVariant}.hover.text`, "#000"),
         },
       },
@@ -198,11 +187,6 @@ const RoundedCustomButton = styled.button<
           "none",
         ),
         "& .buttonIcon > svg": {
-          fill: get(
-            theme,
-            `roundedButtons.${neatVariant}.pressed.text`,
-            "#000",
-          ),
           color: get(
             theme,
             `roundedButtons.${neatVariant}.pressed.text`,

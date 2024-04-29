@@ -28,7 +28,8 @@ import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import { overridePropsParse } from "../../global/utils";
 import InputBox from "../InputBox/InputBox";
-import { CaretFilledIcon, CaretIcon } from "../Icons";
+import CaretIcon from "../Icons/NewDesignIcons/CaretIcon";
+import CaretFilledIcon from "../Icons/NewDesignIcons/CaretFilledIcon";
 
 const SelectBase = styled.div(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", "#E2E2E2");
@@ -128,7 +129,7 @@ const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
     "& svg": {
       width: 26,
       height: 26,
-      fill: get(theme, "inputBox.color", "#07193E"),
+      color: get(theme, "inputBox.color", "#07193E"),
     },
   },
   ...overridePropsParse(sx, theme),

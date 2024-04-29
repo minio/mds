@@ -55,7 +55,7 @@ const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
         "& > svg": {
           width: 20,
           height: 20,
-          fill: get(
+          color: get(
             theme,
             "menu.vertical.menuCollapseColor",
             lightColors.menuCollapseColor,

@@ -70,7 +70,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
           height: 16,
           minWidth: 16,
           minHeight: 16,
-          fill: get(
+          color: get(
             theme,
             "buttonGroup.labelColor",
             themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
@@ -84,7 +84,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
           themeColors["Color/Brand/Error/colorPrimary"].lightMode,
         ),
         "& .buttonIcon > svg": {
-          fill: get(
+          color: get(
             theme,
             "buttonGroup.secondaryLabelColor",
             themeColors["Color/Brand/Error/colorPrimary"].lightMode,
@@ -109,7 +109,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
           themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
         ),
         "& .buttonIcon > svg": {
-          fill: get(
+          color: get(
             theme,
             "buttonGroup.disabledLabelColor",
             themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
@@ -133,7 +133,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
           themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
         ),
         "& .buttonIcon > svg": {
-          fill: get(
+          color: get(
             theme,
             "buttonGroup.hoverLabelColor",
             themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
@@ -146,7 +146,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
             themeColors["Color/Brand/Error/colorPrimary"].lightMode,
           ),
           "& .buttonIcon > svg": {
-            fill: get(
+            color: get(
               theme,
               "buttonGroup.secondaryLabelColor",
               themeColors["Color/Brand/Error/colorPrimary"].lightMode,
@@ -171,7 +171,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
           themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
         ),
         "& .buttonIcon > svg": {
-          fill: get(
+          color: get(
             theme,
             "buttonGroup.activeLabelColor",
             themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,

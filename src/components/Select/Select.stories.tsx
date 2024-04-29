@@ -23,11 +23,11 @@ import { SelectProps } from "./Select.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
-import DownloadIcon from "../Icons/DownloadIcon";
-import UploadIcon from "../Icons/UploadIcon";
-import UsersIcon from "../Icons/UsersIcon";
 import { SelectOption } from "../../global/global.types";
 import TestIcon from "../../utils/TestIcon";
+import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
+import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
+import UsersIcon from "../Icons/UsersIcon";
 
 export default {
   title: "MDS/Forms/Select",

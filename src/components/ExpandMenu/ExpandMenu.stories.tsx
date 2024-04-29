@@ -22,12 +22,11 @@ import { ExpandMenuProps } from "./ExpandMenu.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Box from "../Box/Box";
 import ExpandMenuOption from "./ExpandMenuOption";
+import Button from "../Button/Button";
 import EditIcon from "../Icons/EditIcon";
 import VersionsIcon from "../Icons/VersionsIcon";
-import DeleteIcon from "../Icons/DeleteIcon";
-import Button from "../Button/Button";
+import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
 import TestIcon from "../../utils/TestIcon";
 
 export default {

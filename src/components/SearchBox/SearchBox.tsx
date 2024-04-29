@@ -34,7 +34,7 @@ const SearchBoxContainer = styled.div(({ theme }) => ({
     zIndex: 200,
     width: 16,
     height: 16,
-    fill: get(
+    color: get(
       theme,
       "inputBox.placeholderColor",
       themeColors["Color/Neutral/Text/colorTextPlaceholder"].lightMode,

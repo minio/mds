@@ -25,7 +25,6 @@ import PreviewIcon from "../Icons/PreviewIcon";
 import ShareIcon from "../Icons/ShareIcon";
 import EditIcon from "../Icons/EditIcon";
 import TrashIcon from "../Icons/TrashIcon";
-import DownloadIcon from "../Icons/DownloadIcon";
 import {
   actionsTypes,
   IActionButton,
@@ -34,6 +33,7 @@ import {
 import styled from "styled-components";
 import get from "lodash/get";
 import { lightV2 } from "../../global/themes";
+import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 
 const TableActionCustomIcon = styled.button(({ theme }) => {
   let buttonSize: number | string = 30;
@@ -55,7 +55,7 @@ const TableActionCustomIcon = styled.button(({ theme }) => {
       lightV2.plainIconButtonBG,
     ),
     "& svg": {
-      fill: get(
+      color: get(
         theme,
         `dataTable.actionButton.iconColor`,
         lightV2.plainIconButtonColor,
@@ -99,7 +99,7 @@ const TableActionCustomIcon = styled.button(({ theme }) => {
         lightV2.disabledSecondary,
       ),
       "& svg": {
-        fill: get(
+        color: get(
           theme,
           `dataTable.actionButton.disabledIconColor`,
           lightV2.disabledSecondaryText,

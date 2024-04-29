@@ -20,10 +20,9 @@ import { Meta, Story } from "@storybook/react";
 import IconButton from "./IconButton";
 import { IconButtonProps } from "./IconButton.types";
 
-import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DownloadIcon from "../Icons/DownloadIcon";
+import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 
 export default {
   title: "MDS/Forms/IconButton",

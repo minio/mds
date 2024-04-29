@@ -71,13 +71,13 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
         padding: "2px 4px",
       },
       "& svg": {
-        fill: get(
+        color: get(
           theme,
           "elementsColor",
           themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
         ),
         "&:hover": {
-          fill: get(
+          color: get(
             theme,
             "hoverColor",
             themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,

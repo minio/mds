@@ -27,14 +27,12 @@ import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
 import { overridePropsParse } from "../../global/utils";
-import {
-  ErrorAlertIcon,
-  EyeIcon,
-  SuccessAlertIcon,
-  WarningAlertIcon,
-} from "../Icons";
 import Button from "../Button/Button";
-import EyeOffIcon from "../Icons/EyeOffIcon";
+import EyeOffIcon from "../Icons/NewDesignIcons/EyeOffIcon";
+import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
+import ErrorAlertIcon from "../Icons/NewDesignIcons/ErrorAlertIcon";
+import WarningAlertIcon from "../Icons/NewDesignIcons/WarningAlertIcon";
+import SuccessAlertIcon from "../Icons/NewDesignIcons/SuccessAlertIcon";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, startIcon, overlayIcon, overlayObject, originType, sizeMode }) => {
@@ -148,7 +146,7 @@ const InputContainer = styled.div<InputContainerProps>(
       "& svg": {
         width: 16,
         height: 16,
-        fill: get(theme, "inputBox.color", "#07193E"),
+        color: get(theme, "inputBox.color", "#07193E"),
       },
     },
     ...overridePropsParse(sx, theme),

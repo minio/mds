@@ -38,7 +38,7 @@ const IconContainer = styled.div<IBoxedIconProps>(({ theme, sx }) => ({
     themeColors["Color/Neutral/Bg/colorBgSections"].lightMode,
   ),
   "& svg": {
-    fill: get(
+    color: get(
       theme,
       "boxedIcon.iconColor",
       themeColors["Color/Neutral/Icon/colorIcon"].lightMode,
