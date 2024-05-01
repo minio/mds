@@ -31,7 +31,7 @@ import {
   animation9,
 } from "./Loader.utils";
 
-export const AnimationFrame = styled.svg(
+const AnimationFrame = styled.svg(
   {
     width: 40,
     height: 40,

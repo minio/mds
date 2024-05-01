@@ -7,19 +7,13 @@ import css from "rollup-plugin-import-css";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import copy from "rollup-plugin-copy";
 
-const packageJson = require("./package.json");
-
 export default [
   {
     input: "src/index.ts",
     output: [
       {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
+        esModule: true,
+        file: "dist/esm/index.js",
         format: "esm",
         sourcemap: true,
       },
@@ -40,8 +34,8 @@ export default [
     external: ["react", "react-dom", "styled-components"],
   },
   {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/mds.d.ts", format: "es" }],
-    plugins: [dts()],
+    input: "dist/esm/types/src/index.d.ts",
+    output: [{ file: "dist/mds.d.ts", format: "es", interop: "default" }],
+    plugins: [dts({ interop: "default" })],
   },
 ];
