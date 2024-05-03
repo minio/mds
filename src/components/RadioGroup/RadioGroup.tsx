@@ -26,60 +26,69 @@ import HelpIcon from "../Icons/HelpIcon";
 
 const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
   "& input": {
+    appearance: "none",
+    backgroundColor: "transparent",
+    margin: 0,
     display: "none",
-  },
-  "& .radio": {
-    position: "relative",
-    display: "block",
-    width: 16,
-    height: 16,
-    borderRadius: "100%",
-    border: `1px solid ${get(theme, "checkbox.checkBoxBorder", "#c3c3c3")}`,
-    boxShadow: "inset 0px 1px 3px rgba(0,0,0,0.1)",
-  },
-  "input:checked": {
     "& ~ .radio": {
-      "&:before": {
-        content: "' '",
-        position: "absolute",
-        display: "block",
-        width: 12,
-        height: 12,
-        backgroundColor: get(theme, "checkbox.checkBoxColor", "#4CCB92"),
-        borderRadius: "100%",
-        top: "50%",
-        left: "50%",
-        transform: "translateX(-50%) translateY(-50%)",
+      position: "relative",
+      display: "block",
+      width: 16,
+      height: 16,
+      borderRadius: "100%",
+      border: `1px solid ${get(theme, "checkbox.checkBoxBorder", "#c3c3c3")}`,
+      boxShadow: "inset 0px 1px 3px rgba(0,0,0,0.1)",
+      "&.checked": {
+        "&::before": {
+          content: "' '",
+          position: "absolute",
+          display: "block",
+          width: 12,
+          height: 12,
+          backgroundColor: get(theme, "checkbox.checkBoxColor", "#4CCB92"),
+          borderRadius: "100%",
+          top: "50%",
+          left: "50%",
+          transform: "translateX(-50%) translateY(-50%)",
+        },
       },
     },
-  },
-  "input:disabled": {
-    "&  ~ .radio": {
-      border: `1px solid ${get(theme, "checkbox.disabledBorder", "#B4B4B4")}`,
-    },
-    "&:checked ~ .radio": {
-      "&:before": {
-        backgroundColor: get(theme, "checkbox.disabledColor", "#D5D7D7"),
+    "&:disabled": {
+      "& ~ .radio": {
+        border: `1px solid ${get(theme, "checkbox.disabledBorder", "#D5D7D7")}`,
+        cursor: "not-allowed",
+        boxShadow: "inset 0px 1px 3px rgba(240,240,240,0.1)" as const,
+      },
+      "&:checked ~ .radio": {
+        "&:before": {
+          backgroundColor: get(theme, "checkbox.disabledColor", "#D5D7D7"),
+        },
       },
     },
   },
   ...sx,
 }));
 
-const OptionsContainer = styled.div<OptionsContainerProps>(({ inColumn }) => ({
-  flexGrow: 1,
-  width: "100%",
-  display: "flex",
-  flexDirection: inColumn ? "column" : "row",
-  justifyContent: "flex-end",
-  gap: 15,
-  "& .optionLabel": {
-    userSelect: "none",
-    "&.checked": {
-      fontWeight: "bold",
+const OptionsContainer = styled.div<OptionsContainerProps>(
+  ({ inColumn, theme }) => ({
+    flexGrow: 1,
+    width: "100%",
+    display: "flex",
+    flexDirection: inColumn ? "column" : "row",
+    justifyContent: "flex-end",
+    gap: 15,
+    "& .optionLabel": {
+      userSelect: "none",
+      "&.checked": {
+        fontWeight: "bold",
+      },
+      "&.disabled": {
+        color: get(theme, "checkbox.disabledColor", "#D5D7D7"),
+        cursor: "not-allowed",
+      },
     },
-  },
-}));
+  }),
+);
 
 const RadioContainer = styled.div(({}) => ({
   display: "flex",
@@ -135,7 +144,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
           <Fragment>
             {selectorOptions.map((selector) => (
               <RadioContainer key={`option-${id}-${selector.value}`}>
-                <RadioButton sx={sx}>
+                <RadioButton htmlFor={`option-${id}-${selector.value}`} sx={sx}>
                   <input
                     type={"radio"}
                     name={name}
@@ -145,13 +154,17 @@ const RadioGroup: FC<RadioGroupProps> = ({
                     onChange={(event) => onChange(event, selector.extraValue)}
                     disabled={disableOptions || !!selector.disabled}
                   />
-                  <span className={"radio"} />
+                  <span
+                    className={`radio ${
+                      currentValue === selector.value ? "checked" : ""
+                    }`}
+                  />
                 </RadioButton>
                 <label
                   htmlFor={`option-${id}-${selector.value}`}
                   className={`optionLabel ${
                     currentValue === selector.value ? "checked" : ""
-                  }`}
+                  } ${disableOptions || !!selector.disabled ? "disabled" : ""}`}
                 >
                   {selector.label}
                 </label>
