@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true,
+    "target": "es2018",
+    "module": "esnext",
     "jsx": "react",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationDir": "types",
-    "sourceMap": true,
-    "outDir": "dist",
     "moduleResolution": "node",
-    "emitDeclarationOnly": true,
+    "noEmitOnError": true,
+    "lib": ["es2017"],
+    "strict": true,
+    "esModuleInterop": false,
+    "outDir": "dist",
+    "rootDir": "./",
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "declaration": true,
+    "declarationDir": "types"
   },
   "exclude": [
     "dist",

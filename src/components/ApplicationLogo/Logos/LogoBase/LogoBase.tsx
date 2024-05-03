@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { SVGProps } from "react";
+import React, { FC, SVGProps } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { LogoBaseProps } from "./LogoBase.types";
 
-const LogoBase = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
+const LogoBaseConstruct = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
   let mainColor = get(props, "theme.logoLabelColor", "#000");
 
   if (props.inverse) {
@@ -35,5 +35,9 @@ const LogoBase = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
     },
   };
 });
+
+const LogoBase: FC<SVGProps<any> & LogoBaseProps> = ({ ...restProps }) => {
+  return <LogoBaseConstruct {...restProps} />;
+};
 
 export default LogoBase;
