@@ -363,7 +363,7 @@ export const lightTheme: ThemeDefinitionProps = {
   checkbox: {
     checkBoxBorder: lightColors.checkBoxBorder,
     checkBoxColor: lightColors.mainGreen,
-    disabledBorder: lightColors.disabledInnerGrey,
+    disabledBorder: lightColors.disabledBGGrey,
     disabledColor: lightColors.disabledBGGrey,
   },
   iconButton: {
