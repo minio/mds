@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { CheckboxProps } from "./Checkbox.types";
@@ -24,32 +24,57 @@ import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import HelpIcon from "../Icons/HelpIcon";
 import { overridePropsParse } from "../../global/utils";
+import { themeColors } from "../../global/themeColors";
+import CheckIcon from "../Icons/NewDesignIcons/CheckIcon";
 
 const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
+  position: "relative",
   "& input": {
     display: "none",
   },
   "& .checkbox": {
     position: "relative",
     display: "block",
-    width: 16,
-    height: 16,
-    borderRadius: 2,
-    border: `1px solid ${get(theme, "checkbox.checkBoxBorder", "#c3c3c3")}`,
-    boxShadow: "inset 0px 1px 3px rgba(0,0,0,0.1)",
+    width: 18,
+    height: 18,
+    borderRadius: 4,
+    border: `1px solid ${get(theme, "checkbox.checkBoxBorder", themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode)}`,
+    boxSizing: "border-box" as const,
+    "&:hover": {
+      borderColor: get(
+        theme,
+        "checkbox.checkBoxHoverBorder",
+        themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+      ),
+    },
+    "& .icon-overlay": {
+      display: "none",
+    },
   },
   "input:checked ~ .checkbox": {
+    borderColor: get(
+      theme,
+      "checkbox.checkBoxActiveBorder",
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+    ),
     "&:before": {
       content: "' '",
       position: "absolute",
       display: "block",
-      width: 12,
-      height: 12,
-      backgroundColor: get(theme, "checkbox.checkBoxColor", "#4CCB92"),
-      borderRadius: 1,
+      width: 18,
+      height: 18,
+      backgroundColor: get(
+        theme,
+        "checkbox.checkBoxActiveColor",
+        themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+      ),
+      borderRadius: 4,
       top: "50%",
       left: "50%",
       transform: "translateX(-50%) translateY(-50%)",
+    },
+    "& .icon-overlay": {
+      display: "block",
     },
   },
   "input:disabled": {
@@ -61,6 +86,15 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
         backgroundColor: get(theme, "checkbox.disabledColor", "#D5D7D7"),
       },
     },
+  },
+  "& .icon-overlay": {
+    color: themeColors["Color/Base/White"].lightMode,
+    position: "absolute",
+    width: 16,
+    height: 16,
+    top: "50%",
+    left: "50%",
+    transform: "translateX(-50%) translateY(-50%)",
   },
   ...overridePropsParse(sx, theme),
 }));
@@ -76,6 +110,7 @@ const Checkbox: FC<
   className,
   helpTip,
   helpTipPlacement,
+  checked,
   ...props
 }) => {
   return (
@@ -90,8 +125,10 @@ const Checkbox: FC<
       }}
     >
       <CheckboxItem sx={sx} onClick={(e) => e.stopPropagation()}>
-        <input type={"checkbox"} id={id} {...props} />
-        <span className={"checkbox"} />
+        <input type={"checkbox"} id={id} checked={checked} {...props} />
+        <span className={"checkbox"}>
+          <CheckIcon className={"icon-overlay"} />
+        </span>
       </CheckboxItem>
       {label !== "" && (
         <InputLabel
