@@ -17,8 +17,9 @@
 import React, { FC } from "react";
 import { ThemeHandlerProps } from "./ThemeHandler.types";
 import { darkTheme, lightTheme } from "../../global/themes";
-import { ThemeProvider } from "styled-components";
+import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { ThemeDefinitionProps } from "../../global/global.types";
+import isPropValid from "@emotion/is-prop-valid";
 
 const ThemeHandler: FC<ThemeHandlerProps> = ({
   darkMode = false,
@@ -31,7 +32,20 @@ const ThemeHandler: FC<ThemeHandlerProps> = ({
     selectedTheme = customTheme;
   }
 
-  return <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>;
+  const shouldForwardProp = (propName: string, target: any) => {
+    if (typeof target === "string") {
+      // For HTML elements, forward the prop if it is a valid HTML attribute
+      return isPropValid(propName);
+    }
+    // For other elements, forward all props
+    return true;
+  };
+
+  return (
+    <StyleSheetManager shouldForwardProp={shouldForwardProp}>
+      <ThemeProvider theme={selectedTheme}>{children}</ThemeProvider>
+    </StyleSheetManager>
+  );
 };
 
 export default ThemeHandler;
