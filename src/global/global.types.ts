@@ -68,8 +68,17 @@ export interface CommonInputThemeProps {
 
 export interface CheckBoxThemeProps {
   checkBoxBorder: string;
-  checkBoxColor: string;
+  checkBoxBackground: string;
+  checkBoxHoverBorder: string;
+  checkBoxHoverBackground: string;
+  checkBoxFocusBorder: string;
+  checkBoxFocusBackground: string;
+  checkBoxFocusShadow: string;
+  checkBoxActiveColor: string;
+  checkBoxActiveBorder: string;
+  checkBoxActiveBackground: string;
   disabledBorder: string;
+  disabledBackground: string;
   disabledColor: string;
 }
 

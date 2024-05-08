@@ -464,10 +464,29 @@ export const lightTheme: ThemeDefinitionProps = {
     labelColor: lightV2.fontColor,
   },
   checkbox: {
-    checkBoxBorder: lightV2.borderColor,
-    checkBoxColor: lightV2.switchBG,
-    disabledBorder: lightV2.disabledSecondary,
-    disabledColor: lightV2.disabledGrey,
+    checkBoxBorder:
+      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
+    checkBoxBackground: "transparent",
+    checkBoxHoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+    checkBoxHoverBackground:
+      themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+    checkBoxFocusBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+    checkBoxFocusBackground: themeColors["Color/Neutral/colorBgBase"].lightMode,
+    checkBoxFocusShadow: "",
+    checkBoxActiveColor:
+      themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+    checkBoxActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+    checkBoxActiveBackground:
+      themeColors["Color/Neutral/colorBgBase"].lightMode,
+    disabledBorder:
+      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
+    disabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
+    disabledColor:
+      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
   },
   iconButton: {
     buttonBG: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
@@ -1035,10 +1054,28 @@ export const darkTheme: ThemeDefinitionProps = {
     labelColor: darkColors.labelColor,
   },
   checkbox: {
-    checkBoxBorder: darkColors.checkBoxBorder,
-    checkBoxColor: darkColors.mainGreen,
-    disabledBorder: darkColors.disabledInnerGrey,
-    disabledColor: darkColors.disabledBGGrey,
+    checkBoxBorder:
+      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+    checkBoxBackground: "transparent",
+    checkBoxHoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
+    checkBoxHoverBackground:
+      themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+    checkBoxFocusBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
+    checkBoxFocusBackground: themeColors["Color/Neutral/colorBgBase"].darkMode,
+    checkBoxFocusShadow: "",
+    checkBoxActiveColor:
+      themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    checkBoxActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
+    checkBoxActiveBackground: themeColors["Color/Neutral/colorBgBase"].darkMode,
+    disabledBorder:
+      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+    disabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
+    disabledColor:
+      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
   },
   iconButton: {
     buttonBG: darkColors.iconButtonBG,
