@@ -15,11 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
+import isPropValid from "@emotion/is-prop-valid";
+import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { ThemeHandlerProps } from "./ThemeHandler.types";
 import { darkTheme, lightTheme } from "../../global/themes";
-import { StyleSheetManager, ThemeProvider } from "styled-components";
 import { ThemeDefinitionProps } from "../../global/global.types";
-import isPropValid from "@emotion/is-prop-valid";
 
 const ThemeHandler: FC<ThemeHandlerProps> = ({
   darkMode = false,
