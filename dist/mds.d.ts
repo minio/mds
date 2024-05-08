@@ -1,4 +1,6 @@
 /// <reference types="react" />
+import * as styled_components from "styled-components";
+import { CSSObject, DefaultTheme } from "styled-components";
 import * as React$1 from "react";
 import React__default, {
   FC,
@@ -7,8 +9,6 @@ import React__default, {
   SVGProps,
   HTMLAttributes,
 } from "react";
-import * as styled_components from "styled-components";
-import { CSSObject, DefaultTheme } from "styled-components";
 import { SortDirectionType } from "react-virtualized";
 import { DateTime } from "luxon";
 
@@ -461,6 +461,10 @@ declare const calculateBytes: (
   showDecimals?: boolean,
   roundFloor?: boolean,
 ) => IBytesCalc;
+declare const overridePropsParse: (
+  overrideValue: OverrideTheme,
+  theme: DefaultTheme,
+) => styled_components.CSSObject | undefined;
 
 interface ThemeHandlerProps {
   darkMode?: boolean;
@@ -3731,5 +3735,6 @@ export {
   lightColors,
   lightTheme,
   lightV2,
+  overridePropsParse,
   themeColors,
 };
