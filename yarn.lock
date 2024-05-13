@@ -1095,12 +1095,12 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@chromatic-com/storybook@^1.3.3":
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/@chromatic-com/storybook/-/storybook-1.3.3.tgz#102d173d7e67cbc7f974648eaa459aa3d3d53f91"
-  integrity sha512-1y9r691T5vVGDZ0HY3YrCXUnvtrT2YrhDuvDZSvYSNUVpM/Imz6i1dnNMKb3eoI1qRsH55mI4zCt+Iq94NLedQ==
+"@chromatic-com/storybook@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@chromatic-com/storybook/-/storybook-1.3.5.tgz#68bc74bd2a78804887d21e04f087abd4c89b58a9"
+  integrity sha512-Eunwu6qCvEHSOCaI0SHsAHJKhHOho+/yHguES34Afi8WZAOq2bw50U8GTQMSft76My87QFlPkCt/Qak4H3MAZw==
   dependencies:
-    chromatic "^11.3.0"
+    chromatic "^11.3.2"
     filesize "^10.0.12"
     jsonfile "^6.1.0"
     react-confetti "^6.1.0"
@@ -3762,10 +3762,10 @@ chownr@^2.0.0:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-2.0.0.tgz#15bfbe53d2eab4cf70f18a8cd68ebe5b3cb1dece"
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
-chromatic@^11.3.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-11.3.0.tgz#d46b7aac1a0eaed29a765645eaf93c484220174c"
-  integrity sha512-q1ZtJDJrjLGnz60ivpC16gmd7KFzcaA4eTb7gcytCqbaKqlHhCFr1xQmcUDsm14CK7JsqdkFU6S+JQdOd2ZNJg==
+chromatic@^11.3.2:
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-11.3.2.tgz#e95a5eba9a1f3d10761335aba2b986c4436dde7a"
+  integrity sha512-0PuHl49VvBMoDHEfmNjC/bim9YYNhWF3axTZlFuatC0avwr2Xw4GDqJDG9fArEWN8oM8VtYHkE9D7qc87dmz2w==
 
 chrome-trace-event@^1.0.2:
   version "1.0.3"
