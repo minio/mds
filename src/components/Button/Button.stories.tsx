@@ -34,18 +34,6 @@ const Template: Story<ButtonProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Button {...args} onClick={() => alert("You clicked me!")} />
-    <br />
-    <Button {...args}>With Children</Button>
-    <br />
-    <Button
-      id={"asdf"}
-      sx={(theme) => ({
-        backgroundColor: theme.colors["Color/Base/Royal/9"],
-        color: theme.colors["Color/Base/Royal/0"],
-      })}
-    >
-      Func
-    </Button>
   </StoryThemeProvider>
 );
 
@@ -130,4 +118,12 @@ IconOnly.args = {
   disabled: false,
   variant: "regular",
   icon: <TestIcon />,
+};
+
+export const IconOnlyCompact = Template.bind({});
+IconOnlyCompact.args = {
+  disabled: false,
+  variant: "regular",
+  icon: <TestIcon />,
+  compact: true,
 };
