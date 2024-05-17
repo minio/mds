@@ -35,7 +35,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
     borderRadius: 4,
     overflow: "hidden",
     width: "initial",
-    height: 28,
+    height: 30,
     boxSizing: "border-box" as const,
     "& > *:not(:last-child)": {
       borderRight: `1px solid   ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
@@ -53,14 +53,15 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
       fontWeight: 400,
       letterSpacing: "0.16px",
       fontFamily: "'Geist', sans-serif",
+      boxSizing: "border-box",
       color: get(
         theme,
         "buttonGroup.labelColor",
         themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
       ),
-      padding: displayLabels ? "4px 12px" : "0 6px",
-      height: 26,
-      width: displayLabels ? "initial" : 44,
+      padding: displayLabels ? "4px 12px" : 6,
+      height: 28,
+      width: displayLabels ? "initial" : 28,
       gap: 4,
       background: "transparent",
       "& .buttonIcon": {
