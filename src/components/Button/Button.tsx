@@ -68,11 +68,17 @@ const CustomButton = styled.button<
     const padding =
       (!label || label.trim() === "") && !parentChildren ? "0 12px" : "0 25px";
 
+    let calculatedWidth = "initial";
+
+    if (!parentChildren && label?.trim() === "") {
+      calculatedWidth = compact ? "28px" : "36px";
+    }
+
     return {
       borderRadius: 6,
       cursor: "pointer",
-      width: fullWidth ? "100%" : "initial",
-      height: compact ? 28 : 32,
+      width: fullWidth ? "100%" : calculatedWidth,
+      height: compact ? 28 : 36,
       fontFamily: "'Geist', sans-serif",
       fontWeight: compact ? "normal" : "600",
       fontSize: 14,
@@ -208,11 +214,14 @@ const Button: FC<
     >
       <Fragment>
         {icon && iconLocation === "start" && iconToPlace}
-        <span className={"button-label"}>
-          {children}
-          {children && label ? " " : ""}
-          {label}
-        </span>
+        {children ||
+          (label?.trim() !== "" && (
+            <span className={"button-label"}>
+              {children}
+              {children && label ? " " : ""}
+              {label}
+            </span>
+          ))}
         {icon && iconLocation === "end" && iconToPlace}
       </Fragment>
     </CustomButton>
