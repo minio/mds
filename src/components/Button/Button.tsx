@@ -180,7 +180,7 @@ const Button: FC<
       disabled={disabled || false}
       variant={variant || "neutral"}
       iconLocation={iconLocation || "end"}
-      label={label || ""}
+      label={label}
       fullWidth={fullWidth || false}
       collapseOnSmall={!!collapseOnSmall}
       icon={iconToPlace}
@@ -193,14 +193,13 @@ const Button: FC<
     >
       <Fragment>
         {icon && iconLocation === "start" && iconToPlace}
-        {children ||
-          (label?.trim() !== "" && (
-            <span className={"button-label"}>
-              {children}
-              {children && label ? " " : ""}
-              {label}
-            </span>
-          ))}
+        {(children || label?.trim() !== "") && (
+          <span className={"button-label"}>
+            {children}
+            {children && label ? " " : ""}
+            {label}
+          </span>
+        )}
         {icon && iconLocation === "end" && iconToPlace}
       </Fragment>
     </CustomButton>

@@ -56,14 +56,20 @@ export const CallToAction = Template.bind({});
 CallToAction.args = {
   disabled: false,
   label: "Call to Action",
-  variant: "callAction",
+  variant: "primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   disabled: false,
-  label: "Secondary",
-  variant: "secondary",
+  label: "Destructive",
+  variant: "destructive",
+};
+export const DestructiveBare = Template.bind({});
+Secondary.args = {
+  disabled: false,
+  label: "Destructive Bare",
+  variant: "destructive-bare",
 };
 
 export const Text = Template.bind({});
@@ -99,7 +105,7 @@ CallToActionIcon.args = {
 export const SecondaryIcon = Template.bind({});
 SecondaryIcon.args = {
   disabled: false,
-  label: "Secondary",
+  label: "Destructive",
   variant: "destructive",
   icon: <TestIcon />,
 };

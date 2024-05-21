@@ -77,7 +77,7 @@ const Template: Story = (args) => {
           <Grid item xs={12}>
             <Button
               id={"colorToggle"}
-              variant={color ? "secondary" : "regular"}
+              variant={color ? "descructive" : "neutral"}
               onClick={() => {
                 setColor(!color);
               }}

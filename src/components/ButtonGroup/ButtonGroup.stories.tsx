@@ -60,7 +60,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
       </Button>
       <Button
         id="secondaryButton"
-        variant={"secondary"}
+        variant={"descructive"}
         icon={<DeleteIcon />}
         iconLocation={"start"}
       >

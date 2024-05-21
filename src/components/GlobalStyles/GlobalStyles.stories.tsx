@@ -99,10 +99,14 @@ const Template: Story = (args) => (
         <Button
           id={"test-button2"}
           label={"Call to Action Button"}
-          variant={"callAction"}
+          variant={"primary"}
         />
         <br />
-        <Button id={"test-button3"} label={"Secondary"} variant={"secondary"} />
+        <Button
+          id={"test-button3"}
+          label={"Destructive"}
+          variant={"descructive"}
+        />
       </section>
       <div></div>
     </div>

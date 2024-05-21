@@ -239,10 +239,6 @@ export const lightV2 = {
   destructiveColorBorder: "#FF3100",
   neutralColorBorder: "#D6DAE1",
   buttonNeutralColorTextHover: "#000000E0",
-  buttonPrimaryColorBgActive:
-    themeColors["Components/Button/Primary/colorBgActive"],
-  buttonDestructiveColorBgActive:
-    themeColors["Components/Button/Destructive/colorBgActive"],
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -330,7 +326,8 @@ export const lightTheme: ThemeDefinitionProps = {
       pressed: {
         border: lightV2.blueBorderActionButton,
         text: lightV2.white,
-        background: lightV2.buttonPrimaryColorBgActive.lightMode,
+        background:
+          themeColors["Components/Button/Primary/colorBgActive"].lightMode,
         iconColor: lightV2.white,
       },
     },
@@ -377,15 +374,19 @@ export const lightTheme: ThemeDefinitionProps = {
         iconColor: lightV2.buttonDisabledLabel,
       },
       hover: {
-        border: lightV2.buttonDestructiveColorBgActive.lightMode,
-        text: lightV2.buttonDestructiveColorBgActive.lightMode,
+        border:
+          themeColors["Components/Button/Destructive/colorBgActive"].lightMode,
+        text: themeColors["Components/Button/Destructive/colorBgActive"]
+          .lightMode,
         background: "transparent",
         iconColor: lightV2.white,
         shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
       },
       pressed: {
-        border: lightV2.buttonDestructiveColorBgActive.lightMode,
-        text: lightV2.buttonDestructiveColorBgActive.lightMode,
+        border:
+          themeColors["Components/Button/Destructive/colorBgActive"].lightMode,
+        text: themeColors["Components/Button/Destructive/colorBgActive"]
+          .lightMode,
         background: "transparent",
         iconColor: lightV2.white,
       },
@@ -441,37 +442,6 @@ export const lightTheme: ThemeDefinitionProps = {
         border: lightV2.buttonDisabledLabel,
         text: lightV2.modalTitleColor,
         background: lightV2.defaultButtonPressed,
-        iconColor: lightV2.modalTitleColor,
-        shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
-      },
-    },
-  },
-  roundedButtons: {
-    regular: {
-      enabled: {
-        border: lightV2.modalBorderColor,
-        text: lightV2.white,
-        background: "linear-gradient(180deg, #4B5563 0%, #4B5563 100%)",
-        iconColor: lightV2.modalTitleColor,
-        shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
-      },
-      disabled: {
-        border: lightV2.buttonDisabledBG,
-        text: lightV2.buttonDisabledLabel,
-        background: lightV2.buttonDisabledBG,
-        iconColor: lightV2.buttonDisabledLabel,
-      },
-      hover: {
-        border: lightV2.buttonDisabledLabel,
-        text: lightV2.white,
-        background: "linear-gradient(180deg, #585f68 0%, #585f68 100%)",
-        iconColor: lightV2.modalTitleColor,
-        shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
-      },
-      pressed: {
-        border: lightV2.buttonDisabledLabel,
-        text: lightV2.white,
-        background: "linear-gradient(180deg, #3A3D41 0%, #3A3D41 100%)",
         iconColor: lightV2.modalTitleColor,
         shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
       },

@@ -64,7 +64,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
             />
@@ -73,7 +72,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
               className={"hover"}
@@ -83,7 +81,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
               className={"active"}
@@ -93,7 +90,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
               disabled
@@ -102,18 +98,12 @@ const Template: Story<ButtonProps> = (args) => (
         </Box>
         <Box className={"buttonRow"}>
           <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              onClick={() => alert("You clicked me!")}
-              compact={true}
-            />
+            <Button {...args} label={"Button"} compact={true} />
           </Box>
           <Box>
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               compact={true}
               className={"hover"}
             />
@@ -122,7 +112,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               compact={true}
               className={"active"}
             />
@@ -134,7 +123,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={true}
             />
@@ -143,7 +131,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={true}
               className={"hover"}
@@ -153,7 +140,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={true}
               className={"active"}
@@ -166,7 +152,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={true}
             />
@@ -175,7 +160,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={true}
               className={"hover"}
@@ -185,7 +169,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={true}
               className={"active"}
@@ -200,7 +183,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
             />
@@ -209,7 +191,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
               className={"hover"}
@@ -219,7 +200,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
               className={"active"}
@@ -229,7 +209,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
               disabled
@@ -238,18 +217,12 @@ const Template: Story<ButtonProps> = (args) => (
         </Box>
         <Box className={"buttonRow"}>
           <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              onClick={() => alert("You clicked me!")}
-              compact={false}
-            />
+            <Button {...args} label={"Button"} compact={false} />
           </Box>
           <Box>
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               compact={false}
               className={"hover"}
             />
@@ -258,7 +231,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               compact={false}
               className={"active"}
             />
@@ -270,7 +242,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={false}
             />
@@ -279,7 +250,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={false}
               className={"hover"}
@@ -289,7 +259,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={false}
               className={"active"}
@@ -302,7 +271,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={false}
             />
@@ -311,7 +279,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={false}
               className={"hover"}
@@ -321,7 +288,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               label={"Button"}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={false}
               className={"active"}
@@ -336,7 +302,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
             />
@@ -345,7 +310,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
               className={"hover"}
@@ -355,7 +319,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
               className={"active"}
@@ -365,7 +328,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={true}
               disabled
@@ -374,18 +336,12 @@ const Template: Story<ButtonProps> = (args) => (
         </Box>
         <Box className={"buttonRow"}>
           <Box>
-            <Button
-              {...args}
-              icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
-              compact={true}
-            />
+            <Button {...args} icon={<AddIcon />} compact={true} />
           </Box>
           <Box>
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               compact={true}
               className={"hover"}
             />
@@ -394,7 +350,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               compact={true}
               className={"active"}
             />
@@ -406,7 +361,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={true}
             />
@@ -415,7 +369,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={true}
               className={"hover"}
@@ -425,7 +378,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={true}
               className={"active"}
@@ -438,7 +390,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={true}
             />
@@ -447,7 +398,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={true}
               className={"hover"}
@@ -457,7 +407,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={true}
               className={"active"}
@@ -472,7 +421,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
             />
@@ -481,7 +429,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
               className={"hover"}
@@ -491,7 +438,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
               className={"active"}
@@ -501,7 +447,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"primary"}
               compact={false}
               disabled
@@ -510,18 +455,12 @@ const Template: Story<ButtonProps> = (args) => (
         </Box>
         <Box className={"buttonRow"}>
           <Box>
-            <Button
-              {...args}
-              icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
-              compact={false}
-            />
+            <Button {...args} icon={<AddIcon />} compact={false} />
           </Box>
           <Box>
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               compact={false}
               className={"hover"}
             />
@@ -530,7 +469,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               compact={false}
               className={"active"}
             />
@@ -542,7 +480,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={false}
             />
@@ -551,7 +488,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={false}
               className={"hover"}
@@ -561,7 +497,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive"}
               compact={false}
               className={"active"}
@@ -574,7 +509,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={false}
             />
@@ -583,7 +517,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={false}
               className={"hover"}
@@ -593,7 +526,6 @@ const Template: Story<ButtonProps> = (args) => (
             <Button
               {...args}
               icon={<AddIcon />}
-              onClick={() => alert("You clicked me!")}
               variant={"destructive-bare"}
               compact={false}
               className={"active"}
@@ -640,4 +572,6 @@ const Template: Story<ButtonProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  onClick: () => alert("You clicked me!"),
+};
