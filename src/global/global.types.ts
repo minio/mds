@@ -440,9 +440,10 @@ export interface ThemeDefinitionProps {
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
-    regular?: ButtonThemeStatesProps;
-    callAction?: ButtonThemeStatesProps;
-    secondary?: ButtonThemeStatesProps;
+    neutral?: ButtonThemeStatesProps;
+    primary?: ButtonThemeStatesProps;
+    destructive?: ButtonThemeStatesProps;
+    "destructive-bare"?: ButtonThemeStatesProps;
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
   };

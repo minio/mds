@@ -14,69 +14,125 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React, { cloneElement, FC, isValidElement } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
+import { ButtonProps } from "../Button/Button.types";
 
-const ButtonGroupMain = styled.div<ButtonGroupProps>(
-  ({ theme, sx, displayLabels }) => ({
-    display: "inline-flex",
-    flexDirection: "row" as const,
-    border: `1px solid ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
-    backgroundColor: get(
+const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
+  display: "inline-flex",
+  flexDirection: "row" as const,
+  border: `1px solid ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
+  backgroundColor: get(theme, "buttonGroup.background", lightV2.bgColorBgShell),
+  borderRadius: 4,
+  overflow: "hidden",
+  width: "initial",
+  height: 30,
+  boxSizing: "border-box" as const,
+  "& > *:not(:last-child)": {
+    borderRight: `1px solid   ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
+  },
+  "& button": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "none",
+    border: 0,
+    borderRadius: 0,
+    fontSize: 14,
+    lineHeight: "20px",
+    fontStyle: "normal",
+    fontWeight: 400,
+    letterSpacing: "0.16px",
+    fontFamily: "'Geist', sans-serif",
+    boxSizing: "border-box",
+    color: get(
       theme,
-      "buttonGroup.background",
-      lightV2.bgColorBgShell,
+      "buttonGroup.labelColor",
+      themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
     ),
-    borderRadius: 4,
-    overflow: "hidden",
-    width: "initial",
-    height: 30,
-    boxSizing: "border-box" as const,
-    "& > *:not(:last-child)": {
-      borderRight: `1px solid   ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
+    // padding: displayLabels ? "4px 12px" : 6,
+    height: 28,
+    // width: displayLabels ? "initial" : 28,
+    background: "transparent",
+    "& .buttonIcon": {
+      height: 16,
+      "& > svg": {
+        width: 16,
+        height: 16,
+        minWidth: 16,
+        minHeight: 16,
+        color: get(
+          theme,
+          "buttonGroup.labelColor",
+          themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+        ),
+      },
     },
-    "& button": {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      boxShadow: "none",
-      border: 0,
-      borderRadius: 0,
-      fontSize: 14,
-      lineHeight: "20px",
-      fontStyle: "normal",
-      fontWeight: 400,
-      letterSpacing: "0.16px",
-      fontFamily: "'Geist', sans-serif",
-      boxSizing: "border-box",
+    "&.button-secondary": {
       color: get(
         theme,
-        "buttonGroup.labelColor",
+        "buttonGroup.secondaryLabelColor",
+        themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+      ),
+      "& .buttonIcon > svg": {
+        color: get(
+          theme,
+          "buttonGroup.secondaryLabelColor",
+          themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+        ),
+      },
+    },
+    "& .button-label, & .menu-option": {
+      // display: displayLabels ? "initial" : "none",
+      whiteSpace: "nowrap",
+    },
+    "&:disabled": {
+      cursor: "not-allowed",
+      color: get(
+        theme,
+        "buttonGroup.disabledLabelColor",
+        themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+      ),
+      backgroundColor: get(
+        theme,
+        "buttonGroup.disabledBackground",
+        themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
+      ),
+      "& .buttonIcon > svg": {
+        color: get(
+          theme,
+          "buttonGroup.disabledLabelColor",
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+        ),
+      },
+    },
+    "&:hover:not(:disabled)": {
+      background: get(
+        theme,
+        "buttonGroup.hoverBackground",
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      ),
+      color: get(
+        theme,
+        "buttonGroup.hoverLabelColor",
         themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
       ),
-      padding: displayLabels ? "4px 12px" : 6,
-      height: 28,
-      width: displayLabels ? "initial" : 28,
-      gap: 4,
-      background: "transparent",
-      "& .buttonIcon": {
-        height: 16,
-        "& > svg": {
-          width: 16,
-          height: 16,
-          minWidth: 16,
-          minHeight: 16,
-          color: get(
-            theme,
-            "buttonGroup.labelColor",
-            themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-          ),
-        },
+      borderColor: get(
+        theme,
+        "buttonGroup.border",
+        themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
+      ),
+      "& .buttonIcon > svg": {
+        color: get(
+          theme,
+          "buttonGroup.hoverLabelColor",
+          themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+        ),
       },
       "&.button-secondary": {
         color: get(
@@ -92,107 +148,45 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(
           ),
         },
       },
-      "& .button-label, & .menu-option": {
-        display: displayLabels ? "initial" : "none",
-        margin: 0,
-        whiteSpace: "nowrap",
-      },
-      "&:disabled": {
-        cursor: "not-allowed",
-        color: get(
-          theme,
-          "buttonGroup.disabledLabelColor",
-          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
-        ),
-        backgroundColor: get(
-          theme,
-          "buttonGroup.disabledBackground",
-          themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
-        ),
-        "& .buttonIcon > svg": {
-          color: get(
-            theme,
-            "buttonGroup.disabledLabelColor",
-            themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
-          ),
-        },
-      },
-      "&:hover:not(:disabled)": {
-        background: get(
-          theme,
-          "buttonGroup.hoverBackground",
-          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
-        ),
-        color: get(
-          theme,
-          "buttonGroup.hoverLabelColor",
-          themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-        ),
-        borderColor: get(
-          theme,
-          "buttonGroup.border",
-          themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
-        ),
-        "& .buttonIcon > svg": {
-          color: get(
-            theme,
-            "buttonGroup.hoverLabelColor",
-            themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-          ),
-        },
-        "&.button-secondary": {
-          color: get(
-            theme,
-            "buttonGroup.secondaryLabelColor",
-            themeColors["Color/Brand/Error/colorPrimary"].lightMode,
-          ),
-          "& .buttonIcon > svg": {
-            color: get(
-              theme,
-              "buttonGroup.secondaryLabelColor",
-              themeColors["Color/Brand/Error/colorPrimary"].lightMode,
-            ),
-          },
-        },
-      },
-      "&:active": {
-        backgroundColor: get(
-          theme,
-          "buttonGroup.activeBackground",
-          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
-        ),
+    },
+    "&:active": {
+      backgroundColor: get(
+        theme,
+        "buttonGroup.activeBackground",
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      ),
+      color: get(
+        theme,
+        "buttonGroup.activeLabelColor",
+        themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+      ),
+      borderColor: get(
+        theme,
+        "buttonGroup.border",
+        themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
+      ),
+      "& .buttonIcon > svg": {
         color: get(
           theme,
           "buttonGroup.activeLabelColor",
           themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
         ),
-        borderColor: get(
-          theme,
-          "buttonGroup.border",
-          themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
-        ),
-        "& .buttonIcon > svg": {
-          color: get(
-            theme,
-            "buttonGroup.activeLabelColor",
-            themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
-          ),
-        },
       },
     },
-    ...overridePropsParse(sx, theme),
-  }),
-);
+  },
+  ...overridePropsParse(sx, theme),
+}));
 
-const ButtonGroup: FC<ButtonGroupProps> = ({
-  displayLabels = true,
-  sx,
-  children,
-  ...restProps
-}) => {
+const ButtonGroup: FC<ButtonGroupProps> = ({ sx, children, ...restProps }) => {
   return (
-    <ButtonGroupMain {...restProps} sx={sx} displayLabels={displayLabels}>
-      {children}
+    <ButtonGroupMain {...restProps} sx={sx}>
+      {React.Children.map(children, (child) => {
+        // Ensure the child is a valid ButtonProps and pass the prop
+        if (isValidElement<ButtonProps>(child)) {
+          return cloneElement(child, { inButtonGroup: true });
+        }
+        return child;
+      })}
     </ButtonGroupMain>
   );
 };

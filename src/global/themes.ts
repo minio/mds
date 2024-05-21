@@ -234,6 +234,15 @@ export const lightV2 = {
   colorText: "#000000E0",
   colorBgDisabled: "#E3E6EA",
   colorTextDisabled: "#00000040",
+  // orphan colors? (not in themeColors)
+  colorTextDestructive: "#FF3100",
+  destructiveColorBorder: "#FF3100",
+  neutralColorBorder: "#D6DAE1",
+  buttonNeutralColorTextHover: "#000000E0",
+  buttonPrimaryColorBgActive:
+    themeColors["Components/Button/Primary/colorBgActive"],
+  buttonDestructiveColorBgActive:
+    themeColors["Components/Button/Destructive/colorBgActive"],
 };
 
 export const lightTheme: ThemeDefinitionProps = {
@@ -268,7 +277,7 @@ export const lightTheme: ThemeDefinitionProps = {
     selectBlue: lightV2.menuSelectionColor,
   },
   buttons: {
-    regular: {
+    neutral: {
       enabled: {
         border: lightV2.modalBorderColor,
         text: lightV2.modalTitleColor,
@@ -283,7 +292,7 @@ export const lightTheme: ThemeDefinitionProps = {
         iconColor: lightV2.buttonDisabledLabel,
       },
       hover: {
-        border: lightV2.buttonDisabledLabel,
+        border: lightV2.neutralColorBorder,
         text: lightV2.modalTitleColor,
         background: lightV2.modalBorderColor,
         iconColor: lightV2.modalTitleColor,
@@ -297,7 +306,7 @@ export const lightTheme: ThemeDefinitionProps = {
         shadow: "0px 1px 1px 0px rgba(121, 135, 151, 0.15)",
       },
     },
-    callAction: {
+    primary: {
       enabled: {
         border: lightV2.blueBorderActionButton,
         text: lightV2.white,
@@ -321,14 +330,13 @@ export const lightTheme: ThemeDefinitionProps = {
       pressed: {
         border: lightV2.blueBorderActionButton,
         text: lightV2.white,
-        background: "linear-gradient(180deg, #2350D2 0%, #2241AB 100%);",
+        background: lightV2.buttonPrimaryColorBgActive.lightMode,
         iconColor: lightV2.white,
-        shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
       },
     },
-    secondary: {
+    destructive: {
       enabled: {
-        border: lightV2.redBorder,
+        border: lightV2.destructiveColorBorder,
         text: lightV2.white,
         background: "linear-gradient(180deg, #FF4E42 0%, #ED2315 100%)",
         iconColor: lightV2.white,
@@ -348,11 +356,38 @@ export const lightTheme: ThemeDefinitionProps = {
         shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
       },
       pressed: {
-        border: lightV2.redBorder,
+        border: lightV2.destructiveColorBorder,
         text: lightV2.white,
         background: "linear-gradient(180deg, #C8190D 0%, #A5190F 100%)",
         iconColor: lightV2.white,
+      },
+    },
+    "destructive-bare": {
+      enabled: {
+        border: lightV2.destructiveColorBorder,
+        text: lightV2.colorTextDestructive,
+        background: "transparent",
+        iconColor: lightV2.white,
         shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
+      },
+      disabled: {
+        border: lightV2.buttonDisabledBG,
+        text: lightV2.buttonDisabledLabel,
+        background: lightV2.buttonDisabledBG,
+        iconColor: lightV2.buttonDisabledLabel,
+      },
+      hover: {
+        border: lightV2.buttonDestructiveColorBgActive.lightMode,
+        text: lightV2.buttonDestructiveColorBgActive.lightMode,
+        background: "transparent",
+        iconColor: lightV2.white,
+        shadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
+      },
+      pressed: {
+        border: lightV2.buttonDestructiveColorBgActive.lightMode,
+        text: lightV2.buttonDestructiveColorBgActive.lightMode,
+        background: "transparent",
+        iconColor: lightV2.white,
       },
     },
     text: {
@@ -903,7 +938,7 @@ export const darkTheme: ThemeDefinitionProps = {
     clear: darkColors.mainWhite,
   },
   buttons: {
-    regular: {
+    neutral: {
       enabled: {
         border: darkColors.mainGrey,
         text: darkColors.mainGrey,
@@ -929,7 +964,7 @@ export const darkTheme: ThemeDefinitionProps = {
         iconColor: darkColors.borderPressedGrey,
       },
     },
-    callAction: {
+    primary: {
       enabled: {
         border: darkColors.mainWhite,
         text: darkColors.dark,
@@ -955,7 +990,33 @@ export const darkTheme: ThemeDefinitionProps = {
         iconColor: darkColors.dark,
       },
     },
-    secondary: {
+    destructive: {
+      enabled: {
+        border: darkColors.mainRed,
+        text: darkColors.mainRed,
+        background: "transparent",
+        iconColor: darkColors.mainRed,
+      },
+      disabled: {
+        border: darkColors.disabledInnerGrey,
+        text: darkColors.disabledInnerGrey,
+        background: darkColors.disabledBGGrey,
+        iconColor: darkColors.disabledInnerGrey,
+      },
+      hover: {
+        border: darkColors.mainRed,
+        text: darkColors.mainRed,
+        background: darkColors.hoverRed,
+        iconColor: darkColors.mainRed,
+      },
+      pressed: {
+        border: darkColors.mainRed,
+        text: darkColors.dark,
+        background: darkColors.mainRed,
+        iconColor: darkColors.dark,
+      },
+    },
+    "destructive-bare": {
       enabled: {
         border: darkColors.mainRed,
         text: darkColors.mainRed,
