@@ -34,10 +34,10 @@ const Template: Story<FormActionsTrayProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <FormActionsTray {...args}>
-      <Button id={"test"} variant={"regular"}>
+      <Button id={"test"} variant={"neutral"}>
         Cancel
       </Button>
-      <Button id={"test"} variant={"callAction"}>
+      <Button id={"test"} variant={"primary"}>
         Accept
       </Button>
     </FormActionsTray>
