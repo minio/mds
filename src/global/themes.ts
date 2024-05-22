@@ -257,9 +257,9 @@ export const lightTheme: ThemeDefinitionProps = {
   secondaryText: lightColors.mainGrey,
   colors: getThemeColors("lightMode"),
   box: {
-    border: lightV2.disabledGrey,
-    shadow: "0px 2px 8px 0px rgba(156, 163, 175, 0.15)",
-    backgroundColor: lightV2.white,
+    border: "transparent",
+    shadow: "0px 2px 2px 0px rgba(121, 135, 151, 0.15)",
+    backgroundColor: themeColors["Color/Neutral/Bg/colorBgContainer"].lightMode,
   },
   signalColors: {
     main: lightV2.switchBG,
