@@ -778,9 +778,9 @@ const M = {
     secondaryText: M.mainGrey,
     colors: N("lightMode"),
     box: {
-      border: O.disabledGrey,
-      shadow: "0px 2px 8px 0px rgba(156, 163, 175, 0.15)",
-      backgroundColor: O.white,
+      border: "transparent",
+      shadow: "0px 2px 2px 0px rgba(121, 135, 151, 0.15)",
+      backgroundColor: _["Color/Neutral/Bg/colorBgContainer"].lightMode,
     },
     signalColors: {
       main: O.switchBG,
@@ -4808,23 +4808,24 @@ const pa = ({
       sx: t,
       withBorders: n,
       customBorderPadding: a,
-      useBackground: r,
+      customBorderRadius: r,
+      useBackground: o,
     }) => {
-      let o = {};
+      let i = {};
       return (
         n &&
-          (o = {
+          (i = {
             border: `${un(e, "box.border", O.disabledGrey)} 1px solid`,
-            borderRadius: 16,
-            padding: a || "32px 56px",
+            borderRadius: r || 16,
+            padding: a || 24,
             boxShadow: un(e, "box.shadow", "none"),
             backgroundColor: un(e, "box.backgroundColor", O.white),
           }),
         {
-          backgroundColor: r
+          backgroundColor: o
             ? un(e, "boxBackground", "#FBFAFA")
             : "transparent",
-          ...o,
+          ...i,
           ...R(t, e),
         }
       );
@@ -4836,21 +4837,23 @@ const pa = ({
         sx: e,
         children: n,
         customBorderPadding: a,
-        className: r,
-        withBorders: o,
-        ...i
+        customBorderRadius: r = 16,
+        className: o,
+        withBorders: i,
+        ...l
       },
-      l,
+      s,
     ) =>
       t.createElement(
         ma,
         {
-          ...i,
+          ...l,
           sx: e,
           customBorderPadding: a,
-          ref: l,
-          withBorders: o,
-          className: `box ${o ? "with-borders" : ""} ${r || ""}`,
+          customBorderRadius: r,
+          ref: s,
+          withBorders: i,
+          className: `box ${i ? "with-borders" : ""} ${o || ""}`,
         },
         n,
       ),
@@ -24805,13 +24808,17 @@ const sp = m.div(({}) => ({
     if (!e) return { top: 0, left: 0, width: 0 };
     const n = e.getBoundingClientRect();
     let a = { top: n.top + n.height };
-    return (
-      "start" === t
-        ? ((a.left = n.left), (a.transform = "translateX(0%)"))
-        : "end" === t &&
-          ((a.left = n.left + n.width), (a.transform = "translateX(-100%)")),
-      a
-    );
+    switch (t) {
+      case "start":
+        (a.left = n.left), (a.transform = "translateX(0%)");
+        break;
+      case "end":
+        (a.left = n.left + n.width), (a.transform = "translateX(-100%)");
+        break;
+      case "middle":
+        (a.left = n.right - n.width / 2), (a.transform = "translateX(-50%)");
+    }
+    return a;
   },
   Zp = ({
     hideTriggerAction: e,
@@ -25039,112 +25046,120 @@ const sp = m.div(({}) => ({
     subOptions: d,
     ...u
   }) => {
-    let p = null;
+    let p = null,
+      m = null;
     return (
       a && (p = t.createElement("span", { className: "buttonIcon" }, a)),
-      d
-        ? t.createElement(
-            jp,
-            {
-              id: `expand-breadcrumb-${e}`,
-              className: "breadcrumbElement",
-              icon: a,
-              label: e,
-              variant: "text",
-              sx: (e) => ({
-                display: "flex",
-                alignItems: "center",
-                height: 20,
-                padding: "2px 4px",
-                borderRadius: 2,
-                fontSize: 12,
-                gap: 4,
-                transitionDuration: "0s",
+      d &&
+        (m = t.createElement(
+          jp,
+          {
+            id: `expand-breadcrumb-${e}`,
+            className: "breadcrumbElement",
+            variant: "text",
+            dropMenuPosition: "middle",
+            sx: (e) => ({
+              display: "flex",
+              alignItems: "center",
+              height: 20,
+              width: 20,
+              padding: "2px 4px",
+              borderRadius: 2,
+              fontSize: 12,
+              gap: 4,
+              transitionDuration: "0s",
+              "& .button-label": { display: "none", marginLeft: 0 },
+              color: un(
+                e,
+                "breadcrumbs.elementsColor",
+                _["Color/Neutral/Text/colorTextDescription"].lightMode,
+              ),
+              "&:hover": {
+                backgroundColor: un(
+                  e,
+                  "breadcrumbs.hoverBG",
+                  _["Color/Brand/Control/colorBgHover"].lightMode,
+                ),
                 color: un(
                   e,
-                  "breadcrumbs.elementsColor",
-                  _["Color/Neutral/Text/colorTextDescription"].lightMode,
+                  "breadcrumbs.hoverColor",
+                  _["Color/Neutral/Text/colorTextLabel"].lightMode,
                 ),
-                "&:hover": {
-                  backgroundColor: un(
-                    e,
-                    "breadcrumbs.hoverBG",
-                    _["Color/Brand/Control/colorBgHover"].lightMode,
-                  ),
+                textDecoration: "underline",
+                "& .button-icon svg": {
                   color: un(
                     e,
                     "breadcrumbs.hoverColor",
                     _["Color/Neutral/Text/colorTextLabel"].lightMode,
                   ),
-                  textDecoration: "underline",
-                  "& .button-icon svg": {
-                    color: un(
-                      e,
-                      "breadcrumbs.hoverColor",
-                      _["Color/Neutral/Text/colorTextLabel"].lightMode,
-                    ),
-                  },
                 },
-                "& .buttonIcon > svg": {
-                  color: un(
-                    e,
-                    "breadcrumbs.elementsColor",
-                    _["Color/Neutral/Text/colorTextDescription"].lightMode,
-                  ),
-                  width: 16,
-                  height: 16,
-                },
-                "& .button-label": { marginLeft: 0 },
-              }),
-              compact: !0,
-            },
-            d.map((e) =>
-              t.createElement(
-                Yp,
-                {
-                  id: `expandOption-${e.label}`,
-                  onClick: () =>
-                    ((e) => {
-                      e.onClick && e.onClick(e.to);
-                    })(e),
-                },
-                e.label,
-              ),
-            ),
-          )
-        : t.createElement(
-            Kp,
-            {
-              onClick: o,
-              disabled: i || !1,
-              iconLocation: r || "end",
-              label: e || "",
-              icon: p,
-              parentChildren: l || null,
-              className: `breadcrumbElement ${s || ""} ${c && !d ? "current" : ""}`,
-              ...u,
-            },
+              },
+              "& .buttonIcon > svg": {
+                color: un(
+                  e,
+                  "breadcrumbs.elementsColor",
+                  _["Color/Neutral/Text/colorTextDescription"].lightMode,
+                ),
+                width: 16,
+                height: 16,
+              },
+            }),
+            compact: !0,
+          },
+          d.map((e, n) =>
             t.createElement(
-              n,
-              null,
-              a &&
+              Yp,
+              {
+                key: `expand-opt-${e.label}-${n}`,
+                id: `expandOption-${e.label}`,
+                onClick: () =>
+                  ((e) => {
+                    e.onClick && e.onClick(e.to);
+                  })(e),
+                icon: e.icon,
+              },
+              e.label,
+            ),
+          ),
+        )),
+      t.createElement(
+        n,
+        null,
+        t.createElement(
+          Kp,
+          {
+            onClick: o,
+            disabled: i || !1,
+            iconLocation: r || "end",
+            label: e || "",
+            icon: p,
+            parentChildren: l || null,
+            className: `breadcrumbElement ${s || ""} ${c && !d ? "current" : ""}`,
+            ...u,
+          },
+          t.createElement(
+            n,
+            null,
+            a &&
+              t.createElement(
+                "span",
+                { className: "button-icon" },
+                a && "start" === r && p,
+              ),
+            l ||
+              (e &&
                 t.createElement(
                   "span",
-                  { className: "button-icon" },
-                  a && "start" === r && p,
-                ),
-              l ||
-                (e &&
-                  t.createElement(
-                    "span",
-                    { className: "button-label" },
-                    l,
-                    l && e ? " " : "",
-                    e,
-                  )),
-              a && "end" === r && p,
-            ),
-          )
+                  { className: "button-label" },
+                  l,
+                  l && e ? " " : "",
+                  e,
+                )),
+            a && "end" === r && p,
+          ),
+        ),
+        m,
+      )
     );
   },
   Qp = m.div(({ theme: e, sx: t }) => ({
@@ -25231,10 +25246,14 @@ const sp = m.div(({}) => ({
           dropArrow: !1,
           compact: !0,
         },
-        e.map((e) =>
+        e.map((e, n) =>
           t.createElement(
             Yp,
-            { id: `expandOption-${e.label}`, onClick: () => u(e) },
+            {
+              key: `expandOption-${e.label}-${n}`,
+              id: `expandOption-${e.label}`,
+              onClick: () => u(e),
+            },
             e.label,
           ),
         ),
@@ -25276,7 +25295,7 @@ const sp = m.div(({}) => ({
                 const r = a === m.length - 1;
                 return t.createElement(
                   n,
-                  null,
+                  { key: `expandOption-${e.label}-${a}` },
                   0 !== a && t.createElement(p, null),
                   t.createElement(Xp, {
                     id: `breadcrumb-option-${e.label}`,
@@ -25296,7 +25315,7 @@ const sp = m.div(({}) => ({
                 const o = a === r.length - 1;
                 return t.createElement(
                   n,
-                  null,
+                  { key: `expandOption-${e.label}-${a}` },
                   0 !== a && t.createElement(p, null),
                   t.createElement(Xp, {
                     id: `breadcrumb-option-${e.label}`,
