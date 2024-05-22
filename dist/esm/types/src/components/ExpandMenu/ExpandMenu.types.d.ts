@@ -14,7 +14,7 @@ export interface ExpandMenuProps {
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
-  dropMenuPosition?: "start" | "end";
+  dropMenuPosition?: "start" | "end" | "middle";
   compact?: boolean;
   dropArrow?: boolean;
   sx?: OverrideTheme;
@@ -31,7 +31,7 @@ export interface ExpandDropBaseProps {
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
-  anchorOrigin?: "start" | "end";
+  anchorOrigin?: "start" | "end" | "middle";
   children: React.ReactNode;
 }
 export interface DropdownMainProps {

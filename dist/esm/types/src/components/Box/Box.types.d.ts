@@ -5,5 +5,6 @@ export interface BoxProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   withBorders?: boolean;
   customBorderPadding?: number | string;
+  customBorderRadius?: number | string;
   useBackground?: boolean;
 }

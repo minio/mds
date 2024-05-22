@@ -821,6 +821,7 @@ interface BoxProps extends React__default.HTMLAttributes<HTMLDivElement> {
   children?: React__default.ReactNode;
   withBorders?: boolean;
   customBorderPadding?: number | string;
+  customBorderRadius?: number | string;
   useBackground?: boolean;
 }
 
@@ -1663,7 +1664,7 @@ interface ExpandMenuProps {
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
-  dropMenuPosition?: "start" | "end";
+  dropMenuPosition?: "start" | "end" | "middle";
   compact?: boolean;
   dropArrow?: boolean;
   sx?: OverrideTheme;
@@ -1680,7 +1681,7 @@ interface ExpandDropBaseProps {
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
-  anchorOrigin?: "start" | "end";
+  anchorOrigin?: "start" | "end" | "middle";
   children: React__default.ReactNode;
 }
 interface DropdownMainProps {
