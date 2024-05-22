@@ -119,28 +119,33 @@ const BreadcrumbButton: FC<
   };
 
   let iconToPlace: React.ReactNode = null;
+  let expandMenu = null;
 
   if (icon) {
     iconToPlace = <span className={"buttonIcon"}>{icon}</span>;
   }
 
   if (subOptions) {
-    return (
+    expandMenu = (
       <ExpandMenu
         id={`expand-breadcrumb-${label}`}
         className={"breadcrumbElement"}
-        icon={icon}
-        label={label}
         variant={"text"}
+        dropMenuPosition={"middle"}
         sx={(theme) => ({
           display: "flex",
           alignItems: "center",
           height: 20,
+          width: 20,
           padding: "2px 4px",
           borderRadius: 2,
           fontSize: 12,
           gap: 4,
           transitionDuration: "0s",
+          "& .button-label": {
+            display: "none",
+            marginLeft: 0,
+          },
           color: get(
             theme,
             "breadcrumbs.elementsColor",
@@ -175,9 +180,6 @@ const BreadcrumbButton: FC<
             width: 16,
             height: 16,
           },
-          "& .button-label": {
-            marginLeft: 0,
-          },
         })}
         compact
       >
@@ -196,33 +198,36 @@ const BreadcrumbButton: FC<
   }
 
   return (
-    <CustomBreadcrumb
-      onClick={onClick}
-      disabled={disabled || false}
-      iconLocation={iconLocation || "end"}
-      label={label || ""}
-      icon={iconToPlace}
-      parentChildren={children || null}
-      className={`breadcrumbElement ${className || ""} ${current && !subOptions ? "current" : ""}`}
-      {...props}
-    >
-      <Fragment>
-        {icon && (
-          <span className={"button-icon"}>
-            {icon && iconLocation === "start" && iconToPlace}
-          </span>
-        )}
-        {children ||
-          (label && (
-            <span className={"button-label"}>
-              {children}
-              {children && label ? " " : ""}
-              {label}
+    <Fragment>
+      <CustomBreadcrumb
+        onClick={onClick}
+        disabled={disabled || false}
+        iconLocation={iconLocation || "end"}
+        label={label || ""}
+        icon={iconToPlace}
+        parentChildren={children || null}
+        className={`breadcrumbElement ${className || ""} ${current && !subOptions ? "current" : ""}`}
+        {...props}
+      >
+        <Fragment>
+          {icon && (
+            <span className={"button-icon"}>
+              {icon && iconLocation === "start" && iconToPlace}
             </span>
-          ))}
-        {icon && iconLocation === "end" && iconToPlace}
-      </Fragment>
-    </CustomBreadcrumb>
+          )}
+          {children ||
+            (label && (
+              <span className={"button-label"}>
+                {children}
+                {children && label ? " " : ""}
+                {label}
+              </span>
+            ))}
+          {icon && iconLocation === "end" && iconToPlace}
+        </Fragment>
+      </CustomBreadcrumb>
+      {expandMenu}
+    </Fragment>
   );
 };
 
