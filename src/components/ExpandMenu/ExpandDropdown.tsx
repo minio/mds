@@ -61,7 +61,7 @@ const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
 
 const calcElementPosition = (
   anchorEl: (EventTarget & HTMLElement) | null,
-  anchorOrigin: "start" | "end",
+  anchorOrigin: "start" | "end" | "middle",
 ) => {
   if (!anchorEl) {
     return {
@@ -75,12 +75,19 @@ const calcElementPosition = (
 
   let returnItem: CSSObject = { top: bounds.top + bounds.height };
 
-  if (anchorOrigin === "start") {
-    returnItem.left = bounds.left;
-    returnItem.transform = "translateX(0%)";
-  } else if (anchorOrigin === "end") {
-    returnItem.left = bounds.left + bounds.width;
-    returnItem.transform = "translateX(-100%)";
+  switch (anchorOrigin) {
+    case "start":
+      returnItem.left = bounds.left;
+      returnItem.transform = "translateX(0%)";
+      break;
+    case "end":
+      returnItem.left = bounds.left + bounds.width;
+      returnItem.transform = "translateX(-100%)";
+      break;
+    case "middle":
+      returnItem.left = bounds.right - bounds.width / 2;
+      returnItem.transform = "translateX(-50%)";
+      break;
   }
 
   return returnItem;
