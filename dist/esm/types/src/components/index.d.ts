@@ -57,7 +57,6 @@ export { default as InformativeMessage } from "./InformativeMessage/InformativeM
 export { default as DateTimeInput } from "./DateTimeInput/DateTimeInput";
 export { default as DateTimeSelector } from "./DateTimeInput/DateTimeSelector";
 export { default as Link } from "./Link/Link";
-export { default as RoundedButton } from "./RoundedButton/RoundedButton";
 export { default as Slider } from "./Slider/Slider";
 export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 export { default as FormActionsTray } from "./FormActionsTray/FormActionsTray";
