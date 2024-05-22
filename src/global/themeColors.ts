@@ -793,4 +793,19 @@ export const themeColors: ThemeColorItem = {
     lightMode: "#E3E6EA",
     darkMode: "#4D4D51",
   },
+  // Orphan colors not in the design system export
+  "Components/Button/Neutral/colorTextHover": {
+    lightMode: "#000000E0",
+    darkMode: "#ffffffE0",
+  },
+  //references: Color/Base/Royal/8
+  "Components/Button/Primary/colorBgActive": {
+    lightMode: "#2241ab",
+    darkMode: "#c1dbfc",
+  },
+  //references: Color/Base/Sunset/8
+  "Components/Button/Destructive/colorBgActive": {
+    lightMode: "#a1190b",
+    darkMode: "#ffc9a5",
+  },
 };

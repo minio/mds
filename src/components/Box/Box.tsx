@@ -57,7 +57,7 @@ const Box = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, BoxProps>(
         customBorderPadding={customBorderPadding}
         ref={ref as RefObject<HTMLDivElement> | null | undefined}
         withBorders={withBorders}
-        className={`${withBorders ? "with-borders" : ""} ${className || ""}`}
+        className={`box ${withBorders ? "with-borders" : ""} ${className || ""}`}
       >
         {children}
       </BoxParent>

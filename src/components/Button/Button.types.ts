@@ -21,7 +21,13 @@ export interface ButtonProps {
   id: string;
   name?: string;
   label?: string;
-  variant?: "regular" | "callAction" | "secondary" | "text" | "subAction";
+  variant?:
+    | "neutral"
+    | "primary"
+    | "descructive"
+    | "descructive-bare"
+    | "text"
+    | "subAction";
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   fullWidth?: boolean;
@@ -30,6 +36,7 @@ export interface ButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   compact?: boolean;
+  inButtonGroup?: boolean;
   sx?: OverrideTheme;
 }
 
