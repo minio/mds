@@ -68,6 +68,12 @@ WithCustomBorderPadding.args = {
   customBorderPadding: "5px 100px",
 };
 
+export const WithCustomBorderRadius = Template.bind({});
+WithCustomBorderRadius.args = {
+  withBorders: true,
+  customBorderRadius: 8,
+};
+
 export const BoxWithCustomStyles = Template.bind({});
 BoxWithCustomStyles.args = {
   withBorders: true,
