@@ -15,11 +15,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment } from "react";
-import { BreadcrumbsOptionProps } from "./Breadcrumbs.types";
+import { BreadcrumbsOption, BreadcrumbsOptionProps } from "./Breadcrumbs.types";
 import styled from "styled-components";
 import { ButtonProps, ConstructProps } from "../Button/Button.types";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
+import ExpandOptionsIcon from "../Icons/ExpandOptionsIcon";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import ExpandCaret from "../Icons/ExpandCaret";
 
 const CustomBreadcrumb = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps
@@ -105,12 +109,88 @@ const BreadcrumbButton: FC<
   children,
   className,
   current,
+  subOptions,
   ...props
 }) => {
+  const clickFunction = (option: BreadcrumbsOption) => {
+    if (option.onClick) {
+      option.onClick(option.to);
+    }
+  };
+
   let iconToPlace: React.ReactNode = null;
 
   if (icon) {
     iconToPlace = <span className={"buttonIcon"}>{icon}</span>;
+  }
+
+  if (subOptions) {
+    return (
+      <ExpandMenu
+        id={`expand-breadcrumb-${label}`}
+        className={"breadcrumbElement"}
+        icon={icon}
+        label={label}
+        variant={"text"}
+        sx={(theme) => ({
+          display: "flex",
+          alignItems: "center",
+          height: 20,
+          padding: "2px 4px",
+          borderRadius: 2,
+          fontSize: 12,
+          gap: 4,
+          transitionDuration: "0s",
+          color: get(
+            theme,
+            "breadcrumbs.elementsColor",
+            themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+          ),
+          "&:hover": {
+            backgroundColor: get(
+              theme,
+              "breadcrumbs.hoverBG",
+              themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+            ),
+            color: get(
+              theme,
+              "breadcrumbs.hoverColor",
+              themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+            ),
+            textDecoration: "underline",
+            "& .button-icon svg": {
+              color: get(
+                theme,
+                "breadcrumbs.hoverColor",
+                themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+              ),
+            },
+          },
+          "& .buttonIcon > svg": {
+            color: get(
+              theme,
+              "breadcrumbs.elementsColor",
+              themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+            ),
+            width: 16,
+            height: 16,
+          },
+          "& .button-label": {
+            marginLeft: 0,
+          },
+        })}
+        compact
+      >
+        {subOptions.map((option) => (
+          <ExpandMenuOption
+            id={`expandOption-${option.label}`}
+            onClick={() => clickFunction(option)}
+          >
+            {option.label}
+          </ExpandMenuOption>
+        ))}
+      </ExpandMenu>
+    );
   }
 
   return (
@@ -121,7 +201,7 @@ const BreadcrumbButton: FC<
       label={label || ""}
       icon={iconToPlace}
       parentChildren={children || null}
-      className={`breadcrumbElement ${className || ""} ${current ? "current" : ""}`}
+      className={`breadcrumbElement ${className || ""} ${current && !subOptions ? "current" : ""}`}
       {...props}
     >
       <Fragment>

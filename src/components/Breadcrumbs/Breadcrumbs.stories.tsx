@@ -24,6 +24,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
 import TestIcon from "../../utils/TestIcon";
 import HomeIcon from "../Icons/NewDesignIcons/HomeIcon";
+import { EyeIcon } from "../Icons/NewDesignIcons";
 
 export default {
   title: "MDS/Layout/Breadcrumbs",
@@ -56,6 +57,65 @@ const iconOptions: BreadcrumbsOption[] = [
   { label: "Level 4", to: "/lol" },
   { label: "Level 5", to: "/lol" },
   { label: "Level 6", to: "/lol" },
+];
+
+const subMenuOptions: BreadcrumbsOption[] = [
+  { icon: <HomeIcon />, to: "/lol" },
+  {
+    icon: <EyeIcon />,
+    label: "Level 1",
+    to: "/lol",
+    subOptions: [
+      {
+        label: "SubLevel 1",
+        to: "/lol",
+        onClick: (dt) => {
+          console.log("clicked", dt);
+        },
+      },
+      { label: "SubLevel 2", to: "/lol" },
+      { label: "SubLevel 3", to: "/lol" },
+      { label: "SubLevel 4", to: "/lol" },
+      { label: "SubLevel 5", to: "/lol" },
+    ],
+  },
+  { label: "Level 2", to: "/lol" },
+  {
+    label: "Level 3",
+    to: "/lol",
+    subOptions: [
+      {
+        label: "SubLevel 1",
+        to: "/lol",
+        onClick: (dt) => {
+          console.log("clicked", dt);
+        },
+      },
+      { label: "SubLevel 2", to: "/lol" },
+      { label: "SubLevel 3", to: "/lol" },
+      { label: "SubLevel 4", to: "/lol" },
+      { label: "SubLevel 5", to: "/lol" },
+    ],
+  },
+  { label: "Level 4", to: "/lol" },
+  { label: "Level 5", to: "/lol" },
+  {
+    label: "Level 6",
+    to: "/lol",
+    subOptions: [
+      {
+        label: "SubLevel 1",
+        to: "/lol",
+        onClick: (dt) => {
+          console.log("clicked", dt);
+        },
+      },
+      { label: "SubLevel 2", to: "/lol" },
+      { label: "SubLevel 3", to: "/lol" },
+      { label: "SubLevel 4", to: "/lol" },
+      { label: "SubLevel 5", to: "/lol" },
+    ],
+  },
 ];
 
 export const Default = Template.bind({});
@@ -93,5 +153,11 @@ LimitAsListSize.args = {
 export const WithIcons = Template.bind({});
 WithIcons.args = {
   options: iconOptions,
+  markCurrentItem: true,
+};
+
+export const WithSubMenus = Template.bind({});
+WithSubMenus.args = {
+  options: subMenuOptions,
   markCurrentItem: true,
 };

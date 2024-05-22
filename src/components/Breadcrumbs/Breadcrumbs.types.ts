@@ -32,6 +32,7 @@ export interface BreadcrumbsOption {
   to?: string;
   onClick?: (to?: string) => void;
   icon?: ReactNode;
+  subOptions?: BreadcrumbsOption[];
 }
 
 export interface BreadcrumbsContainerProps {
@@ -49,4 +50,5 @@ export interface BreadcrumbsOptionProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   sx?: OverrideTheme;
+  subOptions?: BreadcrumbsOption[];
 }

@@ -33,6 +33,7 @@ export interface ExpandMenuProps {
   children?: ReactNode | string;
   dropMenuPosition?: "start" | "end";
   compact?: boolean;
+  dropArrow?: boolean;
   sx?: OverrideTheme;
 }
 
