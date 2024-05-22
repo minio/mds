@@ -47,3 +47,4 @@ export { default as DeleteIcon } from "./DeleteIcon";
 export { default as ChevronDownIcon } from "./ChevronDownIcon";
 export { default as ChevronUpIcon } from "./ChevronUpIcon";
 export { default as HomeIcon } from "./HomeIcon";
+export { default as ArrowDownAZIcon } from "./ArrowDownAZIcon";
