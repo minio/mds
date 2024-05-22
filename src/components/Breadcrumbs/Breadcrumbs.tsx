@@ -140,6 +140,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
           padding: "2px 4px",
           borderRadius: 2,
         }}
+        dropArrow={false}
         compact
       >
         {colOpts.map((option) => (
@@ -195,12 +196,11 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}
                     onClick={() => clickFunction(itm)}
-                    className={`${lastItem ? "last" : ""}`}
+                    className={`${lastItem && !itm.subOptions ? "last" : ""}`}
                     icon={itm.icon!!}
                     current={lastItem && markCurrentItem}
-                  >
-                    {itm.label}
-                  </BreadcrumbButton>
+                    label={itm.label}
+                  />
                 </Fragment>
               );
             })}
@@ -218,12 +218,12 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                     onClick={() => {
                       clickFunction(itm);
                     }}
-                    className={`${lastItem ? "last" : ""}`}
+                    className={`${lastItem && !itm.subOptions ? "last" : ""}`}
                     icon={itm.icon!!}
                     current={lastItem && markCurrentItem}
-                  >
-                    {itm.label}
-                  </BreadcrumbButton>
+                    subOptions={itm.subOptions}
+                    label={itm.label}
+                  />
                 </Fragment>
               );
             })}

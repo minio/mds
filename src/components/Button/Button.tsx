@@ -75,7 +75,6 @@ const CustomButton = styled.button<
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      textTransform: variant === "text" ? "uppercase" : "none",
       margin: 0,
       padding:
         !label || label === ""
@@ -157,6 +156,7 @@ const Button: FC<
   variant = "neutral",
   icon,
   iconLocation = "start",
+  secondaryIcon,
   onClick,
   disabled,
   fullWidth,
@@ -169,9 +169,16 @@ const Button: FC<
   ...props
 }) => {
   let iconToPlace: React.ReactNode = null;
+  let secondaryIconToPlace: React.ReactNode = null;
 
   if (icon) {
     iconToPlace = <span className={"buttonIcon"}>{icon}</span>;
+  }
+
+  if (secondaryIcon) {
+    secondaryIconToPlace = (
+      <span className={"buttonIcon"}>{secondaryIcon}</span>
+    );
   }
 
   return (
@@ -182,7 +189,7 @@ const Button: FC<
       iconLocation={iconLocation || "end"}
       label={label}
       fullWidth={fullWidth || false}
-      collapseOnSmall={!!collapseOnSmall}
+      collapseOnSmall={collapseOnSmall}
       icon={iconToPlace}
       parentChildren={children || null}
       className={`${className || ""} button button-${variant}`}
@@ -201,6 +208,7 @@ const Button: FC<
           </span>
         )}
         {icon && iconLocation === "end" && iconToPlace}
+        {secondaryIcon && secondaryIconToPlace}
       </Fragment>
     </CustomButton>
   );

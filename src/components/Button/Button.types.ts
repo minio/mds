@@ -30,6 +30,7 @@ export interface ButtonProps {
     | "subAction";
   icon?: ReactNode;
   iconLocation?: "start" | "end";
+  secondaryIcon?: ReactNode;
   fullWidth?: boolean;
   disabled?: boolean;
   collapseOnSmall?: boolean;
