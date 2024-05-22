@@ -91,9 +91,9 @@ const subMenuOptions: BreadcrumbsOption[] = [
           console.log("clicked", dt);
         },
       },
-      { label: "SubLevel 2", to: "/lol" },
+      { label: "SubLevel 2", to: "/lol", icon: <TestIcon /> },
       { label: "SubLevel 3", to: "/lol" },
-      { label: "SubLevel 4", to: "/lol" },
+      { label: "SubLevel 4", to: "/lol", icon: <TestIcon /> },
       { label: "SubLevel 5", to: "/lol" },
     ],
   },
