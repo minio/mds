@@ -61,7 +61,7 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
         color: get(
           theme,
           "elementsColor",
-          themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
         ),
         fontSize: 12,
         fontStyle: "normal",
@@ -74,13 +74,13 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
         color: get(
           theme,
           "elementsColor",
-          themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
         ),
         "&:hover": {
           color: get(
             theme,
             "hoverColor",
-            themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+            themeColors["Color/Brand/Control/colorBgHover"].lightMode,
           ),
         },
       },
@@ -179,6 +179,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
             <BreadcrumbButton
               id={`breadcrumb-option-${options[0].label}`}
               onClick={() => clickFunction(options[0])}
+              icon={options[0].icon!!}
             >
               {options[0].label}
             </BreadcrumbButton>
@@ -194,7 +195,9 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}
                     onClick={() => clickFunction(itm)}
-                    className={`${lastItem ? "last" : ""} ${lastItem && markCurrentItem ? "current" : ""}`}
+                    className={`${lastItem ? "last" : ""}`}
+                    icon={itm.icon!!}
+                    current={lastItem && markCurrentItem}
                   >
                     {itm.label}
                   </BreadcrumbButton>
@@ -215,7 +218,9 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                     onClick={() => {
                       clickFunction(itm);
                     }}
-                    className={`${lastItem ? "last" : ""} ${lastItem && markCurrentItem ? "current" : ""}`}
+                    className={`${lastItem ? "last" : ""}`}
+                    icon={itm.icon!!}
+                    current={lastItem && markCurrentItem}
                   >
                     {itm.label}
                   </BreadcrumbButton>

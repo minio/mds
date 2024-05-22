@@ -23,71 +23,83 @@ import { themeColors } from "../../global/themeColors";
 
 const CustomBreadcrumb = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps
->(
-  ({
+>(({ theme }) => ({
+  cursor: "pointer",
+  display: "inline-flex" as const,
+  boxSizing: "border-box",
+  border: 0,
+  backgroundColor: "transparent",
+  padding: "2px 4px",
+  color: get(
     theme,
-    fullWidth,
-    variant,
-    iconLocation,
-    icon,
-    label,
-    collapseOnSmall,
-    parentChildren,
-    compact,
-    sx,
-  }) => ({
-    cursor: "pointer",
-    display: "inline-block" as const,
-    boxSizing: "border-box",
-    border: 0,
-    backgroundColor: "transparent",
-    padding: "2px 4px",
+    "breadcrumbs.elementsColor",
+    themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+  ),
+  fontSize: 12,
+  fontStyle: "normal",
+  fontWeight: 400,
+  lineHeight: "16px",
+  letterSpacing: "0.5px",
+  textOverflow: "ellipsis" as const,
+  overflow: "hidden" as const,
+  whiteSpace: "nowrap" as const,
+  borderRadius: 2,
+  height: 20,
+  gap: 4,
+  "& .button-icon svg": {
+    width: 16,
+    height: 16,
+    minWidth: 16,
+    minHeight: 16,
     color: get(
       theme,
-      "elementsColor",
+      "breadcrumbs.elementsColor",
+      themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    ),
+  },
+  "&.current": {
+    cursor: "default",
+    color: get(
+      theme,
+      "breadcrumbs.selectedColor",
       themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
     ),
-    fontSize: 12,
-    fontStyle: "normal",
-    fontWeight: 400,
-    lineHeight: "16px",
-    letterSpacing: "0.5px",
-    textOverflow: "ellipsis" as const,
-    overflow: "hidden" as const,
-    whiteSpace: "nowrap" as const,
-    borderRadius: 2,
-    height: 20,
-    "&.current": {
-      cursor: "default",
+    "& .button-icon svg": {
       color: get(
         theme,
-        "selectedColor",
-        themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+        "breadcrumbs.selectedColor",
+        themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
       ),
-      fontWeight: 600,
     },
-    "&:not(.current):hover": {
-      backgroundColor: get(
-        theme,
-        "hoverBG",
-        themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
-      ),
+  },
+  "&:not(.current):hover": {
+    backgroundColor: get(
+      theme,
+      "breadcrumbs.hoverBG",
+      themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+    ),
+    color: get(
+      theme,
+      "breadcrumbs.hoverColor",
+      themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+    ),
+    textDecoration: "underline",
+    "& .button-icon svg": {
       color: get(
         theme,
-        "hoverColor",
-        themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+        "breadcrumbs.hoverColor",
+        themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
       ),
-      textDecoration: "underline",
     },
-  }),
-);
+  },
+}));
 
 const BreadcrumbButton: FC<
   BreadcrumbsOptionProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({
   label,
   icon,
-  iconLocation = "end",
+  iconLocation = "start",
   onClick,
   disabled,
   children,
@@ -113,12 +125,19 @@ const BreadcrumbButton: FC<
       {...props}
     >
       <Fragment>
-        {icon && iconLocation === "start" && iconToPlace}
-        <span className={"button-label"}>
-          {children}
-          {children && label ? " " : ""}
-          {label}
-        </span>
+        {icon && (
+          <span className={"button-icon"}>
+            {icon && iconLocation === "start" && iconToPlace}
+          </span>
+        )}
+        {children ||
+          (label && (
+            <span className={"button-label"}>
+              {children}
+              {children && label ? " " : ""}
+              {label}
+            </span>
+          ))}
         {icon && iconLocation === "end" && iconToPlace}
       </Fragment>
     </CustomBreadcrumb>

@@ -22,6 +22,8 @@ import { BreadcrumbsOption, BreadcrumbsProps } from "./Breadcrumbs.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
+import TestIcon from "../../utils/TestIcon";
+import HomeIcon from "../Icons/NewDesignIcons/HomeIcon";
 
 export default {
   title: "MDS/Layout/Breadcrumbs",
@@ -39,6 +41,16 @@ const Template: Story<BreadcrumbsProps> = (args) => (
 const brOptions: BreadcrumbsOption[] = [
   { label: "Home", to: "/lol" },
   { label: "Level 1", to: "/lol" },
+  { label: "Level 2", to: "/lol" },
+  { label: "Level 3", to: "/lol" },
+  { label: "Level 4", to: "/lol" },
+  { label: "Level 5", to: "/lol" },
+  { label: "Level 6", to: "/lol" },
+];
+
+const iconOptions: BreadcrumbsOption[] = [
+  { icon: <HomeIcon />, to: "/lol" },
+  { icon: <TestIcon />, label: "Level 1", to: "/lol" },
   { label: "Level 2", to: "/lol" },
   { label: "Level 3", to: "/lol" },
   { label: "Level 4", to: "/lol" },
@@ -76,4 +88,10 @@ export const LimitAsListSize = Template.bind({});
 LimitAsListSize.args = {
   options: brOptions,
   displayLastItems: 6,
+};
+
+export const WithIcons = Template.bind({});
+WithIcons.args = {
+  options: iconOptions,
+  markCurrentItem: true,
 };
