@@ -143,8 +143,9 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
         dropArrow={false}
         compact
       >
-        {colOpts.map((option) => (
+        {colOpts.map((option, index) => (
           <ExpandMenuOption
+            key={`expandOption-${option.label}-${index}`}
             id={`expandOption-${option.label}`}
             onClick={() => clickFunction(option)}
           >
@@ -191,7 +192,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
               const lastItem = index === itSlide.length - 1;
 
               return (
-                <Fragment>
+                <Fragment key={`expandOption-${itm.label}-${index}`}>
                   {index !== 0 && <Divider />}
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}
@@ -211,7 +212,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
               const lastItem = index === options.length - 1;
 
               return (
-                <Fragment>
+                <Fragment key={`expandOption-${itm.label}-${index}`}>
                   {index !== 0 && <Divider />}
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}

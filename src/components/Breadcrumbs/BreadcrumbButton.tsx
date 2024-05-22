@@ -181,10 +181,12 @@ const BreadcrumbButton: FC<
         })}
         compact
       >
-        {subOptions.map((option) => (
+        {subOptions.map((option, index) => (
           <ExpandMenuOption
+            key={`expand-opt-${option.label}-${index}`}
             id={`expandOption-${option.label}`}
             onClick={() => clickFunction(option)}
+            icon={option.icon}
           >
             {option.label}
           </ExpandMenuOption>
