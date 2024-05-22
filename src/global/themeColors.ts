@@ -490,7 +490,7 @@ export const themeColors: ThemeColorItem = {
     darkMode: "#213b87",
   },
   "Color/Brand/Control/colorBgHover": {
-    lightMode: "#adaeb3",
+    lightMode: "#EDEEF1",
     darkMode: "#2d2d2f",
   },
   "Color/Brand/Info/colorPrimary": {

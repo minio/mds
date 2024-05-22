@@ -28,9 +28,10 @@ export interface BreadcrumbsProps {
 }
 
 export interface BreadcrumbsOption {
-  label: string;
+  label?: string;
   to?: string;
   onClick?: (to?: string) => void;
+  icon?: ReactNode;
 }
 
 export interface BreadcrumbsContainerProps {

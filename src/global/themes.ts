@@ -550,11 +550,11 @@ export const lightTheme: ThemeDefinitionProps = {
       themeColors["Color/Neutral/Text/colorTextPlaceholder"].lightMode,
   },
   breadcrumbs: {
-    elementsColor:
+    elementsColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    selectedColor:
       themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
-    selectedColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
-    hoverBG: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
-    hoverColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+    hoverBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+    hoverColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
   },
   actionsList: {
     containerBorderColor: lightColors.actionsListBorder,
