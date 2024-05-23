@@ -15,8 +15,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { ThemeDefinitionProps } from "./global.types";
-import { themeColors } from "./themeColors";
-import { getThemeColors } from "./utils";
+import { themeColors, themeShadows } from "./themeColors";
+import { getThemeColors, paddingSizeVariants, radioVariants } from "./utils";
 
 export const lightColors = {
   white: "#fff",
@@ -256,6 +256,9 @@ export const lightTheme: ThemeDefinitionProps = {
   mutedText: lightV2.mutedText,
   secondaryText: lightColors.mainGrey,
   colors: getThemeColors("lightMode"),
+  borderRadius: radioVariants,
+  paddingSizes: paddingSizeVariants,
+  boxShadows: themeShadows,
   box: {
     border: "transparent",
     shadow: "0px 2px 2px 0px rgba(121, 135, 151, 0.15)",
@@ -897,6 +900,9 @@ export const darkTheme: ThemeDefinitionProps = {
   mutedText: darkColors.mutedText,
   secondaryText: darkColors.mainGrey,
   colors: getThemeColors("darkMode"),
+  borderRadius: radioVariants,
+  paddingSizes: paddingSizeVariants,
+  boxShadows: themeShadows,
   signalColors: {
     main: darkColors.mainGrey,
     danger: darkColors.mainRed,

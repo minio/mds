@@ -809,3 +809,13 @@ export const themeColors: ThemeColorItem = {
     darkMode: "#ffc9a5",
   },
 };
+
+export const themeShadows = {
+  "boxShadow-01": "0 1px 1px 0 rgba(0, 0, 0, 0.15)",
+  "boxShadow-02":
+    "0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 1px 6px -1px rgba(0, 0, 0, 0.07), 0px 2px 4px 0px rgba(0, 0, 0, 0.07)",
+  "boxShadow-03":
+    "0 1px 2px 0 rgba(0, 0, 0, 0.8), 0 4px 12px 0 rgba(0, 0, 0, 0.15), 0 2px 4px 0 rgba(0, 0, 0, 0.7)",
+  "boxShadow-04":
+    "0px 4px 8px 0px rgba(0, 0, 0, 0.10), 0px 6px 12px 0px rgba(0, 0, 0, 0.10), 0px 6px 16px 0px rgba(0, 0, 0, 0.10)",
+};
