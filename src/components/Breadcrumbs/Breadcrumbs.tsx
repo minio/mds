@@ -181,6 +181,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
             <BreadcrumbButton
               id={`breadcrumb-option-${options[0].label}`}
               onClick={() => clickFunction(options[0])}
+              onClickOption={onClickOption}
               icon={options[0].icon!!}
             >
               {options[0].label}
@@ -197,6 +198,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}
                     onClick={() => clickFunction(itm)}
+                    onClickOption={onClickOption}
                     className={`${lastItem && !itm.subOptions ? "last" : ""}`}
                     icon={itm.icon!!}
                     current={lastItem && markCurrentItem}
@@ -219,6 +221,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                     onClick={() => {
                       clickFunction(itm);
                     }}
+                    onClickOption={onClickOption}
                     className={`${lastItem && !itm.subOptions ? "last" : ""}`}
                     icon={itm.icon!!}
                     current={lastItem && markCurrentItem}
