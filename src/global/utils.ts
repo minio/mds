@@ -19,6 +19,25 @@ import { themeColors } from "./themeColors";
 import { DefaultTheme } from "styled-components";
 
 export const breakPoints = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 };
+export const paddingSizeVariants = {
+  sizeXXXS: 2,
+  sizeXXS: 4,
+  sizeXS: 8,
+  sizeSM: 12,
+  size: 16,
+  sizeMD: 20,
+  sizeLG: 24,
+  sizeXL: 32,
+  sizeXXL: 48,
+};
+export const radioVariants = {
+  borderRadiusXS: 2,
+  borderRadiusSM: 4,
+  borderRadius: 6,
+  borderRadiusLG: 12,
+  borderRadiusXLG: 16,
+};
+
 export const units = [
   "B",
   "KiB",

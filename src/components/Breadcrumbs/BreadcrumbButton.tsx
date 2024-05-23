@@ -20,10 +20,8 @@ import styled from "styled-components";
 import { ButtonProps, ConstructProps } from "../Button/Button.types";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
-import ExpandOptionsIcon from "../Icons/ExpandOptionsIcon";
 import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
-import ExpandCaret from "../Icons/ExpandCaret";
 
 const CustomBreadcrumb = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps
