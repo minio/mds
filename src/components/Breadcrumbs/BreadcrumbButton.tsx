@@ -103,6 +103,7 @@ const BreadcrumbButton: FC<
   icon,
   iconLocation = "start",
   onClick,
+  onClickOption,
   disabled,
   children,
   className,
@@ -111,6 +112,10 @@ const BreadcrumbButton: FC<
   ...props
 }) => {
   const clickFunction = (option: BreadcrumbsOption) => {
+    if (onClickOption) {
+      onClickOption(option.to);
+    }
+
     if (option.onClick) {
       option.onClick(option.to);
     }

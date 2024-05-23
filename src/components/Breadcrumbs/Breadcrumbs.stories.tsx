@@ -68,15 +68,15 @@ const subMenuOptions: BreadcrumbsOption[] = [
     subOptions: [
       {
         label: "SubLevel 1",
-        to: "/lol",
+        to: "/lolsb1",
         onClick: (dt) => {
           console.log("clicked", dt);
         },
       },
-      { label: "SubLevel 2", to: "/lol" },
-      { label: "SubLevel 3", to: "/lol" },
-      { label: "SubLevel 4", to: "/lol" },
-      { label: "SubLevel 5", to: "/lol" },
+      { label: "SubLevel 2", to: "/lolsb2" },
+      { label: "SubLevel 3", to: "/lolsb3" },
+      { label: "SubLevel 4", to: "/lolsb4" },
+      { label: "SubLevel 5", to: "/lolsb5" },
     ],
   },
   { label: "Level 2", to: "/lol" },
@@ -86,15 +86,15 @@ const subMenuOptions: BreadcrumbsOption[] = [
     subOptions: [
       {
         label: "SubLevel 1",
-        to: "/lol",
+        to: "/lolsb21",
         onClick: (dt) => {
           console.log("clicked", dt);
         },
       },
-      { label: "SubLevel 2", to: "/lol", icon: <TestIcon /> },
-      { label: "SubLevel 3", to: "/lol" },
-      { label: "SubLevel 4", to: "/lol", icon: <TestIcon /> },
-      { label: "SubLevel 5", to: "/lol" },
+      { label: "SubLevel 2", to: "/lolbs22", icon: <TestIcon /> },
+      { label: "SubLevel 3", to: "/lolsb23" },
+      { label: "SubLevel 4", to: "/lolsb24", icon: <TestIcon /> },
+      { label: "SubLevel 5", to: "/lolsb25" },
     ],
   },
   { label: "Level 4", to: "/lol" },
@@ -105,15 +105,15 @@ const subMenuOptions: BreadcrumbsOption[] = [
     subOptions: [
       {
         label: "SubLevel 1",
-        to: "/lol",
+        to: "/lola1",
         onClick: (dt) => {
           console.log("clicked", dt);
         },
       },
-      { label: "SubLevel 2", to: "/lol" },
-      { label: "SubLevel 3", to: "/lol" },
-      { label: "SubLevel 4", to: "/lol" },
-      { label: "SubLevel 5", to: "/lol" },
+      { label: "SubLevel 2", to: "/lola2" },
+      { label: "SubLevel 3", to: "/lola3" },
+      { label: "SubLevel 4", to: "/lola4" },
+      { label: "SubLevel 5", to: "/lol5" },
     ],
   },
 ];
@@ -160,4 +160,7 @@ export const WithSubMenus = Template.bind({});
 WithSubMenus.args = {
   options: subMenuOptions,
   markCurrentItem: true,
+  onClickOption: (to: string) => {
+    console.log(`CLICKED OPTION`, to);
+  },
 };
