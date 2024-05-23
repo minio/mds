@@ -25,6 +25,7 @@ import { lightV2 } from "../../global/themes";
 import { DropdownMainProps, ExpandDropdownProps } from "./ExpandMenu.types";
 import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
 import { overridePropsParse } from "../../global/utils";
+import { themeColors } from "../../global/themeColors";
 
 const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
   position: "absolute",
@@ -56,6 +57,18 @@ const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
     marginBottom: 4,
   },
   "& button": expandMenuOptionStyles(theme),
+  "&::-webkit-scrollbar": {
+    width: 5,
+  },
+  "&::-webkit-scrollbar-thumb": {
+    background: themeColors["Color/Base/Shark/3"].lightMode, // Hardcoded color until we decide the correct style for scrollbars
+    borderRadius: "5px",
+  },
+
+  "&::-webkit-scrollbar-track": {
+    background: "transparent",
+    borderRadius: 0,
+  },
   ...overridePropsParse(sx, theme),
 }));
 
