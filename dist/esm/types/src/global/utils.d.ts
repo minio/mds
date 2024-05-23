@@ -7,6 +7,24 @@ export declare const breakPoints: {
   lg: number;
   xl: number;
 };
+export declare const paddingSizeVariants: {
+  sizeXXXS: number;
+  sizeXXS: number;
+  sizeXS: number;
+  sizeSM: number;
+  size: number;
+  sizeMD: number;
+  sizeLG: number;
+  sizeXL: number;
+  sizeXXL: number;
+};
+export declare const radioVariants: {
+  borderRadiusXS: number;
+  borderRadiusSM: number;
+  borderRadius: number;
+  borderRadiusLG: number;
+  borderRadiusXLG: number;
+};
 export declare const units: string[];
 export declare const fractionToPerc: (
   fraction: "auto" | number | boolean,

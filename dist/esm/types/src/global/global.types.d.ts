@@ -377,6 +377,15 @@ export interface ThemeDefinitionProps {
   colors: {
     [key: string]: string;
   };
+  paddingSizes: {
+    [key: string]: number;
+  };
+  borderRadius: {
+    [key: string]: number;
+  };
+  boxShadows: {
+    [key: string]: string;
+  };
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {

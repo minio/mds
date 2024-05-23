@@ -28,6 +28,7 @@ export interface BreadcrumbsOptionProps {
   disabled?: boolean;
   current?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClickOption?: (to?: string) => void;
   children?: ReactNode | string;
   sx?: OverrideTheme;
   subOptions?: BreadcrumbsOption[];

@@ -389,6 +389,15 @@ interface ThemeDefinitionProps {
   colors: {
     [key: string]: string;
   };
+  paddingSizes: {
+    [key: string]: number;
+  };
+  borderRadius: {
+    [key: string]: number;
+  };
+  boxShadows: {
+    [key: string]: string;
+  };
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
@@ -453,6 +462,24 @@ declare const breakPoints: {
   md: number;
   lg: number;
   xl: number;
+};
+declare const paddingSizeVariants: {
+  sizeXXXS: number;
+  sizeXXS: number;
+  sizeXS: number;
+  sizeSM: number;
+  size: number;
+  sizeMD: number;
+  sizeLG: number;
+  sizeXL: number;
+  sizeXXL: number;
+};
+declare const radioVariants: {
+  borderRadiusXS: number;
+  borderRadiusSM: number;
+  borderRadius: number;
+  borderRadiusLG: number;
+  borderRadiusXLG: number;
 };
 declare const calculateBytes: (
   x: string | number,
@@ -926,6 +953,7 @@ interface BreadcrumbsOptionProps {
   disabled?: boolean;
   current?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClickOption?: (to?: string) => void;
   children?: ReactNode | string;
   sx?: OverrideTheme;
   subOptions?: BreadcrumbsOption[];
@@ -3187,6 +3215,12 @@ declare const lightTheme: ThemeDefinitionProps;
 declare const darkTheme: ThemeDefinitionProps;
 
 declare const themeColors: ThemeColorItem;
+declare const themeShadows: {
+  "boxShadow-01": string;
+  "boxShadow-02": string;
+  "boxShadow-03": string;
+  "boxShadow-04": string;
+};
 
 export {
   AGPLV3DarkLogo,
@@ -3771,5 +3805,8 @@ export {
   lightTheme,
   lightV2,
   overridePropsParse,
+  paddingSizeVariants,
+  radioVariants,
   themeColors,
+  themeShadows,
 };
