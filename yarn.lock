@@ -1847,12 +1847,24 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@storybook/addon-actions@8.1.2", "@storybook/addon-actions@^8.1.2":
+"@storybook/addon-actions@8.1.2":
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-8.1.2.tgz#d3fc0d19581092dd51f93b58c4a0725d20a51ec5"
   integrity sha512-EW8sYgA1vpn67pTheBjfLCfPO82w0jMkKYFDFMMvxVoEDbJ3fgsUDDd058zBBFiDtnngv3VUrXASPTxK51F2mQ==
   dependencies:
     "@storybook/core-events" "8.1.2"
+    "@storybook/global" "^5.0.0"
+    "@types/uuid" "^9.0.1"
+    dequal "^2.0.2"
+    polished "^4.2.2"
+    uuid "^9.0.0"
+
+"@storybook/addon-actions@^8.1.4":
+  version "8.1.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-8.1.4.tgz#b4f87ed20ce2f8644cb0883e0a44dcc24213735c"
+  integrity sha512-3q/DCcnSjpuWBoKpA+0j1etXyMOu+GsdUtxv041tsNjMMwyc+CfHUGiAHMyQ0TpEf8MPQoTeZsRPrEZwVUNXow==
+  dependencies:
+    "@storybook/core-events" "8.1.4"
     "@storybook/global" "^5.0.0"
     "@types/uuid" "^9.0.1"
     dequal "^2.0.2"
@@ -2244,7 +2256,7 @@
     ts-dedent "^2.0.0"
     util "^0.12.4"
 
-"@storybook/core-events@8.1.1", "@storybook/core-events@^8.0.0":
+"@storybook/core-events@8.1.1":
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-8.1.1.tgz#fb9fe50abfc59703eb32cccad7af72670e107f75"
   integrity sha512-WpeiBV6RWTZ6t8SI1YdQh8NlbvQtZs9WRr4CPfpzHAly+oxFy6PtPz0h5TMKsU5/kt/L9yL7tE9ZzPYzvFWH/A==
@@ -2256,6 +2268,14 @@
   version "8.1.2"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-8.1.2.tgz#60830a530bc63fe40012a6934ea18658067f3f56"
   integrity sha512-GKsvo/eeEQYDEhAw5YkUIZHYNurAJjzW3+uzThUuC1r0CGcfE+twJVfQXynAyOgL6hFdqy7879/3augf3v3cJQ==
+  dependencies:
+    "@storybook/csf" "^0.1.7"
+    ts-dedent "^2.0.0"
+
+"@storybook/core-events@8.1.4", "@storybook/core-events@^8.0.0":
+  version "8.1.4"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-8.1.4.tgz#043b1f210aa6b8da78b8cf9fc4763fb8ac198395"
+  integrity sha512-oZAP3aRDeRyo2GQmADh4R3wJLIb9Ie0FUcWx8V4fvuydzeh6Pprgo//COCR+kySG4kRLqofWeF1Zzvft58Q0kg==
   dependencies:
     "@storybook/csf" "^0.1.7"
     ts-dedent "^2.0.0"
