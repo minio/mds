@@ -1943,10 +1943,10 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^8.1.2":
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.1.2.tgz#b967858178d1bcc80083bb2dc314307c6e23b35f"
-  integrity sha512-l+Q1LqyPhQ1n4vGQF95vkH9ImJUt1eY0MU+mlwlMHoMDdcFkUqzBxx5NwhrhbvdZK/yfxt9gjsx62k9RYDNKjA==
+"@storybook/addon-links@^8.1.4":
+  version "8.1.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-8.1.4.tgz#dd7cbd66dcd7e20bd501ef8d9375529404bd7b9d"
+  integrity sha512-RUagMeAkOmV7rpU8RArVOUqtuL575nLxbMdsaTb2MRG+7bCTCvZyNBDrAhNYaMB5kfQFWG7wNM1zBUH2e03TrQ==
   dependencies:
     "@storybook/csf" "^0.1.7"
     "@storybook/global" "^5.0.0"
