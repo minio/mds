@@ -53,9 +53,6 @@ const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
     flexDirection: "column",
     width: "100%",
   },
-  "& .option-element": {
-    marginBottom: 4,
-  },
   "& button": expandMenuOptionStyles(theme),
   "&::-webkit-scrollbar": {
     width: 5,
