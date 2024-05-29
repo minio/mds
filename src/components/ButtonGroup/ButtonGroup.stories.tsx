@@ -38,61 +38,95 @@ export default {
 } as Meta<typeof ButtonGroup>;
 
 const Template: Story<ButtonGroupProps> = (args) => (
-  <StoryThemeProvider>
-    <GlobalStyles />
-    <ButtonGroup {...args}>
-      <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
-        Button one
-      </Button>
-      <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
-        Button one
-      </Button>
-      <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
-        Button one
-      </Button>
-      <Tooltip tooltip={"with tooltip"}>
-        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+    <StoryThemeProvider>
+      <GlobalStyles/>
+      <ButtonGroup {...args}>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
           Button one
         </Button>
-      </Tooltip>
-      <Button id={"test"} icon={<TestIcon />} disabled iconLocation={"start"}>
-        Button one
-      </Button>
-      <Button
-        id="secondaryButton"
-        variant={"descructive"}
-        icon={<DeleteIcon />}
-        iconLocation={"start"}
-      >
-        Delete
-      </Button>
-      <ExpandMenuOption id={"expand-option-test"} icon={<EditIcon />}>
-        Expand Option Only
-      </ExpandMenuOption>
-      <ExpandMenu
-        id={"expand-menu"}
-        icon={<AddIcon />}
-        label={"Expand Menu"}
-        dropMenuPosition={"end"}
-      >
-        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
           Button one
         </Button>
-        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
           Button one
         </Button>
-        <Button id={"test"} icon={<TestIcon />} iconLocation={"start"}>
+        <Tooltip tooltip={"with tooltip"}>
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+        </Tooltip>
+        <Button id={"test"} icon={<TestIcon/>} disabled iconLocation={"start"}>
           Button one
         </Button>
-      </ExpandMenu>
-    </ButtonGroup>
-  </StoryThemeProvider>
+        <Button
+            id="secondaryButton"
+            variant={"descructive"}
+            icon={<DeleteIcon/>}
+            iconLocation={"start"}
+        >
+          Delete
+        </Button>
+        <ExpandMenuOption id={"expand-option-test"} icon={<EditIcon/>}>
+          Expand Option Only
+        </ExpandMenuOption>
+        <ExpandMenu
+            id={"expand-menu"}
+            label={"Expand Menu"}
+            dropMenuPosition={"end"}
+        >
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+        </ExpandMenu>
+      </ButtonGroup>
+
+      <h2>Icon Only buttons</h2>
+
+      <ButtonGroup {...args}>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}/>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}/>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}/>
+        <Tooltip tooltip={"with tooltip"}>
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}/>
+        </Tooltip>
+        <Button id={"test"} icon={<TestIcon/>} disabled iconLocation={"start"}/>
+        <Button
+            id="secondaryButton"
+            variant={"descructive"}
+            icon={<DeleteIcon/>}
+            iconLocation={"start"}
+        />
+        <ExpandMenu
+            id={"expand-menu"}
+            icon={<AddIcon/>}
+            dropMenuPosition={"end"}
+            dropArrow={false}
+        >
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+          <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}>
+            Button one
+          </Button>
+        </ExpandMenu>
+      </ButtonGroup>
+
+      <h2>Single Icon Button</h2>
+
+      <ButtonGroup {...args}>
+        <Button id={"test"} icon={<TestIcon/>} iconLocation={"start"}/>
+      </ButtonGroup>
+    </StoryThemeProvider>
 );
 
 export const Default = Template.bind({});
 Default.args = {};
-
-export const IconsOnly = Template.bind({});
-IconsOnly.args = {
-  displayLabels: false,
-};
