@@ -10,9 +10,11 @@ export interface BreadcrumbsProps {
   markCurrentItem?: boolean;
 }
 export interface BreadcrumbsOption {
-  label: string;
+  label?: string;
   to?: string;
   onClick?: (to?: string) => void;
+  icon?: ReactNode;
+  subOptions?: BreadcrumbsOption[];
 }
 export interface BreadcrumbsContainerProps {
   sx?: OverrideTheme;
@@ -26,6 +28,8 @@ export interface BreadcrumbsOptionProps {
   disabled?: boolean;
   current?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClickOption?: (to?: string) => void;
   children?: ReactNode | string;
   sx?: OverrideTheme;
+  subOptions?: BreadcrumbsOption[];
 }

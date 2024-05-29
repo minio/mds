@@ -22,14 +22,21 @@ import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 
 const BoxParent = styled.div<BoxProps & React.HTMLAttributes<HTMLDivElement>>(
-  ({ theme, sx, withBorders, customBorderPadding, useBackground }) => {
+  ({
+    theme,
+    sx,
+    withBorders,
+    customBorderPadding,
+    customBorderRadius,
+    useBackground,
+  }) => {
     let extraBorders = {};
 
     if (withBorders) {
       extraBorders = {
         border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
-        borderRadius: 16,
-        padding: customBorderPadding || "32px 56px",
+        borderRadius: customBorderRadius || 16,
+        padding: customBorderPadding || 24,
         boxShadow: get(theme, "box.shadow", "none"),
         backgroundColor: get(theme, "box.backgroundColor", lightV2.white),
       };
@@ -47,7 +54,15 @@ const BoxParent = styled.div<BoxProps & React.HTMLAttributes<HTMLDivElement>>(
 
 const Box = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, BoxProps>(
   (
-    { sx, children, customBorderPadding, className, withBorders, ...props },
+    {
+      sx,
+      children,
+      customBorderPadding,
+      customBorderRadius = 16,
+      className,
+      withBorders,
+      ...props
+    },
     ref,
   ) => {
     return (
@@ -55,9 +70,10 @@ const Box = React.forwardRef<React.HTMLAttributes<HTMLDivElement>, BoxProps>(
         {...props}
         sx={sx}
         customBorderPadding={customBorderPadding}
+        customBorderRadius={customBorderRadius}
         ref={ref as RefObject<HTMLDivElement> | null | undefined}
         withBorders={withBorders}
-        className={`${withBorders ? "with-borders" : ""} ${className || ""}`}
+        className={`box ${withBorders ? "with-borders" : ""} ${className || ""}`}
       >
         {children}
       </BoxParent>

@@ -102,7 +102,6 @@ const WizardPage = ({
           return (
             <Button
               id={"wizard-button-" + btn.label}
-              variant="regular"
               onClick={() => {
                 buttonAction(btn);
               }}

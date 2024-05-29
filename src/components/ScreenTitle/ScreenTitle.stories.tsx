@@ -54,7 +54,7 @@ Default.args = {
         <Button id={"testButton1"}>Button1</Button>
         <Button id={"testButton3"}>Button3</Button>
       </ButtonGroup>
-      <Button id={"testButton2"} variant={"callAction"} compact>
+      <Button id={"testButton2"} variant={"primary"} compact>
         Button2
       </Button>
     </Fragment>
@@ -73,10 +73,10 @@ NoIcon.args = {
   actions: (
     <Fragment>
       <Button id={"testButton1"}>Button1</Button>
-      <Button id={"testButton2"} variant={"callAction"}>
+      <Button id={"testButton2"} variant={"primary"}>
         Button2
       </Button>
-      <Button id={"testButton3"} variant={"secondary"}>
+      <Button id={"testButton3"} variant={"descructive"}>
         Button3
       </Button>
     </Fragment>
@@ -97,7 +97,7 @@ CustomSubElement.args = {
         <Button id={"testButton1"}>Button1</Button>
         <Button id={"testButton3"}>Button3</Button>
       </ButtonGroup>
-      <Button id={"testButton2"} variant={"callAction"} compact>
+      <Button id={"testButton2"} variant={"primary"} compact>
         Button2
       </Button>
     </Fragment>
@@ -128,7 +128,7 @@ NoSubItems.args = {
         <Button id={"testButton1"}>Button1</Button>
         <Button id={"testButton3"}>Button3</Button>
       </ButtonGroup>
-      <Button id={"testButton2"} variant={"callAction"} compact>
+      <Button id={"testButton2"} variant={"primary"} compact>
         Button2
       </Button>
     </Fragment>
@@ -142,10 +142,10 @@ CustomStyles.args = {
   actions: (
     <Fragment>
       <Button id={"testButton1"}>Button1</Button>
-      <Button id={"testButton2"} variant={"callAction"}>
+      <Button id={"testButton2"} variant={"primary"}>
         Button2
       </Button>
-      <Button id={"testButton3"} variant={"secondary"}>
+      <Button id={"testButton3"} variant={"descructive"}>
         Button3
       </Button>
     </Fragment>

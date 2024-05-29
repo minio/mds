@@ -332,7 +332,6 @@ const DataTable: FC<DataTableProps> = ({
       >
         <Button
           id={"columns-selector"}
-          variant={"regular"}
           icon={<ViewColumnIcon />}
           iconLocation={"end"}
           onClick={openColumnsSelector}

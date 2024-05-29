@@ -61,7 +61,7 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
         color: get(
           theme,
           "elementsColor",
-          themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
         ),
         fontSize: 12,
         fontStyle: "normal",
@@ -74,13 +74,13 @@ const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
         color: get(
           theme,
           "elementsColor",
-          themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
         ),
         "&:hover": {
           color: get(
             theme,
             "hoverColor",
-            themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+            themeColors["Color/Brand/Control/colorBgHover"].lightMode,
           ),
         },
       },
@@ -140,10 +140,12 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
           padding: "2px 4px",
           borderRadius: 2,
         }}
+        dropArrow={false}
         compact
       >
-        {colOpts.map((option) => (
+        {colOpts.map((option, index) => (
           <ExpandMenuOption
+            key={`expandOption-${option.label}-${index}`}
             id={`expandOption-${option.label}`}
             onClick={() => clickFunction(option)}
           >
@@ -179,6 +181,8 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
             <BreadcrumbButton
               id={`breadcrumb-option-${options[0].label}`}
               onClick={() => clickFunction(options[0])}
+              onClickOption={onClickOption}
+              icon={options[0].icon!!}
             >
               {options[0].label}
             </BreadcrumbButton>
@@ -189,15 +193,17 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
               const lastItem = index === itSlide.length - 1;
 
               return (
-                <Fragment>
+                <Fragment key={`expandOption-${itm.label}-${index}`}>
                   {index !== 0 && <Divider />}
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}
                     onClick={() => clickFunction(itm)}
-                    className={`${lastItem ? "last" : ""} ${lastItem && markCurrentItem ? "current" : ""}`}
-                  >
-                    {itm.label}
-                  </BreadcrumbButton>
+                    onClickOption={onClickOption}
+                    className={`${lastItem && !itm.subOptions ? "last" : ""}`}
+                    icon={itm.icon!!}
+                    current={lastItem && markCurrentItem}
+                    label={itm.label}
+                  />
                 </Fragment>
               );
             })}
@@ -208,17 +214,20 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
               const lastItem = index === options.length - 1;
 
               return (
-                <Fragment>
+                <Fragment key={`expandOption-${itm.label}-${index}`}>
                   {index !== 0 && <Divider />}
                   <BreadcrumbButton
                     id={`breadcrumb-option-${itm.label}`}
                     onClick={() => {
                       clickFunction(itm);
                     }}
-                    className={`${lastItem ? "last" : ""} ${lastItem && markCurrentItem ? "current" : ""}`}
-                  >
-                    {itm.label}
-                  </BreadcrumbButton>
+                    onClickOption={onClickOption}
+                    className={`${lastItem && !itm.subOptions ? "last" : ""}`}
+                    icon={itm.icon!!}
+                    current={lastItem && markCurrentItem}
+                    subOptions={itm.subOptions}
+                    label={itm.label}
+                  />
                 </Fragment>
               );
             })}

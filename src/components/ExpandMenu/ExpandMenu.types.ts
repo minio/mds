@@ -21,12 +21,19 @@ export interface ExpandMenuProps {
   id: string;
   name?: string;
   label?: string;
-  variant?: "regular" | "callAction" | "secondary" | "text" | "subAction";
+  variant?:
+    | "neutral"
+    | "primary"
+    | "descructive"
+    | "descructive-bare"
+    | "text"
+    | "subAction";
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
-  dropMenuPosition?: "start" | "end";
+  dropMenuPosition?: "start" | "end" | "middle";
   compact?: boolean;
+  dropArrow?: boolean;
   sx?: OverrideTheme;
 }
 
@@ -43,7 +50,7 @@ export interface ExpandDropBaseProps {
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
-  anchorOrigin?: "start" | "end";
+  anchorOrigin?: "start" | "end" | "middle";
   children: React.ReactNode;
 }
 

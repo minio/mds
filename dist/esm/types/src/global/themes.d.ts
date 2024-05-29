@@ -210,6 +210,10 @@ export declare const lightV2: {
   colorText: string;
   colorBgDisabled: string;
   colorTextDisabled: string;
+  colorTextDestructive: string;
+  destructiveColorBorder: string;
+  neutralColorBorder: string;
+  buttonNeutralColorTextHover: string;
 };
 export declare const lightTheme: ThemeDefinitionProps;
 export declare const darkTheme: ThemeDefinitionProps;

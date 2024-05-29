@@ -389,17 +389,24 @@ interface ThemeDefinitionProps {
   colors: {
     [key: string]: string;
   };
+  paddingSizes: {
+    [key: string]: number;
+  };
+  borderRadius: {
+    [key: string]: number;
+  };
+  boxShadows: {
+    [key: string]: string;
+  };
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
-    regular?: ButtonThemeStatesProps;
-    callAction?: ButtonThemeStatesProps;
-    secondary?: ButtonThemeStatesProps;
+    neutral?: ButtonThemeStatesProps;
+    primary?: ButtonThemeStatesProps;
+    destructive?: ButtonThemeStatesProps;
+    "destructive-bare"?: ButtonThemeStatesProps;
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
-  };
-  roundedButtons?: {
-    regular?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
@@ -456,6 +463,24 @@ declare const breakPoints: {
   lg: number;
   xl: number;
 };
+declare const paddingSizeVariants: {
+  sizeXXXS: number;
+  sizeXXS: number;
+  sizeXS: number;
+  sizeSM: number;
+  size: number;
+  sizeMD: number;
+  sizeLG: number;
+  sizeXL: number;
+  sizeXXL: number;
+};
+declare const radioVariants: {
+  borderRadiusXS: number;
+  borderRadiusSM: number;
+  borderRadius: number;
+  borderRadiusLG: number;
+  borderRadiusXLG: number;
+};
 declare const calculateBytes: (
   x: string | number,
   showDecimals?: boolean,
@@ -482,15 +507,23 @@ interface ButtonProps {
   id: string;
   name?: string;
   label?: string;
-  variant?: "regular" | "callAction" | "secondary" | "text" | "subAction";
+  variant?:
+    | "neutral"
+    | "primary"
+    | "descructive"
+    | "descructive-bare"
+    | "text"
+    | "subAction";
   icon?: ReactNode;
   iconLocation?: "start" | "end";
+  secondaryIcon?: ReactNode;
   fullWidth?: boolean;
   disabled?: boolean;
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
   compact?: boolean;
+  inButtonGroup?: boolean;
   sx?: OverrideTheme;
 }
 interface ConstructProps {
@@ -815,6 +848,7 @@ interface BoxProps extends React__default.HTMLAttributes<HTMLDivElement> {
   children?: React__default.ReactNode;
   withBorders?: boolean;
   customBorderPadding?: number | string;
+  customBorderRadius?: number | string;
   useBackground?: boolean;
 }
 
@@ -901,9 +935,11 @@ interface BreadcrumbsProps {
   markCurrentItem?: boolean;
 }
 interface BreadcrumbsOption {
-  label: string;
+  label?: string;
   to?: string;
   onClick?: (to?: string) => void;
+  icon?: ReactNode;
+  subOptions?: BreadcrumbsOption[];
 }
 interface BreadcrumbsContainerProps {
   sx?: OverrideTheme;
@@ -917,8 +953,10 @@ interface BreadcrumbsOptionProps {
   disabled?: boolean;
   current?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClickOption?: (to?: string) => void;
   children?: ReactNode | string;
   sx?: OverrideTheme;
+  subOptions?: BreadcrumbsOption[];
 }
 
 declare const Breadcrumbs: FC<BreadcrumbsProps>;
@@ -1600,10 +1638,6 @@ declare const Link: FC<
   LinkProps & React__default.AnchorHTMLAttributes<HTMLAnchorElement>
 >;
 
-declare const RoundedButton: FC<
-  ButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
->;
-
 interface SliderProps {
   id: string;
   label?: string;
@@ -1630,7 +1664,6 @@ declare const Slider: FC<
 interface ButtonGroupProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
   children: React__default.ReactNode;
-  displayLabels?: boolean;
   sx?: OverrideTheme;
 }
 
@@ -1649,12 +1682,19 @@ interface ExpandMenuProps {
   id: string;
   name?: string;
   label?: string;
-  variant?: "regular" | "callAction" | "secondary" | "text" | "subAction";
+  variant?:
+    | "neutral"
+    | "primary"
+    | "descructive"
+    | "descructive-bare"
+    | "text"
+    | "subAction";
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
-  dropMenuPosition?: "start" | "end";
+  dropMenuPosition?: "start" | "end" | "middle";
   compact?: boolean;
+  dropArrow?: boolean;
   sx?: OverrideTheme;
 }
 interface ExpandMenuOptionProps {
@@ -1669,7 +1709,7 @@ interface ExpandDropBaseProps {
   hideTriggerAction: () => void;
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
-  anchorOrigin?: "start" | "end";
+  anchorOrigin?: "start" | "end" | "middle";
   children: React__default.ReactNode;
 }
 interface DropdownMainProps {
@@ -2830,7 +2870,7 @@ declare const BucketIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const HistoryIcon: (
+declare const HistoryIcon$1: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2903,6 +2943,22 @@ declare const EllipsisIcon: (
 ) => React$1.JSX.Element;
 
 declare const DeleteIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ChevronDownIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ChevronUpIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const HistoryIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ArrowDownAZIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3150,11 +3206,21 @@ declare const lightV2: {
   colorText: string;
   colorBgDisabled: string;
   colorTextDisabled: string;
+  colorTextDestructive: string;
+  destructiveColorBorder: string;
+  neutralColorBorder: string;
+  buttonNeutralColorTextHover: string;
 };
 declare const lightTheme: ThemeDefinitionProps;
 declare const darkTheme: ThemeDefinitionProps;
 
 declare const themeColors: ThemeColorItem;
+declare const themeShadows: {
+  "boxShadow-01": string;
+  "boxShadow-02": string;
+  "boxShadow-03": string;
+  "boxShadow-04": string;
+};
 
 export {
   AGPLV3DarkLogo,
@@ -3187,6 +3253,7 @@ export {
   AllBucketsIcon,
   ApplicationLogo,
   type ApplicationLogoProps,
+  ArrowDownAZIcon,
   ArrowDropUp as ArrowDropDown,
   ArrowDropUp$1 as ArrowDropUp,
   ArrowIcon,
@@ -3260,8 +3327,10 @@ export {
   CheckCircleIcon,
   CheckIcon,
   Checkbox,
+  ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  ChevronUpIcon,
   CircleHelpIcon,
   CircleIcon,
   ClosePanelIcon,
@@ -3420,7 +3489,8 @@ export {
   type HelpTipBuild,
   type HelpTipConstructProps,
   type HelpTipProps,
-  HistoryIcon,
+  HistoryIcon$1 as HistoryIcon,
+  HistoryIcon as HomeIcon,
   IAMPoliciesIcon,
   type IActionButton,
   type IBoxedIconProps,
@@ -3580,7 +3650,6 @@ export {
   ReportedUsageIcon,
   ResourcesIcon,
   RetentionIcon,
-  RoundedButton,
   S3TierIcon$1 as S3TierIcon,
   S3TierIcon as S3TierIconXs,
   ScreenTitle,
@@ -3736,5 +3805,8 @@ export {
   lightTheme,
   lightV2,
   overridePropsParse,
+  paddingSizeVariants,
+  radioVariants,
   themeColors,
+  themeShadows,
 };

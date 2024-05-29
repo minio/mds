@@ -18,6 +18,8 @@ import React, { FC, Fragment, useState } from "react";
 import { ExpandMenuProps } from "./ExpandMenu.types";
 import Button from "../Button/Button";
 import ExpandDropdown from "./ExpandDropdown";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const ExpandMenu: FC<
   ExpandMenuProps & React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -32,6 +34,7 @@ const ExpandMenu: FC<
   label,
   children,
   disabled,
+  dropArrow = true,
   compact = false,
 }) => {
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
@@ -39,12 +42,23 @@ const ExpandMenu: FC<
     (EventTarget & HTMLButtonElement) | null
   >(null);
 
+  let secondary = null;
+
+  if (dropArrow) {
+    secondary = expandedMenu ? (
+      <ChevronUpIcon style={{ fill: "none" }} />
+    ) : (
+      <ChevronDownIcon style={{ fill: "none" }} />
+    );
+  }
+
   return (
     <Fragment>
       <Button
         id={id}
         icon={icon}
         iconLocation={iconLocation}
+        secondaryIcon={secondary}
         variant={variant}
         name={name}
         sx={sx}

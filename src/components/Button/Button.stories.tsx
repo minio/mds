@@ -41,14 +41,14 @@ export const Default = Template.bind({});
 Default.args = {
   disabled: false,
   label: "Test Button",
-  variant: "regular",
+  variant: "neutral",
 };
 
 export const Compact = Template.bind({});
 Compact.args = {
   disabled: false,
   label: "Test Button",
-  variant: "regular",
+  variant: "neutral",
   compact: true,
 };
 
@@ -56,14 +56,20 @@ export const CallToAction = Template.bind({});
 CallToAction.args = {
   disabled: false,
   label: "Call to Action",
-  variant: "callAction",
+  variant: "primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   disabled: false,
-  label: "Secondary",
-  variant: "secondary",
+  label: "Destructive",
+  variant: "destructive",
+};
+export const DestructiveBare = Template.bind({});
+Secondary.args = {
+  disabled: false,
+  label: "Destructive Bare",
+  variant: "destructive-bare",
 };
 
 export const Text = Template.bind({});
@@ -84,7 +90,7 @@ export const DefaultIcon = Template.bind({});
 DefaultIcon.args = {
   disabled: false,
   label: "Test Button",
-  variant: "regular",
+  variant: "neutral",
   icon: <TestIcon />,
 };
 
@@ -92,15 +98,15 @@ export const CallToActionIcon = Template.bind({});
 CallToActionIcon.args = {
   disabled: false,
   label: "Call to Action",
-  variant: "callAction",
+  variant: "primary",
   icon: <TestIcon />,
 };
 
 export const SecondaryIcon = Template.bind({});
 SecondaryIcon.args = {
   disabled: false,
-  label: "Secondary",
-  variant: "secondary",
+  label: "Destructive",
+  variant: "destructive",
   icon: <TestIcon />,
 };
 
@@ -108,7 +114,7 @@ export const FullWidth = Template.bind({});
 FullWidth.args = {
   disabled: false,
   label: "Test Button",
-  variant: "regular",
+  variant: "neutral",
   fullWidth: true,
   icon: <TestIcon />,
 };
@@ -116,14 +122,14 @@ FullWidth.args = {
 export const IconOnly = Template.bind({});
 IconOnly.args = {
   disabled: false,
-  variant: "regular",
+  variant: "neutral",
   icon: <TestIcon />,
 };
 
 export const IconOnlyCompact = Template.bind({});
 IconOnlyCompact.args = {
   disabled: false,
-  variant: "regular",
+  variant: "neutral",
   icon: <TestIcon />,
   compact: true,
 };

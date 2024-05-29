@@ -78,7 +78,7 @@ Default.args = {
         id={"submit"}
         type={"button"}
         label={"Login"}
-        variant={"callAction"}
+        variant={"primary"}
       />
     </Fragment>
   ),

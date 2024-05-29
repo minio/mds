@@ -77,7 +77,7 @@ const Template: Story = (args) => {
           <Grid item xs={12}>
             <Button
               id={"colorToggle"}
-              variant={color ? "secondary" : "regular"}
+              variant={color ? "descructive" : "neutral"}
               onClick={() => {
                 setColor(!color);
               }}
@@ -1408,6 +1408,11 @@ const Template: Story = (args) => {
           <h1>New Design Icons</h1>
           <IconDisplay applyColor={color}>
             <div className="story-icon">
+              <nvicons.ArrowDownAZIcon />
+              <br />
+              ArrowDownAZIcon
+            </div>
+            <div className="story-icon">
               <nvicons.ArrowLeftIcon />
               <br />
               ArrowLeftIcon
@@ -1433,6 +1438,11 @@ const Template: Story = (args) => {
               CheckIcon
             </div>
             <div className="story-icon">
+              <nvicons.ChevronDownIcon />
+              <br />
+              ChevronDownIcon
+            </div>
+            <div className="story-icon">
               <nvicons.ChevronLeftIcon />
               <br />
               ChevronLeftIcon
@@ -1441,6 +1451,11 @@ const Template: Story = (args) => {
               <nvicons.ChevronRightIcon />
               <br />
               ChevronRightIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ChevronUpIcon />
+              <br />
+              ChevronUpIcon
             </div>
             <div className="story-icon">
               <nvicons.CircleHelpIcon />
@@ -1486,6 +1501,11 @@ const Template: Story = (args) => {
               <nvicons.HistoryIcon />
               <br />
               HistoryIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.HomeIcon />
+              <br />
+              HomeIcon
             </div>
             <div className="story-icon">
               <nvicons.ListFilterIcon />

@@ -377,17 +377,24 @@ export interface ThemeDefinitionProps {
   colors: {
     [key: string]: string;
   };
+  paddingSizes: {
+    [key: string]: number;
+  };
+  borderRadius: {
+    [key: string]: number;
+  };
+  boxShadows: {
+    [key: string]: string;
+  };
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
-    regular?: ButtonThemeStatesProps;
-    callAction?: ButtonThemeStatesProps;
-    secondary?: ButtonThemeStatesProps;
+    neutral?: ButtonThemeStatesProps;
+    primary?: ButtonThemeStatesProps;
+    destructive?: ButtonThemeStatesProps;
+    "destructive-bare"?: ButtonThemeStatesProps;
     text?: ButtonThemeStatesProps;
     subAction?: ButtonThemeStatesProps;
-  };
-  roundedButtons?: {
-    regular?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
