@@ -64,6 +64,17 @@ const CustomButton = styled.button<
       };
     }
 
+    const notLabel = compact ? "6px" : "10px 8px";
+
+    const withLabel = compact ? "4px 12px" : "8px 16px";
+
+    let paddingValue = !label || label === "" ? notLabel : withLabel;
+
+    if (inButtonGroup) {
+      paddingValue =
+        (!label || label === "") && !parentChildren ? "6px" : "4px 12px";
+    }
+
     return {
       borderRadius: 6,
       cursor: "pointer",
@@ -76,14 +87,7 @@ const CustomButton = styled.button<
       alignItems: "center",
       justifyContent: "center",
       margin: 0,
-      padding:
-        !label || label === ""
-          ? compact
-            ? "6px"
-            : "10px 8px"
-          : compact
-            ? "4px 12px"
-            : "8px 16px",
+      padding: paddingValue,
       transition: "all 0.2s linear",
       background: get(theme, `buttons.${variant}.enabled.background`, "#fff"),
       borderColor: get(theme, `buttons.${variant}.enabled.border`, "#000"),

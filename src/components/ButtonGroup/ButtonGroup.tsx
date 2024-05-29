@@ -20,7 +20,7 @@ import get from "lodash/get";
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
-import { themeColors } from "../../global/themeColors";
+import { themeColors, themeShadows } from "../../global/themeColors";
 import { ButtonProps } from "../Button/Button.types";
 
 const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
@@ -33,6 +33,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
   width: "initial",
   height: 30,
   boxSizing: "border-box" as const,
+  boxShadow: themeShadows["boxShadow-01"],
   "& > *:not(:last-child)": {
     borderRight: `1px solid   ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
   },
@@ -55,9 +56,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
       "buttonGroup.labelColor",
       themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
     ),
-    // padding: displayLabels ? "4px 12px" : 6,
     height: 28,
-    // width: displayLabels ? "initial" : 28,
     background: "transparent",
     "& .buttonIcon": {
       height: 16,
@@ -88,7 +87,6 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
       },
     },
     "& .button-label, & .menu-option": {
-      // display: displayLabels ? "initial" : "none",
       whiteSpace: "nowrap",
     },
     "&:disabled": {
