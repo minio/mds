@@ -20,7 +20,7 @@ import get from "lodash/get";
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
-import {themeColors, themeShadows} from "../../global/themeColors";
+import { themeColors, themeShadows } from "../../global/themeColors";
 import { ButtonProps } from "../Button/Button.types";
 
 const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({

@@ -14,11 +14,23 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import React from "react";
 import get from "lodash/get";
 import { lightV2 } from "../global/themes";
 import { DefaultTheme } from "styled-components";
 
-export const expandMenuOptionStyles = (theme: DefaultTheme) => {
+export const expandMenuOptionStyles = (
+  theme: DefaultTheme,
+  inButtonGroup?: boolean,
+  icon?: React.ReactNode,
+  children?: React.ReactNode,
+) => {
+  let paddingValue = "4px 10px";
+
+  if (inButtonGroup) {
+    paddingValue = icon && !children ? "6px" : "4px 12px";
+  }
+
   return {
     display: "flex",
     alignItems: "center",
@@ -30,7 +42,7 @@ export const expandMenuOptionStyles = (theme: DefaultTheme) => {
     width: "100%",
     color: get(theme, "dropdownOptions.optionLabel", lightV2.colorTextLabel),
     backgroundColor: get(theme, "dropdownOptions.optionBG", "transparent"),
-    padding: "4px 10px",
+    padding: paddingValue,
     fontWeight: 400,
     height: 28,
     boxShadow: "none",
