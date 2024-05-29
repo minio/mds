@@ -16,22 +16,38 @@
 
 import React, { FC } from "react";
 import styled from "styled-components";
-import { ExpandMenuOptionProps } from "./ExpandMenu.types";
+import {
+  ExpandMenuConstructProps,
+  ExpandMenuOptionProps,
+} from "./ExpandMenu.types";
 import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
 
-const ExpandMenuOptionBase = styled.button<ExpandMenuOptionProps>(({ theme }) =>
-  expandMenuOptionStyles(theme),
+const ExpandMenuOptionBase = styled.button<
+  ExpandMenuOptionProps & ExpandMenuConstructProps
+>(({ theme, inButtonGroup = false, icon, parentChildren }) =>
+  expandMenuOptionStyles(theme, inButtonGroup, icon, parentChildren),
 );
 
 const ExpandMenuOption: FC<
   ExpandMenuOptionProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ children, icon, sx, variant = "regular", id, ...restProps }) => {
+> = ({
+  children,
+  icon,
+  sx,
+  variant = "regular",
+  id,
+  inButtonGroup = false,
+  ...restProps
+}) => {
   return (
     <ExpandMenuOptionBase
       id={id}
       sx={sx}
       variant={variant}
       className={`option-element ${variant}`}
+      inButtonGroup={inButtonGroup}
+      icon={icon}
+      parentChildren={children}
       {...restProps}
     >
       {icon && <span className={"menu-icon"}>{icon}</span>}

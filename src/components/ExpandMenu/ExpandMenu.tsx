@@ -36,6 +36,7 @@ const ExpandMenu: FC<
   disabled,
   dropArrow = true,
   compact = false,
+  inButtonGroup,
 }) => {
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<
@@ -69,6 +70,7 @@ const ExpandMenu: FC<
           setExpandedMenu(!expandedMenu);
           setAnchorEl(e.currentTarget);
         }}
+        inButtonGroup={inButtonGroup}
       />
 
       {expandedMenu && (

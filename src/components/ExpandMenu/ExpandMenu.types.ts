@@ -34,6 +34,7 @@ export interface ExpandMenuProps {
   dropMenuPosition?: "start" | "end" | "middle";
   compact?: boolean;
   dropArrow?: boolean;
+  inButtonGroup?: boolean;
   sx?: OverrideTheme;
 }
 
@@ -42,6 +43,7 @@ export interface ExpandMenuOptionProps {
   variant?: "regular" | "secondary";
   icon?: ReactNode;
   sx?: OverrideTheme;
+  inButtonGroup?: boolean;
   children: ReactNode;
 }
 
@@ -56,6 +58,10 @@ export interface ExpandDropBaseProps {
 
 export interface DropdownMainProps {
   sx?: OverrideTheme;
+}
+
+export interface ExpandMenuConstructProps {
+  parentChildren: ReactNode;
 }
 
 export type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
