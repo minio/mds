@@ -1695,6 +1695,7 @@ interface ExpandMenuProps {
   dropMenuPosition?: "start" | "end" | "middle";
   compact?: boolean;
   dropArrow?: boolean;
+  inButtonGroup?: boolean;
   sx?: OverrideTheme;
 }
 interface ExpandMenuOptionProps {
@@ -1702,6 +1703,7 @@ interface ExpandMenuOptionProps {
   variant?: "regular" | "secondary";
   icon?: ReactNode;
   sx?: OverrideTheme;
+  inButtonGroup?: boolean;
   children: ReactNode;
 }
 interface ExpandDropBaseProps {
@@ -1714,6 +1716,9 @@ interface ExpandDropBaseProps {
 }
 interface DropdownMainProps {
   sx?: OverrideTheme;
+}
+interface ExpandMenuConstructProps {
+  parentChildren: ReactNode;
 }
 type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
 
@@ -2078,10 +2083,6 @@ declare const PasswordKeyIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React__default.JSX.Element;
 
-declare const TrashIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React__default.JSX.Element;
-
 declare const EventSubscriptionIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2119,10 +2120,6 @@ declare const NewAccountIcon: (
 ) => React__default.JSX.Element;
 
 declare const CreateGroupIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CollapseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2840,7 +2837,7 @@ declare const CaretIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ErrorAlertIcon: (
+declare const CircleAlertIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2850,11 +2847,11 @@ declare const EyeOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SuccessAlertIcon: (
+declare const CircleCheckIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WarningAlertIcon: (
+declare const TriangleAlertIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2874,7 +2871,7 @@ declare const HistoryIcon$1: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const RefreshIcon: (
+declare const RefreshCWIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2942,7 +2939,7 @@ declare const EllipsisIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const DeleteIcon: (
+declare const DeleteIcon$1: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2959,6 +2956,26 @@ declare const HistoryIcon: (
 ) => React$1.JSX.Element;
 
 declare const ArrowDownAZIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const DeleteIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const Settings2Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const MinIOIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PieUsageIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CollapseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3331,6 +3348,8 @@ export {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
+  CircleAlertIcon,
+  CircleCheckIcon,
   CircleHelpIcon,
   CircleIcon,
   ClosePanelIcon,
@@ -3386,7 +3405,7 @@ export {
   DateTimeSelector,
   type DateTimeSelectorMain,
   type DateTimeSelectorProps,
-  DeleteIcon,
+  DeleteIcon$1 as DeleteIcon,
   DeleteNonCurrentIcon,
   DiagnosticsFeatureIcon,
   DiagnosticsIcon,
@@ -3417,7 +3436,6 @@ export {
   EnabledIcon,
   EnterpriseLightLogo,
   EnvironmentVariablesIcon,
-  ErrorAlertIcon,
   ShuffleIcon as EventBusyIcon,
   EventSubscriptionIcon,
   ExpandCaret,
@@ -3426,6 +3444,7 @@ export {
   ExpandIcon,
   ExpandLeftCaret,
   ExpandMenu,
+  type ExpandMenuConstructProps,
   ExpandMenuOption,
   type ExpandMenuOptionProps,
   type ExpandMenuProps,
@@ -3566,6 +3585,7 @@ export {
   type MenuThemeProps,
   MetadataIcon,
   MetricsMenuIcon,
+  MinIOIcon,
   MinIOTierIcon,
   MinIOTierIconXs,
   MirroringIcon,
@@ -3615,6 +3635,7 @@ export {
   PerformanceFeatureIcon,
   PerformanceMenuIcon,
   PermissionIcon,
+  PieUsageIcon,
   Pill,
   type PillElementThemeProps,
   type PillProps,
@@ -3641,7 +3662,7 @@ export {
   RecoverIcon,
   RedoIcon,
   RefreshCCWDotIcon,
-  RefreshIcon,
+  RefreshCWIcon,
   RegisterMenuIcon,
   ObjectManagerIcon as RemoveAllIcon,
   RemoveIcon,
@@ -3674,6 +3695,7 @@ export {
   ServiceAccountCredentialsIcon,
   ServiceAccountIcon,
   ServiceAccountsIcon,
+  Settings2Icon,
   SettingsIcon,
   SettingsInMenuIcon,
   ShareIcon,
@@ -3704,7 +3726,6 @@ export {
   StorageIcon,
   type StylesOverrideProps,
   type SubItemsBoxProps,
-  SuccessAlertIcon,
   SuccessIcon,
   SupportMenuIcon,
   Switch,
@@ -3759,7 +3780,8 @@ export {
   TotalObjectsIcon,
   TraceIcon,
   TraceMenuIcon,
-  TrashIcon,
+  DeleteIcon as TrashIcon,
+  TriangleAlertIcon,
   UploadFile,
   UploadFile$1 as UploadFolderIcon,
   UploadIcon,
@@ -3781,7 +3803,6 @@ export {
   ViewColumnIcon$1 as VisibilityOnIcon,
   WarnFilledIcon,
   WarnIcon,
-  WarningAlertIcon,
   WarpIcon,
   WatchIcon,
   WebhookIcon,

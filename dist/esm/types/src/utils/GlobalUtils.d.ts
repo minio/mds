@@ -1,5 +1,11 @@
+import React from "react";
 import { DefaultTheme } from "styled-components";
-export declare const expandMenuOptionStyles: (theme: DefaultTheme) => {
+export declare const expandMenuOptionStyles: (
+  theme: DefaultTheme,
+  inButtonGroup?: boolean,
+  icon?: React.ReactNode,
+  children?: React.ReactNode,
+) => {
   display: string;
   alignItems: string;
   justifyContent: string;
