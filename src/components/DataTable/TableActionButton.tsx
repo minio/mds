@@ -24,7 +24,6 @@ import IAMPoliciesIcon from "../Icons/IAMPoliciesIcon";
 import PreviewIcon from "../Icons/PreviewIcon";
 import ShareIcon from "../Icons/ShareIcon";
 import EditIcon from "../Icons/EditIcon";
-import TrashIcon from "../Icons/TrashIcon";
 import {
   actionsTypes,
   IActionButton,
@@ -34,6 +33,7 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { lightV2 } from "../../global/themes";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
+import TrashIcon from "../Icons/NewDesignIcons/TrashIcon";
 
 const TableActionCustomIcon = styled.button(({ theme }) => {
   let buttonSize: number | string = 30;

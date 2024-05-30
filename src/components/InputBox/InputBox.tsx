@@ -30,9 +30,9 @@ import { overridePropsParse } from "../../global/utils";
 import Button from "../Button/Button";
 import EyeOffIcon from "../Icons/NewDesignIcons/EyeOffIcon";
 import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
-import ErrorAlertIcon from "../Icons/NewDesignIcons/ErrorAlertIcon";
-import WarningAlertIcon from "../Icons/NewDesignIcons/WarningAlertIcon";
-import SuccessAlertIcon from "../Icons/NewDesignIcons/SuccessAlertIcon";
+import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
+import TriangleAlertIcon from "../Icons/NewDesignIcons/TriangleAlertIcon";
+import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({ theme, startIcon, overlayIcon, overlayObject, originType, sizeMode }) => {
@@ -268,13 +268,13 @@ const InputBox: FC<InputBoxProps> = ({
             {...props}
           />
           {state === "error" && (
-            <ErrorAlertIcon className={"accessoryIcon errorState"} />
+            <CircleAlertIcon className={"accessoryIcon errorState"} />
           )}
           {state === "warning" && (
-            <WarningAlertIcon className={"accessoryIcon warningState"} />
+            <TriangleAlertIcon className={"accessoryIcon warningState"} />
           )}
           {state === "success" && (
-            <SuccessAlertIcon className={"accessoryIcon successState"} />
+            <CircleCheckIcon className={"accessoryIcon successState"} />
           )}
           {inputBoxWrapperIcon && (
             <Box className={"overlayAction"}>

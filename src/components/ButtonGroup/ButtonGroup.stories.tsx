@@ -30,7 +30,7 @@ import TestIcon from "../../utils/TestIcon";
 import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
 import EditIcon from "../Icons/EditIcon";
 import AddIcon from "../Icons/AddIcon";
-import RefreshIcon from "../Icons/NewDesignIcons/RefreshIcon";
+import RefreshCWIcon from "../Icons/NewDesignIcons/RefreshCWIcon";
 
 export default {
   title: "MDS/Forms/ButtonGroup",
@@ -158,7 +158,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
     <h2>Single Icon Button</h2>
 
     <ButtonGroup {...args}>
-      <Button id={"test"} icon={<RefreshIcon />} iconLocation={"start"} />
+      <Button id={"test"} icon={<RefreshCWIcon />} iconLocation={"start"} />
     </ButtonGroup>
   </StoryThemeProvider>
 );

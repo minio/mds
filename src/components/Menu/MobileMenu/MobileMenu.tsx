@@ -20,12 +20,12 @@ import get from "lodash/get";
 import { MenuConstructProps, MenuProps } from "../Menu.types";
 import Box from "../../Box/Box";
 import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
-import CollapseIcon from "../../Icons/CollapseIcon";
 import IconButton from "../../IconButton/IconButton";
 import MobileMenuList from "./MobileMenuList";
 import { createPortal } from "react-dom";
 import { lightColors } from "../../../global/themes";
 import { overridePropsParse } from "../../../global/utils";
+import CollapseIcon from "../../Icons/NewDesignIcons/CollapseIcon";
 
 const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
