@@ -352,12 +352,6 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
-              <cicons.CollapseIcon />
-              <br />
-              CollapseIcon
-            </div>
-
-            <div className="story-icon">
               <cicons.CollapseMenuIcon />
               <br />
               CollapseMenuIcon
@@ -1257,12 +1251,6 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
-              <cicons.TrashIcon />
-              <br />
-              TrashIcon
-            </div>
-
-            <div className="story-icon">
               <cicons.UploadFile />
               <br />
               UploadFile
@@ -1458,9 +1446,24 @@ const Template: Story = (args) => {
               ChevronUpIcon
             </div>
             <div className="story-icon">
+              <nvicons.CircleAlertIcon />
+              <br />
+              CircleAlertIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.CircleCheckIcon />
+              <br />
+              CircleCheckIcon
+            </div>
+            <div className="story-icon">
               <nvicons.CircleHelpIcon />
               <br />
               CircleHelpIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.CollapseIcon />
+              <br />
+              CollapseIcon
             </div>
             <div className="story-icon">
               <nvicons.DeleteIcon />
@@ -1481,11 +1484,6 @@ const Template: Story = (args) => {
               <nvicons.EllipsisVerticalIcon />
               <br />
               EllipsisVerticalIcon
-            </div>
-            <div className="story-icon">
-              <nvicons.ErrorAlertIcon />
-              <br />
-              ErrorAlertIcon
             </div>
             <div className="story-icon">
               <nvicons.EyeIcon />
@@ -1518,6 +1516,11 @@ const Template: Story = (args) => {
               LogOutIcon
             </div>
             <div className="story-icon">
+              <nvicons.MinIOIcon />
+              <br />
+              MinIOIcon
+            </div>
+            <div className="story-icon">
               <nvicons.PanelLeftOpenIcon />
               <br />
               PanelLeftOpenIcon
@@ -1528,14 +1531,19 @@ const Template: Story = (args) => {
               PenLineIcon
             </div>
             <div className="story-icon">
+              <nvicons.PieUsageIcon />
+              <br />
+              PieUsageIcon
+            </div>
+            <div className="story-icon">
               <nvicons.RefreshCCWDotIcon />
               <br />
               RefreshCCWDotIcon
             </div>
             <div className="story-icon">
-              <nvicons.RefreshIcon />
+              <nvicons.RefreshCWIcon />
               <br />
-              RefreshIcon
+              RefreshCWIcon
             </div>
             <div className="story-icon">
               <nvicons.SearchIcon />
@@ -1548,14 +1556,14 @@ const Template: Story = (args) => {
               SettingsIcon
             </div>
             <div className="story-icon">
+              <nvicons.Settings2Icon />
+              <br />
+              Settings2Icon
+            </div>
+            <div className="story-icon">
               <nvicons.SquareStackIcon />
               <br />
               SquareStackIcon
-            </div>
-            <div className="story-icon">
-              <nvicons.SuccessAlertIcon />
-              <br />
-              SuccessAlertIcon
             </div>
             <div className="story-icon">
               <nvicons.TagIcon />
@@ -1563,14 +1571,19 @@ const Template: Story = (args) => {
               TagIcon
             </div>
             <div className="story-icon">
+              <nvicons.TrashIcon />
+              <br />
+              TrashIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.TriangleAlertIcon />
+              <br />
+              TriangleAlertIcon
+            </div>
+            <div className="story-icon">
               <nvicons.UploadIcon />
               <br />
               UploadIcon
-            </div>
-            <div className="story-icon">
-              <nvicons.WarningAlertIcon />
-              <br />
-              WarningAlertIcon
             </div>
             <div className="story-icon">
               <nvicons.XIcon />

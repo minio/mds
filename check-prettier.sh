@@ -1,4 +1,4 @@
 #!/bin/bash
 
-yarn install
-yarn prettier --check ./src
+yarn global add prettier
+prettier --check ./src

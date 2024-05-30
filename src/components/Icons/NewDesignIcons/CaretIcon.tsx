@@ -25,16 +25,13 @@ const CaretIcon = (props: SVGProps<SVGSVGElement>) => (
     className={`min-icon`}
     {...props}
   >
-    <g>
-      <path
-        d="M13 5L8 10L3 5H13Z"
-        stroke="currentColor"
-        fill={"none"}
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </g>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M2.35328 5.73211C2.46162 5.47054 2.71687 5.29999 2.99999 5.29999H13C13.2831 5.29999 13.5384 5.47054 13.6467 5.73211C13.7551 5.99368 13.6952 6.29476 13.495 6.49496L8.49497 11.495C8.2216 11.7683 7.77839 11.7683 7.50502 11.495L2.50502 6.49496C2.30482 6.29476 2.24493 5.99368 2.35328 5.73211ZM4.68994 6.69999L7.99999 10.01L11.31 6.69999H4.68994Z"
+      fill="currentColor"
+      fillOpacity="0.65"
+    />
   </svg>
 );
 

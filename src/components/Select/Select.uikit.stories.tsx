@@ -23,7 +23,8 @@ import Box from "../Box/Box";
 import Select from "./Select";
 import { SelectProps } from "./Select.types";
 import { SelectOption } from "../../global/global.types";
-import { DownloadIcon, UploadIcon } from "../Icons";
+import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
+import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
 
 export default {
   title: "UI Kit/Forms & Inputs/Select Input",

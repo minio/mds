@@ -26,13 +26,11 @@ const ChevronDownIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      id="Vector"
-      d="M4 6L8 10L12 6"
-      stroke="currentColor"
-      strokeOpacity="0.65"
-      strokeWidth="1.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3.50501 5.50502C3.77838 5.23166 4.2216 5.23166 4.49496 5.50502L7.99999 9.01005L11.505 5.50502C11.7784 5.23166 12.2216 5.23166 12.495 5.50502C12.7683 5.77839 12.7683 6.22161 12.495 6.49497L8.49496 10.495C8.2216 10.7683 7.77838 10.7683 7.50501 10.495L3.50501 6.49497C3.23165 6.22161 3.23165 5.77839 3.50501 5.50502Z"
+      fill="currentColor"
+      fillOpacity="0.65"
     />
   </svg>
 );
