@@ -25,7 +25,7 @@ const CaretFilledIcon = (props: SVGProps<SVGSVGElement>) => (
     className={`min-icon`}
     {...props}
   >
-    <path d="M13 6L8 11L3 6H13Z" fill="currentColor" fillOpacity="0.65" />
+    <path d="M13 6L8 11L3 6H13Z" fill="currentColor" />
   </svg>
 );
 
