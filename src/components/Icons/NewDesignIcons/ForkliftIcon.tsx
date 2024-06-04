@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const ForkliftIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M10.6667 0.633362C11.0533 0.633362 11.3667 0.946762 11.3667 1.33336V6.66588C11.3667 6.66642 11.3667 6.66697 11.3667 6.66751V11.9667H14.6667C15.0533 11.9667 15.3667 12.2801 15.3667 12.6667C15.3667 13.0533 15.0533 13.3667 14.6667 13.3667H10.6667C10.6367 13.3667 10.6073 13.3648 10.5783 13.3612C10.2945 14.1422 9.54574 14.7 8.66667 14.7C7.78967 14.7 7.04235 14.1448 6.75703 13.3667H5.33333C5.30341 13.3667 5.27392 13.3648 5.24498 13.3612C4.96119 14.1422 4.21241 14.7 3.33333 14.7C2.21035 14.7 1.3 13.7897 1.3 12.6667V9.33336C1.3 8.79409 1.51422 8.2769 1.89555 7.89558C2.26901 7.52212 2.77279 7.30893 3.3 7.3003V4.6667C3.3 3.54676 4.2134 2.63336 5.33333 2.63336H7.33333C7.51898 2.63336 7.69703 2.70711 7.82831 2.83839L9.96667 4.97675V1.33336C9.96667 0.946762 10.2801 0.633362 10.6667 0.633362ZM9.96667 6.95665L7.04338 4.03336H5.33333C4.9866 4.03336 4.7 4.31996 4.7 4.6667V7.30003H8C8.3866 7.30003 8.7 7.61343 8.7 8.00003C8.7 8.38663 8.3866 8.70003 8 8.70003H3.33333C3.16536 8.70003 3.00427 8.76675 2.8855 8.88553C2.76673 9.0043 2.7 9.16539 2.7 9.33336V10.7339C2.89931 10.6687 3.1122 10.6334 3.33333 10.6334C4.21241 10.6334 4.96119 11.1912 5.24498 11.9722C5.27392 11.9686 5.30341 11.9667 5.33333 11.9667H6.75703C7.04235 11.1886 7.78967 10.6334 8.66667 10.6334C9.16106 10.6334 9.61423 10.8098 9.96667 11.1032V6.95665ZM2.7 12.6667C2.7 13.0165 2.98355 13.3 3.33333 13.3C3.68311 13.3 3.96667 13.0165 3.96667 12.6667C3.96667 12.3169 3.68311 12.0334 3.33333 12.0334C2.98355 12.0334 2.7 12.3169 2.7 12.6667ZM8.66667 12.0334C8.31689 12.0334 8.03333 12.3169 8.03333 12.6667C8.03333 13.0165 8.31689 13.3 8.66667 13.3C9.01645 13.3 9.3 13.0165 9.3 12.6667C9.3 12.3169 9.01645 12.0334 8.66667 12.0334Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default ForkliftIcon;

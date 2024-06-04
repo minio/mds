@@ -33,5 +33,4 @@ const ArrowDownAZIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default ArrowDownAZIcon;

@@ -19,11 +19,11 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { MenuItemProps } from "../Menu.types";
 import Box from "../../Box/Box";
-import CircleIcon from "../../Icons/CircleIcon";
 import CollapseCaret from "../../Icons/CollapseCaret";
 import ExpandCaret from "../../Icons/ExpandCaret";
 import Tooltip from "../../Tooltip/Tooltip";
 import { lightColors } from "../../../global/themes";
+import CircleIcon from "../../Icons/NewDesignIcons/CircleIcon";
 
 const commonStyle = (theme: any) => ({
   display: "flex",

@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const SuperscriptIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M10.9202 2.90874C11.3399 2.67028 11.8288 2.58343 12.3049 2.66276C12.7811 2.74208 13.2154 2.98276 13.5351 3.3444L13.5382 3.34789L13.5382 3.3479C13.8591 3.71586 14.0333 4.18479 14.0333 4.66803C14.0333 5.40446 13.622 5.91804 13.2027 6.2546C12.8154 6.56543 12.3438 6.7879 12.011 6.94488C11.9956 6.95214 11.9805 6.95926 11.9658 6.96624C11.6484 7.11625 11.5438 7.21374 11.4898 7.29708C11.4892 7.29805 11.4885 7.29903 11.4879 7.30003H13.3333C13.7199 7.30003 14.0333 7.61343 14.0333 8.00003C14.0333 8.38663 13.7199 8.70003 13.3333 8.70003H10.6667C10.2801 8.70003 9.96667 8.38663 9.96667 8.00003C9.96667 7.44406 10.0458 6.95146 10.3145 6.5363C10.5843 6.11965 10.9797 5.88381 11.3676 5.70048C11.7387 5.52511 12.0745 5.36492 12.3263 5.16279C12.564 4.97201 12.6333 4.81959 12.6333 4.66803C12.6333 4.52269 12.5814 4.38167 12.4847 4.2699C12.3779 4.14995 12.2333 4.07012 12.0749 4.04372C11.9156 4.0172 11.7522 4.04624 11.6118 4.12598L11.266 3.51737L11.6122 4.12575C11.4741 4.20434 11.3747 4.32438 11.3251 4.46171C11.1938 4.82534 10.7926 5.01371 10.429 4.88244C10.0654 4.75117 9.87699 4.34998 10.0083 3.98635C10.1734 3.529 10.4979 3.14905 10.9198 2.90897L10.9202 2.90874ZM2.1717 6.83839C2.44507 6.56502 2.88828 6.56502 3.16165 6.83839L5.33334 9.01008L7.50503 6.83839C7.7784 6.56502 8.22162 6.56502 8.49498 6.83839C8.76835 7.11175 8.76835 7.55497 8.49498 7.82833L6.32329 10L8.49498 12.1717C8.76835 12.4451 8.76835 12.8883 8.49498 13.1617C8.22162 13.435 7.7784 13.435 7.50503 13.1617L5.33334 10.99L3.16165 13.1617C2.88828 13.435 2.44507 13.435 2.1717 13.1617C1.89833 12.8883 1.89833 12.4451 2.1717 12.1717L4.34339 10L2.1717 7.82833C1.89833 7.55497 1.89833 7.11175 2.1717 6.83839Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default SuperscriptIcon;

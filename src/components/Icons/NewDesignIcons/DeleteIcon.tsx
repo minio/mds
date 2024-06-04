@@ -33,5 +33,4 @@ const DeleteIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default DeleteIcon;

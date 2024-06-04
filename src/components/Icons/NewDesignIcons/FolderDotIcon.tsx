@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const FolderDotIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M1.22891 1.89554C1.61024 1.51421 2.12742 1.29999 2.6667 1.29999H5.29032C5.62522 1.30172 5.95451 1.38616 6.24893 1.54579C6.54142 1.70436 6.7905 1.93227 6.97435 2.20949L7.52473 3.01494C7.58211 3.10206 7.66003 3.17372 7.75173 3.22344C7.84301 3.27293 7.94504 3.29921 8.04885 3.29999H13.3334C13.8726 3.29999 14.3898 3.51421 14.7711 3.89554C15.1525 4.27686 15.3667 4.79405 15.3667 5.33332V12C15.3667 12.5393 15.1525 13.0564 14.7711 13.4378C14.3898 13.8191 13.8726 14.0333 13.3334 14.0333H2.6667C1.54676 14.0333 0.633362 13.1199 0.633362 12V3.33332C0.633362 2.79405 0.847587 2.27686 1.22891 1.89554ZM2.6667 2.69999C2.49872 2.69999 2.33763 2.76671 2.21886 2.88549C2.10009 3.00426 2.03336 3.16535 2.03336 3.33332V12C2.03336 12.3467 2.31996 12.6333 2.6667 12.6333H13.3334C13.5013 12.6333 13.6624 12.5666 13.7812 12.4478C13.9 12.329 13.9667 12.168 13.9667 12V5.33332C13.9667 5.16535 13.9 5.00426 13.7812 4.88549C13.6624 4.76671 13.5013 4.69999 13.3334 4.69999H8.04307C7.70817 4.69826 7.37888 4.61382 7.08446 4.45419C6.79197 4.29561 6.54289 4.0677 6.35905 3.79048L5.80865 2.98503C5.75128 2.89791 5.67336 2.82625 5.58166 2.77654C5.49039 2.72705 5.38836 2.70077 5.28455 2.69999H2.6667ZM8.00003 8.69999C8.01844 8.69999 8.03336 8.68506 8.03336 8.66665C8.03336 8.64824 8.01844 8.63332 8.00003 8.63332C7.98162 8.63332 7.96669 8.64824 7.96669 8.66665C7.96669 8.68506 7.98162 8.69999 8.00003 8.69999ZM6.63336 8.66665C6.63336 7.91186 7.24524 7.29999 8.00003 7.29999C8.75482 7.29999 9.36669 7.91186 9.36669 8.66665C9.36669 9.42144 8.75482 10.0333 8.00003 10.0333C7.24524 10.0333 6.63336 9.42144 6.63336 8.66665Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default FolderDotIcon;

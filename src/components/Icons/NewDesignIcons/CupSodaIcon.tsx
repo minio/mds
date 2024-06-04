@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const CupSodaIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M7.97619 1.21825C8.03244 0.88072 8.32448 0.633331 8.66666 0.633331H10C10.3866 0.633331 10.7 0.946732 10.7 1.33333C10.7 1.71993 10.3866 2.03333 10 2.03333H9.25965L8.82632 4.63333H11.9882C11.9954 4.63322 12.0028 4.63322 12.0101 4.63333H12.6667C13.0533 4.63333 13.3667 4.94673 13.3667 5.33333C13.3667 5.71993 13.0533 6.03333 12.6667 6.03333H12.6093L11.5531 13.618C11.4841 14.1065 11.2397 14.5533 10.8656 14.875C10.4925 15.1959 10.0157 15.3706 9.52363 15.3667H6.50303C6.011 15.3706 5.53419 15.1959 5.16106 14.875C4.78708 14.5534 4.54277 14.1068 4.47362 13.6185C4.4736 13.6183 4.47365 13.6186 4.47362 13.6185L3.39268 6.03333H3.33333C2.94673 6.03333 2.63333 5.71993 2.63333 5.33333C2.63333 4.94673 2.94673 4.63333 3.33333 4.63333H3.98973C3.99718 4.63321 4.00461 4.63321 4.01202 4.63333H7.40701L7.97619 1.21825ZM7.98849 6.03333H4.80683L5.24175 9.08527C5.59924 9.00552 5.96527 8.96499 6.33333 8.96499C6.99848 8.96499 7.65699 9.09735 8.27048 9.35437C8.71265 9.53961 9.18726 9.63501 9.66666 9.63501C10.0228 9.63501 10.3764 9.58235 10.7159 9.47931L11.1958 6.03333H8.01318C8.00498 6.03348 7.99675 6.03348 7.98849 6.03333ZM10.5092 10.9637C10.2315 11.011 9.9497 11.035 9.66666 11.035C9.00151 11.035 8.34301 10.9026 7.72952 10.6456C7.28735 10.4604 6.81274 10.365 6.33333 10.365C6.03138 10.365 5.73134 10.4028 5.4401 10.4771L5.85966 13.4212C5.88117 13.5734 5.95739 13.7134 6.07392 13.8136C6.19044 13.9138 6.33943 13.9682 6.49311 13.9667L6.5 13.9666L9.53355 13.9667C9.68723 13.9682 9.83622 13.9138 9.95274 13.8136C10.0691 13.7135 10.1452 13.5746 10.1668 13.4227C10.1668 13.4229 10.1668 13.4225 10.1668 13.4227L10.5092 10.9637Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default CupSodaIcon;

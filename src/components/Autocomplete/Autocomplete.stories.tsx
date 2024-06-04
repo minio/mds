@@ -27,7 +27,7 @@ import { SelectOption } from "../../global/global.types";
 import TestIcon from "../../utils/TestIcon";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
-import UsersIcon from "../Icons/UsersIcon";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 
 export default {
   title: "MDS/Forms/Autocomplete",

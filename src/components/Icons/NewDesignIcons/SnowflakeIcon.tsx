@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const SnowflakeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M8.00003 0.633301C8.38663 0.633301 8.70003 0.946701 8.70003 1.3333V3.64335L10.1717 2.17166C10.4451 1.89829 10.8883 1.89829 11.1617 2.17166C11.435 2.44503 11.435 2.88824 11.1617 3.16161L8.70003 5.62325V7.29997H10.3767L12.8384 4.83833C13.1118 4.56496 13.555 4.56496 13.8283 4.83833C14.1017 5.11169 14.1017 5.55491 13.8283 5.82828L12.3566 7.29997H14.6667C15.0533 7.29997 15.3667 7.61337 15.3667 7.99997C15.3667 8.38657 15.0533 8.69997 14.6667 8.69997H12.3566L13.8283 10.1717C14.1017 10.445 14.1017 10.8882 13.8283 11.1616C13.555 11.435 13.1118 11.435 12.8384 11.1616L10.3767 8.69997H8.70003V10.3767L11.1617 12.8383C11.435 13.1117 11.435 13.5549 11.1617 13.8283C10.8883 14.1016 10.4451 14.1016 10.1717 13.8283L8.70003 12.3566V14.6666C8.70003 15.0532 8.38663 15.3666 8.00003 15.3666C7.61343 15.3666 7.30003 15.0532 7.30003 14.6666V12.3566L5.82834 13.8283C5.55497 14.1016 5.11175 14.1016 4.83839 13.8283C4.56502 13.5549 4.56502 13.1117 4.83839 12.8383L7.30003 10.3767V8.69997H5.62331L3.16167 11.1616C2.8883 11.435 2.44509 11.435 2.17172 11.1616C1.89835 10.8882 1.89835 10.445 2.17172 10.1717L3.64341 8.69997H1.33336C0.946762 8.69997 0.633362 8.38657 0.633362 7.99997C0.633362 7.61337 0.946762 7.29997 1.33336 7.29997H3.64341L2.17172 5.82828C1.89835 5.55491 1.89835 5.11169 2.17172 4.83833C2.44509 4.56496 2.8883 4.56496 3.16167 4.83833L5.62331 7.29997H7.30003V5.62325L4.83839 3.16161C4.56502 2.88824 4.56502 2.44503 4.83839 2.17166C5.11175 1.89829 5.55497 1.89829 5.82834 2.17166L7.30003 3.64335V1.3333C7.30003 0.946701 7.61343 0.633301 8.00003 0.633301Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default SnowflakeIcon;

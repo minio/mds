@@ -33,5 +33,4 @@ const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default CheckIcon;

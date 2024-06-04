@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const LinkedinIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M2.66667 2.03336C2.31689 2.03336 2.03334 2.31691 2.03334 2.6667C2.03334 3.01648 2.31689 3.30003 2.66667 3.30003C3.01645 3.30003 3.3 3.01648 3.3 2.6667C3.3 2.31691 3.01645 2.03336 2.66667 2.03336ZM0.633335 2.6667C0.633335 1.54372 1.54369 0.633362 2.66667 0.633362C3.78965 0.633362 4.7 1.54372 4.7 2.6667C4.7 3.78967 3.78965 4.70003 2.66667 4.70003C1.54369 4.70003 0.633335 3.78967 0.633335 2.6667ZM10.6667 6.03336C9.79145 6.03336 8.95209 6.38104 8.33322 6.99991C7.71435 7.61878 7.36667 8.45815 7.36667 9.33336V13.3H8.63333V9.33336C8.63333 8.79409 8.84756 8.2769 9.22888 7.89558C9.61021 7.51425 10.1274 7.30003 10.6667 7.30003C11.2059 7.30003 11.7231 7.51425 12.1045 7.89558C12.4858 8.2769 12.7 8.79409 12.7 9.33336V13.3H13.9667V9.33336C13.9667 8.45815 13.619 7.61878 13.0001 6.99991C12.3813 6.38104 11.5419 6.03336 10.6667 6.03336ZM7.34327 6.00996C8.22469 5.12854 9.42015 4.63336 10.6667 4.63336C11.9132 4.63336 13.1086 5.12854 13.9901 6.00996C14.8715 6.89138 15.3667 8.08684 15.3667 9.33336V14C15.3667 14.3866 15.0533 14.7 14.6667 14.7H12C11.6134 14.7 11.3 14.3866 11.3 14V9.33336C11.3 9.16539 11.2333 9.0043 11.1145 8.88553C10.9957 8.76675 10.8346 8.70003 10.6667 8.70003C10.4987 8.70003 10.3376 8.76675 10.2188 8.88553C10.1001 9.0043 10.0333 9.16539 10.0333 9.33336V14C10.0333 14.3866 9.71993 14.7 9.33333 14.7H6.66667C6.28007 14.7 5.96667 14.3866 5.96667 14V9.33336C5.96667 8.08684 6.46185 6.89138 7.34327 6.00996ZM0.633335 6.00003C0.633335 5.61343 0.946736 5.30003 1.33334 5.30003H4C4.3866 5.30003 4.7 5.61343 4.7 6.00003V14C4.7 14.3866 4.3866 14.7 4 14.7H1.33334C0.946736 14.7 0.633335 14.3866 0.633335 14V6.00003ZM2.03334 6.70003V13.3H3.3V6.70003H2.03334Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default LinkedinIcon;

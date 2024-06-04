@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const Link2OffIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M0.838326 0.838387C1.11169 0.56502 1.55491 0.56502 1.82828 0.838387L5.16137 4.17148C5.16153 4.17164 5.16169 4.1718 5.16185 4.17196L8.49459 7.50471C8.49483 7.50494 8.49506 7.50517 8.49529 7.5054L15.1616 14.1717C15.435 14.4451 15.435 14.8883 15.1616 15.1617C14.8882 15.435 14.445 15.435 14.1717 15.1617L7.71002 8.70003H5.3333C4.9467 8.70003 4.6333 8.38663 4.6333 8.00003C4.6333 7.61343 4.9467 7.30003 5.3333 7.30003H6.31002L4.39113 5.38114C3.79399 5.44394 3.23306 5.70951 2.80459 6.13798C2.31074 6.63183 2.0333 7.30162 2.0333 8.00003C2.0333 8.69843 2.31074 9.36823 2.80459 9.86208C3.29843 10.3559 3.96823 10.6334 4.66663 10.6334H5.99997C6.38657 10.6334 6.69997 10.9468 6.69997 11.3334C6.69997 11.72 6.38657 12.0334 5.99997 12.0334H4.66663C3.59693 12.0334 2.57103 11.6084 1.81464 10.852C1.05824 10.0956 0.633301 9.06973 0.633301 8.00003C0.633301 6.93032 1.05824 5.90443 1.81464 5.14803C2.22255 4.74011 2.70885 4.4286 3.23813 4.22814L0.838326 1.82834C0.564959 1.55497 0.564959 1.11175 0.838326 0.838387ZM9.29997 4.66669C9.29997 4.2801 9.61337 3.9667 9.99997 3.9667H11.3333C12.0823 3.9667 12.8166 4.17528 13.4538 4.56907C14.0909 4.96286 14.6058 5.52631 14.9408 6.19627C15.2758 6.86623 15.4176 7.61623 15.3503 8.36224C15.2831 9.10826 15.0094 9.8208 14.56 10.42C14.328 10.7293 13.8892 10.792 13.58 10.56C13.2707 10.3281 13.208 9.88931 13.44 9.58003C13.7334 9.18879 13.9121 8.72358 13.956 8.23652C13.9999 7.74945 13.9073 7.25978 13.6886 6.82237C13.4699 6.38495 13.1337 6.01709 12.7177 5.75998C12.3017 5.50288 11.8223 5.36669 11.3333 5.36669H9.99997C9.61337 5.36669 9.29997 5.05329 9.29997 4.66669Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default Link2OffIcon;

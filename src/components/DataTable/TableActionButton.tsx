@@ -16,13 +16,11 @@
 
 import React, { FC } from "react";
 import Tooltip from "../Tooltip/Tooltip";
-import CloudIcon from "../Icons/CloudIcon";
 import ConsoleIcon from "../Icons/ConsoleIcon";
 import DisableIcon from "../Icons/DisableIcon";
 import FormatDriveIcon from "../Icons/FormatDriveIcon";
 import IAMPoliciesIcon from "../Icons/IAMPoliciesIcon";
 import PreviewIcon from "../Icons/PreviewIcon";
-import ShareIcon from "../Icons/ShareIcon";
 import EditIcon from "../Icons/EditIcon";
 import {
   actionsTypes,
@@ -34,6 +32,8 @@ import get from "lodash/get";
 import { lightV2 } from "../../global/themes";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 import TrashIcon from "../Icons/NewDesignIcons/TrashIcon";
+import CloudIcon from "../Icons/NewDesignIcons/CloudIcon";
+import ShareIcon from "../Icons/NewDesignIcons/ShareIcon";
 
 const TableActionCustomIcon = styled.button(({ theme }) => {
   let buttonSize: number | string = 30;

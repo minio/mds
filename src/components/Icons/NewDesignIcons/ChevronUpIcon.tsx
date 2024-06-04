@@ -33,5 +33,4 @@ const ChevronUpIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default ChevronUpIcon;

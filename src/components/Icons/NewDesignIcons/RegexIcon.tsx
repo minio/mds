@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const RegexIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M11.3333 1.30005C11.7199 1.30005 12.0333 1.61345 12.0333 2.00005V4.12093L13.87 3.0605C14.2048 2.8672 14.6329 2.98191 14.8262 3.31671C15.0195 3.65151 14.9048 4.07962 14.57 4.27293L12.7333 5.33338L14.57 6.39384C14.9048 6.58714 15.0195 7.01525 14.8262 7.35006C14.6329 7.68486 14.2048 7.79957 13.87 7.60626L12.0333 6.54584V8.66672C12.0333 9.05331 11.7199 9.36672 11.3333 9.36672C10.9467 9.36672 10.6333 9.05331 10.6333 8.66672V6.54584L8.79666 7.60626C8.46186 7.79957 8.03375 7.68486 7.84044 7.35006C7.64714 7.01525 7.76184 6.58714 8.09665 6.39384L9.93335 5.33338L8.09665 4.27293C7.76184 4.07962 7.64714 3.65151 7.84044 3.31671C8.03375 2.98191 8.46186 2.8672 8.79666 3.0605L10.6333 4.12093V2.00005C10.6333 1.61345 10.9467 1.30005 11.3333 1.30005ZM1.89554 9.8956C2.27686 9.51428 2.79405 9.30005 3.33332 9.30005H4.66665C5.20593 9.30005 5.72311 9.51428 6.10444 9.8956C6.48576 10.2769 6.69999 10.7941 6.69999 11.3334V12.6667C6.69999 13.206 6.48576 13.7232 6.10444 14.1045C5.72311 14.4858 5.20593 14.7 4.66665 14.7H3.33332C2.79405 14.7 2.27686 14.4858 1.89554 14.1045C1.51421 13.7232 1.29999 13.206 1.29999 12.6667V11.3334C1.29999 10.7941 1.51421 10.2769 1.89554 9.8956ZM3.33332 10.7C3.16535 10.7 3.00426 10.7668 2.88549 10.8855C2.76671 11.0043 2.69999 11.1654 2.69999 11.3334V12.6667C2.69999 12.8347 2.76671 12.9958 2.88549 13.1145C3.00426 13.2333 3.16535 13.3 3.33332 13.3H4.66665C4.83462 13.3 4.99572 13.2333 5.11449 13.1145C5.23326 12.9958 5.29999 12.8347 5.29999 12.6667V11.3334C5.29999 11.1654 5.23326 11.0043 5.11449 10.8855C4.99572 10.7668 4.83462 10.7 4.66665 10.7H3.33332Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default RegexIcon;

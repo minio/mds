@@ -1,0 +1,54 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const BellPlusIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M8 2.03333C6.1866 2.03333 4.7 3.51993 4.7 5.33333C4.7 7.7698 4.17694 9.38742 3.61452 10.4185C3.57372 10.4933 3.53279 10.5649 3.49193 10.6333H12.4907C12.4067 10.495 12.3227 10.344 12.2406 10.1797C12.0677 9.83393 12.2078 9.41346 12.5536 9.24057C12.8994 9.06767 13.3199 9.20783 13.4928 9.55362C13.7277 10.0235 13.9718 10.3358 14.1463 10.5237C14.2337 10.6178 14.3041 10.6813 14.3477 10.7178C14.3696 10.7361 14.3847 10.7477 14.3918 10.7531C14.3935 10.7543 14.3948 10.7552 14.3956 10.7558C14.6471 10.9281 14.7585 11.2438 14.67 11.5362C14.5806 11.8314 14.3085 12.0333 14 12.0333H2C1.69153 12.0333 1.41942 11.8314 1.33003 11.5362C1.24164 11.2442 1.35251 10.9291 1.60315 10.7567C1.60599 10.7547 1.60884 10.7528 1.61171 10.7509L2 11.3333C1.61171 10.7509 1.61125 10.7512 1.61081 10.7515L1.60996 10.7521L1.60839 10.7531L1.60578 10.7549L1.60315 10.7567C1.60193 10.7576 1.60224 10.7573 1.60315 10.7567C1.6035 10.7564 1.60394 10.7561 1.60446 10.7557C1.60911 10.7523 1.62054 10.7436 1.6378 10.7292C1.67232 10.7004 1.73028 10.6488 1.80433 10.5707C1.95205 10.4147 2.16571 10.151 2.38547 9.74813C2.82305 8.94591 3.3 7.56353 3.3 5.33333C3.3 2.74673 5.4134 0.633331 8 0.633331C8.77081 0.633331 9.49039 0.790188 10.2066 1.18809C10.5446 1.37584 10.6663 1.802 10.4786 2.13995C10.2908 2.4779 9.86466 2.59966 9.52671 2.41191C9.04293 2.14314 8.56252 2.03333 8 2.03333Z"
+      fill="currentColor"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M6.52941 13.3866C6.86819 13.2003 7.29381 13.324 7.48006 13.6627C7.53126 13.7559 7.60651 13.8335 7.69797 13.8876C7.78944 13.9417 7.89374 13.9702 8 13.9702C8.10625 13.9702 8.21056 13.9417 8.30202 13.8876C8.39348 13.8335 8.46874 13.7559 8.51993 13.6627C8.70619 13.324 9.13181 13.2003 9.47058 13.3866C9.80935 13.5729 9.93299 13.9985 9.74673 14.3372C9.57475 14.6501 9.32192 14.9109 9.01465 15.0927C8.70739 15.2744 8.35697 15.3702 8 15.3702C7.64302 15.3702 7.2926 15.2744 6.98534 15.0927C6.67808 14.9109 6.42525 14.6501 6.25326 14.3372C6.067 13.9985 6.19064 13.5729 6.52941 13.3866Z"
+      fill="currentColor"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M9.3 5.33333C9.3 4.94673 9.6134 4.63333 10 4.63333H14C14.3866 4.63333 14.7 4.94673 14.7 5.33333C14.7 5.71993 14.3866 6.03333 14 6.03333H10C9.6134 6.03333 9.3 5.71993 9.3 5.33333Z"
+      fill="currentColor"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M12 2.63333C12.3866 2.63333 12.7 2.94673 12.7 3.33333V7.33333C12.7 7.71993 12.3866 8.03333 12 8.03333C11.6134 8.03333 11.3 7.71993 11.3 7.33333V3.33333C11.3 2.94673 11.6134 2.63333 12 2.63333Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default BellPlusIcon;

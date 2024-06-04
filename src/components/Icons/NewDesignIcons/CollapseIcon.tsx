@@ -43,5 +43,4 @@ const CollapseIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default CollapseIcon;

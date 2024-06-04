@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const FileStackIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M8.33334 2.03333C8.1866 2.03333 8.03334 2.1866 8.03334 2.33333V8.33333C8.03334 8.48006 8.1866 8.63333 8.33334 8.63333H13C13.1467 8.63333 13.3 8.48006 13.3 8.33333V5.36666H12C11.4607 5.36666 10.9435 5.15244 10.5622 4.77111C10.1809 4.38979 9.96667 3.8726 9.96667 3.33333V2.03333H8.33334ZM8.33334 0.633331C7.4134 0.633331 6.63334 1.4134 6.63334 2.33333V8.33333C6.63334 9.25326 7.4134 10.0333 8.33334 10.0333H13C13.9199 10.0333 14.7 9.25326 14.7 8.33333V4C14.7 3.81435 14.6263 3.6363 14.495 3.50502L11.8283 0.838357C11.697 0.707081 11.519 0.633331 11.3333 0.633331H8.33334ZM11.3667 2.35661L12.9767 3.96666H12C11.832 3.96666 11.6709 3.89994 11.5522 3.78117C11.4334 3.66239 11.3667 3.5013 11.3667 3.33333V2.35661ZM4.66667 4.63333C5.05327 4.63333 5.36667 4.94673 5.36667 5.33333V11.1603C5.37205 11.1697 5.37983 11.1815 5.39026 11.1951C5.40207 11.2104 5.41522 11.2253 5.42831 11.2384C5.4414 11.2514 5.45623 11.2646 5.47159 11.2764C5.48515 11.2868 5.49702 11.2946 5.50638 11.3H10C10.3866 11.3 10.7 11.6134 10.7 12C10.7 12.3866 10.3866 12.7 10 12.7H5.46667C4.98734 12.7 4.61713 12.4071 4.43836 12.2283C4.25959 12.0495 3.96667 11.6793 3.96667 11.2V5.33333C3.96667 4.94673 4.28007 4.63333 4.66667 4.63333ZM2 7.3C2.3866 7.3 2.7 7.6134 2.7 8V13.827C2.70539 13.8363 2.71316 13.8482 2.72359 13.8617C2.7354 13.8771 2.74855 13.8919 2.76164 13.905C2.77474 13.9181 2.78957 13.9313 2.80493 13.9431C2.81848 13.9535 2.83035 13.9613 2.83971 13.9667H7.33334C7.71994 13.9667 8.03334 14.2801 8.03334 14.6667C8.03334 15.0533 7.71994 15.3667 7.33334 15.3667H2.8C2.32067 15.3667 1.95047 15.0737 1.7717 14.895C1.59292 14.7162 1.3 14.346 1.3 13.8667V8C1.3 7.6134 1.6134 7.3 2 7.3Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default FileStackIcon;

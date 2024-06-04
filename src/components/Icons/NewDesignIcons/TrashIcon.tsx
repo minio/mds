@@ -17,7 +17,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const DeleteIcon = (props: SVGProps<SVGSVGElement>) => (
+const TrashIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -33,5 +33,4 @@ const DeleteIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
-export default DeleteIcon;
+export default TrashIcon;

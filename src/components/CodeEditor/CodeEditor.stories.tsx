@@ -23,7 +23,7 @@ import { CodeEditorProps } from "./CodeEditor.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Button from "../Button/Button";
-import CopyIcon from "../Icons/CopyIcon";
+import CopyIcon from "../Icons/NewDesignIcons/CopyIcon";
 
 export default {
   title: "MDS/Forms/CodeEditor",

@@ -17,7 +17,7 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const RefreshCCWDotIcon = (props: SVGProps<SVGSVGElement>) => (
+const RefreshCcwDotIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -33,5 +33,4 @@ const RefreshCCWDotIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
-export default RefreshCCWDotIcon;
+export default RefreshCcwDotIcon;

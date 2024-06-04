@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const LanguagesIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3.9667 1.33336C3.9667 0.946762 4.2801 0.633362 4.66669 0.633362H5.33336C5.71996 0.633362 6.03336 0.946762 6.03336 1.33336C6.03336 1.71996 5.71996 2.03336 5.33336 2.03336H4.66669C4.2801 2.03336 3.9667 1.71996 3.9667 1.33336ZM7.99045 2.63336H1.33336C0.946762 2.63336 0.633362 2.94676 0.633362 3.33336C0.633362 3.71996 0.946762 4.03336 1.33336 4.03336H6.69207L6.12271 4.8874L5.00003 6.01008L3.82834 4.83839C3.55497 4.56502 3.11175 4.56502 2.83839 4.83839C2.56502 5.11175 2.56502 5.55497 2.83839 5.82834L4.01008 7.00003L2.17172 8.83839C1.89835 9.11175 1.89835 9.55497 2.17172 9.82834C2.44509 10.1017 2.8883 10.1017 3.16167 9.82834L5.00003 7.98998L6.83839 9.82834C7.11175 10.1017 7.55497 10.1017 7.82834 9.82834C8.1017 9.55497 8.1017 9.11175 7.82834 8.83839L5.98998 7.00003L7.16167 5.82834C7.19426 5.79574 7.22356 5.76001 7.24913 5.72165L8.37466 4.03336H9.33336C9.71996 4.03336 10.0334 3.71996 10.0334 3.33336C10.0334 2.94676 9.71996 2.63336 9.33336 2.63336H8.01089C8.00407 2.63326 7.99726 2.63326 7.99045 2.63336ZM11.3334 7.30003C11.5985 7.30003 11.8409 7.44983 11.9595 7.68698L13.9532 11.6744C13.9577 11.683 13.9621 11.6917 13.9662 11.7005L15.2928 14.3536C15.4657 14.6994 15.3255 15.1199 14.9797 15.2928C14.634 15.4657 14.2135 15.3255 14.0406 14.9797L12.9007 12.7H9.76599L8.62613 14.9797C8.45323 15.3255 8.03276 15.4657 7.68698 15.2928C7.34119 15.1199 7.20104 14.6994 7.37393 14.3536L8.70048 11.7005C8.70466 11.6917 8.70902 11.683 8.71356 11.6744L10.7073 7.68698C10.8258 7.44983 11.0682 7.30003 11.3334 7.30003ZM10.466 11.3H12.2007L11.3334 9.56528L10.466 11.3Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default LanguagesIcon;

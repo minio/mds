@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const MinimizeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M5.33332 1.29999C5.71992 1.29999 6.03332 1.61339 6.03332 1.99999V3.99999C6.03332 4.53926 5.8191 5.05645 5.43777 5.43777C5.05645 5.8191 4.53926 6.03332 3.99999 6.03332H1.99999C1.61339 6.03332 1.29999 5.71992 1.29999 5.33332C1.29999 4.94672 1.61339 4.63332 1.99999 4.63332H3.99999C4.16796 4.63332 4.32905 4.5666 4.44782 4.44782C4.5666 4.32905 4.63332 4.16796 4.63332 3.99999V1.99999C4.63332 1.61339 4.94672 1.29999 5.33332 1.29999ZM10.6667 1.29999C11.0533 1.29999 11.3667 1.61339 11.3667 1.99999V3.99999C11.3667 4.16796 11.4334 4.32905 11.5522 4.44782C11.6709 4.5666 11.832 4.63332 12 4.63332H14C14.3866 4.63332 14.7 4.94672 14.7 5.33332C14.7 5.71992 14.3866 6.03332 14 6.03332H12C11.4607 6.03332 10.9435 5.8191 10.5622 5.43777C10.1809 5.05645 9.96665 4.53926 9.96665 3.99999V1.99999C9.96665 1.61339 10.2801 1.29999 10.6667 1.29999ZM1.29999 10.6667C1.29999 10.2801 1.61339 9.96665 1.99999 9.96665H3.99999C4.53926 9.96665 5.05645 10.1809 5.43777 10.5622C5.8191 10.9435 6.03332 11.4607 6.03332 12V14C6.03332 14.3866 5.71992 14.7 5.33332 14.7C4.94672 14.7 4.63332 14.3866 4.63332 14V12C4.63332 11.832 4.5666 11.6709 4.44782 11.5522C4.32905 11.4334 4.16796 11.3667 3.99999 11.3667H1.99999C1.61339 11.3667 1.29999 11.0533 1.29999 10.6667ZM12 11.3667C11.832 11.3667 11.6709 11.4334 11.5522 11.5522C11.4334 11.6709 11.3667 11.832 11.3667 12V14C11.3667 14.3866 11.0533 14.7 10.6667 14.7C10.2801 14.7 9.96665 14.3866 9.96665 14V12C9.96665 11.4607 10.1809 10.9435 10.5622 10.5622C10.9435 10.1809 11.4607 9.96665 12 9.96665H14C14.3866 9.96665 14.7 10.2801 14.7 10.6667C14.7 11.0533 14.3866 11.3667 14 11.3667H12Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default MinimizeIcon;

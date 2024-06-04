@@ -33,5 +33,4 @@ const Settings2Icon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default Settings2Icon;

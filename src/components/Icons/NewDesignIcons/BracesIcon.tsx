@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const BracesIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3.22893 1.89555C3.61026 1.51423 4.12744 1.3 4.66672 1.3H5.33338C5.71998 1.3 6.03338 1.6134 6.03338 2C6.03338 2.3866 5.71998 2.7 5.33338 2.7H4.66672C4.49874 2.7 4.33765 2.76673 4.21888 2.8855C4.10011 3.00428 4.03338 3.16537 4.03338 3.33334V6.66667C4.03338 7.15818 3.85543 7.63133 3.5352 8C3.85543 8.36868 4.03338 8.84183 4.03338 9.33334V12.6667C4.03338 13.0134 4.31998 13.3 4.66672 13.3H5.33338C5.71998 13.3 6.03338 13.6134 6.03338 14C6.03338 14.3866 5.71998 14.7 5.33338 14.7H4.66672C3.54678 14.7 2.63338 13.7866 2.63338 12.6667V9.33334C2.63338 9.16537 2.56666 9.00428 2.44788 8.8855C2.32911 8.76673 2.16802 8.7 2.00005 8.7C1.61345 8.7 1.30005 8.3866 1.30005 8C1.30005 7.6134 1.61345 7.3 2.00005 7.3C2.16802 7.3 2.32911 7.23328 2.44788 7.1145C2.56666 6.99573 2.63338 6.83464 2.63338 6.66667V3.33334C2.63338 2.79406 2.84761 2.27688 3.22893 1.89555ZM9.96672 2C9.96672 1.6134 10.2801 1.3 10.6667 1.3H11.3334C11.8727 1.3 12.3898 1.51423 12.7712 1.89555C13.1525 2.27688 13.3667 2.79406 13.3667 3.33334V6.66667C13.3667 6.83464 13.4334 6.99573 13.5522 7.1145C13.671 7.23328 13.8321 7.3 14 7.3C14.3866 7.3 14.7 7.6134 14.7 8C14.7 8.3866 14.3866 8.7 14 8.7C13.6533 8.7 13.3667 8.9866 13.3667 9.33334V12.6667C13.3667 13.2059 13.1525 13.7231 12.7712 14.1045C12.3898 14.4858 11.8727 14.7 11.3334 14.7H10.6667C10.2801 14.7 9.96672 14.3866 9.96672 14C9.96672 13.6134 10.2801 13.3 10.6667 13.3H11.3334C11.5014 13.3 11.6624 13.2333 11.7812 13.1145C11.9 12.9957 11.9667 12.8346 11.9667 12.6667V9.33334C11.9667 8.82458 12.1552 8.35844 12.4659 8.00119C12.1451 7.63235 11.9667 7.15871 11.9667 6.66667V3.33334C11.9667 3.16537 11.9 3.00428 11.7812 2.8855C11.6624 2.76673 11.5014 2.7 11.3334 2.7H10.6667C10.2801 2.7 9.96672 2.3866 9.96672 2Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default BracesIcon;

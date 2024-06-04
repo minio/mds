@@ -33,5 +33,4 @@ const SearchIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SearchIcon;

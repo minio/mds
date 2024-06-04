@@ -1,0 +1,10 @@
+{
+  "name": "convertsvgtoreact",
+  "version": "1.0.0",
+  "description": "SVG to React Nodes",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "xml-js": "^1.6.11"
+  }
+}

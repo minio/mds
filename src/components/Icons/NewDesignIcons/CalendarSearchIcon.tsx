@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const CalendarSearchIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M5.33338 0.633333C5.71998 0.633333 6.03338 0.946734 6.03338 1.33333V1.96667H9.96672V1.33333C9.96672 0.946734 10.2801 0.633333 10.6667 0.633333C11.0533 0.633333 11.3667 0.946734 11.3667 1.33333V1.96667H12.6667C13.206 1.96667 13.7232 2.18089 14.1045 2.56222C14.4858 2.94354 14.7 3.46073 14.7 4V8C14.7 8.3866 14.3866 8.7 14 8.7C13.6135 8.7 13.3 8.3866 13.3 8V7.36667H2.70005V13.3333C2.70005 13.5013 2.76677 13.6624 2.88555 13.7812C3.00432 13.8999 3.16541 13.9667 3.33338 13.9667H8.33338C8.71998 13.9667 9.03338 14.2801 9.03338 14.6667C9.03338 15.0533 8.71998 15.3667 8.33338 15.3667H3.33338C2.79411 15.3667 2.27692 15.1524 1.8956 14.7711C1.51427 14.3898 1.30005 13.8726 1.30005 13.3333V4C1.30005 3.46073 1.51427 2.94354 1.8956 2.56222C2.27692 2.18089 2.79411 1.96667 3.33338 1.96667H4.63338V1.33333C4.63338 0.946734 4.94678 0.633333 5.33338 0.633333ZM4.63338 3.36667H3.33338C3.16541 3.36667 3.00432 3.43339 2.88555 3.55217C2.76677 3.67094 2.70005 3.83203 2.70005 4V5.96667H13.3V4C13.3 3.83203 13.2333 3.67094 13.1145 3.55217C12.9958 3.43339 12.8347 3.36667 12.6667 3.36667H11.3667V4C11.3667 4.3866 11.0533 4.7 10.6667 4.7C10.2801 4.7 9.96672 4.3866 9.96672 4V3.36667H6.03338V4C6.03338 4.3866 5.71998 4.7 5.33338 4.7C4.94678 4.7 4.63338 4.3866 4.63338 4V3.36667ZM12 10.7C11.2821 10.7 10.7 11.282 10.7 12C10.7 12.718 11.2821 13.3 12 13.3C12.718 13.3 13.3 12.718 13.3 12C13.3 11.282 12.718 10.7 12 10.7ZM9.30005 12C9.30005 10.5088 10.5089 9.3 12 9.3C13.4912 9.3 14.7 10.5088 14.7 12C14.7 12.4915 14.5687 12.9523 14.3393 13.3493L15.1617 14.1717C15.4351 14.4451 15.4351 14.8883 15.1617 15.1616C14.8883 15.435 14.4451 15.435 14.1717 15.1616L13.3493 14.3392C12.9523 14.5687 12.4915 14.7 12 14.7C10.5089 14.7 9.30005 13.4912 9.30005 12Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default CalendarSearchIcon;
