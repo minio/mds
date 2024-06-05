@@ -23,9 +23,9 @@ import { SearchBoxProps } from "./SearchBox.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
-import UsersIcon from "../Icons/UsersIcon";
 import Box from "../Box/Box";
 import TestIcon from "../../utils/TestIcon";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 
 export default {
   title: "MDS/Forms/SearchBox",

@@ -23,10 +23,10 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { TabsProps } from "./Tabs.types";
 import Box from "../Box/Box";
 import TestIcon from "../../utils/TestIcon";
-import UsersIcon from "../Icons/UsersIcon";
 import ConsoleIcon from "../Icons/ConsoleIcon";
 import SearchIcon from "../Icons/SearchIcon";
 import CollapseMenuIcon from "../Icons/CollapseMenuIcon";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 
 export default {
   title: "MDS/Layout/Tabs",

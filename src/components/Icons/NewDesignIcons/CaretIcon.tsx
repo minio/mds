@@ -33,5 +33,4 @@ const CaretIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default CaretIcon;

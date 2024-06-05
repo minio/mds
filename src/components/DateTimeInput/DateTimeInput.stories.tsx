@@ -24,9 +24,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
 import { DateTime } from "luxon";
-import TestIcon from "../../utils/TestIcon";
-import CalendarIcon from "../Icons/CalendarIcon";
-import Box from "../Box/Box";
+import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
 import TimeIcon from "../Icons/TimeIcon";
 
 export default {

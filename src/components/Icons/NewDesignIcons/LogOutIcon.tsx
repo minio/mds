@@ -33,5 +33,4 @@ const LogOutIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default LogOutIcon;

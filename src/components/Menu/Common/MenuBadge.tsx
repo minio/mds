@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import CircleIcon from "../../Icons/CircleIcon";
+import CircleIcon from "../../Icons/NewDesignIcons/CircleIcon";
 
 const MenuBadge: FC = () => {
   return <CircleIcon />;

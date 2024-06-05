@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const CigaretteIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M10.6666 1.3C11.0532 1.3 11.3666 1.6134 11.3666 2C11.3666 2.31508 11.4278 2.5237 11.506 2.68667C11.5914 2.86456 11.7076 3.01403 11.8799 3.22938C11.8845 3.23515 11.8892 3.24097 11.8939 3.24685C12.0534 3.44608 12.2628 3.70772 12.4227 4.04084C12.5945 4.3987 12.7 4.81508 12.7 5.33333C12.7 5.71993 12.3866 6.03333 12 6.03333C11.6134 6.03333 11.3 5.71993 11.3 5.33333C11.3 5.01825 11.2388 4.80963 11.1606 4.64666C11.0752 4.46877 10.959 4.3193 10.7867 4.10395C10.7821 4.09819 10.7774 4.09237 10.7727 4.08649C10.6132 3.88727 10.4038 3.62562 10.2439 3.29249C10.0721 2.93463 9.96663 2.51825 9.96663 2C9.96663 1.6134 10.28 1.3 10.6666 1.3ZM13.3333 1.3C13.7199 1.3 14.0333 1.6134 14.0333 2C14.0333 2.31508 14.0945 2.5237 14.1727 2.68667C14.2581 2.86456 14.3743 3.01403 14.5466 3.22938L14.5605 3.24684C14.72 3.44607 14.9295 3.70771 15.0894 4.04084C15.2611 4.3987 15.3666 4.81508 15.3666 5.33333C15.3666 5.71993 15.0532 6.03333 14.6666 6.03333C14.28 6.03333 13.9666 5.71993 13.9666 5.33333C13.9666 5.01825 13.9055 4.80963 13.8272 4.64666C13.7418 4.46877 13.6256 4.3193 13.4534 4.10395L13.4394 4.08649C13.2799 3.88727 13.0705 3.62562 12.9106 3.29249C12.7388 2.93463 12.6333 2.51825 12.6333 2C12.6333 1.6134 12.9467 1.3 13.3333 1.3ZM0.633301 8C0.633301 7.6134 0.946701 7.3 1.3333 7.3H12C12.3866 7.3 12.7 7.6134 12.7 8C12.7 8.3866 12.3866 8.7 12 8.7H5.36663V9.96667H12C12.3866 9.96667 12.7 10.2801 12.7 10.6667C12.7 11.0533 12.3866 11.3667 12 11.3667H1.3333C0.946701 11.3667 0.633301 11.0533 0.633301 10.6667V8ZM3.96663 9.96667V8.7H2.0333V9.96667H3.96663ZM14.6666 7.3C15.0532 7.3 15.3666 7.6134 15.3666 8V10.6667C15.3666 11.0533 15.0532 11.3667 14.6666 11.3667C14.28 11.3667 13.9666 11.0533 13.9666 10.6667V8C13.9666 7.6134 14.28 7.3 14.6666 7.3Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default CigaretteIcon;

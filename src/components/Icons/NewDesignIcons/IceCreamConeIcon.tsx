@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const IceCreamConeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M5.14803 1.8147C5.90443 1.0583 6.93032 0.633362 8.00003 0.633362C9.06973 0.633362 10.0956 1.0583 10.852 1.8147C11.4677 2.43035 11.8637 3.22454 11.9898 4.07558C12.2813 4.17502 12.5492 4.34034 12.7711 4.56224C13.1525 4.94357 13.3667 5.46075 13.3667 6.00003C13.3667 6.5393 13.1525 7.05649 12.7711 7.43781C12.5104 7.69859 12.186 7.88122 11.8346 7.97063L9.26459 14.4901L9.25736 14.5077C9.15234 14.7542 8.97716 14.9645 8.75361 15.1122C8.53005 15.26 8.268 15.3387 8.00003 15.3387C7.73206 15.3387 7.47 15.26 7.24645 15.1122C7.0229 14.9645 6.84772 14.7542 6.74269 14.5077L6.73547 14.4901L4.16548 7.97063C3.81401 7.88122 3.48969 7.69859 3.22891 7.43781C2.84759 7.05649 2.63336 6.5393 2.63336 6.00003C2.63336 5.46075 2.84759 4.94357 3.22891 4.56224C3.45082 4.34034 3.71873 4.17502 4.01023 4.07558C4.13631 3.22454 4.53238 2.43035 5.14803 1.8147ZM5.69506 8.03336L8.00003 13.8805L10.305 8.03336H5.69506ZM8.00003 2.03336C7.30162 2.03336 6.63183 2.3108 6.13798 2.80465C5.64413 3.29849 5.3667 3.96829 5.3667 4.6667C5.3667 5.05329 5.05329 5.36669 4.6667 5.36669C4.49872 5.36669 4.33763 5.43342 4.21886 5.55219C4.10009 5.67097 4.03336 5.83206 4.03336 6.00003C4.03336 6.168 4.10009 6.32909 4.21886 6.44786C4.33763 6.56664 4.49873 6.63336 4.6667 6.63336H11.3334C11.5013 6.63336 11.6624 6.56664 11.7812 6.44786C11.9 6.32909 11.9667 6.168 11.9667 6.00003C11.9667 5.83206 11.9 5.67097 11.7812 5.55219C11.6624 5.43342 11.5013 5.36669 11.3334 5.36669C11.1477 5.36669 10.9697 5.29294 10.8384 5.16167C10.7071 5.03039 10.6334 4.85235 10.6334 4.6667C10.6334 3.96829 10.3559 3.29849 9.86208 2.80465C9.36823 2.3108 8.69843 2.03336 8.00003 2.03336Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default IceCreamConeIcon;

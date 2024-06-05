@@ -28,5 +28,4 @@ const CaretFilledIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M13 6L8 11L3 6H13Z" fill="currentColor" />
   </svg>
 );
-
 export default CaretFilledIcon;

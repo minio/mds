@@ -33,5 +33,4 @@ const EyeOffIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default EyeOffIcon;

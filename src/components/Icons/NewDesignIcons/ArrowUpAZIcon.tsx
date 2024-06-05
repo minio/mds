@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const ArrowUpAZIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M4.66665 1.96667C4.85231 1.96667 5.03035 2.04042 5.16163 2.1717L7.8283 4.83837C8.10166 5.11173 8.10166 5.55495 7.8283 5.82832C7.55493 6.10168 7.11171 6.10168 6.83835 5.82832L5.36665 4.35662V13.3333C5.36665 13.7199 5.05325 14.0333 4.66665 14.0333C4.28006 14.0333 3.96665 13.7199 3.96665 13.3333V4.35662L2.49496 5.82832C2.2216 6.10168 1.77838 6.10168 1.50501 5.82832C1.23165 5.55495 1.23165 5.11173 1.50501 4.83837L4.17168 2.1717C4.30296 2.04042 4.481 1.96667 4.66665 1.96667ZM11.6667 3.36667C11.4103 3.36667 11.1644 3.46852 10.9831 3.6498C10.8018 3.83109 10.7 4.07697 10.7 4.33334V4.63334H12.6333V4.33334C12.6333 4.07697 12.5315 3.83109 12.3502 3.6498C12.1689 3.46852 11.923 3.36667 11.6667 3.36667ZM14.0333 4.33334C14.0333 3.70566 13.784 3.10369 13.3401 2.65986C12.8963 2.21602 12.2943 1.96667 11.6667 1.96667C11.039 1.96667 10.437 2.21602 9.99317 2.65986C9.54933 3.10369 9.29999 3.70566 9.29999 4.33334V6.66667C9.29999 7.05327 9.61339 7.36667 9.99999 7.36667C10.3866 7.36667 10.7 7.05327 10.7 6.66667V6.03334H12.6333V6.66667C12.6333 7.05327 12.9467 7.36667 13.3333 7.36667C13.7199 7.36667 14.0333 7.05327 14.0333 6.66667V4.33334ZM9.29999 9.33334C9.29999 8.94674 9.61339 8.63334 9.99999 8.63334H13.3333C13.6049 8.63334 13.852 8.79046 13.9672 9.03643C14.0824 9.2824 14.045 9.57281 13.8711 9.78147L11.4945 12.6333H13.3333C13.7199 12.6333 14.0333 12.9467 14.0333 13.3333C14.0333 13.7199 13.7199 14.0333 13.3333 14.0333H9.99999C9.72838 14.0333 9.48128 13.8762 9.36607 13.6302C9.25087 13.3843 9.28835 13.0939 9.46223 12.8852L11.8388 10.0333H9.99999C9.61339 10.0333 9.29999 9.71994 9.29999 9.33334Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default ArrowUpAZIcon;

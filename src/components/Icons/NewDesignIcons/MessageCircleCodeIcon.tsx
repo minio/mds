@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const MessageCircleCodeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M4.05964 2.57973C5.35025 1.63935 6.93429 1.19084 8.52632 1.31504C10.1184 1.43924 11.6137 2.12798 12.7428 3.25713C13.872 4.38629 14.5607 5.88161 14.6849 7.47364C14.8091 9.06567 14.3606 10.6497 13.4202 11.9403C12.4799 13.2309 11.1094 14.1432 9.55593 14.5128C8.10088 14.859 6.57484 14.7077 5.21981 14.0883L1.55805 15.3296C1.30573 15.4151 1.02673 15.35 0.838345 15.1616C0.649957 14.9732 0.584842 14.6942 0.670374 14.4419L1.91165 10.7802C1.29222 9.42513 1.14097 7.89909 1.48714 6.44404C1.85674 4.89053 2.76903 3.52011 4.05964 2.57973ZM8.41744 2.7108C7.15807 2.61256 5.90502 2.96734 4.88409 3.71123C3.86316 4.45511 3.14149 5.53917 2.84913 6.76807C2.55676 7.99696 2.71293 9.28987 3.28949 10.4138C3.37593 10.5823 3.3904 10.7787 3.3296 10.958L2.45148 13.5485L5.04193 12.6704C5.22129 12.6096 5.41764 12.624 5.58615 12.7105C6.71009 13.287 8.003 13.4432 9.2319 13.1508C10.4608 12.8585 11.5449 12.1368 12.2887 11.1159C13.0326 10.0949 13.3874 8.8419 13.2892 7.58253C13.1909 6.32316 12.6461 5.1403 11.7529 4.24708C10.8597 3.35387 9.6768 2.80905 8.41744 2.7108ZM7.16163 6.17167C7.435 6.44504 7.435 6.88825 7.16163 7.16162L6.32327 7.99998L7.16163 8.83834C7.435 9.1117 7.435 9.55492 7.16163 9.82829C6.88826 10.1017 6.44505 10.1017 6.17168 9.82829L4.83835 8.49495C4.56498 8.22159 4.56498 7.77837 4.83835 7.505L6.17168 6.17167C6.44505 5.8983 6.88826 5.8983 7.16163 6.17167ZM8.83835 6.17167C9.11171 5.8983 9.55493 5.8983 9.82829 6.17167L11.1616 7.505C11.435 7.77837 11.435 8.22159 11.1616 8.49495L9.82829 9.82829C9.55493 10.1017 9.11171 10.1017 8.83835 9.82829C8.56498 9.55492 8.56498 9.1117 8.83835 8.83834L9.6767 7.99998L8.83835 7.16162C8.56498 6.88825 8.56498 6.44504 8.83835 6.17167Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default MessageCircleCodeIcon;

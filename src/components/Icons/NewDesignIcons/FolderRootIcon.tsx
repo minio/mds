@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const FolderRootIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M1.22885 1.89554C1.61017 1.51421 2.12736 1.29999 2.66663 1.29999H5.29026C5.62516 1.30172 5.95445 1.38616 6.24887 1.54579C6.54136 1.70436 6.79044 1.93227 6.97429 2.20949L7.52467 3.01494C7.58205 3.10206 7.65996 3.17372 7.75167 3.22344C7.84294 3.27293 7.94498 3.29921 8.04879 3.29999H13.3333C13.8726 3.29999 14.3898 3.51421 14.7711 3.89554C15.1524 4.27686 15.3666 4.79405 15.3666 5.33332V12C15.3666 12.5393 15.1524 13.0564 14.7711 13.4378C14.3898 13.8191 13.8726 14.0333 13.3333 14.0333H2.66663C1.5467 14.0333 0.633301 13.1199 0.633301 12V3.33332C0.633301 2.79405 0.847526 2.27686 1.22885 1.89554ZM8.69997 12.6333H13.3333C13.5013 12.6333 13.6624 12.5666 13.7811 12.4478C13.8999 12.329 13.9666 12.168 13.9666 12V5.33332C13.9666 5.16535 13.8999 5.00426 13.7811 4.88549C13.6624 4.76671 13.5013 4.69999 13.3333 4.69999H8.04301C7.70811 4.69826 7.37882 4.61382 7.0844 4.45419C6.79191 4.29561 6.54283 4.0677 6.35898 3.79048L5.80859 2.98503C5.75122 2.89791 5.6733 2.82625 5.5816 2.77654C5.49033 2.72705 5.38829 2.70077 5.28449 2.69999H2.66663C2.49866 2.69999 2.33757 2.76671 2.2188 2.88549C2.10003 3.00426 2.0333 3.16535 2.0333 3.33332V12C2.0333 12.3467 2.3199 12.6333 2.66663 12.6333H7.29997V10.5763C6.52186 10.291 5.96663 9.54365 5.96663 8.66665C5.96663 7.54367 6.87699 6.63332 7.99997 6.63332C9.12295 6.63332 10.0333 7.54367 10.0333 8.66665C10.0333 9.54365 9.47808 10.291 8.69997 10.5763V12.6333ZM7.99997 8.03332C7.65019 8.03332 7.36663 8.31687 7.36663 8.66665C7.36663 9.01643 7.65019 9.29999 7.99997 9.29999C8.34975 9.29999 8.6333 9.01643 8.6333 8.66665C8.6333 8.31687 8.34975 8.03332 7.99997 8.03332Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default FolderRootIcon;

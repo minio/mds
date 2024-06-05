@@ -33,5 +33,4 @@ const DownloadIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default DownloadIcon;

@@ -24,8 +24,8 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
-import UsersIcon from "../Icons/UsersIcon";
 import PasswordKeyIcon from "../Icons/PasswordKeyIcon";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 
 export default {
   title: "MDS/Forms/InputBox",

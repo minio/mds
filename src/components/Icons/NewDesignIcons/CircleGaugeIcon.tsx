@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const CircleGaugeIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M5.73059 1.00122C7.33974 0.48375 9.07791 0.5354 10.6535 1.14751C11.0139 1.28751 11.1925 1.69313 11.0525 2.05349C10.9125 2.41385 10.5069 2.59249 10.1465 2.45249C8.87036 1.95671 7.46253 1.91487 6.15918 2.334C4.85584 2.75313 3.73628 3.60773 2.98831 4.75443C2.24035 5.90113 1.90948 7.27017 2.05121 8.6319C2.19295 9.99362 2.79866 11.2652 3.76675 12.2333C4.73483 13.2013 6.00639 13.8071 7.36811 13.9488C8.72983 14.0905 10.0989 13.7597 11.2456 13.0117C12.3923 12.2637 13.2469 11.1442 13.666 9.84083C14.0851 8.53748 14.0433 7.12965 13.5475 5.85349C13.4075 5.49313 13.5862 5.08751 13.9465 4.94751C14.3069 4.80751 14.7125 4.98615 14.8525 5.34651C15.4646 6.9221 15.5163 8.66026 14.9988 10.2694C14.4813 11.8786 13.4262 13.2608 12.0104 14.1843C10.5947 15.1078 8.90441 15.5163 7.22318 15.3413C5.54194 15.1663 3.97203 14.4184 2.7768 13.2232C1.58157 12.028 0.833727 10.4581 0.658735 8.77683C0.483744 7.0956 0.892245 5.40533 1.81571 3.98957C2.73918 2.57381 4.12143 1.5187 5.73059 1.00122ZM13.1616 2.83836C13.435 3.11173 13.435 3.55494 13.1616 3.82831L9.84525 7.14471C9.96596 7.4047 10.0333 7.69448 10.0333 8C10.0333 9.12298 9.12299 10.0333 8.00001 10.0333C6.87703 10.0333 5.96667 9.12298 5.96667 8C5.96667 6.87702 6.87703 5.96667 8.00001 5.96667C8.30552 5.96667 8.5953 6.03405 8.8553 6.15476L12.1717 2.83836C12.4451 2.56499 12.8883 2.56499 13.1616 2.83836ZM8.37596 7.49027C8.27081 7.41259 8.14077 7.36667 8.00001 7.36667C7.65023 7.36667 7.36667 7.65022 7.36667 8C7.36667 8.34978 7.65023 8.63333 8.00001 8.63333C8.34979 8.63333 8.63334 8.34978 8.63334 8C8.63334 7.85924 8.58742 7.7292 8.50974 7.62405C8.48491 7.60513 8.46105 7.58433 8.43837 7.56164C8.41568 7.53896 8.39488 7.5151 8.37596 7.49027Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default CircleGaugeIcon;

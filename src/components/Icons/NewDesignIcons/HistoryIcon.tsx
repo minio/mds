@@ -33,5 +33,4 @@ const HistoryIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default HistoryIcon;

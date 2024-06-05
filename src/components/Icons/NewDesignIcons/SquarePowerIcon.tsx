@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const SquarePowerIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M3.33338 2.70005C2.9836 2.70005 2.70005 2.9836 2.70005 3.33338V12.6667C2.70005 13.0165 2.9836 13.3 3.33338 13.3H12.6667C13.0165 13.3 13.3 13.0165 13.3 12.6667V3.33338C13.3 2.9836 13.0165 2.70005 12.6667 2.70005H3.33338ZM1.30005 3.33338C1.30005 2.2104 2.2104 1.30005 3.33338 1.30005H12.6667C13.7897 1.30005 14.7 2.2104 14.7 3.33338V12.6667C14.7 13.7897 13.7897 14.7 12.6667 14.7H3.33338C2.2104 14.7 1.30005 13.7897 1.30005 12.6667V3.33338ZM8.00005 3.96672C8.38665 3.96672 8.70005 4.28012 8.70005 4.66672V8.00005C8.70005 8.38665 8.38665 8.70005 8.00005 8.70005C7.61345 8.70005 7.30005 8.38665 7.30005 8.00005V4.66672C7.30005 4.28012 7.61345 3.96672 8.00005 3.96672ZM5.72382 5.41905C6.04469 5.63468 6.13001 6.0696 5.91438 6.39048C5.64532 6.79087 5.4873 7.25547 5.45644 7.73687C5.42558 8.21828 5.52298 8.69925 5.73871 9.13072C5.95445 9.56218 6.28078 9.92869 6.68442 10.1928C7.08502 10.455 7.54752 10.607 8.0254 10.6337C8.51351 10.6418 8.99411 10.5122 9.41214 10.2598C9.83327 10.0054 10.1736 9.63687 10.3936 9.19684C10.6136 8.75681 10.7043 8.26339 10.6551 7.77389C10.6058 7.2844 10.4187 6.81891 10.1155 6.43151C9.87721 6.12708 9.93082 5.68712 10.2353 5.44883C10.5397 5.21054 10.9796 5.26416 11.2179 5.56859C11.6844 6.16459 11.9723 6.88072 12.048 7.63379C12.1238 8.38686 11.9843 9.14597 11.6458 9.82294C11.3073 10.4999 10.7837 11.0669 10.1358 11.4582C9.48793 11.8494 8.74232 12.0488 7.98561 12.0332C7.97833 12.0331 7.97106 12.0328 7.9638 12.0324C7.2347 11.9946 6.52869 11.7641 5.9178 11.3643C5.30691 10.9645 4.81302 10.4098 4.48652 9.75682C4.16002 9.10382 4.0126 8.37589 4.05931 7.64731C4.10601 6.91873 4.34517 6.21558 4.75238 5.60962C4.96801 5.28874 5.40294 5.20342 5.72382 5.41905Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default SquarePowerIcon;

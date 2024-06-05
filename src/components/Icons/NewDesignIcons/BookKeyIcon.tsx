@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const BookKeyIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M4.33322 2.03333C4.07684 2.03333 3.83097 2.13518 3.64968 2.31646C3.4684 2.49775 3.36655 2.74362 3.36655 3V10.8398C3.6678 10.705 3.99682 10.6333 4.33322 10.6333H12.6332V5.33333C12.6332 4.94673 12.9466 4.63333 13.3332 4.63333C13.7198 4.63333 14.0332 4.94673 14.0332 5.33333V14.6667C14.0332 15.0533 13.7198 15.3667 13.3332 15.3667H4.33322C3.70554 15.3667 3.10357 15.1173 2.65973 14.6735C2.2159 14.2296 1.96655 13.6277 1.96655 13V3C1.96655 2.37232 2.2159 1.77035 2.65973 1.32651C3.10357 0.882676 3.70554 0.633331 4.33322 0.633331H9.33322C9.71982 0.633331 10.0332 0.946732 10.0332 1.33333C10.0332 1.71993 9.71982 2.03333 9.33322 2.03333H4.33322ZM12.6332 12.0333H4.33322C4.07684 12.0333 3.83097 12.1352 3.64968 12.3165C3.4684 12.4977 3.36655 12.7436 3.36655 13C3.36655 13.2564 3.4684 13.5022 3.64968 13.6835C3.83097 13.8648 4.07684 13.9667 4.33322 13.9667H12.6332V12.0333ZM12.8382 0.838357C13.1116 0.56499 13.5548 0.56499 13.8282 0.838357C14.1016 1.11172 14.1016 1.55494 13.8282 1.82831L13.6565 2L13.8282 2.17169C14.1016 2.44506 14.1016 2.88827 13.8282 3.16164C13.5548 3.43501 13.1116 3.43501 12.8382 3.16164L12.6666 2.98995L11.1785 4.47804C11.2992 4.73803 11.3666 5.02781 11.3666 5.33333C11.3666 6.45631 10.4562 7.36666 9.33322 7.36666C8.21024 7.36666 7.29989 6.45631 7.29989 5.33333C7.29989 4.21035 8.21024 3.3 9.33322 3.3C9.63874 3.3 9.92852 3.36738 10.1885 3.48809L12.8382 0.838357ZM9.33322 4.7C8.98344 4.7 8.69989 4.98355 8.69989 5.33333C8.69989 5.68311 8.98344 5.96666 9.33322 5.96666C9.683 5.96666 9.96655 5.68311 9.96655 5.33333C9.96655 4.98355 9.683 4.7 9.33322 4.7Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default BookKeyIcon;

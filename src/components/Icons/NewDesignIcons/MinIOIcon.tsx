@@ -39,5 +39,4 @@ const MinIOIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default MinIOIcon;

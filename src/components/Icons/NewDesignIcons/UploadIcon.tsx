@@ -33,5 +33,4 @@ const UploadIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default UploadIcon;

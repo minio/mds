@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const FlaskConicalOffIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M0.838326 0.838357C1.11169 0.56499 1.55491 0.56499 1.82828 0.838357L7.1502 6.16028C7.15805 6.16777 7.16571 6.17543 7.17316 6.18324L11.1612 10.1713C11.1615 10.1716 11.1617 10.1718 11.162 10.1721L12.4887 11.4988C12.4965 11.5063 12.5042 11.5139 12.5117 11.5218L15.1616 14.1717C15.435 14.4451 15.435 14.8883 15.1616 15.1616C14.8882 15.435 14.445 15.435 14.1717 15.1616L13.5242 14.5142C13.4952 14.5856 13.4601 14.6548 13.4191 14.7207C13.2957 14.9197 13.1232 15.0835 12.9182 15.1966C12.714 15.3093 12.4844 15.3678 12.2513 15.3667C12.2503 15.3667 12.2494 15.3667 12.2484 15.3666L12.2533 14.6667V15.3667H12.2513H3.74863C3.74959 15.3667 3.75056 15.3667 3.75152 15.3666L3.74663 14.6667V15.3667H3.74863C3.51549 15.3678 3.28593 15.3093 3.08178 15.1966C2.87678 15.0835 2.70428 14.9197 2.5808 14.7207C2.45733 14.5218 2.38704 14.2945 2.37666 14.0606C2.36629 13.827 2.41602 13.5947 2.52108 13.3859C2.52094 13.3861 2.52123 13.3856 2.52108 13.3859L5.81476 6.80474L0.838326 1.82831C0.564959 1.55494 0.564959 1.11172 0.838326 0.838357ZM6.85813 7.84811L5.79784 9.96666H8.97668L6.85813 7.84811ZM10.3767 11.3667H5.09718L3.79595 13.9667H12.204L11.4301 12.4201L10.3767 11.3667ZM5.96663 2.03333H5.66663C5.28003 2.03333 4.96663 1.71993 4.96663 1.33333C4.96663 0.946732 5.28003 0.633331 5.66663 0.633331H10.3333C10.7199 0.633331 11.0333 0.946732 11.0333 1.33333C11.0333 1.71993 10.7199 2.03333 10.3333 2.03333H10.0333V5.562C10.0333 5.9486 9.7199 6.262 9.3333 6.262C8.9467 6.262 8.6333 5.9486 8.6333 5.562V2.03333H7.36663V2.89533C7.36663 3.28193 7.05323 3.59533 6.66663 3.59533C6.28003 3.59533 5.96663 3.28193 5.96663 2.89533V2.03333Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default FlaskConicalOffIcon;

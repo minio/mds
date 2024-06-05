@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const BookHeadphonesIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M4.33322 2.03333C4.07684 2.03333 3.83097 2.13518 3.64968 2.31646C3.4684 2.49775 3.36655 2.74362 3.36655 3V10.8398C3.6678 10.705 3.99682 10.6333 4.33322 10.6333H12.6332V2.03333H4.33322ZM14.0332 1.33333C14.0332 0.946732 13.7198 0.633331 13.3332 0.633331H4.33322C3.70554 0.633331 3.10357 0.882676 2.65973 1.32651C2.2159 1.77035 1.96655 2.37232 1.96655 3V13C1.96655 13.6277 2.2159 14.2296 2.65973 14.6735C3.10357 15.1173 3.70554 15.3667 4.33322 15.3667H13.3332C13.7198 15.3667 14.0332 15.0533 14.0332 14.6667V1.33333ZM12.6332 12.0333H4.33322C4.07684 12.0333 3.83097 12.1352 3.64968 12.3165C3.4684 12.4977 3.36655 12.7436 3.36655 13C3.36655 13.2564 3.4684 13.5022 3.64968 13.6835C3.83097 13.8648 4.07684 13.9667 4.33322 13.9667H12.6332V12.0333ZM7.99989 4.7C7.47829 4.7 6.97806 4.9072 6.60924 5.27602C6.24819 5.63707 6.04202 6.12406 6.03349 6.63374C6.77276 6.65158 7.36655 7.25644 7.36655 8C7.36655 8.75479 6.75467 9.36666 5.99989 9.36666C5.2451 9.36666 4.63322 8.75479 4.63322 8V6.66666C4.63322 5.77377 4.98792 4.91744 5.61929 4.28607C6.25067 3.6547 7.10699 3.3 7.99989 3.3C8.89278 3.3 9.74911 3.6547 10.3805 4.28607C11.0119 4.91744 11.3666 5.77377 11.3666 6.66666V8C11.3666 8.75479 10.7547 9.36666 9.99989 9.36666C9.2451 9.36666 8.63322 8.75479 8.63322 8C8.63322 7.25644 9.22702 6.65158 9.96628 6.63374C9.95775 6.12406 9.75158 5.63707 9.39053 5.27602C9.02171 4.9072 8.52148 4.7 7.99989 4.7ZM9.96655 8C9.96655 8.01841 9.98148 8.03333 9.99989 8.03333C10.0183 8.03333 10.0332 8.01841 10.0332 8H9.96655ZM5.96655 8C5.96655 8.01841 5.98148 8.03333 5.99989 8.03333C6.0183 8.03333 6.03322 8.01841 6.03322 8H5.96655Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default BookHeadphonesIcon;

@@ -33,5 +33,4 @@ const CircleHelpIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default CircleHelpIcon;

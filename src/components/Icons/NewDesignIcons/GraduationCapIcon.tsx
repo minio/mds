@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const GraduationCapIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M7.15673 2.81623C7.42148 2.69556 7.70905 2.63312 8.00001 2.63312C8.29104 2.63312 8.57869 2.69559 8.8435 2.81633C8.84339 2.81627 8.84361 2.81638 8.8435 2.81633L14.5489 5.4151C14.7905 5.51853 14.9972 5.68944 15.1441 5.90745C15.2936 6.12918 15.3748 6.38989 15.3775 6.65728C15.3782 6.71988 15.3745 6.7822 15.3667 6.84383V10.6667C15.3667 11.0533 15.0533 11.3667 14.6667 11.3667C14.2801 11.3667 13.9667 11.0533 13.9667 10.6667V8.19224L12.7 8.76703V10.6667C12.7 11.5965 11.9784 12.2886 11.1415 12.707C10.2718 13.1418 9.14153 13.3667 8.00001 13.3667C6.85848 13.3667 5.72816 13.1418 4.85853 12.707C4.02164 12.2886 3.30001 11.5965 3.30001 10.6667V8.75845L1.44686 7.9134C1.206 7.80661 1.00109 7.63245 0.856875 7.41184C0.71153 7.18951 0.634125 6.92965 0.634125 6.66402C0.634125 6.3984 0.71153 6.13853 0.856875 5.9162C1.00115 5.69552 1.20615 5.52131 1.44713 5.41453L7.15673 2.81623ZM4.70001 9.39686V10.6667C4.70001 10.7977 4.82123 11.1231 5.48463 11.4548C6.11528 11.7701 7.01979 11.9667 8.00001 11.9667C8.98022 11.9667 9.88473 11.7701 10.5154 11.4548C11.1788 11.1231 11.3 10.7977 11.3 10.6667V9.40233L8.84384 10.5169C8.84355 10.517 8.84412 10.5168 8.84384 10.5169C8.57917 10.6375 8.29086 10.7003 8.00001 10.7003C7.70886 10.7003 7.42112 10.6377 7.15624 10.5169C7.15622 10.5169 7.15626 10.5169 7.15624 10.5169L4.70001 9.39686ZM13.9299 6.67152L8.26318 4.09039C8.18067 4.05275 8.0907 4.03312 8.00001 4.03312C7.90932 4.03312 7.81968 4.05259 7.73717 4.09023L2.08137 6.66405L7.73711 9.24312C7.81962 9.28075 7.90932 9.30026 8.00001 9.30026C8.09069 9.30026 8.18033 9.28078 8.26284 9.24315L8.26408 9.24258L13.9299 6.67152Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default GraduationCapIcon;

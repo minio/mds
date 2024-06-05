@@ -23,7 +23,6 @@ import {
   StylesOverrideProps,
 } from "./DateTimeInput.types";
 import Box from "../Box/Box";
-import CalendarIcon from "../Icons/CalendarIcon";
 import TimeIcon from "../Icons/TimeIcon";
 import DateSelector from "./DateSelector";
 import TimeSelector from "./TimeSelector";
@@ -32,6 +31,7 @@ import { DateTime } from "luxon";
 import SelectorContainer from "../../global/SelectorContainer";
 import debounce from "lodash/debounce";
 import { overridePropsParse } from "../../global/utils";
+import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
 
 const globalWidth = 315;
 

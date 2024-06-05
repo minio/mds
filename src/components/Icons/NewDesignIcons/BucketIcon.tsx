@@ -33,5 +33,4 @@ const BucketIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default BucketIcon;

@@ -33,5 +33,4 @@ const PenLineIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default PenLineIcon;

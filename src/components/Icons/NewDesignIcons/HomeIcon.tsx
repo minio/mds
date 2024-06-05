@@ -17,10 +17,10 @@
 import * as React from "react";
 import { SVGProps } from "react";
 
-const HistoryIcon = (props: SVGProps<SVGSVGElement>) => (
+const HomeIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 17 16"
+    viewBox="0 0 16 16"
     fill="none"
     className={`min-icon`}
     {...props}
@@ -33,5 +33,4 @@ const HistoryIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
-export default HistoryIcon;
+export default HomeIcon;

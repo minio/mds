@@ -33,5 +33,4 @@ const PieUsageIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default PieUsageIcon;

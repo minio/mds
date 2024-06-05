@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const FlashlightOffIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M0.838326 0.838357C1.11169 0.56499 1.55491 0.56499 1.82828 0.838357L4.49471 3.50479C4.49487 3.50495 4.49502 3.5051 4.49517 3.50525L11.1613 10.1714C11.1615 10.1716 11.1617 10.1718 11.1619 10.172L15.1616 14.1717C15.435 14.4451 15.435 14.8883 15.1616 15.1616C14.8882 15.435 14.445 15.435 14.1717 15.1616L11.3666 12.3566V13.3333C11.3666 13.8726 11.1524 14.3898 10.7711 14.7711C10.3898 15.1524 9.87257 15.3667 9.3333 15.3667H6.66663C6.12736 15.3667 5.61017 15.1524 5.22885 14.7711C4.84753 14.3898 4.6333 13.8726 4.6333 13.3333V6.66666C4.6333 6.30778 4.49764 6.15428 4.17166 5.82831C4.1657 5.82235 4.15968 5.81633 4.15361 5.81027C3.8512 5.50813 3.41393 5.07126 3.31872 4.3087L0.838326 1.82831C0.564959 1.55494 0.564959 1.11172 0.838326 0.838357ZM6.0333 7.02328V13.3333C6.0333 13.5013 6.10003 13.6624 6.2188 13.7812C6.33757 13.8999 6.49866 13.9667 6.66663 13.9667H9.3333C9.50127 13.9667 9.66236 13.8999 9.78113 13.7812C9.89991 13.6624 9.96663 13.5013 9.96663 13.3333V10.9566L6.0333 7.02328ZM11.3 2.03333H4.66663C4.28003 2.03333 3.96663 1.71993 3.96663 1.33333C3.96663 0.946732 4.28003 0.633331 4.66663 0.633331H12C12.3866 0.633331 12.7 0.946732 12.7 1.33333V4C12.7 4.9574 12.1874 5.46952 11.8463 5.81027C11.8403 5.81633 11.8342 5.82235 11.8283 5.82831C11.5023 6.15428 11.3666 6.30778 11.3666 6.66666V7.33333C11.3666 7.71993 11.0532 8.03333 10.6666 8.03333C10.28 8.03333 9.96663 7.71993 9.96663 7.33333V6.66666C9.96663 5.70926 10.4792 5.19714 10.8203 4.85639C10.8264 4.85033 10.8324 4.84432 10.8383 4.83836C10.888 4.78868 10.9333 4.743 10.9743 4.7H7.3333C6.9467 4.7 6.6333 4.3866 6.6333 4C6.6333 3.6134 6.9467 3.3 7.3333 3.3H11.3V2.03333Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default FlashlightOffIcon;

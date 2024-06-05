@@ -1,0 +1,36 @@
+// This file is part of MinIO Design System
+// Copyright (c) 2024 MinIO, Inc.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import * as React from "react";
+import { SVGProps } from "react";
+
+const BookLockIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    className={`min-icon`}
+    {...props}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M4.33322 2.03333C4.07684 2.03333 3.83097 2.13518 3.64968 2.31646C3.4684 2.49775 3.36655 2.74362 3.36655 3V10.8398C3.6678 10.705 3.99682 10.6333 4.33322 10.6333H12.6332V10C12.6332 9.6134 12.9466 9.3 13.3332 9.3C13.7198 9.3 14.0332 9.6134 14.0332 10V14.6667C14.0332 15.0533 13.7198 15.3667 13.3332 15.3667H4.33322C3.70554 15.3667 3.10357 15.1173 2.65973 14.6735C2.2159 14.2296 1.96655 13.6277 1.96655 13V3C1.96655 2.37232 2.2159 1.77035 2.65973 1.32651C3.10357 0.882676 3.70554 0.633331 4.33322 0.633331H6.66655C7.05315 0.633331 7.36655 0.946732 7.36655 1.33333C7.36655 1.71993 7.05315 2.03333 6.66655 2.03333H4.33322ZM12.6332 12.0333H4.33322C4.07684 12.0333 3.83097 12.1352 3.64968 12.3165C3.4684 12.4977 3.36655 12.7436 3.36655 13C3.36655 13.2564 3.4684 13.5022 3.64968 13.6835C3.83097 13.8648 4.07684 13.9667 4.33322 13.9667H12.6332V12.0333ZM9.22877 1.22888C9.61009 0.847557 10.1273 0.633331 10.6666 0.633331C11.2058 0.633331 11.723 0.847557 12.1043 1.22888C12.4857 1.6102 12.6999 2.12739 12.6999 2.66666V3.3004C13.4393 3.31809 14.0332 3.92302 14.0332 4.66666V6.66666C14.0332 7.42145 13.4213 8.03333 12.6666 8.03333H8.66655C7.91176 8.03333 7.29989 7.42145 7.29989 6.66666V4.66666C7.29989 3.92302 7.89383 3.31809 8.63322 3.3004V2.66666C8.63322 2.12739 8.84745 1.6102 9.22877 1.22888ZM8.69989 4.7V6.63333H12.6332V4.7H8.69989ZM11.2999 3.3H10.0332V2.66666C10.0332 2.49869 10.0999 2.3376 10.2187 2.21883C10.3375 2.10006 10.4986 2.03333 10.6666 2.03333C10.8345 2.03333 10.9956 2.10006 11.1144 2.21883C11.2332 2.3376 11.2999 2.49869 11.2999 2.66666V3.3Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+export default BookLockIcon;

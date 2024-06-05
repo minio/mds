@@ -33,5 +33,4 @@ const SquareStackIcon = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 );
-
 export default SquareStackIcon;
