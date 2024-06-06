@@ -41,13 +41,13 @@ import {
   selectWidth,
   sortRecords,
 } from "./DataTable.utils";
-import ViewColumnIcon from "../Icons/ViewColumnIcon";
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 import ColumnsSelector from "./ColumnsSelector";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
+import Columns3Icon from "../Icons/NewDesignIcons/Columns3Icon";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
@@ -332,7 +332,7 @@ const DataTable: FC<DataTableProps> = ({
       >
         <Button
           id={"columns-selector"}
-          icon={<ViewColumnIcon />}
+          icon={<Columns3Icon />}
           iconLocation={"end"}
           onClick={openColumnsSelector}
         >

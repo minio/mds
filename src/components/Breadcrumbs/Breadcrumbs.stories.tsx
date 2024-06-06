@@ -24,7 +24,7 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
 import TestIcon from "../../utils/TestIcon";
 import HomeIcon from "../Icons/NewDesignIcons/HomeIcon";
-import { EyeIcon } from "../Icons/NewDesignIcons";
+import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
 
 export default {
   title: "MDS/Layout/Breadcrumbs",

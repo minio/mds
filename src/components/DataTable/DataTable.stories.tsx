@@ -21,7 +21,7 @@ import DataTable from "./DataTable";
 import { DataTableProps } from "./DataTable.types";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Grid from "../Grid/Grid";
-import SuccessIcon from "../Icons/SuccessIcon";
+import CheckIcon from "../Icons/NewDesignIcons/CheckIcon";
 
 export default {
   title: "MDS/Information/DataTable",
@@ -580,7 +580,7 @@ FullItemsActions.args = {
       tooltip: "Share",
     },
     {
-      type: <SuccessIcon />,
+      type: <CheckIcon />,
       onClick: (deleteItem) => {
         console.log("DELETE", deleteItem);
       },

@@ -23,10 +23,6 @@ import { SliderProps } from "./Slider.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
-import TestIcon from "../../utils/TestIcon";
-import Box from "../Box/Box";
-import UsersIcon from "../Icons/UsersIcon";
-import PasswordKeyIcon from "../Icons/PasswordKeyIcon";
 import { useState } from "react";
 
 export default {

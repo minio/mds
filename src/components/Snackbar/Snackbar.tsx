@@ -24,9 +24,9 @@ import {
 } from "./Snackbar.types";
 import { createPortal } from "react-dom";
 import { lightColors } from "../../global/themes";
-import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import Box from "../Box/Box";
 import { overridePropsParse } from "../../global/utils";
+import XIcon from "../Icons/NewDesignIcons/XIcon";
 
 const SnackBarContainer = styled.div<SnackbarConstructProps>(
   ({ theme, sx, open, variant, condensed }) => ({
@@ -153,7 +153,7 @@ const Snackbar: FC<SnackbarProps> = ({
           condensed={condensed}
           onClick={closeWithButton}
         >
-          <AlertCloseIcon />
+          <XIcon />
         </CloseButton>
       )}
     </SnackBarContainer>

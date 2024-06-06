@@ -19,12 +19,12 @@ import styled, { CSSObject } from "styled-components";
 import get from "lodash/get";
 import { MenuItemProps } from "../Menu.types";
 import Box from "../../Box/Box";
-import CollapseCaret from "../../Icons/CollapseCaret";
-import ExpandCaret from "../../Icons/ExpandCaret";
 import { createPortal } from "react-dom";
 import SubItemsBox from "./SubItemsBox";
 import { lightColors } from "../../../global/themes";
 import CircleIcon from "../../Icons/NewDesignIcons/CircleIcon";
+import ChevronUpIcon from "../../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../../Icons/NewDesignIcons/ChevronDownIcon";
 
 const commonStyle = (theme: any) => ({
   display: "flex",
@@ -212,7 +212,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
         >
           <MenuOptionElement icon={icon} name={name} badge={!!badge} />
           <Box className={"statusArrow"}>
-            {open ? <CollapseCaret /> : <ExpandCaret />}
+            {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
           </Box>
         </MenuItemButton>
         {open &&

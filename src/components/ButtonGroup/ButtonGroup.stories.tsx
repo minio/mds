@@ -28,9 +28,9 @@ import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import TestIcon from "../../utils/TestIcon";
 import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
-import EditIcon from "../Icons/EditIcon";
-import AddIcon from "../Icons/AddIcon";
 import RefreshCWIcon from "../Icons/NewDesignIcons/RefreshCWIcon";
+import PenIcon from "../Icons/NewDesignIcons/PenIcon";
+import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
 
 export default {
   title: "MDS/Forms/ButtonGroup",
@@ -67,7 +67,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
       >
         Delete
       </Button>
-      <ExpandMenuOption id={"expand-option-test"} icon={<EditIcon />}>
+      <ExpandMenuOption id={"expand-option-test"} icon={<PenIcon />}>
         Expand Option Only
       </ExpandMenuOption>
       <ExpandMenu
@@ -105,7 +105,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
       />
       <ExpandMenu
         id={"expand-menu"}
-        icon={<AddIcon />}
+        icon={<PlusIcon />}
         dropMenuPosition={"end"}
         dropArrow={false}
       >

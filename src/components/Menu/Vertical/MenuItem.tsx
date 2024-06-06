@@ -19,11 +19,11 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { MenuItemProps } from "../Menu.types";
 import Box from "../../Box/Box";
-import CollapseCaret from "../../Icons/CollapseCaret";
-import ExpandCaret from "../../Icons/ExpandCaret";
 import Tooltip from "../../Tooltip/Tooltip";
 import { lightColors } from "../../../global/themes";
 import CircleIcon from "../../Icons/NewDesignIcons/CircleIcon";
+import ChevronUpIcon from "../../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../../Icons/NewDesignIcons/ChevronDownIcon";
 
 const commonStyle = (theme: any) => ({
   display: "flex",
@@ -219,7 +219,7 @@ const MenuItem: FC<MenuItemProps> = ({
           >
             <MenuOptionElement icon={icon} name={name} badge={!!badge} />
             <Box className={"statusArrow"}>
-              {open ? <CollapseCaret /> : <ExpandCaret />}
+              {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
             </Box>
           </MenuItemButton>
         </Tooltip>

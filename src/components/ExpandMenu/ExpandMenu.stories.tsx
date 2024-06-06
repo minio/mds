@@ -24,10 +24,10 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import ExpandMenuOption from "./ExpandMenuOption";
 import Button from "../Button/Button";
-import EditIcon from "../Icons/EditIcon";
-import VersionsIcon from "../Icons/VersionsIcon";
 import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
 import TestIcon from "../../utils/TestIcon";
+import FilesIcon from "../Icons/NewDesignIcons/FilesIcon";
+import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
 
 export default {
   title: "MDS/Forms/ExpandMenu",
@@ -218,7 +218,7 @@ DisabledOption.args = {
         onClick={() => {
           console.log("click3");
         }}
-        icon={<VersionsIcon />}
+        icon={<FilesIcon />}
       >
         Display Object Versions
       </ExpandMenuOption>
@@ -267,7 +267,7 @@ LongOptionsList.args = {
         onClick={() => {
           console.log("click1");
         }}
-        icon={<EditIcon />}
+        icon={<PencilLineIcon />}
       >
         Option 1
       </ExpandMenuOption>

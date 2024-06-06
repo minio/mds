@@ -16,12 +16,6 @@
 
 import React, { FC } from "react";
 import Tooltip from "../Tooltip/Tooltip";
-import ConsoleIcon from "../Icons/ConsoleIcon";
-import DisableIcon from "../Icons/DisableIcon";
-import FormatDriveIcon from "../Icons/FormatDriveIcon";
-import IAMPoliciesIcon from "../Icons/IAMPoliciesIcon";
-import PreviewIcon from "../Icons/PreviewIcon";
-import EditIcon from "../Icons/EditIcon";
 import {
   actionsTypes,
   IActionButton,
@@ -34,6 +28,12 @@ import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 import TrashIcon from "../Icons/NewDesignIcons/TrashIcon";
 import CloudIcon from "../Icons/NewDesignIcons/CloudIcon";
 import ShareIcon from "../Icons/NewDesignIcons/ShareIcon";
+import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
+import PencilIcon from "../Icons/NewDesignIcons/PencilIcon";
+import ShieldEllipsisIcon from "../Icons/NewDesignIcons/ShieldEllipsisIcon";
+import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
+import CircleMinusIcon from "../Icons/NewDesignIcons/CircleMinusIcon";
+import EraserIcon from "../Icons/NewDesignIcons/EraserIcon";
 
 const TableActionCustomIcon = styled.button(({ theme }) => {
   let buttonSize: number | string = 30;
@@ -115,27 +115,27 @@ export const isPredefinedAction = (val: any): val is PredefinedActionTypes =>
 const defineIcon = (type: PredefinedActionTypes) => {
   switch (type) {
     case "view":
-      return <PreviewIcon />;
+      return <EyeIcon />;
     case "edit":
-      return <EditIcon />;
+      return <PencilIcon />;
     case "delete":
       return <TrashIcon />;
     case "description":
-      return <IAMPoliciesIcon />;
+      return <ShieldEllipsisIcon />;
     case "share":
       return <ShareIcon />;
     case "cloud":
       return <CloudIcon />;
     case "console":
-      return <ConsoleIcon />;
+      return <SquareTerminalIcon />;
     case "download":
       return <DownloadIcon />;
     case "disable":
-      return <DisableIcon />;
+      return <CircleMinusIcon />;
     case "format":
-      return <FormatDriveIcon />;
+      return <EraserIcon />;
     case "preview":
-      return <PreviewIcon />;
+      return <EyeIcon />;
   }
 
   return null;

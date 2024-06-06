@@ -18,9 +18,9 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { TagConstructProps, TagProps } from "./Tag.types";
-import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import { lightColors, lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import XIcon from "../Icons/NewDesignIcons/XIcon";
 
 const TagBase = styled.span<TagConstructProps>(
   ({ theme, color, variant, square, sx }) => {
@@ -125,7 +125,7 @@ const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
       </span>
       {onDelete && (
         <button className={"deleteTagButton"} onClick={() => onDelete(id)}>
-          <AlertCloseIcon />
+          <XIcon />
         </button>
       )}
     </TagBase>

@@ -22,7 +22,7 @@ import InputLabel from "../InputLabel/InputLabel";
 import { InputLabelProps } from "../InputLabel/InputLabel.types";
 import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
-import HelpIcon from "../Icons/HelpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
@@ -169,7 +169,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
           {tooltip && tooltip !== "" && (
             <div className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
-                <HelpIcon />
+                <CircleHelpIcon />
               </Tooltip>
             </div>
           )}

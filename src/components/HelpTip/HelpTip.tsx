@@ -31,7 +31,7 @@ import {
   HelpTipProps,
 } from "./HelpTip.types";
 import Grid from "../Grid/Grid";
-import { HelpIconFilled } from "../Icons";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 
 const opacityAnimation = keyframes`
   from {
@@ -423,7 +423,7 @@ export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
         style={position}
         onClick={handleClick}
       >
-        <HelpIconFilled style={{ width: 12, height: 12 }} />
+        <CircleHelpIcon style={{ width: 12, height: 12 }} />
       </HelpTargetItem>
     );
   };
@@ -463,7 +463,7 @@ export const HelpTip: FC<HelpTipProps> = ({ children, content, placement }) => {
           createPortal(
             <HelptipTarget
               placement={placement}
-              content={<HelpIconFilled />}
+              content={<CircleHelpIcon />}
               anchorEl={anchorEl}
             />,
             document.body,

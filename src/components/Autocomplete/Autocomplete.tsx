@@ -19,14 +19,14 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { AutocompleteProps } from "./Autocomplete.types";
 import { InputContainerProps } from "../InputBox/InputBox.types";
-import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
-import CollapseCaret from "../Icons/CollapseCaret";
-import ExpandCaret from "../Icons/ExpandCaret";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import { overridePropsParse } from "../../global/utils";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const AutocompleteBase = styled.input(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", "#E2E2E2");
@@ -196,7 +196,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
             <Box className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
                 <Box className={tooltip}>
-                  <HelpIcon />
+                  <CircleHelpIcon />
                 </Box>
               </Tooltip>
             </Box>
@@ -235,7 +235,9 @@ const Autocomplete: FC<AutocompleteProps> = ({
         />
         {displayDropArrow && (
           <Box className={"overlayArrow"}>
-            <Fragment>{isOpen ? <CollapseCaret /> : <ExpandCaret />}</Fragment>
+            <Fragment>
+              {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            </Fragment>
           </Box>
         )}
         {isOpen && (

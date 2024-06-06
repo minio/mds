@@ -22,7 +22,7 @@ import {
   CommentBoxProps,
   CommentContainerProps,
 } from "./CommentBox.types";
-import HelpIcon from "../Icons/HelpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
@@ -141,7 +141,7 @@ const InputBox: FC<CommentBoxProps> = ({
             <Box className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
                 <Box className={tooltip}>
-                  <HelpIcon />
+                  <CircleHelpIcon />
                 </Box>
               </Tooltip>
             </Box>

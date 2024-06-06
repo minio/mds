@@ -21,7 +21,7 @@ import Tag from "./Tag";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { TagProps } from "./Tag.types";
-import AddIcon from "../Icons/AddIcon";
+import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
 
 export default {
   title: "MDS/Layout/Tag",
@@ -72,7 +72,7 @@ const Template: Story<TagProps> = ({
         color={color}
         id={id}
         sx={sx}
-        icon={<AddIcon />}
+        icon={<PlusIcon />}
         square={square}
       >
         {" "}
@@ -85,7 +85,7 @@ const Template: Story<TagProps> = ({
         id={id}
         sx={sx}
         variant={"outlined"}
-        icon={<AddIcon />}
+        icon={<PlusIcon />}
         square={square}
       >
         {" "}

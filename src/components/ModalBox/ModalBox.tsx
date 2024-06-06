@@ -21,9 +21,9 @@ import styled from "styled-components";
 import { useEscapeKey } from "../../global/hooks";
 import { ModalBoxContainerProps, ModalBoxProps } from "./ModalBox.types";
 import Box from "../Box/Box";
-import AlertCloseIcon from "../Icons/AlertCloseIcon";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import XIcon from "../Icons/NewDesignIcons/XIcon";
 
 const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
   ({
@@ -172,7 +172,7 @@ const ModalBox: FC<ModalBoxProps> = ({
               id={"close"}
               onClick={onClose}
             >
-              <AlertCloseIcon />
+              <XIcon />
             </button>
           </Box>
           <Box className={"dialogContent"}>{children}</Box>
