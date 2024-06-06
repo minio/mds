@@ -23,7 +23,6 @@ import {
   StylesOverrideProps,
 } from "./DateTimeInput.types";
 import Box from "../Box/Box";
-import TimeIcon from "../Icons/TimeIcon";
 import DateSelector from "./DateSelector";
 import TimeSelector from "./TimeSelector";
 import { lightV2 } from "../../global/themes";
@@ -32,6 +31,7 @@ import SelectorContainer from "../../global/SelectorContainer";
 import debounce from "lodash/debounce";
 import { overridePropsParse } from "../../global/utils";
 import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
+import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
 
 const globalWidth = 315;
 
@@ -194,7 +194,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
             className={currentView === "time" ? "selected" : ""}
             onClick={() => setCurrentView("time")}
           >
-            <TimeIcon />
+            <Clock4Icon />
             <span>
               {value?.toFormat(
                 `${timeFormat === "24h" ? "HH" : "hh"}:mm${

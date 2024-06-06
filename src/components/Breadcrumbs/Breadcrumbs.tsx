@@ -21,7 +21,6 @@ import {
   BreadcrumbsProps,
 } from "./Breadcrumbs.types";
 import styled from "styled-components";
-import BackCaretIcon from "../Icons/BackCaretIcon";
 import Box from "../Box/Box";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
@@ -29,8 +28,9 @@ import BreadcrumbButton from "./BreadcrumbButton";
 import Button from "../Button/Button";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
-import ExpandOptionsIcon from "../Icons/ExpandOptionsIcon";
 import { overridePropsParse } from "../../global/utils";
+import ChevronLeftIcon from "../Icons/NewDesignIcons/ChevronLeftIcon";
+import EllipsisIcon from "../Icons/NewDesignIcons/EllipsisIcon";
 
 const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
   return {
@@ -133,7 +133,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
       <ExpandMenu
         id={"breadcrumbs-expand"}
         className={"breadcrumbElement"}
-        icon={<ExpandOptionsIcon />}
+        icon={<EllipsisIcon />}
         variant={"text"}
         sx={{
           height: 20,
@@ -165,7 +165,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
       {goBackFunction && (
         <Button
           id={"back-button"}
-          icon={<BackCaretIcon />}
+          icon={<ChevronLeftIcon />}
           onClick={goBackFunction}
           iconLocation={"start"}
           compact

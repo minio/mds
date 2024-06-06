@@ -25,7 +25,7 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
 import { DateTime } from "luxon";
 import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
-import TimeIcon from "../Icons/TimeIcon";
+import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
 
 export default {
   title: "MDS/Forms/TimeSelector/DateTimeInput",
@@ -152,7 +152,7 @@ PickerStartComponent.args = {
   tooltip: "Please select a date to complete",
   pickerStartComponent: (
     <Fragment>
-      <TimeIcon /> Start Date
+      <Clock4Icon /> Start Date
     </Fragment>
   ),
 };

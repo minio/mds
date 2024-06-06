@@ -24,8 +24,8 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
-import PasswordKeyIcon from "../Icons/PasswordKeyIcon";
 import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
+import KeyRoundIcon from "../Icons/NewDesignIcons/KeyRoundIcon";
 
 export default {
   title: "MDS/Forms/InputBox",
@@ -138,7 +138,7 @@ StartIcon.args = {
 
 export const StartIconWithAction = Template.bind({});
 StartIconWithAction.args = {
-  startIcon: <PasswordKeyIcon />,
+  startIcon: <KeyRoundIcon />,
   placeholder: "Password",
   type: "password",
 };

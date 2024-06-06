@@ -23,10 +23,10 @@ import {
   AccordionProps,
 } from "./Accordion.types";
 import { lightColors } from "../../global/themes";
-import { ExpandCaret } from "../Icons";
-import CollapseCaret from "../Icons/CollapseCaret";
 import Box from "../Box/Box";
 import { overridePropsParse } from "../../global/utils";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const AccordionContainer = styled.div<AccordionMainProps>(({ theme, sx }) => ({
   border: `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`,
@@ -88,7 +88,7 @@ const Accordion: FC<AccordionProps> = ({
         className={`accordionTitle ${disabled ? "disabled" : ""}`}
       >
         {title}
-        {expanded ? <CollapseCaret /> : <ExpandCaret />}
+        {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </AccordionTitleBar>
       <AccordionContent className={`accordionContent`} expanded={expanded}>
         <Box className={"expandSubContainer"}>{children}</Box>

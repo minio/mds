@@ -22,10 +22,10 @@ import InputLabel from "../InputLabel/InputLabel";
 import { InputLabelProps } from "../InputLabel/InputLabel.types";
 import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
-import HelpIcon from "../Icons/HelpIcon";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
 import CheckIcon from "../Icons/NewDesignIcons/CheckIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 
 const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
   position: "relative",
@@ -145,7 +145,7 @@ const Checkbox: FC<
           {tooltip && tooltip !== "" && (
             <div className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
-                <HelpIcon />
+                <CircleHelpIcon />
               </Tooltip>
             </div>
           )}

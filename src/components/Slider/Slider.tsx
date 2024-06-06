@@ -17,7 +17,7 @@
 import React, { FC } from "react";
 import styled, { CSSObject } from "styled-components";
 import get from "lodash/get";
-import HelpIcon from "../Icons/HelpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
@@ -173,7 +173,7 @@ const Slider: FC<SliderProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
             <Box className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
                 <Box className={tooltip}>
-                  <HelpIcon />
+                  <CircleHelpIcon />
                 </Box>
               </Tooltip>
             </Box>

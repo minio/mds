@@ -24,7 +24,7 @@ import {
 } from "./Switch.types";
 import InputLabel from "../InputLabel/InputLabel";
 import Tooltip from "../Tooltip/Tooltip";
-import HelpIcon from "../Icons/HelpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import Box from "../Box/Box";
 import FieldContainer from "../../global/FieldContainer";
 import { lightV2 } from "../../global/themes";
@@ -190,7 +190,7 @@ const Switch: FC<SwitchProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
             {tooltip && tooltip !== "" && (
               <div className={"tooltipContainer"}>
                 <Tooltip tooltip={tooltip} placement="top">
-                  <HelpIcon />
+                  <CircleHelpIcon />
                 </Tooltip>
               </div>
             )}

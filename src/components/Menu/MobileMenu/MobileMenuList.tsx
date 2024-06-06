@@ -22,12 +22,12 @@ import { lightColors } from "../../../global/themes";
 import Box from "../../Box/Box";
 import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
 import Tooltip from "../../Tooltip/Tooltip";
-import MinIOTierIconXs from "../../Icons/MinIOTierIconXs";
 import MenuSectionHeader from "../Vertical/MenuSectionHeader";
 import MenuItem from "../Vertical/MenuItem";
-import LogoutIcon from "../../Icons/LogoutIcon";
-import AlertCloseIcon from "../../Icons/AlertCloseIcon";
 import { overridePropsParse } from "../../../global/utils";
+import XIcon from "../../Icons/NewDesignIcons/XIcon";
+import MinIOIcon from "../../Icons/NewDesignIcons/MinIOIcon";
+import LogOutIcon from "../../Icons/NewDesignIcons/LogOutIcon";
 
 const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
@@ -105,7 +105,7 @@ const MobileMenuList: FC<MenuProps> = ({
       <Box className={"menuContainer"}>
         <Box className={"menuHeaderContainer"} onClick={collapseAction}>
           <Box className={"collapseButton"}>
-            <AlertCloseIcon />
+            <XIcon />
           </Box>
           <Box className={"menuLogoContainer"}>
             <ApplicationLogo inverse {...applicationLogo} />
@@ -113,7 +113,7 @@ const MobileMenuList: FC<MenuProps> = ({
           <Box className={"collapsedMenuHeader"}>
             <Tooltip tooltip={"Expand Menu"}>
               <span className={"collapsedIcon"}>
-                <MinIOTierIconXs />
+                <MinIOIcon />
               </span>
             </Tooltip>
           </Box>
@@ -166,7 +166,7 @@ const MobileMenuList: FC<MenuProps> = ({
               <MenuItem
                 group={"common"}
                 name={"Sign Out"}
-                icon={<LogoutIcon />}
+                icon={<LogOutIcon />}
                 onClick={signOutAction}
               />
             </Box>

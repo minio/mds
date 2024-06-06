@@ -22,14 +22,14 @@ import { DateTimeInputProps } from "./DateTimeInput.types";
 import Box from "../Box/Box";
 import InputLabel from "../InputLabel/InputLabel";
 import Tooltip from "../Tooltip/Tooltip";
-import HelpIcon from "../Icons/HelpIcon";
-import CollapseCaret from "../Icons/CollapseCaret";
-import ExpandCaret from "../Icons/ExpandCaret";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import { InputContainerProps } from "../InputBox/InputBox.types";
 import DateTimeSelector from "./DateTimeSelector";
 import { useEscapeKey } from "../../global/hooks";
 import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const InputBase = styled.input(({ theme }) => {
   let borderColor = get(theme, "inputBox.border", lightColors.borderColor);
@@ -339,7 +339,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
             <Box className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
                 <Box className={tooltip}>
-                  <HelpIcon />
+                  <CircleHelpIcon />
                 </Box>
               </Tooltip>
             </Box>
@@ -390,7 +390,9 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
           }}
         >
           {openPickerIcon === "arrow" ? (
-            <Fragment>{isOpen ? <CollapseCaret /> : <ExpandCaret />}</Fragment>
+            <Fragment>
+              {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            </Fragment>
           ) : (
             <Box className={"customIcon"}>{openPickerIcon}</Box>
           )}

@@ -89,9 +89,6 @@ export { default as Pill } from "./Pill/Pill";
 export { default as SearchBox } from "./SearchBox/SearchBox";
 
 /*Icons*/
-export * from "./Icons";
-export * from "./Icons/SidebarMenus";
-export * from "./Icons/FileIcons";
 export * from "./Icons/NewDesignIcons";
 
 /*Table Elements*/

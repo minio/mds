@@ -20,11 +20,10 @@ import { Meta, Story } from "@storybook/react";
 import Button from "./Button";
 import { ButtonProps } from "./Button.types";
 
-import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { Box, ButtonGroup } from "../index";
-import { AddIcon } from "../Icons";
+import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
 
 export default {
   title: "UI Kit/Forms & Inputs/Buttons",
@@ -301,7 +300,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={true}
             />
@@ -309,7 +308,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={true}
               className={"hover"}
@@ -318,7 +317,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={true}
               className={"active"}
@@ -327,7 +326,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={true}
               disabled
@@ -336,12 +335,12 @@ const Template: Story<ButtonProps> = (args) => (
         </Box>
         <Box className={"buttonRow"}>
           <Box>
-            <Button {...args} icon={<AddIcon />} compact={true} />
+            <Button {...args} icon={<PlusIcon />} compact={true} />
           </Box>
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               compact={true}
               className={"hover"}
             />
@@ -349,7 +348,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               compact={true}
               className={"active"}
             />
@@ -360,7 +359,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive"}
               compact={true}
             />
@@ -368,7 +367,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive"}
               compact={true}
               className={"hover"}
@@ -377,7 +376,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive"}
               compact={true}
               className={"active"}
@@ -389,7 +388,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive-bare"}
               compact={true}
             />
@@ -397,7 +396,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive-bare"}
               compact={true}
               className={"hover"}
@@ -406,7 +405,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive-bare"}
               compact={true}
               className={"active"}
@@ -420,7 +419,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={false}
             />
@@ -428,7 +427,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={false}
               className={"hover"}
@@ -437,7 +436,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={false}
               className={"active"}
@@ -446,7 +445,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"primary"}
               compact={false}
               disabled
@@ -455,12 +454,12 @@ const Template: Story<ButtonProps> = (args) => (
         </Box>
         <Box className={"buttonRow"}>
           <Box>
-            <Button {...args} icon={<AddIcon />} compact={false} />
+            <Button {...args} icon={<PlusIcon />} compact={false} />
           </Box>
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               compact={false}
               className={"hover"}
             />
@@ -468,7 +467,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               compact={false}
               className={"active"}
             />
@@ -479,7 +478,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive"}
               compact={false}
             />
@@ -487,7 +486,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive"}
               compact={false}
               className={"hover"}
@@ -496,7 +495,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive"}
               compact={false}
               className={"active"}
@@ -508,7 +507,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive-bare"}
               compact={false}
             />
@@ -516,7 +515,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive-bare"}
               compact={false}
               className={"hover"}
@@ -525,7 +524,7 @@ const Template: Story<ButtonProps> = (args) => (
           <Box>
             <Button
               {...args}
-              icon={<AddIcon />}
+              icon={<PlusIcon />}
               variant={"destructive-bare"}
               compact={false}
               className={"active"}
@@ -539,12 +538,12 @@ const Template: Story<ButtonProps> = (args) => (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 24 }}>
       <Box>
         <ButtonGroup>
-          <Button id={"plus"} icon={<AddIcon />} />
-          <Button id={"plus"} icon={<AddIcon />} />
-          <Button id={"plus"} icon={<AddIcon />} />
-          <Button id={"plus"} icon={<AddIcon />} />
-          <Button id={"plus"} icon={<AddIcon />} />
-          <Button id={"plus"} icon={<AddIcon />} />
+          <Button id={"plus"} icon={<PlusIcon />} />
+          <Button id={"plus"} icon={<PlusIcon />} />
+          <Button id={"plus"} icon={<PlusIcon />} />
+          <Button id={"plus"} icon={<PlusIcon />} />
+          <Button id={"plus"} icon={<PlusIcon />} />
+          <Button id={"plus"} icon={<PlusIcon />} />
         </ButtonGroup>
       </Box>
       <Box>
@@ -559,12 +558,12 @@ const Template: Story<ButtonProps> = (args) => (
       </Box>
       <Box>
         <ButtonGroup>
-          <Button id={"plus"} icon={<AddIcon />} label={"Button"} />
-          <Button id={"plus"} icon={<AddIcon />} label={"Button"} />
-          <Button id={"plus"} icon={<AddIcon />} label={"Button"} />
-          <Button id={"plus"} icon={<AddIcon />} label={"Button"} />
-          <Button id={"plus"} icon={<AddIcon />} label={"Button"} />
-          <Button id={"plus"} icon={<AddIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
         </ButtonGroup>
       </Box>
     </Box>

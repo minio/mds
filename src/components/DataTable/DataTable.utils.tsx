@@ -20,11 +20,11 @@ import isString from "lodash/isString";
 import isPlainObject from "lodash/isPlainObject";
 import { Column, SortDirectionType } from "react-virtualized";
 import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
-import ArrowDropUpIcon from "../Icons/ArrowDropUp";
-import ArrowDropDownIcon from "../Icons/ArrowDropDown";
 import Loader from "../Loader/Loader";
 import TableActionButton from "./TableActionButton";
 import Box from "../Box/Box";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 export const selectWidth = 45;
 
@@ -162,9 +162,9 @@ export const generateColumnsMap = (
                 (columns.length === 1 && currentSortColumn === "column-0") ? (
                   <Fragment>
                     {currentSortDirection === "ASC" ? (
-                      <ArrowDropUpIcon />
+                      <ChevronUpIcon />
                     ) : (
-                      <ArrowDropDownIcon />
+                      <ChevronDownIcon />
                     )}
                   </Fragment>
                 ) : null}

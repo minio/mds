@@ -20,9 +20,9 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { DateSelectorProps } from "./DateTimeInput.types";
 import { lightColors } from "../../global/themes";
-import NextCaretIcon from "../Icons/NextCaretIcon";
-import PrevCaretIcon from "../Icons/PrevCaretIcon";
 import { DateTime } from "luxon";
+import ChevronLeftIcon from "../Icons/NewDesignIcons/ChevronLeftIcon";
+import ChevronRightIcon from "../Icons/NewDesignIcons/ChevronRightIcon";
 
 const DateSelectorContainer = styled.div(({ theme }) => ({
   "& .react-calendar__navigation": {
@@ -204,8 +204,8 @@ const DateSelector: FC<DateSelectorProps> = ({
         next2Label={null}
         prev2Label={null}
         calendarType={"gregory"}
-        nextLabel={<NextCaretIcon />}
-        prevLabel={<PrevCaretIcon />}
+        nextLabel={<ChevronRightIcon />}
+        prevLabel={<ChevronLeftIcon />}
       />
     </DateSelectorContainer>
   );

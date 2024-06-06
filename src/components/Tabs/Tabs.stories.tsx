@@ -23,10 +23,10 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { TabsProps } from "./Tabs.types";
 import Box from "../Box/Box";
 import TestIcon from "../../utils/TestIcon";
-import ConsoleIcon from "../Icons/ConsoleIcon";
-import SearchIcon from "../Icons/SearchIcon";
-import CollapseMenuIcon from "../Icons/CollapseMenuIcon";
 import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
+import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
+import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
+import MenuIcon from "../Icons/NewDesignIcons/MenuIcon";
 
 export default {
   title: "MDS/Layout/Tabs",
@@ -141,7 +141,7 @@ TabsWithIcons.args = {
   options: [
     {
       content: <div>Tab1</div>,
-      tabConfig: { label: "Tab1", id: "tab1", icon: <ConsoleIcon /> },
+      tabConfig: { label: "Tab1", id: "tab1", icon: <SquareTerminalIcon /> },
     },
     {
       content: <div>Tab2</div>,
@@ -154,7 +154,7 @@ TabsWithIcons.args = {
     },
     {
       content: <div>Tab3</div>,
-      tabConfig: { label: "Tab3", id: "tab3", icon: <CollapseMenuIcon /> },
+      tabConfig: { label: "Tab3", id: "tab3", icon: <MenuIcon /> },
     },
     {
       content: <div>Some content for Tab 4</div>,

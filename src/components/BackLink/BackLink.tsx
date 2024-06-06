@@ -18,8 +18,8 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { BackLinkProps } from "./BackLink.types";
-import BackSettingsIcon from "../Icons/BackSettingsIcon";
 import { overridePropsParse } from "../../global/utils";
+import ArrowLeftIcon from "../Icons/NewDesignIcons/ArrowLeftIcon";
 
 const BackLinkBasic = styled.button<BackLinkProps>(({ theme, sx }) => ({
   display: "flex",
@@ -66,7 +66,7 @@ const BackLink: FC<BackLinkProps> = ({ label, sx, ...props }) => {
   return (
     <BackLinkBasic sx={sx} {...props}>
       <span className={"icon"}>
-        <BackSettingsIcon />
+        <ArrowLeftIcon />
       </span>
       <span className={"label"}>{label}</span>
     </BackLinkBasic>

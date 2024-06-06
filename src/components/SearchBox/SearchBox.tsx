@@ -17,10 +17,10 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { SearchBoxProps } from "./SearchBox.types";
-import SearchIcon from "../Icons/SearchIcon";
 import get from "lodash/get";
 import { themeColors } from "../../global/themeColors";
 import { overridePropsParse } from "../../global/utils";
+import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
 
 const SearchBoxContainer = styled.div(({ theme }) => ({
   position: "relative",

@@ -17,11 +17,10 @@
 import React, { FC, useRef } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import HelpIcon from "../Icons/HelpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import InputLabel from "../InputLabel/InputLabel";
 import Tooltip from "../Tooltip/Tooltip";
 import IconButton from "../IconButton/IconButton";
-import AttachFileIcon from "../Icons/AttachFileIcon";
 import Box from "../Box/Box";
 import {
   FileSelectorConstructorProps,
@@ -30,6 +29,7 @@ import {
 import { fileProcess } from "./FileSelector.utils";
 import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import PaperclipIcon from "../Icons/NewDesignIcons/PaperclipIcon";
 
 const FileSelectorContainer = styled.div<FileSelectorConstructorProps>(
   ({ theme, error, sx }) => ({
@@ -126,7 +126,7 @@ const FileSelector: FC<FileSelectorProps> = ({
             <Box className={"tooltipContainer"}>
               <Tooltip tooltip={tooltip} placement="top">
                 <Box className={tooltip}>
-                  <HelpIcon />
+                  <CircleHelpIcon />
                 </Box>
               </Tooltip>
             </Box>
@@ -168,7 +168,7 @@ const FileSelector: FC<FileSelectorProps> = ({
             size="small"
             disabled={disabled}
           >
-            <AttachFileIcon />
+            <PaperclipIcon />
           </IconButton>
         </Box>
         {error !== "" && <Box className={"errorText"}>{error}</Box>}

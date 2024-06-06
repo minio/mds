@@ -20,11 +20,11 @@ import get from "lodash/get";
 import { MenuConstructProps, MenuProps } from "../Menu.types";
 import { lightColors } from "../../../global/themes";
 import Box from "../../Box/Box";
-import LogoutIcon from "../../Icons/LogoutIcon";
 import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
 import HorizontalMenuItem from "./HorizontalMenuItem";
 import IconButton from "../../IconButton/IconButton";
 import { overridePropsParse } from "../../../global/utils";
+import LogOutIcon from "../../Icons/NewDesignIcons/LogOutIcon";
 
 const HorizontalMenuContainer = styled.div<MenuConstructProps>(
   ({ theme, sx }) => {
@@ -115,7 +115,7 @@ const HorizontalMenu: FC<MenuProps> = ({
           {endComponent}
           {signOutAction && (
             <IconButton id="sign-out" onClick={signOutAction}>
-              <LogoutIcon />
+              <LogOutIcon />
             </IconButton>
           )}
         </Box>

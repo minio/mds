@@ -18,13 +18,13 @@ import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 import CodeEditor from "@uiw/react-textarea-code-editor";
-import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import Box from "../Box/Box";
 import InputLabel from "../InputLabel/InputLabel";
 import { CodeEditorBaseProps, CodeEditorProps } from "./CodeEditor.types";
 import { lightV2, lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 
 const CodeEditorBase = styled.div<CodeEditorBaseProps>(
   ({ theme, editorHeight, sx }) => ({
@@ -263,7 +263,7 @@ const CodeMirrorWrapper: FC<CodeEditorProps> = ({
         {tooltip !== "" && (
           <Box className={"tooltipContainer"}>
             <Tooltip tooltip={tooltip} placement="top">
-              <HelpIcon />
+              <CircleHelpIcon />
             </Tooltip>
           </Box>
         )}

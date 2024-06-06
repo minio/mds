@@ -21,10 +21,10 @@ import {
   ConstructExpandOptionsProps,
   ExpandOptionsButtonProps,
 } from "./ExpandOptionsButton.types";
-import CollapseCaret from "../Icons/CollapseCaret";
-import ExpandCaret from "../Icons/ExpandCaret";
 import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const ExpandButtonBase = styled.button<ConstructExpandOptionsProps>(
   ({ sx, theme }) => ({
@@ -77,7 +77,7 @@ const ExpandOptionsButton: FC<
   return (
     <ExpandButtonBase sx={sx} {...props}>
       {label}
-      {open ? <CollapseCaret /> : <ExpandCaret />}
+      {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
     </ExpandButtonBase>
   );
 };
