@@ -1730,6 +1730,11 @@ const Template: Story = (args) => {
               CircleFadingPlusIcon
             </div>
             <div className="story-icon">
+              <nvicons.CircleFillIcon />
+              <br />
+              CircleFillIcon
+            </div>
+            <div className="story-icon">
               <nvicons.CircleGaugeIcon />
               <br />
               CircleGaugeIcon
