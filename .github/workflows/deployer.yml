@@ -35,9 +35,7 @@ jobs:
 
       - name: Build Storybook
         run: |
-          rm -Rf node_modules/
-          rm yarn.lock
-          yarn install
+          yarn install --immutable
           yarn build
           yarn build-storybook 
           docker buildx build --platform linux/amd64 --push -t registry.min.dev/minio/mds .
