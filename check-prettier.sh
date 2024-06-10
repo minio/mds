@@ -1,4 +1,3 @@
 #!/bin/bash
 
-yarn global add prettier
-prettier --check ./src
+yarn dlx prettier --check ./src
