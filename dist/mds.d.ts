@@ -3021,6 +3021,10 @@ declare const CircleFadingPlusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CircleFillIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const CircleGaugeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -8001,6 +8005,7 @@ export {
   CircleEllipsisIcon,
   CircleEqualIcon,
   CircleFadingPlusIcon,
+  CircleFillIcon,
   CircleGaugeIcon,
   CircleHelpIcon,
   CircleIcon,

@@ -327,6 +327,7 @@ export { default as CircleDotIcon } from "./CircleDotIcon";
 export { default as CircleEllipsisIcon } from "./CircleEllipsisIcon";
 export { default as CircleEqualIcon } from "./CircleEqualIcon";
 export { default as CircleFadingPlusIcon } from "./CircleFadingPlusIcon";
+export { default as CircleFillIcon } from "./CircleFillIcon";
 export { default as CircleGaugeIcon } from "./CircleGaugeIcon";
 export { default as CircleHelpIcon } from "./CircleHelpIcon";
 export { default as CircleMinusIcon } from "./CircleMinusIcon";
