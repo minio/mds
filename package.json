@@ -14,7 +14,7 @@
   },
   "types": "dist/mds.d.ts",
   "dependencies": {
-    "@storybook/test": "^8.1.6",
+    "@storybook/test": "^8.1.10",
     "@types/styled-components": "^5.1.34",
     "@uiw/react-textarea-code-editor": "^3.0.2",
     "detect-gpu": "^5.0.37",
