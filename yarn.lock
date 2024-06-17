@@ -3015,6 +3015,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/client-logger@npm:8.1.10":
+  version: 8.1.10
+  resolution: "@storybook/client-logger@npm:8.1.10"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+  checksum: 10c0/cd6bab00034dd33bc60f463825d03909fab40ce764def2c47eca66cb1d1ce40a4f69d3290a5a27030b986ead9232a134e5f2647d58b57d7480dccc8a086d7f8a
+  languageName: node
+  linkType: hard
+
 "@storybook/client-logger@npm:8.1.6":
   version: 8.1.6
   resolution: "@storybook/client-logger@npm:8.1.6"
@@ -3501,7 +3510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/theming@npm:8.1.6, @storybook/theming@npm:^8.0.0, @storybook/theming@npm:^8.1.6":
+"@storybook/theming@npm:8.1.6, @storybook/theming@npm:^8.0.0":
   version: 8.1.6
   resolution: "@storybook/theming@npm:8.1.6"
   dependencies:
@@ -3518,6 +3527,26 @@ __metadata:
     react-dom:
       optional: true
   checksum: 10c0/13bf3c940ce2ff27088d9147d22cd45f53de5251e8d41cc170d2f569cd6ba30aa1a4574494a15774c82f501889709accff370b9131a5d973243528160d7a0d50
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:^8.1.10":
+  version: 8.1.10
+  resolution: "@storybook/theming@npm:8.1.10"
+  dependencies:
+    "@emotion/use-insertion-effect-with-fallbacks": "npm:^1.0.1"
+    "@storybook/client-logger": "npm:8.1.10"
+    "@storybook/global": "npm:^5.0.0"
+    memoizerific: "npm:^1.11.3"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/138f4ffca229a91b37676ef578b2de91e19a4d05f0a052fb3964159217d7db04f8acbbf9823aaab981aca40f442bc43cde8dd897e9c788fbb0a8005854e603ce
   languageName: node
   linkType: hard
 
@@ -9682,7 +9711,7 @@ __metadata:
     "@storybook/react": "npm:^8.1.6"
     "@storybook/react-webpack5": "npm:^8.1.6"
     "@storybook/test": "npm:^8.1.6"
-    "@storybook/theming": "npm:^8.1.6"
+    "@storybook/theming": "npm:^8.1.10"
     "@testing-library/jest-dom": "npm:^6.4.5"
     "@testing-library/react": "npm:^16.0.0"
     "@types/jest": "npm:^29.5.11"
