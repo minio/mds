@@ -1,18 +1,7 @@
 import { FC } from "react";
-import { IActionButton } from "./DataTable.types";
+import { IActionButton, PredefinedActionTypes } from "./DataTable.types";
 export declare const isPredefinedAction: (
   val: any,
-) => val is
-  | "view"
-  | "format"
-  | "download"
-  | "console"
-  | "cloud"
-  | "edit"
-  | "delete"
-  | "description"
-  | "share"
-  | "disable"
-  | "preview";
+) => val is PredefinedActionTypes;
 declare const TableActionButton: FC<IActionButton>;
 export default TableActionButton;

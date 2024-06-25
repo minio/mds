@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as styled_components from "styled-components";
 import { CSSObject, DefaultTheme } from "styled-components";
 import * as React$1 from "react";
