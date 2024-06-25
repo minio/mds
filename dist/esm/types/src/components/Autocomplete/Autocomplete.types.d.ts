@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { OverrideTheme, SelectOption } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface AutocompleteProps {
