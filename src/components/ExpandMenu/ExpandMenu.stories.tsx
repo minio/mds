@@ -28,6 +28,8 @@ import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
 import TestIcon from "../../utils/TestIcon";
 import FilesIcon from "../Icons/NewDesignIcons/FilesIcon";
 import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
+import IceCreamConeIcon from "../Icons/NewDesignIcons/IceCreamConeIcon";
+import PencilIcon from "../Icons/NewDesignIcons/PencilIcon";
 
 export default {
   title: "MDS/Forms/ExpandMenu",
@@ -65,7 +67,7 @@ Default.args = {
         onClick={() => {
           console.log("click1");
         }}
-        icon={<EditIcon />}
+        icon={<PencilLineIcon />}
       >
         Option 1
       </ExpandMenuOption>
@@ -83,7 +85,7 @@ Default.args = {
         onClick={() => {
           console.log("click3");
         }}
-        icon={<VersionsIcon />}
+        icon={<IceCreamConeIcon />}
       >
         Display Object Versions
       </ExpandMenuOption>
@@ -132,7 +134,7 @@ IconOnly.args = {
         onClick={() => {
           console.log("click1");
         }}
-        icon={<EditIcon />}
+        icon={<PencilLineIcon />}
       >
         Option 1
       </ExpandMenuOption>
@@ -150,7 +152,7 @@ IconOnly.args = {
         onClick={() => {
           console.log("click3");
         }}
-        icon={<VersionsIcon />}
+        icon={<IceCreamConeIcon />}
       >
         Display Object Versions
       </ExpandMenuOption>
@@ -200,7 +202,7 @@ DisabledOption.args = {
         onClick={() => {
           console.log("click1");
         }}
-        icon={<EditIcon />}
+        icon={<PencilLineIcon />}
       >
         Option 1
       </ExpandMenuOption>
@@ -285,7 +287,7 @@ LongOptionsList.args = {
         onClick={() => {
           console.log("click3");
         }}
-        icon={<VersionsIcon />}
+        icon={<PencilLineIcon />}
       >
         Display Object Versions
       </ExpandMenuOption>
@@ -325,7 +327,7 @@ LongOptionsList.args = {
         onClick={() => {
           console.log("click1");
         }}
-        icon={<EditIcon />}
+        icon={<PencilLineIcon />}
       >
         Option 5
       </ExpandMenuOption>
@@ -343,7 +345,7 @@ LongOptionsList.args = {
         onClick={() => {
           console.log("click3");
         }}
-        icon={<VersionsIcon />}
+        icon={<IceCreamConeIcon />}
       >
         Display Object Versions
       </ExpandMenuOption>
@@ -382,7 +384,7 @@ LongOptionsList.args = {
         onClick={() => {
           console.log("click1");
         }}
-        icon={<EditIcon />}
+        icon={<PencilIcon />}
       >
         Option 5
       </ExpandMenuOption>
@@ -400,7 +402,7 @@ LongOptionsList.args = {
         onClick={() => {
           console.log("click3");
         }}
-        icon={<VersionsIcon />}
+        icon={<IceCreamConeIcon />}
       >
         Display Object Versions
       </ExpandMenuOption>
