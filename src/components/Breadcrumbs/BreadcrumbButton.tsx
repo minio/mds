@@ -133,7 +133,7 @@ const BreadcrumbButton: FC<
       <ExpandMenu
         id={`expand-breadcrumb-${label}`}
         className={"breadcrumbElement"}
-        variant={"text"}
+        variant={"secondary-ghost"}
         dropMenuPosition={"middle"}
         sx={(theme) => ({
           display: "flex",

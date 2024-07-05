@@ -54,483 +54,895 @@ const Template: Story<ButtonProps> = (args) => (
               flexBasis: "25%",
             },
           },
+          "& .buttonBlock": {
+            display: "flex",
+            flexDirection: "column",
+            gap: 28,
+            "& .buttonSimilar": {
+              display: "flex",
+              gap: 16,
+            },
+          },
         },
       }}
     >
       <Box className={"buttonDisplay"}>
         <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={true}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={true}
-              className={"hover"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={true}
-              className={"active"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={true}
-              disabled
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                compact={true}
+                disabled
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                compact={true}
+                className={"active"}
+                disabled
+              />
+            </Box>
           </Box>
         </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button {...args} label={"Button"} compact={true} />
+        <Box className={"buttonRow"} sx={{ marginTop: 48 }}>
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-lighter"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-lighter"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-lighter"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-lighter"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-lighter"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-lighter"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              compact={true}
-              className={"hover"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-lighter"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-lighter"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-lighter"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-lighter"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-lighter"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-lighter"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              compact={true}
-              className={"active"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-lighter"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-lighter"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-lighter"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-lighter"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-lighter"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-lighter"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box></Box>
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                compact={true}
+                disabled
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                compact={true}
+                className={"active"}
+                disabled
+              />
+            </Box>
+          </Box>
         </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive"}
-              compact={true}
-            />
+        <Box className={"buttonRow"} sx={{ marginTop: 48 }}>
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-ghost"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-ghost"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-ghost"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-ghost"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-ghost"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-ghost"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive"}
-              compact={true}
-              className={"hover"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-ghost"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-ghost"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-ghost"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-ghost"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-ghost"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-ghost"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive"}
-              compact={true}
-              className={"active"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-ghost"}
+                compact={true}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-ghost"}
+                compact={true}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-ghost"}
+                compact={true}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-ghost"}
+                compact={true}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-ghost"}
+                compact={true}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-ghost"}
+                compact={true}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box></Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive-bare"}
-              compact={true}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                compact={true}
+                disabled
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                compact={true}
+                className={"active"}
+                disabled
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive-bare"}
-              compact={true}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive-bare"}
-              compact={true}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
         </Box>
       </Box>
       <Box className={"buttonDisplay"}>
         <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={false}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"primary"} />
+              <Button {...args} icon={<PlusIcon />} variant={"primary"} />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={false}
-              className={"hover"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"secondary"} />
+              <Button {...args} icon={<PlusIcon />} variant={"secondary"} />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={false}
-              className={"active"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"destructive"} />
+              <Button {...args} icon={<PlusIcon />} variant={"destructive"} />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"primary"}
-              compact={false}
-              disabled
-            />
-          </Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button {...args} label={"Button"} compact={false} />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive"}
-              compact={false}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive"}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive"}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive-bare"}
-              compact={false}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive-bare"}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              label={"Button"}
-              variant={"destructive-bare"}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
-        </Box>
-      </Box>
-      <Box className={"buttonDisplay"}>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={true}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={true}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={true}
-              className={"active"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={true}
-              disabled
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"primary"} disabled />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                className={"active"}
+                disabled
+              />
+            </Box>
           </Box>
         </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button {...args} icon={<PlusIcon />} compact={true} />
+        <Box className={"buttonRow"} sx={{ marginTop: 48 }}>
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"primary-lighter"} />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-lighter"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-lighter"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-lighter"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-lighter"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-lighter"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              compact={true}
-              className={"hover"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-lighter"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-lighter"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-lighter"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-lighter"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-lighter"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-lighter"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              compact={true}
-              className={"active"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-lighter"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-lighter"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-lighter"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-lighter"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-lighter"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-lighter"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box></Box>
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"primary"} disabled />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                className={"active"}
+                disabled
+              />
+            </Box>
+          </Box>
         </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive"}
-              compact={true}
-            />
+        <Box className={"buttonRow"} sx={{ marginTop: 48 }}>
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"primary-ghost"} />
+              <Button {...args} icon={<PlusIcon />} variant={"primary-ghost"} />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-ghost"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-ghost"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"primary-ghost"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"primary-ghost"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive"}
-              compact={true}
-              className={"hover"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"secondary-ghost"} />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-ghost"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-ghost"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-ghost"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"secondary-ghost"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"secondary-ghost"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive"}
-              compact={true}
-              className={"active"}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-ghost"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-ghost"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-ghost"}
+                className={"hover"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-ghost"}
+                className={"hover"}
+              />
+            </Box>
+            <Box className={"buttonSimilar"}>
+              <Button
+                {...args}
+                label={"Button"}
+                variant={"destructive-ghost"}
+                className={"active"}
+              />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive-ghost"}
+                className={"active"}
+              />
+            </Box>
           </Box>
-          <Box></Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive-bare"}
-              compact={true}
-            />
+          <Box className={"buttonBlock"}>
+            <Box className={"buttonSimilar"}>
+              <Button {...args} label={"Button"} variant={"primary"} disabled />
+              <Button
+                {...args}
+                icon={<PlusIcon />}
+                variant={"destructive"}
+                className={"active"}
+                disabled
+              />
+            </Box>
           </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive-bare"}
-              compact={true}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive-bare"}
-              compact={true}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
-        </Box>
-      </Box>
-      <Box className={"buttonDisplay"}>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={false}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"primary"}
-              compact={false}
-              disabled
-            />
-          </Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button {...args} icon={<PlusIcon />} compact={false} />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive"}
-              compact={false}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive"}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive"}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
-        </Box>
-        <Box className={"buttonRow"}>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive-bare"}
-              compact={false}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive-bare"}
-              compact={false}
-              className={"hover"}
-            />
-          </Box>
-          <Box>
-            <Button
-              {...args}
-              icon={<PlusIcon />}
-              variant={"destructive-bare"}
-              compact={false}
-              className={"active"}
-            />
-          </Box>
-          <Box></Box>
         </Box>
       </Box>
     </Box>
