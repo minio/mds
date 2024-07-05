@@ -998,24 +998,25 @@ export const lightTheme: ThemeDefinitionProps = {
     linkColor: lightV2.modalCloseColor,
   },
   buttonGroup: {
-    border: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
-    labelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+    border: themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+    labelColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
     activeBackground:
-      themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryBgHover"].lightMode,
     activeLabelColor:
-      themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].lightMode,
     hoverBackground:
-      themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryBgHover"].lightMode,
     hoverLabelColor:
-      themeColors["Color/Neutral/Text/colorTextSecondary"].lightMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].lightMode,
     disabledLabelColor:
       themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
     disabledBackground:
       themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
-    background: "transparent",
-    secondaryBackground: "transparent",
+    background: themeColors["Color/Neutral/Bg/colorBgContainer"].lightMode,
+    secondaryBackground:
+      themeColors["Color/Neutral/Bg/colorBgContainer"].lightMode,
     secondaryLabelColor:
-      themeColors["Color/Brand/Error/colorPrimary"].lightMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
   },
   dropdownOptions: {
     optionLabel: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
@@ -1757,21 +1758,36 @@ export const darkTheme: ThemeDefinitionProps = {
     },
   },
   buttonGroup: {
-    border: themeColors["Color/Neutral/Border/colorBorderMinimal"].darkMode,
-    labelColor: themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
+    border: themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
+    labelColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
     activeBackground:
-      themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryBgHover"].darkMode,
     activeLabelColor:
-      themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
-    hoverBackground: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].darkMode,
+    hoverBackground:
+      themeColors["Color/Brand/Neutral/colorPrimaryBgHover"].darkMode,
     hoverLabelColor:
-      themeColors["Color/Neutral/Text/colorTextSecondary"].darkMode,
+      themeColors["Color/Brand/Neutral/colorPrimaryTextHover"].darkMode,
     disabledLabelColor:
       themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
     disabledBackground:
       themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
-    background: "transparent",
-    secondaryBackground: "transparent",
-    secondaryLabelColor: themeColors["Color/Brand/Error/colorPrimary"].darkMode,
+    background: themeColors["Color/Neutral/Bg/colorBgContainer"].darkMode,
+    secondaryBackground:
+      themeColors["Color/Neutral/Bg/colorBgContainer"].darkMode,
+    secondaryLabelColor:
+      themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+  },
+  dropdownOptions: {
+    optionLabel: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+    optionBG: "transparent",
+    hoverOptionBG: themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+    activeOptionBG: themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+    dangerLabel: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+    disabledLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+  },
+  boxedIcon: {
+    iconColor: themeColors["Color/Neutral/Icon/colorIcon"].darkMode,
+    bgColor: themeColors["Color/Neutral/Bg/colorBgSections"].darkMode,
   },
 };
