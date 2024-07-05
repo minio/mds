@@ -20,8 +20,9 @@ import get from "lodash/get";
 import { ButtonGroupProps } from "./ButtonGroup.types";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
-import { themeColors, themeShadows } from "../../global/themeColors";
+import { themeColors } from "../../global/themeColors";
 import { ButtonProps } from "../Button/Button.types";
+import Loader from "../Loader/Loader";
 
 const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
   display: "inline-flex",
@@ -33,7 +34,6 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
   width: "initial",
   height: 30,
   boxSizing: "border-box" as const,
-  boxShadow: themeShadows["boxShadow-01"],
   "& > *:not(:last-child)": {
     borderRight: `1px solid   ${get(theme, "buttonGroup.border", themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode)}`,
   },
@@ -175,7 +175,16 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
   ...overridePropsParse(sx, theme),
 }));
 
-const ButtonGroup: FC<ButtonGroupProps> = ({ sx, children, ...restProps }) => {
+const ButtonGroup: FC<ButtonGroupProps> = ({
+  sx,
+  children,
+  isLoading,
+  ...restProps
+}) => {
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <ButtonGroupMain {...restProps} sx={sx}>
       {React.Children.map(children, (child) => {
