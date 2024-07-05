@@ -19,6 +19,7 @@ import get from "lodash/get";
 import styled from "styled-components";
 import { ButtonProps, ConstructProps } from "./Button.types";
 import { breakPoints, overridePropsParse } from "../../global/utils";
+import Loader from "../Loader/Loader";
 
 const CustomButton = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps
@@ -26,7 +27,7 @@ const CustomButton = styled.button<
   ({
     theme,
     fullWidth,
-    variant = "neutral",
+    variant = "secondary",
     iconLocation,
     icon,
     label,
@@ -157,7 +158,7 @@ const Button: FC<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({
   label,
-  variant = "neutral",
+  variant = "secondary",
   icon,
   iconLocation = "start",
   secondaryIcon,
@@ -169,6 +170,7 @@ const Button: FC<
   compact = false,
   className,
   inButtonGroup = false,
+  isLoading = false,
   sx,
   ...props
 }) => {
@@ -185,11 +187,15 @@ const Button: FC<
     );
   }
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <CustomButton
       onClick={onClick}
       disabled={disabled || false}
-      variant={variant || "neutral"}
+      variant={variant || "secondary"}
       iconLocation={iconLocation || "end"}
       label={label}
       fullWidth={fullWidth || false}

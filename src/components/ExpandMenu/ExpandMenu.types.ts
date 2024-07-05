@@ -16,18 +16,13 @@
 
 import React, { ReactNode } from "react";
 import { OverrideTheme } from "../../global/global.types";
+import { ButtonVariant } from "../Button/Button.types";
 
 export interface ExpandMenuProps {
   id: string;
   name?: string;
   label?: string;
-  variant?:
-    | "neutral"
-    | "primary"
-    | "descructive"
-    | "descructive-bare"
-    | "text"
-    | "subAction";
+  variant?: ButtonVariant;
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;

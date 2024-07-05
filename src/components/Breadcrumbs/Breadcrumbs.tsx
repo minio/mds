@@ -134,7 +134,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
         id={"breadcrumbs-expand"}
         className={"breadcrumbElement"}
         icon={<EllipsisIcon />}
-        variant={"text"}
+        variant={"secondary-ghost"}
         sx={{
           height: 20,
           padding: "2px 4px",

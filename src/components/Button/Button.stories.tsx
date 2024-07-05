@@ -41,14 +41,14 @@ export const Default = Template.bind({});
 Default.args = {
   disabled: false,
   label: "Test Button",
-  variant: "neutral",
+  variant: "secondary",
 };
 
 export const Compact = Template.bind({});
 Compact.args = {
   disabled: false,
   label: "Test Button",
-  variant: "neutral",
+  variant: "secondary",
   compact: true,
 };
 
@@ -76,7 +76,7 @@ export const Text = Template.bind({});
 Text.args = {
   disabled: false,
   label: "Text Button",
-  variant: "text",
+  variant: "secondary-ghost",
 };
 
 export const SubAction = Template.bind({});
@@ -90,7 +90,7 @@ export const DefaultIcon = Template.bind({});
 DefaultIcon.args = {
   disabled: false,
   label: "Test Button",
-  variant: "neutral",
+  variant: "secondary",
   icon: <TestIcon />,
 };
 
@@ -114,7 +114,7 @@ export const FullWidth = Template.bind({});
 FullWidth.args = {
   disabled: false,
   label: "Test Button",
-  variant: "neutral",
+  variant: "secondary",
   fullWidth: true,
   icon: <TestIcon />,
 };
@@ -122,14 +122,14 @@ FullWidth.args = {
 export const IconOnly = Template.bind({});
 IconOnly.args = {
   disabled: false,
-  variant: "neutral",
+  variant: "secondary",
   icon: <TestIcon />,
 };
 
 export const IconOnlyCompact = Template.bind({});
 IconOnlyCompact.args = {
   disabled: false,
-  variant: "neutral",
+  variant: "secondary",
   icon: <TestIcon />,
   compact: true,
 };

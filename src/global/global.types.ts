@@ -443,12 +443,15 @@ export interface ThemeDefinitionProps {
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
-    neutral?: ButtonThemeStatesProps;
     primary?: ButtonThemeStatesProps;
+    secondary?: ButtonThemeStatesProps;
     destructive?: ButtonThemeStatesProps;
-    "destructive-bare"?: ButtonThemeStatesProps;
-    text?: ButtonThemeStatesProps;
-    subAction?: ButtonThemeStatesProps;
+    "primary-lighter"?: ButtonThemeStatesProps;
+    "secondary-lighter"?: ButtonThemeStatesProps;
+    "destructive-lighter"?: ButtonThemeStatesProps;
+    "primary-ghost"?: ButtonThemeStatesProps;
+    "secondary-ghost"?: ButtonThemeStatesProps;
+    "destructive-ghost"?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;

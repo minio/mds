@@ -34,7 +34,7 @@ const Template: Story<FormActionsTrayProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <FormActionsTray {...args}>
-      <Button id={"test"} variant={"neutral"}>
+      <Button id={"test"} variant={"secondary"}>
         Cancel
       </Button>
       <Button id={"test"} variant={"primary"}>
