@@ -19,105 +19,109 @@ import styled from "styled-components";
 import get from "lodash/get";
 import { TagConstructProps, TagProps } from "./Tag.types";
 import { lightColors, lightV2 } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
+import {
+  overridePropsParse,
+  paddingSizeVariants,
+  radioVariants,
+} from "../../global/utils";
 import XIcon from "../Icons/NewDesignIcons/XIcon";
+import { themeColors } from "../../global/themeColors";
 
-const TagBase = styled.span<TagConstructProps>(
-  ({ theme, color, variant, square, sx }) => {
-    return {
-      position: "relative",
-      margin: 0,
-      userSelect: "none",
-      appearance: "none",
-      maxWidth: "100%",
-      fontFamily: "'Geist', sans-serif",
-      fontSize: 13,
-      display: "inline-flex",
+const TagBase = styled.span<TagConstructProps>(({ theme, color, size, sx }) => {
+  return {
+    position: "relative",
+    margin: 0,
+    userSelect: "none",
+    appearance: "none",
+    maxWidth: "100%",
+    fontFamily: "'Geist', sans-serif",
+    fontSize: 12,
+    fontWeight: 600,
+    lineHeight: "16px",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: size === "small" ? 16 : 24,
+    color: get(
+      theme,
+      `tag.${color}.label`,
+      themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+    ),
+    background: get(
+      theme,
+      `tag.${color}.background`,
+      themeColors["Color/Brand/Primary/colorPrimaryBg"].lightMode,
+    ),
+    boxShadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
+    borderRadius:
+      size === "large"
+        ? radioVariants.borderRadiusSM
+        : radioVariants.borderRadiusXS,
+    whiteSpace: "nowrap",
+    cursor: "default",
+    outline: 0,
+    textDecoration: "none",
+    padding:
+      size === "small"
+        ? `0 ${paddingSizeVariants.sizeXXS}px`
+        : `${paddingSizeVariants.sizeXXS}px ${paddingSizeVariants.sizeXS}px`,
+    verticalAlign: "middle",
+    gap: paddingSizeVariants.sizeXXS,
+    "& svg": {
+      width: 12,
+      height: 12,
+      fill: get(
+        theme,
+        `tag.${color}.label`,
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      ),
+    },
+    "& .deleteTagButton": {
+      backgroundColor: "transparent",
+      border: 0,
+      display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      height: 24,
-      color:
-        variant === "regular"
-          ? get(theme, `tag.${color}.label`, lightV2.white)
-          : get(theme, `tag.${color}.outlineColor`, lightV2.switchBG),
-      background:
-        variant === "regular"
-          ? get(theme, `tag.${color}.background`, lightColors.mainBlue)
-          : "transparent",
-      boxShadow: "0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset",
-      borderRadius: square ? 3 : 16,
-      whiteSpace: "nowrap",
-      cursor: "default",
-      outline: 0,
-      textDecoration: "none",
-      border:
-        variant === "regular"
-          ? 0
-          : `${get(
-              theme,
-              `tag.${color}.outlineColor`,
-              lightColors.mainBlue,
-            )} 1px solid`,
-      padding: "0 10px",
-      verticalAlign: "middle",
-      gap: 8,
+      padding: 0,
+      cursor: "pointer",
+      opacity: 0.6,
+      "&:hover": {
+        opacity: 1,
+      },
       "& svg": {
-        width: 12,
-        height: 12,
-        fill:
-          variant === "regular"
-            ? get(theme, `tag.${color}.label`, lightColors.white)
-            : get(theme, `tag.${color}.outlineColor`, lightV2.switchBG),
+        color: get(
+          theme,
+          `tag.${color}.deleteColor`,
+          themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+        ),
+        fill: get(
+          theme,
+          `tag.${color}.deleteColor`,
+          themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+        ),
+        width: size === "small" ? 14 : 16,
+        height: size === "small" ? 14 : 16,
+        minWidth: size === "small" ? 14 : 16,
+        minHeight: size === "small" ? 14 : 16,
       },
-      "& .deleteTagButton": {
-        backgroundColor: "transparent",
-        border: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 0,
-        cursor: "pointer",
-        opacity: 0.6,
-        "&:hover": {
-          opacity: 1,
-        },
-        "& svg": {
-          fill:
-            variant === "regular"
-              ? get(theme, `tag.${color}.deleteColor`, lightColors.white)
-              : get(theme, `tag.${color}.background`, lightColors.mainBlue),
-          width: 10,
-          height: 10,
-          minWidth: 10,
-          minHeight: 10,
-        },
-      },
-      ...overridePropsParse(sx, theme),
-    };
-  },
-);
+    },
+    ...overridePropsParse(sx, theme),
+  };
+});
 
 const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
   children,
-  color = "default",
+  color = "primary",
   sx,
   onDelete,
   id,
   label,
-  variant = "regular",
+  size = "large",
   icon,
-  square = false,
   ...props
 }) => {
   return (
-    <TagBase
-      id={id}
-      color={color}
-      sx={sx}
-      variant={variant}
-      square={square}
-      {...props}
-    >
+    <TagBase id={id} color={color} sx={sx} size={size} {...props}>
       {icon}
       <span>
         {label}

@@ -866,41 +866,22 @@ export const lightTheme: ThemeDefinitionProps = {
     codeEditorRegexp: lightColors.codeEditorRegexp,
   },
   tag: {
-    alert: {
-      background: "linear-gradient(180deg, #FF4E42 0%, #ED2315 100%)",
-      label: lightV2.white,
-      deleteColor: lightV2.white,
-      outlineColor: lightV2.danger,
-    },
-    default: {
-      background: "linear-gradient(180deg, #4182F0 0%, #2B64E5 100%)",
-      label: lightV2.white,
-      deleteColor: lightV2.white,
-      outlineColor: lightV2.switchBG,
+    primary: {
+      background: themeColors["Color/Brand/Primary/colorPrimaryBg"].lightMode,
+      label: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      deleteColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
     },
     secondary: {
-      background: "linear-gradient(180deg, #4B5563 0%, #1D2125 100%)",
-      label: lightV2.white,
-      deleteColor: lightV2.white,
-      outlineColor: lightV2.fontColor,
+      background: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      label: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+      deleteColor:
+        themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
     },
-    warn: {
-      background: "linear-gradient(180deg, #fccb62 0%, #FDBC2E 100%)",
-      label: lightV2.fontColor,
-      deleteColor: lightV2.fontColor,
-      outlineColor: lightV2.orange,
-    },
-    ok: {
-      background: "linear-gradient(180deg, #48d6d6 0%, #15CBCE 100%)",
-      label: lightV2.fontColor,
-      deleteColor: lightV2.fontColor,
-      outlineColor: lightV2.green,
-    },
-    grey: {
-      background: lightV2.modalBorderColor,
-      label: lightV2.modalTitleColor,
-      deleteColor: lightV2.modalTitleColor,
-      outlineColor: lightV2.modalTitleColor,
+    destructive: {
+      background: themeColors["Color/Brand/Error/colorPrimaryBg"].lightMode,
+      label: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+      deleteColor: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
     },
   },
   snackbar: {

@@ -295,18 +295,14 @@ export interface CodeEditorThemeProps {
 
 export interface TagVariantProps {
   background: string;
-  outlineColor?: string;
   label: string;
   deleteColor: string;
 }
 
 export interface TagThemeProps {
-  default: TagVariantProps;
+  primary: TagVariantProps;
   secondary: TagVariantProps;
-  warn: TagVariantProps;
-  alert: TagVariantProps;
-  ok: TagVariantProps;
-  grey: TagVariantProps;
+  destructive: TagVariantProps;
 }
 
 interface SnackBarColorElements {
