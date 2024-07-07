@@ -40,16 +40,9 @@ const Template: Story<TagProps> = ({
   return (
     <StoryThemeProvider>
       <GlobalStyles />
-      <Tag label={label} color={color} id={id} sx={sx} square={square} />
+      <Tag label={label} color={color} id={id} sx={sx} />
       &nbsp;
-      <Tag
-        label={label}
-        color={color}
-        id={id}
-        onDelete={onDelete}
-        sx={sx}
-        square={square}
-      >
+      <Tag label={label} color={color} id={id} onDelete={onDelete} sx={sx}>
         {" "}
         with on Delete
       </Tag>
@@ -60,44 +53,23 @@ const Template: Story<TagProps> = ({
         id={id}
         onDelete={onDelete}
         sx={sx}
-        variant={"outlined"}
-        square={square}
+        size={"small"}
       >
         {" "}
-        Outlined
+        Small Tag
       </Tag>
       &nbsp;
-      <Tag
-        label={label}
-        color={color}
-        id={id}
-        sx={sx}
-        icon={<PlusIcon />}
-        square={square}
-      >
+      <Tag label={label} color={color} id={id} sx={sx} icon={<PlusIcon />}>
         {" "}
         With an Icon
-      </Tag>
-      &nbsp;
-      <Tag
-        label={label}
-        color={color}
-        id={id}
-        sx={sx}
-        variant={"outlined"}
-        icon={<PlusIcon />}
-        square={square}
-      >
-        {" "}
-        Outlined With an Icon
       </Tag>
       &nbsp;
     </StoryThemeProvider>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = {
   label: "A Tag",
   id: "tag-test",
   onDelete: () => {
@@ -115,55 +87,14 @@ Secondary.args = {
   },
 };
 
-export const Alert = Template.bind({});
-Alert.args = {
+export const Destructive = Template.bind({});
+Destructive.args = {
   label: "A Tag",
   id: "tag-test",
-  color: "alert",
+  color: "destructive",
   onDelete: () => {
     alert("Clicked Delete Button!");
   },
-};
-
-export const Warn = Template.bind({});
-Warn.args = {
-  label: "A Tag",
-  id: "tag-test",
-  color: "warn",
-  onDelete: () => {
-    alert("Clicked Delete Button!");
-  },
-};
-
-export const Grey = Template.bind({});
-Grey.args = {
-  label: "A Tag",
-  id: "tag-test",
-  color: "grey",
-  onDelete: () => {
-    alert("Clicked Delete Button!");
-  },
-};
-
-export const Ok = Template.bind({});
-Ok.args = {
-  label: "A Tag",
-  id: "tag-test",
-  color: "ok",
-  onDelete: () => {
-    alert("Clicked Delete Button!");
-  },
-};
-
-export const Square = Template.bind({});
-Square.args = {
-  label: "A Tag",
-  id: "tag-test",
-  color: "default",
-  onDelete: () => {
-    alert("Clicked Delete Button!");
-  },
-  square: true,
 };
 
 export const CustomStyles = Template.bind({});
