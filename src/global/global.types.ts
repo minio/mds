@@ -330,18 +330,17 @@ export interface InformativeMessageThemeProps {
   error: InformativeColorElements;
 }
 
-export interface BadgeColorElements {
+export interface NotificationCountElements {
   backgroundColor: string;
   textColor: string;
 }
 
-export interface BadgeStyleProps {
-  alert: BadgeColorElements;
-  default: BadgeColorElements;
-  secondary: BadgeColorElements;
-  warn: BadgeColorElements;
-  ok: BadgeColorElements;
-  grey: BadgeColorElements;
+export interface NotificationCountStyleProps {
+  none: NotificationCountElements;
+  info: NotificationCountElements;
+  success: NotificationCountElements;
+  warning: NotificationCountElements;
+  danger: NotificationCountElements;
 }
 
 export interface WizardStepColorProps {
@@ -471,7 +470,7 @@ export interface ThemeDefinitionProps {
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageThemeProps;
-  badge?: BadgeStyleProps;
+  notificationCount?: NotificationCountStyleProps;
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;

@@ -16,20 +16,28 @@
 
 import { OverrideTheme } from "../../global/global.types";
 
-export interface BadgeMain {
+export type NotificationBadgeTypes =
+  | "none"
+  | "info"
+  | "success"
+  | "warning"
+  | "danger";
+
+export interface NotificationCountMain {
   invisible?: boolean;
   max?: number;
   showZero?: boolean;
-  badgeContent?: number;
+  count?: number;
 }
 
-export interface BadgeConstruct {
+export interface NotificationCountConstruct {
   horizontalPosition?: "left" | "right";
   verticalPosition?: "bottom" | "top";
   sx?: OverrideTheme;
-  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
+  color?: NotificationBadgeTypes;
   shape?: "circular" | "rectangular";
   dotOnly?: boolean;
 }
 
-export type BadgeProps = BadgeMain & BadgeConstruct;
+export type NotificationCountProps = NotificationCountMain &
+  NotificationCountConstruct;

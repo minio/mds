@@ -14,7 +14,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { ThemeDefinitionProps } from "./global.types";
+import {
+  NotificationCountElements,
+  ThemeDefinitionProps,
+} from "./global.types";
 import { themeColors, themeShadows } from "./themeColors";
 import { getThemeColors, paddingSizeVariants, radioVariants } from "./utils";
 
@@ -924,30 +927,31 @@ export const lightTheme: ThemeDefinitionProps = {
       textColor: lightV2.fontColor,
     },
   },
-  badge: {
-    alert: {
-      backgroundColor: lightColors.mainRed,
-      textColor: lightColors.white,
+  notificationCount: {
+    none: {
+      backgroundColor:
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      textColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
     },
-    default: {
-      backgroundColor: lightColors.mainBlue,
-      textColor: lightColors.white,
+    info: {
+      backgroundColor:
+        themeColors["Color/Brand/Primary/colorPrimaryBg"].lightMode,
+      textColor: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
     },
-    secondary: {
-      backgroundColor: lightColors.secondAction,
-      textColor: lightColors.white,
+    success: {
+      backgroundColor:
+        themeColors["Color/Brand/Success/colorPrimaryBg"].lightMode,
+      textColor: themeColors["Color/Brand/Success/colorPrimaryText"].lightMode,
     },
-    warn: {
-      backgroundColor: lightColors.mainOrange,
-      textColor: lightColors.defaultFontColor,
+    warning: {
+      backgroundColor:
+        themeColors["Color/Brand/Warning/colorPrimaryBg"].lightMode,
+      textColor: themeColors["Color/Brand/Warning/colorPrimaryText"].lightMode,
     },
-    ok: {
-      backgroundColor: lightColors.mainGreen,
-      textColor: lightColors.defaultFontColor,
-    },
-    grey: {
-      backgroundColor: lightColors.actionDisabledGrey,
-      textColor: lightColors.defaultFontColor,
+    danger: {
+      backgroundColor:
+        themeColors["Color/Brand/Error/colorPrimaryBg"].lightMode,
+      textColor: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
     },
   },
   wizard: {
@@ -1659,30 +1663,30 @@ export const darkTheme: ThemeDefinitionProps = {
       textColor: darkColors.dark,
     },
   },
-  badge: {
-    alert: {
-      backgroundColor: darkColors.mainRed,
-      textColor: darkColors.mainWhite,
+  notificationCount: {
+    none: {
+      backgroundColor:
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      textColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
     },
-    default: {
-      backgroundColor: darkColors.mainGrey,
-      textColor: darkColors.dark,
+    info: {
+      backgroundColor:
+        themeColors["Color/Brand/Primary/colorPrimaryBg"].darkMode,
+      textColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
     },
-    secondary: {
-      backgroundColor: darkColors.secondAction,
-      textColor: darkColors.mainWhite,
+    success: {
+      backgroundColor:
+        themeColors["Color/Brand/Success/colorPrimaryBg"].darkMode,
+      textColor: themeColors["Color/Brand/Success/colorPrimaryText"].darkMode,
     },
-    warn: {
-      backgroundColor: darkColors.mainOrange,
-      textColor: darkColors.dark,
+    warning: {
+      backgroundColor:
+        themeColors["Color/Brand/Warning/colorPrimaryBg"].darkMode,
+      textColor: themeColors["Color/Brand/Warning/colorPrimaryText"].darkMode,
     },
-    ok: {
-      backgroundColor: darkColors.mainGreen,
-      textColor: darkColors.dark,
-    },
-    grey: {
-      backgroundColor: darkColors.disabledBGGrey,
-      textColor: darkColors.mainWhite,
+    danger: {
+      backgroundColor: themeColors["Color/Brand/Error/colorPrimaryBg"].darkMode,
+      textColor: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
     },
   },
   wizard: {
