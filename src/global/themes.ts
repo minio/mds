@@ -1603,35 +1603,20 @@ export const darkTheme: ThemeDefinitionProps = {
     codeEditorRegexp: darkColors.codeEditorRegexp,
   },
   tag: {
-    alert: {
-      background: darkColors.mainRed,
-      label: darkColors.mainWhite,
-      deleteColor: darkColors.mainWhite,
-    },
-    default: {
-      background: darkColors.mainGrey,
-      label: darkColors.dark,
-      deleteColor: darkColors.dark,
+    primary: {
+      background: themeColors["Color/Brand/Primary/colorPrimaryBg"].darkMode,
+      label: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      deleteColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
     },
     secondary: {
-      background: darkColors.secondAction,
-      label: darkColors.mainWhite,
-      deleteColor: darkColors.mainWhite,
+      background: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      label: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+      deleteColor: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
     },
-    warn: {
-      background: darkColors.mainOrange,
-      label: darkColors.dark,
-      deleteColor: darkColors.dark,
-    },
-    ok: {
-      background: darkColors.mainGreen,
-      label: darkColors.dark,
-      deleteColor: darkColors.dark,
-    },
-    grey: {
-      background: darkColors.disabledBGGrey,
-      label: darkColors.mainWhite,
-      deleteColor: darkColors.mainWhite,
+    destructive: {
+      background: themeColors["Color/Brand/Error/colorPrimaryBg"].darkMode,
+      label: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+      deleteColor: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
     },
   },
   snackbar: {
