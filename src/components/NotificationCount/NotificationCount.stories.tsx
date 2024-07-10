@@ -17,62 +17,62 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Badge from "./Badge";
-import { BadgeProps } from "./Badge.types";
+import NotificationCount from "./NotificationCount";
+import { NotificationCountProps } from "./NotificationCount.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 
 export default {
-  title: "MDS/Information/Badge",
-  component: Badge,
+  title: "MDS/Information/NotificationCount",
+  component: NotificationCount,
   argTypes: {},
-} as Meta<typeof Badge>;
+} as Meta<typeof NotificationCount>;
 
-const Template: Story<BadgeProps> = (args) => (
+const Template: Story<NotificationCountProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <Badge {...args} onClick={() => alert("You clicked me!")}>
+    <NotificationCount {...args} onClick={() => alert("You clicked me!")}>
       <DownloadIcon />
-    </Badge>
+    </NotificationCount>
   </StoryThemeProvider>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  badgeContent: 5,
+export const None = Template.bind({});
+None.args = {
+  count: 5,
+};
+
+export const WithMaxValue = Template.bind({});
+WithMaxValue.args = {
+  count: 10,
+  max: 9,
 };
 
 export const DotOnly = Template.bind({});
 DotOnly.args = {
-  badgeContent: 5,
+  count: 5,
   dotOnly: true,
 };
 
-export const Warn = Template.bind({});
-Warn.args = { badgeContent: 5, color: "warn" };
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  badgeContent: 5,
-  color: "secondary",
+export const Info = Template.bind({});
+Info.args = {
+  count: 5,
+  color: "info",
 };
 
-export const Alert = Template.bind({});
-Alert.args = {
-  badgeContent: 5,
-  color: "alert",
+export const Success = Template.bind({});
+Success.args = {
+  count: 5,
+  color: "success",
 };
 
-export const Ok = Template.bind({});
-Ok.args = {
-  badgeContent: 5,
-  color: "ok",
-};
+export const Warning = Template.bind({});
+Warning.args = { count: 5, color: "warning" };
 
-export const Grey = Template.bind({});
-Grey.args = {
-  badgeContent: 5,
-  color: "grey",
+export const Danger = Template.bind({});
+Danger.args = {
+  count: 5,
+  color: "danger",
 };

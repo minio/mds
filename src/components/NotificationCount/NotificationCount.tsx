@@ -16,13 +16,17 @@
 
 import React, { FC, Fragment, HTMLAttributes } from "react";
 import styled from "styled-components";
-import { BadgeConstruct, BadgeProps } from "./Badge.types";
+import {
+  NotificationCountConstruct,
+  NotificationCountProps,
+} from "./NotificationCount.types";
 import { lightColors } from "../../global/themes";
 import get from "lodash/get";
 import { overridePropsParse } from "../../global/utils";
+import { themeColors } from "../../global/themeColors";
 
-const BadgeParent = styled.span<
-  HTMLAttributes<HTMLDivElement> & BadgeConstruct
+const NotificationCountParent = styled.span<
+  HTMLAttributes<HTMLDivElement> & NotificationCountConstruct
 >(
   ({
     theme,
@@ -38,29 +42,34 @@ const BadgeParent = styled.span<
     return {
       position: "relative",
       display: "inline-flex",
-      "& .badgeContent": {
-        fontSize: 10,
+      "& .counterContent": {
+        boxSizing: "border-box",
+        fontSize: 12,
         userSelect: "none",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         position: "absolute",
-        padding: dotOnly ? 0 : "0 6px",
+        padding: dotOnly ? 0 : "0 2px",
         borderRadius: shape === "circular" ? circularRadius : 3,
         right: horizontalPosition === "right" ? 0 : "initial",
         top: verticalPosition === "top" ? 0 : "initial",
         left: horizontalPosition === "left" ? 0 : "initial",
         bottom: verticalPosition === "bottom" ? 0 : "initial",
-        minWidth: !dotOnly ? 20 : 10,
+        minWidth: !dotOnly ? 16 : 10,
         width: dotOnly ? 10 : "initial",
-        height: !dotOnly ? 20 : 10,
+        height: !dotOnly ? 16 : 10,
         backgroundColor: get(
           theme,
-          `badge.${color}.backgroundColor`,
-          lightColors.mainBlue,
+          `notificationCount.${color}.backgroundColor`,
+          themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
         ),
-        color: get(theme, `badge.${color}.textColor`, lightColors.white),
-        fontWeight: "bold",
+        color: get(
+          theme,
+          `notificationCount.${color}.textColor`,
+          themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+        ),
+        fontWeight: "600",
         textAlign: "center",
         zIndex: 1,
         transform: `scale(1) translate(${
@@ -72,22 +81,24 @@ const BadgeParent = styled.span<
   },
 );
 
-const Badge: FC<HTMLAttributes<HTMLSpanElement> & BadgeProps> = ({
+const NotificationCount: FC<
+  HTMLAttributes<HTMLSpanElement> & NotificationCountProps
+> = ({
   sx,
   children,
   horizontalPosition = "right" as "right" | "left",
   verticalPosition = "bottom" as "top" | "bottom",
-  color = "default",
+  color = "none",
   shape = "circular",
   dotOnly = false,
   invisible = false,
   max = 99,
   showZero = false,
-  badgeContent = 0,
+  count = 0,
   ...props
 }) => {
   return (
-    <BadgeParent
+    <NotificationCountParent
       horizontalPosition={horizontalPosition}
       verticalPosition={verticalPosition}
       color={color}
@@ -97,19 +108,16 @@ const Badge: FC<HTMLAttributes<HTMLSpanElement> & BadgeProps> = ({
       {...props}
     >
       {children}
-      {!invisible &&
-        (badgeContent >= 0 || (showZero && badgeContent === 0)) && (
-          <div className={"badgeContent"}>
-            {!dotOnly ? (
-              <Fragment>
-                {badgeContent > max ? `${max}+` : badgeContent}
-              </Fragment>
-            ) : (
-              ""
-            )}
-          </div>
-        )}
-    </BadgeParent>
+      {!invisible && (count >= 0 || (showZero && count === 0)) && (
+        <div className={"counterContent"}>
+          {!dotOnly ? (
+            <Fragment>{count > max ? `${max}+` : count}</Fragment>
+          ) : (
+            ""
+          )}
+        </div>
+      )}
+    </NotificationCountParent>
   );
 };
-export default Badge;
+export default NotificationCount;
