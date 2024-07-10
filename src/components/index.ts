@@ -87,6 +87,7 @@ export { default as ExpandMenuOption } from "./ExpandMenu/ExpandMenuOption";
 export { default as BoxedIcon } from "./BoxedIcon/BoxedIcon";
 export { default as Pill } from "./Pill/Pill";
 export { default as SearchBox } from "./SearchBox/SearchBox";
+export { default as Badge } from "./Badge/Badge";
 
 /*Icons*/
 export * from "./Icons/NewDesignIcons";
@@ -151,3 +152,4 @@ export * from "./ExpandMenu/ExpandMenu.types";
 export * from "./BoxedIcon/BoxedIcon.types";
 export * from "./Pill/Pill.types";
 export * from "./SearchBox/SearchBox.types";
+export * from "./Badge/Badge.types";
