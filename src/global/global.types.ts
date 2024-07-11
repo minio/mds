@@ -417,6 +417,26 @@ export interface PillThemeProps {
   default: PillElementThemeProps;
 }
 
+export interface BadgeElementThemeProps {
+  minimalColor: string;
+  subtleBG: string;
+  subtleLabel: string;
+  boldBG: string;
+  boldLabel: string;
+}
+
+export interface BadgeThemeProps {
+  none: BadgeElementThemeProps;
+  info: BadgeElementThemeProps;
+  success: BadgeElementThemeProps;
+  warning: BadgeElementThemeProps;
+  danger: BadgeElementThemeProps;
+  purple: BadgeElementThemeProps;
+  rose: BadgeElementThemeProps;
+  scooter: BadgeElementThemeProps;
+  disabled: BadgeElementThemeProps;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -478,6 +498,7 @@ export interface ThemeDefinitionProps {
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
+  badge?: BadgeThemeProps;
 }
 
 export interface SelectOption {

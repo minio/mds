@@ -14,10 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import {
-  NotificationCountElements,
-  ThemeDefinitionProps,
-} from "./global.types";
+import { ThemeDefinitionProps } from "./global.types";
 import { themeColors, themeShadows } from "./themeColors";
 import { getThemeColors, paddingSizeVariants, radioVariants } from "./utils";
 
@@ -1033,6 +1030,85 @@ export const lightTheme: ThemeDefinitionProps = {
       borderColor: themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
     },
   },
+  badge: {
+    none: {
+      minimalColor:
+        themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+      subtleBG: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      boldLabel: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+    },
+    info: {
+      minimalColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      subtleBG: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Brand/Primary/colorPrimaryBg"].lightMode,
+      boldLabel: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+    },
+    success: {
+      minimalColor:
+        themeColors["Color/Brand/Success/colorPrimaryText"].lightMode,
+      subtleBG: themeColors["Color/Brand/Success/colorPrimaryText"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Brand/Success/colorPrimaryBg"].lightMode,
+      boldLabel: themeColors["Color/Brand/Success/colorPrimaryText"].lightMode,
+    },
+    warning: {
+      minimalColor:
+        themeColors["Color/Brand/Warning/colorPrimaryText"].lightMode,
+      subtleBG: themeColors["Color/Brand/Warning/colorPrimaryText"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Brand/Warning/colorPrimaryBg"].lightMode,
+      boldLabel: themeColors["Color/Brand/Warning/colorPrimaryText"].lightMode,
+    },
+    danger: {
+      minimalColor: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+      subtleBG: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Brand/Error/colorPrimaryBg"].lightMode,
+      boldLabel: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+    },
+    purple: {
+      minimalColor: themeColors["Color/Base/Purple/6"].lightMode,
+      subtleBG: themeColors["Color/Base/Purple/6"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Base/Purple/1"].lightMode,
+      boldLabel: themeColors["Color/Base/Purple/6"].lightMode,
+    },
+    rose: {
+      minimalColor: themeColors["Color/Base/Rose/6"].lightMode,
+      subtleBG: themeColors["Color/Base/Rose/6"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Base/Rose/1"].lightMode,
+      boldLabel: themeColors["Color/Base/Rose/6"].lightMode,
+    },
+    scooter: {
+      minimalColor: themeColors["Color/Base/Scooter/6"].lightMode,
+      subtleBG: themeColors["Color/Base/Scooter/6"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+      boldBG: themeColors["Color/Base/Scooter/1"].lightMode,
+      boldLabel: themeColors["Color/Base/Scooter/6"].lightMode,
+    },
+    disabled: {
+      minimalColor:
+        themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+      subtleBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+      boldBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+      boldLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -1759,5 +1835,83 @@ export const darkTheme: ThemeDefinitionProps = {
   boxedIcon: {
     iconColor: themeColors["Color/Neutral/Icon/colorIcon"].darkMode,
     bgColor: themeColors["Color/Neutral/Bg/colorBgSections"].darkMode,
+  },
+  badge: {
+    none: {
+      minimalColor:
+        themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+      subtleBG: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      boldLabel: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+    },
+    info: {
+      minimalColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      subtleBG: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Brand/Primary/colorPrimaryBg"].darkMode,
+      boldLabel: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+    },
+    success: {
+      minimalColor:
+        themeColors["Color/Brand/Success/colorPrimaryText"].darkMode,
+      subtleBG: themeColors["Color/Brand/Success/colorPrimaryText"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Brand/Success/colorPrimaryBg"].darkMode,
+      boldLabel: themeColors["Color/Brand/Success/colorPrimaryText"].darkMode,
+    },
+    warning: {
+      minimalColor:
+        themeColors["Color/Brand/Warning/colorPrimaryText"].darkMode,
+      subtleBG: themeColors["Color/Brand/Warning/colorPrimaryText"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Brand/Warning/colorPrimaryBg"].darkMode,
+      boldLabel: themeColors["Color/Brand/Warning/colorPrimaryText"].darkMode,
+    },
+    danger: {
+      minimalColor: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+      subtleBG: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Brand/Error/colorPrimaryBg"].darkMode,
+      boldLabel: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+    },
+    purple: {
+      minimalColor: themeColors["Color/Base/Purple/6"].darkMode,
+      subtleBG: themeColors["Color/Base/Purple/6"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Base/Purple/1"].darkMode,
+      boldLabel: themeColors["Color/Base/Purple/6"].darkMode,
+    },
+    rose: {
+      minimalColor: themeColors["Color/Base/Rose/6"].darkMode,
+      subtleBG: themeColors["Color/Base/Rose/6"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Base/Rose/1"].darkMode,
+      boldLabel: themeColors["Color/Base/Rose/6"].darkMode,
+    },
+    scooter: {
+      minimalColor: themeColors["Color/Base/Scooter/6"].darkMode,
+      subtleBG: themeColors["Color/Base/Scooter/6"].darkMode,
+      subtleLabel:
+        themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+      boldBG: themeColors["Color/Base/Scooter/1"].darkMode,
+      boldLabel: themeColors["Color/Base/Scooter/6"].darkMode,
+    },
+    disabled: {
+      minimalColor:
+        themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+      subtleBG: themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+      subtleLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+      boldBG: themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+      boldLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+    },
   },
 };
