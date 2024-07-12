@@ -35,7 +35,24 @@ import TriangleAlertIcon from "../Icons/NewDesignIcons/TriangleAlertIcon";
 import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
-  ({ theme, startIcon, overlayIcon, overlayObject, originType, sizeMode }) => {
+  ({
+    theme,
+    startIcon,
+    overlayIcon,
+    overlayObject,
+    originType,
+    sizeMode,
+    state,
+  }) => {
+    let paddingRight = 8;
+    const overlayAction =
+      overlayIcon || overlayObject || originType === "password";
+    const overlayState = state !== "normal";
+
+    if (overlayAction || overlayState) {
+      paddingRight = overlayAction && overlayState ? 60 : 30;
+    }
+
     return {
       lineHeight: "20px",
       height: sizeMode === "small" ? 30 : 38,
@@ -43,8 +60,7 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       width: "100%",
       paddingTop: sizeMode === "small" ? 4 : 8,
       paddingBottom: sizeMode === "small" ? 4 : 8,
-      paddingRight:
-        !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 8,
+      paddingRight: paddingRight,
       paddingLeft: !!startIcon ? 35 : 8,
       color: theme.colors["Color/Neutral/Text/colorTextHeading"] + "!important",
       fontSize: 14,
