@@ -251,17 +251,13 @@ export interface CodeEditorThemeProps {
 }
 export interface TagVariantProps {
   background: string;
-  outlineColor?: string;
   label: string;
   deleteColor: string;
 }
 export interface TagThemeProps {
-  default: TagVariantProps;
+  primary: TagVariantProps;
   secondary: TagVariantProps;
-  warn: TagVariantProps;
-  alert: TagVariantProps;
-  ok: TagVariantProps;
-  grey: TagVariantProps;
+  destructive: TagVariantProps;
 }
 interface SnackBarColorElements {
   backgroundColor: string;
@@ -284,17 +280,16 @@ export interface InformativeMessageThemeProps {
   warning: InformativeColorElements;
   error: InformativeColorElements;
 }
-export interface BadgeColorElements {
+export interface NotificationCountElements {
   backgroundColor: string;
   textColor: string;
 }
-export interface BadgeStyleProps {
-  alert: BadgeColorElements;
-  default: BadgeColorElements;
-  secondary: BadgeColorElements;
-  warn: BadgeColorElements;
-  ok: BadgeColorElements;
-  grey: BadgeColorElements;
+export interface NotificationCountStyleProps {
+  none: NotificationCountElements;
+  info: NotificationCountElements;
+  success: NotificationCountElements;
+  warning: NotificationCountElements;
+  danger: NotificationCountElements;
 }
 export interface WizardStepColorProps {
   stepLabelColor: string;
@@ -360,6 +355,24 @@ export interface PillThemeProps {
   secondary: PillElementThemeProps;
   default: PillElementThemeProps;
 }
+export interface BadgeElementThemeProps {
+  minimalColor: string;
+  subtleBG: string;
+  subtleLabel: string;
+  boldBG: string;
+  boldLabel: string;
+}
+export interface BadgeThemeProps {
+  none: BadgeElementThemeProps;
+  info: BadgeElementThemeProps;
+  success: BadgeElementThemeProps;
+  warning: BadgeElementThemeProps;
+  danger: BadgeElementThemeProps;
+  purple: BadgeElementThemeProps;
+  rose: BadgeElementThemeProps;
+  scooter: BadgeElementThemeProps;
+  disabled: BadgeElementThemeProps;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -389,12 +402,15 @@ export interface ThemeDefinitionProps {
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
-    neutral?: ButtonThemeStatesProps;
     primary?: ButtonThemeStatesProps;
+    secondary?: ButtonThemeStatesProps;
     destructive?: ButtonThemeStatesProps;
-    "destructive-bare"?: ButtonThemeStatesProps;
-    text?: ButtonThemeStatesProps;
-    subAction?: ButtonThemeStatesProps;
+    "primary-lighter"?: ButtonThemeStatesProps;
+    "secondary-lighter"?: ButtonThemeStatesProps;
+    "destructive-lighter"?: ButtonThemeStatesProps;
+    "primary-ghost"?: ButtonThemeStatesProps;
+    "secondary-ghost"?: ButtonThemeStatesProps;
+    "destructive-ghost"?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
@@ -418,7 +434,7 @@ export interface ThemeDefinitionProps {
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageThemeProps;
-  badge?: BadgeStyleProps;
+  notificationCount?: NotificationCountStyleProps;
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
@@ -426,6 +442,7 @@ export interface ThemeDefinitionProps {
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
+  badge?: BadgeThemeProps;
 }
 export interface SelectOption {
   label: string;

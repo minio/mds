@@ -262,17 +262,13 @@ interface CodeEditorThemeProps {
 }
 interface TagVariantProps {
   background: string;
-  outlineColor?: string;
   label: string;
   deleteColor: string;
 }
 interface TagThemeProps {
-  default: TagVariantProps;
+  primary: TagVariantProps;
   secondary: TagVariantProps;
-  warn: TagVariantProps;
-  alert: TagVariantProps;
-  ok: TagVariantProps;
-  grey: TagVariantProps;
+  destructive: TagVariantProps;
 }
 interface SnackBarColorElements {
   backgroundColor: string;
@@ -295,17 +291,16 @@ interface InformativeMessageThemeProps {
   warning: InformativeColorElements;
   error: InformativeColorElements;
 }
-interface BadgeColorElements {
+interface NotificationCountElements {
   backgroundColor: string;
   textColor: string;
 }
-interface BadgeStyleProps {
-  alert: BadgeColorElements;
-  default: BadgeColorElements;
-  secondary: BadgeColorElements;
-  warn: BadgeColorElements;
-  ok: BadgeColorElements;
-  grey: BadgeColorElements;
+interface NotificationCountStyleProps {
+  none: NotificationCountElements;
+  info: NotificationCountElements;
+  success: NotificationCountElements;
+  warning: NotificationCountElements;
+  danger: NotificationCountElements;
 }
 interface WizardStepColorProps {
   stepLabelColor: string;
@@ -371,6 +366,24 @@ interface PillThemeProps {
   secondary: PillElementThemeProps;
   default: PillElementThemeProps;
 }
+interface BadgeElementThemeProps {
+  minimalColor: string;
+  subtleBG: string;
+  subtleLabel: string;
+  boldBG: string;
+  boldLabel: string;
+}
+interface BadgeThemeProps {
+  none: BadgeElementThemeProps;
+  info: BadgeElementThemeProps;
+  success: BadgeElementThemeProps;
+  warning: BadgeElementThemeProps;
+  danger: BadgeElementThemeProps;
+  purple: BadgeElementThemeProps;
+  rose: BadgeElementThemeProps;
+  scooter: BadgeElementThemeProps;
+  disabled: BadgeElementThemeProps;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -400,12 +413,15 @@ interface ThemeDefinitionProps {
   box?: BoxThemeProps;
   signalColors?: SignalColorsThemeProps;
   buttons?: {
-    neutral?: ButtonThemeStatesProps;
     primary?: ButtonThemeStatesProps;
+    secondary?: ButtonThemeStatesProps;
     destructive?: ButtonThemeStatesProps;
-    "destructive-bare"?: ButtonThemeStatesProps;
-    text?: ButtonThemeStatesProps;
-    subAction?: ButtonThemeStatesProps;
+    "primary-lighter"?: ButtonThemeStatesProps;
+    "secondary-lighter"?: ButtonThemeStatesProps;
+    "destructive-lighter"?: ButtonThemeStatesProps;
+    "primary-ghost"?: ButtonThemeStatesProps;
+    "secondary-ghost"?: ButtonThemeStatesProps;
+    "destructive-ghost"?: ButtonThemeStatesProps;
   };
   login?: LoginPageThemeProps;
   pageHeader?: PageHeaderThemeProps;
@@ -429,7 +445,7 @@ interface ThemeDefinitionProps {
   tag?: TagThemeProps;
   snackbar?: SnackBarThemeProps;
   informativeMessage?: InformativeMessageThemeProps;
-  badge?: BadgeStyleProps;
+  notificationCount?: NotificationCountStyleProps;
   wizard?: WizardColorProps;
   slider?: SliderColorProps;
   valuePair?: ValuePairThemeProps;
@@ -437,6 +453,7 @@ interface ThemeDefinitionProps {
   dropdownOptions?: DropdownOptionsThemeProps;
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
+  badge?: BadgeThemeProps;
 }
 interface SelectOption {
   label: string;
@@ -502,17 +519,21 @@ declare const GlobalStyles: React$1.NamedExoticComponent<
   styled_components.ExecutionProps & object
 >;
 
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "destructive"
+  | "primary-lighter"
+  | "secondary-lighter"
+  | "destructive-lighter"
+  | "primary-ghost"
+  | "secondary-ghost"
+  | "destructive-ghost";
 interface ButtonProps {
   id: string;
   name?: string;
   label?: string;
-  variant?:
-    | "neutral"
-    | "primary"
-    | "descructive"
-    | "descructive-bare"
-    | "text"
-    | "subAction";
+  variant?: ButtonVariant;
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   secondaryIcon?: ReactNode;
@@ -524,6 +545,7 @@ interface ButtonProps {
   compact?: boolean;
   inButtonGroup?: boolean;
   sx?: OverrideTheme;
+  isLoading?: boolean;
 }
 interface ConstructProps {
   parentChildren: ReactNode | string | undefined;
@@ -1335,10 +1357,9 @@ interface TagMainProps {
   icon?: React__default.ReactNode;
 }
 interface TagConstructProps {
-  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
+  color?: "primary" | "secondary" | "destructive";
+  size?: "large" | "small";
   sx?: OverrideTheme;
-  variant?: "regular" | "outlined";
-  square?: boolean;
 }
 type TagProps = TagMainProps & TagConstructProps;
 
@@ -1497,23 +1518,32 @@ interface AutocompleteProps {
 
 declare const Autocomplete: FC<AutocompleteProps>;
 
-interface BadgeMain {
+type NotificationBadgeTypes =
+  | "none"
+  | "info"
+  | "success"
+  | "warning"
+  | "danger";
+interface NotificationCountMain {
   invisible?: boolean;
   max?: number;
   showZero?: boolean;
-  badgeContent?: number;
+  count?: number;
 }
-interface BadgeConstruct {
+interface NotificationCountConstruct {
   horizontalPosition?: "left" | "right";
   verticalPosition?: "bottom" | "top";
   sx?: OverrideTheme;
-  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
+  color?: NotificationBadgeTypes;
   shape?: "circular" | "rectangular";
   dotOnly?: boolean;
 }
-type BadgeProps = BadgeMain & BadgeConstruct;
+type NotificationCountProps = NotificationCountMain &
+  NotificationCountConstruct;
 
-declare const Badge: FC<HTMLAttributes<HTMLSpanElement> & BadgeProps>;
+declare const NotificationCount: FC<
+  HTMLAttributes<HTMLSpanElement> & NotificationCountProps
+>;
 
 interface WizardButton {
   label?: string;
@@ -1663,6 +1693,7 @@ declare const Slider: FC<
 interface ButtonGroupProps
   extends React__default.HTMLAttributes<HTMLDivElement> {
   children: React__default.ReactNode;
+  isLoading?: boolean;
   sx?: OverrideTheme;
 }
 
@@ -1681,13 +1712,7 @@ interface ExpandMenuProps {
   id: string;
   name?: string;
   label?: string;
-  variant?:
-    | "neutral"
-    | "primary"
-    | "descructive"
-    | "descructive-bare"
-    | "text"
-    | "subAction";
+  variant?: ButtonVariant;
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
@@ -1754,6 +1779,36 @@ interface SearchBoxProps {
 
 declare const SearchBox: FC<
   SearchBoxProps & React__default.InputHTMLAttributes<HTMLInputElement>
+>;
+
+type BadgeColors =
+  | "none"
+  | "info"
+  | "success"
+  | "warning"
+  | "danger"
+  | "purple"
+  | "rose"
+  | "scooter"
+  | "disabled";
+type BadgeStyles = "minimal" | "subtle" | "bold";
+type BadgeIcons = boolean | "dot" | ReactNode;
+interface BadgeMainProps {
+  label: string;
+  id: string;
+}
+interface BadgeConstructProps {
+  color?: BadgeColors;
+  badgeStyle?: BadgeStyles;
+  icon?: BadgeIcons;
+  size?: "normal" | "small";
+  isNumber?: boolean;
+  sx?: OverrideTheme;
+}
+type BadgeProps = BadgeMainProps & BadgeConstructProps;
+
+declare const Badge: FC<
+  BadgeProps & React__default.HTMLAttributes<HTMLSpanElement>
 >;
 
 declare const AArrowDownIcon: (
@@ -7763,24 +7818,27 @@ export {
   BadgeAlertIcon,
   BadgeCentIcon,
   BadgeCheckIcon,
-  type BadgeColorElements,
-  type BadgeConstruct,
+  type BadgeColors,
+  type BadgeConstructProps,
   BadgeDollarSignIcon,
+  type BadgeElementThemeProps,
   BadgeEuroIcon,
   BadgeHelpIcon,
   BadgeIcon,
+  type BadgeIcons,
   BadgeIndianRupeeIcon,
   BadgeInfoIcon,
   BadgeJapaneseYenIcon,
-  type BadgeMain,
+  type BadgeMainProps,
   BadgeMinusIcon,
   BadgePercentIcon,
   BadgePlusIcon,
   BadgePoundSterlingIcon,
   type BadgeProps,
   BadgeRussianRubleIcon,
-  type BadgeStyleProps,
+  type BadgeStyles,
   BadgeSwissFrancIcon,
+  type BadgeThemeProps,
   BadgeXIcon,
   BaggageClaimIcon,
   BanIcon,
@@ -7913,6 +7971,7 @@ export {
   type ButtonProps,
   type ButtonThemeProps,
   type ButtonThemeStatesProps,
+  type ButtonVariant,
   CableCarIcon,
   CableIcon,
   CakeIcon,
@@ -8714,6 +8773,13 @@ export {
   NotebookTextIcon,
   NotepadTextDashedIcon,
   NotepadTextIcon,
+  type NotificationBadgeTypes,
+  NotificationCount,
+  type NotificationCountConstruct,
+  type NotificationCountElements,
+  type NotificationCountMain,
+  type NotificationCountProps,
+  type NotificationCountStyleProps,
   NutIcon,
   NutOffIcon,
   OctagonAlertIcon,
