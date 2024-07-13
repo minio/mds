@@ -1,16 +1,20 @@
 import { MouseEventHandler, ReactNode } from "react";
 import { OverrideTheme } from "../../global/global.types";
+export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "destructive"
+  | "primary-lighter"
+  | "secondary-lighter"
+  | "destructive-lighter"
+  | "primary-ghost"
+  | "secondary-ghost"
+  | "destructive-ghost";
 export interface ButtonProps {
   id: string;
   name?: string;
   label?: string;
-  variant?:
-    | "neutral"
-    | "primary"
-    | "descructive"
-    | "descructive-bare"
-    | "text"
-    | "subAction";
+  variant?: ButtonVariant;
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   secondaryIcon?: ReactNode;
@@ -22,6 +26,7 @@ export interface ButtonProps {
   compact?: boolean;
   inButtonGroup?: boolean;
   sx?: OverrideTheme;
+  isLoading?: boolean;
 }
 export interface ConstructProps {
   parentChildren: ReactNode | string | undefined;

@@ -7,9 +7,8 @@ export interface TagMainProps {
   icon?: React.ReactNode;
 }
 export interface TagConstructProps {
-  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
+  color?: "primary" | "secondary" | "destructive";
+  size?: "large" | "small";
   sx?: OverrideTheme;
-  variant?: "regular" | "outlined";
-  square?: boolean;
 }
 export type TagProps = TagMainProps & TagConstructProps;

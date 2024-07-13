@@ -1,16 +1,27 @@
+import { ReactNode } from "react";
 import { OverrideTheme } from "../../global/global.types";
-export interface BadgeMain {
-  invisible?: boolean;
-  max?: number;
-  showZero?: boolean;
-  badgeContent?: number;
+export type BadgeColors =
+  | "none"
+  | "info"
+  | "success"
+  | "warning"
+  | "danger"
+  | "purple"
+  | "rose"
+  | "scooter"
+  | "disabled";
+export type BadgeStyles = "minimal" | "subtle" | "bold";
+export type BadgeIcons = boolean | "dot" | ReactNode;
+export interface BadgeMainProps {
+  label: string;
+  id: string;
 }
-export interface BadgeConstruct {
-  horizontalPosition?: "left" | "right";
-  verticalPosition?: "bottom" | "top";
+export interface BadgeConstructProps {
+  color?: BadgeColors;
+  badgeStyle?: BadgeStyles;
+  icon?: BadgeIcons;
+  size?: "normal" | "small";
+  isNumber?: boolean;
   sx?: OverrideTheme;
-  color?: "default" | "secondary" | "warn" | "alert" | "ok" | "grey";
-  shape?: "circular" | "rectangular";
-  dotOnly?: boolean;
 }
-export type BadgeProps = BadgeMain & BadgeConstruct;
+export type BadgeProps = BadgeMainProps & BadgeConstructProps;
