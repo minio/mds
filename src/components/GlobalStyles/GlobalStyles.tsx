@@ -112,8 +112,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: ${get(theme, "bgColor", lightV2.mainBackgroundColor)};
         color: ${get(theme, "fontColor", lightV2.fontColor)};
-        height: 100vh;
-        width: 100vw;
+        minHeight: 100vh;
         font-family: 'Geist', sans-serif;
         margin: 0;
         -webkit-font-smoothing: antialiased;

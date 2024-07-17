@@ -44,33 +44,26 @@ import {
 import Box from "../Box/Box";
 import Button from "../Button/Button";
 import ColumnsSelector from "./ColumnsSelector";
-import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
 import Columns3Icon from "../Icons/NewDesignIcons/Columns3Icon";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
-  ({ theme, customPaperHeight, disabled, noBackground, sx, rowHeight }) => ({
+  ({ theme, customPaperHeight, disabled, sx, rowHeight }) => ({
     display: "flex",
     overflow: "auto",
     boxSizing: "border-box" as const,
     flexDirection: "column" as const,
     padding: "10px 20px",
-    boxShadow: get(theme, "box.shadow", "none"),
-    border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
-    borderRadius: 16,
+    boxShadow: "none",
+    border: 0,
     minHeight: 200,
     overflowY: "scroll",
     position: "relative",
     height: customPaperHeight || "calc(100vh - 205px)",
     backgroundColor: disabled
       ? get(theme, "dataTable.disabledBG", "transparent")
-      : get(theme, "box.backgroundColor", lightV2.white),
-    "&.noBackground": {
-      backgroundColor: "transparent",
-      border: 0,
-      boxShadow: "none",
-    },
+      : "transparent",
     "& .loadingBox": {
       padding: "100px 0",
     },
@@ -259,7 +252,6 @@ const DataTable: FC<DataTableProps> = ({
   idField,
   customEmptyMessage = "",
   customPaperHeight = "",
-  noBackground = true,
   columnsSelector = false,
   textSelectable = false,
   columnsShown = [],
@@ -391,7 +383,6 @@ const DataTable: FC<DataTableProps> = ({
   return (
     <Grid item xs={12} className={`data-table ${parentClassName}`}>
       <DataTableWrapper
-        className={`${noBackground ? "noBackground" : ""}`}
         customPaperHeight={customPaperHeight}
         sx={sx}
         rowHeight={rowHeight}
