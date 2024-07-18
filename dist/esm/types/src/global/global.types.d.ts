@@ -332,6 +332,8 @@ export interface ButtonGroupThemeProps {
   disabledBackground: string;
   secondaryLabelColor: string;
   secondaryBackground: string;
+  selectedBackground: string;
+  selectedLabelColor: string;
 }
 export interface DropdownOptionsThemeProps {
   hoverOptionBG: string;

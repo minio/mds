@@ -343,6 +343,8 @@ interface ButtonGroupThemeProps {
   disabledBackground: string;
   secondaryLabelColor: string;
   secondaryBackground: string;
+  selectedBackground: string;
+  selectedLabelColor: string;
 }
 interface DropdownOptionsThemeProps {
   hoverOptionBG: string;
