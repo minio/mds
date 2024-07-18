@@ -171,6 +171,44 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
         ),
       },
     },
+    "&.selected:not(:disabled)": {
+      backgroundColor: get(
+        theme,
+        "buttonGroup.selectedBackground",
+        themeColors["Color/Brand/Control/colorBgActive"].lightMode,
+      ),
+      color: get(
+        theme,
+        "buttonGroup.selectedLabelColor",
+        themeColors["Color/Brand/Info/colorPrimaryActive"].lightMode,
+      ),
+      "& .buttonIcon > svg": {
+        color: get(
+          theme,
+          "buttonGroup.selectedLabelColor",
+          themeColors["Color/Brand/Info/colorPrimaryActive"].lightMode,
+        ),
+      },
+      "&:hover": {
+        backgroundColor: get(
+          theme,
+          "buttonGroup.selectedBackground",
+          themeColors["Color/Brand/Control/colorBgActive"].lightMode,
+        ),
+        color: get(
+          theme,
+          "buttonGroup.selectedLabelColor",
+          themeColors["Color/Brand/Info/colorPrimaryActive"].lightMode,
+        ),
+        "& .buttonIcon > svg": {
+          color: get(
+            theme,
+            "buttonGroup.selectedLabelColor",
+            themeColors["Color/Brand/Info/colorPrimaryActive"].lightMode,
+          ),
+        },
+      },
+    },
   },
   ...overridePropsParse(sx, theme),
 }));

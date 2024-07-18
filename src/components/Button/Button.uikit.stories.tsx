@@ -24,6 +24,9 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { Box, ButtonGroup } from "../index";
 import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
+import BriefcaseMedicalIcon from "../Icons/NewDesignIcons/BriefcaseMedicalIcon";
+import AlignCenterIcon from "../Icons/NewDesignIcons/AlignCenterIcon";
+import IceCreamConeIcon from "../Icons/NewDesignIcons/IceCreamConeIcon";
 
 export default {
   title: "UI Kit/Forms & Inputs/Buttons",
@@ -976,6 +979,41 @@ const Template: Story<ButtonProps> = (args) => (
           <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
           <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
           <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+        </ButtonGroup>
+      </Box>
+      <Box>
+        <ButtonGroup>
+          <Button
+            id={"plus"}
+            icon={<BriefcaseMedicalIcon />}
+            label={"Selected"}
+            className={"selected"}
+          />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button
+            id={"plus"}
+            icon={<AlignCenterIcon />}
+            label={"Selected"}
+            className={"selected"}
+          />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Button"} />
+          <Button id={"plus"} icon={<PlusIcon />} label={"Disabled"} disabled />
+        </ButtonGroup>
+      </Box>
+      <Box>
+        <ButtonGroup>
+          <Button id={"plus"} icon={<PlusIcon />} />
+          <Button
+            id={"plus"}
+            icon={<AlignCenterIcon />}
+            className={"selected"}
+          />
+          <Button
+            id={"plus"}
+            icon={<IceCreamConeIcon />}
+            className={"selected"}
+            disabled
+          />
         </ButtonGroup>
       </Box>
     </Box>
