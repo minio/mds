@@ -1002,6 +1002,10 @@ export const lightTheme: ThemeDefinitionProps = {
       themeColors["Color/Neutral/Bg/colorBgContainer"].lightMode,
     secondaryLabelColor:
       themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+    selectedBackground:
+      themeColors["Color/Brand/Control/colorBgActive"].lightMode,
+    selectedLabelColor:
+      themeColors["Color/Brand/Info/colorPrimaryActive"].lightMode,
   },
   dropdownOptions: {
     optionLabel: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
@@ -1835,6 +1839,10 @@ export const darkTheme: ThemeDefinitionProps = {
       themeColors["Color/Neutral/Bg/colorBgContainer"].darkMode,
     secondaryLabelColor:
       themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+    selectedBackground:
+      themeColors["Color/Brand/Control/colorBgActive"].darkMode,
+    selectedLabelColor:
+      themeColors["Color/Brand/Info/colorPrimaryActive"].darkMode,
   },
   dropdownOptions: {
     optionLabel: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
