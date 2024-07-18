@@ -871,3 +871,25 @@ CustomRowHeight.args = {
     },
   ],
 };
+
+export const CustomEmptyMessage = Template.bind({});
+CustomEmptyMessage.args = {
+  disabled: false,
+  entityName: "Elements",
+  idField: "id",
+  rowHeight: 80,
+  records: [],
+  customEmptyMessage: "This is a custom error message",
+  columns: [
+    { label: "ID", elementKey: "id" },
+    {
+      label: "Super long title name for a single column that needs to truncate",
+      elementKey: "field1",
+    },
+    { label: "Column2", elementKey: "field2" },
+    {
+      label: "Column3",
+      elementKey: "field3",
+    },
+  ],
+};
