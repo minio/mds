@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { CSSObject } from "styled-components";
 import { SelectorType } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";

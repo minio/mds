@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React$1 from "react";
 import React__default, {
   FC,
