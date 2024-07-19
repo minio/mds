@@ -62,11 +62,13 @@ const AccordionContent = styled.div<AccordionContentProps>(
     borderTop: expanded
       ? `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`
       : "0",
-    overflow: "hidden",
+    display: "grid",
+    gridTemplateRows: expanded ? "1fr" : "0fr",
+    transition: "250ms grid-template-rows ease",
     "& .expandSubContainer": {
-      padding: 10,
-      marginTop: expanded ? 0 : "-100%",
-      transition: "all 0.2s",
+      overflow: "hidden",
+      padding: expanded ? 10 : 0,
+      transition: expanded ? "initial" : "250ms padding ease 150ms",
     },
   }),
 );
