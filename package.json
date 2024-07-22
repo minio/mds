@@ -33,7 +33,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-actions": "^8.2.4",
-    "@storybook/addon-essentials": "^8.2.4",
+    "@storybook/addon-essentials": "^8.2.5",
     "@storybook/addon-interactions": "^8.2.4",
     "@storybook/addon-links": "^8.2.4",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
