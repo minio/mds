@@ -5217,12 +5217,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-gpu@npm:^5.0.39":
-  version: 5.0.39
-  resolution: "detect-gpu@npm:5.0.39"
+"detect-gpu@npm:^5.0.40":
+  version: 5.0.40
+  resolution: "detect-gpu@npm:5.0.40"
   dependencies:
     webgl-constants: "npm:^1.1.1"
-  checksum: 10c0/701f50273a899a660da7d8f00f18b6861ef21c77903f9966f835c8655b122d2a66288cd9144ad768f4daadf796cd0592e19cda2df3315c4122c057045522fdfb
+  checksum: 10c0/c6c8f41bd68d75257752aeccc4654ab2b4482b92f49e0e3010f12457d4b845a3aa0389535a504b4c4b07a5055672c00e8515183354e52fb46fec4a4215c2ce6e
   languageName: node
   linkType: hard
 
@@ -8438,7 +8438,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.34"
     "@uiw/react-textarea-code-editor": "npm:^3.0.2"
     babel-loader: "npm:^9.1.3"
-    detect-gpu: "npm:^5.0.39"
+    detect-gpu: "npm:^5.0.40"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     lodash: "npm:^4.17.21"
