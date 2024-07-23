@@ -77,7 +77,7 @@ const CustomButton = styled.button<
     }
 
     return {
-      borderRadius: 6,
+      borderRadius: 4,
       cursor: "pointer",
       height: compact ? 28 : 36,
       fontFamily: "'Geist', sans-serif",
@@ -101,15 +101,18 @@ const CustomButton = styled.button<
         ...buttonLabelSx,
       },
       "& .buttonIcon": {
-        display: "block",
+        display: "flex",
         height: 16,
         width: 16,
-
+        minWidth: 16,
+        minHeight: 16,
+        justifyContent: "center",
+        alignItems: "center",
         "& > svg": {
           fill: get(theme, `buttons.${variant}.enabled.text`, "#000"),
           color: get(theme, `buttons.${variant}.enabled.text`, "#000"),
-          width: 14,
-          height: 14,
+          width: 16,
+          height: 16,
         },
       },
       "&:disabled": {

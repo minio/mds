@@ -125,6 +125,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
         "buttonGroup.border",
         themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
       ),
+      boxShadow: "none",
       "& .buttonIcon > svg": {
         color: get(
           theme,
@@ -163,6 +164,7 @@ const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
         "buttonGroup.border",
         themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
       ),
+      boxShadow: "none",
       "& .buttonIcon > svg": {
         color: get(
           theme,
