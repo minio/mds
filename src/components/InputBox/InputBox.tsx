@@ -146,6 +146,7 @@ const InputContainer = styled.div<InputContainerProps>(
         borderLeft: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
         boxShadow: "none",
         height: sizeMode === "small" ? 26 : 36,
+        boxSizing: "border-box",
         "& .min-icon": {
           width: 16,
           height: 16,
