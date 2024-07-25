@@ -25,13 +25,12 @@ import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
 const SearchBoxContainer = styled.div(({ theme }) => ({
   position: "relative",
   boxSizing: "border-box" as const,
-  height: 30,
+  height: 28,
   "& svg ": {
     position: "absolute",
     marginLeft: 8,
     top: "50%",
     transform: "translateY(-50%)",
-    zIndex: 200,
     width: 16,
     height: 16,
     color: get(
@@ -55,10 +54,9 @@ const SearchBoxBase = styled.input<SearchBoxProps>(({ sx, theme }) => {
   );
 
   return {
-    zIndex: 100,
     position: "relative",
     width: "100%",
-    height: 30,
+    height: 28,
     boxSizing: "border-box",
     borderRadius: 4,
     paddingTop: 0,
