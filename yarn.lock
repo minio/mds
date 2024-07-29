@@ -2588,14 +2588,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/codemod@npm:8.2.5":
-  version: 8.2.5
-  resolution: "@storybook/codemod@npm:8.2.5"
+"@storybook/codemod@npm:8.2.6":
+  version: 8.2.6
+  resolution: "@storybook/codemod@npm:8.2.6"
   dependencies:
     "@babel/core": "npm:^7.24.4"
     "@babel/preset-env": "npm:^7.24.4"
     "@babel/types": "npm:^7.24.0"
-    "@storybook/core": "npm:8.2.5"
+    "@storybook/core": "npm:8.2.6"
     "@storybook/csf": "npm:0.1.11"
     "@types/cross-spawn": "npm:^6.0.2"
     cross-spawn: "npm:^7.0.3"
@@ -2605,7 +2605,7 @@ __metadata:
     prettier: "npm:^3.1.1"
     recast: "npm:^0.23.5"
     tiny-invariant: "npm:^1.3.1"
-  checksum: 10c0/2d872a1470a8f9cfac8162c7a4592d3213f12afaaa191777e3898fc2228f513314410ca5102c83026180dc9b717b956c40f64ea570e015caeb1c59264276009b
+  checksum: 10c0/ffbf7b0330166aba03d8313f3dbb12e7a2841dbdc0bfaa99857112f429a26eddd0374c1096d35e5be15070d4e11f10050b3c66ab906da633dbf92bf22e3de71b
   languageName: node
   linkType: hard
 
@@ -2648,9 +2648,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core@npm:8.2.5":
-  version: 8.2.5
-  resolution: "@storybook/core@npm:8.2.5"
+"@storybook/core@npm:8.2.6":
+  version: 8.2.6
+  resolution: "@storybook/core@npm:8.2.6"
   dependencies:
     "@storybook/csf": "npm:0.1.11"
     "@types/express": "npm:^4.17.21"
@@ -2663,7 +2663,7 @@ __metadata:
     recast: "npm:^0.23.5"
     util: "npm:^0.12.4"
     ws: "npm:^8.2.3"
-  checksum: 10c0/15d07841a13514eae94c049384a5f5cf78d4479fca9fde2052c6101e21452492c8b2d0d36598753fb2529ba2e05d609b0b77bc9aee55d10c9b8ce069ad2886f2
+  checksum: 10c0/7e7d1b0acb1299a59da28bb83cf5c784c4eb1d7d37a5e6c7f907391e40c287dbdc4896e68bddaa31e0f1dac5e250d3eec129d82c7e6c43a4349dd3eb15cf2919
   languageName: node
   linkType: hard
 
@@ -8456,7 +8456,7 @@ __metadata:
     rollup-plugin-import-file: "npm:^1.0.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
-    storybook: "npm:^8.2.5"
+    storybook: "npm:^8.2.6"
     storybook-dark-mode: "npm:4.0.1"
     styled-components: "npm:^6.1.12"
     ts-jest: "npm:^29.2.3"
@@ -11018,14 +11018,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^8.2.5":
-  version: 8.2.5
-  resolution: "storybook@npm:8.2.5"
+"storybook@npm:^8.2.6":
+  version: 8.2.6
+  resolution: "storybook@npm:8.2.6"
   dependencies:
     "@babel/core": "npm:^7.24.4"
     "@babel/types": "npm:^7.24.0"
-    "@storybook/codemod": "npm:8.2.5"
-    "@storybook/core": "npm:8.2.5"
+    "@storybook/codemod": "npm:8.2.6"
+    "@storybook/core": "npm:8.2.6"
     "@types/semver": "npm:^7.3.4"
     "@yarnpkg/fslib": "npm:2.10.3"
     "@yarnpkg/libzip": "npm:2.3.0"
@@ -11054,7 +11054,7 @@ __metadata:
     getstorybook: ./bin/index.cjs
     sb: ./bin/index.cjs
     storybook: ./bin/index.cjs
-  checksum: 10c0/b61acaef6d18de5e01b346c7b4207bfe54b501786d06d6720ad9550c02268bb39379399f5a309f1abbe7e182901ffd1f4ef7b0ab060c7742a7a512d9bd334ed3
+  checksum: 10c0/a487f125db6cd0c10b77669971c8ebbded5b9aaed95191ea70c3d15df013072e794dacec16ab15ede9d43cfd6fd1f4d92e03313f6608d8ac955a9de928350205
   languageName: node
   linkType: hard
 
