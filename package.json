@@ -40,7 +40,7 @@
     "@storybook/react": "^8.2.5",
     "@storybook/react-webpack5": "^8.2.5",
     "@storybook/theming": "^8.2.5",
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/luxon": "^3.4.2",
