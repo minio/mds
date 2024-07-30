@@ -662,6 +662,50 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledColor:
       themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
   },
+  radioGroup: {
+    radioBorder:
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+    radioBackground: themeColors["Color/Neutral/Bg/colorBgShell"].lightMode,
+    radioHoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
+    radioActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+    radioActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+    radioActiveCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    radioHoverActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
+    radioHoverBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
+    radioHoverActiveCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    radioHoverActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
+    radioFocusBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].lightMode,
+    radioFocusBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].lightMode,
+    radioFocusCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    radioFocusActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].lightMode,
+    radioFocusActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].lightMode,
+    radioFocusActiveCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    radioFocusShadow: themeShadows["focusStyle-Light"],
+    radioDisabledBorder:
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+    radioDisabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
+    radioDisabledCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    labelColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    subLabelColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+    descriptionColor:
+      themeColors["Color/Neutral/Text/colorTextDescription"].lightMode,
+  },
   iconButton: {
     buttonBG: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
     activeBG: "linear-gradient(180deg, #4082F1 0%, #2B64E5 100%)",
@@ -1500,6 +1544,48 @@ export const darkTheme: ThemeDefinitionProps = {
       themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
     disabledColor:
       themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+  },
+  radioGroup: {
+    radioBorder: themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
+    radioBackground: themeColors["Color/Neutral/Bg/colorBgShell"].darkMode,
+    radioHoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
+    radioActiveBorder: themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    radioActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    radioActiveCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    radioHoverActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
+    radioHoverBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
+    radioHoverActiveCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    radioHoverActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
+    radioFocusBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].darkMode,
+    radioFocusBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].darkMode,
+    radioFocusCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    radioFocusActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].darkMode,
+    radioFocusActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].darkMode,
+    radioFocusActiveCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    radioFocusShadow: themeShadows["focusStyle-Light"],
+    radioDisabledBorder:
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
+    radioDisabledBackground:
+      themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
+    radioDisabledCheck:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    labelColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    subLabelColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+    descriptionColor:
+      themeColors["Color/Neutral/Text/colorTextDescription"].darkMode,
   },
   iconButton: {
     buttonBG: darkColors.iconButtonBG,
