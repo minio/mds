@@ -5,4 +5,6 @@ export declare const themeShadows: {
   "boxShadow-02": string;
   "boxShadow-03": string;
   "boxShadow-04": string;
+  "focusStyle-Light": string;
+  "focusStyle-Dark": string;
 };
