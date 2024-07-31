@@ -82,6 +82,32 @@ export interface CheckBoxThemeProps {
   disabledColor: string;
 }
 
+export interface RadioThemeProps {
+  radioBorder: string;
+  radioBackground: string;
+  radioHoverBorder: string;
+  radioActiveBorder: string;
+  radioActiveBackground: string;
+  radioActiveCheck: string;
+  radioHoverBackground: string;
+  radioHoverActiveBorder: string;
+  radioHoverActiveBackground: string;
+  radioHoverActiveCheck: string;
+  radioFocusBorder: string;
+  radioFocusBackground: string;
+  radioFocusCheck: string;
+  radioFocusActiveBorder: string;
+  radioFocusActiveBackground: string;
+  radioFocusActiveCheck: string;
+  radioFocusShadow: string;
+  radioDisabledBorder: string;
+  radioDisabledBackground: string;
+  radioDisabledCheck: string;
+  labelColor: string;
+  subLabelColor: string;
+  descriptionColor: string;
+}
+
 export interface IconButtonThemeProps {
   buttonBG: string;
   activeBG: string;
@@ -475,6 +501,7 @@ export interface ThemeDefinitionProps {
   tooltip?: TooltipThemeProps;
   commonInput?: CommonInputThemeProps;
   checkbox?: CheckBoxThemeProps;
+  radioGroup?: RadioThemeProps;
   iconButton?: IconButtonThemeProps;
   dataTable?: DataTableThemeProps;
   backLink?: BackLinkThemeProps;
@@ -510,6 +537,8 @@ export interface SelectOption {
   indicator?: React.ReactNode;
   extraValue?: any;
   disabled?: boolean;
+  subLabel?: string;
+  description?: string;
 }
 
 export interface IBytesCalc {
