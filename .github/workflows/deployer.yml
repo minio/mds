@@ -19,6 +19,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
+    secrets: inherit
     steps:
       - name: Check out Code
         uses: actions/checkout@v3
