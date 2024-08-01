@@ -26,7 +26,7 @@ import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import InputLabel from "../InputLabel/InputLabel";
 import Box from "../Box/Box";
-import { overridePropsParse } from "../../global/utils";
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
 import Button from "../Button/Button";
 import EyeOffIcon from "../Icons/NewDesignIcons/EyeOffIcon";
 import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
@@ -222,7 +222,7 @@ const InputBox: FC<InputBoxProps> = ({
 
   return (
     <InputContainer
-      sx={{
+      sx={(theme) => ({
         "& .accessoryIcon": {
           position: "absolute",
           right: overlayIcon || type === "password" ? 8 + 29 : 8,
@@ -232,8 +232,17 @@ const InputBox: FC<InputBoxProps> = ({
           height: 16,
         },
         flexDirection: orientation === "vertical" ? "column" : "row",
+        "& .inputLabel.verticalMode": {
+          fontSize: 14,
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "20px",
+          letterSpacing: "0.16px",
+          color: theme.colors["Color/Neutral/Text/colorTextLabel"],
+          marginBottom: paddingSizeVariants.sizeXXS,
+        },
         ...sx,
-      }}
+      })}
       className={`inputItem inputBox Base_Normal ${className}`}
       sizeMode={sizeMode}
     >
@@ -241,7 +250,7 @@ const InputBox: FC<InputBoxProps> = ({
         <InputLabel
           htmlFor={id}
           noMinWidth={noLabelMinWidth}
-          className={"inputLabel"}
+          className={`inputLabel ${orientation === "vertical" ? "verticalMode" : ""}`}
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
           orientation={orientation}
