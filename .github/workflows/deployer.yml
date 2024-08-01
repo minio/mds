@@ -23,15 +23,20 @@ jobs:
       - name: Read .nvmrc
         id: node_version
         run: echo "$(cat .nvmrc)" && echo "NVMRC=$(cat .nvmrc)" >> $GITHUB_ENV
-
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NVMRC }}
           cache: "yarn"
           cache-dependency-path: yarn.lock
 
-      - name: Log in to private Docker registry
-        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ secrets.REGISTRY_URL }} -u '${{ secrets.REGISTRY_USERNAME }}' --password-stdin
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.REGISTRY_URL }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build Storybook
         run: |
