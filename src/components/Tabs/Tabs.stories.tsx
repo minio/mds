@@ -27,6 +27,7 @@ import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
 import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
 import MenuIcon from "../Icons/NewDesignIcons/MenuIcon";
+import Badge from "../Badge/Badge";
 
 export default {
   title: "MDS/Layout/Tabs",
@@ -210,6 +211,58 @@ HorizontalWithExtraComponents.args = {
     {
       content: <div>Tab1</div>,
       tabConfig: { label: "Tab1", id: "tab1", icon: <TestIcon /> },
+    },
+    {
+      content: <div>Tab2</div>,
+      tabConfig: {
+        label: "Tab2",
+        id: "tab2",
+        icon: <TestIcon />,
+        disabled: true,
+      },
+    },
+    {
+      content: <div>Tab3</div>,
+      tabConfig: { label: "Tab3", id: "tab3", icon: <TestIcon /> },
+    },
+    {
+      content: <div>Some content for Tab 4</div>,
+      tabConfig: { label: "Tab4", id: "tab4", icon: <UsersIcon /> },
+    },
+  ],
+  horizontal: true,
+  optionsInitialComponent: (
+    <span style={{ padding: "0 15px" }}>
+      <TestIcon />
+    </span>
+  ),
+  optionsEndComponent: (
+    <span style={{ padding: "0 15px" }}>
+      <TestIcon />
+    </span>
+  ),
+};
+
+export const HorizontalWithNodeObject = Template.bind({});
+HorizontalWithNodeObject.args = {
+  options: [
+    {
+      content: <div>Tab1</div>,
+      tabConfig: {
+        label: (
+          <>
+            <span>TabTitle</span>
+            <Badge
+              label={"50"}
+              id={"tag-test1"}
+              color={"info"}
+              size={"small"}
+            />
+          </>
+        ),
+        id: "tab1",
+        icon: <TestIcon />,
+      },
     },
     {
       content: <div>Tab2</div>,
