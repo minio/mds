@@ -1,7 +1,7 @@
 import React from "react";
 import { OverrideTheme } from "../../global/global.types";
 export interface TabProps {
-  label: string;
+  label: React.ReactNode;
   icon?: React.ReactNode;
   disabled?: boolean;
   to?: string;
@@ -31,7 +31,7 @@ export interface TabsContainerProps {
 export interface TabButtonProps {
   id: string;
   horizontal?: boolean;
-  label: string;
+  label: React.ReactNode;
   onClick: () => void;
   disabled: boolean;
   icon?: React.ReactNode;
