@@ -154,6 +154,15 @@ export const generateColumnsMap = (
               },
             }}
           >
+            <Box
+              sx={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {column.label}
+            </Box>
             {sortColumns ||
             (Array.isArray(sortColumns) &&
               sortColumns.includes(column.elementKey)) ? (
@@ -170,15 +179,6 @@ export const generateColumnsMap = (
                 ) : null}
               </Fragment>
             ) : null}
-            <Box
-              sx={{
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {column.label}
-            </Box>
           </Box>
         )}
         className={
