@@ -138,9 +138,11 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
     },
     "& .headerItem": {
       userSelect: "none",
-      fontWeight: 700,
-      fontSize: 14,
-      fontStyle: "initial",
+      fontSize: 12,
+      fontStyle: "normal",
+      fontWeight: 600,
+      lineHeight: "16px",
+      letterSpacing: "0.5px",
       display: "flex",
       alignItems: "center",
       outline: "none",
@@ -155,9 +157,12 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       display: "flex",
       flexDirection: "row" as const,
       alignItems: "center",
-      fontWeight: 700,
-      fontSize: 14,
-      borderColor: get(theme, "dataTable.border", "#39393980"),
+      fontSize: 12,
+      fontStyle: "normal",
+      fontWeight: 600,
+      lineHeight: "16px",
+      letterSpacing: "0.5px",
+      borderColor: "transparent",
       textTransform: "initial",
       transitionDuration: "0s",
     },
@@ -178,7 +183,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         width: 12,
         height: 12,
         marginRight: 5,
-        alignSelf: "flex-end",
+        alignSelf: "center" as const,
       },
     },
     "& .ReactVirtualized__Table__rowColumn": {
@@ -263,7 +268,7 @@ const DataTable: FC<DataTableProps> = ({
   rowStyle,
   parentClassName = "",
   sx,
-  rowHeight = 40,
+  rowHeight = 36,
   sortEnabled = false,
   sortCallBack,
 }) => {
@@ -445,7 +450,7 @@ const DataTable: FC<DataTableProps> = ({
                       ref={registerChild}
                       disableHeader={false}
                       headerClassName={"headerItem"}
-                      headerHeight={40}
+                      headerHeight={36}
                       height={height}
                       noRowsRenderer={() => (
                         <Fragment>
