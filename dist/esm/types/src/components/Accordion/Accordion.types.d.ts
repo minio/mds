@@ -7,6 +7,7 @@ export interface AccordionProps {
   title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
+  contentBackgroundColor?: boolean;
   sx?: OverrideTheme;
 }
 export interface AccordionMainProps {
@@ -14,4 +15,5 @@ export interface AccordionMainProps {
 }
 export interface AccordionContentProps {
   expanded: boolean;
+  backgroundColor?: boolean;
 }

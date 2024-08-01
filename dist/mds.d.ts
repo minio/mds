@@ -1311,7 +1311,7 @@ declare const ExpandOptionsButton: FC<
 >;
 
 interface TabProps {
-  label: string;
+  label: React__default.ReactNode;
   icon?: React__default.ReactNode;
   disabled?: boolean;
   to?: string;
@@ -1341,7 +1341,7 @@ interface TabsContainerProps {
 interface TabButtonProps {
   id: string;
   horizontal?: boolean;
-  label: string;
+  label: React__default.ReactNode;
   onClick: () => void;
   disabled: boolean;
   icon?: React__default.ReactNode;
@@ -1514,6 +1514,7 @@ interface AccordionProps {
   title: ReactNode;
   children: ReactNode;
   disabled?: boolean;
+  contentBackgroundColor?: boolean;
   sx?: OverrideTheme;
 }
 interface AccordionMainProps {
@@ -1521,6 +1522,7 @@ interface AccordionMainProps {
 }
 interface AccordionContentProps {
   expanded: boolean;
+  backgroundColor?: boolean;
 }
 
 declare const Accordion: FC<AccordionProps>;
