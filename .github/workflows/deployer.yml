@@ -4,9 +4,6 @@ on:
   release:
     types:
       - published
-  pull_request:
-    branches:
-      - "master"
 
 concurrency:
   group: ${{ github.workflow }}-deployer-${{ github.head_ref }}
@@ -19,7 +16,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-    secrets: inherit
     steps:
       - name: Check out Code
         uses: actions/checkout@v3
