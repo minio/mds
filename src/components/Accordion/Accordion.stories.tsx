@@ -28,7 +28,13 @@ export default {
   argTypes: {},
 } as Meta<typeof Accordion>;
 
-const Template: Story<AccordionProps> = ({ title, children, disabled, sx }) => {
+const Template: Story<AccordionProps> = ({
+  title,
+  children,
+  disabled,
+  sx,
+  contentBackgroundColor,
+}) => {
   const [expandedPanel, setExpandedPanel] = useState<string>("closed");
 
   const expandFunction = (expandPanel: string) => {
@@ -51,6 +57,7 @@ const Template: Story<AccordionProps> = ({ title, children, disabled, sx }) => {
         id={"accordion1"}
         sx={sx}
         disabled={disabled}
+        contentBackgroundColor={contentBackgroundColor}
       >
         {children}
       </Accordion>
@@ -62,6 +69,7 @@ const Template: Story<AccordionProps> = ({ title, children, disabled, sx }) => {
         }}
         id={"accordion2"}
         sx={sx}
+        contentBackgroundColor={contentBackgroundColor}
       >
         {children}
       </Accordion>
@@ -73,6 +81,7 @@ const Template: Story<AccordionProps> = ({ title, children, disabled, sx }) => {
         }}
         id={"accordion3"}
         sx={sx}
+        contentBackgroundColor={contentBackgroundColor}
       >
         {children}
       </Accordion>
@@ -120,6 +129,45 @@ Default.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   title: "MultiState Accordion",
+  disabled: true,
+  children: (
+    <div>
+      <p>
+        My computer-- disassembled is a maze of cables, drives chips and
+        ports--an array of connections, silver solderings, twisting wires.
+      </p>
+      <p>
+        But when the satiny case is latched in place coils and cables disappear.
+        The smallest particle of matter is not an atom, but a byte-- a particle
+        of magic that combines and multiplies unseen inside the blinking box.
+      </p>
+      <p>
+        Creation occurs inside my computer-- friends, family rest behind the
+        pressing of selected keys. Words and faces form; smiles and frowns
+        become feelings. Attraction becomes addiction.
+      </p>
+      <p>
+        Inside my computer merchants buy and sell-- musicians sing, artists
+        train pictures into pixels, poets recollect emotion in tranquillity.
+      </p>
+      <p>
+        Inside my computer dreams are imagined into reality-- inventions, hopes,
+        ideas are born and nurtured into happenings. Strangers share a table,
+        touch hands across the world.
+      </p>
+      <p>
+        Inside my computer the pulse of human hearts waxes and wanes as people
+        fall in and out of love.
+      </p>
+      <div style={{ textAlign: "right" }}>Karen Ruff - 2014</div>
+    </div>
+  ),
+};
+
+export const WithContentBackground = Template.bind({});
+WithContentBackground.args = {
+  title: "MultiState Accordion",
+  contentBackgroundColor: true,
   disabled: true,
   children: (
     <div>
