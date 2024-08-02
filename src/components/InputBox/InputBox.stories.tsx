@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
+import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import InputBox from "./InputBox";
@@ -26,6 +26,9 @@ import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
 import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 import KeyRoundIcon from "../Icons/NewDesignIcons/KeyRoundIcon";
+import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
 
 export default {
   title: "MDS/Forms/InputBox",
@@ -141,4 +144,42 @@ StartIconWithAction.args = {
   startIcon: <KeyRoundIcon />,
   placeholder: "Password",
   type: "password",
+};
+
+export const TypeNumberInput = Template.bind({});
+TypeNumberInput.args = {
+  type: "number",
+  placeholder: "Numeric Field",
+};
+
+export const DropSelectorOption = Template.bind({});
+DropSelectorOption.args = {
+  type: "text",
+  placeholder: "Select Option",
+  overlayObject: (
+    <ExpandMenu
+      id={"Expand"}
+      label={"Days"}
+      dropMenuPosition={"end"}
+      forInputOptions={true}
+      dropArrow={false}
+    >
+      <ExpandMenuOption
+        id={"days-selector"}
+        onClick={() => {
+          console.log("setDays");
+        }}
+      >
+        Days
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"years-selector"}
+        onClick={() => {
+          console.log("setYears");
+        }}
+      >
+        Years
+      </ExpandMenuOption>
+    </ExpandMenu>
+  ),
 };

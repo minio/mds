@@ -36,6 +36,7 @@ const ExpandMenu: FC<
   disabled,
   dropArrow = true,
   compact = false,
+  forInputOptions = false,
   inButtonGroup,
 }) => {
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
@@ -81,6 +82,7 @@ const ExpandMenu: FC<
           }}
           anchorOrigin={dropMenuPosition}
           anchorEl={anchorEl}
+          forInputOptions={forInputOptions}
         >
           {children}
         </ExpandDropdown>

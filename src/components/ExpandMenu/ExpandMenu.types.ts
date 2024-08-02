@@ -30,6 +30,7 @@ export interface ExpandMenuProps {
   compact?: boolean;
   dropArrow?: boolean;
   inButtonGroup?: boolean;
+  forInputOptions?: boolean;
   sx?: OverrideTheme;
 }
 
@@ -48,10 +49,12 @@ export interface ExpandDropBaseProps {
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
   anchorOrigin?: "start" | "end" | "middle";
+  dropMinWidth?: boolean;
   children: React.ReactNode;
 }
 
 export interface DropdownMainProps {
+  forInputOptions?: boolean;
   sx?: OverrideTheme;
 }
 

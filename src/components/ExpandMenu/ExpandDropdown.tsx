@@ -24,50 +24,52 @@ import SelectorContainer from "../../global/SelectorContainer";
 import { lightV2 } from "../../global/themes";
 import { DropdownMainProps, ExpandDropdownProps } from "./ExpandMenu.types";
 import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
-import { overridePropsParse } from "../../global/utils";
+import { overridePropsParse, radioVariants } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
 
-const DropdownBlock = styled.div<DropdownMainProps>(({ theme, sx }) => ({
-  position: "absolute",
-  display: "grid",
-  gridTemplateColumns: "100%",
-  backgroundColor: get(
-    theme,
-    "dropdownSelector.backgroundColor",
-    lightV2.white,
-  ),
-  padding: 8,
-  maxHeight: 450,
-  minWidth: 180,
-  overflowX: "hidden",
-  overflowY: "auto",
-  borderRadius: 12,
-  border: `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
-  boxShadow:
-    "0px 2px 8px 0px rgba(156, 163, 175, 0.15), 0px 4px 12px 0px rgba(156, 163, 175, 0.25)",
-  marginTop: 10,
-  "& ul": {
-    padding: 0,
-    margin: 0,
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-  },
-  "& button": expandMenuOptionStyles(theme),
-  "&::-webkit-scrollbar": {
-    width: 5,
-  },
-  "&::-webkit-scrollbar-thumb": {
-    background: themeColors["Color/Base/Shark/3"].lightMode, // Hardcoded color until we decide the correct style for scrollbars
-    borderRadius: "5px",
-  },
+const DropdownBlock = styled.div<DropdownMainProps>(
+  ({ theme, sx, forInputOptions }) => ({
+    position: "absolute",
+    display: "grid",
+    gridTemplateColumns: "100%",
+    backgroundColor: get(
+      theme,
+      "dropdownSelector.backgroundColor",
+      lightV2.white,
+    ),
+    padding: 8,
+    maxHeight: 450,
+    minWidth: forInputOptions ? "initial" : 180,
+    overflowX: "hidden",
+    overflowY: "auto",
+    borderRadius: radioVariants.borderRadiusSM,
+    border: `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
+    boxShadow:
+      "0px 2px 8px 0px rgba(156, 163, 175, 0.15), 0px 4px 12px 0px rgba(156, 163, 175, 0.25)",
+    marginTop: forInputOptions ? 0 : 10,
+    "& ul": {
+      padding: 0,
+      margin: 0,
+      display: "flex",
+      flexDirection: "column",
+      width: "100%",
+    },
+    "& button": expandMenuOptionStyles(theme),
+    "&::-webkit-scrollbar": {
+      width: 5,
+    },
+    "&::-webkit-scrollbar-thumb": {
+      background: themeColors["Color/Base/Shark/3"].lightMode, // Hardcoded color until we decide the correct style for scrollbars
+      borderRadius: "5px",
+    },
 
-  "&::-webkit-scrollbar-track": {
-    background: "transparent",
-    borderRadius: 0,
-  },
-  ...overridePropsParse(sx, theme),
-}));
+    "&::-webkit-scrollbar-track": {
+      background: "transparent",
+      borderRadius: 0,
+    },
+    ...overridePropsParse(sx, theme),
+  }),
+);
 
 const calcElementPosition = (
   anchorEl: (EventTarget & HTMLElement) | null,
@@ -108,6 +110,7 @@ const DropdownSelector: FC<ExpandDropdownProps> = ({
   open,
   anchorEl = null,
   anchorOrigin = "start",
+  forInputOptions = false,
   children,
 }) => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
@@ -152,7 +155,9 @@ const DropdownSelector: FC<ExpandDropdownProps> = ({
 
   return createPortal(
     <SelectorContainer onClick={hideTriggerAction}>
-      <DropdownBlock sx={coords}>{children}</DropdownBlock>
+      <DropdownBlock sx={coords} forInputOptions={forInputOptions}>
+        {children}
+      </DropdownBlock>
     </SelectorContainer>,
     document.body,
   );
