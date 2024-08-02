@@ -20,6 +20,7 @@ import get from "lodash/get";
 import { PageHeaderConstruct, PageHeaderProps } from "./PageHeader.types";
 import Grid from "../Grid/Grid";
 import { breakPoints, overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
 
 const ParentContainer = styled.div<
   PageHeaderConstruct & HTMLAttributes<HTMLDivElement>
@@ -28,14 +29,7 @@ const ParentContainer = styled.div<
   flexDirection: "row",
   width: "100%",
   left: 0,
-  flexWrap: "wrap",
   justifyContent: "space-between",
-  [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
-    "& > div": {
-      margin: "4px 0",
-      padding: "0 20px,",
-    },
-  },
   paddingLeft: 32,
   paddingRight: 32,
   borderBottom: 0,
@@ -94,29 +88,17 @@ const PageHeader: FC<PageHeaderProps & HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   return (
     <ParentContainer {...restProps} sx={sx} className={"page-header"}>
-      <Grid
-        className={"page-header-label"}
-        item
-        xs={12}
-        sm={12}
-        md={middleComponent ? 4 : 6}
-      >
+      <Box className={"page-header-label"}>
         <LabelContainer>{label}</LabelContainer>
-      </Grid>
+      </Box>
       {middleComponent && (
-        <Grid className={"page-header-middle"} item xs={12} sm={12} md={4}>
+        <Box className={"page-header-middle"}>
           <MiddleContainer>{middleComponent}</MiddleContainer>
-        </Grid>
+        </Box>
       )}
-      <Grid
-        className={"page-header-actions"}
-        item
-        xs={12}
-        sm={12}
-        md={middleComponent ? 4 : 6}
-      >
+      <Box className={"page-header-actions"}>
         <ActionsContainer>{actions}</ActionsContainer>
-      </Grid>
+      </Box>
     </ParentContainer>
   );
 };
