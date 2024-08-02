@@ -810,7 +810,7 @@ export const lightTheme: ThemeDefinitionProps = {
   },
   dropdownSelector: {
     hoverText: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
-    backgroundColor: "transparent",
+    backgroundColor: themeColors["Color/Neutral/Bg/colorBgContainer"].lightMode,
     hoverBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
     selectedBGColor: themeColors["Color/Brand/Control/colorBgActive"].lightMode,
     selectedTextColor:
@@ -819,6 +819,9 @@ export const lightTheme: ThemeDefinitionProps = {
       themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
     disabledText: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
+    dangerText: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+    dangerHoverBG: themeColors["Color/Brand/Error/colorPrimaryBgHover"].lightMode,
+    dangerHoverText: themeColors["Color/Brand/Error/colorPrimaryTextHover"].lightMode,
   },
   readBox: {
     borderColor: lightV2.borderColor,
@@ -1694,6 +1697,9 @@ export const darkTheme: ThemeDefinitionProps = {
       themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
     disabledText: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].darkMode,
+    dangerText: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+    dangerHoverBG: themeColors["Color/Brand/Error/colorPrimaryBgHover"].darkMode,
+    dangerHoverText: themeColors["Color/Brand/Error/colorPrimaryTextHover"].darkMode,
   },
   readBox: {
     borderColor: darkColors.headerBorder,

@@ -28,7 +28,8 @@ import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
 import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
+import {overridePropsParse, radioVariants} from "../../global/utils";
+import {themeColors, themeShadows} from "../../global/themeColors";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth, forSelectInput }) => ({
@@ -45,12 +46,11 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
     minWidth: useAnchorWidth ? 160 : 0,
     overflowX: "hidden",
     overflowY: "auto",
-    borderRadius: forSelectInput ? 16 : 12,
+    borderRadius: radioVariants.borderRadiusSM,
     border: forSelectInput
       ? 0
       : `1px solid ${get(theme, "dropdownSelector.border", lightV2.disabledGrey)}`,
-    boxShadow:
-      "0px 2px 8px 0px rgba(156, 163, 175, 0.15), 0px 4px 12px 0px rgba(156, 163, 175, 0.25)",
+    boxShadow: themeShadows["boxShadow-03"],
     "& ul": {
       padding: 0,
       margin: 0,
@@ -84,7 +84,7 @@ const DropdownItem = styled.div<
     color: get(theme, "dropdownSelector.optionTextColor", "#000"),
     padding: "6px 10px",
     fontSize: 14,
-    fontWeight: 600,
+    fontWeight: 400,
     lineHeight: "18px",
     letterSpacing: "0.16px",
     userSelect: "none",
@@ -92,7 +92,7 @@ const DropdownItem = styled.div<
     justifyContent: "flex-start",
     gap: 10,
     whiteSpace: "nowrap",
-    borderRadius: 6,
+    borderRadius: radioVariants.borderRadiusSM,
     display: "grid",
     gridTemplateColumns: gridColumns,
     "& svg": {
@@ -120,6 +120,13 @@ const DropdownItem = styled.div<
       "&:hover": {
         backgroundColor: get(theme, "dropdownSelector.backgroundColor", "#fff"),
         color: get(theme, "dropdownSelector.disabledText", "#E6EBEB"),
+      },
+    },
+    "&.danger:not(.disabled)": {
+        color: get(theme, "dropdownSelector.dangerText", themeColors["Color/Brand/Error/colorPrimaryText"].lightMode),
+      "&:hover": {
+        backgroundColor: get(theme, "dropdownSelector.dangerHoverBG", themeColors["Color/Brand/Error/colorPrimaryBgHover"].lightMode),
+        color: get(theme, "dropdownSelector.dangerHoverText", themeColors["Color/Brand/Error/colorPrimaryTextHover"].lightMode),
       },
     },
     "&.hovered:not(.disabled)": {
@@ -265,7 +272,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
                 selectedOption === option.value ? "selected" : ""
               } ${option.disabled ? "disabled" : ""} ${
                 index === indexHover ? "hovered" : ""
-              }`}
+              } ${option.danger ? "danger" : ""}`}
               onClick={selectOption}
               onMouseOver={() => {
                 setIndexHover(index);
