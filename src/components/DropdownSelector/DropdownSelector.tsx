@@ -28,8 +28,8 @@ import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
 import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
-import {overridePropsParse, radioVariants} from "../../global/utils";
-import {themeColors, themeShadows} from "../../global/themeColors";
+import { overridePropsParse, radioVariants } from "../../global/utils";
+import { themeColors, themeShadows } from "../../global/themeColors";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth, forSelectInput }) => ({
@@ -123,10 +123,22 @@ const DropdownItem = styled.div<
       },
     },
     "&.danger:not(.disabled)": {
-        color: get(theme, "dropdownSelector.dangerText", themeColors["Color/Brand/Error/colorPrimaryText"].lightMode),
+      color: get(
+        theme,
+        "dropdownSelector.dangerText",
+        themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+      ),
       "&:hover": {
-        backgroundColor: get(theme, "dropdownSelector.dangerHoverBG", themeColors["Color/Brand/Error/colorPrimaryBgHover"].lightMode),
-        color: get(theme, "dropdownSelector.dangerHoverText", themeColors["Color/Brand/Error/colorPrimaryTextHover"].lightMode),
+        backgroundColor: get(
+          theme,
+          "dropdownSelector.dangerHoverBG",
+          themeColors["Color/Brand/Error/colorPrimaryBgHover"].lightMode,
+        ),
+        color: get(
+          theme,
+          "dropdownSelector.dangerHoverText",
+          themeColors["Color/Brand/Error/colorPrimaryTextHover"].lightMode,
+        ),
       },
     },
     "&.hovered:not(.disabled)": {

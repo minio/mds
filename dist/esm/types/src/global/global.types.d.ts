@@ -186,6 +186,9 @@ export interface DropdownSelectorThemeProps {
   hoverBG: string;
   disabledText: string;
   border?: string;
+  dangerText: string;
+  dangerHoverBG: string;
+  dangerHoverText: string;
 }
 export interface ReadBoxThemeProps {
   borderColor: string;
@@ -481,6 +484,7 @@ export interface SelectOption {
   disabled?: boolean;
   subLabel?: string;
   description?: string;
+  danger?: boolean;
 }
 export interface IBytesCalc {
   total: number;

@@ -44,11 +44,11 @@ let useOpts: SelectOption[] = [
     value: "value4",
     disabled: true,
   },
-    {
-        label: "Danger Option",
-        value: "value5",
-        danger: true,
-    }
+  {
+    label: "Danger Option",
+    value: "value5",
+    danger: true,
+  },
 ];
 let useIconOpts: SelectOption[] = [
   { label: "Option 1", value: "value1", icon: <DownloadIcon /> },

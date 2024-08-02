@@ -197,6 +197,9 @@ interface DropdownSelectorThemeProps {
   hoverBG: string;
   disabledText: string;
   border?: string;
+  dangerText: string;
+  dangerHoverBG: string;
+  dangerHoverText: string;
 }
 interface ReadBoxThemeProps {
   borderColor: string;
@@ -492,6 +495,7 @@ interface SelectOption {
   disabled?: boolean;
   subLabel?: string;
   description?: string;
+  danger?: boolean;
 }
 interface IBytesCalc {
   total: number;
@@ -1752,6 +1756,7 @@ interface ExpandMenuProps {
   compact?: boolean;
   dropArrow?: boolean;
   inButtonGroup?: boolean;
+  forInputOptions?: boolean;
   sx?: OverrideTheme;
 }
 interface ExpandMenuOptionProps {
@@ -1768,9 +1773,11 @@ interface ExpandDropBaseProps {
   open: boolean;
   anchorEl?: (EventTarget & HTMLElement) | null;
   anchorOrigin?: "start" | "end" | "middle";
+  dropMinWidth?: boolean;
   children: React__default.ReactNode;
 }
 interface DropdownMainProps {
+  forInputOptions?: boolean;
   sx?: OverrideTheme;
 }
 interface ExpandMenuConstructProps {
