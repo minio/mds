@@ -62,7 +62,7 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       paddingBottom: sizeMode === "small" ? 4 : 8,
       paddingRight: paddingRight,
       paddingLeft: !!startIcon ? 35 : 8,
-      color: theme.colors["Color/Neutral/Text/colorTextHeading"] + "!important",
+      color: theme.colors["Color/Neutral/Text/colorTextHeading"],
       fontSize: 14,
       fontWeight: 400,
       borderWidth: "1px",
@@ -71,13 +71,13 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
       outline: "none",
       transitionDuration: "0.1s",
-      backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
+      backgroundColor: theme.colors["Color/Neutral/Bg/colorBgFields"],
       letterSpacing: "0.16px",
       "&.filled": {
-        borderColor: theme.colors["Color/Neutral/Border/colorBorderBold"],
+        borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
       },
-      "&:placeholder": {
-        color: get(theme, "inputBox.placeholderColor", "#858585"),
+      "&::placeholder": {
+        color: theme.colors["Color/Neutral/Text/colorTextPlaceholder"],
         opacity: 1,
         fontWeight: 400,
         letterSpacing: "0.16px",
@@ -89,10 +89,10 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
         borderColor: theme.colors["Color/Brand/Primary/colorPrimaryBorder"],
         boxShadow: "0px 0px 0px 2px rgba(43, 100, 229, 0.30)",
       },
-      "&:disabled, &:read-only": {
+      "&:read-only": {
         color: theme.colors["Color/Neutral/Text/colorTextHeading"],
         borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
-        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgDisabled"],
+        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgShell"],
         "&:placeholder": {
           color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
         },
@@ -103,6 +103,16 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       },
       "&[type=number]": {
         "-moz-appearance": "textfield",
+      },
+      "&:disabled": {
+        cursor: "not-allowed",
+        userSelect: "none",
+        color: theme.colors["Color/Neutral/Text/colorTextPlaceholder"],
+        borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
+        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgDisabled"],
+        "&:placeholder": {
+          color: theme.colors["Color/Neutral/Text/colorTextPlaceholder"],
+        },
       },
     };
   },
