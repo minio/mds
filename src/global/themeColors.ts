@@ -249,6 +249,10 @@ export const themeColors: ThemeColorItem = {
     lightMode: "#ffffff",
     darkMode: "##2D2D2F",
   },
+  "Color/Neutral/Bg/colorBgFields": {
+    lightMode: "#FCFCFF",
+    darkMode: "#434347",
+  },
   "Color/Neutral/Bg/colorBgOverlay": {
     lightMode: "#202022a6",
     darkMode: "#202022a6",
@@ -728,6 +732,10 @@ export const themeColors: ThemeColorItem = {
   "Color/Base/Rose/10": {
     lightMode: "#550228",
     darkMode: "#fef1f8",
+  },
+  "Color/Base/Gray/1": {
+    lightMode: "#FCFCFF",
+    darkMode: "#09090B",
   },
   "Color/Dataviz/1": {
     lightMode: "#2B64E5",
