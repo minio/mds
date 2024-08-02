@@ -820,8 +820,10 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledText: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
     dangerText: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
-    dangerHoverBG: themeColors["Color/Brand/Error/colorPrimaryBgHover"].lightMode,
-    dangerHoverText: themeColors["Color/Brand/Error/colorPrimaryTextHover"].lightMode,
+    dangerHoverBG:
+      themeColors["Color/Brand/Error/colorPrimaryBgHover"].lightMode,
+    dangerHoverText:
+      themeColors["Color/Brand/Error/colorPrimaryTextHover"].lightMode,
   },
   readBox: {
     borderColor: lightV2.borderColor,
@@ -1698,8 +1700,10 @@ export const darkTheme: ThemeDefinitionProps = {
     disabledText: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
     border: themeColors["Color/Neutral/Border/colorBorderMinimal"].darkMode,
     dangerText: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
-    dangerHoverBG: themeColors["Color/Brand/Error/colorPrimaryBgHover"].darkMode,
-    dangerHoverText: themeColors["Color/Brand/Error/colorPrimaryTextHover"].darkMode,
+    dangerHoverBG:
+      themeColors["Color/Brand/Error/colorPrimaryBgHover"].darkMode,
+    dangerHoverText:
+      themeColors["Color/Brand/Error/colorPrimaryTextHover"].darkMode,
   },
   readBox: {
     borderColor: darkColors.headerBorder,
