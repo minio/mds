@@ -54,7 +54,6 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
     overflow: "auto",
     boxSizing: "border-box" as const,
     flexDirection: "column" as const,
-    padding: "10px 20px",
     boxShadow: "none",
     border: 0,
     minHeight: 200,

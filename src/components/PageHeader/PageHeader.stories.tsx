@@ -96,7 +96,7 @@ FullComponentsSet.args = {
         type={"text"}
         id={"test"}
         style={{
-          width: "500px",
+          width: "100%",
           borderRadius: 3,
           height: 30,
           border: "#E5E5E5 1px solid",
@@ -106,6 +106,8 @@ FullComponentsSet.args = {
   ),
   actions: (
     <Fragment>
+      <Button id={"test1"} icon={<TestIcon />} label={"with text"} />
+      <Button id={"test1"} icon={<TestIcon />} label={"with text"} />
       <Button id={"test1"} icon={<TestIcon />} />
       <Button id={"test2"} icon={<TestIcon />} />
       <Button id={"test3"} icon={<TestIcon />} />
