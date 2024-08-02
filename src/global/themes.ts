@@ -809,14 +809,16 @@ export const lightTheme: ThemeDefinitionProps = {
     disabledOnBackground: lightV2.disabledBlueText,
   },
   dropdownSelector: {
-    hoverText: lightV2.fontColor,
-    backgroundColor: lightV2.white,
-    hoverBG: lightV2.menuSelectionColor,
-    selectedBGColor: lightV2.menuSelectionColor,
-    selectedTextColor: lightV2.fontColor,
-    optionTextColor: lightV2.fontColor,
-    disabledText: lightV2.disabledGreyText,
-    border: lightV2.disabledGrey,
+    hoverText: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    backgroundColor: "transparent",
+    hoverBG: themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+    selectedBGColor: themeColors["Color/Brand/Control/colorBgActive"].lightMode,
+    selectedTextColor:
+      themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+    optionTextColor:
+      themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    disabledText: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+    border: themeColors["Color/Neutral/Border/colorBorderMinimal"].lightMode,
   },
   readBox: {
     borderColor: lightV2.borderColor,
@@ -1682,13 +1684,16 @@ export const darkTheme: ThemeDefinitionProps = {
     disabledOnBackground: darkColors.disabledOnSwitchBG,
   },
   dropdownSelector: {
-    hoverText: darkColors.dark,
-    backgroundColor: darkColors.sectionOneBG,
-    hoverBG: darkColors.mainGrey,
-    selectedBGColor: darkColors.bulletColor,
-    selectedTextColor: darkColors.mainWhite,
-    optionTextColor: darkColors.defaultFontColor,
-    disabledText: darkColors.disabledGrey,
+    hoverText: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    backgroundColor: "transparent",
+    hoverBG: themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+    selectedBGColor: themeColors["Color/Brand/Control/colorBgActive"].darkMode,
+    selectedTextColor:
+      themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+    optionTextColor:
+      themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    disabledText: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+    border: themeColors["Color/Neutral/Border/colorBorderMinimal"].darkMode,
   },
   readBox: {
     borderColor: darkColors.headerBorder,

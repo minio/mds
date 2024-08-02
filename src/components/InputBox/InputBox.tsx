@@ -97,6 +97,13 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
           color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
         },
       },
+      "&::-webkit-outer-spin-button, &::-webkit-inner-spin-button": {
+        WebkitAppearance: "none",
+        margin: 0,
+      },
+      "&[type=number]": {
+        "-moz-appearance": "textfield",
+      },
     };
   },
 );
@@ -148,6 +155,7 @@ const InputContainer = styled.div<InputContainerProps>(
         boxShadow: "none",
         height: sizeMode === "small" ? 26 : 36,
         boxSizing: "border-box",
+        fontWeight: "400",
         "& .min-icon": {
           width: 16,
           height: 16,
@@ -158,7 +166,7 @@ const InputContainer = styled.div<InputContainerProps>(
     },
 
     "& .startOverlayIcon": {
-      position: "absolute",
+      position: "absolute" as const,
       left: 8,
       top: sizeMode === "small" ? 6 : 10,
       "& svg": {
