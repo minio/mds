@@ -119,6 +119,7 @@ const FileSelector: FC<FileSelectorProps> = ({
           className={"inputLabel"}
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
+          inputSizeMode={"large"}
         >
           {label}
           {required ? "*" : ""}
