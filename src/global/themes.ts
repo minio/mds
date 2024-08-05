@@ -639,28 +639,43 @@ export const lightTheme: ThemeDefinitionProps = {
   },
   checkbox: {
     checkBoxBorder:
-      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
-    checkBoxBackground: "transparent",
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
+    checkBoxBackground: themeColors["Color/Neutral/Bg/colorBgFields"].lightMode,
     checkBoxHoverBorder:
-      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+      themeColors["Color/Neutral/Border/colorBorderBold"].lightMode,
     checkBoxHoverBackground:
-      themeColors["Color/Brand/Control/colorBgHover"].lightMode,
+      themeColors["Color/Neutral/Bg/colorBgFields"].lightMode,
     checkBoxFocusBorder:
       themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
-    checkBoxFocusBackground: themeColors["Color/Neutral/colorBgBase"].lightMode,
-    checkBoxFocusShadow: "",
-    checkBoxActiveColor:
-      themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+    checkBoxFocusBackground:
+      themeColors["Color/Neutral/Bg/colorBgFields"].lightMode,
+    checkBoxFocusShadow: "0px 0px 0px 4px rgba(43, 100, 229, 0.30)",
     checkBoxActiveBorder:
-      themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
+      themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
     checkBoxActiveBackground:
-      themeColors["Color/Neutral/colorBgBase"].lightMode,
+      themeColors["Color/Brand/Primary/colorPrimary"].lightMode,
+    checkBoxActiveCheckboxColor:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    checkBoxActiveHoverCheckboxColor:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    checkBoxActiveHoverBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
+    checkBoxActiveHoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
+    checkBoxFocusActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].lightMode,
+    checkBoxFocusActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].lightMode,
+    checkBoxFocusActiveCheckboxColor:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
+    checkBoxFocusActiveHoverBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
     disabledBorder:
-      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
     disabledBackground:
       themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
     disabledColor:
-      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
+      themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
   },
   radioGroup: {
     radioBorder:
@@ -1530,27 +1545,42 @@ export const darkTheme: ThemeDefinitionProps = {
   },
   checkbox: {
     checkBoxBorder:
-      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
-    checkBoxBackground: "transparent",
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
+    checkBoxBackground: themeColors["Color/Neutral/Bg/colorBgFields"].darkMode,
     checkBoxHoverBorder:
-      themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
+      themeColors["Color/Neutral/Border/colorBorderBold"].darkMode,
     checkBoxHoverBackground:
-      themeColors["Color/Brand/Control/colorBgHover"].darkMode,
+      themeColors["Color/Neutral/Bg/colorBgFields"].darkMode,
     checkBoxFocusBorder:
       themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
-    checkBoxFocusBackground: themeColors["Color/Neutral/colorBgBase"].darkMode,
-    checkBoxFocusShadow: "",
-    checkBoxActiveColor:
-      themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    checkBoxFocusBackground:
+      themeColors["Color/Neutral/Bg/colorBgFields"].darkMode,
+    checkBoxFocusShadow: "0px 0px 0px 4px rgba(43, 100, 229, 0.30)",
     checkBoxActiveBorder:
-      themeColors["Color/Brand/Primary/colorPrimaryBorder"].darkMode,
-    checkBoxActiveBackground: themeColors["Color/Neutral/colorBgBase"].darkMode,
+      themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    checkBoxActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimary"].darkMode,
+    checkBoxActiveCheckboxColor:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    checkBoxActiveHoverCheckboxColor:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    checkBoxActiveHoverBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
+    checkBoxActiveHoverBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
+    checkBoxFocusActiveBorder:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].darkMode,
+    checkBoxFocusActiveBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryActive"].darkMode,
+    checkBoxFocusActiveCheckboxColor:
+      themeColors["Color/Neutral/Text/colorTextLightSolid"].darkMode,
+    checkBoxFocusActiveHoverBackground:
+      themeColors["Color/Brand/Primary/colorPrimaryHover"].darkMode,
     disabledBorder:
-      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+      themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,
     disabledBackground:
       themeColors["Color/Neutral/Bg/colorBgDisabled"].darkMode,
-    disabledColor:
-      themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+    disabledColor: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
   },
   radioGroup: {
     radioBorder: themeColors["Color/Neutral/Border/colorBorderSubtle"].darkMode,

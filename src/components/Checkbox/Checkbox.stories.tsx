@@ -56,3 +56,15 @@ Disabled.args = {
   checked: true,
   disabled: true,
 };
+
+export const UncheckedDisabled = Template.bind({});
+UncheckedDisabled.args = {
+  label: "Click to confirm",
+  id: "checkbox",
+  onClick: () => {
+    console.log("click");
+  },
+  tooltip: "test",
+  checked: false,
+  disabled: true,
+};
