@@ -44,6 +44,9 @@ const ParentContainer = styled.div<
     fontWeight: "bold",
     lineHeight: " 28px",
   },
+  "& .page-header-label,& .page-header-actions": {
+    flexGrow: 1,
+  },
   ...overridePropsParse(sx, theme),
 }));
 
