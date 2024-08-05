@@ -290,7 +290,7 @@ const DataTable: FC<DataTableProps> = ({
     typeof sortEnabled === "object" &&
     !Array.isArray(sortEnabled);
 
-  const clickAction = (rowItem: any) => {
+  const clickAction = (rowItem: any, index: number) => {
     if (findView) {
       const valueClick =
         findView.sendOnlyId && idField ? rowItem[rowIDField] : rowItem;
@@ -306,7 +306,7 @@ const DataTable: FC<DataTableProps> = ({
       }
 
       if (findView.onClick && !disabled) {
-        findView.onClick(valueClick);
+        findView.onClick(valueClick, index);
       }
     }
   };
@@ -463,9 +463,9 @@ const DataTable: FC<DataTableProps> = ({
                       width={width}
                       rowCount={sortedRecords.length}
                       rowGetter={({ index }) => sortedRecords[index]}
-                      onRowClick={({ rowData }) => {
-                        clickAction(rowData);
-                      }}
+                      onRowClick={({ rowData, index }) =>
+                        clickAction(rowData, index)
+                      }
                       rowClassName={(r) =>
                         `rowLine ${findView ? "canClick" : ""} ${
                           !findView && textSelectable ? "canSelectText" : ""
