@@ -60,9 +60,16 @@ interface CheckBoxThemeProps {
   checkBoxFocusBorder: string;
   checkBoxFocusBackground: string;
   checkBoxFocusShadow: string;
-  checkBoxActiveColor: string;
+  checkBoxActiveCheckboxColor: string;
   checkBoxActiveBorder: string;
   checkBoxActiveBackground: string;
+  checkBoxActiveHoverBackground: string;
+  checkBoxActiveHoverBorder: string;
+  checkBoxActiveHoverCheckboxColor: string;
+  checkBoxFocusActiveBorder: string;
+  checkBoxFocusActiveBackground: string;
+  checkBoxFocusActiveHoverBackground: string;
+  checkBoxFocusActiveCheckboxColor: string;
   disabledBorder: string;
   disabledBackground: string;
   disabledColor: string;
@@ -741,6 +748,7 @@ interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
   helpTip?: ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
   orientation?: "horizontal" | "vertical";
+  inputSizeMode?: "small" | "large";
 }
 
 declare const InputLabel: FC<InputLabelProps>;
