@@ -272,6 +272,7 @@ const InputBox: FC<InputBoxProps> = ({
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
           orientation={orientation}
+          inputSizeMode={sizeMode}
         >
           {label}
           {required ? "*" : ""}

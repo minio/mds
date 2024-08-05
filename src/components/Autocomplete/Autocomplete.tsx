@@ -189,6 +189,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
           className={"inputLabel"}
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
+          inputSizeMode={"large"}
         >
           {label}
           {required ? "*" : ""}

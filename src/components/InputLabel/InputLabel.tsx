@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment } from "react";
+import React, { CSSProperties, FC } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { InputLabelProps } from "./InputLabel.types";
@@ -22,23 +22,41 @@ import HelpTip from "../HelpTip/HelpTip";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 
-const CustomLabel = styled.label<InputLabelProps>(({ theme, sx }) => ({
-  color: get(theme, "commonInput.labelColor", lightV2.fontColor),
-  textAlign: "left" as const,
-  alignItems: "flex-start" as const,
-  display: "flex",
-  userSelect: "none",
-  whiteSpace: "nowrap",
-  "& > span": {
-    display: "flex",
-    alignItems: "center",
-    minWidth: 160,
-    "&.noMinWidthLabel": {
-      minWidth: "initial",
-    },
+const CustomLabel = styled.label<InputLabelProps>(
+  ({ theme, inputSizeMode, orientation, sx }) => {
+    let lineHeightVariant: CSSProperties["height"] = "initial";
+
+    if (orientation === "horizontal" && inputSizeMode) {
+      switch (inputSizeMode) {
+        case "small":
+          lineHeightVariant = "28px";
+          break;
+        case "large":
+          lineHeightVariant = "38px";
+          break;
+      }
+    }
+
+    return {
+      color: get(theme, "commonInput.labelColor", lightV2.fontColor),
+      textAlign: "left" as const,
+      alignItems: "flex-start" as const,
+      display: "flex",
+      userSelect: "none",
+      whiteSpace: "nowrap",
+      "& > span": {
+        display: "flex",
+        alignItems: "center",
+        lineHeight: lineHeightVariant,
+        minWidth: 160,
+        "&.noMinWidthLabel": {
+          minWidth: "initial",
+        },
+      },
+      ...overridePropsParse(sx, theme),
+    };
   },
-  ...overridePropsParse(sx, theme),
-}));
+);
 
 const InputLabel: FC<InputLabelProps> = ({
   children,
@@ -48,10 +66,17 @@ const InputLabel: FC<InputLabelProps> = ({
   helpTip,
   helpTipPlacement,
   orientation = "horizontal",
+  inputSizeMode,
   ...props
 }) => {
   return (
-    <CustomLabel sx={sx} htmlFor={htmlFor} {...props}>
+    <CustomLabel
+      sx={sx}
+      htmlFor={htmlFor}
+      inputSizeMode={inputSizeMode}
+      orientation={orientation}
+      {...props}
+    >
       <span className={`Base_Normal ${noMinWidth ? "noMinWidthLabel" : ""}`}>
         {helpTip ? (
           <HelpTip placement={helpTipPlacement} content={helpTip}>
