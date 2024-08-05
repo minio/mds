@@ -776,7 +776,7 @@ interface ItemActions {
   sendOnlyId?: boolean;
   isDisabled?: boolean | ((itemValue: any) => boolean);
   showLoader?: boolean | ((itemValue: any) => boolean);
-  onClick?(valueToSend: any): any;
+  onClick?(valueToSend: any, index?: number): any;
 }
 interface IColumns {
   label: string;
@@ -848,7 +848,7 @@ interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
 interface IActionButton {
   tooltip?: string;
   type: PredefinedActionTypes | React__default.ReactNode;
-  onClick?: (id: string) => any;
+  onClick?: (valueToSend: any, index?: number) => any;
   valueToSend: any;
   selected: boolean;
   sendOnlyId?: boolean;

@@ -40,7 +40,7 @@ export interface ItemActions {
   sendOnlyId?: boolean;
   isDisabled?: boolean | ((itemValue: any) => boolean);
   showLoader?: boolean | ((itemValue: any) => boolean);
-  onClick?(valueToSend: any, index: number): any;
+  onClick?(valueToSend: any, index?: number): any;
 }
 
 export interface IColumns {
@@ -119,7 +119,7 @@ export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
 export interface IActionButton {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
-  onClick?: (id: string) => any;
+  onClick?: (valueToSend: any, index?: number) => any;
   valueToSend: any;
   selected: boolean;
   sendOnlyId?: boolean;
