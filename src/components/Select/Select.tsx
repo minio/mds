@@ -39,7 +39,7 @@ const Select: FC<SelectProps> = ({
   placeholder = "",
   helpTip,
   helpTipPlacement,
-  sizeMode = "small",
+  sizeMode = "large",
   orientation = "horizontal",
   state = "normal",
   readOnly = false,
