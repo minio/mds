@@ -539,8 +539,8 @@ FullItemsActions.args = {
     },
     {
       type: "view",
-      onClick: (deleteItem) => {
-        console.log("VIEW", deleteItem);
+      onClick: (deleteItem, index) => {
+        console.log("VIEW", deleteItem, "INDEX", index);
       },
       tooltip: "View",
     },

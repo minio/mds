@@ -40,7 +40,7 @@ export interface ItemActions {
   sendOnlyId?: boolean;
   isDisabled?: boolean | ((itemValue: any) => boolean);
   showLoader?: boolean | ((itemValue: any) => boolean);
-  onClick?(valueToSend: any): any;
+  onClick?(valueToSend: any, index: number): any;
 }
 
 export interface IColumns {
