@@ -15,64 +15,27 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
-import get from "lodash/get";
 import { IconButtonProps } from "./IconButton.types";
+import Button from "../Button/Button";
 
-const CustomIconButton = styled.button<IconButtonProps>(({ theme, size }) => {
-  let buttonSize: number | string = 32;
-
-  if (size) {
-    if (typeof size === "string") {
-      switch (size) {
-        case "small":
-          buttonSize = 28;
-          break;
-        case "medium":
-          buttonSize = 32;
-          break;
-        case "large":
-          buttonSize = 48;
-          break;
-        default:
-          buttonSize = size;
-      }
-    }
-  }
-  return {
-    width: buttonSize,
-    height: buttonSize,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: "100%",
-    border: 0,
-    position: "relative",
-    cursor: "pointer",
-    transitionDuration: "0.2s",
-    background: get(theme, `iconButton.buttonBG`, "#000"),
-    "& svg": {
-      color: get(theme, `iconButton.color`, "#000"),
-      margin: "calc(25% - 2px)",
-    },
-    "&:hover:not(:disabled)": {
-      background: get(theme, `iconButton.hoverBG`, "#000"),
-    },
-    "&:active:not(:disabled)": {
-      background: get(theme, `iconButton.activeBG`, "#000"),
-    },
-    "&:disabled": {
-      cursor: "not-allowed",
-      background: get(theme, `iconButton.disabledBG`, "#000"),
-      "& svg": {
-        color: get(theme, `iconButton.disabledColor`, "#fff"),
-      },
-    },
-  };
-});
-
-const IconButton: FC<IconButtonProps> = ({ children, ...props }) => {
-  return <CustomIconButton {...props}>{children}</CustomIconButton>;
+const IconButton: FC<IconButtonProps> = ({
+  children,
+  id,
+  size,
+  variant = "primary-lighter",
+  isLoading,
+  ...props
+}) => {
+  return (
+    <Button
+      id={id}
+      compact={size === "small"}
+      variant={variant}
+      isLoading={isLoading}
+      icon={children}
+      {...props}
+    />
+  );
 };
 
 export default IconButton;
