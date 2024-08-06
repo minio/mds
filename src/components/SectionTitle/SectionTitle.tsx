@@ -18,7 +18,7 @@ import React, { FC, HTMLAttributes } from "react";
 import Grid from "../Grid/Grid";
 import { SectionTitleProps } from "./SectionTitle.types";
 import styled from "styled-components";
-import { overridePropsParse } from "../../global/utils";
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
 
 const SectionParent = styled.div<
   HTMLAttributes<HTMLDivElement> & SectionTitleProps
@@ -48,20 +48,25 @@ const SectionTitle: FC<SectionTitleProps & HTMLAttributes<HTMLDivElement>> = ({
       <Grid
         item
         xs
-        sx={{
+        sx={(theme) => ({
           display: "flex",
           flexGrow: 1,
           justifyContent: "flex-start",
           alignItems: "center",
           "& svg": { marginRight: "10px" },
-          "& h3": {
-            fontWeight: "normal",
+          "& .title": {
             fontSize: 20,
+            fontStyle: "normal",
+            fontWeight: 600,
+            lineHeight: "28px",
+            margin: "12px 0",
+            color: theme.colors["Color/Neutral/Text/colorTextHeading"],
+            padding: `${paddingSizeVariants.sizeXXS}px 0`,
           },
-        }}
+        })}
       >
         {icon}
-        <h3>{children}</h3>
+        <span className={"title"}>{children}</span>
       </Grid>
       {actions && (
         <Grid
