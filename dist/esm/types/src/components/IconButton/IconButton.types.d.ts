@@ -1,9 +1,12 @@
 import React from "react";
 import { OverrideTheme } from "../../global/global.types";
+import { ButtonVariant } from "../Button/Button.types";
 export interface IconBase {
-  label?: string;
-  size?: "small" | "medium" | "large" | string;
+  id: string;
+  size?: "small" | "large";
   sx?: OverrideTheme;
+  variant?: ButtonVariant;
+  isLoading?: boolean;
   children: React.ReactNode;
 }
 export type IconButtonProps = IconBase &
