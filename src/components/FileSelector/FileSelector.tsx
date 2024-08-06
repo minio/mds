@@ -119,7 +119,7 @@ const FileSelector: FC<FileSelectorProps> = ({
           className={"inputLabel"}
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
-          inputSizeMode={"large"}
+          inputSizeMode={"small"}
         >
           {label}
           {required ? "*" : ""}
@@ -158,6 +158,7 @@ const FileSelector: FC<FileSelectorProps> = ({
         <Box className={"fileReselect"}>
           {value !== "" && <div className={"valueString"}>{value || ""}</div>}
           <IconButton
+            id={`file-selector-ac-${id}`}
             type={"button"}
             color="primary"
             aria-label="upload picture"

@@ -45,21 +45,16 @@ SmallButton.args = {
   size: "small",
 };
 
-export const MediumButton = Template.bind({});
-MediumButton.args = {
-  disabled: false,
-};
-
 export const LargeButton = Template.bind({});
 LargeButton.args = {
   disabled: false,
   size: "large",
 };
 
-export const CustomSize = Template.bind({});
-CustomSize.args = {
+export const ButtonVariant = Template.bind({});
+ButtonVariant.args = {
   disabled: false,
-  size: "100px",
+  variant: "destructive-lighter",
 };
 
 export const Disabled = Template.bind({});
