@@ -88,8 +88,8 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
         width: 28,
         height: 28,
         "& > svg": {
-          width: 12,
-          height: 12,
+          width: 18,
+          height: 18,
         },
         "&:hover": {
           color: get(theme, "modalBox.closeHoverColor", "#EAEAEA"),
