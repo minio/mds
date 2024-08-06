@@ -179,6 +179,26 @@ const Template: Story<BadgeProps> = ({ label, id, sx, color }) => {
           size={"small"}
           isNumber
         />
+
+        <Badge
+          label={"Dot Icon"}
+          color={color}
+          id={id}
+          sx={sx}
+          badgeStyle={"subtle"}
+          size={"normal"}
+          icon={"dot"}
+        />
+
+        <Badge
+          label={"Dot Icon"}
+          color={color}
+          id={id}
+          sx={sx}
+          badgeStyle={"minimal"}
+          size={"small"}
+          icon={"dot"}
+        />
       </Box>
     </StoryThemeProvider>
   );

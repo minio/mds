@@ -26,6 +26,7 @@ import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
 import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
 import CircleXIcon from "../Icons/NewDesignIcons/CircleXIcon";
 import { paddingSizeVariants } from "../../global/utils";
+import DotIcon from "../Icons/NewDesignIcons/DotIcon";
 
 const BadgeBase = styled.span<BadgeConstructProps>(
   ({ theme, color, size, badgeStyle, icon, isNumber, sx }) => {
@@ -116,6 +117,13 @@ const BadgeBase = styled.span<BadgeConstructProps>(
         color: textColor,
         fill: textColor,
       },
+      "& span.dot": {
+        display: "inline-block",
+        width: 8,
+        height: 8,
+        backgroundColor: textColor,
+        borderRadius: "100%",
+      },
       ...sx,
     };
   },
@@ -160,7 +168,7 @@ const Badge: FC<BadgeProps & React.HTMLAttributes<HTMLSpanElement>> = ({
         }
       } else {
         // In case we want to use a custom icon, and it is not a predefined icon
-        icnUse = icon === "dot" ? <CircleIcon /> : icon;
+        icnUse = icon === "dot" ? <span className={"dot"} /> : icon;
       }
     }
 
