@@ -53,9 +53,6 @@ const AccordionTitleBar = styled.div<HTMLAttributes<HTMLDivElement>>(
       cursor: "not-allowed",
       color: theme.colors["Color/Neutral/Text/colorTextDisabled"],
     },
-    "&:not(.disabled):hover": {
-      backgroundColor: get(theme, "boxBackground", lightColors.boxBackground),
-    },
   }),
 );
 
