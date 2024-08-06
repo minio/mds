@@ -754,9 +754,11 @@ interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
 declare const InputLabel: FC<InputLabelProps>;
 
 interface IconBase {
-  label?: string;
-  size?: "small" | "medium" | "large" | string;
+  id: string;
+  size?: "small" | "large";
   sx?: OverrideTheme;
+  variant?: ButtonVariant;
+  isLoading?: boolean;
   children: React__default.ReactNode;
 }
 type IconButtonProps = IconBase &
