@@ -19,7 +19,11 @@ import {
   ScreenTitleContainerProps,
   ScreenTitleProps,
 } from "./ScreenTitle.types";
-import { breakPoints, overridePropsParse } from "../../global/utils";
+import {
+  breakPoints,
+  overridePropsParse,
+  paddingSizeVariants,
+} from "../../global/utils";
 import styled from "styled-components";
 import Box from "../Box/Box";
 import get from "lodash/get";
@@ -77,13 +81,12 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
         "& .title": {
           fontSize: 12,
           fontStyle: "normal",
-          fontWeight: "normal" as const,
+          fontWeight: 400,
           lineHeight: "16px",
-          letterSpacing: "0.5px",
           color: get(
             theme,
             `screenTitle.subtitleColor`,
-            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+            themeColors["Color/Neutral/Text/colorTextTertiary"].lightMode,
           ),
         },
         "& .value": {
@@ -91,7 +94,6 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
           fontStyle: "normal",
           fontWeight: 600,
           lineHeight: "16px",
-          letterSpacing: "0.5px",
           color: get(
             theme,
             `screenTitle.subtitleColor`,
@@ -109,6 +111,10 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       display: "flex",
       alignItems: "center",
       gap: 10,
+    },
+    "& .optionElement": {
+      display: "flex",
+      gap: paddingSizeVariants.sizeXS,
     },
     [`@media (max-width: ${get(breakPoints, "md", 0)}px)`]: {
       "& .stContainer": {
