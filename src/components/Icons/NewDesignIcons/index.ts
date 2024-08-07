@@ -1495,3 +1495,6 @@ export { default as SummaryIcon } from "./SummaryIcon";
 export { default as TraceIcon } from "./TraceIcon";
 export { default as LambdaIcon } from "./LambdaIcon";
 export { default as LDAPIcon } from "./LDAPIcon";
+export { default as ClusterNodeIcon } from "./ClusterNodeIcon";
+export { default as ContainerImagesIcon } from "./ContainerImagesIcon";
+export { default as OidcIcon } from "./OidcIcon";
