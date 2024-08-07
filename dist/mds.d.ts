@@ -7470,6 +7470,86 @@ declare const ZoomOutIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BalancerIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BellArrowIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BoxOutlineIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BucketCopyIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BucketQuotaIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterHealthIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterIngressIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterReplicationIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClustersIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const DataIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const DatabaseApiIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FolderKey2Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const HardDriveSearchIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PasscodeLockIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const RefreshCwSettingsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SitesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SummaryIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const TraceIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LambdaIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LDAPIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 interface TableComponentsExtraProps {
   sx?: OverrideTheme;
 }
@@ -7892,6 +7972,7 @@ export {
   type BadgeThemeProps,
   BadgeXIcon,
   BaggageClaimIcon,
+  BalancerIcon,
   BanIcon,
   BananaIcon,
   BanknoteIcon,
@@ -7922,6 +8003,7 @@ export {
   BeefIcon,
   BeerIcon,
   BeerOffIcon,
+  BellArrowIcon,
   BellDotIcon,
   BellElectricIcon,
   BellIcon,
@@ -7983,6 +8065,7 @@ export {
   BotMessageSquareIcon,
   Box,
   BoxIcon,
+  BoxOutlineIcon,
   type BoxProps,
   BoxSelectIcon,
   type BoxThemeProps,
@@ -8007,7 +8090,9 @@ export {
   BriefcaseMedicalIcon,
   BringToFrontIcon,
   BrushIcon,
+  BucketCopyIcon,
   BucketIcon,
+  BucketQuotaIcon,
   BugIcon,
   BugOffIcon,
   BugPlayIcon,
@@ -8179,6 +8264,11 @@ export {
   CloudyIcon,
   CloverIcon,
   ClubIcon,
+  ClusterHealthIcon,
+  ClusterIcon,
+  ClusterIngressIcon,
+  ClusterReplicationIcon,
+  ClustersIcon,
   CodeMirrorWrapper as CodeEditor,
   type CodeEditorBaseProps,
   type CodeEditorProps,
@@ -8248,10 +8338,12 @@ export {
   CupSodaIcon,
   CurrencyIcon,
   CylinderIcon,
+  DataIcon,
   DataTable,
   type DataTableProps,
   type DataTableThemeProps,
   type DataTableWrapperProps,
+  DatabaseApiIcon,
   DatabaseBackupIcon,
   DatabaseIcon,
   DatabaseZapIcon,
@@ -8446,6 +8538,7 @@ export {
   FolderIcon,
   FolderInputIcon,
   FolderKanbanIcon,
+  FolderKey2Icon,
   FolderKeyIcon,
   FolderLockIcon,
   FolderMinusIcon,
@@ -8535,6 +8628,7 @@ export {
   HandshakeIcon,
   HardDriveDownloadIcon,
   HardDriveIcon,
+  HardDriveSearchIcon,
   HardDriveUploadIcon,
   HardHatIcon,
   HashIcon,
@@ -8626,6 +8720,8 @@ export {
   KeyboardIcon,
   KeyboardMusicIcon,
   KubernetesSiteIcon,
+  LDAPIcon,
+  LambdaIcon,
   LampCeilingIcon,
   LampDeskIcon,
   LampFloorIcon,
@@ -8884,6 +8980,7 @@ export {
   ParenthesesIcon,
   ParkingMeterIcon,
   PartyPopperIcon,
+  PasscodeLockIcon,
   PauseIcon,
   PawPrintIcon,
   PcCaseIcon,
@@ -8991,6 +9088,7 @@ export {
   RefreshCCWIcon,
   RefreshCwIcon as RefreshCWIcon,
   RefreshCWOffIcon,
+  RefreshCwSettingsIcon,
   RefrigeratorIcon,
   RegexIcon,
   RemoveFormattingIcon,
@@ -9114,6 +9212,7 @@ export {
   type SimpleHeaderContainerProps,
   type SimpleHeaderProps,
   SirenIcon,
+  SitesIcon,
   SizeChart,
   type SizeChartConstructProps,
   type SizeChartMain,
@@ -9233,6 +9332,7 @@ export {
   type StylesOverrideProps,
   type SubItemsBoxProps,
   SubscriptIcon,
+  SummaryIcon,
   SunDimIcon,
   SunIcon,
   SunMediumIcon,
@@ -9339,6 +9439,7 @@ export {
   TouchpadOffIcon,
   TowerControlIcon,
   ToyBrickIcon,
+  TraceIcon,
   TractorIcon,
   TrafficConeIcon,
   TrainFrontIcon,
