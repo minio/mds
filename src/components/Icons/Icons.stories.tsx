@@ -735,6 +735,11 @@ const Template: Story = (args) => {
               BaggageClaimIcon
             </div>
             <div className="story-icon">
+              <nvicons.BalancerIcon />
+              <br />
+              BalancerIcon
+            </div>
+            <div className="story-icon">
               <nvicons.BanIcon />
               <br />
               BanIcon
@@ -878,6 +883,11 @@ const Template: Story = (args) => {
               <nvicons.BeerIcon />
               <br />
               BeerIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.BellArrowIcon />
+              <br />
+              BellArrowIcon
             </div>
             <div className="story-icon">
               <nvicons.BellDotIcon />
@@ -1190,6 +1200,11 @@ const Template: Story = (args) => {
               BoxesIcon
             </div>
             <div className="story-icon">
+              <nvicons.BoxOutlineIcon />
+              <br />
+              BoxOutlineIcon
+            </div>
+            <div className="story-icon">
               <nvicons.BracesIcon />
               <br />
               BracesIcon
@@ -1245,9 +1260,19 @@ const Template: Story = (args) => {
               BrushIcon
             </div>
             <div className="story-icon">
+              <nvicons.BucketCopyIcon />
+              <br />
+              BucketCopyIcon
+            </div>
+            <div className="story-icon">
               <nvicons.BucketIcon />
               <br />
               BucketIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.BucketQuotaIcon />
+              <br />
+              BucketQuotaIcon
             </div>
             <div className="story-icon">
               <nvicons.BugOffIcon />
@@ -2055,6 +2080,31 @@ const Template: Story = (args) => {
               ClubIcon
             </div>
             <div className="story-icon">
+              <nvicons.ClusterHealthIcon />
+              <br />
+              ClusterHealthIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ClusterIngressIcon />
+              <br />
+              ClusterIngressIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ClusterReplicationIcon />
+              <br />
+              ClusterReplicationIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ClusterIcon />
+              <br />
+              ClusterIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ClustersIcon />
+              <br />
+              ClustersIcon
+            </div>
+            <div className="story-icon">
               <nvicons.CodeXmlIcon />
               <br />
               CodeXmlIcon
@@ -2318,6 +2368,16 @@ const Template: Story = (args) => {
               <nvicons.CylinderIcon />
               <br />
               CylinderIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.DataIcon />
+              <br />
+              DataIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.DatabaseApiIcon />
+              <br />
+              DatabaseApiIcon
             </div>
             <div className="story-icon">
               <nvicons.DatabaseBackupIcon />
@@ -3080,6 +3140,11 @@ const Template: Story = (args) => {
               FoldVerticalIcon
             </div>
             <div className="story-icon">
+              <nvicons.FolderKey2Icon />
+              <br />
+              FolderKey2Icon
+            </div>
+            <div className="story-icon">
               <nvicons.FolderArchiveIcon />
               <br />
               FolderArchiveIcon
@@ -3550,6 +3615,11 @@ const Template: Story = (args) => {
               HardDriveDownloadIcon
             </div>
             <div className="story-icon">
+              <nvicons.HardDriveSearchIcon />
+              <br />
+              HardDriveSearchIcon
+            </div>
+            <div className="story-icon">
               <nvicons.HardDriveUploadIcon />
               <br />
               HardDriveUploadIcon
@@ -3850,6 +3920,11 @@ const Template: Story = (args) => {
               KubernetesSiteIcon
             </div>
             <div className="story-icon">
+              <nvicons.LambdaIcon />
+              <br />
+              LambdaIcon
+            </div>
+            <div className="story-icon">
               <nvicons.LampCeilingIcon />
               <br />
               LampCeilingIcon
@@ -3963,6 +4038,11 @@ const Template: Story = (args) => {
               <nvicons.LayoutTemplateIcon />
               <br />
               LayoutTemplateIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.LDAPIcon />
+              <br />
+              LDAPIcon
             </div>
             <div className="story-icon">
               <nvicons.LeafIcon />
@@ -4970,6 +5050,11 @@ const Template: Story = (args) => {
               PartyPopperIcon
             </div>
             <div className="story-icon">
+              <nvicons.PasscodeLockIcon />
+              <br />
+              PasscodeLockIcon
+            </div>
+            <div className="story-icon">
               <nvicons.PauseIcon />
               <br />
               PauseIcon
@@ -5433,6 +5518,11 @@ const Template: Story = (args) => {
               <nvicons.RefreshCWIcon />
               <br />
               RefreshCWIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.RefreshCwSettingsIcon />
+              <br />
+              RefreshCwSettingsIcon
             </div>
             <div className="story-icon">
               <nvicons.RefrigeratorIcon />
@@ -5965,6 +6055,11 @@ const Template: Story = (args) => {
               SirenIcon
             </div>
             <div className="story-icon">
+              <nvicons.SitesIcon />
+              <br />
+              SitesIcon
+            </div>
+            <div className="story-icon">
               <nvicons.SkipBackIcon />
               <br />
               SkipBackIcon
@@ -6480,6 +6575,11 @@ const Template: Story = (args) => {
               SubscriptIcon
             </div>
             <div className="story-icon">
+              <nvicons.SummaryIcon />
+              <br />
+              SummaryIcon
+            </div>
+            <div className="story-icon">
               <nvicons.SunDimIcon />
               <br />
               SunDimIcon
@@ -6833,6 +6933,11 @@ const Template: Story = (args) => {
               <nvicons.ToyBrickIcon />
               <br />
               ToyBrickIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.TraceIcon />
+              <br />
+              TraceIcon
             </div>
             <div className="story-icon">
               <nvicons.TractorIcon />

@@ -70,17 +70,17 @@ fs.readdirSync(inputDir).forEach((file) => {
   >`;
 
       let svgContent = fileInfo
-        .replace(/<svg(.*?)>/, "") // Remove old svg header
-        .replaceAll(/fill-opacity=\"(.*?)\"/, "") // Remove hardcoded opacity
+        .replace(/<svg(.*?)>/g, "") // Remove old svg header
+        .replaceAll(/fill-opacity=\"(.*?)\"/g, "") // Remove hardcoded opacity
         .replaceAll("fill-rule=", "fillRule=") // Change fillRule
         .replaceAll("clip-rule=", "clipRule=") // change clipRule
-        .replaceAll(/fill=\"(.*?)\"/, 'fill="currentColor"'); // Change fill to match currentColor
+        .replaceAll(/fill=\"(.*?)\"/g, 'fill="currentColor"'); // Change fill to match currentColor
 
       if (svgContent.includes("clipPath")) {
         // We remove clipPaths
         svgContent = svgContent
-          .replaceAll(/<defs>((.|\n)*)<\/defs>/, "")
-          .replaceAll(/<g clip-path=\"(.*?)\">/, "")
+          .replaceAll(/<defs>((.|\n)*)<\/defs>/g, "")
+          .replaceAll(/<g clip-path=\"(.*?)\">/g, "")
           .replaceAll("</g>", "");
       }
 
