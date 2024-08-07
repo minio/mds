@@ -2105,6 +2105,11 @@ const Template: Story = (args) => {
               ClustersIcon
             </div>
             <div className="story-icon">
+              <nvicons.ClusterNodeIcon />
+              <br />
+              ClusterNodeIcon
+            </div>
+            <div className="story-icon">
               <nvicons.CodeXmlIcon />
               <br />
               CodeXmlIcon
@@ -2213,6 +2218,11 @@ const Template: Story = (args) => {
               <nvicons.ContainerIcon />
               <br />
               ContainerIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.ContainerImagesIcon />
+              <br />
+              ContainerImagesIcon
             </div>
             <div className="story-icon">
               <nvicons.ContrastIcon />
@@ -4858,6 +4868,11 @@ const Template: Story = (args) => {
               <nvicons.OctagonIcon />
               <br />
               OctagonIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.OidcIcon />
+              <br />
+              OidcIcon
             </div>
             <div className="story-icon">
               <nvicons.OptionIcon />
