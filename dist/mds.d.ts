@@ -7550,6 +7550,16 @@ declare const LambdaIcon: (
 
 declare const LDAPIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
+declare const ClusterNodeIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ContainerImagesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const OidcIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 interface TableComponentsExtraProps {
   sx?: OverrideTheme;
 }
@@ -8267,6 +8277,7 @@ export {
   ClusterHealthIcon,
   ClusterIcon,
   ClusterIngressIcon,
+  ClusterNodeIcon,
   ClusterReplicationIcon,
   ClustersIcon,
   CodeMirrorWrapper as CodeEditor,
@@ -8307,6 +8318,7 @@ export {
   ContactIcon,
   ContactRoundIcon,
   ContainerIcon,
+  ContainerImagesIcon,
   ContrastIcon,
   CookieIcon,
   CookingPotIcon,
@@ -8933,6 +8945,7 @@ export {
   OctagonIcon,
   OctagonPauseIcon,
   OctagonXIcon,
+  OidcIcon,
   OptionIcon,
   type OptionsContainerProps,
   OrbitIcon,
