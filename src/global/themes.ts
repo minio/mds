@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { ThemeDefinitionProps } from "./global.types";
+import { NotificationAlertProps, ThemeDefinitionProps } from "./global.types";
 import { themeColors, themeShadows } from "./themeColors";
 import { getThemeColors, paddingSizeVariants, radioVariants } from "./utils";
 
@@ -1183,6 +1183,84 @@ export const lightTheme: ThemeDefinitionProps = {
       boldLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
     },
   },
+  notificationAlert: {
+    danger: {
+      highContrastBG: themeColors["Color/Brand/Error/colorPrimaryBg"].lightMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Error/colorPrimaryBg"].lightMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].lightMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Error/colorPrimaryBorder"].lightMode,
+      actionColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      iconColor: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    },
+    success: {
+      highContrastBG:
+        themeColors["Color/Brand/Success/colorPrimaryBg"].lightMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Success/colorPrimaryBg"].lightMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].lightMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Success/colorPrimaryBorder"].lightMode,
+      actionColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      iconColor:
+        themeColors["Color/Brand/Success/colorPrimaryBorder"].lightMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    },
+    warning: {
+      highContrastBG:
+        themeColors["Color/Brand/Warning/colorPrimaryBg"].lightMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Warning/colorPrimaryBg"].lightMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].lightMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Warning/colorPrimaryBorder"].lightMode,
+      actionColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      iconColor:
+        themeColors["Color/Brand/Warning/colorPrimaryBorder"].lightMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    },
+    information: {
+      highContrastBG: themeColors["Color/Brand/Info/colorPrimaryBg"].lightMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Info/colorPrimaryBg"].lightMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].lightMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      actionColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      iconColor: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    },
+    neutral: {
+      highContrastBG:
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].lightMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].lightMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
+      actionColor:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+      iconColor:
+        themeColors["Color/Brand/Neutral/colorPrimaryBorder"].lightMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+    },
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -2064,6 +2142,76 @@ export const darkTheme: ThemeDefinitionProps = {
       subtleLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
       boldBG: themeColors["Color/Brand/Control/colorBgHover"].darkMode,
       boldLabel: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
+    },
+  },
+  notificationAlert: {
+    danger: {
+      highContrastBG: themeColors["Color/Brand/Error/colorPrimaryBg"].darkMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Error/colorPrimaryBg"].darkMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].darkMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Error/colorPrimaryBorder"].darkMode,
+      actionColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      iconColor: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    },
+    success: {
+      highContrastBG:
+        themeColors["Color/Brand/Success/colorPrimaryBg"].darkMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Success/colorPrimaryBg"].darkMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].darkMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Success/colorPrimaryBorder"].darkMode,
+      actionColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      iconColor: themeColors["Color/Brand/Success/colorPrimaryBorder"].darkMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    },
+    warning: {
+      highContrastBG:
+        themeColors["Color/Brand/Warning/colorPrimaryBg"].darkMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Warning/colorPrimaryBg"].darkMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].darkMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Warning/colorPrimaryBorder"].darkMode,
+      actionColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      iconColor: themeColors["Color/Brand/Warning/colorPrimaryBorder"].darkMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    },
+    information: {
+      highContrastBG: themeColors["Color/Brand/Info/colorPrimaryBg"].darkMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Info/colorPrimaryBg"].darkMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].darkMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      actionColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      iconColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
+    },
+    neutral: {
+      highContrastBG:
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      highContrastBorder:
+        themeColors["Color/Brand/Neutral/colorPrimaryBg"].darkMode,
+      minimalContrastBG:
+        themeColors["Color/Neutral/Bg/colorBgElevated"].darkMode,
+      minimalContrastBorder:
+        themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+      actionColor: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+      iconColor: themeColors["Color/Brand/Neutral/colorPrimaryBorder"].darkMode,
+      contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
+      titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
     },
   },
 };
