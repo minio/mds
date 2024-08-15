@@ -1,5 +1,5 @@
 // This file is part of MinIO Design System
-// Copyright (c) 2023 MinIO, Inc.
+// Copyright (c) 2024 MinIO, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -20,7 +20,6 @@ import {
   NotificationCountConstruct,
   NotificationCountProps,
 } from "./NotificationCount.types";
-import { lightColors } from "../../global/themes";
 import get from "lodash/get";
 import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
