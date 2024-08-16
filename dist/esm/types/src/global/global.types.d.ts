@@ -410,6 +410,23 @@ export interface BadgeThemeProps {
   scooter: BadgeElementThemeProps;
   disabled: BadgeElementThemeProps;
 }
+export interface NotificationAlertThemeProps {
+  highContrastBG: string;
+  highContrastBorder: string;
+  minimalContrastBG: string;
+  minimalContrastBorder: string;
+  iconColor: string;
+  titleColor: string;
+  contentColor: string;
+  actionColor: string;
+}
+export interface NotificationAlertProps {
+  neutral: NotificationAlertThemeProps;
+  information: NotificationAlertThemeProps;
+  success: NotificationAlertThemeProps;
+  warning: NotificationAlertThemeProps;
+  danger: NotificationAlertThemeProps;
+}
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -481,6 +498,7 @@ export interface ThemeDefinitionProps {
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
   badge?: BadgeThemeProps;
+  notificationAlert: NotificationAlertProps;
 }
 export interface SelectOption {
   label: string;

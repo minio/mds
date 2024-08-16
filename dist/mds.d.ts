@@ -421,6 +421,23 @@ interface BadgeThemeProps {
   scooter: BadgeElementThemeProps;
   disabled: BadgeElementThemeProps;
 }
+interface NotificationAlertThemeProps {
+  highContrastBG: string;
+  highContrastBorder: string;
+  minimalContrastBG: string;
+  minimalContrastBorder: string;
+  iconColor: string;
+  titleColor: string;
+  contentColor: string;
+  actionColor: string;
+}
+interface NotificationAlertProps {
+  neutral: NotificationAlertThemeProps;
+  information: NotificationAlertThemeProps;
+  success: NotificationAlertThemeProps;
+  warning: NotificationAlertThemeProps;
+  danger: NotificationAlertThemeProps;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -492,6 +509,7 @@ interface ThemeDefinitionProps {
   boxedIcon?: BoxedIconThemeProps;
   pill?: PillThemeProps;
   badge?: BadgeThemeProps;
+  notificationAlert: NotificationAlertProps;
 }
 interface SelectOption {
   label: string;
@@ -1859,6 +1877,30 @@ type BadgeProps = BadgeMainProps & BadgeConstructProps;
 declare const Badge: FC<
   BadgeProps & React__default.HTMLAttributes<HTMLSpanElement>
 >;
+
+type AlertDesignMode = "banner" | "card";
+type NotificationEmphasis = "subtle" | "minimal";
+type NotificationVariant =
+  | "neutral"
+  | "information"
+  | "success"
+  | "warning"
+  | "danger";
+interface NotificationAlertBase {
+  title: string;
+  children: ReactNode;
+  action?: ReactNode;
+  onClose?: () => void;
+}
+interface NotificationAlertConstruct {
+  designMode?: AlertDesignMode;
+  emphasisMode?: NotificationEmphasis;
+  variant?: NotificationVariant;
+  shadow?: boolean;
+}
+type NotificationAlertPrp = NotificationAlertBase & NotificationAlertConstruct;
+
+declare const NotificationAlert: FC<NotificationAlertPrp>;
 
 declare const AArrowDownIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -7850,6 +7892,7 @@ export {
   AlarmClockPlusIcon,
   AlarmSmokeIcon,
   AlbumIcon,
+  type AlertDesignMode,
   AlignCenterHorizontalIcon,
   AlignCenterIcon,
   AlignCenterVerticalIcon,
@@ -8932,6 +8975,12 @@ export {
   NotebookTextIcon,
   NotepadTextDashedIcon,
   NotepadTextIcon,
+  NotificationAlert,
+  type NotificationAlertBase,
+  type NotificationAlertConstruct,
+  type NotificationAlertProps,
+  type NotificationAlertPrp,
+  type NotificationAlertThemeProps,
   type NotificationBadgeTypes,
   NotificationCount,
   type NotificationCountConstruct,
@@ -8939,6 +8988,8 @@ export {
   type NotificationCountMain,
   type NotificationCountProps,
   type NotificationCountStyleProps,
+  type NotificationEmphasis,
+  type NotificationVariant,
   NutIcon,
   NutOffIcon,
   OctagonAlertIcon,
