@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { CSSObject } from "styled-components";
 import get from "lodash/get";
 import debounce from "lodash/debounce";
@@ -38,7 +38,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
     backgroundColor: get(
       theme,
       "dropdownSelector.backgroundColor",
-      lightColors.white,
+      lightColors.white
     ),
     border: `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`,
     padding: "10px 10px",
@@ -53,7 +53,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
       borderBottom: `1px solid ${get(
         theme,
         "borderColor",
-        lightColors.borderColor,
+        lightColors.borderColor
       )}`,
       marginBottom: 5,
       color: get(theme, "fontColor", lightColors.defaultFontColor),
@@ -66,7 +66,7 @@ const SelectorBox = styled.div<ColumnSelectorConstructProps>(
       overflowY: "auto",
     },
     ...overridePropsParse(sx, theme),
-  }),
+  })
 );
 
 const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
@@ -86,14 +86,14 @@ const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
   };
 };
 
-const ColumnsSelector: FC<ColumnSelectorProps> = ({
+const ColumnsSelector = <T,>({
   columns,
   selectedOptionIDs,
   onSelect,
   closeTriggerAction,
   open,
   anchorEl = null,
-}) => {
+}: ColumnSelectorProps<T>): JSX.Element | null => {
   const [coords, setCoords] = useState<CSSObject | null>(null);
 
   useEffect(() => {
@@ -120,7 +120,14 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
     window.addEventListener("scroll", () => {
       scrollResize(anchorEl);
     });
-  });
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", () => {
+        scrollResize(anchorEl);
+      });
+    };
+  }, [anchorEl, closeTriggerAction]);
 
   if (!open || !coords) {
     return null;
@@ -128,7 +135,7 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
 
   if (!anchorEl) {
     console.warn(
-      "AnchorEl not set. Element will be rendered on the top of the page",
+      "AnchorEl not set. Element will be rendered on the top of the page"
     );
   }
 
@@ -143,18 +150,18 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
       >
         <Box className={"columnsSelectorTitle"}>Shown Columns</Box>
         <Box className={"columnsSelectorContainer"}>
-          {columns.map((column: IColumns) => {
+          {columns.map((column: IColumns<T>) => {
             return (
               <Checkbox
                 key={`tableColumns-${column.label}`}
                 label={column.label}
                 checked={
                   selectedOptionIDs.findIndex(
-                    (element) => element === column.elementKey,
+                    (element) => element === column.elementKey
                   ) >= 0
                 }
                 onChange={() => {
-                  onSelect(column.elementKey || "");
+                  onSelect((column.elementKey as keyof T) || ("" as keyof T));
                 }}
                 id={`chbox-${column.label}`}
                 name={`chbox-${column.label}`}
@@ -165,7 +172,7 @@ const ColumnsSelector: FC<ColumnSelectorProps> = ({
         </Box>
       </SelectorBox>
     </SelectorContainer>,
-    document.body,
+    document.body
   );
 };
 

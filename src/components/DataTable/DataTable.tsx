@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import {
   AutoSizer,
   Column,
@@ -24,7 +24,6 @@ import {
 } from "react-virtualized";
 import styled from "styled-components";
 import get from "lodash/get";
-import isString from "lodash/isString";
 import Checkbox from "../Checkbox/Checkbox";
 import Loader from "../Loader/Loader";
 import Grid from "../Grid/Grid";
@@ -78,14 +77,14 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
           color: get(
             theme,
             "dataTable.titleColor",
-            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
+            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode
           ),
           fontSize: 12,
           padding: 10,
           borderBottom: `${get(
             theme,
             "dataTable.border",
-            "#E2E2E2",
+            "#E2E2E2"
           )} 1px solid`,
           width: "100%",
         },
@@ -108,7 +107,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         backgroundColor: get(
           theme,
           "dataTable.hoverColor",
-          themeColors["Color/Brand/Control/colorBgActive"].lightMode,
+          themeColors["Color/Brand/Control/colorBgActive"].lightMode
         ),
         "&.canClick": {
           cursor: "pointer",
@@ -124,14 +123,14 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         color: get(
           theme,
           "dataTable.selected",
-          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode
         ),
       },
       "&.deleted .selected": {
         color: get(
           theme,
           "dataTable.itemDisabled",
-          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode
         ),
       },
     },
@@ -230,7 +229,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       height: 30,
     },
     ...overridePropsParse(sx, theme),
-  }),
+  })
 );
 
 const TableRowPredefStyles: any = {
@@ -244,11 +243,11 @@ const TableRowPredefStyles: any = {
 };
 
 // Main function to render the Table Wrapper
-const DataTable: FC<DataTableProps> = ({
+const DataTable = <T,>({
   itemActions,
   columns,
   onSelect,
-  records,
+  records = [] as T[],
   isLoading,
   loadingMessage = <h3>Loading...</h3>,
   entityName,
@@ -259,7 +258,7 @@ const DataTable: FC<DataTableProps> = ({
   columnsSelector = false,
   textSelectable = false,
   columnsShown = [],
-  onColumnChange = (column: string) => {},
+  onColumnChange = () => {},
   infiniteScrollConfig,
   autoScrollToBottom = false,
   disabled = false,
@@ -270,16 +269,16 @@ const DataTable: FC<DataTableProps> = ({
   rowHeight = 36,
   sortEnabled = false,
   sortCallBack,
-}) => {
+}: DataTableProps<T>): JSX.Element => {
   const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
   const [currentSortColumn, setCurrentSortColumn] = useState<
-    string | undefined
+    keyof T | undefined
   >(undefined);
   const [currentSortDirection, setCurrentSortDirection] =
     useState<SortDirectionType>("ASC");
-
   const [anchorEl, setAnchorEl] = useState<any>(null);
-  const rowIDField = idField || "";
+
+  const rowIDField = idField || ("" as keyof T);
 
   const findView = itemActions
     ? itemActions.find((el) => el.type === "view")
@@ -290,7 +289,7 @@ const DataTable: FC<DataTableProps> = ({
     typeof sortEnabled === "object" &&
     !Array.isArray(sortEnabled);
 
-  const clickAction = (rowItem: any, index: number) => {
+  const clickAction = (rowItem: T, index: number) => {
     if (findView) {
       const valueClick =
         findView.sendOnlyId && idField ? rowItem[rowIDField] : rowItem;
@@ -321,7 +320,7 @@ const DataTable: FC<DataTableProps> = ({
     setAnchorEl(null);
   };
 
-  const columnsSelection = (columns: IColumns[]) => {
+  const columnsSelection = (columns: IColumns<T>[]) => {
     return (
       <Box
         sx={{ margin: "10px 0 0", display: "flex", justifyContent: "flex-end" }}
@@ -348,13 +347,13 @@ const DataTable: FC<DataTableProps> = ({
     );
   };
 
-  let tableSort: ((val: ITableSortInfo) => any) | undefined = undefined;
-  let tableSortBy: string | undefined = undefined;
-  let tableSortDirection: SortDirectionType | undefined = undefined;
-
   const onSortClick = (sort: ITableSortInfo) => {
-    const newSortDirection = get(sort, "sortDirection", "DESC");
-    setCurrentSortColumn(sort.sortBy);
+    const newSortDirection = get(
+      sort,
+      "sortDirection",
+      "DESC"
+    ) as SortDirectionType;
+    setCurrentSortColumn(sort.sortBy as keyof T);
     setCurrentSortDirection(newSortDirection);
 
     if (sortCallBack) {
@@ -362,10 +361,14 @@ const DataTable: FC<DataTableProps> = ({
     }
   };
 
+  let tableSort: ((val: ITableSortInfo) => any) | undefined = undefined;
+  let tableSortBy: keyof T | undefined = undefined;
+  let tableSortDirection: SortDirectionType | undefined = undefined;
+
   if (sortEnabled) {
     if (manualSortEnabled) {
       tableSort = sortEnabled.onSortClick;
-      tableSortBy = sortEnabled.currentSort;
+      tableSortBy = sortEnabled.currentSort as keyof T;
       tableSortDirection = sortEnabled.currentDirection;
     } else {
       tableSort = onSortClick;
@@ -379,8 +382,8 @@ const DataTable: FC<DataTableProps> = ({
   if (sortEnabled && currentSortColumn && !manualSortEnabled) {
     sortedRecords = sortRecords(
       records,
-      currentSortColumn,
-      currentSortDirection,
+      currentSortColumn as string,
+      currentSortDirection
     );
   }
 
@@ -412,7 +415,6 @@ const DataTable: FC<DataTableProps> = ({
           <Fragment>{columnsSelection(columns)}</Fragment>
         )}
         {sortedRecords && !isLoading && sortedRecords.length > 0 ? (
-          // @ts-ignore
           <InfiniteLoader
             isRowLoaded={({ index }) => !!sortedRecords[index]}
             loadMoreRows={
@@ -427,14 +429,13 @@ const DataTable: FC<DataTableProps> = ({
             }
           >
             {({ onRowsRendered, registerChild }) => (
-              // @ts-ignore
               <AutoSizer>
                 {({ width, height }: any) => {
                   const optionsWidth = calculateOptionsSize(
                     width,
                     itemActions
                       ? itemActions.filter((el) => el.type !== "view").length
-                      : 0,
+                      : 0
                   );
                   const hasSelect: boolean = !!(onSelect && selectedItems);
                   const hasOptions: boolean = !!(
@@ -444,7 +445,6 @@ const DataTable: FC<DataTableProps> = ({
                       itemActions[0].type !== "view")
                   );
                   return (
-                    // @ts-ignore
                     <Table
                       ref={registerChild}
                       disableHeader={false}
@@ -473,7 +473,7 @@ const DataTable: FC<DataTableProps> = ({
                       }
                       onRowsRendered={onRowsRendered}
                       sort={tableSort}
-                      sortBy={tableSortBy}
+                      sortBy={tableSortBy ? String(tableSortBy) : undefined}
                       sortDirection={tableSortDirection}
                       scrollToIndex={
                         autoScrollToBottom ? sortedRecords.length - 1 : -1
@@ -493,7 +493,6 @@ const DataTable: FC<DataTableProps> = ({
                       }}
                     >
                       {hasSelect && (
-                        // @ts-ignore
                         <Column
                           headerRenderer={() => (
                             <Fragment>
@@ -516,25 +515,17 @@ const DataTable: FC<DataTableProps> = ({
                               )}
                             </Fragment>
                           )}
-                          dataKey={`select-${rowIDField}`}
+                          dataKey={`select-${String(rowIDField)}`}
                           width={selectWidth}
                           disableSort
                           cellRenderer={({ rowData }) => {
                             const isSelected = selectedItems
-                              ? selectedItems.includes(
-                                  isString(rowData)
-                                    ? rowData
-                                    : `${rowData[rowIDField]}`,
-                                )
+                              ? selectedItems.includes(rowData[rowIDField])
                               : false;
 
                             return (
                               <Checkbox
-                                value={
-                                  isString(rowData)
-                                    ? rowData
-                                    : `${rowData[rowIDField]}`
-                                }
+                                value={rowData[rowIDField]}
                                 color="primary"
                                 className="TableCheckbox"
                                 checked={isSelected}
@@ -558,11 +549,10 @@ const DataTable: FC<DataTableProps> = ({
                         columnsSelector,
                         columnsShown,
                         sortEnabled,
-                        tableSortBy || "",
-                        tableSortDirection,
+                        tableSortBy,
+                        tableSortDirection
                       )}
                       {hasOptions && (
-                        // @ts-ignore
                         <Column
                           dataKey={"column-options"}
                           width={optionsWidth}
@@ -570,17 +560,13 @@ const DataTable: FC<DataTableProps> = ({
                           className="optionsAlignment"
                           cellRenderer={({ rowData }) => {
                             const isSelected = selectedItems
-                              ? selectedItems.includes(
-                                  isString(rowData)
-                                    ? rowData
-                                    : `${rowData[rowIDField]}`,
-                                )
+                              ? selectedItems.includes(rowData[rowIDField])
                               : false;
                             return elementActions(
                               itemActions || [],
                               rowData,
                               isSelected,
-                              rowIDField,
+                              String(rowIDField)
                             );
                           }}
                         />

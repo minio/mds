@@ -43,18 +43,32 @@ export interface ItemActions {
   onClick?(valueToSend: any, index?: number): any;
 }
 
-export interface IColumns {
+type ColumnBase<K> = {
   label: string;
-  elementKey?: string;
-  renderFunction?: (input: any) => any;
-  renderFullObject?: boolean;
+  elementKey: K;
   globalClass?: any;
   rowClass?: any;
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
   enableSort?: boolean;
-}
+};
+
+type Column<T, K extends keyof T> = ColumnBase<K> &
+  (
+    | {
+        renderFullObject?: false;
+        renderFunction?: (input: T[K]) => React.ReactNode | string;
+      }
+    | {
+        renderFullObject: true;
+        renderFunction?: (input: T) => React.ReactNode | string;
+      }
+  );
+
+export type IColumns<T> = {
+  [K in keyof T]: Column<T, K>;
+}[keyof T];
 
 export interface IInfiniteScrollConfig {
   loadMoreRecords: (indexElements: {
@@ -75,23 +89,23 @@ export interface ISortConfig {
   currentDirection: "ASC" | "DESC" | undefined;
 }
 
-export interface DataTableProps {
+export interface DataTableProps<T, K extends keyof T = keyof T> {
   itemActions?: ItemActions[] | null;
-  columns: IColumns[];
+  columns: IColumns<T>[];
   onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  idField?: string;
+  idField?: K;
   isLoading?: boolean;
   loadingMessage?: React.ReactNode;
-  records: any[];
+  records: T[];
   entityName?: string;
-  selectedItems?: string[];
+  selectedItems?: Array<K> | string[];
   customEmptyMessage?: string;
   customPaperHeight?: string;
   noBackground?: boolean;
   columnsSelector?: boolean;
   textSelectable?: boolean;
-  columnsShown?: string[];
-  onColumnChange?: (column: string) => any;
+  columnsShown?: Array<K>;
+  onColumnChange?: (column: K) => void;
   autoScrollToBottom?: boolean;
   infiniteScrollConfig?: IInfiniteScrollConfig;
   disabled?: boolean;
@@ -104,7 +118,7 @@ export interface DataTableProps {
   parentClassName?: string;
   sx?: OverrideTheme;
   rowHeight?: number;
-  sortEnabled?: boolean | string[] | ISortConfig;
+  sortEnabled?: boolean | Array<K> | ISortConfig;
   sortCallBack?: (info: ITableSortInfo) => void;
 }
 
@@ -127,12 +141,12 @@ export interface IActionButton {
   disabled: boolean;
 }
 
-export interface ColumnSelectorProps {
+export interface ColumnSelectorProps<T, K extends keyof T = keyof T> {
   open: boolean;
   closeTriggerAction: () => void;
-  onSelect: (column: string) => void;
-  columns: IColumns[];
-  selectedOptionIDs: string[];
+  onSelect: (column: K) => void;
+  columns: IColumns<T>[];
+  selectedOptionIDs: Array<K>;
   sx?: OverrideTheme;
   anchorEl?: (EventTarget & HTMLElement) | null;
 }
