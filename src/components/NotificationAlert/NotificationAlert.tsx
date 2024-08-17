@@ -28,12 +28,13 @@ import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
 import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
 import CircleXIcon from "../Icons/NewDesignIcons/CircleXIcon";
 import { themeColors, themeShadows } from "../../global/themeColors";
-import { paddingSizeVariants } from "../../global/utils";
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
+import Loader from "../Loader/Loader";
 
 const NotificationContainer = styled.div.attrs(() => ({
   className: "notification-alert",
 }))<NotificationAlertConstruct>(
-  ({ theme, emphasisMode, shadow, variant, designMode }) => {
+  ({ theme, emphasisMode, shadow, variant, designMode, sx }) => {
     const backgroundColor =
       emphasisMode === "subtle"
         ? get(
@@ -62,7 +63,6 @@ const NotificationContainer = styled.div.attrs(() => ({
     return {
       display: "flex",
       width: "100%",
-      maxWidth: 400,
       backgroundColor: backgroundColor,
       border: `1px solid ${borderColor}`,
       borderRadius: 8,
@@ -148,6 +148,7 @@ const NotificationContainer = styled.div.attrs(() => ({
           },
         },
       },
+      ...overridePropsParse(sx, theme),
     };
   },
 );
@@ -161,6 +162,8 @@ const NotificationAlert: FC<NotificationAlertPrp> = ({
   emphasisMode = "subtle",
   variant = "information",
   shadow = false,
+  isLoading,
+  sx,
 }) => {
   const icon = useMemo(() => {
     switch (variant) {
@@ -177,12 +180,17 @@ const NotificationAlert: FC<NotificationAlertPrp> = ({
     }
   }, [variant]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <NotificationContainer
       emphasisMode={emphasisMode}
       shadow={shadow}
       variant={variant}
       designMode={designMode}
+      sx={sx}
     >
       {icon}
       <div className={"mainInfoContainer"}>

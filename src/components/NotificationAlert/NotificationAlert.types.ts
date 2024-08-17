@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { ReactNode } from "react";
+import { OverrideTheme } from "../../global/global.types";
 
 export type AlertDesignMode = "banner" | "card";
 export type NotificationEmphasis = "subtle" | "minimal";
@@ -29,6 +30,7 @@ export interface NotificationAlertBase {
   title: string;
   children: ReactNode;
   action?: ReactNode;
+  isLoading?: boolean;
   onClose?: () => void; //If not set, we don't show the close button
 }
 
@@ -37,6 +39,7 @@ export interface NotificationAlertConstruct {
   emphasisMode?: NotificationEmphasis;
   variant?: NotificationVariant;
   shadow?: boolean;
+  sx?: OverrideTheme;
 }
 
 export type NotificationAlertPrp = NotificationAlertBase &
