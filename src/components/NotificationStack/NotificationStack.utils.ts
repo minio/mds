@@ -14,22 +14,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React from "react";
-import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
-import { OverrideTheme } from "../../global/global.types";
+import { keyframes } from "styled-components";
 
-export interface NotificationStackProps {
-  id: number;
-  hovered: boolean;
-  duration: number;
-  timeoutId: NodeJS.Timeout | string | number | undefined;
-  notificationInfo: NotificationAlertPrp;
-}
-
-export interface NotificationStackConstructProps {
-  sx?: OverrideTheme;
-}
-
-export interface NotificationStackContainerProps {
-  children: React.ReactNode[];
-}
+export const notificationDrop = keyframes`0% {
+                                              opacity: 0;
+                                              transform: translateY(-20%);
+                                          }
+                                              50% {
+                                                  opacity: 1;
+                                              }
+                                              100% {
+                                                  transform: translateY(0);
+                                              }`;

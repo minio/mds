@@ -14,8 +14,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 import { NotificationStackProps } from "./NotificationStack.types";
+import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
 
 export const useNotifications = () => {
   const [notifications, setNotifications] = useState<NotificationStackProps[]>(
@@ -23,14 +24,44 @@ export const useNotifications = () => {
   );
 
   const addNotification = useCallback(
-    (message: React.ReactNode, duration: number) => {
+    (message: NotificationAlertPrp, durationSeconds: 0 | 3 | 5 | 10) => {
       const id = Date.now();
-      const newNotification = { id, message, duration };
+      const duration = durationSeconds * 1000;
+
+      const newNotification: NotificationStackProps = {
+        id,
+        duration,
+        hovered: false,
+        timeoutId: undefined,
+        notificationInfo: message,
+      };
       setNotifications((prevState) => [...prevState, newNotification]);
 
-      setTimeout(() => {
+      const removeAfterTimeout = () => {
         setNotifications((prev) => prev.filter((notif) => notif.id !== id));
-      }, duration); // Se wait for this notification to complete it's appearance.
+      };
+
+      let timeoutId = undefined;
+
+      if (duration !== 0) {
+        timeoutId = setTimeout(() => {
+          setNotifications((prev) => {
+            const notification = prev.find((notif) => notif.id === id);
+            if (notification && !notification.hovered) {
+              return prev.filter((notif) => notif.id !== id);
+            }
+            return prev;
+          });
+        }, duration);
+      }
+
+      setNotifications((prev) =>
+        prev.map((notif) =>
+          notif.id === id ? { ...notif, timeoutId } : notif,
+        ),
+      );
+
+      return () => clearTimeout(timeoutId);
     },
     [],
   );
@@ -41,9 +72,30 @@ export const useNotifications = () => {
     );
   }, []);
 
+  const setHovered = useCallback((id: number, hovered: boolean) => {
+    setNotifications((prev) =>
+      prev.map((notifElement) => {
+        if (notifElement.id === id && notifElement.duration !== 0) {
+          if (hovered) {
+            clearTimeout(notifElement.timeoutId); // We clear the timeout when the notification is hovered
+          } else {
+            const timeoutId = setTimeout(() => {
+              // We add a new timeout when the notification is not hovered
+              setNotifications((prev) => prev.filter((n) => n.id !== id));
+            }, notifElement.duration);
+            return { ...notifElement, hovered, timeoutId };
+          }
+          return { ...notifElement, hovered };
+        }
+        return notifElement;
+      }),
+    );
+  }, []);
+
   return {
     notifications,
     addNotification,
     removeNotification,
+    setHovered,
   };
 };

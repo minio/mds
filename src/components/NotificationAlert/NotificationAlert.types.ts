@@ -27,7 +27,7 @@ export type NotificationVariant =
   | "danger";
 
 export interface NotificationAlertBase {
-  title: string;
+  title?: string;
   children: ReactNode;
   action?: ReactNode;
   isLoading?: boolean;
@@ -35,10 +35,10 @@ export interface NotificationAlertBase {
 }
 
 export interface NotificationAlertConstruct {
-  designMode?: AlertDesignMode;
   emphasisMode?: NotificationEmphasis;
   variant?: NotificationVariant;
   shadow?: boolean;
+  designMode?: AlertDesignMode;
   sx?: OverrideTheme;
 }
 

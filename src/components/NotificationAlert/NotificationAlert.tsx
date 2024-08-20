@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useMemo } from "react";
+import React, { FC, Fragment, HTMLAttributes, useMemo } from "react";
 import get from "lodash/get";
 import {
   NotificationAlertConstruct,
@@ -153,18 +153,23 @@ const NotificationContainer = styled.div.attrs(() => ({
   },
 );
 
-const NotificationAlert: FC<NotificationAlertPrp> = ({
-  title,
+const NotificationAlert: FC<
+  NotificationAlertPrp & HTMLAttributes<HTMLDivElement>
+> = ({
+  title = "",
   children,
   action,
   onClose,
-  designMode = "banner",
   emphasisMode = "subtle",
   variant = "information",
   shadow = false,
   isLoading,
+  id,
   sx,
+  ...restProps
 }) => {
+  const designMode = title.trim() !== "" ? "card" : "banner";
+
   const icon = useMemo(() => {
     switch (variant) {
       case "information":
@@ -190,7 +195,9 @@ const NotificationAlert: FC<NotificationAlertPrp> = ({
       shadow={shadow}
       variant={variant}
       designMode={designMode}
+      id={id}
       sx={sx}
+      {...restProps}
     >
       {icon}
       <div className={"mainInfoContainer"}>
