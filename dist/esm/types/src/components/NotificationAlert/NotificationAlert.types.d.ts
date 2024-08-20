@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { OverrideTheme } from "../../global/global.types";
 export type AlertDesignMode = "banner" | "card";
 export type NotificationEmphasis = "subtle" | "minimal";
 export type NotificationVariant =
@@ -8,16 +9,18 @@ export type NotificationVariant =
   | "warning"
   | "danger";
 export interface NotificationAlertBase {
-  title: string;
+  title?: string;
   children: ReactNode;
   action?: ReactNode;
+  isLoading?: boolean;
   onClose?: () => void;
 }
 export interface NotificationAlertConstruct {
-  designMode?: AlertDesignMode;
   emphasisMode?: NotificationEmphasis;
   variant?: NotificationVariant;
   shadow?: boolean;
+  designMode?: AlertDesignMode;
+  sx?: OverrideTheme;
 }
 export type NotificationAlertPrp = NotificationAlertBase &
   NotificationAlertConstruct;

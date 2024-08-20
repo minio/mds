@@ -2,8 +2,8 @@ import * as styled_components from "styled-components";
 import { CSSObject, DefaultTheme } from "styled-components";
 import * as React$1 from "react";
 import React__default, {
-  FC,
   ReactNode,
+  FC,
   MouseEventHandler,
   SVGProps,
   HTMLAttributes,
@@ -566,6 +566,60 @@ declare const overridePropsParse: (
   theme: DefaultTheme,
 ) => styled_components.CSSObject | undefined;
 
+declare const useEscapeKey: (handleAction: () => void) => void;
+declare const useEnterKey: (handleAction: () => void) => void;
+declare const useArrowKeys: (
+  handleAction: (arrowDirection: string) => void,
+) => void;
+
+type AlertDesignMode = "banner" | "card";
+type NotificationEmphasis = "subtle" | "minimal";
+type NotificationVariant =
+  | "neutral"
+  | "information"
+  | "success"
+  | "warning"
+  | "danger";
+interface NotificationAlertBase {
+  title?: string;
+  children: ReactNode;
+  action?: ReactNode;
+  isLoading?: boolean;
+  onClose?: () => void;
+}
+interface NotificationAlertConstruct {
+  emphasisMode?: NotificationEmphasis;
+  variant?: NotificationVariant;
+  shadow?: boolean;
+  designMode?: AlertDesignMode;
+  sx?: OverrideTheme;
+}
+type NotificationAlertPrp = NotificationAlertBase & NotificationAlertConstruct;
+
+interface NotificationStackProps {
+  id: number;
+  hovered: boolean;
+  duration: number;
+  timeoutId: NodeJS.Timeout | string | number | undefined;
+  notificationInfo: NotificationAlertPrp;
+}
+interface NotificationStackConstructProps {
+  sx?: OverrideTheme;
+}
+interface NotificationStackContainerProps {
+  children: React__default.ReactNode[];
+}
+
+declare const useNotifications: () => {
+  notifications: NotificationStackProps[];
+  addNotification: (
+    message: NotificationAlertPrp,
+    durationSeconds: 0 | 3 | 5 | 10,
+  ) => () => void;
+  removeNotification: (id: number) => void;
+  setHovered: (id: number, hovered: boolean) => void;
+};
+
 interface ThemeHandlerProps {
   darkMode?: boolean;
   customTheme?: ThemeDefinitionProps;
@@ -1023,6 +1077,7 @@ interface BreadcrumbsOption {
   onClick?: (to?: string) => void;
   icon?: ReactNode;
   subOptions?: BreadcrumbsOption[];
+  disabled?: boolean;
 }
 interface BreadcrumbsContainerProps {
   sx?: OverrideTheme;
@@ -1878,29 +1933,13 @@ declare const Badge: FC<
   BadgeProps & React__default.HTMLAttributes<HTMLSpanElement>
 >;
 
-type AlertDesignMode = "banner" | "card";
-type NotificationEmphasis = "subtle" | "minimal";
-type NotificationVariant =
-  | "neutral"
-  | "information"
-  | "success"
-  | "warning"
-  | "danger";
-interface NotificationAlertBase {
-  title: string;
-  children: ReactNode;
-  action?: ReactNode;
-  onClose?: () => void;
-}
-interface NotificationAlertConstruct {
-  designMode?: AlertDesignMode;
-  emphasisMode?: NotificationEmphasis;
-  variant?: NotificationVariant;
-  shadow?: boolean;
-}
-type NotificationAlertPrp = NotificationAlertBase & NotificationAlertConstruct;
+declare const NotificationAlert: FC<
+  NotificationAlertPrp & HTMLAttributes<HTMLDivElement>
+>;
 
-declare const NotificationAlert: FC<NotificationAlertPrp>;
+declare const NotificationStack: FC<
+  NotificationStackContainerProps & NotificationStackConstructProps
+>;
 
 declare const AArrowDownIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -8989,6 +9028,10 @@ export {
   type NotificationCountProps,
   type NotificationCountStyleProps,
   type NotificationEmphasis,
+  NotificationStack,
+  type NotificationStackConstructProps,
+  type NotificationStackContainerProps,
+  type NotificationStackProps,
   type NotificationVariant,
   NutIcon,
   NutOffIcon,
@@ -9642,4 +9685,8 @@ export {
   radioVariants,
   themeColors,
   themeShadows,
+  useArrowKeys,
+  useEnterKey,
+  useEscapeKey,
+  useNotifications,
 };
