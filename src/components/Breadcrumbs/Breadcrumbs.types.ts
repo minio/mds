@@ -33,6 +33,7 @@ export interface BreadcrumbsOption {
   onClick?: (to?: string) => void;
   icon?: ReactNode;
   subOptions?: BreadcrumbsOption[];
+  disabled?: boolean;
 }
 
 export interface BreadcrumbsContainerProps {

@@ -91,8 +91,13 @@ const subMenuOptions: BreadcrumbsOption[] = [
           console.log("clicked", dt);
         },
       },
-      { label: "SubLevel 2", to: "/lolbs22", icon: <TestIcon /> },
-      { label: "SubLevel 3", to: "/lolsb23" },
+      {
+        label: "SubLevel 2",
+        to: "/lolbs22",
+        icon: <TestIcon />,
+        disabled: true,
+      },
+      { label: "SubLevel 3", to: "/lolsb23", disabled: true },
       { label: "SubLevel 4", to: "/lolsb24", icon: <TestIcon /> },
       { label: "SubLevel 5", to: "/lolsb25" },
     ],

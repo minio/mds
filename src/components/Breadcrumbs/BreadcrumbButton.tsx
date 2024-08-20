@@ -192,6 +192,7 @@ const BreadcrumbButton: FC<
             id={`expandOption-${option.label}`}
             onClick={() => clickFunction(option)}
             icon={option.icon}
+            disabled={option.disabled}
           >
             {option.label}
           </ExpandMenuOption>
