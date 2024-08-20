@@ -29,63 +29,80 @@ export default {
   argTypes: {},
 } as Meta<typeof NotificationAlert>;
 
-const Template: Story<NotificationAlertPrp> = ({ ...props }) => {
+const Template: Story<NotificationAlertPrp> = (props: NotificationAlertPrp) => {
   return (
     <StoryThemeProvider>
       <GlobalStyles />
-      <NotificationAlert {...props} designMode={"card"} />
+      <NotificationAlert
+        title={props.title}
+        children={props.children}
+        variant={props.variant}
+      />
       <br />
-      <NotificationAlert {...props} designMode={"banner"} />
+      <NotificationAlert children={props.children} variant={props.variant} />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"card"}
+        title={props.title}
+        children={props.children}
+        variant={props.variant}
         emphasisMode={"minimal"}
       />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"banner"}
+        children={props.children}
+        variant={props.variant}
         emphasisMode={"minimal"}
       />
       <br />
-      <NotificationAlert {...props} designMode={"card"} onClose={() => {}} />
-      <br />
-      <NotificationAlert {...props} designMode={"banner"} onClose={() => {}} />
+      <NotificationAlert
+        title={props.title}
+        children={props.children}
+        variant={props.variant}
+        onClose={() => {}}
+      />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"card"}
+        children={props.children}
+        variant={props.variant}
+        onClose={() => {}}
+      />
+      <br />
+      <NotificationAlert
+        title={props.title}
+        children={props.children}
+        variant={props.variant}
         onClose={() => {}}
         action={<a>Action</a>}
       />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"banner"}
+        children={props.children}
+        variant={props.variant}
         onClose={() => {}}
         action={<a>Action</a>}
       />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"card"}
+        title={props.title}
+        children={props.children}
+        variant={props.variant}
         onClose={() => {}}
         action={<a>Action</a>}
         shadow
       />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"banner"}
+        children={props.children}
+        variant={props.variant}
         onClose={() => {}}
         action={<a>Action</a>}
         shadow
       />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"card"}
+        title={props.title}
+        children={props.children}
+        variant={props.variant}
         onClose={() => {}}
         action={<a>Action</a>}
         emphasisMode={"minimal"}
@@ -93,8 +110,8 @@ const Template: Story<NotificationAlertPrp> = ({ ...props }) => {
       />
       <br />
       <NotificationAlert
-        {...props}
-        designMode={"banner"}
+        children={props.children}
+        variant={props.variant}
         onClose={() => {}}
         action={<a>Action</a>}
         emphasisMode={"minimal"}

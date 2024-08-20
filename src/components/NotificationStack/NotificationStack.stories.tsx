@@ -22,6 +22,8 @@ import { NotificationStackProps } from "./NotificationStack.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { useNotifications } from "./hooks";
+import { NotificationStackContainer } from "./NotificationStack";
+import NotificationAlert from "../NotificationAlert/NotificationAlert";
 
 export default {
   title: "MDS/Information/NotificationStack",
@@ -30,7 +32,7 @@ export default {
 } as Meta<typeof Fragment>;
 
 const Template: Story<NotificationStackProps> = (args) => {
-  const { notifications, addNotification, removeNotification } =
+  const { notifications, addNotification, removeNotification, setHovered } =
     useNotifications();
 
   return (
@@ -40,24 +42,37 @@ const Template: Story<NotificationStackProps> = (args) => {
       <div>
         <button
           onClick={() =>
-            addNotification(`This is a new Notification ${Math.random()}`, 3000)
+            addNotification(
+              {
+                title: "test Title",
+                children: "This is a message for the notification",
+                variant: "information",
+              },
+              3,
+            )
           }
         >
           CLICK ME!
         </button>
         <h1>NOTIFICATIONS</h1>
-        {notifications.map((notificationElement) => (
-          <div key={notificationElement.id}>
-            {notificationElement.message}
-            <button
-              onClick={() => {
-                removeNotification(notificationElement.id);
-              }}
-            >
-              Remove
-            </button>
-          </div>
-        ))}
+        <div>
+          <NotificationStackContainer>
+            {notifications.map((notificationElement) => (
+              <NotificationAlert
+                key={`alert-${notificationElement.id}`}
+                id={`notification-${notificationElement.id}`}
+                children={notificationElement.notificationInfo.children}
+                title={"This is an alert"}
+                onClose={() => {
+                  removeNotification(notificationElement.id);
+                }}
+                variant={notificationElement.notificationInfo.variant}
+                onMouseEnter={() => setHovered(notificationElement.id, true)}
+                onMouseLeave={() => setHovered(notificationElement.id, false)}
+              />
+            ))}
+          </NotificationStackContainer>
+        </div>
       </div>
     </StoryThemeProvider>
   );
