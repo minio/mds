@@ -22,7 +22,9 @@ import { lightV2 } from "../../global/themes";
 import Loader from "../Loader/Loader";
 import { overridePropsParse } from "../../global/utils";
 
-const ActionLinkBase = styled.button<BaseActionLinkProps>(({ theme, sx }) => ({
+const ActionLinkBase = styled.button.attrs(() => ({
+  className: "actionLink",
+}))<BaseActionLinkProps>(({ theme, sx }) => ({
   cursor: "pointer",
   display: "inline-flex",
   backgroundColor: "transparent",
