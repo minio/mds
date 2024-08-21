@@ -148,6 +148,14 @@ const NotificationContainer = styled.div.attrs(() => ({
           },
         },
       },
+      "& .cardContent": {
+        "& .content": {
+          marginTop: 3,
+        },
+        "& .actionCardMode": {
+          lineHeight: 1,
+        },
+      },
       ...overridePropsParse(sx, theme),
     };
   },
@@ -207,7 +215,7 @@ const NotificationAlert: FC<
               {designMode === "banner" ? (
                 <Fragment>
                   <div className={"content"}>{children}</div>
-                  <div>{action}</div>
+                  {action && <div>{action}</div>}
                 </Fragment>
               ) : (
                 <div className={"cardTitle"}>{title}</div>
@@ -216,9 +224,9 @@ const NotificationAlert: FC<
           </div>
         </div>
         {designMode === "card" && (
-          <div>
+          <div className={"cardContent"}>
             <div className={"content"}>{children}</div>
-            <div className={"actionCardMode"}>{action}</div>
+            {action && <div className={"actionCardMode"}>{action}</div>}
           </div>
         )}
       </div>
