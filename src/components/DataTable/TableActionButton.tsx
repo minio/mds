@@ -141,17 +141,13 @@ const defineIcon = (type: PredefinedActionTypes) => {
   return null;
 };
 
-const TableActionButton: FC<IActionButton> = ({
+const TableActionButton = <T,>({
   type,
   onClick,
   valueToSend,
-  idField,
-  sendOnlyId = false,
   disabled = false,
   tooltip,
-}) => {
-  const valueClick = sendOnlyId ? valueToSend[idField] : valueToSend;
-
+}: IActionButton<T>) => {
   const icon = isPredefinedAction(type) ? defineIcon(type) : type;
   let buttonElement = (
     <TableActionCustomIcon
@@ -163,7 +159,7 @@ const TableActionButton: FC<IActionButton> = ({
           ? (e) => {
               e.stopPropagation();
               if (!disabled) {
-                onClick(valueClick);
+                onClick(valueToSend);
               } else {
                 e.preventDefault();
               }

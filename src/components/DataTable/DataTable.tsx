@@ -269,7 +269,7 @@ const DataTable = <T,>({
   rowHeight = 36,
   sortEnabled = false,
   sortCallBack,
-}: DataTableProps<T>): JSX.Element => {
+}: DataTableProps<T>) => {
   const [columnSelectorOpen, setColumnSelectorOpen] = useState<boolean>(false);
   const [currentSortColumn, setCurrentSortColumn] = useState<
     keyof T | undefined
@@ -291,8 +291,7 @@ const DataTable = <T,>({
 
   const clickAction = (rowItem: T, index: number) => {
     if (findView) {
-      const valueClick =
-        findView.sendOnlyId && idField ? rowItem[rowIDField] : rowItem;
+      const valueClick = rowItem;
 
       let disabled = false;
 

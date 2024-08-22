@@ -34,13 +34,12 @@ export const actionsTypes = [
 
 export type PredefinedActionTypes = (typeof actionsTypes)[number];
 
-export interface ItemActions {
+export interface ItemActions<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
-  sendOnlyId?: boolean;
-  isDisabled?: boolean | ((itemValue: any) => boolean);
-  showLoader?: boolean | ((itemValue: any) => boolean);
-  onClick?(valueToSend: any, index?: number): any;
+  isDisabled?: boolean | ((itemValue: T) => boolean);
+  showLoader?: boolean | ((itemValue: T) => boolean);
+  onClick?(valueToSend: T, index?: number): any;
 }
 
 type Column<T, K extends keyof T> = {
@@ -80,7 +79,7 @@ export interface ISortConfig {
 }
 
 export interface DataTableProps<T, K extends keyof T = keyof T> {
-  itemActions?: ItemActions[] | null;
+  itemActions?: ItemActions<T>[];
   columns: IColumns<T>[];
   onSelect?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   idField?: K;
@@ -120,17 +119,14 @@ export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   rowHeight: number;
 }
 
-export interface IActionButton {
+export interface IActionButton<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
-  onClick?: (valueToSend: any, index?: number) => any;
-  valueToSend: any;
+  onClick?: (valueToSend: T, index?: number) => any;
+  valueToSend: T;
   selected: boolean;
-  sendOnlyId?: boolean;
-  idField: string;
   disabled: boolean;
 }
-
 export interface ColumnSelectorProps<T, K extends keyof T = keyof T> {
   open: boolean;
   closeTriggerAction: () => void;

@@ -198,13 +198,13 @@ export const generateColumnsMap = <T,>(
 };
 
 // Function to render the action buttons
-export const elementActions = (
-  actions: ItemActions[],
+export const elementActions = <T,>(
+  actions: ItemActions<T>[],
   valueToSend: any,
   selected: boolean,
   idField: string
 ) => {
-  return actions.map((action: ItemActions, index: number) => {
+  return actions.map((action: ItemActions<T>, index: number) => {
     if (action.type === "view") {
       return null;
     }
@@ -243,8 +243,6 @@ export const elementActions = (
         valueToSend={valueToSend}
         selected={selected}
         key={`actions-${action.type}-${index.toString()}`}
-        idField={idField}
-        sendOnlyId={!!action.sendOnlyId}
         disabled={disabled}
       />
     );
