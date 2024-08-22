@@ -286,7 +286,7 @@ export const lightTheme: ThemeDefinitionProps = {
         background: `linear-gradient(180deg, ${themeColors["Color/Base/Royal/5"].lightMode} 0%, ${themeColors["Color/Base/Royal/6"].lightMode} 100%)`,
         iconColor:
           themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
-        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px -2px 3px 0px #0B2CA2 inset`,
+        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset`,
       },
       disabled: {
         border: themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
@@ -302,7 +302,7 @@ export const lightTheme: ThemeDefinitionProps = {
         background: `linear-gradient(180deg, ${themeColors["Color/Base/Royal/6"].lightMode} 0%, ${themeColors["Color/Base/Royal/7"].lightMode} 100%)`,
         iconColor:
           themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
-        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px -2px 3px 0px #0B2CA2 inset`,
+        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset`,
       },
       pressed: {
         border: themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,
@@ -358,7 +358,7 @@ export const lightTheme: ThemeDefinitionProps = {
         background: `linear-gradient(180deg, ${themeColors["Color/Base/Sunset/5"].lightMode} 0%, ${themeColors["Color/Base/Sunset/6"].lightMode} 100%)`,
         iconColor:
           themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
-        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px -2px 3px 0px #981701 inset`,
+        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset`,
       },
       disabled: {
         border: themeColors["Color/Neutral/Bg/colorBgDisabled"].lightMode,
@@ -374,7 +374,7 @@ export const lightTheme: ThemeDefinitionProps = {
         background: `linear-gradient(180deg, ${themeColors["Color/Base/Sunset/6"].lightMode} 0%, ${themeColors["Color/Base/Sunset/7"].lightMode} 100%)`,
         iconColor:
           themeColors["Color/Neutral/Text/colorTextLightSolid"].lightMode,
-        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset, 0px -2px 3px 0px #981701 inset`,
+        shadow: `0px 1px 0px 0px rgba(255, 255, 255, 0.25) inset`,
       },
       pressed: {
         border: themeColors["Color/Brand/Error/colorPrimaryBorder"].lightMode,

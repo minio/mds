@@ -69,7 +69,22 @@ const CustomButton = styled.button<
 
     const withLabel = compact ? "4px 12px" : "8px 16px";
 
-    let paddingValue = !label || label === "" ? notLabel : withLabel;
+    let paddingValue =
+      (!label || label === "") && parentChildren === null
+        ? notLabel
+        : withLabel;
+
+    if (variant.endsWith("-ghost") && !icon) {
+      paddingValue = compact ? "4px 0" : "8px 0";
+    }
+
+    console.log(
+      !label || label === "",
+      parentChildren !== null,
+      label,
+      parentChildren,
+      paddingValue,
+    );
 
     if (inButtonGroup) {
       paddingValue =
@@ -81,8 +96,9 @@ const CustomButton = styled.button<
       cursor: "pointer",
       height: compact ? 28 : 36,
       fontFamily: "'Geist', sans-serif",
-      fontWeight: compact ? "normal" : "600",
+      fontWeight: "normal",
       fontSize: 14,
+      lineHeight: "20px",
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
