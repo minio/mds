@@ -43,28 +43,18 @@ export interface ItemActions {
   onClick?(valueToSend: any, index?: number): any;
 }
 
-type ColumnBase<K> = {
+type Column<T, K extends keyof T> = {
   label: string;
-  elementKey: K;
+  elementKey?: K;
   globalClass?: any;
   rowClass?: any;
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
   enableSort?: boolean;
+  renderFunction?: (input: T[K]) => React.ReactNode | string;
+  renderFullObjectFunction?: (input: T) => React.ReactNode | string;
 };
-
-type Column<T, K extends keyof T> = ColumnBase<K> &
-  (
-    | {
-        renderFullObject?: false;
-        renderFunction?: (input: T[K]) => React.ReactNode | string;
-      }
-    | {
-        renderFullObject: true;
-        renderFunction?: (input: T) => React.ReactNode | string;
-      }
-  );
 
 export type IColumns<T> = {
   [K in keyof T]: Column<T, K>;

@@ -32,20 +32,21 @@ const subRenderFunction = <T,>(
   column: IColumns<T>,
   isSelected: boolean
 ) => {
-  const value = column.renderFullObject ? rowData : rowData[column.elementKey];
+  let content: React.ReactNode;
 
-  const defaultRenderer = <T,>(input: T | T[keyof T]) => {
-    return input?.toString() ?? "-";
-  };
+  if (column.renderFullObjectFunction) {
+    content = column.renderFullObjectFunction(rowData);
+  } else if (column.renderFunction && column.elementKey) {
+    const value = rowData[column.elementKey];
+    content = column.renderFunction(value);
+  } else if (column.elementKey) {
+    const value = rowData[column.elementKey];
+    content = value?.toString() ?? "-";
+  } else {
+    content = "-";
+  }
 
-  const renderFunction = column.renderFunction || defaultRenderer;
-
-  return (
-    <span className={isSelected ? "selected" : ""}>
-      {/* @ts-ignore */}
-      {renderFunction(value)}
-    </span>
-  );
+  return <span className={isSelected ? "selected" : ""}>{content}</span>;
 };
 
 // Function to calculate common column width for elements with no with size
