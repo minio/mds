@@ -34,6 +34,24 @@ const Template: Story<ButtonProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Button {...args} onClick={() => alert("You clicked me!")} />
+    <br />
+    <Button id={"random_btn1"} variant={args.variant}>
+      Content
+    </Button>{" "}
+    -- CHILDREN BUTTON
+    <Button id={"random_btn2"} label={"Content"} variant={args.variant} /> --
+    LABEL BUTTON
+    <Button id={"random_btn1"} icon={<TestIcon />} variant={args.variant}>
+      Content
+    </Button>{" "}
+    -- CHILDREN BUTTON (W/Icon)
+    <Button
+      id={"random_btn2"}
+      label={"Content"}
+      icon={<TestIcon />}
+      variant={args.variant}
+    />{" "}
+    -- LABEL BUTTON (W/Icon)
   </StoryThemeProvider>
 );
 
@@ -66,7 +84,7 @@ Secondary.args = {
   variant: "destructive",
 };
 export const DestructiveBare = Template.bind({});
-Secondary.args = {
+DestructiveBare.args = {
   disabled: false,
   label: "Destructive Bare",
   variant: "destructive-bare",
