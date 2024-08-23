@@ -7,7 +7,7 @@ import importSort from "eslint-plugin-simple-import-sort";
 
 export default tseslint.config(
   {
-    ignores: ["dist", "**/*.stories.tsx"],
+    ignores: ["dist", "plugins", "**/*.stories.tsx"],
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
@@ -24,7 +24,7 @@ export default tseslint.config(
     rules: {
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
-        "warn",
+        "off",
         { allowConstantExport: true },
       ],
       "react-hooks/exhaustive-deps": [
