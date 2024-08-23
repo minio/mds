@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
-import { ValuePairCommon, ValuePairProps } from "./ValuePair.types";
-import Box from "../Box/Box";
 import get from "lodash/get";
-import { breakPoints, overridePropsParse } from "../../global/utils";
+import styled from "styled-components";
+
 import { lightV2 } from "../../global/themes";
+import { breakPoints, overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import { ValuePairCommon, ValuePairProps } from "./ValuePair.types";
 
 const ValuePairBase = styled.div<ValuePairCommon>(
   ({ theme, sx, direction }) => ({

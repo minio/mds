@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { NotificationAlertProps, ThemeDefinitionProps } from "./global.types";
+import { ThemeDefinitionProps } from "./global.types";
 import { themeColors, themeShadows } from "./themeColors";
 import { getThemeColors, paddingSizeVariants, radioVariants } from "./utils";
 

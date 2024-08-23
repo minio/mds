@@ -15,21 +15,22 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
-import styled, { CSSObject } from "styled-components";
-import debounce from "lodash/debounce";
 import { createPortal } from "react-dom";
+import debounce from "lodash/debounce";
+import get from "lodash/get";
+import styled, { CSSObject } from "styled-components";
+
+import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
+import SelectorContainer from "../../global/SelectorContainer";
+import { themeColors, themeShadows } from "../../global/themeColors";
+import { lightV2 } from "../../global/themes";
+import { overridePropsParse, radioVariants } from "../../global/utils";
+import Box from "../Box/Box";
 import {
   DropDownBlockProps,
   DropdownItemProps,
   DropdownSelectorProps,
 } from "./DropdownSelector.types";
-import get from "lodash/get";
-import { useArrowKeys, useEnterKey, useEscapeKey } from "../../global/hooks";
-import SelectorContainer from "../../global/SelectorContainer";
-import Box from "../Box/Box";
-import { lightV2 } from "../../global/themes";
-import { overridePropsParse, radioVariants } from "../../global/utils";
-import { themeColors, themeShadows } from "../../global/themeColors";
 
 const DropdownBlock = styled.div<DropDownBlockProps>(
   ({ theme, sx, useAnchorWidth, forSelectInput }) => ({
@@ -63,10 +64,10 @@ const DropdownBlock = styled.div<DropDownBlockProps>(
 
 const DropdownItem = styled.div<
   DropdownItemProps & React.HTMLAttributes<HTMLDivElement>
->(({ theme, icon, label, indicator }) => {
+>(({ theme, icon, indicator }) => {
   let gridColumns = "";
 
-  if (!!icon) {
+  if (icon) {
     gridColumns += "16px ";
   }
 
@@ -162,7 +163,7 @@ const calcElementPosition = (
 
   const bounds = anchorEl.getBoundingClientRect();
 
-  let returnItem: CSSObject = { top: bounds.top + bounds.height };
+  const returnItem: CSSObject = { top: bounds.top + bounds.height };
 
   if (anchorOrigin === "start") {
     returnItem.left = bounds.left;
@@ -178,7 +179,7 @@ const calcElementPosition = (
 
   //max height of dropdown
 
-  let defaultMaxHeight = 450;
+  const defaultMaxHeight = 450;
   returnItem.maxHeight = defaultMaxHeight;
 
   const calcHeight =
@@ -250,7 +251,7 @@ const DropdownSelector: FC<DropdownSelectorProps> = ({
       return;
     }
     setCoords(null);
-  }, [open]);
+  }, [anchorEl, anchorOrigin, open, useAnchorWidth]);
 
   useEffect(() => {
     const handleResize = () => {

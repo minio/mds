@@ -15,22 +15,23 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment } from "react";
+import get from "lodash/get";
+import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import Button from "../Button/Button";
+import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import ChevronLeftIcon from "../Icons/NewDesignIcons/ChevronLeftIcon";
+import EllipsisIcon from "../Icons/NewDesignIcons/EllipsisIcon";
+import BreadcrumbButton from "./BreadcrumbButton";
 import {
   BreadcrumbsContainerProps,
   BreadcrumbsOption,
   BreadcrumbsProps,
 } from "./Breadcrumbs.types";
-import styled from "styled-components";
-import Box from "../Box/Box";
-import ExpandMenu from "../ExpandMenu/ExpandMenu";
-import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
-import BreadcrumbButton from "./BreadcrumbButton";
-import Button from "../Button/Button";
-import get from "lodash/get";
-import { themeColors } from "../../global/themeColors";
-import { overridePropsParse } from "../../global/utils";
-import ChevronLeftIcon from "../Icons/NewDesignIcons/ChevronLeftIcon";
-import EllipsisIcon from "../Icons/NewDesignIcons/EllipsisIcon";
 
 const BoxParent = styled.div<BreadcrumbsContainerProps>(({ theme, sx }) => {
   return {
@@ -182,7 +183,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
               id={`breadcrumb-option-${options[0].label}`}
               onClick={() => clickFunction(options[0])}
               onClickOption={onClickOption}
-              icon={options[0].icon!!}
+              icon={options[0].icon!}
             >
               {options[0].label}
             </BreadcrumbButton>
@@ -200,7 +201,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                     onClick={() => clickFunction(itm)}
                     onClickOption={onClickOption}
                     className={`${lastItem && !itm.subOptions ? "last" : ""}`}
-                    icon={itm.icon!!}
+                    icon={itm.icon!}
                     current={lastItem && markCurrentItem}
                     label={itm.label}
                   />
@@ -223,7 +224,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                     }}
                     onClickOption={onClickOption}
                     className={`${lastItem && !itm.subOptions ? "last" : ""}`}
-                    icon={itm.icon!!}
+                    icon={itm.icon!}
                     current={lastItem && markCurrentItem}
                     subOptions={itm.subOptions}
                     label={itm.label}
@@ -231,7 +232,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
                 </Fragment>
               );
             })}
-            {children!!}
+            {children!}
           </Fragment>
         )}
       </Box>

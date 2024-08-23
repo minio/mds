@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ActionLink from "./ActionLink";
-import { ActionLinkProps } from "./ActionLink.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Link from "../Link/Link";
+import ActionLink from "./ActionLink";
+import { ActionLinkProps } from "./ActionLink.types";
 
 export default {
   title: "MDS/Forms/ActionLink",

@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import { ActionsListPanelProps, ActionsListProps } from "./ActionsList.types";
-import styled from "styled-components";
-import Tooltip from "../Tooltip/Tooltip";
-import ObjectActionButton from "./ObjectActionButton";
 import get from "lodash/get";
+import styled from "styled-components";
+
 import { overridePropsParse } from "../../global/utils";
+import Tooltip from "../Tooltip/Tooltip";
+import { ActionsListPanelProps, ActionsListProps } from "./ActionsList.types";
+import ObjectActionButton from "./ObjectActionButton";
 
 const ActionsListPanel = styled.div<
   HTMLAttributes<HTMLDivElement> & ActionsListPanelProps

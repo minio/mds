@@ -17,9 +17,9 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Switch from "./Switch";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Switch from "./Switch";
 import { SwitchProps } from "./Switch.types";
 
 export default {

@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Grid from "./Grid";
-import { GridProps } from "./Grid.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Grid from "./Grid";
+import { GridProps } from "./Grid.types";
 
 export default {
   title: "MDS/Layout/Grid",

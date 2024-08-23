@@ -16,11 +16,12 @@
 
 import React, { FC } from "react";
 import styled from "styled-components";
+
+import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
 import {
   ExpandMenuConstructProps,
   ExpandMenuOptionProps,
 } from "./ExpandMenu.types";
-import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
 
 const ExpandMenuOptionBase = styled.button<
   ExpandMenuOptionProps & ExpandMenuConstructProps

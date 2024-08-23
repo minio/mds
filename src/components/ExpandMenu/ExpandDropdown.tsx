@@ -15,17 +15,18 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
-import styled, { CSSObject } from "styled-components";
-import debounce from "lodash/debounce";
 import { createPortal } from "react-dom";
+import debounce from "lodash/debounce";
 import get from "lodash/get";
+import styled, { CSSObject } from "styled-components";
+
 import { useEscapeKey } from "../../global/hooks";
 import SelectorContainer from "../../global/SelectorContainer";
-import { lightV2 } from "../../global/themes";
-import { DropdownMainProps, ExpandDropdownProps } from "./ExpandMenu.types";
-import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
-import { overridePropsParse, radioVariants } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
+import { lightV2 } from "../../global/themes";
+import { overridePropsParse, radioVariants } from "../../global/utils";
+import { expandMenuOptionStyles } from "../../utils/GlobalUtils";
+import { DropdownMainProps, ExpandDropdownProps } from "./ExpandMenu.types";
 
 const DropdownBlock = styled.div<DropdownMainProps>(
   ({ theme, sx, forInputOptions }) => ({
@@ -85,7 +86,7 @@ const calcElementPosition = (
 
   const bounds = anchorEl.getBoundingClientRect();
 
-  let returnItem: CSSObject = { top: bounds.top + bounds.height };
+  const returnItem: CSSObject = { top: bounds.top + bounds.height };
 
   switch (anchorOrigin) {
     case "start":
@@ -123,7 +124,7 @@ const DropdownSelector: FC<ExpandDropdownProps> = ({
       return;
     }
     setCoords(null);
-  }, [open]);
+  }, [anchorEl, anchorOrigin, open]);
 
   useEffect(() => {
     const handleResize = () => {

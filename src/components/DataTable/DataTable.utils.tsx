@@ -15,14 +15,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import isPlainObject from "lodash/isPlainObject";
 import { Column, SortDirectionType } from "react-virtualized";
-import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
-import Loader from "../Loader/Loader";
-import TableActionButton from "./TableActionButton";
+import isPlainObject from "lodash/isPlainObject";
+
 import Box from "../Box/Box";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import Loader from "../Loader/Loader";
+import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
+import TableActionButton from "./TableActionButton";
 
 export const selectWidth = 45;
 
@@ -78,7 +79,7 @@ const calculateColumnRest = <T,>(
       initialValue -= actionsWidth;
     }
 
-    let freeSpacing = colsItems.reduce((total, currValue) => {
+    const freeSpacing = colsItems.reduce((total, currValue) => {
       return currValue.width ? total - currValue.width : total;
     }, initialValue);
 
@@ -202,7 +203,6 @@ export const elementActions = <T,>(
   actions: ItemActions<T>[],
   valueToSend: any,
   selected: boolean,
-  idField: string,
 ) => {
   return actions.map((action: ItemActions<T>, index: number) => {
     if (action.type === "view") {
@@ -211,7 +211,7 @@ export const elementActions = <T,>(
 
     let disabled = false;
 
-    if (!!action.isDisabled) {
+    if (action.isDisabled) {
       if (typeof action.isDisabled === "boolean") {
         disabled = action.isDisabled;
       } else {
@@ -219,7 +219,7 @@ export const elementActions = <T,>(
       }
     }
 
-    if (!!action.showLoader) {
+    if (action.showLoader) {
       if (
         (typeof action.showLoader === "boolean" && action.showLoader) ||
         action.showLoader(valueToSend)

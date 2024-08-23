@@ -14,13 +14,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useEffect, useState } from "react";
-import get from "lodash/get";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import debounce from "lodash/debounce";
+import get from "lodash/get";
 import styled, { CSSObject } from "styled-components";
-import { SubItemsBoxProps } from "../Menu.types";
+
 import { lightColors } from "../../../global/themes";
 import Box from "../../Box/Box";
+import { SubItemsBoxProps } from "../Menu.types";
 
 const minDropWidth = 180;
 
@@ -79,32 +80,33 @@ const SubItemsBox: FC<SubItemsBoxProps> = ({
 
   const windowWidth = document.documentElement.offsetWidth;
 
-  const calcElementPosition = (
-    anchorEl: (EventTarget & HTMLElement) | null,
-  ) => {
-    if (!anchorEl) {
-      return {
-        top: 0,
-        left: 0,
-      };
-    }
+  const calcElementPosition = useCallback(
+    (anchorEl: (EventTarget & HTMLElement) | null) => {
+      if (!anchorEl) {
+        return {
+          top: 0,
+          left: 0,
+        };
+      }
 
-    const bounds = anchorEl.getBoundingClientRect();
-    let left = bounds.left;
-    let calcEndPosition = left + minDropWidth;
+      const bounds = anchorEl.getBoundingClientRect();
+      const left = bounds.left;
+      const calcEndPosition = left + minDropWidth;
 
-    if (calcEndPosition > windowWidth) {
+      if (calcEndPosition > windowWidth) {
+        return {
+          top: bounds.top + bounds.height,
+          right: 0,
+        };
+      }
+
       return {
         top: bounds.top + bounds.height,
-        right: 0,
+        left,
       };
-    }
-
-    return {
-      top: bounds.top + bounds.height,
-      left,
-    };
-  };
+    },
+    [windowWidth],
+  );
 
   useEffect(() => {
     if (open) {
@@ -112,7 +114,7 @@ const SubItemsBox: FC<SubItemsBoxProps> = ({
       return;
     }
     setCoords(null);
-  }, [open]);
+  }, [anchorEl, calcElementPosition, open]);
 
   useEffect(() => {
     const handleResize = () => {

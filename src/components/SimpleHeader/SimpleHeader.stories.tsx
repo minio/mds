@@ -17,12 +17,11 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import { Button, GlobalStyles } from "../index";
 import SimpleHeader from "./SimpleHeader";
 import { SimpleHeaderProps } from "./SimpleHeader.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { Button, GlobalStyles } from "../index";
-import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/SimpleHeader",

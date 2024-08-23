@@ -14,18 +14,18 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { createGlobalStyle } from "styled-components";
 import get from "lodash/get";
-import { lightColors, lightV2 } from "../../global/themes";
+import { createGlobalStyle } from "styled-components";
 
-const GeistBlackWoff2 = require("../assets/fonts/Geist/Geist-Black.woff2");
-const GeistBoldWoff2 = require("../assets/fonts/Geist/Geist-Bold.woff2");
-const GeistLightWoff2 = require("../assets/fonts/Geist/Geist-Light.woff2");
-const GeistRegularWoff2 = require("../assets/fonts/Geist/Geist-Regular.woff2");
-const GeistThinWoff2 = require("../assets/fonts/Geist/Geist-Thin.woff2");
-const GeistSemiBoldWoff2 = require("../assets/fonts/Geist/Geist-SemiBold.woff2");
-const GeistMediumWoff2 = require("../assets/fonts/Geist/Geist-Medium.woff2");
-const GeistUltraLightWoff2 = require("../assets/fonts/Geist/Geist-UltraLight.woff2");
+import { lightColors, lightV2 } from "../../global/themes";
+import GeistBlackWoff2 from "../assets/fonts/Geist/Geist-Black.woff2";
+import GeistBoldWoff2 from "../assets/fonts/Geist/Geist-Bold.woff2";
+import GeistLightWoff2 from "../assets/fonts/Geist/Geist-Light.woff2";
+import GeistMediumWoff2 from "../assets/fonts/Geist/Geist-Medium.woff2";
+import GeistRegularWoff2 from "../assets/fonts/Geist/Geist-Regular.woff2";
+import GeistSemiBoldWoff2 from "../assets/fonts/Geist/Geist-SemiBold.woff2";
+import GeistThinWoff2 from "../assets/fonts/Geist/Geist-Thin.woff2";
+import GeistUltraLightWoff2 from "../assets/fonts/Geist/Geist-UltraLight.woff2";
 
 const GlobalStyles = createGlobalStyle`
     ${({ theme }) => {

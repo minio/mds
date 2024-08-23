@@ -15,19 +15,20 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { MenuConstructProps, MenuProps } from "../Menu.types";
+import styled from "styled-components";
+
 import { lightColors } from "../../../global/themes";
-import Box from "../../Box/Box";
-import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
-import MenuItem from "./MenuItem";
-import MenuSectionHeader from "./MenuSectionHeader";
-import Tooltip from "../../Tooltip/Tooltip";
 import { overridePropsParse } from "../../../global/utils";
+import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
+import Box from "../../Box/Box";
 import ArrowLeftToLineIcon from "../../Icons/NewDesignIcons/ArrowLeftToLineIcon";
 import LogOutIcon from "../../Icons/NewDesignIcons/LogOutIcon";
 import MinIOIcon from "../../Icons/NewDesignIcons/MinIOIcon";
+import Tooltip from "../../Tooltip/Tooltip";
+import { MenuConstructProps, MenuProps } from "../Menu.types";
+import MenuItem from "./MenuItem";
+import MenuSectionHeader from "./MenuSectionHeader";
 
 const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {

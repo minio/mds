@@ -15,19 +15,20 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { MenuConstructProps, MenuProps } from "../Menu.types";
+import styled from "styled-components";
+
 import { lightColors } from "../../../global/themes";
-import Box from "../../Box/Box";
-import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
-import Tooltip from "../../Tooltip/Tooltip";
-import MenuSectionHeader from "../Vertical/MenuSectionHeader";
-import MenuItem from "../Vertical/MenuItem";
 import { overridePropsParse } from "../../../global/utils";
-import XIcon from "../../Icons/NewDesignIcons/XIcon";
-import MinIOIcon from "../../Icons/NewDesignIcons/MinIOIcon";
+import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
+import Box from "../../Box/Box";
 import LogOutIcon from "../../Icons/NewDesignIcons/LogOutIcon";
+import MinIOIcon from "../../Icons/NewDesignIcons/MinIOIcon";
+import XIcon from "../../Icons/NewDesignIcons/XIcon";
+import Tooltip from "../../Tooltip/Tooltip";
+import { MenuConstructProps, MenuProps } from "../Menu.types";
+import MenuItem from "../Vertical/MenuItem";
+import MenuSectionHeader from "../Vertical/MenuSectionHeader";
 
 const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {

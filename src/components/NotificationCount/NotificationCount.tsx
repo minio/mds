@@ -15,14 +15,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, HTMLAttributes } from "react";
+import get from "lodash/get";
 import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
 import {
   NotificationCountConstruct,
   NotificationCountProps,
 } from "./NotificationCount.types";
-import get from "lodash/get";
-import { overridePropsParse } from "../../global/utils";
-import { themeColors } from "../../global/themeColors";
 
 const NotificationCountParent = styled.span<
   HTMLAttributes<HTMLDivElement> & NotificationCountConstruct
@@ -36,7 +37,7 @@ const NotificationCountParent = styled.span<
     shape,
     dotOnly,
   }) => {
-    let circularRadius = dotOnly ? "100%" : 10;
+    const circularRadius = dotOnly ? "100%" : 10;
 
     return {
       position: "relative",

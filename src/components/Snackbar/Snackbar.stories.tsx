@@ -17,11 +17,10 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Snackbar from "./Snackbar";
-import { SnackbarProps } from "./Snackbar.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { Button, GlobalStyles } from "../index";
+import Snackbar from "./Snackbar";
+import { SnackbarProps } from "./Snackbar.types";
 
 export default {
   title: "MDS/Information/Snackbar",

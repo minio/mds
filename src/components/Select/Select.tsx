@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useState } from "react";
-import { SelectProps } from "./Select.types";
+
 import Box from "../Box/Box";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
-import InputBox from "../InputBox/InputBox";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
 import { ChevronDownIcon } from "../Icons/NewDesignIcons";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import InputBox from "../InputBox/InputBox";
+import { SelectProps } from "./Select.types";
 
 const Select: FC<SelectProps> = ({
   id,

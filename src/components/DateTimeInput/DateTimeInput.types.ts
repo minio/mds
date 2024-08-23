@@ -16,9 +16,10 @@
 
 import React from "react";
 import { DateTime } from "luxon";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
-import { OverrideTheme } from "../../global/global.types";
 import { CSSObject } from "styled-components";
+
+import { OverrideTheme } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface DateTimeInputMain {
   pickerStartComponent?: React.ReactNode;

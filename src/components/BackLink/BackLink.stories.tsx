@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import BackLink from "./BackLink";
 import { BackLinkProps } from "./BackLink.types";
-
-import TestIcon from "../../utils/TestIcon";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 
 export default {
   title: "MDS/Layout/BackLink",

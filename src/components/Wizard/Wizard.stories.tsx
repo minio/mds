@@ -17,15 +17,15 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Wizard from "./Wizard";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { WizardProps } from "./Wizard.types";
-import Select from "../Select/Select";
-import InputBox from "../InputBox/InputBox";
-import Switch from "../Switch/Switch";
-import FormLayout from "../FormLayout/FormLayout";
 import Box from "../Box/Box";
+import FormLayout from "../FormLayout/FormLayout";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import InputBox from "../InputBox/InputBox";
+import Select from "../Select/Select";
+import Switch from "../Switch/Switch";
+import Wizard from "./Wizard";
+import { WizardProps } from "./Wizard.types";
 
 export default {
   title: "MDS/Layout/Wizard",

@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box/Box";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import InputBox from "./InputBox";
 import { InputBoxProps } from "./InputBox.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Box from "../Box/Box";
 
 export default {
   title: "UI Kit/Forms & Inputs/Input Text",

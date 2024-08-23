@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
-import { MenuProps } from "./Menu.types";
+import debounce from "lodash/debounce";
+
 import { breakPoints } from "../../global/utils";
 import HorizontalMenu from "./Horizontal/HorizontalMenu";
-import VerticalMenu from "./Vertical/VerticalMenu";
+import { MenuProps } from "./Menu.types";
 import MobileMenu from "./MobileMenu/MobileMenu";
-import debounce from "lodash/debounce";
+import VerticalMenu from "./Vertical/VerticalMenu";
 
 const Menu: FC<MenuProps> = ({
   horizontal = false,
@@ -47,7 +48,7 @@ const Menu: FC<MenuProps> = ({
     return <HorizontalMenu {...props} />;
   }
 
-  if (!!props.middleComponent) {
+  if (props.middleComponent) {
     console.warn(
       "Middle component is set, this cannot be rendered in Vertical Menu",
     );

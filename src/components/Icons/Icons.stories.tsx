@@ -17,12 +17,12 @@
 import React, { Fragment, ReactNode, useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import * as nvicons from "./NewDesignIcons";
-import Grid from "../Grid/Grid";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Button from "../Button/Button";
 import Box from "../Box/Box";
+import Button from "../Button/Button";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Grid from "../Grid/Grid";
+import * as nvicons from "./NewDesignIcons";
 
 export default {
   title: "MDS/Graphics/Icons",

@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
+import get from "lodash/get";
+import styled from "styled-components";
+
+import { lightColors } from "../../global/themes";
 import Box from "../Box/Box";
 import { TimeSelectorProps } from "./DateTimeInput.types";
-import styled from "styled-components";
-import get from "lodash/get";
-import { lightColors } from "../../global/themes";
 
 const TimeSelectorContainer = styled.div(({ theme }) => ({
   "& .timeTitle": {
@@ -131,7 +132,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
     if (selectedElements.length >= itemsCount && completeCallback) {
       completeCallback();
     }
-  }, [selectedElements, timeFormat, completeCallback]);
+  }, [selectedElements, timeFormat, completeCallback, secondsSelector]);
 
   if (!value) {
     return null;
@@ -151,7 +152,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
       case "second":
         changeValue = changeValue.set({ second: newValue });
         break;
-      case "hour":
+      case "hour": {
         let nvValue = newValue;
 
         if (
@@ -173,7 +174,8 @@ const TimeSelector: FC<TimeSelectorProps> = ({
             ? changeValue.set({ hour: nvValue })
             : changeValue.set({ hour: nvValue });
         break;
-      case "meridiem":
+      }
+      case "meridiem": {
         let hour = changeValue.hour;
 
         if (newValue === 0 && currentMeridiem === "PM" && hour >= 12) {
@@ -185,6 +187,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
         }
         changeValue = changeValue.set({ hour });
         break;
+      }
     }
 
     if (!selectedElements.includes(type)) {

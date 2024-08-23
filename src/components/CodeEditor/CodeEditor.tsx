@@ -15,16 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 import get from "lodash/get";
 import styled from "styled-components";
-import CodeEditor from "@uiw/react-textarea-code-editor";
-import Tooltip from "../Tooltip/Tooltip";
-import Box from "../Box/Box";
-import InputLabel from "../InputLabel/InputLabel";
-import { CodeEditorBaseProps, CodeEditorProps } from "./CodeEditor.types";
-import { lightV2, lightColors } from "../../global/themes";
+
+import { lightColors,lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
 import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import InputLabel from "../InputLabel/InputLabel";
+import Tooltip from "../Tooltip/Tooltip";
+import { CodeEditorBaseProps, CodeEditorProps } from "./CodeEditor.types";
 
 const CodeEditorBase = styled.div<CodeEditorBaseProps>(
   ({ theme, editorHeight, sx }) => ({

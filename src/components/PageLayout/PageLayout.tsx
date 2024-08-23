@@ -16,9 +16,10 @@
 
 import React, { FC, HTMLAttributes } from "react";
 import styled from "styled-components";
-import { PageLayoutProps } from "./PageLayout.types";
-import Grid from "../Grid/Grid";
+
 import { overridePropsParse } from "../../global/utils";
+import Grid from "../Grid/Grid";
+import { PageLayoutProps } from "./PageLayout.types";
 
 const PageLayoutContainer = styled.div<
   HTMLAttributes<HTMLDivElement> & PageLayoutProps

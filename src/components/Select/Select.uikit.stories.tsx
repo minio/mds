@@ -17,14 +17,14 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Box from "../Box/Box";
-import Select from "./Select";
-import { SelectProps } from "./Select.types";
 import { SelectOption } from "../../global/global.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box/Box";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
+import Select from "./Select";
+import { SelectProps } from "./Select.types";
 
 export default {
   title: "UI Kit/Forms & Inputs/Select Input",
@@ -32,7 +32,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Select>;
 
-let useOpts: SelectOption[] = [
+const useOpts: SelectOption[] = [
   { label: "Option 1", value: "value1" },
   { label: "Option 2", value: "value2" },
   {
@@ -50,7 +50,7 @@ let useOpts: SelectOption[] = [
     danger: true,
   },
 ];
-let useIconOpts: SelectOption[] = [
+const useIconOpts: SelectOption[] = [
   { label: "Option 1", value: "value1", icon: <DownloadIcon /> },
   { label: "Option 2", value: "value2" },
   {

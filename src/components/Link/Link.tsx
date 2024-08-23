@@ -17,9 +17,10 @@
 import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
+
 import { lightColors, lightV2 } from "../../global/themes";
-import { LinkProps } from "./Link.types";
 import { overridePropsParse } from "../../global/utils";
+import { LinkProps } from "./Link.types";
 
 const LinkBase = styled.a<LinkProps>(({ theme, sx }) => ({
   cursor: "pointer",

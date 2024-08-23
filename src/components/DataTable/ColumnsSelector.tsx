@@ -15,20 +15,21 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useEffect, useState } from "react";
-import styled, { CSSObject } from "styled-components";
-import get from "lodash/get";
-import debounce from "lodash/debounce";
 import { createPortal } from "react-dom";
+import debounce from "lodash/debounce";
+import get from "lodash/get";
+import styled, { CSSObject } from "styled-components";
+
+import SelectorContainer from "../../global/SelectorContainer";
+import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import Checkbox from "../Checkbox/Checkbox";
 import {
   ColumnSelectorConstructProps,
   ColumnSelectorProps,
   IColumns,
 } from "./DataTable.types";
-import { lightColors } from "../../global/themes";
-import Checkbox from "../Checkbox/Checkbox";
-import Box from "../Box/Box";
-import SelectorContainer from "../../global/SelectorContainer";
-import { overridePropsParse } from "../../global/utils";
 
 const SelectorBox = styled.div<ColumnSelectorConstructProps>(
   ({ theme, sx }) => ({
@@ -102,7 +103,7 @@ const ColumnsSelector = <T,>({
       return;
     }
     setCoords(null);
-  }, [open]);
+  }, [anchorEl, open]);
 
   useEffect(() => {
     const handleResize = () => {

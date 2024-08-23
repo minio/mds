@@ -15,23 +15,24 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
-import styled, { CSSObject } from "styled-components";
-import get from "lodash/get";
 import { createPortal } from "react-dom";
+import debounce from "lodash/debounce";
+import get from "lodash/get";
+import { DateTime } from "luxon";
+import styled, { CSSObject } from "styled-components";
+
+import SelectorContainer from "../../global/SelectorContainer";
+import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
+import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
+import DateSelector from "./DateSelector";
 import {
   DateTimeSelectorProps,
   StylesOverrideProps,
 } from "./DateTimeInput.types";
-import Box from "../Box/Box";
-import DateSelector from "./DateSelector";
 import TimeSelector from "./TimeSelector";
-import { lightV2 } from "../../global/themes";
-import { DateTime } from "luxon";
-import SelectorContainer from "../../global/SelectorContainer";
-import debounce from "lodash/debounce";
-import { overridePropsParse } from "../../global/utils";
-import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
-import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
 
 const globalWidth = 315;
 
@@ -90,7 +91,7 @@ const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
 
   const bounds = anchorEl.getBoundingClientRect();
 
-  let returnItem: CSSObject = {
+  const returnItem: CSSObject = {
     top: bounds.top + bounds.height,
     left: bounds.left + bounds.width,
     transform: "translateX(-100%)",
@@ -127,7 +128,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
       }
       setCoords(null);
     }
-  }, [open, usePortal]);
+  }, [anchorEl, open, usePortal]);
 
   useEffect(() => {
     if (usePortal) {
@@ -149,7 +150,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
         scrollResize(anchorEl);
       });
     }
-  }, [usePortal]);
+  }, [anchorEl, onClose, usePortal]);
 
   const calendarChange = (value: DateTime | null) => {
     onChange(value);

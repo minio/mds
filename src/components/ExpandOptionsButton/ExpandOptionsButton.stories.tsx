@@ -17,12 +17,11 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box/Box";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import ExpandOptionsButton from "./ExpandOptionsButton";
 import { ExpandOptionsButtonProps } from "./ExpandOptionsButton.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Box from "../Box/Box";
 
 export default {
   title: "MDS/Forms/ExpandOptionsButton",

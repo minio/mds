@@ -17,9 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ValuePair from "./ValuePair";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import ValuePair from "./ValuePair";
 import { ValuePairProps } from "./ValuePair.types";
 
 export default {

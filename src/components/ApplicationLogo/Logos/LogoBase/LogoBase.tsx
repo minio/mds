@@ -15,8 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, SVGProps } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
+import styled from "styled-components";
+
 import { LogoBaseProps } from "./LogoBase.types";
 
 const LogoBaseConstruct = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {

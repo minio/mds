@@ -15,17 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
+import { getGPUTier } from "detect-gpu";
 import get from "lodash/get";
 import styled from "styled-components";
-import { getGPUTier } from "detect-gpu";
-import ApplicationLogo from "../ApplicationLogo/ApplicationLogo";
-import { LoginWrapperProps } from "./LoginWrapper.types";
-import { breakPoints } from "../../global/utils";
-import Box from "../Box/Box";
-import { lightV2 } from "../../global/themes";
 
-const bgVideo = require("../assets/video/videoBG.mp4");
-const poster = require("../assets/background/loginAnimationPoster.png");
+import { lightV2 } from "../../global/themes";
+import { breakPoints } from "../../global/utils";
+import ApplicationLogo from "../ApplicationLogo/ApplicationLogo";
+import poster from "../assets/background/loginAnimationPoster.png";
+import bgVideo from "../assets/video/videoBG.mp4";
+import Box from "../Box/Box";
+import { LoginWrapperProps } from "./LoginWrapper.types";
 
 const CustomLogin = styled.div(({ theme }) => {
   return {

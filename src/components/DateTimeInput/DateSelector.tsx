@@ -16,13 +16,14 @@
 
 import React, { FC, Fragment } from "react";
 import Calendar from "react-calendar";
-import styled from "styled-components";
 import get from "lodash/get";
-import { DateSelectorProps } from "./DateTimeInput.types";
-import { lightColors } from "../../global/themes";
 import { DateTime } from "luxon";
+import styled from "styled-components";
+
+import { lightColors } from "../../global/themes";
 import ChevronLeftIcon from "../Icons/NewDesignIcons/ChevronLeftIcon";
 import ChevronRightIcon from "../Icons/NewDesignIcons/ChevronRightIcon";
+import { DateSelectorProps } from "./DateTimeInput.types";
 
 const DateSelectorContainer = styled.div(({ theme }) => ({
   "& .react-calendar__navigation": {

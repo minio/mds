@@ -15,18 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, useCallback } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { BadgeConstructProps, BadgeIcons, BadgeProps } from "./Badge.types";
+import styled from "styled-components";
+
 import { themeColors } from "../../global/themeColors";
-import CircleIcon from "../Icons/NewDesignIcons/CircleIcon";
-import CircleSlashIcon from "../Icons/NewDesignIcons/CircleSlashIcon";
-import InfoIcon from "../Icons/NewDesignIcons/InfoIcon";
-import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
-import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
-import CircleXIcon from "../Icons/NewDesignIcons/CircleXIcon";
 import { paddingSizeVariants } from "../../global/utils";
-import DotIcon from "../Icons/NewDesignIcons/DotIcon";
+import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
+import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
+import CircleSlashIcon from "../Icons/NewDesignIcons/CircleSlashIcon";
+import CircleXIcon from "../Icons/NewDesignIcons/CircleXIcon";
+import InfoIcon from "../Icons/NewDesignIcons/InfoIcon";
+import { BadgeConstructProps, BadgeProps } from "./Badge.types";
 
 const BadgeBase = styled.span<BadgeConstructProps>(
   ({ theme, color, size, badgeStyle, icon, isNumber, sx }) => {

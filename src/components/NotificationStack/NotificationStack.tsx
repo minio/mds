@@ -16,11 +16,12 @@
 
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
+
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
 import {
   NotificationStackConstructProps,
   NotificationStackContainerProps,
 } from "./NotificationStack.types";
-import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
 import { notificationDrop } from "./NotificationStack.utils";
 
 export const NotificationStackContainer =

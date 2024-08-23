@@ -16,14 +16,13 @@
 
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
-
-import DateTimeSelector from "./DateTimeSelector";
-import { DateTimeSelectorProps } from "./DateTimeInput.types";
+import { DateTime } from "luxon";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
-import { DateTime } from "luxon";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import { DateTimeSelectorProps } from "./DateTimeInput.types";
+import DateTimeSelector from "./DateTimeSelector";
 
 export default {
   title: "MDS/Forms/TimeSelector/DateTimeSelector",

@@ -17,17 +17,16 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Autocomplete from "./Autocomplete";
-import { AutocompleteProps } from "./Autocomplete.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormLayout from "../FormLayout/FormLayout";
 import { SelectOption } from "../../global/global.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
+import FormLayout from "../FormLayout/FormLayout";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
 import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
+import Autocomplete from "./Autocomplete";
+import { AutocompleteProps } from "./Autocomplete.types";
 
 export default {
   title: "MDS/Forms/Autocomplete",

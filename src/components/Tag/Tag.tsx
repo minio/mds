@@ -15,17 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { TagConstructProps, TagProps } from "./Tag.types";
-import { lightColors, lightV2 } from "../../global/themes";
+import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
 import {
   overridePropsParse,
   paddingSizeVariants,
   radioVariants,
 } from "../../global/utils";
 import XIcon from "../Icons/NewDesignIcons/XIcon";
-import { themeColors } from "../../global/themeColors";
+import { TagConstructProps, TagProps } from "./Tag.types";
 
 const TagBase = styled.span<TagConstructProps>(({ theme, color, size, sx }) => {
   return {

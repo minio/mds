@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import PageLayout from "./PageLayout";
-import { PageLayoutProps } from "./PageLayout.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
 import SectionTitle from "../SectionTitle/SectionTitle";
+import PageLayout from "./PageLayout";
+import { PageLayoutProps } from "./PageLayout.types";
 
 export default {
   title: "MDS/Layout/PageLayout",

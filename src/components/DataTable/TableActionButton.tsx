@@ -14,29 +14,30 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
+import React from "react";
+import get from "lodash/get";
+import styled from "styled-components";
+
+import { lightV2 } from "../../global/themes";
+import CircleMinusIcon from "../Icons/NewDesignIcons/CircleMinusIcon";
+import CloudIcon from "../Icons/NewDesignIcons/CloudIcon";
+import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
+import EraserIcon from "../Icons/NewDesignIcons/EraserIcon";
+import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
+import PencilIcon from "../Icons/NewDesignIcons/PencilIcon";
+import ShareIcon from "../Icons/NewDesignIcons/ShareIcon";
+import ShieldEllipsisIcon from "../Icons/NewDesignIcons/ShieldEllipsisIcon";
+import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
+import TrashIcon from "../Icons/NewDesignIcons/TrashIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import {
   actionsTypes,
   IActionButton,
   PredefinedActionTypes,
 } from "./DataTable.types";
-import styled from "styled-components";
-import get from "lodash/get";
-import { lightV2 } from "../../global/themes";
-import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
-import TrashIcon from "../Icons/NewDesignIcons/TrashIcon";
-import CloudIcon from "../Icons/NewDesignIcons/CloudIcon";
-import ShareIcon from "../Icons/NewDesignIcons/ShareIcon";
-import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
-import PencilIcon from "../Icons/NewDesignIcons/PencilIcon";
-import ShieldEllipsisIcon from "../Icons/NewDesignIcons/ShieldEllipsisIcon";
-import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
-import CircleMinusIcon from "../Icons/NewDesignIcons/CircleMinusIcon";
-import EraserIcon from "../Icons/NewDesignIcons/EraserIcon";
 
 const TableActionCustomIcon = styled.button(({ theme }) => {
-  let buttonSize: number | string = 30;
+  const buttonSize: number | string = 30;
 
   return {
     width: buttonSize,

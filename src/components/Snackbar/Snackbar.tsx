@@ -15,18 +15,19 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import get from "lodash/get";
 import styled from "styled-components";
+
+import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import XIcon from "../Icons/NewDesignIcons/XIcon";
 import {
   SnackbarButtonProps,
   SnackbarConstructProps,
   SnackbarProps,
 } from "./Snackbar.types";
-import { createPortal } from "react-dom";
-import { lightColors } from "../../global/themes";
-import Box from "../Box/Box";
-import { overridePropsParse } from "../../global/utils";
-import XIcon from "../Icons/NewDesignIcons/XIcon";
 
 const SnackBarContainer = styled.div<SnackbarConstructProps>(
   ({ theme, sx, open, variant, condensed }) => ({
@@ -120,7 +121,7 @@ const Snackbar: FC<SnackbarProps> = ({
     return () => {
       clearTimeout(timerRef.current);
     };
-  }, [open, autoHideDuration, hoverBar]);
+  }, [open, autoHideDuration, hoverBar, onClose]);
 
   useEffect(() => {
     if (hoverBar) {

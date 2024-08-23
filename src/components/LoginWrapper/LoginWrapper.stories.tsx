@@ -17,10 +17,10 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import LoginWrapper from "./LoginWrapper";
-import { LoginWrapperProps } from "./LoginWrapper.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { Button, GlobalStyles } from "../index";
+import LoginWrapper from "./LoginWrapper";
+import { LoginWrapperProps } from "./LoginWrapper.types";
 
 export default {
   title: "MDS/FullPage/LoginWrapper",

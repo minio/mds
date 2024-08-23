@@ -17,9 +17,10 @@
 import React, { FC } from "react";
 import isPropValid from "@emotion/is-prop-valid";
 import { StyleSheetManager, ThemeProvider } from "styled-components";
-import { ThemeHandlerProps } from "./ThemeHandler.types";
-import { darkTheme, lightTheme } from "../../global/themes";
+
 import { ThemeDefinitionProps } from "../../global/global.types";
+import { darkTheme, lightTheme } from "../../global/themes";
+import { ThemeHandlerProps } from "./ThemeHandler.types";
 
 const ThemeHandler: FC<ThemeHandlerProps> = ({
   darkMode = false,

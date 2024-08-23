@@ -16,20 +16,21 @@
 
 import React, { FC, Fragment, HTMLAttributes, useMemo } from "react";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import { themeColors, themeShadows } from "../../global/themeColors";
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
+import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
+import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
+import CircleSlashIcon from "../Icons/NewDesignIcons/CircleSlashIcon";
+import CircleXIcon from "../Icons/NewDesignIcons/CircleXIcon";
+import InfoIcon from "../Icons/NewDesignIcons/InfoIcon";
+import XIcon from "../Icons/NewDesignIcons/XIcon";
+import Loader from "../Loader/Loader";
 import {
   NotificationAlertConstruct,
   NotificationAlertPrp,
 } from "./NotificationAlert.types";
-import XIcon from "../Icons/NewDesignIcons/XIcon";
-import styled from "styled-components";
-import CircleSlashIcon from "../Icons/NewDesignIcons/CircleSlashIcon";
-import InfoIcon from "../Icons/NewDesignIcons/InfoIcon";
-import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
-import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
-import CircleXIcon from "../Icons/NewDesignIcons/CircleXIcon";
-import { themeColors, themeShadows } from "../../global/themeColors";
-import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
-import Loader from "../Loader/Loader";
 
 const NotificationContainer = styled.div.attrs(() => ({
   className: "notification-alert",

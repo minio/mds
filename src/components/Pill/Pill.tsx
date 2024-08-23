@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
-import { PillProps } from "./Pill.types";
-import { themeColors } from "../../global/themeColors";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
 import { overridePropsParse } from "../../global/utils";
+import { PillProps } from "./Pill.types";
 
 const PillBase = styled.span<PillProps>(({ theme, sx, type }) => ({
   backgroundColor: get(

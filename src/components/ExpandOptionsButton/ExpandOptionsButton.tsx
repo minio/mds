@@ -15,16 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
 import {
   ConstructExpandOptionsProps,
   ExpandOptionsButtonProps,
 } from "./ExpandOptionsButton.types";
-import { lightColors } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
-import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const ExpandButtonBase = styled.button<ConstructExpandOptionsProps>(
   ({ sx, theme }) => ({
