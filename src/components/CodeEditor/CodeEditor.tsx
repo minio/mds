@@ -19,7 +19,7 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 import get from "lodash/get";
 import styled from "styled-components";
 
-import { lightColors,lightV2 } from "../../global/themes";
+import { lightColors, lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
 import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";

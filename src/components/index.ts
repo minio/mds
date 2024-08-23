@@ -24,7 +24,7 @@ export {
 } from "../global/utils";
 
 /*Hooks*/
-export { useArrowKeys,useEnterKey, useEscapeKey } from "../global/hooks";
+export { useArrowKeys, useEnterKey, useEscapeKey } from "../global/hooks";
 export { useNotifications } from "./NotificationStack/hooks";
 
 /*Base Components*/
