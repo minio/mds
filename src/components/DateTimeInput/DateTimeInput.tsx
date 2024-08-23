@@ -16,24 +16,25 @@
 
 import React, { FC, Fragment, useState } from "react";
 import get from "lodash/get";
-import styled from "styled-components";
 import { DateTime } from "luxon";
-import { DateTimeInputProps } from "./DateTimeInput.types";
-import Box from "../Box/Box";
-import InputLabel from "../InputLabel/InputLabel";
-import Tooltip from "../Tooltip/Tooltip";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
-import { InputContainerProps } from "../InputBox/InputBox.types";
-import DateTimeSelector from "./DateTimeSelector";
+import styled from "styled-components";
+
 import { useEscapeKey } from "../../global/hooks";
 import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import Box from "../Box/Box";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import { InputContainerProps } from "../InputBox/InputBox.types";
+import InputLabel from "../InputLabel/InputLabel";
+import Tooltip from "../Tooltip/Tooltip";
+import { DateTimeInputProps } from "./DateTimeInput.types";
+import DateTimeSelector from "./DateTimeSelector";
 
 const InputBase = styled.input(({ theme }) => {
-  let borderColor = get(theme, "inputBox.border", lightColors.borderColor);
-  let borderHover = get(theme, "inputBox.hoverBorder", lightColors.promoBG);
+  const borderColor = get(theme, "inputBox.border", lightColors.borderColor);
+  const borderHover = get(theme, "inputBox.hoverBorder", lightColors.promoBG);
 
   return {
     display: "flex",
@@ -102,8 +103,8 @@ const InputBase = styled.input(({ theme }) => {
 });
 
 const InputPlaceholder = styled.div(({ theme }) => {
-  let borderColor = get(theme, "inputBox.border", lightColors.borderColor);
-  let borderHover = get(theme, "inputBox.hoverBorder", lightColors.promoBG);
+  const borderColor = get(theme, "inputBox.border", lightColors.borderColor);
+  const borderHover = get(theme, "inputBox.hoverBorder", lightColors.promoBG);
 
   return {
     display: "flex",

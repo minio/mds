@@ -17,11 +17,10 @@
 import React, { useEffect, useRef } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Box from "./Box";
-import { BoxProps } from "./Box.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles, ThemeDefinitionProps } from "../index";
+import Box from "./Box";
+import { BoxProps } from "./Box.types";
 
 export default {
   title: "MDS/Layout/Box",

@@ -17,17 +17,16 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Select from "./Select";
-import { SelectProps } from "./Select.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormLayout from "../FormLayout/FormLayout";
 import { SelectOption } from "../../global/global.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
+import FormLayout from "../FormLayout/FormLayout";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
 import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
 import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
+import Select from "./Select";
+import { SelectProps } from "./Select.types";
 
 export default {
   title: "MDS/Forms/Select",

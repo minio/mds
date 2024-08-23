@@ -17,12 +17,12 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import { Button, GlobalStyles } from "../index";
+import SectionTitle from "../SectionTitle/SectionTitle";
 import ModalBox from "./ModalBox";
 import { ModalBoxProps } from "./ModalBox.types";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { Button, GlobalStyles } from "../index";
-import TestIcon from "../../utils/TestIcon";
-import SectionTitle from "../SectionTitle/SectionTitle";
 
 export default {
   title: "MDS/Layout/ModalBox",

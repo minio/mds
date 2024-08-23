@@ -15,15 +15,16 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment, useState } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import WizardPage from "./WizardPage";
-import { WizardConstruct, WizardProps } from "./Wizard.types";
-import { lightV2 } from "../../global/themes";
-import Box from "../Box/Box";
-import { overridePropsParse } from "../../global/utils";
+import styled from "styled-components";
 
-const WizardMain = styled.div<WizardConstruct>(({ theme, sx, forModal }) => ({
+import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import { WizardConstruct, WizardProps } from "./Wizard.types";
+import WizardPage from "./WizardPage";
+
+const WizardMain = styled.div<WizardConstruct>(({ theme, sx }) => ({
   position: "relative",
   display: "flex",
   flexDirection: "column" as const,

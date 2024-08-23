@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ProgressBar from "./ProgressBar";
-import { ProgressBarProps } from "./ProgressBar.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
+import ProgressBar from "./ProgressBar";
+import { ProgressBarProps } from "./ProgressBar.types";
 
 export default {
   title: "MDS/Information/ProgressBar",

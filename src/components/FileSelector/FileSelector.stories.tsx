@@ -17,12 +17,11 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import FormLayout from "../FormLayout/FormLayout";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FileSelector from "./FileSelector";
 import { FileSelectorProps } from "./FileSelector.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormLayout from "../FormLayout/FormLayout";
 
 export default {
   title: "MDS/Forms/FileSelector",

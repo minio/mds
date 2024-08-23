@@ -15,22 +15,23 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, useEffect, useState } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { AutocompleteProps } from "./Autocomplete.types";
-import { InputContainerProps } from "../InputBox/InputBox.types";
-import Tooltip from "../Tooltip/Tooltip";
-import InputLabel from "../InputLabel/InputLabel";
+import styled from "styled-components";
+
+import { overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
-import { overridePropsParse } from "../../global/utils";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import { InputContainerProps } from "../InputBox/InputBox.types";
+import InputLabel from "../InputLabel/InputLabel";
+import Tooltip from "../Tooltip/Tooltip";
+import { AutocompleteProps } from "./Autocomplete.types";
 
 const AutocompleteBase = styled.input(({ theme }) => {
-  let borderColor = get(theme, "inputBox.border", "#E2E2E2");
-  let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
+  const borderColor = get(theme, "inputBox.border", "#E2E2E2");
+  const borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 
   return {
     display: "flex",
@@ -162,7 +163,7 @@ const Autocomplete: FC<AutocompleteProps> = ({
       setValueSelected(index);
       setSearchBoxVal(options[index]?.label || "");
     }
-  }, []);
+  }, [options, value]);
 
   const filteredOptions = options.filter((item) =>
     item.label.toLowerCase().includes(filterVal.toLowerCase()),

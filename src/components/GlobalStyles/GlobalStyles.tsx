@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 // This file is part of MinIO Design System
 // Copyright (c) 2022 MinIO, Inc.
 //
@@ -14,8 +16,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { createGlobalStyle } from "styled-components";
 import get from "lodash/get";
+import { createGlobalStyle } from "styled-components";
+
 import { lightColors, lightV2 } from "../../global/themes";
 
 const GeistBlackWoff2 = require("../assets/fonts/Geist/Geist-Black.woff2");

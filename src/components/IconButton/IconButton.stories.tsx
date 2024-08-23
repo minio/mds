@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import IconButton from "./IconButton";
-import { IconButtonProps } from "./IconButton.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
+import IconButton from "./IconButton";
+import { IconButtonProps } from "./IconButton.types";
 
 export default {
   title: "MDS/Forms/IconButton",

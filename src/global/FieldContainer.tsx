@@ -15,9 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import { breakPoints, overridePropsParse } from "./utils";
 import styled from "styled-components";
+
 import { OverrideTheme } from "./global.types";
+import { breakPoints, overridePropsParse } from "./utils";
 
 export interface FieldContainerProps {
   children: React.ReactNode;

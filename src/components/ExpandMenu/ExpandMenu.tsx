@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, useState } from "react";
-import { ExpandMenuProps } from "./ExpandMenu.types";
+
 import Button from "../Button/Button";
-import ExpandDropdown from "./ExpandDropdown";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import ExpandDropdown from "./ExpandDropdown";
+import { ExpandMenuProps } from "./ExpandMenu.types";
 
 const ExpandMenu: FC<
   ExpandMenuProps & React.ButtonHTMLAttributes<HTMLButtonElement>

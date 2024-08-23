@@ -15,8 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+
 import { OverrideTheme } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface FileSelectorProps {
   label: string;

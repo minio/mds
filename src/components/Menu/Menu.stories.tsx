@@ -17,15 +17,15 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Menu from "./Menu";
-import { MenuProps } from "./Menu.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
 import TestIcon from "../../utils/TestIcon";
-import Button from "../Button/Button";
 import Box from "../Box/Box";
+import Button from "../Button/Button";
 import CirclePlayIcon from "../Icons/NewDesignIcons/CirclePlayIcon";
 import MessageSquareHeartIcon from "../Icons/NewDesignIcons/MessageSquareHeartIcon";
+import { GlobalStyles } from "../index";
+import Menu from "./Menu";
+import { MenuProps } from "./Menu.types";
 
 export default {
   title: "MDS/Layout/Menu",

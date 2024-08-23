@@ -17,12 +17,11 @@
 import React, { useEffect, useRef } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import { GlobalStyles } from "../index";
 import BoxedIcon from "./BoxedIcon";
 import { IBoxedIconProps } from "./BoxedIcon.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/BoxedIcon",

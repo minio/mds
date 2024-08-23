@@ -15,13 +15,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
+import { createPortal } from "react-dom";
 import get from "lodash/get";
 import styled from "styled-components";
-import Button from "../Button/Button";
+
 import Box from "../Box/Box";
+import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 import { WizardButton, WizardConstruct, WizardPageProps } from "./Wizard.types";
-import { createPortal } from "react-dom";
 
 const WizardPageMain = styled.div<WizardConstruct>(({ theme }) => ({
   display: "flex",

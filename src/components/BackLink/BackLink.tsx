@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { BackLinkProps } from "./BackLink.types";
+import styled from "styled-components";
+
 import { overridePropsParse } from "../../global/utils";
 import ArrowLeftIcon from "../Icons/NewDesignIcons/ArrowLeftIcon";
+import { BackLinkProps } from "./BackLink.types";
 
 const BackLinkBasic = styled.button<BackLinkProps>(({ theme, sx }) => ({
   display: "flex",

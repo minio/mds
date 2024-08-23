@@ -17,15 +17,14 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import Box from "../Box/Box";
+import FormLayout from "../FormLayout/FormLayout";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 import SearchBox from "./SearchBox";
 import { SearchBoxProps } from "./SearchBox.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormLayout from "../FormLayout/FormLayout";
-import Box from "../Box/Box";
-import TestIcon from "../../utils/TestIcon";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
 
 export default {
   title: "MDS/Forms/SearchBox",

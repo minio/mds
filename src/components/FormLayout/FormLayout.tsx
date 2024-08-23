@@ -17,11 +17,12 @@
 import React, { FC } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
+
+import { lightV2 } from "../../global/themes";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import { breakPoints, overridePropsParse } from "../../global/utils";
 import { FormLayoutProps } from "./FormLayout.types";
-import { lightV2 } from "../../global/themes";
 
 const FormLayoutContainer = styled.div<FormLayoutProps>(
   ({ theme, sx, containerPadding, helpBox, withBorders }) => {

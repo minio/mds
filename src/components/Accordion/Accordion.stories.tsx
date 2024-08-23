@@ -17,10 +17,10 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Accordion from "./Accordion";
-import { AccordionProps } from "./Accordion.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Accordion from "./Accordion";
+import { AccordionProps } from "./Accordion.types";
 
 export default {
   title: "MDS/Layout/Accordion",

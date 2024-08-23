@@ -17,20 +17,19 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ButtonGroup from "./ButtonGroup";
-import { ButtonGroupProps } from "./ButtonGroup.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Button from "../Button/Button";
-import Tooltip from "../Tooltip/Tooltip";
-import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
-import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import TestIcon from "../../utils/TestIcon";
+import Button from "../Button/Button";
+import ExpandMenu from "../ExpandMenu/ExpandMenu";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
-import RefreshCWIcon from "../Icons/NewDesignIcons/RefreshCWIcon";
 import PenIcon from "../Icons/NewDesignIcons/PenIcon";
 import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
+import RefreshCWIcon from "../Icons/NewDesignIcons/RefreshCWIcon";
+import Tooltip from "../Tooltip/Tooltip";
+import ButtonGroup from "./ButtonGroup";
+import { ButtonGroupProps } from "./ButtonGroup.types";
 
 export default {
   title: "MDS/Forms/ButtonGroup",

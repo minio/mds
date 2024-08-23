@@ -7,7 +7,7 @@ import importSort from "eslint-plugin-simple-import-sort";
 
 export default tseslint.config(
   {
-    ignores: ["dist", "**/*.stories.tsx"],
+    ignores: ["dist", "plugins", "**/*.stories.tsx"],
   },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
@@ -24,16 +24,8 @@ export default tseslint.config(
     rules: {
       ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
-        "warn",
+        "off",
         { allowConstantExport: true },
-      ],
-      "react-hooks/exhaustive-deps": [
-        "warn",
-        {
-          // react-hookz/web hooks
-          additionalHooks:
-            "(useDebouncedCallback|useRafCallback|useThrottledCallback|useConditionalEffect|useCustomCompareEffect|useDebouncedEffect|useDeepCompareEffect|useIntervalEffect|useRafEffect|useThrottledEffect|useTimeoutEffect|useUpdateEffect|useCustomCompareMemo|useDeepCompareMemo)",
-        },
       ],
       "no-console": ["error", { allow: ["warn", "error", "info"] }],
       "@typescript-eslint/ban-ts-comment": "off",
@@ -46,8 +38,8 @@ export default tseslint.config(
             [
               "^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)",
             ],
-            // Packages. `react` related packages come first, then `mds` and then other packages.
-            ["^react", "^mds", "^@?\\w"],
+            // Packages. `react` related packages come first, then other packages.
+            ["^react", "^@?\\w"],
             // Absolute imports.
             ["^(@)(/.*|$)"],
             // Side effect imports.

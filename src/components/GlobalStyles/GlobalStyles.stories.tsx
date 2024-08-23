@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import GlobalStyles from "./GlobalStyles";
-
-import TestIcon from "../../utils/TestIcon";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
 import Button from "../Button/Button";
+import GlobalStyles from "./GlobalStyles";
 
 export default {
   title: "MDS/Global/GlobalStyles",

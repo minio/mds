@@ -17,12 +17,11 @@
 import React, { Fragment, HTMLAttributes } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import HelpBox from "./HelpBox";
 import { HelpBoxProps } from "./HelpBox.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Information/HelpBox",

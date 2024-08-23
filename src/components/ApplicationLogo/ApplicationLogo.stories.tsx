@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ApplicationLogo from "./ApplicationLogo";
-import { ApplicationLogoProps } from "./ApplicationLogo.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import ApplicationLogo from "./ApplicationLogo";
+import { ApplicationLogoProps } from "./ApplicationLogo.types";
 
 export default {
   title: "MDS/Graphics/ApplicationLogo",

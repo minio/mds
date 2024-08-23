@@ -17,9 +17,10 @@
 import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { ButtonProps, ConstructProps } from "./Button.types";
+
 import { breakPoints, overridePropsParse } from "../../global/utils";
 import Loader from "../Loader/Loader";
+import { ButtonProps, ConstructProps } from "./Button.types";
 
 const CustomButton = styled.button<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement> & ConstructProps

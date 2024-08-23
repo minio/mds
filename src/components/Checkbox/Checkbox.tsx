@@ -14,18 +14,19 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment } from "react";
-import styled from "styled-components";
+import React, { FC } from "react";
 import get from "lodash/get";
-import { CheckboxProps } from "./Checkbox.types";
-import InputLabel from "../InputLabel/InputLabel";
-import { InputLabelProps } from "../InputLabel/InputLabel.types";
+import styled from "styled-components";
+
 import FieldContainer from "../../global/FieldContainer";
-import Tooltip from "../Tooltip/Tooltip";
-import { overridePropsParse } from "../../global/utils";
 import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
 import CheckIcon from "../Icons/NewDesignIcons/CheckIcon";
 import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import InputLabel from "../InputLabel/InputLabel";
+import { InputLabelProps } from "../InputLabel/InputLabel.types";
+import Tooltip from "../Tooltip/Tooltip";
+import { CheckboxProps } from "./Checkbox.types";
 
 const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
   position: "relative",

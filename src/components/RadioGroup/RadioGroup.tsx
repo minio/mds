@@ -15,17 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { OptionsContainerProps, RadioGroupProps } from "./RadioGroup.types";
+import styled from "styled-components";
+
+import FieldContainer from "../../global/FieldContainer";
+import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import InputLabel from "../InputLabel/InputLabel";
 import { InputLabelProps } from "../InputLabel/InputLabel.types";
-import FieldContainer from "../../global/FieldContainer";
 import Tooltip from "../Tooltip/Tooltip";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
-import { overridePropsParse } from "../../global/utils";
-import { themeColors } from "../../global/themeColors";
-import Box from "../Box/Box";
+import { OptionsContainerProps, RadioGroupProps } from "./RadioGroup.types";
 
 const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
   "& input": {
@@ -173,13 +173,13 @@ const OptionsContainer = styled.div<OptionsContainerProps>(
   }),
 );
 
-const RadioContainer = styled.div(({}) => ({
+const RadioContainer = styled.div(() => ({
   display: "flex",
   alignItems: "center",
   gap: 5,
 }));
 
-const RadioMain = styled.div(({ theme }) => ({
+const RadioMain = styled.div(() => ({
   "& .descriptionLabel": {
     display: "block",
     marginLeft: 21,

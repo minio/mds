@@ -15,16 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useState } from "react";
-import styled, { CSSObject } from "styled-components";
-import get from "lodash/get";
-import { MenuItemProps } from "../Menu.types";
-import Box from "../../Box/Box";
 import { createPortal } from "react-dom";
-import SubItemsBox from "./SubItemsBox";
+import get from "lodash/get";
+import styled, { CSSObject } from "styled-components";
+
 import { lightColors } from "../../../global/themes";
-import CircleIcon from "../../Icons/NewDesignIcons/CircleIcon";
-import ChevronUpIcon from "../../Icons/NewDesignIcons/ChevronUpIcon";
+import Box from "../../Box/Box";
 import ChevronDownIcon from "../../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../../Icons/NewDesignIcons/ChevronUpIcon";
+import CircleIcon from "../../Icons/NewDesignIcons/CircleIcon";
+import { MenuItemProps } from "../Menu.types";
+import SubItemsBox from "./SubItemsBox";
 
 const commonStyle = (theme: any) => ({
   display: "flex",
@@ -245,7 +246,7 @@ const HorizontalMenuItem: FC<MenuItemProps> = ({
   // Path is a link, we display an anchor instead of a button, default target _blank
   if (
     path?.match(
-      /^(https?:\/\/)?([\da-zа-я\.\-_]+)\.([a-zа-я\._]{2,6})([a-zа-я\d\.\-\?\/&=#%_]*)*/,
+      /^(https?:\/\/)?([\da-zа-я.\-_]+)\.([a-zа-я._]{2,6})([a-zа-я\d.\-?/&=#%_]*)*/,
     )
   ) {
     return (

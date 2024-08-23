@@ -15,8 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { useCallback, useState } from "react";
-import { NotificationStackProps } from "./NotificationStack.types";
+
 import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
+import { NotificationStackProps } from "./NotificationStack.types";
 
 export const useNotifications = () => {
   const [notifications, setNotifications] = useState<NotificationStackProps[]>(
@@ -36,10 +37,6 @@ export const useNotifications = () => {
         notificationInfo: message,
       };
       setNotifications((prevState) => [...prevState, newNotification]);
-
-      const removeAfterTimeout = () => {
-        setNotifications((prev) => prev.filter((notif) => notif.id !== id));
-      };
 
       let timeoutId = undefined;
 

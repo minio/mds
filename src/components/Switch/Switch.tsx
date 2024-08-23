@@ -15,20 +15,21 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import FieldContainer from "../../global/FieldContainer";
+import { lightV2 } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import InputLabel from "../InputLabel/InputLabel";
+import Tooltip from "../Tooltip/Tooltip";
 import {
   IndicatorProps,
   SwitchContainerProps,
   SwitchProps,
 } from "./Switch.types";
-import InputLabel from "../InputLabel/InputLabel";
-import Tooltip from "../Tooltip/Tooltip";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
-import Box from "../Box/Box";
-import FieldContainer from "../../global/FieldContainer";
-import { lightV2 } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
 
 const SwitchIndicator = styled.span<IndicatorProps>(({ theme, active }) => ({
   fontSize: 12,

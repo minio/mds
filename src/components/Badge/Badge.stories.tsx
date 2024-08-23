@@ -17,12 +17,12 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Badge from "./Badge";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { BadgeProps } from "./Badge.types";
-import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
 import Box from "../Box/Box";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
+import Badge from "./Badge";
+import { BadgeProps } from "./Badge.types";
 
 export default {
   title: "MDS/Information/Badge",

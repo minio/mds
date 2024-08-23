@@ -15,18 +15,19 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import { lightColors } from "../../global/themes";
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
+import Box from "../Box/Box";
+import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
+import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
 import {
   AccordionContentProps,
   AccordionMainProps,
   AccordionProps,
 } from "./Accordion.types";
-import { lightColors } from "../../global/themes";
-import Box from "../Box/Box";
-import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
-import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 
 const AccordionContainer = styled.div<AccordionMainProps>(({ theme, sx }) => ({
   borderBottom: `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`,

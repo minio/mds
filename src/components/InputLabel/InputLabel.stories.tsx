@@ -17,9 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import InputLabel from "./InputLabel";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import InputLabel from "./InputLabel";
 import { InputLabelProps } from "./InputLabel.types";
 
 export default {

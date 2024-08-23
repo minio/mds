@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import NotificationAlert from "./NotificationAlert";
-import { NotificationAlertPrp } from "./NotificationAlert.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
+import NotificationAlert from "./NotificationAlert";
+import { NotificationAlertPrp } from "./NotificationAlert.types";
 
 export default {
   title: "MDS/Information/NotificationAlert",

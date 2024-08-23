@@ -15,9 +15,10 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, HTMLAttributes } from "react";
-import { HelpBoxProps } from "./HelpBox.types";
+
 import Box from "../Box/Box";
 import ScreenTitle from "../ScreenTitle/ScreenTitle";
+import { HelpBoxProps } from "./HelpBox.types";
 
 const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>> = ({
   icon,

@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
-import { SearchBoxProps } from "./SearchBox.types";
 import get from "lodash/get";
+import styled from "styled-components";
+
 import { themeColors } from "../../global/themeColors";
 import { overridePropsParse } from "../../global/utils";
 import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
+import { SearchBoxProps } from "./SearchBox.types";
 
 const SearchBoxContainer = styled.div(({ theme }) => ({
   position: "relative",
@@ -42,12 +43,12 @@ const SearchBoxContainer = styled.div(({ theme }) => ({
 }));
 
 const SearchBoxBase = styled.input<SearchBoxProps>(({ sx, theme }) => {
-  let borderColor = get(
+  const borderColor = get(
     theme,
     "inputBox.border",
     themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
   );
-  let borderHover = get(
+  const borderHover = get(
     theme,
     "inputBox.hoverBorder",
     themeColors["Color/Brand/Primary/colorPrimaryBorder"].lightMode,

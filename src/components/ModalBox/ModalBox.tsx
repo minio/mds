@@ -18,12 +18,13 @@ import React, { FC, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import get from "lodash/get";
 import styled from "styled-components";
+
 import { useEscapeKey } from "../../global/hooks";
-import { ModalBoxContainerProps, ModalBoxProps } from "./ModalBox.types";
-import Box from "../Box/Box";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
 import XIcon from "../Icons/NewDesignIcons/XIcon";
+import { ModalBoxContainerProps, ModalBoxProps } from "./ModalBox.types";
 
 const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
   ({

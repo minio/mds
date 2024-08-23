@@ -15,10 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { TabButtonConstructProps, TabButtonProps } from "./Tabs.types";
+import styled from "styled-components";
+
 import { lightColors, lightV2 } from "../../global/themes";
+import { TabButtonConstructProps, TabButtonProps } from "./Tabs.types";
 
 const TabButtonBase = styled.button<TabButtonConstructProps>(
   ({ theme, horizontal }) => ({

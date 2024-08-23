@@ -17,10 +17,11 @@
 import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { ActionLinkProps, BaseActionLinkProps } from "./ActionLink.types";
+
 import { lightV2 } from "../../global/themes";
-import Loader from "../Loader/Loader";
 import { overridePropsParse } from "../../global/utils";
+import Loader from "../Loader/Loader";
+import { ActionLinkProps, BaseActionLinkProps } from "./ActionLink.types";
 
 const ActionLinkBase = styled.button.attrs(() => ({
   className: "actionLink",

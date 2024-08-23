@@ -17,7 +17,7 @@
 import React, { FC, HTMLAttributes } from "react";
 import styled from "styled-components";
 
-const SelectorContainerMain = styled.div(({}) => ({
+const SelectorContainerMain = styled.div(() => ({
   position: "fixed",
   top: 0,
   left: 0,

@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import ActionsList from "./ActionsList";
 import { ActionsListProps } from "./ActionsList.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/ActionsList",

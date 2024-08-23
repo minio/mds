@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Pill from "./Pill";
-import { PillProps } from "./Pill.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Pill from "./Pill";
+import { PillProps } from "./Pill.types";
 
 export default {
   title: "MDS/Information/Pill",

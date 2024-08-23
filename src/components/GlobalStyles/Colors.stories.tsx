@@ -16,10 +16,11 @@
 
 import React from "react";
 import { Meta, Story } from "@storybook/react";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "./GlobalStyles";
-import Box from "../Box/Box";
+
 import { themeColors } from "../../global/themeColors";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box/Box";
+import GlobalStyles from "./GlobalStyles";
 
 export default {
   title: "MDS/Global/Colors",

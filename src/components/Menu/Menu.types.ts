@@ -15,8 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { HTMLAttributes } from "react";
-import { ApplicationLogoProps } from "../ApplicationLogo/ApplicationLogo.types";
+
 import { OverrideTheme } from "../../global/global.types";
+import { ApplicationLogoProps } from "../ApplicationLogo/ApplicationLogo.types";
 
 export interface MenuProps {
   options?: MenuItemProps[];

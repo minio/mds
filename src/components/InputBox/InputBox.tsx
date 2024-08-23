@@ -15,24 +15,25 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useState } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
+import Box from "../Box/Box";
+import Button from "../Button/Button";
+import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
+import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
+import EyeOffIcon from "../Icons/NewDesignIcons/EyeOffIcon";
+import TriangleAlertIcon from "../Icons/NewDesignIcons/TriangleAlertIcon";
+import InputLabel from "../InputLabel/InputLabel";
+import Tooltip from "../Tooltip/Tooltip";
 import {
   ExtraInputProps,
   InputBoxProps,
   InputContainerProps,
 } from "./InputBox.types";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
-import Tooltip from "../Tooltip/Tooltip";
-import InputLabel from "../InputLabel/InputLabel";
-import Box from "../Box/Box";
-import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
-import Button from "../Button/Button";
-import EyeOffIcon from "../Icons/NewDesignIcons/EyeOffIcon";
-import EyeIcon from "../Icons/NewDesignIcons/EyeIcon";
-import CircleAlertIcon from "../Icons/NewDesignIcons/CircleAlertIcon";
-import TriangleAlertIcon from "../Icons/NewDesignIcons/TriangleAlertIcon";
-import CircleCheckIcon from "../Icons/NewDesignIcons/CircleCheckIcon";
 
 const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
   ({
@@ -61,7 +62,7 @@ const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
       paddingTop: sizeMode === "small" ? 4 : 8,
       paddingBottom: sizeMode === "small" ? 4 : 8,
       paddingRight: paddingRight,
-      paddingLeft: !!startIcon ? 35 : 8,
+      paddingLeft: startIcon ? 35 : 8,
       color: theme.colors["Color/Neutral/Text/colorTextHeading"],
       fontSize: 14,
       fontWeight: 400,
@@ -196,7 +197,6 @@ const InputBox: FC<InputBoxProps> = ({
   type,
   overlayIcon,
   noLabelMinWidth,
-  overlayId,
   overlayAction,
   overlayObject,
   label = "",

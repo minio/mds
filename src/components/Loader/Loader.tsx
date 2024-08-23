@@ -15,12 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, SVGProps } from "react";
-import styled, { css } from "styled-components";
 import get from "lodash/get";
+import styled, { css } from "styled-components";
+
 import {
   animation1,
-  animation10,
-  animation11,
   animation2,
   animation3,
   animation4,
@@ -29,6 +28,8 @@ import {
   animation7,
   animation8,
   animation9,
+  animation10,
+  animation11,
 } from "./Loader.utils";
 
 const AnimationFrame = styled.svg(
