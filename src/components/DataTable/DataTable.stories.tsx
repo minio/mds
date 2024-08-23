@@ -41,7 +41,7 @@ export default {
 
 const Template: Story<DataTableProps<RecordType>> = (args) => {
   const [selected, setSelected] = useState<Array<keyof RecordType | string[]>>(
-    []
+    [],
   );
   const [selectedColumns, setSelectedColumns] = useState<
     Array<keyof RecordType>
@@ -72,7 +72,7 @@ const Template: Story<DataTableProps<RecordType>> = (args) => {
     }
 
     const allItems = args.records.map(
-      (element) => `${element[`${args.field1Field}`]}`
+      (element) => `${element[`${args.field1Field}`]}`,
     );
     setSelected(allItems);
   };
@@ -93,13 +93,13 @@ const Template: Story<DataTableProps<RecordType>> = (args) => {
       columnsShown: selectedColumns,
       onColumnChange: (columnKey: keyof RecordType) => {
         const itemFound = selectedColumns.findIndex(
-          (item) => item === columnKey
+          (item) => item === columnKey,
         );
 
         // Item Exists, we remove it
         if (itemFound >= 0) {
           setSelectedColumns(
-            selectedColumns.filter((item) => item !== columnKey)
+            selectedColumns.filter((item) => item !== columnKey),
           );
         } else {
           setSelectedColumns([...selectedColumns, columnKey]);

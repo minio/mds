@@ -77,14 +77,14 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
           color: get(
             theme,
             "dataTable.titleColor",
-            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode
+            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
           ),
           fontSize: 12,
           padding: 10,
           borderBottom: `${get(
             theme,
             "dataTable.border",
-            "#E2E2E2"
+            "#E2E2E2",
           )} 1px solid`,
           width: "100%",
         },
@@ -107,7 +107,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         backgroundColor: get(
           theme,
           "dataTable.hoverColor",
-          themeColors["Color/Brand/Control/colorBgActive"].lightMode
+          themeColors["Color/Brand/Control/colorBgActive"].lightMode,
         ),
         "&.canClick": {
           cursor: "pointer",
@@ -123,14 +123,14 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
         color: get(
           theme,
           "dataTable.selected",
-          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode
+          themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
         ),
       },
       "&.deleted .selected": {
         color: get(
           theme,
           "dataTable.itemDisabled",
-          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode
+          themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
         ),
       },
     },
@@ -229,7 +229,7 @@ const DataTableWrapper = styled.div<DataTableWrapperProps>(
       height: 30,
     },
     ...overridePropsParse(sx, theme),
-  })
+  }),
 );
 
 const TableRowPredefStyles: any = {
@@ -350,7 +350,7 @@ const DataTable = <T,>({
     const newSortDirection = get(
       sort,
       "sortDirection",
-      "DESC"
+      "DESC",
     ) as SortDirectionType;
     setCurrentSortColumn(sort.sortBy as keyof T);
     setCurrentSortDirection(newSortDirection);
@@ -382,7 +382,7 @@ const DataTable = <T,>({
     sortedRecords = sortRecords(
       records,
       currentSortColumn as string,
-      currentSortDirection
+      currentSortDirection,
     );
   }
 
@@ -434,7 +434,7 @@ const DataTable = <T,>({
                     width,
                     itemActions
                       ? itemActions.filter((el) => el.type !== "view").length
-                      : 0
+                      : 0,
                   );
                   const hasSelect: boolean = !!(onSelect && selectedItems);
                   const hasOptions: boolean = !!(
@@ -549,7 +549,7 @@ const DataTable = <T,>({
                         columnsShown,
                         sortEnabled,
                         tableSortBy,
-                        tableSortDirection
+                        tableSortDirection,
                       )}
                       {hasOptions && (
                         <Column
@@ -565,7 +565,7 @@ const DataTable = <T,>({
                               itemActions || [],
                               rowData,
                               isSelected,
-                              String(rowIDField)
+                              String(rowIDField),
                             );
                           }}
                         />
