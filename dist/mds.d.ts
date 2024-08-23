@@ -852,26 +852,28 @@ declare const actionsTypes: readonly [
   "preview",
 ];
 type PredefinedActionTypes = (typeof actionsTypes)[number];
-interface ItemActions {
+interface ItemActions<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React__default.ReactNode;
-  sendOnlyId?: boolean;
-  isDisabled?: boolean | ((itemValue: any) => boolean);
-  showLoader?: boolean | ((itemValue: any) => boolean);
-  onClick?(valueToSend: any, index?: number): any;
+  isDisabled?: boolean | ((itemValue: T) => boolean);
+  showLoader?: boolean | ((itemValue: T) => boolean);
+  onClick?(valueToSend: T, index?: number): any;
 }
-interface IColumns {
+type Column<T, K extends keyof T> = {
   label: string;
-  elementKey?: string;
-  renderFunction?: (input: any) => any;
-  renderFullObject?: boolean;
+  elementKey?: K;
   globalClass?: any;
   rowClass?: any;
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
   enableSort?: boolean;
-}
+  renderFunction?: (input: T[K]) => React__default.ReactNode | string;
+  renderFullObjectFunction?: (input: T) => React__default.ReactNode | string;
+};
+type IColumns<T> = {
+  [K in keyof T]: Column<T, K>;
+}[keyof T];
 interface IInfiniteScrollConfig {
   loadMoreRecords: (indexElements: {
     startIndex: number;
@@ -888,23 +890,23 @@ interface ISortConfig {
   currentSort: string;
   currentDirection: "ASC" | "DESC" | undefined;
 }
-interface DataTableProps {
-  itemActions?: ItemActions[] | null;
-  columns: IColumns[];
+interface DataTableProps<T, K extends keyof T = keyof T> {
+  itemActions?: ItemActions<T>[];
+  columns: IColumns<T>[];
   onSelect?: (e: React__default.ChangeEvent<HTMLInputElement>) => void;
-  idField?: string;
+  idField?: K;
   isLoading?: boolean;
   loadingMessage?: React__default.ReactNode;
-  records: any[];
+  records: T[];
   entityName?: string;
-  selectedItems?: string[];
+  selectedItems?: Array<K> | string[];
   customEmptyMessage?: string;
   customPaperHeight?: string;
   noBackground?: boolean;
   columnsSelector?: boolean;
   textSelectable?: boolean;
-  columnsShown?: string[];
-  onColumnChange?: (column: string) => any;
+  columnsShown?: Array<K>;
+  onColumnChange?: (column: K) => void;
   autoScrollToBottom?: boolean;
   infiniteScrollConfig?: IInfiniteScrollConfig;
   disabled?: boolean;
@@ -917,7 +919,7 @@ interface DataTableProps {
   parentClassName?: string;
   sx?: OverrideTheme;
   rowHeight?: number;
-  sortEnabled?: boolean | string[] | ISortConfig;
+  sortEnabled?: boolean | Array<K> | ISortConfig;
   sortCallBack?: (info: ITableSortInfo) => void;
 }
 interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
@@ -927,22 +929,20 @@ interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
   sx?: OverrideTheme;
   rowHeight: number;
 }
-interface IActionButton {
+interface IActionButton<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React__default.ReactNode;
-  onClick?: (valueToSend: any, index?: number) => any;
-  valueToSend: any;
+  onClick?: (valueToSend: T, index?: number) => any;
+  valueToSend: T;
   selected: boolean;
-  sendOnlyId?: boolean;
-  idField: string;
   disabled: boolean;
 }
-interface ColumnSelectorProps {
+interface ColumnSelectorProps<T, K extends keyof T = keyof T> {
   open: boolean;
   closeTriggerAction: () => void;
-  onSelect: (column: string) => void;
-  columns: IColumns[];
-  selectedOptionIDs: string[];
+  onSelect: (column: K) => void;
+  columns: IColumns<T>[];
+  selectedOptionIDs: Array<K>;
   sx?: OverrideTheme;
   anchorEl?: (EventTarget & HTMLElement) | null;
 }
@@ -950,7 +950,33 @@ interface ColumnSelectorConstructProps {
   sx?: OverrideTheme;
 }
 
-declare const DataTable: FC<DataTableProps>;
+declare const DataTable: <T>({
+  itemActions,
+  columns,
+  onSelect,
+  records,
+  isLoading,
+  loadingMessage,
+  entityName,
+  selectedItems,
+  idField,
+  customEmptyMessage,
+  customPaperHeight,
+  columnsSelector,
+  textSelectable,
+  columnsShown,
+  onColumnChange,
+  infiniteScrollConfig,
+  autoScrollToBottom,
+  disabled,
+  onSelectAll,
+  rowStyle,
+  parentClassName,
+  sx,
+  rowHeight,
+  sortEnabled,
+  sortCallBack,
+}: DataTableProps<T>) => React__default.JSX.Element;
 
 interface BackLinkProps
   extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {

@@ -30,7 +30,7 @@ export const selectWidth = 45;
 const subRenderFunction = <T,>(
   rowData: T,
   column: IColumns<T>,
-  isSelected: boolean
+  isSelected: boolean,
 ) => {
   let content: React.ReactNode;
 
@@ -57,14 +57,14 @@ const calculateColumnRest = <T,>(
   hasSelect: boolean,
   hasActions: boolean,
   columnsSelector: boolean,
-  columnsShown: string[]
+  columnsShown: string[],
 ) => {
   if (columns) {
     let colsItems = [...columns];
 
     if (columnsSelector) {
       colsItems = columns.filter((column) =>
-        columnsShown.includes(String(column.elementKey!))
+        columnsShown.includes(String(column.elementKey!)),
       );
     }
 
@@ -101,7 +101,7 @@ export const generateColumnsMap = <T,>(
   columnsShown: Array<keyof T>,
   sortColumns: boolean | Array<keyof T> | ISortConfig,
   currentSortColumn: keyof T | undefined,
-  currentSortDirection: "ASC" | "DESC" | undefined
+  currentSortDirection: "ASC" | "DESC" | undefined,
 ) => {
   const manualSortEnabled =
     sortColumns &&
@@ -115,7 +115,7 @@ export const generateColumnsMap = <T,>(
     hasSelect,
     hasActions,
     columnsSelector,
-    columnsShown.map((key) => key.toString()) // Convert keys to strings
+    columnsShown.map((key) => key.toString()), // Convert keys to strings
   );
 
   return columns.map((column: IColumns<T>, index: number) => {
@@ -202,7 +202,7 @@ export const elementActions = <T,>(
   actions: ItemActions<T>[],
   valueToSend: any,
   selected: boolean,
-  idField: string
+  idField: string,
 ) => {
   return actions.map((action: ItemActions<T>, index: number) => {
     if (action.type === "view") {
@@ -252,7 +252,7 @@ export const elementActions = <T,>(
 // Function to calculate the options column width according elements inside
 export const calculateOptionsSize = (
   containerWidth: number,
-  totalOptions: number
+  totalOptions: number,
 ) => {
   const minContainerSize = 36;
   const sizeOptions = totalOptions * 36;
@@ -272,7 +272,7 @@ export const calculateOptionsSize = (
 export const sortRecords = (
   records: any[],
   sortColumn: string | undefined,
-  sortDirection: SortDirectionType
+  sortDirection: SortDirectionType,
 ) => {
   const sortedRecords = records;
 
