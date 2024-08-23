@@ -78,14 +78,6 @@ const CustomButton = styled.button<
       paddingValue = compact ? "4px 0" : "8px 0";
     }
 
-    console.log(
-      !label || label === "",
-      parentChildren !== null,
-      label,
-      parentChildren,
-      paddingValue,
-    );
-
     if (inButtonGroup) {
       paddingValue =
         (!label || label === "") && !parentChildren ? "6px" : "4px 12px";
