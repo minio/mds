@@ -69,7 +69,7 @@ export { default as ExpandOptionsButton } from "./ExpandOptionsButton/ExpandOpti
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as CodeEditor } from "./CodeEditor/CodeEditor";
 export { default as Tag } from "./Tag/Tag";
-export { default as ActionLink } from "./ActionLink/ActionLink";
+export { default as LinkButton } from "./LinkButton/LinkButton";
 export { default as ValuePair } from "./ValuePair/ValuePair";
 export { default as ProgressBar } from "./ProgressBar/ProgressBar";
 export { default as FileSelector } from "./FileSelector/FileSelector";
@@ -138,7 +138,7 @@ export * from "./DataTable/DataTable.types";
 export * from "./Tabs/Tabs.types";
 export * from "./CodeEditor/CodeEditor.types";
 export * from "./Tag/Tag.types";
-export * from "./ActionLink/ActionLink.types";
+export * from "./LinkButton/LinkButton.types";
 export * from "./ValuePair/ValuePair.types";
 export * from "./ProgressBar/ProgressBar.types";
 export * from "./FileSelector/FileSelector.types";
