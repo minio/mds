@@ -6,6 +6,8 @@ import typescript from "@rollup/plugin-typescript";
 import css from "rollup-plugin-import-css";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import copy from "rollup-plugin-copy";
+import image from "@rollup/plugin-image";
+import url from "@rollup/plugin-url";
 
 export default [
   {
@@ -29,6 +31,14 @@ export default [
       css({ alwaysOutput: true, minify: true }),
       copy({
         targets: [{ src: "src/components/assets", dest: "dist" }],
+      }),
+      image(),
+      url({
+        // tell rollup which files to include
+        include: ["**/*.woff", "**/*.woff2", "**/*.mp4"],
+        // setting infinite limit will ensure that the files
+        // are always bundled with the code, not copied to /dist
+        limit: Infinity,
       }),
     ],
     external: ["react", "react-dom", "styled-components"],
