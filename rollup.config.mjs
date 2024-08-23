@@ -5,21 +5,19 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import css from "rollup-plugin-import-css";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import copy from "rollup-plugin-copy";
-import image from "@rollup/plugin-image";
-import url from "@rollup/plugin-url";
+import rebase from "rollup-plugin-rebase";
 
 export default [
   {
     input: "src/index.ts",
     output: [
       {
-        esModule: true,
         file: "dist/esm/index.js",
         format: "esm",
         sourcemap: true,
       },
     ],
+    makeAbsoluteExternalsRelative: true,
     plugins: [
       peerDepsExternal(),
       resolve({
@@ -29,16 +27,9 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
       css({ alwaysOutput: true, minify: true }),
-      copy({
-        targets: [{ src: "src/components/assets", dest: "dist" }],
-      }),
-      image(),
-      url({
-        // tell rollup which files to include
-        include: ["**/*.woff", "**/*.woff2", "**/*.mp4"],
-        // setting infinite limit will ensure that the files
-        // are always bundled with the code, not copied to /dist
-        limit: Infinity,
+      rebase({
+        assetFolder: "assets",
+        keepName: true,
       }),
     ],
     external: ["react", "react-dom", "styled-components"],
