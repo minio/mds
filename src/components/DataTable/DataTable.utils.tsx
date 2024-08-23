@@ -15,8 +15,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import get from "lodash/get";
-import isString from "lodash/isString";
 import isPlainObject from "lodash/isPlainObject";
 import { Column, SortDirectionType } from "react-virtualized";
 import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
@@ -29,43 +27,44 @@ import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 export const selectWidth = 45;
 
 // Function to render elements in table
-const subRenderFunction = (
-  rowData: any,
-  column: IColumns,
-  isSelected: boolean,
+const subRenderFunction = <T,>(
+  rowData: T,
+  column: IColumns<T>,
+  isSelected: boolean
 ) => {
-  const itemElement = isString(rowData)
-    ? rowData
-    : get(rowData, column.elementKey || "", null); // If the element is just a string, we render it as it is
-  const renderConst = column.renderFullObject ? rowData : itemElement;
+  let content: React.ReactNode;
 
-  const renderElement = column.renderFunction
-    ? column.renderFunction(renderConst)
-    : renderConst; // If render function is set, we send the value to the function.
+  if (column.renderFullObjectFunction) {
+    content = column.renderFullObjectFunction(rowData);
+  } else if (column.renderFunction && column.elementKey) {
+    const value = rowData[column.elementKey];
+    content = column.renderFunction(value);
+  } else if (column.elementKey) {
+    const value = rowData[column.elementKey];
+    content = value?.toString() ?? "-";
+  } else {
+    content = "-";
+  }
 
-  return (
-    <Fragment>
-      <span className={isSelected ? "selected" : ""}>{renderElement}</span>
-    </Fragment>
-  );
+  return <span className={isSelected ? "selected" : ""}>{content}</span>;
 };
 
 // Function to calculate common column width for elements with no with size
-const calculateColumnRest = (
-  columns: IColumns[],
+const calculateColumnRest = <T,>(
+  columns: IColumns<T>[],
   containerWidth: number,
   actionsWidth: number,
   hasSelect: boolean,
   hasActions: boolean,
   columnsSelector: boolean,
-  columnsShown: string[],
+  columnsShown: string[]
 ) => {
   if (columns) {
     let colsItems = [...columns];
 
     if (columnsSelector) {
       colsItems = columns.filter((column) =>
-        columnsShown.includes(column.elementKey!),
+        columnsShown.includes(String(column.elementKey!))
       );
     }
 
@@ -90,19 +89,19 @@ const calculateColumnRest = (
 };
 
 // Function that renders Columns in table
-export const generateColumnsMap = (
-  columns: IColumns[],
+export const generateColumnsMap = <T,>(
+  columns: IColumns<T>[],
   containerWidth: number,
   actionsWidth: number,
   hasSelect: boolean,
   hasActions: boolean,
-  selectedItems: string[],
-  idField: string,
+  selectedItems: Array<keyof T> | string[],
+  idField: keyof T,
   columnsSelector: boolean,
-  columnsShown: string[],
-  sortColumns: boolean | string[] | ISortConfig,
-  currentSortColumn: string | undefined,
-  currentSortDirection: "ASC" | "DESC" | undefined,
+  columnsShown: Array<keyof T>,
+  sortColumns: boolean | Array<keyof T> | ISortConfig,
+  currentSortColumn: keyof T | undefined,
+  currentSortDirection: "ASC" | "DESC" | undefined
 ) => {
   const manualSortEnabled =
     sortColumns &&
@@ -116,10 +115,13 @@ export const generateColumnsMap = (
     hasSelect,
     hasActions,
     columnsSelector,
-    columnsShown,
+    columnsShown.map((key) => key.toString()) // Convert keys to strings
   );
-  return columns.map((column: IColumns, index: number) => {
-    if (columnsSelector && !columnsShown.includes(column.elementKey!)) {
+
+  return columns.map((column: IColumns<T>, index: number) => {
+    const columnKey = column.elementKey as keyof T;
+
+    if (columnsSelector && !columnsShown.includes(columnKey)) {
       return null;
     }
 
@@ -130,14 +132,12 @@ export const generateColumnsMap = (
     const disableSort =
       !sortColumns ||
       (manualSortEnabled && !manualColumnSortEnabled) ||
-      (Array.isArray(sortColumns) &&
-        !sortColumns.includes(column?.elementKey || ""));
+      (Array.isArray(sortColumns) && !sortColumns.includes(columnKey));
 
     return (
-      // @ts-ignore
       <Column
         key={`col-tb-${index.toString()}`}
-        dataKey={column.elementKey || `column-${index}`}
+        dataKey={String(column.elementKey) || `column-${index}`}
         headerClassName={`titleHeader ${
           column.headerTextAlign ? `text-${column.headerTextAlign}` : ""
         }`}
@@ -164,10 +164,9 @@ export const generateColumnsMap = (
               {column.label}
             </Box>
             {sortColumns ||
-            (Array.isArray(sortColumns) &&
-              sortColumns.includes(column.elementKey)) ? (
+            (Array.isArray(sortColumns) && sortColumns.includes(columnKey)) ? (
               <Fragment>
-                {currentSortColumn === column.elementKey ||
+                {currentSortColumn === columnKey ||
                 (columns.length === 1 && currentSortColumn === "column-0") ? (
                   <Fragment>
                     {currentSortDirection === "ASC" ? (
@@ -186,11 +185,9 @@ export const generateColumnsMap = (
         }
         cellRenderer={({ rowData }) => {
           const isSelected = selectedItems
-            ? selectedItems.includes(
-                isString(rowData) ? rowData : `${rowData[idField]}`,
-              )
+            ? selectedItems.includes(rowData[idField])
             : false;
-          return subRenderFunction(rowData, column, isSelected);
+          return subRenderFunction(rowData as T, column, isSelected);
         }}
         width={column.width || commonRestWidth}
         disableSort={disableSort}
@@ -201,13 +198,13 @@ export const generateColumnsMap = (
 };
 
 // Function to render the action buttons
-export const elementActions = (
-  actions: ItemActions[],
+export const elementActions = <T,>(
+  actions: ItemActions<T>[],
   valueToSend: any,
   selected: boolean,
-  idField: string,
+  idField: string
 ) => {
-  return actions.map((action: ItemActions, index: number) => {
+  return actions.map((action: ItemActions<T>, index: number) => {
     if (action.type === "view") {
       return null;
     }
@@ -246,8 +243,6 @@ export const elementActions = (
         valueToSend={valueToSend}
         selected={selected}
         key={`actions-${action.type}-${index.toString()}`}
-        idField={idField}
-        sendOnlyId={!!action.sendOnlyId}
         disabled={disabled}
       />
     );
@@ -257,7 +252,7 @@ export const elementActions = (
 // Function to calculate the options column width according elements inside
 export const calculateOptionsSize = (
   containerWidth: number,
-  totalOptions: number,
+  totalOptions: number
 ) => {
   const minContainerSize = 36;
   const sizeOptions = totalOptions * 36;
@@ -277,7 +272,7 @@ export const calculateOptionsSize = (
 export const sortRecords = (
   records: any[],
   sortColumn: string | undefined,
-  sortDirection: SortDirectionType,
+  sortDirection: SortDirectionType
 ) => {
   const sortedRecords = records;
 

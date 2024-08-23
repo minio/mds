@@ -52,13 +52,13 @@ const TableActionCustomIcon = styled.button(({ theme }) => {
     background: get(
       theme,
       `dataTable.actionButton.background`,
-      lightV2.plainIconButtonBG,
+      lightV2.plainIconButtonBG
     ),
     "& svg": {
       color: get(
         theme,
         `dataTable.actionButton.iconColor`,
-        lightV2.plainIconButtonColor,
+        lightV2.plainIconButtonColor
       ),
       margin: "calc(25% - 2px)",
     },
@@ -66,24 +66,24 @@ const TableActionCustomIcon = styled.button(({ theme }) => {
       background: get(
         theme,
         `dataTable.actionButton.hoverBackground`,
-        lightV2.plainIconButtonBG,
+        lightV2.plainIconButtonBG
       ),
       borderColor: get(
         theme,
         `dataTable.actionButton.hoverBorder`,
-        lightV2.plainIconButtonBorder,
+        lightV2.plainIconButtonBorder
       ),
     },
     "&:active:not(:disabled)": {
       background: get(
         theme,
         `dataTable.actionButton.activeBackground`,
-        lightV2.plainIconButtonBG,
+        lightV2.plainIconButtonBG
       ),
       borderColor: get(
         theme,
         `dataTable.actionButton.activeBorder`,
-        lightV2.plainIconButtonBorder,
+        lightV2.plainIconButtonBorder
       ),
     },
     "&:disabled": {
@@ -91,18 +91,18 @@ const TableActionCustomIcon = styled.button(({ theme }) => {
       background: get(
         theme,
         `dataTable.actionButton.disabledBackground`,
-        "transparent",
+        "transparent"
       ),
       borderColor: get(
         theme,
         `dataTable.actionButton.disabledBorder`,
-        lightV2.disabledSecondary,
+        lightV2.disabledSecondary
       ),
       "& svg": {
         color: get(
           theme,
           `dataTable.actionButton.disabledIconColor`,
-          lightV2.disabledSecondaryText,
+          lightV2.disabledSecondaryText
         ),
       },
     },
@@ -141,17 +141,13 @@ const defineIcon = (type: PredefinedActionTypes) => {
   return null;
 };
 
-const TableActionButton: FC<IActionButton> = ({
+const TableActionButton = <T,>({
   type,
   onClick,
   valueToSend,
-  idField,
-  sendOnlyId = false,
   disabled = false,
   tooltip,
-}) => {
-  const valueClick = sendOnlyId ? valueToSend[idField] : valueToSend;
-
+}: IActionButton<T>) => {
   const icon = isPredefinedAction(type) ? defineIcon(type) : type;
   let buttonElement = (
     <TableActionCustomIcon
@@ -163,7 +159,7 @@ const TableActionButton: FC<IActionButton> = ({
           ? (e) => {
               e.stopPropagation();
               if (!disabled) {
-                onClick(valueClick);
+                onClick(valueToSend);
               } else {
                 e.preventDefault();
               }
