@@ -33,7 +33,6 @@ export { default as ThemeHandler } from "./ThemeHandler/ThemeHandler";
 
 /*MDS Components*/
 export { default as Accordion } from "./Accordion/Accordion";
-export { default as ActionLink } from "./ActionLink/ActionLink";
 export { default as ActionsList } from "./ActionsList/ActionsList";
 export { default as ApplicationLogo } from "./ApplicationLogo/ApplicationLogo";
 export { default as Autocomplete } from "./Autocomplete/Autocomplete";
@@ -66,6 +65,7 @@ export { default as InformativeMessage } from "./InformativeMessage/InformativeM
 export { default as InputBox } from "./InputBox/InputBox";
 export { default as InputLabel } from "./InputLabel/InputLabel";
 export { default as Link } from "./Link/Link";
+export { default as LinkButton } from "./LinkButton/LinkButton";
 export { default as Loader } from "./Loader/Loader";
 export { default as LoginWrapper } from "./LoginWrapper/LoginWrapper";
 export { default as MainContainer } from "./MainContainer/MainContainer";
@@ -107,7 +107,6 @@ export * from "../global/global.types";
 export * from "../global/themeColors";
 export * from "../global/themes";
 export * from "./Accordion/Accordion.types";
-export * from "./ActionLink/ActionLink.types";
 export * from "./ActionsList/ActionsList.types";
 export * from "./ApplicationLogo/ApplicationLogo.types";
 export * from "./Autocomplete/Autocomplete.types";
@@ -136,6 +135,7 @@ export * from "./InformativeMessage/InformativeMessage.types";
 export * from "./InputBox/InputBox.types";
 export * from "./InputLabel/InputLabel.types";
 export * from "./Link/Link.types";
+export * from "./LinkButton/LinkButton.types";
 export * from "./Menu/Menu.types";
 export * from "./ModalBox/ModalBox.types";
 export * from "./NotificationAlert/NotificationAlert.types";

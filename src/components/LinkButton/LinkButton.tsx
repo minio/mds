@@ -18,37 +18,45 @@ import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 
-import { lightV2 } from "../../global/themes";
+import { themeColors } from "../../global/themeColors";
 import { overridePropsParse } from "../../global/utils";
 import Loader from "../Loader/Loader";
-import { ActionLinkProps, BaseActionLinkProps } from "./ActionLink.types";
+import { BaseLinkButtonProps, LinkButtonProps } from "./LinkButton.types";
 
-const ActionLinkBase = styled.button.attrs(() => ({
-  className: "actionLink",
-}))<BaseActionLinkProps>(({ theme, sx }) => ({
+const LinkButtonBase = styled.button.attrs(() => ({
+  className: "LinkButton",
+}))<BaseLinkButtonProps>(({ theme, sx, variant }) => ({
   cursor: "pointer",
   display: "inline-flex",
   backgroundColor: "transparent",
   border: 0,
   padding: 0,
-  color: get(theme, "linkColor", lightV2.linkColor),
-  textDecoration: "underline",
+  color: get(
+    theme,
+    `linkButton.${variant}`,
+    themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+  ),
+  textDecoration: "none",
   fontSize: "inherit",
-  fontWeight: 700,
-  "&.dark": {
-    color: get(theme, "secondaryLinkColor", lightV2.modalCloseColor),
-  },
-  "&:hover": {
+  "&:hover:not(:disabled)": {
     textDecoration: "underline",
+  },
+  "&:disabled": {
+    cursor: "not-allowed",
+    color: get(
+      theme,
+      `linkButton.disabled`,
+      themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+    ),
   },
   ...overridePropsParse(sx, theme),
 }));
 
-const ActionLink: FC<
-  ActionLinkProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+const LinkButton: FC<
+  LinkButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ label = "", isLoading = false, sx, children, ...props }) => {
   return (
-    <ActionLinkBase {...props} sx={sx}>
+    <LinkButtonBase {...props} sx={sx}>
       {isLoading ? (
         <Loader style={{ width: 16, height: 16 }} />
       ) : (
@@ -57,8 +65,8 @@ const ActionLink: FC<
           {children}
         </Fragment>
       )}
-    </ActionLinkBase>
+    </LinkButtonBase>
   );
 };
 
-export default ActionLink;
+export default LinkButton;

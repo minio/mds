@@ -1261,6 +1261,12 @@ export const lightTheme: ThemeDefinitionProps = {
       titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
     },
   },
+  linkButton: {
+    primary: themeColors["Color/Brand/Primary/colorPrimaryText"].lightMode,
+    neutral: themeColors["Color/Brand/Neutral/colorPrimaryText"].lightMode,
+    destructive: themeColors["Color/Brand/Error/colorPrimaryText"].lightMode,
+    disabled: themeColors["Color/Neutral/Text/colorTextDisabled"].lightMode,
+  },
 };
 
 export const darkTheme: ThemeDefinitionProps = {
@@ -2213,5 +2219,11 @@ export const darkTheme: ThemeDefinitionProps = {
       contentColor: themeColors["Color/Neutral/Text/colorTextLabel"].darkMode,
       titleColor: themeColors["Color/Neutral/Text/colorTextHeading"].darkMode,
     },
+  },
+  linkButton: {
+    primary: themeColors["Color/Brand/Primary/colorPrimaryText"].darkMode,
+    neutral: themeColors["Color/Brand/Neutral/colorPrimaryText"].darkMode,
+    destructive: themeColors["Color/Brand/Error/colorPrimaryText"].darkMode,
+    disabled: themeColors["Color/Neutral/Text/colorTextDisabled"].darkMode,
   },
 };

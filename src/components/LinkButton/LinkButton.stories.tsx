@@ -17,30 +17,35 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import LinkButton from "./LinkButton";
+import { LinkButtonProps } from "./LinkButton.types";
+
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Link from "../Link/Link";
-import ActionLink from "./ActionLink";
-import { ActionLinkProps } from "./ActionLink.types";
 
 export default {
-  title: "MDS/Forms/ActionLink",
-  component: ActionLink,
+  title: "MDS/Forms/LinkButton",
+  component: LinkButton,
   argTypes: {},
-} as Meta<typeof ActionLink>;
+} as Meta<typeof LinkButton>;
 
-const Template: Story<ActionLinkProps> = (args) => (
+const Template: Story<LinkButtonProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
-    <span style={{ fontSize: 16 }}>
+    <span style={{ fontSize: 14 }}>
       Some Text that can be combined with an{" "}
-      <ActionLink
+      <LinkButton
         {...args}
         label={"Action Link"}
         onClick={() => alert("You clicked me!")}
       />
-      , this text can continue after it. This action link can be a{" "}
-      <Link className={"dark"}>Dark Link</Link>
+      . This is a disabled button{" "}
+      <LinkButton
+        {...args}
+        label={"Action Link"}
+        onClick={() => alert("You clicked me!")}
+        disabled
+      />
     </span>
   </StoryThemeProvider>
 );
