@@ -494,6 +494,13 @@ export interface NotificationAlertProps {
   danger: NotificationAlertThemeProps;
 }
 
+export interface LinkButtonThemeProps {
+  destructive: string;
+  neutral: string;
+  primary: string;
+  disabled: string;
+}
+
 export interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -558,6 +565,7 @@ export interface ThemeDefinitionProps {
   pill?: PillThemeProps;
   badge?: BadgeThemeProps;
   notificationAlert: NotificationAlertProps;
+  linkButton: LinkButtonThemeProps;
 }
 
 export interface SelectOption {
