@@ -22,7 +22,7 @@ export interface ScreenTitleProps {
   icon: React.ReactNode;
   subTitle?: React.ReactNode;
   title: string;
-  actions: React.ReactNode;
+  actions?: React.ReactNode;
   titleOptions?: ScreenTitleOptions[];
   sx?: OverrideTheme;
 }

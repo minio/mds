@@ -135,6 +135,12 @@ NoSubItems.args = {
   icon: <TestIcon />,
 };
 
+export const NoActions = Template.bind({});
+NoActions.args = {
+  title: "Object Title",
+  icon: <TestIcon />,
+};
+
 export const CustomStyles = Template.bind({});
 CustomStyles.args = {
   title: "Object Title",
