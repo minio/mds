@@ -181,7 +181,7 @@ const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
             )}
           </Box>
         </Box>
-        <Box className={"rightItems"}>{actions}</Box>
+        {actions && <Box className={"rightItems"}>{actions}</Box>}
       </Box>
     </ScreenTitleContainer>
   );
