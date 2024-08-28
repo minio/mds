@@ -14,23 +14,24 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useState } from "react";
-import styled from "styled-components";
+import React, { FC } from "react";
 import get from "lodash/get";
-import {
-  ExtraCommentProps,
-  CommentBoxProps,
-  CommentContainerProps,
-} from "./CommentBox.types";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
-import Tooltip from "../Tooltip/Tooltip";
-import InputLabel from "../InputLabel/InputLabel";
-import Box from "../Box/Box";
+import styled from "styled-components";
+
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import InputLabel from "../InputLabel/InputLabel";
+import Tooltip from "../Tooltip/Tooltip";
+import {
+  CommentBoxProps,
+  CommentContainerProps,
+  ExtraCommentProps,
+} from "./CommentBox.types";
 
 const TextAreaBase = styled.textarea<CommentBoxProps & ExtraCommentProps>(
-  ({ theme, error, originType }) => {
+  ({ theme, error }) => {
     let borderColor = get(theme, "inputBox.border", "#E2E2E2");
     let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 

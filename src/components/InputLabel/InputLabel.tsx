@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { CSSProperties, FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { InputLabelProps } from "./InputLabel.types";
-import HelpTip from "../HelpTip/HelpTip";
+import styled from "styled-components";
+
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import HelpTip from "../HelpTip/HelpTip";
+import { InputLabelProps } from "./InputLabel.types";
 
 const CustomLabel = styled.label<InputLabelProps>(
   ({ theme, inputSizeMode, orientation, sx }) => {

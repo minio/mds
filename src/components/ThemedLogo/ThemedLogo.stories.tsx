@@ -17,9 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ThemedLogo from "./ThemedLogo";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import ThemedLogo from "./ThemedLogo";
 
 export default {
   title: "MDS/Graphics/ThemedLogo",

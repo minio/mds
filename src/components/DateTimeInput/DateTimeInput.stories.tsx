@@ -16,16 +16,15 @@
 
 import React, { Fragment, useState } from "react";
 import { Meta, Story } from "@storybook/react";
-
-import DateTimeInput from "./DateTimeInput";
-import { DateTimeInputProps } from "./DateTimeInput.types";
+import { DateTime } from "luxon";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import FormLayout from "../FormLayout/FormLayout";
-import { DateTime } from "luxon";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
 import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
+import DateTimeInput from "./DateTimeInput";
+import { DateTimeInputProps } from "./DateTimeInput.types";
 
 export default {
   title: "MDS/Forms/TimeSelector/DateTimeInput",

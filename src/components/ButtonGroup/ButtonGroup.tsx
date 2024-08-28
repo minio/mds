@@ -15,14 +15,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { cloneElement, FC, isValidElement } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { ButtonGroupProps } from "./ButtonGroup.types";
+import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
 import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
-import { themeColors } from "../../global/themeColors";
 import { ButtonProps } from "../Button/Button.types";
 import Loader from "../Loader/Loader";
+import { ButtonGroupProps } from "./ButtonGroup.types";
 
 const ButtonGroupMain = styled.div<ButtonGroupProps>(({ theme, sx }) => ({
   display: "inline-flex",

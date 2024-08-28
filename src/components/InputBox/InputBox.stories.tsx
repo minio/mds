@@ -17,18 +17,17 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import InputBox from "./InputBox";
-import { InputBoxProps } from "./InputBox.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import TestIcon from "../../utils/TestIcon";
 import Box from "../Box/Box";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import KeyRoundIcon from "../Icons/NewDesignIcons/KeyRoundIcon";
 import ExpandMenu from "../ExpandMenu/ExpandMenu";
 import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import KeyRoundIcon from "../Icons/NewDesignIcons/KeyRoundIcon";
 import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
+import InputBox from "./InputBox";
+import { InputBoxProps } from "./InputBox.types";
 
 export default {
   title: "MDS/Forms/InputBox",

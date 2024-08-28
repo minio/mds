@@ -17,15 +17,14 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import Checkbox from "../Checkbox/Checkbox";
+import HelpBox from "../HelpBox/HelpBox";
+import { GlobalStyles } from "../index";
+import InputBox from "../InputBox/InputBox";
 import FormLayout from "./FormLayout";
 import { FormLayoutProps } from "./FormLayout.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import Checkbox from "../Checkbox/Checkbox";
-import TestIcon from "../../utils/TestIcon";
-import HelpBox from "../HelpBox/HelpBox";
-import InputBox from "../InputBox/InputBox";
 
 export default {
   title: "MDS/Layout/FormLayout",

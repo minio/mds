@@ -17,13 +17,12 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import { NotificationStackProps } from "./NotificationStack.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import NotificationAlert from "../NotificationAlert/NotificationAlert";
 import { useNotifications } from "./hooks";
 import { NotificationStackContainer } from "./NotificationStack";
-import NotificationAlert from "../NotificationAlert/NotificationAlert";
+import { NotificationStackProps } from "./NotificationStack.types";
 
 export default {
   title: "MDS/Information/NotificationStack",

@@ -16,7 +16,7 @@
 
 import React, { useEffect, useState } from "react";
 import { addons } from "@storybook/preview-api";
-import { DARK_MODE_EVENT_NAME, useDarkMode } from "storybook-dark-mode";
+import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
 
 import ThemeHandler from "../components/ThemeHandler/ThemeHandler";
 
@@ -31,7 +31,7 @@ const StoryThemeProvider = ({ children }: IStoryThemeProvider) => {
 
   useEffect(() => {
     channel.on(DARK_MODE_EVENT_NAME, setIsDark);
-  }, [channel]);
+  }, []);
 
   return <ThemeHandler darkMode={isDark}>{children}</ThemeHandler>;
 };

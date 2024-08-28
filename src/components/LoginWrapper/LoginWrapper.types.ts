@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { ReactNode } from "react";
+
 import { ApplicationLogoProps } from "../ApplicationLogo/ApplicationLogo.types";
 
 export interface LoginWrapperProps {

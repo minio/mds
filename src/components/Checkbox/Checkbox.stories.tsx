@@ -17,9 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Checkbox from "./Checkbox";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import Checkbox from "./Checkbox";
 import { CheckboxProps } from "./Checkbox.types";
 
 export default {

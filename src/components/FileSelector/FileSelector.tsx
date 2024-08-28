@@ -17,19 +17,20 @@
 import React, { FC, useRef } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
+
+import { lightColors } from "../../global/themes";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import IconButton from "../IconButton/IconButton";
 import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
+import PaperclipIcon from "../Icons/NewDesignIcons/PaperclipIcon";
 import InputLabel from "../InputLabel/InputLabel";
 import Tooltip from "../Tooltip/Tooltip";
-import IconButton from "../IconButton/IconButton";
-import Box from "../Box/Box";
 import {
   FileSelectorConstructorProps,
   FileSelectorProps,
 } from "./FileSelector.types";
 import { fileProcess } from "./FileSelector.utils";
-import { lightColors } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
-import PaperclipIcon from "../Icons/NewDesignIcons/PaperclipIcon";
 
 const FileSelectorContainer = styled.div<FileSelectorConstructorProps>(
   ({ theme, error, sx }) => ({

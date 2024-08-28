@@ -17,13 +17,12 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Button from "../Button/Button";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import CopyIcon from "../Icons/NewDesignIcons/CopyIcon";
 import CodeEditor from "./CodeEditor";
 import { CodeEditorProps } from "./CodeEditor.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Button from "../Button/Button";
-import CopyIcon from "../Icons/NewDesignIcons/CopyIcon";
 
 export default {
   title: "MDS/Forms/CodeEditor",

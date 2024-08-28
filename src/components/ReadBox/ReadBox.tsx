@@ -15,12 +15,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { ReadBoxBaseProps, ReadBoxProps } from "./ReadBox.types";
-import InputLabel from "../InputLabel/InputLabel";
-import Box from "../Box/Box";
+import styled from "styled-components";
+
 import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import InputLabel from "../InputLabel/InputLabel";
+import { ReadBoxBaseProps, ReadBoxProps } from "./ReadBox.types";
 
 const ReadBoxBase = styled.div<ReadBoxBaseProps>(
   ({ theme, sx, label, multiLine }) => ({

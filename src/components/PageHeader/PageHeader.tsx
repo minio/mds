@@ -15,12 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { PageHeaderConstruct, PageHeaderProps } from "./PageHeader.types";
-import Grid from "../Grid/Grid";
-import { breakPoints, overridePropsParse } from "../../global/utils";
+import styled from "styled-components";
+
+import { overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
+import { PageHeaderConstruct, PageHeaderProps } from "./PageHeader.types";
 
 const ParentContainer = styled.div<
   PageHeaderConstruct & HTMLAttributes<HTMLDivElement>

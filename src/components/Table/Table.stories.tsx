@@ -20,12 +20,12 @@ import { Meta, Story } from "@storybook/react";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Table from "./Table";
-import TableBody from "./TableBody";
-import TableRow from "./TableRow";
-import TableCell from "./TableCell";
-import TableHeadCell from "./TableHeadCell";
-import TableHead from "./TableHead";
 import { TableComponentsExtraProps } from "./Table.types";
+import TableBody from "./TableBody";
+import TableCell from "./TableCell";
+import TableHead from "./TableHead";
+import TableHeadCell from "./TableHeadCell";
+import TableRow from "./TableRow";
 
 export default {
   title: "MDS/Information/Table",

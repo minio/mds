@@ -16,12 +16,13 @@
 
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
+
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import DataTable from "./DataTable";
-import { DataTableProps } from "./DataTable.types";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Grid from "../Grid/Grid";
 import CheckIcon from "../Icons/NewDesignIcons/CheckIcon";
+import DataTable from "./DataTable";
+import { DataTableProps } from "./DataTable.types";
 
 // Define the structure of the records
 type RecordType = {

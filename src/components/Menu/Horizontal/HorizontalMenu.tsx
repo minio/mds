@@ -15,16 +15,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { MenuConstructProps, MenuProps } from "../Menu.types";
+import styled from "styled-components";
+
 import { lightColors } from "../../../global/themes";
-import Box from "../../Box/Box";
-import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
-import HorizontalMenuItem from "./HorizontalMenuItem";
-import IconButton from "../../IconButton/IconButton";
 import { overridePropsParse } from "../../../global/utils";
+import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
+import Box from "../../Box/Box";
+import IconButton from "../../IconButton/IconButton";
 import LogOutIcon from "../../Icons/NewDesignIcons/LogOutIcon";
+import { MenuConstructProps, MenuProps } from "../Menu.types";
+import HorizontalMenuItem from "./HorizontalMenuItem";
 
 const HorizontalMenuContainer = styled.div<MenuConstructProps>(
   ({ theme, sx }) => {

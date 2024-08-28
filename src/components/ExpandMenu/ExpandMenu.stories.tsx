@@ -17,19 +17,18 @@
 import React, { Fragment, useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import ExpandMenu from "./ExpandMenu";
-import { ExpandMenuProps } from "./ExpandMenu.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import ExpandMenuOption from "./ExpandMenuOption";
-import Button from "../Button/Button";
-import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
 import TestIcon from "../../utils/TestIcon";
+import Button from "../Button/Button";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
 import FilesIcon from "../Icons/NewDesignIcons/FilesIcon";
-import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
 import IceCreamConeIcon from "../Icons/NewDesignIcons/IceCreamConeIcon";
 import PencilIcon from "../Icons/NewDesignIcons/PencilIcon";
+import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
+import ExpandMenu from "./ExpandMenu";
+import { ExpandMenuProps } from "./ExpandMenu.types";
+import ExpandMenuOption from "./ExpandMenuOption";
 
 export default {
   title: "MDS/Forms/ExpandMenu",

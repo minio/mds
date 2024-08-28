@@ -17,17 +17,17 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Tabs from "./Tabs";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { TabsProps } from "./Tabs.types";
-import Box from "../Box/Box";
 import TestIcon from "../../utils/TestIcon";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
-import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
-import MenuIcon from "../Icons/NewDesignIcons/MenuIcon";
 import Badge from "../Badge/Badge";
+import Box from "../Box/Box";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import MenuIcon from "../Icons/NewDesignIcons/MenuIcon";
+import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
+import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
+import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
+import Tabs from "./Tabs";
+import { TabsProps } from "./Tabs.types";
 
 export default {
   title: "MDS/Layout/Tabs",

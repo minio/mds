@@ -17,15 +17,14 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import Box from "../Box/Box";
+import Button from "../Button/Button";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import { GlobalStyles } from "../index";
 import ScreenTitle from "./ScreenTitle";
 import { ScreenTitleProps } from "./ScreenTitle.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import Button from "../Button/Button";
-import TestIcon from "../../utils/TestIcon";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import Box from "../Box/Box";
 
 export default {
   title: "MDS/Layout/ScreenTitle",

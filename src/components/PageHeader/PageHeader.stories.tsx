@@ -17,12 +17,11 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import { Button, GlobalStyles } from "../index";
 import PageHeader from "./PageHeader";
 import { PageHeaderProps } from "./PageHeader.types";
-
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { Button, GlobalStyles } from "../index";
-import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/PageHeader",

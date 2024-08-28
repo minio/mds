@@ -16,8 +16,9 @@
 
 import React from "react";
 import get from "lodash/get";
-import { lightV2 } from "../global/themes";
 import { DefaultTheme } from "styled-components";
+
+import { lightV2 } from "../global/themes";
 
 export const expandMenuOptionStyles = (
   theme: DefaultTheme,

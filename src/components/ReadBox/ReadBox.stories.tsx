@@ -16,14 +16,15 @@
 
 import React from "react";
 import { Meta, Story } from "@storybook/react";
+
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import Box from "../Box/Box";
+import FormLayout from "../FormLayout/FormLayout";
+import { GlobalStyles } from "../index";
+import Tooltip from "../Tooltip/Tooltip";
 import ReadBox from "./ReadBox";
 import { ReadBoxProps } from "./ReadBox.types";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import Box from "../Box/Box";
-import Tooltip from "../Tooltip/Tooltip";
-import TestIcon from "../../utils/TestIcon";
-import FormLayout from "../FormLayout/FormLayout";
 
 export default {
   title: "MDS/Forms/ReadBox",

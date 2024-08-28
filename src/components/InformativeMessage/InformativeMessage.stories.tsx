@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import InformativeMessage from "./InformativeMessage";
-import { InformativeMessageProps } from "./InformativeMessage.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { GlobalStyles } from "../index";
+import InformativeMessage from "./InformativeMessage";
+import { InformativeMessageProps } from "./InformativeMessage.types";
 
 export default {
   title: "MDS/Information/InformativeMessage",

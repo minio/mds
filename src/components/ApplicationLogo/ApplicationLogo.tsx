@@ -15,34 +15,35 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
+
+import ThemedLogo from "../ThemedLogo/ThemedLogo";
 import { ApplicationLogoProps } from "./ApplicationLogo.types";
-import ConsoleStandard from "./Logos/Console/ConsoleStandard";
+import Cache from "./Logos/Cache/Cache";
+import Cloud from "./Logos/Cloud/Cloud";
 import ConsoleAGPL from "./Logos/Console/ConsoleAGPL";
 import ConsoleEnterprise from "./Logos/Console/ConsoleEnterprise";
-import Operator from "./Logos/Operator/Operator";
-import DirectPV from "./Logos/DirectPV/DirectPV";
-import KES from "./Logos/KES/KES";
-import SUBNET from "./Logos/SUBNET/SUBNET";
 import ConsoleSingle from "./Logos/Console/ConsoleSingle";
-import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
-import Cloud from "./Logos/Cloud/Cloud";
-import Releases from "./Logos/Releases/Releases";
-import VMBroker from "./Logos/VMBroker/VMBroker";
-import EurekaNew from "./Logos/Eureka/EurekaNew";
+import ConsoleStandard from "./Logos/Console/ConsoleStandard";
+import GlobalConsole from "./Logos/Console/GlobalConsole";
+import DirectPV from "./Logos/DirectPV/DirectPV";
+import Enterprise from "./Logos/Enterprise/Enterprise";
 import Eureka from "./Logos/Eureka/Eureka";
+import EurekaNew from "./Logos/Eureka/EurekaNew";
+import IndexLogo from "./Logos/IndexLogo/IndexLogo";
+import KES from "./Logos/KES/KES";
 import KMS from "./Logos/KMS/KMS";
 import LoadBalancer from "./Logos/LoadBalancer/LoadBalancer";
-import IndexLogo from "./Logos/IndexLogo/IndexLogo";
-import Cache from "./Logos/Cache/Cache";
-import Monitor from "./Logos/Monitor/Monitor";
-import Observe from "./Logos/Observe/Observe";
-import MissionControl from "./Logos/MissionControl/MissionControl";
-import GlobalConsole from "./Logos/Console/GlobalConsole";
-import ThemedLogo from "../ThemedLogo/ThemedLogo";
-import Enterprise from "./Logos/Enterprise/Enterprise";
 import MinIOEnterprise from "./Logos/MinIO/MinIOEnterprise";
 import MinIOEnterpriseOS from "./Logos/MinIO/MinIOEnterpriseOS";
 import MinIOEnterpriseOSVertical from "./Logos/MinIO/MinIOEnterpriseOSVertical";
+import MissionControl from "./Logos/MissionControl/MissionControl";
+import Monitor from "./Logos/Monitor/Monitor";
+import Observe from "./Logos/Observe/Observe";
+import Operator from "./Logos/Operator/Operator";
+import Releases from "./Logos/Releases/Releases";
+import SUBNET from "./Logos/SUBNET/SUBNET";
+import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
+import VMBroker from "./Logos/VMBroker/VMBroker";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,

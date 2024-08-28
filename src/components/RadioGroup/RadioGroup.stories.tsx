@@ -17,9 +17,9 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import RadioGroup from "./RadioGroup";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
+import RadioGroup from "./RadioGroup";
 import { RadioGroupProps } from "./RadioGroup.types";
 
 export default {

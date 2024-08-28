@@ -22,7 +22,6 @@ import { LinkButtonProps } from "./LinkButton.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Link from "../Link/Link";
 
 export default {
   title: "MDS/Forms/LinkButton",

@@ -21,9 +21,10 @@ import React, {
   HTMLAttributes,
   useState,
 } from "react";
-import styled, { css, keyframes } from "styled-components";
 import { createPortal } from "react-dom";
 import get from "lodash/get";
+import styled, { css, keyframes } from "styled-components";
+
 import {
   TooltipBuild,
   TooltipConstructProps,
@@ -151,14 +152,15 @@ const TooltipElement: FC<TooltipConstructProps> = ({
     const windowHeight = document.documentElement.offsetHeight;
 
     switch (placement) {
-      case "bottom":
+      case "bottom": {
         const calcPosition = bounds.top + bounds.height + boundYLimit;
 
         if (calcPosition > windowHeight) {
           calculatedPlacement = "top";
         }
         break;
-      case "left":
+      }
+      case "left": {
         const calcInitPosition = bounds.left - boundXLimit;
 
         if (calcInitPosition < 0) {
@@ -166,19 +168,22 @@ const TooltipElement: FC<TooltipConstructProps> = ({
         }
 
         break;
-      case "right":
+      }
+      case "right": {
         const calcEndPosition = bounds.left + bounds.width + boundXLimit;
 
         if (calcEndPosition > windowWidth) {
           calculatedPlacement = "left";
         }
         break;
-      case "top":
+      }
+      case "top": {
         if (bounds.top < boundYLimit) {
           calculatedPlacement = "bottom";
         }
 
         break;
+      }
     }
 
     switch (calculatedPlacement) {

@@ -17,10 +17,11 @@
 import React, { FC, Fragment } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
-import { LinkButtonProps, BaseLinkButtonProps } from "./LinkButton.types";
-import Loader from "../Loader/Loader";
-import { overridePropsParse } from "../../global/utils";
+
 import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
+import Loader from "../Loader/Loader";
+import { BaseLinkButtonProps, LinkButtonProps } from "./LinkButton.types";
 
 const LinkButtonBase = styled.button.attrs(() => ({
   className: "LinkButton",

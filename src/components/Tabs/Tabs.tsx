@@ -15,18 +15,19 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import styled from "styled-components";
 import get from "lodash/get";
-import { TabsContainerProps, TabsProps } from "./Tabs.types";
+import styled from "styled-components";
+
 import { lightColors, lightV2 } from "../../global/themes";
-import Box from "../Box/Box";
-import TabPanel from "./TabPanel";
-import TabButton from "./TabButton";
 import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import TabButton from "./TabButton";
+import TabPanel from "./TabPanel";
+import { TabsContainerProps, TabsProps } from "./Tabs.types";
 
 const TabsContainer = styled.div<TabsContainerProps>(
   ({ theme, horizontal, horizontalBarBackground, sx }) => {
-    let horizontalBG = horizontalBarBackground
+    const horizontalBG = horizontalBarBackground
       ? get(theme, "tabs.horizontal.backgroundColor", "transparent")
       : "transparent";
 

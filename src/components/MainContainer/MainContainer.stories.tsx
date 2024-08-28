@@ -17,13 +17,13 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import TestIcon from "../../utils/TestIcon";
+import Box from "../Box/Box";
+import { GlobalStyles } from "../index";
+import Menu from "../Menu/Menu";
 import MainContainer from "./MainContainer";
 import { MainContainerProps } from "./MainContainer.types";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import Box from "../Box/Box";
-import Menu from "../Menu/Menu";
-import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/MainContainer",

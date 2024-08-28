@@ -17,12 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import NotificationCount from "./NotificationCount";
-import { NotificationCountProps } from "./NotificationCount.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
+import NotificationCount from "./NotificationCount";
+import { NotificationCountProps } from "./NotificationCount.types";
 
 export default {
   title: "MDS/Information/NotificationCount",

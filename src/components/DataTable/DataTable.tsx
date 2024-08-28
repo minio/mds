@@ -22,11 +22,18 @@ import {
   SortDirectionType,
   Table,
 } from "react-virtualized";
-import styled from "styled-components";
 import get from "lodash/get";
+import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
+import { overridePropsParse } from "../../global/utils";
+import Box from "../Box/Box";
+import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
-import Loader from "../Loader/Loader";
 import Grid from "../Grid/Grid";
+import Columns3Icon from "../Icons/NewDesignIcons/Columns3Icon";
+import Loader from "../Loader/Loader";
+import ColumnsSelector from "./ColumnsSelector";
 import {
   DataTableProps,
   DataTableWrapperProps,
@@ -40,12 +47,6 @@ import {
   selectWidth,
   sortRecords,
 } from "./DataTable.utils";
-import Box from "../Box/Box";
-import Button from "../Button/Button";
-import ColumnsSelector from "./ColumnsSelector";
-import { overridePropsParse } from "../../global/utils";
-import { themeColors } from "../../global/themeColors";
-import Columns3Icon from "../Icons/NewDesignIcons/Columns3Icon";
 
 const DataTableWrapper = styled.div<DataTableWrapperProps>(
   ({ theme, customPaperHeight, disabled, sx, rowHeight }) => ({
@@ -261,7 +262,6 @@ const DataTable = <T,>({
   onColumnChange = () => {},
   infiniteScrollConfig,
   autoScrollToBottom = false,
-  disabled = false,
   onSelectAll,
   rowStyle,
   parentClassName = "",
@@ -295,7 +295,7 @@ const DataTable = <T,>({
 
       let disabled = false;
 
-      if (!!findView.isDisabled) {
+      if (findView.isDisabled) {
         if (typeof findView.isDisabled === "boolean") {
           disabled = findView.isDisabled;
         } else {
@@ -565,7 +565,6 @@ const DataTable = <T,>({
                               itemActions || [],
                               rowData,
                               isSelected,
-                              String(rowIDField),
                             );
                           }}
                         />

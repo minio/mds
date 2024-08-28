@@ -14,9 +14,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { DefaultTheme } from "styled-components";
+
 import { ColorVariant, IBytesCalc, OverrideTheme } from "./global.types";
 import { themeColors } from "./themeColors";
-import { DefaultTheme } from "styled-components";
 
 export const breakPoints = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 };
 export const paddingSizeVariants = {

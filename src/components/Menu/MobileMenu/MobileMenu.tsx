@@ -15,17 +15,18 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, useState } from "react";
-import styled from "styled-components";
-import get from "lodash/get";
-import { MenuConstructProps, MenuProps } from "../Menu.types";
-import Box from "../../Box/Box";
-import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
-import IconButton from "../../IconButton/IconButton";
-import MobileMenuList from "./MobileMenuList";
 import { createPortal } from "react-dom";
+import get from "lodash/get";
+import styled from "styled-components";
+
 import { lightColors } from "../../../global/themes";
 import { overridePropsParse } from "../../../global/utils";
+import ApplicationLogo from "../../ApplicationLogo/ApplicationLogo";
+import Box from "../../Box/Box";
+import IconButton from "../../IconButton/IconButton";
 import CollapseIcon from "../../Icons/NewDesignIcons/CollapseIcon";
+import { MenuConstructProps, MenuProps } from "../Menu.types";
+import MobileMenuList from "./MobileMenuList";
 
 const MobileMenuContainer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {

@@ -15,14 +15,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
+import styled from "styled-components";
+
+import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
 import Grid from "../Grid/Grid";
 import { SectionTitleProps } from "./SectionTitle.types";
-import styled from "styled-components";
-import { overridePropsParse, paddingSizeVariants } from "../../global/utils";
 
 const SectionParent = styled.div<
   HTMLAttributes<HTMLDivElement> & SectionTitleProps
->(({ theme, separator, sx }) => ({
+>(({ theme, sx }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-start",

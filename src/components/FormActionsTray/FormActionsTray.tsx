@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
-import { FormActionsTrayProps } from "./FormActionsTray.types";
-import { lightV2 } from "../../global/themes";
 import { get } from "lodash";
+import styled from "styled-components";
+
+import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { FormActionsTrayProps } from "./FormActionsTray.types";
 
 const FormActionsTrayMain = styled.div<FormActionsTrayProps>(
   ({ theme, sx, marginTop, separator }) => ({

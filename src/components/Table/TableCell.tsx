@@ -15,11 +15,12 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC } from "react";
-import styled from "styled-components";
-import { TableComponentsExtraProps } from "./Table.types";
 import get from "lodash/get";
+import styled from "styled-components";
+
 import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { TableComponentsExtraProps } from "./Table.types";
 
 const TableCellMain = styled.td<TableComponentsExtraProps>(({ theme, sx }) => ({
   fontFamily: "'Geist',sans-serif",

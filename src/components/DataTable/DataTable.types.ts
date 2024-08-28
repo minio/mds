@@ -16,6 +16,7 @@
 
 import React, { HTMLAttributes } from "react";
 import { SortDirectionType } from "react-virtualized";
+
 import { OverrideTheme } from "../../global/global.types";
 
 export const actionsTypes = [

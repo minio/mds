@@ -17,12 +17,12 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import HelpTip from "./HelpTip";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { HelpTipProps } from "./HelpTip.types";
 import Button from "../Button/Button";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Grid from "../Grid/Grid";
+import HelpTip from "./HelpTip";
+import { HelpTipProps } from "./HelpTip.types";
 
 export default {
   title: "MDS/Graphics/HelpTip",

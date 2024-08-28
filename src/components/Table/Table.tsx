@@ -16,8 +16,9 @@
 
 import React, { FC } from "react";
 import styled from "styled-components";
-import { TableComponentsExtraProps } from "./Table.types";
+
 import { overridePropsParse } from "../../global/utils";
+import { TableComponentsExtraProps } from "./Table.types";
 
 const TableMain = styled.table<TableComponentsExtraProps>(({ theme, sx }) => ({
   display: "table",

@@ -15,21 +15,22 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, HTMLAttributes } from "react";
-import {
-  ScreenTitleContainerProps,
-  ScreenTitleProps,
-} from "./ScreenTitle.types";
+import get from "lodash/get";
+import styled from "styled-components";
+
+import { themeColors } from "../../global/themeColors";
+import { lightV2 } from "../../global/themes";
 import {
   breakPoints,
   overridePropsParse,
   paddingSizeVariants,
 } from "../../global/utils";
-import styled from "styled-components";
 import Box from "../Box/Box";
-import get from "lodash/get";
-import { lightV2 } from "../../global/themes";
 import BoxedIcon from "../BoxedIcon/BoxedIcon";
-import { themeColors } from "../../global/themeColors";
+import {
+  ScreenTitleContainerProps,
+  ScreenTitleProps,
+} from "./ScreenTitle.types";
 
 const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
   ({ theme, sx, subTitle, titleOptions }) => ({

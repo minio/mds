@@ -17,16 +17,15 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Button from "./Button";
-import { ButtonProps } from "./Button.types";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { Box, ButtonGroup } from "../index";
-import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
-import BriefcaseMedicalIcon from "../Icons/NewDesignIcons/BriefcaseMedicalIcon";
 import AlignCenterIcon from "../Icons/NewDesignIcons/AlignCenterIcon";
+import BriefcaseMedicalIcon from "../Icons/NewDesignIcons/BriefcaseMedicalIcon";
 import IceCreamConeIcon from "../Icons/NewDesignIcons/IceCreamConeIcon";
+import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
+import { Box, ButtonGroup } from "../index";
+import Button from "./Button";
+import { ButtonProps } from "./Button.types";
 
 export default {
   title: "UI Kit/Forms & Inputs/Buttons",

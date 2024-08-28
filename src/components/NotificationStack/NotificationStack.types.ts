@@ -15,8 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
+
 import { OverrideTheme } from "../../global/global.types";
+import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
 
 export interface NotificationStackProps {
   id: number;

@@ -17,11 +17,11 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Tag from "./Tag";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { TagProps } from "./Tag.types";
 import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
+import Tag from "./Tag";
+import { TagProps } from "./Tag.types";
 
 export default {
   title: "MDS/Layout/Tag",

@@ -17,12 +17,12 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import Tooltip from "./Tooltip";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import { TooltipProps } from "./Tooltip.types";
 import Button from "../Button/Button";
+import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Grid from "../Grid/Grid";
+import Tooltip from "./Tooltip";
+import { TooltipProps } from "./Tooltip.types";
 
 export default {
   title: "MDS/Graphics/Tooltip",
