@@ -41,7 +41,6 @@ const Template: Story<AutocompleteProps> = ({
   disabled,
   options,
   placeholder,
-  displayDropArrow,
 }) => {
   const [AutocompleteedValue, setAutocompleteedValue] = useState<string>(
     placeholder ? "" : "value1",
@@ -86,7 +85,26 @@ const Template: Story<AutocompleteProps> = ({
           tooltip={tooltip}
           disabled={disabled}
           placeholder={placeholder}
-          displayDropArrow={displayDropArrow}
+        />
+
+        <Autocomplete
+          id={"story-Autocomplete-small"}
+          options={useOpts}
+          value={AutocompleteedValue}
+          onChange={(newValue, extraValue) => {
+            setAutocompleteedValue(newValue);
+
+            console.log(extraValue);
+            if (extraValue) {
+              alert(`Extra Value ${JSON.stringify(extraValue)}`);
+            }
+          }}
+          label={label}
+          required={required}
+          tooltip={tooltip}
+          disabled={disabled}
+          placeholder={placeholder}
+          sizeMode={"small"}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -181,29 +199,6 @@ WithPlaceholder.args = {
     },
     { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
   ],
-};
-
-export const NoDropArrow = Template.bind({});
-NoDropArrow.args = {
-  options: [
-    {
-      label: "Option 1",
-      value: "value1",
-      extraValue: { anotherVar: "test1" },
-    },
-    {
-      label: "Option 2",
-      value: "value2",
-      extraValue: { anotherVar: "test2" },
-    },
-    {
-      label: "Option 3",
-      value: "value3",
-      extraValue: { anotherVar: "test3" },
-    },
-    { label: "No Extra Value", value: "value4", icon: <UsersIcon /> },
-  ],
-  displayDropArrow: false,
 };
 
 export const IndicatorInLabel = Template.bind({});
