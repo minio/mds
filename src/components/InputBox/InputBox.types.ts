@@ -29,7 +29,7 @@ export interface InputBoxProps
   index?: number;
   overlayId?: "index";
   overlayIcon?: React.ReactNode;
-  overlayAction?: () => void;
+  overlayAction?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   overlayObject?: React.ReactNode;
   noLabelMinWidth?: boolean;
   startIcon?: React.ReactNode;

@@ -70,6 +70,7 @@ const Select: FC<SelectProps> = ({
         ...sx,
         "& .overlayAction > button": {
           borderLeft: 0,
+          backgroundColor: "transparent",
         },
         "& .accessoryIcon": {
           display: "none",

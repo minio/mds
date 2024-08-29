@@ -14,142 +14,19 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useState } from "react";
-import get from "lodash/get";
+import React, { FC, Fragment, useMemo, useState } from "react";
 import { DateTime } from "luxon";
 import styled from "styled-components";
 
 import { useEscapeKey } from "../../global/hooks";
-import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import { InputContainerProps } from "../InputBox/InputBox.types";
-import InputLabel from "../InputLabel/InputLabel";
-import Tooltip from "../Tooltip/Tooltip";
 import { DateTimeInputProps } from "./DateTimeInput.types";
 import DateTimeSelector from "./DateTimeSelector";
-
-const InputBase = styled.input(({ theme }) => {
-  const borderColor = get(theme, "inputBox.border", lightColors.borderColor);
-  const borderHover = get(theme, "inputBox.hoverBorder", lightColors.promoBG);
-
-  return {
-    display: "flex",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    alignItems: "center",
-    height: 38,
-    width: "100%",
-    padding: "0 35px 0 15px",
-    color: get(theme, "inputBox.color", lightColors.labelColor),
-    fontSize: 13,
-    fontWeight: 400,
-    border: `${borderColor} 1px solid`,
-    borderRadius: 3,
-    outline: "none",
-    transitionDuration: "0.1s",
-    backgroundColor: get(theme, "inputBox.backgroundColor", lightColors.white),
-    userAutocomplete: "none",
-    "&:placeholder": {
-      color: "#858585",
-      opacity: 1,
-      fontWeight: 400,
-    },
-    "&:hover": {
-      borderColor: borderHover,
-    },
-    "&:focus": {
-      borderColor: borderHover,
-    },
-    "&.disabled, &:disabled": {
-      border: get(theme, "inputBox.disabledBorder", lightColors.disabledGrey),
-      backgroundColor: get(
-        theme,
-        "inputBox.disabledBackground",
-        lightColors.disabledInnerGrey,
-      ),
-      color: get(
-        theme,
-        "inputBox.disabledText",
-        lightColors.iconButtonDisabled,
-      ),
-      "&:placeholder": {
-        color: get(
-          theme,
-          "inputBox.disabledPlaceholder",
-          lightColors.iconButtonDisabled,
-        ),
-      },
-      "&:hover": {
-        borderColor: get(
-          theme,
-          "inputBox.disabledBorder",
-          lightColors.disabledGrey,
-        ),
-      },
-      "&:focus": {
-        borderColor: get(
-          theme,
-          "inputBox.disabledBorder",
-          lightColors.disabledGrey,
-        ),
-      },
-    },
-  };
-});
-
-const InputPlaceholder = styled.div(({ theme }) => {
-  const borderColor = get(theme, "inputBox.border", lightColors.borderColor);
-  const borderHover = get(theme, "inputBox.hoverBorder", lightColors.promoBG);
-
-  return {
-    display: "flex",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    alignItems: "center",
-    height: 38,
-    width: "100%",
-    padding: "0 35px 0 15px",
-    color: get(theme, "inputBox.color", lightColors.labelColor),
-    fontSize: 13,
-    fontWeight: 600,
-    border: `${borderColor} 1px solid`,
-    borderRadius: 3,
-    outline: "none",
-    transitionDuration: "0.1s",
-    backgroundColor: get(theme, "inputBox.backgroundColor", lightColors.white),
-    userAutocomplete: "none",
-    cursor: "text",
-    "&:hover": {
-      borderColor: borderHover,
-    },
-    "&.disabled, &:disabled": {
-      border: get(theme, "inputBox.disabledBorder", lightColors.disabledGrey),
-      backgroundColor: get(
-        theme,
-        "inputBox.disabledBackground",
-        lightColors.disabledInnerGrey,
-      ),
-      color: get(
-        theme,
-        "inputBox.disabledText",
-        lightColors.iconButtonDisabled,
-      ),
-      "&:hover": {
-        borderColor: get(
-          theme,
-          "inputBox.disabledBorder",
-          lightColors.disabledGrey,
-        ),
-      },
-    },
-  };
-});
+import InputBox from "../InputBox/InputBox";
 
 const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
   display: "flex",
@@ -164,53 +41,6 @@ const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
     position: "relative",
     minWidth: 80,
   },
-  "& .tooltipContainer": {
-    marginLeft: 5,
-    display: "flex",
-    alignItems: "center",
-    "& .min-icon": {
-      width: 13,
-    },
-  },
-  "& .startComponent": {
-    display: "flex",
-    alignItems: "center",
-    gap: 5,
-    color: get(theme, "inputBox.mutedText", lightColors.mutedText),
-    fontWeight: "bold",
-    fontSize: 12,
-    whiteSpace: "nowrap",
-    "& svg": {
-      width: 18,
-      height: 18,
-      color: get(theme, "inputBox.mutedText", lightColors.mutedText),
-    },
-  },
-  "& .overlayArrow": {
-    cursor: "pointer",
-    position: "absolute",
-    top: "50%",
-    transform: "translateY(-50%)",
-    marginTop: 2,
-    right: 5,
-    "& svg": {
-      width: 24,
-      height: 24,
-      color: get(theme, "inputBox.mutedText", lightColors.mutedText),
-    },
-    "&:hover": {
-      "& svg": {
-        color: get(theme, "inputBox.color", lightColors.labelColor),
-      },
-    },
-    "& .customIcon": {
-      "& svg": {
-        width: 18,
-        height: 18,
-        marginRight: 5,
-      },
-    },
-  },
   ...overridePropsParse(sx, theme),
 }));
 
@@ -218,7 +48,6 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
   sx,
   id,
   className,
-  pickerStartComponent,
   tooltip = "",
   helpTip,
   helpTipPlacement,
@@ -235,6 +64,11 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
   onChange,
   timeFormat = "24h",
   secondsSelector = false,
+  sizeMode = "large",
+  orientation = "horizontal",
+  state = "normal",
+  readOnly = false,
+  helper,
   pickerSx,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -246,7 +80,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
     ) || "",
   );
   const [anchorEl, setAnchorEl] = React.useState<
-    (EventTarget & HTMLDivElement) | null
+    (EventTarget & HTMLButtonElement) | null
   >(null);
   const [editMode, setEditMode] = useState<boolean>(false);
 
@@ -324,37 +158,37 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
     }
   };
 
-  return (
-    <InputContainer sx={sx} className={`inputItem ${className}`}>
-      {label !== "" && (
-        <InputLabel
-          htmlFor={id}
-          noMinWidth={noLabelMinWidth}
-          className={"inputLabel"}
-          helpTip={helpTip}
-          helpTipPlacement={helpTipPlacement}
-          inputSizeMode={"large"}
-        >
-          {label}
-          {required ? "*" : ""}
-          {tooltip !== "" && (
-            <Box className={"tooltipContainer"}>
-              <Tooltip tooltip={tooltip} placement="top">
-                <Box className={tooltip}>
-                  <CircleHelpIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-          )}
-        </InputLabel>
-      )}
+  const overlayIcon = useMemo(() => {
+    return openPickerIcon === "arrow" ? (
+      <Fragment>{isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}</Fragment>
+    ) : (
+      openPickerIcon
+    );
+  }, [openPickerIcon, isOpen]);
 
-      <Box id={`${id}-DateTimeInput`} className={"dateTimeInputContainer"}>
-        <Box className={"startComponent"}>{pickerStartComponent}</Box>
+  const overrideFieldStyle = {
+    ...sx,
+    "& .overlayAction > button": {
+      borderLeft: 0,
+      backgroundColor: "transparent",
+    },
+    "& .accessoryIcon": { display: "none" },
+  };
+
+  return (
+    <InputContainer
+      sx={sx}
+      id={`${id}-DateTimeInput`}
+      className={`inputItem ${className}`}
+    >
+      <Box className={"dateTimeInputContainer"}>
         {editMode ? (
-          <InputBase
-            disabled={disabled}
+          <InputBox
             id={id}
+            label={label}
+            required={required}
+            tooltip={tooltip}
+            noLabelMinWidth={noLabelMinWidth}
             value={dateInputVal}
             onChange={onInputChange}
             placeholder={`MM/DD/YYYY${
@@ -362,44 +196,67 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
             }`}
             onBlur={blurDateTimeInput}
             autoFocus
+            sx={overrideFieldStyle}
+            disabled={disabled}
+            disableErrorUntilFocus={true}
+            helpTip={helpTip}
+            helpTipPlacement={helpTipPlacement}
+            sizeMode={sizeMode}
+            helper={helper}
+            orientation={orientation}
+            state={state}
+            readOnly={readOnly}
+            overlayIcon={overlayIcon}
+            overlayAction={(e) => {
+              if (!disabled) {
+                setIsOpen(!isOpen);
+                setAnchorEl(e.currentTarget);
+              }
+            }}
           />
         ) : (
-          <InputPlaceholder
-            onClick={() => {
+          <InputBox
+            id={id}
+            label={label}
+            required={required}
+            tooltip={tooltip}
+            noLabelMinWidth={noLabelMinWidth}
+            value={
+              value?.toFormat(
+                displayFormat ||
+                  `DDD ${
+                    mode === "all"
+                      ? ` ${timeFormat === "24h" ? "HH" : "hh"}:mm${
+                          secondsSelector ? ":ss" : ""
+                        } ${timeFormat === "12h" ? "a" : ""}`
+                      : ""
+                  }`,
+              ) || ""
+            }
+            sx={overrideFieldStyle}
+            disabled={disabled}
+            disableErrorUntilFocus={true}
+            helpTip={helpTip}
+            helpTipPlacement={helpTipPlacement}
+            sizeMode={sizeMode}
+            helper={helper}
+            orientation={orientation}
+            state={state}
+            readOnly={readOnly}
+            overlayIcon={overlayIcon}
+            overlayAction={(e) => {
+              if (!disabled) {
+                setIsOpen(!isOpen);
+                setAnchorEl(e.currentTarget);
+              }
+            }}
+            onFocus={() => {
               setEditMode(true);
             }}
-          >
-            {value?.toFormat(
-              displayFormat ||
-                `DDD ${
-                  mode === "all"
-                    ? ` ${timeFormat === "24h" ? "HH" : "hh"}:mm${
-                        secondsSelector ? ":ss" : ""
-                      } ${timeFormat === "12h" ? "a" : ""}`
-                    : ""
-                }`,
-            ) || ""}
-          </InputPlaceholder>
+          />
         )}
-
-        <Box
-          className={"overlayArrow"}
-          onClick={(e) => {
-            if (!disabled) {
-              setIsOpen(!isOpen);
-              setAnchorEl(e.currentTarget);
-            }
-          }}
-        >
-          {openPickerIcon === "arrow" ? (
-            <Fragment>
-              {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-            </Fragment>
-          ) : (
-            <Box className={"customIcon"}>{openPickerIcon}</Box>
-          )}
-        </Box>
       </Box>
+
       <DateTimeSelector
         id={id}
         value={value}

@@ -327,8 +327,8 @@ const InputBox: FC<InputBoxProps> = ({
               <Button
                 onClick={
                   overlayAction
-                    ? () => {
-                        overlayAction();
+                    ? (e) => {
+                        overlayAction(e);
                       }
                     : () => setToggleTextInput(!toggleTextInput)
                 }
