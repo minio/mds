@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Meta, Story } from "@storybook/react";
 import { DateTime } from "luxon";
 
@@ -22,7 +22,6 @@ import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import FormLayout from "../FormLayout/FormLayout";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
-import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
 import DateTimeInput from "./DateTimeInput";
 import { DateTimeInputProps } from "./DateTimeInput.types";
 
@@ -44,16 +43,18 @@ const Template: Story<DateTimeInputProps> = ({
   tooltip,
   openPickerIcon,
   displayFormat,
-  pickerStartComponent,
 }) => {
   const [newValue, setValue] = useState<DateTime>(DateTime.now());
+
+  useEffect(() => {
+    console.log("New Value: ", newValue);
+  }, [newValue]);
 
   return (
     <StoryThemeProvider>
       <GlobalStyles />
       <FormLayout>
         <DateTimeInput
-          name={"dateTimeStart"}
           id={"story-DateTimeInput"}
           value={newValue}
           onChange={(value) => {
@@ -70,7 +71,25 @@ const Template: Story<DateTimeInputProps> = ({
           tooltip={tooltip}
           openPickerIcon={openPickerIcon}
           displayFormat={displayFormat}
-          pickerStartComponent={pickerStartComponent}
+        />
+        <DateTimeInput
+          id={"story-DateTimeInput"}
+          value={newValue}
+          onChange={(value) => {
+            setValue(value);
+          }}
+          mode={mode}
+          maxDate={maxDate}
+          minDate={minDate}
+          sx={sx}
+          usePortal={usePortal}
+          timeFormat={timeFormat}
+          secondsSelector={secondsSelector}
+          label={label}
+          tooltip={tooltip}
+          openPickerIcon={openPickerIcon}
+          displayFormat={displayFormat}
+          sizeMode={"small"}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -139,21 +158,6 @@ CustomDateDisplayFormat.args = {
   tooltip: "Please select a date to complete",
   openPickerIcon: <CalendarIcon />,
   displayFormat: "DDDD",
-};
-
-export const PickerStartComponent = Template.bind({});
-PickerStartComponent.args = {
-  id: "DateTimeInput",
-  usePortal: false,
-  timeFormat: "12h",
-  secondsSelector: true,
-  label: "Select a Date",
-  tooltip: "Please select a date to complete",
-  pickerStartComponent: (
-    <Fragment>
-      <Clock4Icon /> Start Date
-    </Fragment>
-  ),
 };
 
 export const DateOnly = Template.bind({});

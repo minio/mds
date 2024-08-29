@@ -22,7 +22,6 @@ import { OverrideTheme } from "../../global/global.types";
 import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface DateTimeInputMain {
-  pickerStartComponent?: React.ReactNode;
   className?: string;
   label?: string;
   required?: boolean;
@@ -34,6 +33,11 @@ export interface DateTimeInputMain {
   helpTipPlacement?: CommonHelpTipPlacement;
   noLabelMinWidth?: boolean;
   pickerSx?: OverrideTheme;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  state?: "normal" | "error" | "success" | "warning";
+  readOnly?: boolean;
+  helper?: string;
 }
 
 export interface DateTimeConstruct {
