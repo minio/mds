@@ -1,6 +1,6 @@
 import React from "react";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 import { OverrideTheme } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface MainSwitchProps {
   id: string;
   label?: string;

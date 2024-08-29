@@ -20,7 +20,6 @@ export declare const elementActions: <T>(
   actions: ItemActions<T>[],
   valueToSend: any,
   selected: boolean,
-  idField: string,
 ) => (React.JSX.Element | null)[];
 export declare const calculateOptionsSize: (
   containerWidth: number,

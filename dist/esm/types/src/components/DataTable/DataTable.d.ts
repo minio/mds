@@ -18,7 +18,6 @@ declare const DataTable: <T>({
   onColumnChange,
   infiniteScrollConfig,
   autoScrollToBottom,
-  disabled,
   onSelectAll,
   rowStyle,
   parentClassName,

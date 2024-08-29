@@ -1,6 +1,6 @@
 import React from "react";
-import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
 import { OverrideTheme } from "../../global/global.types";
+import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
 export interface NotificationStackProps {
   id: number;
   hovered: boolean;

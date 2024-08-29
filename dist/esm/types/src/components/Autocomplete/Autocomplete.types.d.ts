@@ -8,7 +8,6 @@ export interface AutocompleteProps {
   required?: boolean;
   className?: string;
   disabled?: boolean;
-  displayDropArrow?: boolean;
   label?: string;
   tooltip?: string;
   noLabelMinWidth?: boolean;
@@ -17,4 +16,9 @@ export interface AutocompleteProps {
   sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  state?: "normal" | "error" | "success" | "warning";
+  readOnly?: boolean;
+  helper?: string;
 }

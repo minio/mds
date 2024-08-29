@@ -5,8 +5,8 @@ import React__default, {
   ReactNode,
   FC,
   MouseEventHandler,
-  SVGProps,
   HTMLAttributes,
+  SVGProps,
 } from "react";
 import { SortDirectionType } from "react-virtualized";
 import { DateTime } from "luxon";
@@ -438,6 +438,12 @@ interface NotificationAlertProps {
   warning: NotificationAlertThemeProps;
   danger: NotificationAlertThemeProps;
 }
+interface LinkButtonThemeProps {
+  destructive: string;
+  neutral: string;
+  primary: string;
+  disabled: string;
+}
 interface ThemeDefinitionProps {
   bgColor: string;
   fontColor: string;
@@ -510,6 +516,7 @@ interface ThemeDefinitionProps {
   pill?: PillThemeProps;
   badge?: BadgeThemeProps;
   notificationAlert: NotificationAlertProps;
+  linkButton: LinkButtonThemeProps;
 }
 interface SelectOption {
   label: string;
@@ -620,6 +627,10 @@ declare const useNotifications: () => {
   setHovered: (id: number, hovered: boolean) => void;
 };
 
+declare const GlobalStyles: React$1.NamedExoticComponent<
+  styled_components.ExecutionProps & object
+>;
+
 interface ThemeHandlerProps {
   darkMode?: boolean;
   customTheme?: ThemeDefinitionProps;
@@ -628,45 +639,48 @@ interface ThemeHandlerProps {
 
 declare const ThemeHandler: FC<ThemeHandlerProps>;
 
-declare const GlobalStyles: React$1.NamedExoticComponent<
-  styled_components.ExecutionProps & object
->;
-
-type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "destructive"
-  | "primary-lighter"
-  | "secondary-lighter"
-  | "destructive-lighter"
-  | "primary-ghost"
-  | "secondary-ghost"
-  | "destructive-ghost";
-interface ButtonProps {
+interface AccordionProps {
+  expanded: boolean;
+  onTitleClick: () => void;
   id: string;
-  name?: string;
-  label?: string;
-  variant?: ButtonVariant;
-  icon?: ReactNode;
-  iconLocation?: "start" | "end";
-  secondaryIcon?: ReactNode;
-  fullWidth?: boolean;
+  title: ReactNode;
+  children: ReactNode;
   disabled?: boolean;
-  collapseOnSmall?: boolean;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  children?: ReactNode | string;
-  compact?: boolean;
-  inButtonGroup?: boolean;
+  contentBackgroundColor?: boolean;
   sx?: OverrideTheme;
-  isLoading?: boolean;
 }
-interface ConstructProps {
-  parentChildren: ReactNode | string | undefined;
+interface AccordionMainProps {
+  sx?: OverrideTheme;
+}
+interface AccordionContentProps {
+  expanded: boolean;
+  backgroundColor?: boolean;
 }
 
-declare const Button: FC<
-  ButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
->;
+declare const Accordion: FC<AccordionProps>;
+
+interface ActionItem {
+  action: () => void;
+  label: string;
+  disabled: boolean;
+  icon: React__default.ReactNode;
+  tooltip: string;
+}
+interface ActionsListProps {
+  sx?: OverrideTheme;
+  items: ActionItem[];
+  title: React__default.ReactNode;
+}
+interface ActionsListPanelProps {
+  sx?: OverrideTheme;
+}
+interface ActionButtonProps
+  extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
+  label: string;
+  icon: React__default.ReactNode;
+}
+
+declare const ActionsList: FC<ActionsListProps>;
 
 interface ApplicationLogoProps {
   applicationName:
@@ -704,85 +718,6 @@ interface ApplicationLogoProps {
 
 declare const ApplicationLogo: FC<ApplicationLogoProps>;
 
-declare const ThemedLogo: FC<SVGProps<any>>;
-
-interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
-  children?: ReactNode;
-  sx?: OverrideTheme;
-}
-type ConditionalProps =
-  | {
-      container?: boolean;
-      item?: never;
-      wrap?: "nowrap" | "wrap-reverse" | "wrap";
-      direction?: "column-reverse" | "column" | "row-reverse" | "row";
-      columnSpacing?: number;
-      rowSpacing?: number;
-      xs?: never;
-      sm?: never;
-      md?: never;
-      lg?: never;
-      xl?: never;
-    }
-  | {
-      container?: never;
-      item?: boolean;
-      wrap?: never;
-      direction?: never;
-      columnSpacing?: never;
-      rowSpacing?: never;
-      xs?: "auto" | "hidden" | number | boolean;
-      sm?: "auto" | "hidden" | number | boolean;
-      md?: "auto" | "hidden" | number | boolean;
-      lg?: "auto" | "hidden" | number | boolean;
-      xl?: "auto" | "hidden" | number | boolean;
-    };
-type GridProps = GridCommonProps & ConditionalProps;
-
-declare const Grid: FC<GridProps>;
-
-interface LoginWrapperProps {
-  logoProps: ApplicationLogoProps;
-  form: ReactNode;
-  formFooter?: ReactNode;
-  promoHeader?: ReactNode;
-  promoInfo?: ReactNode;
-  backgroundAnimation?: boolean;
-}
-
-declare const LoginWrapper: FC<LoginWrapperProps>;
-
-declare const Loader: FC<SVGProps<any>>;
-
-interface PageHeaderMainProps {
-  label: React__default.ReactNode;
-  middleComponent?: React__default.ReactNode;
-  actions?: React__default.ReactNode;
-}
-interface PageHeaderConstruct {
-  sx?: OverrideTheme;
-}
-type PageHeaderProps = PageHeaderMainProps & PageHeaderConstruct;
-
-declare const PageHeader: FC<PageHeaderProps & HTMLAttributes<HTMLDivElement>>;
-
-interface TooltipProps {
-  children: React__default.ReactElement;
-  tooltip: React__default.ReactNode;
-  errorProps?: any;
-  placement?: "bottom" | "left" | "right" | "top";
-}
-interface TooltipBuild {
-  placement: "bottom" | "left" | "right" | "top";
-}
-interface TooltipConstructProps {
-  placement: "bottom" | "left" | "right" | "top";
-  content: React__default.ReactNode;
-  anchorEl: (EventTarget & HTMLSpanElement) | null;
-}
-
-declare const Tooltip: FC<TooltipProps>;
-
 type CommonHelpTipPlacement = "bottom" | "left" | "right" | "top";
 interface HelpTipProps {
   children: any;
@@ -799,6 +734,177 @@ interface HelpTipConstructProps {
   anchorEl: (EventTarget & HTMLSpanElement) | null;
 }
 
+interface AutocompleteProps {
+  options: SelectOption[];
+  value?: string;
+  id: string;
+  name?: string;
+  required?: boolean;
+  className?: string;
+  disabled?: boolean;
+  label?: string;
+  tooltip?: string;
+  noLabelMinWidth?: boolean;
+  placeholder?: string;
+  onChange: (newValue: string, extraValue?: any) => void;
+  sx?: OverrideTheme;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  state?: "normal" | "error" | "success" | "warning";
+  readOnly?: boolean;
+  helper?: string;
+}
+
+declare const Autocomplete: FC<AutocompleteProps>;
+
+interface BackLinkProps
+  extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
+  sx?: OverrideTheme;
+  label?: string;
+}
+
+declare const BackLink: FC<BackLinkProps>;
+
+type BadgeColors =
+  | "none"
+  | "info"
+  | "success"
+  | "warning"
+  | "danger"
+  | "purple"
+  | "rose"
+  | "scooter"
+  | "disabled";
+type BadgeStyles = "minimal" | "subtle" | "bold";
+type BadgeIcons = boolean | "dot" | ReactNode;
+interface BadgeMainProps {
+  label: string;
+  id: string;
+}
+interface BadgeConstructProps {
+  color?: BadgeColors;
+  badgeStyle?: BadgeStyles;
+  icon?: BadgeIcons;
+  size?: "normal" | "small";
+  isNumber?: boolean;
+  sx?: OverrideTheme;
+}
+type BadgeProps = BadgeMainProps & BadgeConstructProps;
+
+declare const Badge: FC<
+  BadgeProps & React__default.HTMLAttributes<HTMLSpanElement>
+>;
+
+interface BoxProps extends React__default.HTMLAttributes<HTMLDivElement> {
+  sx?: OverrideTheme;
+  children?: React__default.ReactNode;
+  withBorders?: boolean;
+  customBorderPadding?: number | string;
+  customBorderRadius?: number | string;
+  useBackground?: boolean;
+}
+
+declare const Box: React__default.ForwardRefExoticComponent<
+  BoxProps &
+    React__default.RefAttributes<React__default.HTMLAttributes<HTMLDivElement>>
+>;
+
+interface IBoxedIconProps {
+  children: React__default.ReactNode;
+  sx?: OverrideTheme;
+}
+
+declare const BoxedIcon: FC<IBoxedIconProps>;
+
+interface BreadcrumbsProps {
+  sx?: OverrideTheme;
+  options: BreadcrumbsOption[];
+  goBackFunction?: () => void;
+  displayLastItems?: false | number;
+  onClickOption?: (to?: string) => void;
+  children?: React__default.ReactNode;
+  markCurrentItem?: boolean;
+}
+interface BreadcrumbsOption {
+  label?: string;
+  to?: string;
+  onClick?: (to?: string) => void;
+  icon?: ReactNode;
+  subOptions?: BreadcrumbsOption[];
+  disabled?: boolean;
+}
+interface BreadcrumbsContainerProps {
+  sx?: OverrideTheme;
+}
+interface BreadcrumbsOptionProps {
+  id: string;
+  name?: string;
+  label?: string;
+  icon?: ReactNode;
+  iconLocation?: "start" | "end";
+  disabled?: boolean;
+  current?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClickOption?: (to?: string) => void;
+  children?: ReactNode | string;
+  sx?: OverrideTheme;
+  subOptions?: BreadcrumbsOption[];
+}
+
+declare const BreadcrumbButton: FC<
+  BreadcrumbsOptionProps &
+    React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+declare const Breadcrumbs: FC<BreadcrumbsProps>;
+
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "destructive"
+  | "primary-lighter"
+  | "secondary-lighter"
+  | "destructive-lighter"
+  | "primary-ghost"
+  | "secondary-ghost"
+  | "destructive-ghost";
+interface ButtonProps {
+  id: string;
+  name?: string;
+  label?: string;
+  variant?: ButtonVariant;
+  icon?: ReactNode;
+  iconLocation?: "start" | "end";
+  secondaryIcon?: ReactNode;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  collapseOnSmall?: boolean;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  children?: ReactNode | string;
+  compact?: boolean;
+  inButtonGroup?: boolean;
+  sx?: OverrideTheme;
+  isLoading?: boolean;
+}
+interface ConstructProps {
+  parentChildren: ReactNode | string | undefined;
+}
+
+declare const Button: FC<
+  ButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+interface ButtonGroupProps
+  extends React__default.HTMLAttributes<HTMLDivElement> {
+  children: React__default.ReactNode;
+  isLoading?: boolean;
+  sx?: OverrideTheme;
+}
+
+declare const ButtonGroup: FC<ButtonGroupProps>;
+
 interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
   tooltip?: string;
@@ -812,31 +918,54 @@ declare const Checkbox: FC<
   CheckboxProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
 
-interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
-  children?: ReactNode;
+interface CodeEditorProps {
+  value: string;
+  label?: string;
+  mode?: string;
+  tooltip?: string;
+  editorHeight?: string | number;
+  onChange: (value: string) => any;
+  className?: string;
+  helpTools?: React__default.ReactNode;
   sx?: OverrideTheme;
-  noMinWidth?: boolean;
-  htmlFor?: string;
-  helpTip?: ReactNode;
+  helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
-  orientation?: "horizontal" | "vertical";
-  inputSizeMode?: "small" | "large";
 }
-
-declare const InputLabel: FC<InputLabelProps>;
-
-interface IconBase {
-  id: string;
-  size?: "small" | "large";
+interface CodeEditorBaseProps {
+  editorHeight: string | number;
   sx?: OverrideTheme;
-  variant?: ButtonVariant;
-  isLoading?: boolean;
-  children: React__default.ReactNode;
+  className?: string;
 }
-type IconButtonProps = IconBase &
-  React__default.ButtonHTMLAttributes<HTMLButtonElement>;
 
-declare const IconButton: FC<IconButtonProps>;
+declare const CodeMirrorWrapper: FC<CodeEditorProps>;
+
+interface CommentBoxProps
+  extends React__default.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  id: string;
+  fullWidth?: boolean;
+  label?: string;
+  tooltip?: string;
+  sx?: OverrideTheme;
+  index?: number;
+  noLabelMinWidth?: boolean;
+  required?: boolean;
+  className?: string;
+  error?: string;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+}
+interface CommentContainerProps {
+  children?: React__default.ReactNode;
+  sx?: OverrideTheme;
+  error?: boolean;
+  startIcon?: React__default.ReactNode;
+  className?: string;
+}
+interface ExtraCommentProps {
+  originType?: string;
+}
+
+declare const InputBox$1: FC<CommentBoxProps>;
 
 declare const actionsTypes: readonly [
   "view",
@@ -968,7 +1097,6 @@ declare const DataTable: <T>({
   onColumnChange,
   infiniteScrollConfig,
   autoScrollToBottom,
-  disabled,
   onSelectAll,
   rowStyle,
   parentClassName,
@@ -978,290 +1106,68 @@ declare const DataTable: <T>({
   sortCallBack,
 }: DataTableProps<T>) => React__default.JSX.Element;
 
-interface BackLinkProps
-  extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
-  sx?: OverrideTheme;
-  label?: string;
-}
-
-declare const BackLink: FC<BackLinkProps>;
-
-interface HelpBoxProps {
-  icon?: React__default.ReactNode;
-  title: string;
-  help: string | React__default.ReactNode | React__default.ReactNode[];
-}
-
-declare const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>>;
-
-interface SectionTitleProps {
-  separator?: boolean;
-  actions?: React__default.ReactNode;
-  icon?: React__default.ReactNode;
-  children: React__default.ReactNode;
-  sx?: OverrideTheme;
-}
-
-declare const SectionTitle: FC<
-  SectionTitleProps & HTMLAttributes<HTMLDivElement>
->;
-
-interface BoxProps extends React__default.HTMLAttributes<HTMLDivElement> {
-  sx?: OverrideTheme;
-  children?: React__default.ReactNode;
-  withBorders?: boolean;
-  customBorderPadding?: number | string;
-  customBorderRadius?: number | string;
-  useBackground?: boolean;
-}
-
-declare const Box: React__default.ForwardRefExoticComponent<
-  BoxProps &
-    React__default.RefAttributes<React__default.HTMLAttributes<HTMLDivElement>>
->;
-
-interface FormLayoutProps {
-  sx?: OverrideTheme;
-  children?: React__default.ReactNode;
-  title?: string;
-  icon?: React__default.ReactNode;
-  helpBox?: React__default.ReactNode;
-  withBorders?: boolean;
-  containerPadding?: boolean;
-}
-
-declare const FormLayout: FC<FormLayoutProps>;
-
-interface PageLayoutProps {
-  variant?: "constrained" | "full";
-  children: React__default.ReactNode;
+interface DateTimeInputMain {
   className?: string;
-  sx?: OverrideTheme;
-}
-
-declare const PageLayout: FC<PageLayoutProps & HTMLAttributes<HTMLDivElement>>;
-
-interface MainContainerProps {
-  menu?: React__default.ReactElement;
-  children: React__default.ReactElement;
-  horizontal?: boolean;
-  mobileModeAuto?: boolean;
-  sx?: OverrideTheme;
-}
-
-declare const MainContainer: FC<MainContainerProps>;
-
-interface InputBoxProps
-  extends React__default.InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  fullWidth?: boolean;
   label?: string;
-  tooltip?: string;
-  sx?: OverrideTheme;
-  index?: number;
-  overlayId?: "index";
-  overlayIcon?: React__default.ReactNode;
-  overlayAction?: () => void;
-  overlayObject?: React__default.ReactNode;
-  noLabelMinWidth?: boolean;
-  startIcon?: React__default.ReactNode;
   required?: boolean;
-  className?: string;
-  helper?: string;
-  state?: "normal" | "error" | "success" | "warning";
+  tooltip?: string;
+  disabled?: boolean;
+  openPickerIcon?: "arrow" | React__default.ReactNode;
+  displayFormat?: string;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
-  sizeMode?: "small" | "large";
-  orientation?: "horizontal" | "vertical";
-  disableErrorUntilFocus?: boolean;
-}
-interface InputContainerProps {
-  children?: React__default.ReactNode;
-  sx?: OverrideTheme;
-  startIcon?: React__default.ReactNode;
-  className?: string;
-  sizeMode?: "small" | "large";
-}
-interface ExtraInputProps {
-  originType?: string;
-}
-
-declare const InputBox$1: FC<InputBoxProps>;
-
-interface BreadcrumbsProps {
-  sx?: OverrideTheme;
-  options: BreadcrumbsOption[];
-  goBackFunction?: () => void;
-  displayLastItems?: false | number;
-  onClickOption?: (to?: string) => void;
-  children?: React__default.ReactNode;
-  markCurrentItem?: boolean;
-}
-interface BreadcrumbsOption {
-  label?: string;
-  to?: string;
-  onClick?: (to?: string) => void;
-  icon?: ReactNode;
-  subOptions?: BreadcrumbsOption[];
-  disabled?: boolean;
-}
-interface BreadcrumbsContainerProps {
-  sx?: OverrideTheme;
-}
-interface BreadcrumbsOptionProps {
-  id: string;
-  name?: string;
-  label?: string;
-  icon?: ReactNode;
-  iconLocation?: "start" | "end";
-  disabled?: boolean;
-  current?: boolean;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  onClickOption?: (to?: string) => void;
-  children?: ReactNode | string;
-  sx?: OverrideTheme;
-  subOptions?: BreadcrumbsOption[];
-}
-
-declare const Breadcrumbs: FC<BreadcrumbsProps>;
-
-declare const BreadcrumbButton: FC<
-  BreadcrumbsOptionProps &
-    React__default.ButtonHTMLAttributes<HTMLButtonElement>
->;
-
-interface ActionItem {
-  action: () => void;
-  label: string;
-  disabled: boolean;
-  icon: React__default.ReactNode;
-  tooltip: string;
-}
-interface ActionsListProps {
-  sx?: OverrideTheme;
-  items: ActionItem[];
-  title: React__default.ReactNode;
-}
-interface ActionsListPanelProps {
-  sx?: OverrideTheme;
-}
-interface ActionButtonProps
-  extends React__default.ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
-  icon: React__default.ReactNode;
-}
-
-declare const ActionsList: FC<ActionsListProps>;
-
-interface SimpleHeaderProps {
-  label: React__default.ReactNode;
-  icon?: React__default.ReactNode;
-  sx?: OverrideTheme;
-}
-interface SimpleHeaderContainerProps {
-  sx?: OverrideTheme;
-}
-
-declare const SimpleHeader: FC<
-  SimpleHeaderProps & HTMLAttributes<HTMLDivElement>
->;
-
-interface ScreenTitleProps {
-  icon: React__default.ReactNode;
-  subTitle?: React__default.ReactNode;
-  title: string;
-  actions: React__default.ReactNode;
-  titleOptions?: ScreenTitleOptions[];
-  sx?: OverrideTheme;
-}
-interface ScreenTitleContainerProps {
-  subTitle?: React__default.ReactNode;
-  titleOptions?: ScreenTitleOptions[];
-  sx?: OverrideTheme;
-  bottomBorder?: boolean;
-}
-interface ScreenTitleOptions {
-  title: string;
-  value: string;
-}
-
-declare const ScreenTitle: FC<
-  ScreenTitleProps & HTMLAttributes<HTMLDivElement>
->;
-
-interface ModalBoxProps {
-  onClose: () => void;
-  open: boolean;
-  title: React__default.ReactNode;
-  children: React__default.ReactNode;
-  widthLimit?: boolean;
-  titleIcon?: React__default.ReactNode;
-  backgroundOverlay?: boolean;
-  iconColor?: "accept" | "delete" | "default";
-  customMaxWidth?: number | string;
-  sx?: OverrideTheme;
-}
-interface ModalBoxContainerProps {
-  backgroundOverlay?: boolean;
-  widthLimit?: boolean;
-  iconColor?: "accept" | "delete" | "default";
-  customMaxWidth?: number | string;
-  sx?: OverrideTheme;
-}
-
-declare const ModalBox: FC<ModalBoxProps>;
-
-interface MainSwitchProps {
-  id: string;
-  label?: string;
-  tooltip?: string;
-  sx?: OverrideTheme;
-  className?: string;
-  switchOnly?: boolean;
-  indicatorLabels?: string[];
-  description?: string;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
-interface IndicatorProps {
-  active: boolean;
-  children: React__default.ReactNode;
-}
-interface SwitchContainerProps {
-  sx?: OverrideTheme;
-}
-type SwitchProps = MainSwitchProps &
-  React__default.InputHTMLAttributes<HTMLInputElement>;
-
-declare const Switch: FC<
-  SwitchProps & React__default.InputHTMLAttributes<HTMLInputElement>
->;
-
-interface SelectProps {
-  options: SelectOption[];
-  value?: string;
-  id: string;
-  name?: string;
-  required?: boolean;
-  className?: string;
-  disabled?: boolean;
-  label?: string;
-  tooltip?: string;
   noLabelMinWidth?: boolean;
-  fixedLabel?: string;
-  placeholder?: string;
-  onChange: (newValue: string, extraValue?: any) => void;
-  sx?: OverrideTheme;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
+  pickerSx?: OverrideTheme;
   sizeMode?: "small" | "large";
   orientation?: "horizontal" | "vertical";
   state?: "normal" | "error" | "success" | "warning";
   readOnly?: boolean;
   helper?: string;
 }
+interface DateTimeConstruct {
+  id: string;
+  sx?: OverrideTheme;
+  mode?: "all" | "date";
+  value: DateTime | null;
+  onChange: (value: DateTime | null) => void;
+  minDate?: DateTime;
+  maxDate?: DateTime;
+  usePortal?: boolean;
+}
+interface DateTimeSelectorMain {
+  open?: boolean;
+  anchorEl?: (EventTarget & HTMLElement) | null;
+  onClose?: () => void;
+}
+interface TimeSelectorProps {
+  value: DateTime | null;
+  onChange: (value: DateTime | null) => void;
+  completeCallback?: () => void;
+  timeFormat?: "12h" | "24h";
+  secondsSelector: boolean;
+}
+interface DateSelectorProps {
+  minDate?: DateTime;
+  maxDate?: DateTime;
+  value: DateTime | null;
+  onChange: (value: DateTime | null) => void;
+}
+interface StylesOverrideProps {
+  isPortal: boolean;
+  mode: "all" | "date";
+  coords: CSSObject;
+  sx?: OverrideTheme;
+}
+type DateTimeInputProps = DateTimeInputMain &
+  DateTimeConstruct &
+  TimeSelectorProps;
+type DateTimeSelectorProps = DateTimeSelectorMain &
+  DateTimeConstruct &
+  TimeSelectorProps;
 
-declare const Select: FC<SelectProps>;
+declare const DateTimeInput: FC<DateTimeInputProps>;
+
+declare const DateTimeSelector: FC<DateTimeSelectorProps>;
 
 interface DropdownSelectorProps {
   id: string;
@@ -1293,74 +1199,295 @@ interface DropdownItemProps {
 
 declare const DropdownSelector: FC<DropdownSelectorProps>;
 
-interface RadioGroupProps {
-  label?: string;
-  tooltip?: string;
-  selectorOptions: SelectOption[];
-  currentValue: string;
+interface ExpandMenuProps {
   id: string;
-  name: string;
-  disableOptions?: boolean;
-  displayInColumn?: boolean;
-  className?: string;
+  name?: string;
+  label?: string;
+  variant?: ButtonVariant;
+  icon?: ReactNode;
+  iconLocation?: "start" | "end";
+  children?: ReactNode | string;
+  dropMenuPosition?: "start" | "end" | "middle";
+  compact?: boolean;
+  dropArrow?: boolean;
+  inButtonGroup?: boolean;
+  forInputOptions?: boolean;
+  sx?: OverrideTheme;
+}
+interface ExpandMenuOptionProps {
+  id: string;
+  variant?: "regular" | "secondary";
+  icon?: ReactNode;
+  sx?: OverrideTheme;
+  inButtonGroup?: boolean;
+  children: ReactNode;
+}
+interface ExpandDropBaseProps {
+  selectedOption?: string;
+  hideTriggerAction: () => void;
+  open: boolean;
+  anchorEl?: (EventTarget & HTMLElement) | null;
+  anchorOrigin?: "start" | "end" | "middle";
+  dropMinWidth?: boolean;
+  children: React__default.ReactNode;
+}
+interface DropdownMainProps {
+  forInputOptions?: boolean;
+  sx?: OverrideTheme;
+}
+interface ExpandMenuConstructProps {
+  parentChildren: ReactNode;
+}
+type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
+
+declare const ExpandMenu: FC<
+  ExpandMenuProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+declare const ExpandMenuOption: FC<
+  ExpandMenuOptionProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+interface ExpandOptionsButtonProps {
+  label: string;
+  open: boolean;
+  sx?: OverrideTheme;
+}
+interface ConstructExpandOptionsProps {
+  sx?: OverrideTheme;
+}
+
+declare const ExpandOptionsButton: FC<
+  ExpandOptionsButtonProps &
+    React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+interface FileSelectorProps {
+  label: string;
   onChange: (
     event: React__default.ChangeEvent<HTMLInputElement>,
-    extraValue?: any,
+    fileName: string,
+    data?: string,
   ) => void;
-  sx?: OverrideTheme;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
-interface OptionsContainerProps {
-  inColumn: boolean;
-}
-
-declare const RadioGroup: FC<RadioGroupProps>;
-
-interface ReadBoxProps {
-  label?: string;
-  children: React__default.ReactNode;
-  multiLine?: boolean;
-  actionButton?: React__default.ReactNode;
-  sx?: OverrideTheme;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
-interface ReadBoxBaseProps {
-  label?: string;
-  sx?: OverrideTheme;
-  multiLine?: boolean;
-}
-
-declare const ReadBox: FC<ReadBoxProps>;
-
-interface CommentBoxProps
-  extends React__default.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  returnEncodedData?: boolean;
   id: string;
-  fullWidth?: boolean;
-  label?: string;
+  name: string;
+  disabled?: boolean;
   tooltip?: string;
-  sx?: OverrideTheme;
-  index?: number;
-  noLabelMinWidth?: boolean;
   required?: boolean;
-  className?: string;
   error?: string;
+  accept?: string;
+  value: string;
+  className?: string;
+  noLabelMinWidth?: boolean;
+  sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
 }
-interface CommentContainerProps {
+interface FileSelectorConstructorProps {
   children?: React__default.ReactNode;
   sx?: OverrideTheme;
   error?: boolean;
   startIcon?: React__default.ReactNode;
   className?: string;
 }
-interface ExtraCommentProps {
+
+declare const FileSelector: FC<FileSelectorProps>;
+
+interface FormActionsTrayProps
+  extends React__default.HTMLAttributes<HTMLDivElement> {
+  marginTop?: number;
+  separator?: boolean;
+  sx?: OverrideTheme;
+}
+
+declare const FormActionsTray: FC<FormActionsTrayProps>;
+
+interface FormLayoutProps {
+  sx?: OverrideTheme;
+  children?: React__default.ReactNode;
+  title?: string;
+  icon?: React__default.ReactNode;
+  helpBox?: React__default.ReactNode;
+  withBorders?: boolean;
+  containerPadding?: boolean;
+}
+
+declare const FormLayout: FC<FormLayoutProps>;
+
+interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
+  children?: ReactNode;
+  sx?: OverrideTheme;
+}
+type ConditionalProps =
+  | {
+      container?: boolean;
+      item?: never;
+      wrap?: "nowrap" | "wrap-reverse" | "wrap";
+      direction?: "column-reverse" | "column" | "row-reverse" | "row";
+      columnSpacing?: number;
+      rowSpacing?: number;
+      xs?: never;
+      sm?: never;
+      md?: never;
+      lg?: never;
+      xl?: never;
+    }
+  | {
+      container?: never;
+      item?: boolean;
+      wrap?: never;
+      direction?: never;
+      columnSpacing?: never;
+      rowSpacing?: never;
+      xs?: "auto" | "hidden" | number | boolean;
+      sm?: "auto" | "hidden" | number | boolean;
+      md?: "auto" | "hidden" | number | boolean;
+      lg?: "auto" | "hidden" | number | boolean;
+      xl?: "auto" | "hidden" | number | boolean;
+    };
+type GridProps = GridCommonProps & ConditionalProps;
+
+declare const Grid: FC<GridProps>;
+
+interface HelpBoxProps {
+  icon?: React__default.ReactNode;
+  title: string;
+  help: string | React__default.ReactNode | React__default.ReactNode[];
+}
+
+declare const HelpBox: FC<HelpBoxProps & HTMLAttributes<HTMLDivElement>>;
+
+declare const HelpTip: FC<HelpTipProps>;
+
+interface IconBase {
+  id: string;
+  size?: "small" | "large";
+  sx?: OverrideTheme;
+  variant?: ButtonVariant;
+  isLoading?: boolean;
+  children: React__default.ReactNode;
+}
+type IconButtonProps = IconBase &
+  React__default.ButtonHTMLAttributes<HTMLButtonElement>;
+
+declare const IconButton: FC<IconButtonProps>;
+
+interface InformativeMessageMain {
+  title: React__default.ReactNode;
+  message: React__default.ReactNode;
+}
+interface InformativeConstructProps {
+  variant?: "default" | "success" | "warning" | "error";
+  sx?: OverrideTheme;
+}
+type InformativeMessageProps = InformativeMessageMain &
+  InformativeConstructProps;
+
+declare const InformativeMessage: FC<InformativeMessageProps>;
+
+interface InputBoxProps
+  extends React__default.InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  fullWidth?: boolean;
+  label?: string;
+  tooltip?: string;
+  sx?: OverrideTheme;
+  index?: number;
+  overlayId?: "index";
+  overlayIcon?: React__default.ReactNode;
+  overlayAction?: (
+    e: React__default.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => void;
+  overlayObject?: React__default.ReactNode;
+  noLabelMinWidth?: boolean;
+  startIcon?: React__default.ReactNode;
+  required?: boolean;
+  className?: string;
+  helper?: string;
+  state?: "normal" | "error" | "success" | "warning";
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  disableErrorUntilFocus?: boolean;
+}
+interface InputContainerProps {
+  children?: React__default.ReactNode;
+  sx?: OverrideTheme;
+  startIcon?: React__default.ReactNode;
+  className?: string;
+  sizeMode?: "small" | "large";
+}
+interface ExtraInputProps {
   originType?: string;
 }
 
-declare const InputBox: FC<CommentBoxProps>;
+declare const InputBox: React__default.ForwardRefExoticComponent<
+  InputBoxProps &
+    React__default.RefAttributes<
+      React__default.HTMLAttributes<HTMLInputElement>
+    >
+>;
+
+interface InputLabelProps extends HTMLAttributes<HTMLLabelElement> {
+  children?: ReactNode;
+  sx?: OverrideTheme;
+  noMinWidth?: boolean;
+  htmlFor?: string;
+  helpTip?: ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  orientation?: "horizontal" | "vertical";
+  inputSizeMode?: "small" | "large";
+}
+
+declare const InputLabel: FC<InputLabelProps>;
+
+interface LinkProps {
+  sx?: OverrideTheme;
+}
+
+declare const Link: FC<
+  LinkProps & React__default.AnchorHTMLAttributes<HTMLAnchorElement>
+>;
+
+type LinkButtonVariant = "primary" | "neutral" | "destructive";
+interface CommonLinkButtonProps {
+  isLoading?: boolean;
+  label?: any;
+}
+interface BaseLinkButtonProps {
+  variant?: LinkButtonVariant;
+  sx?: OverrideTheme;
+}
+type LinkButtonProps = CommonLinkButtonProps & BaseLinkButtonProps;
+
+declare const LinkButton: FC<
+  LinkButtonProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
+>;
+
+declare const Loader: FC<SVGProps<any>>;
+
+interface LoginWrapperProps {
+  logoProps: ApplicationLogoProps;
+  form: ReactNode;
+  formFooter?: ReactNode;
+  promoHeader?: ReactNode;
+  promoInfo?: ReactNode;
+  backgroundAnimation?: boolean;
+}
+
+declare const LoginWrapper: FC<LoginWrapperProps>;
+
+interface MainContainerProps {
+  menu?: React__default.ReactElement;
+  children: React__default.ReactElement;
+  horizontal?: boolean;
+  mobileModeAuto?: boolean;
+  sx?: OverrideTheme;
+}
+
+declare const MainContainer: FC<MainContainerProps>;
 
 interface MenuProps {
   options?: MenuItemProps[];
@@ -1409,18 +1536,319 @@ interface SubItemsBoxProps {
 
 declare const Menu: FC<MenuProps>;
 
-interface ExpandOptionsButtonProps {
-  label: string;
+interface ModalBoxProps {
+  onClose: () => void;
   open: boolean;
+  title: React__default.ReactNode;
+  children: React__default.ReactNode;
+  widthLimit?: boolean;
+  titleIcon?: React__default.ReactNode;
+  backgroundOverlay?: boolean;
+  iconColor?: "accept" | "delete" | "default";
+  customMaxWidth?: number | string;
   sx?: OverrideTheme;
 }
-interface ConstructExpandOptionsProps {
+interface ModalBoxContainerProps {
+  backgroundOverlay?: boolean;
+  widthLimit?: boolean;
+  iconColor?: "accept" | "delete" | "default";
+  customMaxWidth?: number | string;
   sx?: OverrideTheme;
 }
 
-declare const ExpandOptionsButton: FC<
-  ExpandOptionsButtonProps &
-    React__default.ButtonHTMLAttributes<HTMLButtonElement>
+declare const ModalBox: FC<ModalBoxProps>;
+
+declare const NotificationAlert: FC<
+  NotificationAlertPrp & HTMLAttributes<HTMLDivElement>
+>;
+
+type NotificationBadgeTypes =
+  | "none"
+  | "info"
+  | "success"
+  | "warning"
+  | "danger";
+interface NotificationCountMain {
+  invisible?: boolean;
+  max?: number;
+  showZero?: boolean;
+  count?: number;
+}
+interface NotificationCountConstruct {
+  horizontalPosition?: "left" | "right";
+  verticalPosition?: "bottom" | "top";
+  sx?: OverrideTheme;
+  color?: NotificationBadgeTypes;
+  shape?: "circular" | "rectangular";
+  dotOnly?: boolean;
+}
+type NotificationCountProps = NotificationCountMain &
+  NotificationCountConstruct;
+
+declare const NotificationCount: FC<
+  HTMLAttributes<HTMLSpanElement> & NotificationCountProps
+>;
+
+declare const NotificationStack: FC<
+  NotificationStackContainerProps & NotificationStackConstructProps
+>;
+
+interface PageHeaderMainProps {
+  label: React__default.ReactNode;
+  middleComponent?: React__default.ReactNode;
+  actions?: React__default.ReactNode;
+}
+interface PageHeaderConstruct {
+  sx?: OverrideTheme;
+}
+type PageHeaderProps = PageHeaderMainProps & PageHeaderConstruct;
+
+declare const PageHeader: FC<PageHeaderProps & HTMLAttributes<HTMLDivElement>>;
+
+interface PageLayoutProps {
+  variant?: "constrained" | "full";
+  children: React__default.ReactNode;
+  className?: string;
+  sx?: OverrideTheme;
+}
+
+declare const PageLayout: FC<PageLayoutProps & HTMLAttributes<HTMLDivElement>>;
+
+interface PillProps {
+  type: "current" | "secondary" | "default";
+  sx?: OverrideTheme;
+}
+
+declare const Pill: FC<
+  PillProps & React__default.HTMLAttributes<HTMLSpanElement>
+>;
+
+interface MainProgressProps {
+  variant?: "determinate" | "indeterminate";
+  notificationLabel?: string;
+  value?: number;
+  maxValue?: number;
+  progressLabel?: boolean;
+}
+interface CommonProgressBar {
+  sx?: OverrideTheme;
+  color?: "blue" | "red" | "green" | "orange" | "grey";
+  barHeight?: number;
+  transparentBG?: boolean;
+}
+type ProgressBarProps = MainProgressProps & CommonProgressBar;
+
+declare const ProgressBar: FC<ProgressBarProps>;
+
+interface RadioGroupProps {
+  label?: string;
+  tooltip?: string;
+  selectorOptions: SelectOption[];
+  currentValue: string;
+  id: string;
+  name: string;
+  disableOptions?: boolean;
+  displayInColumn?: boolean;
+  className?: string;
+  onChange: (
+    event: React__default.ChangeEvent<HTMLInputElement>,
+    extraValue?: any,
+  ) => void;
+  sx?: OverrideTheme;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+}
+interface OptionsContainerProps {
+  inColumn: boolean;
+}
+
+declare const RadioGroup: FC<RadioGroupProps>;
+
+interface ReadBoxProps {
+  label?: string;
+  children: React__default.ReactNode;
+  multiLine?: boolean;
+  actionButton?: React__default.ReactNode;
+  sx?: OverrideTheme;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+}
+interface ReadBoxBaseProps {
+  label?: string;
+  sx?: OverrideTheme;
+  multiLine?: boolean;
+}
+
+declare const ReadBox: FC<ReadBoxProps>;
+
+interface ScreenTitleProps {
+  icon: React__default.ReactNode;
+  subTitle?: React__default.ReactNode;
+  title: string;
+  actions?: React__default.ReactNode;
+  titleOptions?: ScreenTitleOptions[];
+  sx?: OverrideTheme;
+}
+interface ScreenTitleContainerProps {
+  subTitle?: React__default.ReactNode;
+  titleOptions?: ScreenTitleOptions[];
+  sx?: OverrideTheme;
+  bottomBorder?: boolean;
+}
+interface ScreenTitleOptions {
+  title: string;
+  value: string;
+}
+
+declare const ScreenTitle: FC<
+  ScreenTitleProps & HTMLAttributes<HTMLDivElement>
+>;
+
+interface SearchBoxProps {
+  id: string;
+  placeholder?: string;
+  sx?: OverrideTheme;
+  icon?: React__default.ReactNode;
+}
+
+declare const SearchBox: FC<
+  SearchBoxProps & React__default.InputHTMLAttributes<HTMLInputElement>
+>;
+
+interface SectionTitleProps {
+  separator?: boolean;
+  actions?: React__default.ReactNode;
+  icon?: React__default.ReactNode;
+  children: React__default.ReactNode;
+  sx?: OverrideTheme;
+}
+
+declare const SectionTitle: FC<
+  SectionTitleProps & HTMLAttributes<HTMLDivElement>
+>;
+
+interface SelectProps {
+  options: SelectOption[];
+  value?: string;
+  id: string;
+  name?: string;
+  required?: boolean;
+  className?: string;
+  disabled?: boolean;
+  label?: string;
+  tooltip?: string;
+  noLabelMinWidth?: boolean;
+  fixedLabel?: string;
+  placeholder?: string;
+  onChange: (newValue: string, extraValue?: any) => void;
+  sx?: OverrideTheme;
+  helpTip?: React.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  sizeMode?: "small" | "large";
+  orientation?: "horizontal" | "vertical";
+  state?: "normal" | "error" | "success" | "warning";
+  readOnly?: boolean;
+  helper?: string;
+}
+
+declare const Select: FC<SelectProps>;
+
+interface SimpleHeaderProps {
+  label: React__default.ReactNode;
+  icon?: React__default.ReactNode;
+  sx?: OverrideTheme;
+}
+interface SimpleHeaderContainerProps {
+  sx?: OverrideTheme;
+}
+
+declare const SimpleHeader: FC<
+  SimpleHeaderProps & HTMLAttributes<HTMLDivElement>
+>;
+
+interface SizeChartMain {
+  label: boolean;
+  width?: string;
+  height?: string;
+}
+interface SizeChartConstructProps {
+  usedBytes: number;
+  totalBytes: number;
+  chartLabel?: string;
+  sx?: OverrideTheme;
+}
+type SizeChartProps = SizeChartMain & SizeChartConstructProps;
+
+declare const SizeChart: FC<SizeChartProps>;
+
+interface SliderProps {
+  id: string;
+  label?: string;
+  noLabelMinWidth?: boolean;
+  error?: string;
+  tooltip?: string;
+  sx?: OverrideTheme;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+  displayValue?: boolean;
+  displayValueFunction?: (value: any) => React__default.ReactNode;
+}
+interface SliderContainerProps {
+  children?: React__default.ReactNode;
+  sx?: OverrideTheme;
+  error?: boolean;
+  className?: string;
+}
+
+declare const Slider: FC<
+  SliderProps & React__default.InputHTMLAttributes<HTMLInputElement>
+>;
+
+interface SnackbarMainProps {
+  autoHideDuration?: number;
+  message?: ReactNode;
+  onClose: () => void;
+  closeButton?: boolean;
+  mode?: "inline" | "portal";
+}
+interface SnackbarConstructProps {
+  open: boolean;
+  condensed?: boolean;
+  variant?: "default" | "success" | "warning" | "error";
+  sx?: OverrideTheme;
+}
+interface SnackbarButtonProps {
+  variant: "default" | "success" | "warning" | "error";
+  condensed: boolean;
+}
+type SnackbarProps = SnackbarMainProps & SnackbarConstructProps;
+
+declare const Snackbar: FC<SnackbarProps>;
+
+interface MainSwitchProps {
+  id: string;
+  label?: string;
+  tooltip?: string;
+  sx?: OverrideTheme;
+  className?: string;
+  switchOnly?: boolean;
+  indicatorLabels?: string[];
+  description?: string;
+  helpTip?: React__default.ReactNode;
+  helpTipPlacement?: CommonHelpTipPlacement;
+}
+interface IndicatorProps {
+  active: boolean;
+  children: React__default.ReactNode;
+}
+interface SwitchContainerProps {
+  sx?: OverrideTheme;
+}
+type SwitchProps = MainSwitchProps &
+  React__default.InputHTMLAttributes<HTMLInputElement>;
+
+declare const Switch: FC<
+  SwitchProps & React__default.InputHTMLAttributes<HTMLInputElement>
 >;
 
 interface TabProps {
@@ -1472,27 +1900,6 @@ interface TabPanelProps {
 
 declare const Tabs: FC<TabsProps & HTMLAttributes<HTMLDivElement>>;
 
-interface CodeEditorProps {
-  value: string;
-  label?: string;
-  mode?: string;
-  tooltip?: string;
-  editorHeight?: string | number;
-  onChange: (value: string) => any;
-  className?: string;
-  helpTools?: React__default.ReactNode;
-  sx?: OverrideTheme;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
-interface CodeEditorBaseProps {
-  editorHeight: string | number;
-  sx?: OverrideTheme;
-  className?: string;
-}
-
-declare const CodeMirrorWrapper: FC<CodeEditorProps>;
-
 interface TagMainProps {
   label: string;
   onDelete?: (item: string) => void;
@@ -1510,18 +1917,24 @@ declare const Tag: FC<
   TagProps & React__default.HTMLAttributes<HTMLSpanElement>
 >;
 
-interface CommonActionLinkProps {
-  isLoading?: boolean;
-  label?: any;
-}
-interface BaseActionLinkProps {
-  sx?: OverrideTheme;
-}
-type ActionLinkProps = CommonActionLinkProps & BaseActionLinkProps;
+declare const ThemedLogo: FC<SVGProps<any>>;
 
-declare const ActionLink: FC<
-  ActionLinkProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
->;
+interface TooltipProps {
+  children: React__default.ReactElement;
+  tooltip: React__default.ReactNode;
+  errorProps?: any;
+  placement?: "bottom" | "left" | "right" | "top";
+}
+interface TooltipBuild {
+  placement: "bottom" | "left" | "right" | "top";
+}
+interface TooltipConstructProps {
+  placement: "bottom" | "left" | "right" | "top";
+  content: React__default.ReactNode;
+  anchorEl: (EventTarget & HTMLSpanElement) | null;
+}
+
+declare const Tooltip: FC<TooltipProps>;
 
 interface ValuePairMain {
   label?: ReactNode;
@@ -1534,161 +1947,6 @@ interface ValuePairCommon {
 type ValuePairProps = ValuePairMain & ValuePairCommon;
 
 declare const ValuePair: FC<ValuePairProps>;
-
-interface MainProgressProps {
-  variant?: "determinate" | "indeterminate";
-  notificationLabel?: string;
-  value?: number;
-  maxValue?: number;
-  progressLabel?: boolean;
-}
-interface CommonProgressBar {
-  sx?: OverrideTheme;
-  color?: "blue" | "red" | "green" | "orange" | "grey";
-  barHeight?: number;
-  transparentBG?: boolean;
-}
-type ProgressBarProps = MainProgressProps & CommonProgressBar;
-
-declare const ProgressBar: FC<ProgressBarProps>;
-
-interface FileSelectorProps {
-  label: string;
-  onChange: (
-    event: React__default.ChangeEvent<HTMLInputElement>,
-    fileName: string,
-    data?: string,
-  ) => void;
-  returnEncodedData?: boolean;
-  id: string;
-  name: string;
-  disabled?: boolean;
-  tooltip?: string;
-  required?: boolean;
-  error?: string;
-  accept?: string;
-  value: string;
-  className?: string;
-  noLabelMinWidth?: boolean;
-  sx?: OverrideTheme;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
-interface FileSelectorConstructorProps {
-  children?: React__default.ReactNode;
-  sx?: OverrideTheme;
-  error?: boolean;
-  startIcon?: React__default.ReactNode;
-  className?: string;
-}
-
-declare const FileSelector: FC<FileSelectorProps>;
-
-interface SizeChartMain {
-  label: boolean;
-  width?: string;
-  height?: string;
-}
-interface SizeChartConstructProps {
-  usedBytes: number;
-  totalBytes: number;
-  chartLabel?: string;
-  sx?: OverrideTheme;
-}
-type SizeChartProps = SizeChartMain & SizeChartConstructProps;
-
-declare const SizeChart: FC<SizeChartProps>;
-
-interface SnackbarMainProps {
-  autoHideDuration?: number;
-  message?: ReactNode;
-  onClose: () => void;
-  closeButton?: boolean;
-  mode?: "inline" | "portal";
-}
-interface SnackbarConstructProps {
-  open: boolean;
-  condensed?: boolean;
-  variant?: "default" | "success" | "warning" | "error";
-  sx?: OverrideTheme;
-}
-interface SnackbarButtonProps {
-  variant: "default" | "success" | "warning" | "error";
-  condensed: boolean;
-}
-type SnackbarProps = SnackbarMainProps & SnackbarConstructProps;
-
-declare const Snackbar: FC<SnackbarProps>;
-
-interface AccordionProps {
-  expanded: boolean;
-  onTitleClick: () => void;
-  id: string;
-  title: ReactNode;
-  children: ReactNode;
-  disabled?: boolean;
-  contentBackgroundColor?: boolean;
-  sx?: OverrideTheme;
-}
-interface AccordionMainProps {
-  sx?: OverrideTheme;
-}
-interface AccordionContentProps {
-  expanded: boolean;
-  backgroundColor?: boolean;
-}
-
-declare const Accordion: FC<AccordionProps>;
-
-declare const HelpTip: FC<HelpTipProps>;
-
-interface AutocompleteProps {
-  options: SelectOption[];
-  value?: string;
-  id: string;
-  name?: string;
-  required?: boolean;
-  className?: string;
-  disabled?: boolean;
-  displayDropArrow?: boolean;
-  label?: string;
-  tooltip?: string;
-  noLabelMinWidth?: boolean;
-  placeholder?: string;
-  onChange: (newValue: string, extraValue?: any) => void;
-  sx?: OverrideTheme;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-}
-
-declare const Autocomplete: FC<AutocompleteProps>;
-
-type NotificationBadgeTypes =
-  | "none"
-  | "info"
-  | "success"
-  | "warning"
-  | "danger";
-interface NotificationCountMain {
-  invisible?: boolean;
-  max?: number;
-  showZero?: boolean;
-  count?: number;
-}
-interface NotificationCountConstruct {
-  horizontalPosition?: "left" | "right";
-  verticalPosition?: "bottom" | "top";
-  sx?: OverrideTheme;
-  color?: NotificationBadgeTypes;
-  shape?: "circular" | "rectangular";
-  dotOnly?: boolean;
-}
-type NotificationCountProps = NotificationCountMain &
-  NotificationCountConstruct;
-
-declare const NotificationCount: FC<
-  HTMLAttributes<HTMLSpanElement> & NotificationCountProps
->;
 
 interface WizardButton {
   label?: string;
@@ -1732,250 +1990,11 @@ declare const GenericWizard: ({
   sx,
 }: WizardProps) => React__default.JSX.Element | null;
 
-interface InformativeMessageMain {
-  title: React__default.ReactNode;
-  message: React__default.ReactNode;
-}
-interface InformativeConstructProps {
-  variant?: "default" | "success" | "warning" | "error";
-  sx?: OverrideTheme;
-}
-type InformativeMessageProps = InformativeMessageMain &
-  InformativeConstructProps;
-
-declare const InformativeMessage: FC<InformativeMessageProps>;
-
-interface DateTimeInputMain {
-  pickerStartComponent?: React__default.ReactNode;
-  className?: string;
-  label?: string;
-  required?: boolean;
-  tooltip?: string;
-  disabled?: boolean;
-  openPickerIcon?: "arrow" | React__default.ReactNode;
-  displayFormat?: string;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-  noLabelMinWidth?: boolean;
-  pickerSx?: OverrideTheme;
-}
-interface DateTimeConstruct {
-  id: string;
-  sx?: OverrideTheme;
-  mode?: "all" | "date";
-  value: DateTime | null;
-  onChange: (value: DateTime | null) => void;
-  minDate?: DateTime;
-  maxDate?: DateTime;
-  usePortal?: boolean;
-}
-interface DateTimeSelectorMain {
-  open?: boolean;
-  anchorEl?: (EventTarget & HTMLElement) | null;
-  onClose?: () => void;
-}
-interface TimeSelectorProps {
-  value: DateTime | null;
-  onChange: (value: DateTime | null) => void;
-  completeCallback?: () => void;
-  timeFormat?: "12h" | "24h";
-  secondsSelector: boolean;
-}
-interface DateSelectorProps {
-  minDate?: DateTime;
-  maxDate?: DateTime;
-  value: DateTime | null;
-  onChange: (value: DateTime | null) => void;
-}
-interface StylesOverrideProps {
-  isPortal: boolean;
-  mode: "all" | "date";
-  coords: CSSObject;
-  sx?: OverrideTheme;
-}
-type DateTimeInputProps = DateTimeInputMain &
-  DateTimeConstruct &
-  TimeSelectorProps;
-type DateTimeSelectorProps = DateTimeSelectorMain &
-  DateTimeConstruct &
-  TimeSelectorProps;
-
-declare const DateTimeInput: FC<DateTimeInputProps>;
-
-declare const DateTimeSelector: FC<DateTimeSelectorProps>;
-
-interface LinkProps {
-  sx?: OverrideTheme;
-}
-
-declare const Link: FC<
-  LinkProps & React__default.AnchorHTMLAttributes<HTMLAnchorElement>
->;
-
-interface SliderProps {
-  id: string;
-  label?: string;
-  noLabelMinWidth?: boolean;
-  error?: string;
-  tooltip?: string;
-  sx?: OverrideTheme;
-  helpTip?: React__default.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-  displayValue?: boolean;
-  displayValueFunction?: (value: any) => React__default.ReactNode;
-}
-interface SliderContainerProps {
-  children?: React__default.ReactNode;
-  sx?: OverrideTheme;
-  error?: boolean;
-  className?: string;
-}
-
-declare const Slider: FC<
-  SliderProps & React__default.InputHTMLAttributes<HTMLInputElement>
->;
-
-interface ButtonGroupProps
-  extends React__default.HTMLAttributes<HTMLDivElement> {
-  children: React__default.ReactNode;
-  isLoading?: boolean;
-  sx?: OverrideTheme;
-}
-
-declare const ButtonGroup: FC<ButtonGroupProps>;
-
-interface FormActionsTrayProps
-  extends React__default.HTMLAttributes<HTMLDivElement> {
-  marginTop?: number;
-  separator?: boolean;
-  sx?: OverrideTheme;
-}
-
-declare const FormActionsTray: FC<FormActionsTrayProps>;
-
-interface ExpandMenuProps {
-  id: string;
-  name?: string;
-  label?: string;
-  variant?: ButtonVariant;
-  icon?: ReactNode;
-  iconLocation?: "start" | "end";
-  children?: ReactNode | string;
-  dropMenuPosition?: "start" | "end" | "middle";
-  compact?: boolean;
-  dropArrow?: boolean;
-  inButtonGroup?: boolean;
-  forInputOptions?: boolean;
-  sx?: OverrideTheme;
-}
-interface ExpandMenuOptionProps {
-  id: string;
-  variant?: "regular" | "secondary";
-  icon?: ReactNode;
-  sx?: OverrideTheme;
-  inButtonGroup?: boolean;
-  children: ReactNode;
-}
-interface ExpandDropBaseProps {
-  selectedOption?: string;
-  hideTriggerAction: () => void;
-  open: boolean;
-  anchorEl?: (EventTarget & HTMLElement) | null;
-  anchorOrigin?: "start" | "end" | "middle";
-  dropMinWidth?: boolean;
-  children: React__default.ReactNode;
-}
-interface DropdownMainProps {
-  forInputOptions?: boolean;
-  sx?: OverrideTheme;
-}
-interface ExpandMenuConstructProps {
-  parentChildren: ReactNode;
-}
-type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
-
-declare const ExpandMenu: FC<
-  ExpandMenuProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
->;
-
-declare const ExpandMenuOption: FC<
-  ExpandMenuOptionProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
->;
-
-interface IBoxedIconProps {
-  children: React__default.ReactNode;
-  sx?: OverrideTheme;
-}
-
-declare const BoxedIcon: FC<IBoxedIconProps>;
-
-interface PillProps {
-  type: "current" | "secondary" | "default";
-  sx?: OverrideTheme;
-}
-
-declare const Pill: FC<
-  PillProps & React__default.HTMLAttributes<HTMLSpanElement>
->;
-
-interface SearchBoxProps {
-  id: string;
-  placeholder?: string;
-  sx?: OverrideTheme;
-  icon?: React__default.ReactNode;
-}
-
-declare const SearchBox: FC<
-  SearchBoxProps & React__default.InputHTMLAttributes<HTMLInputElement>
->;
-
-type BadgeColors =
-  | "none"
-  | "info"
-  | "success"
-  | "warning"
-  | "danger"
-  | "purple"
-  | "rose"
-  | "scooter"
-  | "disabled";
-type BadgeStyles = "minimal" | "subtle" | "bold";
-type BadgeIcons = boolean | "dot" | ReactNode;
-interface BadgeMainProps {
-  label: string;
-  id: string;
-}
-interface BadgeConstructProps {
-  color?: BadgeColors;
-  badgeStyle?: BadgeStyles;
-  icon?: BadgeIcons;
-  size?: "normal" | "small";
-  isNumber?: boolean;
-  sx?: OverrideTheme;
-}
-type BadgeProps = BadgeMainProps & BadgeConstructProps;
-
-declare const Badge: FC<
-  BadgeProps & React__default.HTMLAttributes<HTMLSpanElement>
->;
-
-declare const NotificationAlert: FC<
-  NotificationAlertPrp & HTMLAttributes<HTMLDivElement>
->;
-
-declare const NotificationStack: FC<
-  NotificationStackContainerProps & NotificationStackConstructProps
->;
-
 declare const AArrowDownIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const AArrowUpIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ALargeSmallIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -1987,15 +2006,23 @@ declare const ActivityIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const AirVentIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const AirplayIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const AirVentIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ALargeSmallIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const AlarmClockCheckIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const AlarmClockIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2011,10 +2038,6 @@ declare const AlarmClockPlusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const AlarmClockIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const AlarmSmokeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2027,11 +2050,11 @@ declare const AlignCenterHorizontalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const AlignCenterVerticalIcon: (
+declare const AlignCenterIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const AlignCenterIcon: (
+declare const AlignCenterVerticalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2167,7 +2190,7 @@ declare const ApertureIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const AppWindowMacIcon: (
+declare const AppleIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2175,7 +2198,11 @@ declare const AppWindowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const AppleIcon: (
+declare const AppWindowMacIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ArchiveIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2184,10 +2211,6 @@ declare const ArchiveRestoreIcon: (
 ) => React$1.JSX.Element;
 
 declare const ArchiveXIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ArchiveIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2247,6 +2270,10 @@ declare const ArrowDownFromLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ArrowDownIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ArrowDownLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2279,11 +2306,11 @@ declare const ArrowDownZAIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ArrowDownIcon: (
+declare const ArrowLeftFromLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ArrowLeftFromLineIcon: (
+declare const ArrowLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2295,11 +2322,11 @@ declare const ArrowLeftToLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ArrowLeftIcon: (
+declare const ArrowRightFromLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ArrowRightFromLineIcon: (
+declare const ArrowRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2311,7 +2338,7 @@ declare const ArrowRightToLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ArrowRightIcon: (
+declare const ArrowsUpFromLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2339,6 +2366,10 @@ declare const ArrowUpFromLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ArrowUpIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ArrowUpLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2363,23 +2394,15 @@ declare const ArrowUpZAIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ArrowUpIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ArrowsUpFromLineIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const AsteriskIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const AtomIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const AtSignIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const AtomIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const AudioLinesIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2433,6 +2456,10 @@ declare const BadgeHelpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BadgeIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BadgeIndianRupeeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2473,19 +2500,19 @@ declare const BadgeXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BadgeIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const BaggageClaimIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BanIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const BalancerIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
 
 declare const BananaIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const BanIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const BanknoteIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2541,6 +2568,10 @@ declare const BatteryFullIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BatteryIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BatteryLowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2553,37 +2584,37 @@ declare const BatteryWarningIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BatteryIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const BeakerIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BeanOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const BeanIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const BedDoubleIcon: (
+declare const BeanOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BedSingleIcon: (
+declare const BedDoubleIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const BedIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
+declare const BedSingleIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BeefIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const BeerIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const BeerOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BeerIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const BellArrowIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
 
 declare const BellDotIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2592,6 +2623,8 @@ declare const BellDotIcon: (
 declare const BellElectricIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const BellIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const BellMinusIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2608,8 +2641,6 @@ declare const BellPlusIcon: (
 declare const BellRingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const BellIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const BetweenHorizontalEndIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2659,15 +2690,15 @@ declare const BluetoothConnectedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BluetoothIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BluetoothOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const BluetoothSearchingIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BluetoothIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2711,6 +2742,8 @@ declare const BookHeartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BookIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const BookImageIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -2723,7 +2756,27 @@ declare const BookLockIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BookmarkCheckIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BookMarkedIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BookmarkIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BookmarkMinusIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BookmarkPlusIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BookmarkXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2735,11 +2788,11 @@ declare const BookOpenCheckIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BookOpenTextIcon: (
+declare const BookOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BookOpenIcon: (
+declare const BookOpenTextIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2771,45 +2824,27 @@ declare const BookXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BookIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const BookmarkCheckIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BookmarkMinusIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BookmarkPlusIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BookmarkXIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BookmarkIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const BoomBoxIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BotMessageSquareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const BotIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const BoxSelectIcon: (
+declare const BotMessageSquareIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BoxesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const BoxIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const BoxesIcon: (
+declare const BoxOutlineIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BoxSelectIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2841,11 +2876,11 @@ declare const BriefcaseBusinessIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BriefcaseMedicalIcon: (
+declare const BriefcaseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const BriefcaseIcon: (
+declare const BriefcaseMedicalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2857,9 +2892,19 @@ declare const BrushIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BucketCopyIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BucketIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const BucketQuotaIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const BugIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const BugOffIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2868,8 +2913,6 @@ declare const BugOffIcon: (
 declare const BugPlayIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const BugIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const Building2Icon: (
   props: SVGProps<SVGSVGElement>,
@@ -2893,11 +2936,11 @@ declare const CableIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CakeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const CakeSliceIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const CakeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const CalculatorIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -2924,6 +2967,10 @@ declare const CalendarFoldIcon: (
 ) => React$1.JSX.Element;
 
 declare const CalendarHeartIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CalendarIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2963,15 +3010,11 @@ declare const CalendarXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CalendarIcon: (
+declare const CameraIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const CameraOffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CameraIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2983,11 +3026,11 @@ declare const CandyCaneIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CandyOffIcon: (
+declare const CandyIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CandyIcon: (
+declare const CandyOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -2995,23 +3038,13 @@ declare const CannabisIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CaptionsOffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const CaptionsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CarFrontIcon: (
+declare const CaptionsOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const CarTaxiFrontIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CarIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const CaravanIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -3022,6 +3055,16 @@ declare const CaretFilledIcon: (
 ) => React$1.JSX.Element;
 
 declare const CaretIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CarFrontIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CarIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const CarTaxiFrontIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3087,7 +3130,7 @@ declare const ChevronRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ChevronUpIcon: (
+declare const ChevronsDownIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3095,7 +3138,7 @@ declare const ChevronsDownUpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ChevronsDownIcon: (
+declare const ChevronsLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3103,15 +3146,11 @@ declare const ChevronsLeftRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ChevronsLeftIcon: (
+declare const ChevronsRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const ChevronsRightLeftIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ChevronsRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3123,6 +3162,10 @@ declare const ChevronsUpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ChevronUpIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ChromeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3131,11 +3174,11 @@ declare const ChurchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CigaretteOffIcon: (
+declare const CigaretteIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CigaretteIcon: (
+declare const CigaretteOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3243,6 +3286,10 @@ declare const CircleHelpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CircleIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const CircleMinusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3251,11 +3298,11 @@ declare const CircleOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CircleParkingOffIcon: (
+declare const CircleParkingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CircleParkingIcon: (
+declare const CircleParkingOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3291,19 +3338,15 @@ declare const CircleStopIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CircleUserRoundIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const CircleUserIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CircleXIcon: (
+declare const CircleUserRoundIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CircleIcon: (
+declare const CircleXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3327,6 +3370,10 @@ declare const ClipboardCopyIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ClipboardIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ClipboardListIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3339,11 +3386,11 @@ declare const ClipboardPasteIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ClipboardPenLineIcon: (
+declare const ClipboardPenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ClipboardPenIcon: (
+declare const ClipboardPenLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3359,23 +3406,7 @@ declare const ClipboardXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ClipboardIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const Clock1Icon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const Clock10Icon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const Clock11Icon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const Clock12Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3411,6 +3442,18 @@ declare const Clock9Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const Clock10Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const Clock11Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const Clock12Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ClockIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3435,11 +3478,11 @@ declare const CloudHailIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudLightningIcon: (
+declare const CloudIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudMoonRainIcon: (
+declare const CloudLightningIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3447,11 +3490,11 @@ declare const CloudMoonIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudOffIcon: (
+declare const CloudMoonRainIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudRainWindIcon: (
+declare const CloudOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3459,11 +3502,11 @@ declare const CloudRainIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudSnowIcon: (
+declare const CloudRainWindIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudSunRainIcon: (
+declare const CloudSnowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3471,11 +3514,11 @@ declare const CloudSunIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudUploadIcon: (
+declare const CloudSunRainIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CloudIcon: (
+declare const CloudUploadIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3489,7 +3532,27 @@ declare const CloverIcon: (
 
 declare const ClubIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const CodeXmlIcon: (
+declare const ClusterHealthIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterIngressIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterNodeIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClusterReplicationIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ClustersIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3500,6 +3563,10 @@ declare const CodepenIcon: (
 ) => React$1.JSX.Element;
 
 declare const CodesandboxIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const CodeXmlIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3559,15 +3626,19 @@ declare const ConstructionIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ContactRoundIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const ContactIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ContactRoundIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ContainerIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ContainerImagesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3587,6 +3658,12 @@ declare const CopyCheckIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CopyIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const CopyleftIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const CopyMinusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -3595,21 +3672,15 @@ declare const CopyPlusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const CopyrightIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const CopySlashIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const CopyXIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CopyIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const CopyleftIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const CopyrightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3661,11 +3732,11 @@ declare const CroissantIcon: (
 
 declare const CropIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const CrossIcon: (
+declare const CrosshairIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const CrosshairIcon: (
+declare const CrossIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3689,7 +3760,15 @@ declare const CylinderIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const DatabaseApiIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const DatabaseBackupIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const DatabaseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3697,9 +3776,7 @@ declare const DatabaseZapIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const DatabaseIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
+declare const DataIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const DeleteIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -3713,11 +3790,11 @@ declare const DiameterIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const DiamondPercentIcon: (
+declare const DiamondIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const DiamondIcon: (
+declare const DiamondPercentIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3769,11 +3846,11 @@ declare const DivideIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const DnaIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const DnaOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const DnaIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const DockIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
@@ -3835,17 +3912,17 @@ declare const DumbbellIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const EarIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const EarOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const EarIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const EarthLockIcon: (
+declare const EarthIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const EarthIcon: (
+declare const EarthLockIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3857,13 +3934,9 @@ declare const EggFriedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const EggOffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const EggIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const EllipsisVerticalIcon: (
+declare const EggOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3871,11 +3944,15 @@ declare const EllipsisIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const EqualNotIcon: (
+declare const EllipsisVerticalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const EqualIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const EqualNotIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -3893,11 +3970,11 @@ declare const ExternalLinkIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const EyeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const EyeOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const EyeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const FacebookIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -4005,6 +4082,8 @@ declare const FileHeartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const FileIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const FileImageIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -4057,11 +4136,11 @@ declare const FileOutputIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FilePenLineIcon: (
+declare const FilePenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FilePenIcon: (
+declare const FilePenLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4090,6 +4169,10 @@ declare const FileSearch2Icon: (
 ) => React$1.JSX.Element;
 
 declare const FileSearchIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FilesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4157,19 +4240,13 @@ declare const FileXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FileIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const FilesIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const FilmIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const FilterXIcon: (
+declare const FilterIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FilterIcon: (
+declare const FilterXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4181,11 +4258,13 @@ declare const FireExtinguisherIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const FishIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const FishSymbolIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FishIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const FlagIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const FlagOffIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -4199,17 +4278,11 @@ declare const FlagTriangleRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FlagIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const FlameKindlingIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const FlameIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FlashlightOffIcon: (
+declare const FlameKindlingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4217,11 +4290,15 @@ declare const FlashlightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FlaskConicalOffIcon: (
+declare const FlashlightOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const FlaskConicalIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FlaskConicalOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4254,14 +4331,6 @@ declare const FlowerIcon: (
 ) => React$1.JSX.Element;
 
 declare const FocusIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const FoldHorizontalIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const FoldVerticalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4305,11 +4374,19 @@ declare const FolderHeartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const FolderIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const FolderInputIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const FolderKanbanIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const FolderKey2Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4357,6 +4434,10 @@ declare const FolderSearchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const FoldersIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const FolderSymlinkIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -4377,11 +4458,11 @@ declare const FolderXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FolderIcon: (
+declare const FoldHorizontalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const FoldersIcon: (
+declare const FoldVerticalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4463,11 +4544,11 @@ declare const GhostIcon: (
 
 declare const GiftIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const GitBranchPlusIcon: (
+declare const GitBranchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const GitBranchIcon: (
+declare const GitBranchPlusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4492,6 +4573,14 @@ declare const GitForkIcon: (
 ) => React$1.JSX.Element;
 
 declare const GitGraphIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const GithubIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const GitlabIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4523,11 +4612,7 @@ declare const GitPullRequestIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const GithubIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const GitlabIcon: (
+declare const GlassesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4535,15 +4620,11 @@ declare const GlassWaterIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const GlassesIcon: (
+declare const GlobeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const GlobeLockIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const GlobeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4575,11 +4656,11 @@ declare const GripHorizontalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const GripIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const GripVerticalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const GripIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const GroupIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -4607,6 +4688,8 @@ declare const HandHelpingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const HandIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const HandMetalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -4614,8 +4697,6 @@ declare const HandMetalIcon: (
 declare const HandPlatterIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const HandIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const HandshakeIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -4625,11 +4706,15 @@ declare const HardDriveDownloadIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const HardDriveUploadIcon: (
+declare const HardDriveIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const HardDriveIcon: (
+declare const HardDriveSearchIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const HardDriveUploadIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4689,15 +4774,15 @@ declare const HeartHandshakeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const HeartIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const HeartOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const HeartPulseIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const HeartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4719,11 +4804,11 @@ declare const HistoryIcon: (
 
 declare const HomeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
+declare const HopIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const HopOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const HopIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const HospitalIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -4749,6 +4834,10 @@ declare const ImageDownIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ImageIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ImageMinusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -4761,15 +4850,11 @@ declare const ImagePlusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ImageUpIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ImageIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const ImagesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ImageUpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4831,6 +4916,16 @@ declare const KanbanIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const KeyboardIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const KeyboardMusicIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const KeyIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const KeyRoundIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -4839,17 +4934,11 @@ declare const KeySquareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const KeyIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const KeyboardMusicIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const KeyboardIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const KubernetesSiteIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LambdaIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4865,6 +4954,8 @@ declare const LampFloorIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const LampIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const LampWallDownIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -4873,13 +4964,11 @@ declare const LampWallUpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LampIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const LandPlotIcon: (
+declare const LandmarkIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LandmarkIcon: (
+declare const LandPlotIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4887,19 +4976,19 @@ declare const LanguagesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LaptopMinimalIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const LaptopIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LassoSelectIcon: (
+declare const LaptopMinimalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const LassoIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const LassoSelectIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4943,6 +5032,8 @@ declare const LayoutTemplateIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const LDAPIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const LeafIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const LeafyGreenIcon: (
@@ -4965,11 +5056,11 @@ declare const LigatureIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LightbulbOffIcon: (
+declare const LightbulbIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LightbulbIcon: (
+declare const LightbulbOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -4977,19 +5068,19 @@ declare const LineChartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const Link2OffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const Link2Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LinkIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const Link2OffIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
 
 declare const LinkedinIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const LinkIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const ListChecksIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5006,6 +5097,8 @@ declare const ListEndIcon: (
 declare const ListFilterIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const ListIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const ListMinusIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5047,8 +5140,6 @@ declare const ListXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ListIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const LoaderCircleIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5061,11 +5152,17 @@ declare const LocateFixedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const LocateIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const LocateOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LocateIcon: (
+declare const LockIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const LockKeyholeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5073,15 +5170,9 @@ declare const LockKeyholeOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const LockKeyholeIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const LockOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const LockIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const LogInIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5103,9 +5194,15 @@ declare const MagnetIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const MailboxIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const MailCheckIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const MailIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const MailMinusIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5127,6 +5224,10 @@ declare const MailSearchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const MailsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const MailWarningIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5135,19 +5236,7 @@ declare const MailXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MailIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const MailboxIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const MailsIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const MapPinOffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
+declare const MapIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const MapPinIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5157,7 +5246,9 @@ declare const MapPinnedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MapIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const MapPinOffIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
 
 declare const MartiniIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5175,11 +5266,11 @@ declare const MedalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MegaphoneOffIcon: (
+declare const MegaphoneIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MegaphoneIcon: (
+declare const MegaphoneOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5204,6 +5295,10 @@ declare const MessageCircleDashedIcon: (
 ) => React$1.JSX.Element;
 
 declare const MessageCircleHeartIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const MessageCircleIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5235,10 +5330,6 @@ declare const MessageCircleXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MessageCircleIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const MessageSquareCodeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5256,6 +5347,10 @@ declare const MessageSquareDotIcon: (
 ) => React$1.JSX.Element;
 
 declare const MessageSquareHeartIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const MessageSquareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5295,23 +5390,15 @@ declare const MessageSquareXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MessageSquareIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const MessagesSquareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const MicIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const MicOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const MicVocalIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const MicIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const MicroscopeIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5321,15 +5408,19 @@ declare const MicrowaveIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const MicVocalIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const MilestoneIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const MilkIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const MilkOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const MilkIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const Minimize2Icon: (
   props: SVGProps<SVGSVGElement>,
@@ -5356,6 +5447,10 @@ declare const MonitorDotIcon: (
 ) => React$1.JSX.Element;
 
 declare const MonitorDownIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const MonitorIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5391,21 +5486,21 @@ declare const MonitorXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MonitorIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
+declare const MoonIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const MoonStarIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MoonIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+declare const MountainIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
 
 declare const MountainSnowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MountainIcon: (
+declare const MouseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5421,10 +5516,6 @@ declare const MousePointerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MouseIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const Move3dIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5437,6 +5528,10 @@ declare const MoveDiagonalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const MoveDownIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const MoveDownLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5445,19 +5540,21 @@ declare const MoveDownRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MoveDownIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const MoveHorizontalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const MoveIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const MoveLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const MoveRightIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const MoveUpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5469,15 +5566,9 @@ declare const MoveUpRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const MoveUpIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const MoveVerticalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const MoveIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const Music2Icon: (
   props: SVGProps<SVGSVGElement>,
@@ -5495,19 +5586,19 @@ declare const MusicIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const Navigation2OffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const Navigation2Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const NavigationOffIcon: (
+declare const Navigation2OffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const NavigationIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const NavigationOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5521,6 +5612,10 @@ declare const NewspaperIcon: (
 
 declare const NfcIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
+declare const NotebookIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const NotebookPenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5533,10 +5628,6 @@ declare const NotebookTextIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const NotebookIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const NotepadTextDashedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5545,13 +5636,17 @@ declare const NotepadTextIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const NutIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const NutOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const NutIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const OctagonAlertIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const OctagonIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5563,9 +5658,7 @@ declare const OctagonXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const OctagonIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
+declare const OidcIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const OptionIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5580,6 +5673,10 @@ declare const Package2Icon: (
 ) => React$1.JSX.Element;
 
 declare const PackageCheckIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PackageIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5603,7 +5700,11 @@ declare const PackageXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PackageIcon: (
+declare const Paintbrush2Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PaintbrushIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5612,14 +5713,6 @@ declare const PaintBucketIcon: (
 ) => React$1.JSX.Element;
 
 declare const PaintRollerIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const Paintbrush2Icon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PaintbrushIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5635,11 +5728,11 @@ declare const PanelBottomDashedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PanelBottomOpenIcon: (
+declare const PanelBottomIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PanelBottomIcon: (
+declare const PanelBottomOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5651,11 +5744,11 @@ declare const PanelLeftDashedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PanelLeftOpenIcon: (
+declare const PanelLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PanelLeftIcon: (
+declare const PanelLeftOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5667,27 +5760,11 @@ declare const PanelRightDashedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PanelRightOpenIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const PanelRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PanelTopCloseIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PanelTopDashedIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PanelTopOpenIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PanelTopIcon: (
+declare const PanelRightOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5700,6 +5777,22 @@ declare const PanelsRightBottomIcon: (
 ) => React$1.JSX.Element;
 
 declare const PanelsTopLeftIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PanelTopCloseIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PanelTopDashedIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PanelTopIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PanelTopOpenIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5719,6 +5812,10 @@ declare const PartyPopperIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const PasscodeLockIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const PauseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5731,15 +5828,9 @@ declare const PcCaseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PenLineIcon: (
+declare const PencilIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const PenToolIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PenIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const PencilLineIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5749,11 +5840,17 @@ declare const PencilRulerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PencilIcon: (
+declare const PenIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const PenLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const PentagonIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PenToolIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5773,6 +5870,10 @@ declare const PhoneForwardedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const PhoneIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const PhoneIncomingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -5788,12 +5889,6 @@ declare const PhoneOffIcon: (
 declare const PhoneOutgoingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const PhoneIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PiIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const PianoIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -5823,23 +5918,29 @@ declare const PiggyBankIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const PiIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const PilcrowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const PillIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
+declare const PinIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const PinOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const PinIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const PipetteIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const PizzaIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const PlaneIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5851,15 +5952,13 @@ declare const PlaneTakeoffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PlaneIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const PlayIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const Plug2Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const PlugIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const PlugZap2Icon: (
   props: SVGProps<SVGSVGElement>,
@@ -5869,15 +5968,13 @@ declare const PlugZapIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PlugIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const PlusIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const PocketKnifeIcon: (
+declare const PocketIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PocketIcon: (
+declare const PocketKnifeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5885,11 +5982,11 @@ declare const PodcastIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PointerOffIcon: (
+declare const PointerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PointerIcon: (
+declare const PointerOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5905,11 +6002,11 @@ declare const PoundSterlingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PowerOffIcon: (
+declare const PowerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const PowerIcon: (
+declare const PowerOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5961,15 +6058,15 @@ declare const RadicalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const RadioIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const RadioReceiverIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const RadioTowerIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const RadioIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -5999,6 +6096,10 @@ declare const ReceiptEuroIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ReceiptIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ReceiptIndianRupeeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6020,10 +6121,6 @@ declare const ReceiptSwissFrancIcon: (
 ) => React$1.JSX.Element;
 
 declare const ReceiptTextIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ReceiptIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6065,11 +6162,15 @@ declare const RefreshCCWIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const RefreshCwIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const RefreshCWOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const RefreshCwIcon: (
+declare const RefreshCwSettingsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6137,15 +6238,11 @@ declare const Rotate3dIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const RotateCCWSquareIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const RotateCCWIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const RotateCWSquareIcon: (
+declare const RotateCCWSquareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6153,11 +6250,15 @@ declare const RotateCWIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const RouteOffIcon: (
+declare const RotateCWSquareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const RouteIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const RouteOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6237,6 +6338,8 @@ declare const ScanFaceIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ScanIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const ScanLineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6249,8 +6352,6 @@ declare const ScanTextIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ScanIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const ScatterChartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6259,15 +6360,11 @@ declare const SchoolIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ScissorsLineDashedIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const ScissorsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ScreenShareOffIcon: (
+declare const ScissorsLineDashedIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6275,11 +6372,15 @@ declare const ScreenShareIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ScrollTextIcon: (
+declare const ScreenShareOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const ScrollIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ScrollTextIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6291,6 +6392,10 @@ declare const SearchCodeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SearchIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const SearchSlashIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6299,19 +6404,15 @@ declare const SearchXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SearchIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const SendHorizontalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SendIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const SendToBackIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const SendIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const SeparatorHorizontalIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -6329,11 +6430,11 @@ declare const ServerCrashIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ServerOffIcon: (
+declare const ServerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ServerIcon: (
+declare const ServerOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6385,6 +6486,10 @@ declare const ShieldHalfIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ShieldIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const ShieldMinusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6405,15 +6510,11 @@ declare const ShieldXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const ShieldIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
+declare const ShipIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const ShipWheelIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const ShipIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const ShirtIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -6459,6 +6560,10 @@ declare const SignalHighIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SignalIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const SignalLowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6471,10 +6576,6 @@ declare const SignalZeroIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SignalIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const SignpostBigIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6484,6 +6585,10 @@ declare const SignpostIcon: (
 ) => React$1.JSX.Element;
 
 declare const SirenIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SitesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6523,19 +6628,19 @@ declare const SmartphoneChargingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SmartphoneNfcIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const SmartphoneIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SmilePlusIcon: (
+declare const SmartphoneNfcIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const SmileIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SmilePlusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6603,15 +6708,15 @@ declare const SquareActivityIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SquareArrowDownIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const SquareArrowDownLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const SquareArrowDownRightIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SquareArrowDownIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6639,15 +6744,15 @@ declare const SquareArrowRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SquareArrowUpIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const SquareArrowUpLeftIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const SquareArrowUpRightIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SquareArrowUpIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6723,6 +6828,10 @@ declare const SquareGanttChartIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SquareIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const SquareKanbanIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6731,11 +6840,11 @@ declare const SquareLibraryIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareMIcon: (
+declare const SquareMenuIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareMenuIcon: (
+declare const SquareMIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6747,11 +6856,11 @@ declare const SquareMousePointerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareParkingOffIcon: (
+declare const SquareParkingIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareParkingIcon: (
+declare const SquareParkingOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6815,19 +6924,15 @@ declare const SquareTerminalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareUserRoundIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const SquareUserIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareXIcon: (
+declare const SquareUserRoundIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SquareIcon: (
+declare const SquareXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6847,11 +6952,11 @@ declare const StarHalfIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const StarIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const StarOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const StarIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const StepBackIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -6893,9 +6998,15 @@ declare const SubscriptIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const SummaryIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const SunDimIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
+
+declare const SunIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const SunMediumIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -6905,17 +7016,15 @@ declare const SunMoonIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const SunSnowIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SunIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const SunriseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const SunsetIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const SunSnowIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -6963,6 +7072,10 @@ declare const TableColumnsSplitIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const TableIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const TablePropertiesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -6971,19 +7084,15 @@ declare const TableRowsSplitIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TableIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const TabletSmartphoneIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const TabletIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const TabletsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const TabletSmartphoneIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7027,11 +7136,11 @@ declare const TenantIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const TentIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const TentTreeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const TentIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const TerminalIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -7049,13 +7158,15 @@ declare const TestTubesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const TextCursorIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const TextCursorInputIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TextCursorIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
+declare const TextIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const TextQuoteIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -7069,9 +7180,11 @@ declare const TextSelectIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TextIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const TheaterIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const ThermometerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7080,10 +7193,6 @@ declare const ThermometerSnowflakeIcon: (
 ) => React$1.JSX.Element;
 
 declare const ThermometerSunIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ThermometerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7096,6 +7205,10 @@ declare const ThumbsUpIcon: (
 ) => React$1.JSX.Element;
 
 declare const TicketCheckIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const TicketIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7119,7 +7232,7 @@ declare const TicketXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TicketIcon: (
+declare const TimerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7128,10 +7241,6 @@ declare const TimerOffIcon: (
 ) => React$1.JSX.Element;
 
 declare const TimerResetIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const TimerIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7151,11 +7260,11 @@ declare const TorusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TouchpadOffIcon: (
+declare const TouchpadIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TouchpadIcon: (
+declare const TouchpadOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7167,6 +7276,10 @@ declare const ToyBrickIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const TraceIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const TractorIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -7175,11 +7288,11 @@ declare const TrafficConeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TrainFrontTunnelIcon: (
+declare const TrainFrontIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TrainFrontIcon: (
+declare const TrainFrontTunnelIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7231,11 +7344,11 @@ declare const TriangleAlertIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TriangleRightIcon: (
+declare const TriangleIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const TriangleIcon: (
+declare const TriangleRightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7265,11 +7378,11 @@ declare const TwitterIcon: (
 
 declare const TypeIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
-declare const UmbrellaOffIcon: (
+declare const UmbrellaIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const UmbrellaIcon: (
+declare const UmbrellaOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7329,6 +7442,8 @@ declare const UserCogIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const UserIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const UserMinusIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
@@ -7342,6 +7457,10 @@ declare const UserRoundCheckIcon: (
 ) => React$1.JSX.Element;
 
 declare const UserRoundCogIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const UserRoundIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7361,25 +7480,19 @@ declare const UserRoundXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const UserRoundIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const UserSearchIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const UserXIcon: (
+declare const UsersIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const UserIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const UsersRoundIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const UsersIcon: (
+declare const UserXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7411,19 +7524,19 @@ declare const VenetianMaskIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const VibrateOffIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
 declare const VibrateIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const VideoOffIcon: (
+declare const VibrateOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
 declare const VideoIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
+declare const VideoOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7449,11 +7562,11 @@ declare const Volume2Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const VolumeXIcon: (
+declare const VolumeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const VolumeIcon: (
+declare const VolumeXIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7463,11 +7576,11 @@ declare const WalletCardsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WalletMinimalIcon: (
+declare const WalletIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WalletIcon: (
+declare const WalletMinimalIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7475,11 +7588,11 @@ declare const WallpaperIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const WandIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const WandSparklesIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const WandIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const WarehouseIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -7505,11 +7618,11 @@ declare const WebcamIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WebhookOffIcon: (
+declare const WebhookIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WebhookIcon: (
+declare const WebhookOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7517,11 +7630,11 @@ declare const WeightIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WheatOffIcon: (
+declare const WheatIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WheatIcon: (
+declare const WheatOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
@@ -7529,19 +7642,19 @@ declare const WholeWordIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const WifiIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const WifiOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
-declare const WifiIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
 declare const WindIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
+declare const WineIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const WineOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const WineIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const WorkflowIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -7563,11 +7676,11 @@ declare const YoutubeIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const ZapIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
+
 declare const ZapOffIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const ZapIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const ZoomInIcon: (
   props: SVGProps<SVGSVGElement>,
@@ -7576,96 +7689,6 @@ declare const ZoomInIcon: (
 declare const ZoomOutIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
-
-declare const BalancerIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BellArrowIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BoxOutlineIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BucketCopyIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const BucketQuotaIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ClusterHealthIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ClusterIngressIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ClusterReplicationIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ClusterIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ClustersIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const DataIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const DatabaseApiIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const FolderKey2Icon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const HardDriveSearchIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const PasscodeLockIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const RefreshCwSettingsIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SitesIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const SummaryIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const TraceIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const LambdaIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const LDAPIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
-
-declare const ClusterNodeIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const ContainerImagesIcon: (
-  props: SVGProps<SVGSVGElement>,
-) => React$1.JSX.Element;
-
-declare const OidcIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 interface TableComponentsExtraProps {
   sx?: OverrideTheme;
@@ -7699,6 +7722,16 @@ declare const TableHeadCell: FC<
 declare const TableRow: FC<
   TableComponentsExtraProps & React__default.HTMLAttributes<HTMLTableRowElement>
 >;
+
+declare const themeColors: ThemeColorItem;
+declare const themeShadows: {
+  "boxShadow-01": string;
+  "boxShadow-02": string;
+  "boxShadow-03": string;
+  "boxShadow-04": string;
+  "focusStyle-Light": string;
+  "focusStyle-Dark": string;
+};
 
 declare const lightColors: {
   white: string;
@@ -7919,16 +7952,6 @@ declare const lightV2: {
 declare const lightTheme: ThemeDefinitionProps;
 declare const darkTheme: ThemeDefinitionProps;
 
-declare const themeColors: ThemeColorItem;
-declare const themeShadows: {
-  "boxShadow-01": string;
-  "boxShadow-02": string;
-  "boxShadow-03": string;
-  "boxShadow-04": string;
-  "focusStyle-Light": string;
-  "focusStyle-Dark": string;
-};
-
 export {
   AArrowDownIcon,
   AArrowUpIcon,
@@ -7941,8 +7964,6 @@ export {
   type ActionButtonProps,
   type ActionCustomButton,
   type ActionItem,
-  ActionLink,
-  type ActionLinkProps,
   ActionsList,
   type ActionsListPanelProps,
   type ActionsListProps,
@@ -8103,7 +8124,7 @@ export {
   BarChartIcon,
   BarcodeIcon,
   BareMetalLinuxSiteIcon,
-  type BaseActionLinkProps,
+  type BaseLinkButtonProps,
   BaselineIcon,
   BathIcon,
   BatteryChargingIcon,
@@ -8408,12 +8429,12 @@ export {
   Columns4Icon,
   CombineIcon,
   CommandIcon,
-  InputBox as CommentBox,
+  InputBox$1 as CommentBox,
   type CommentBoxProps,
   type CommentContainerProps,
-  type CommonActionLinkProps,
   type CommonHelpTipPlacement,
   type CommonInputThemeProps,
+  type CommonLinkButtonProps,
   type CommonProgressBar,
   CompassIcon,
   ComponentIcon,
@@ -8819,7 +8840,7 @@ export {
   type InformativeMessageMain,
   type InformativeMessageProps,
   type InformativeMessageThemeProps,
-  InputBox$1 as InputBox,
+  InputBox,
   type InputBoxProps,
   type InputBoxThemeProps,
   type InputContainerProps,
@@ -8877,6 +8898,10 @@ export {
   Link,
   Link2Icon,
   Link2OffIcon,
+  LinkButton,
+  type LinkButtonProps,
+  type LinkButtonThemeProps,
+  type LinkButtonVariant,
   LinkIcon,
   type LinkProps,
   LinkedinIcon,
