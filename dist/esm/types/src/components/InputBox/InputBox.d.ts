@@ -1,4 +1,6 @@
-import { FC } from "react";
+import React from "react";
 import { InputBoxProps } from "./InputBox.types";
-declare const InputBox: FC<InputBoxProps>;
+declare const InputBox: React.ForwardRefExoticComponent<
+  InputBoxProps & React.RefAttributes<React.HTMLAttributes<HTMLInputElement>>
+>;
 export default InputBox;

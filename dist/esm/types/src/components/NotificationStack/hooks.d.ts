@@ -1,5 +1,5 @@
-import { NotificationStackProps } from "./NotificationStack.types";
 import { NotificationAlertPrp } from "../NotificationAlert/NotificationAlert.types";
+import { NotificationStackProps } from "./NotificationStack.types";
 export declare const useNotifications: () => {
   notifications: NotificationStackProps[];
   addNotification: (

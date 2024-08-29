@@ -1,6 +1,6 @@
 import React from "react";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 import { OverrideTheme } from "../../global/global.types";
+import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 export interface InputBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
@@ -11,7 +11,7 @@ export interface InputBoxProps
   index?: number;
   overlayId?: "index";
   overlayIcon?: React.ReactNode;
-  overlayAction?: () => void;
+  overlayAction?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   overlayObject?: React.ReactNode;
   noLabelMinWidth?: boolean;
   startIcon?: React.ReactNode;

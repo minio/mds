@@ -1,5 +1,5 @@
-import { IBytesCalc, OverrideTheme } from "./global.types";
 import { DefaultTheme } from "styled-components";
+import { IBytesCalc, OverrideTheme } from "./global.types";
 export declare const breakPoints: {
   xs: number;
   sm: number;
