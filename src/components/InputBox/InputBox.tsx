@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useState } from "react";
+import React, { RefObject, useState } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 
@@ -190,175 +190,184 @@ const InputContainer = styled.div<InputContainerProps>(
   }),
 );
 
-const InputBox: FC<InputBoxProps> = ({
-  id,
-  tooltip = "",
-  index,
-  type,
-  overlayIcon,
-  noLabelMinWidth,
-  overlayAction,
-  overlayObject,
-  label = "",
-  required,
-  startIcon,
-  className,
-  helper,
-  state = "normal",
-  sx,
-  helpTip,
-  helpTipPlacement,
-  sizeMode = "large",
-  orientation = "horizontal",
-  onFocus,
-  disableErrorUntilFocus = false,
-  children,
-  value,
-  ...props
-}) => {
-  const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
+const InputBox = React.forwardRef<
+  React.HTMLAttributes<HTMLInputElement>,
+  InputBoxProps
+>(
+  (
+    {
+      id,
+      tooltip = "",
+      index,
+      type,
+      overlayIcon,
+      noLabelMinWidth,
+      overlayAction,
+      overlayObject,
+      label = "",
+      required,
+      startIcon,
+      className,
+      helper,
+      state = "normal",
+      sx,
+      helpTip,
+      helpTipPlacement,
+      sizeMode = "large",
+      orientation = "horizontal",
+      onFocus,
+      disableErrorUntilFocus = false,
+      children,
+      value,
+      ...props
+    },
+    ref,
+  ) => {
+    const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
 
-  let inputBoxWrapperIcon = overlayIcon;
-  let inputBoxWrapperType = type;
+    let inputBoxWrapperIcon = overlayIcon;
+    let inputBoxWrapperType = type;
 
-  if (type === "password" && !overlayIcon) {
-    inputBoxWrapperIcon = toggleTextInput ? <EyeOffIcon /> : <EyeIcon />;
-    inputBoxWrapperType = toggleTextInput ? "text" : "password";
-  }
+    if (type === "password" && !overlayIcon) {
+      inputBoxWrapperIcon = toggleTextInput ? <EyeOffIcon /> : <EyeIcon />;
+      inputBoxWrapperType = toggleTextInput ? "text" : "password";
+    }
 
-  const [hasReceivedFocus, setHasReceivedFocus] = useState<boolean>(false);
+    const [hasReceivedFocus, setHasReceivedFocus] = useState<boolean>(false);
 
-  if (
-    !disableErrorUntilFocus &&
-    state === "error" &&
-    !hasReceivedFocus &&
-    helper
-  ) {
-    helper = "";
-    state = "normal";
-  }
+    if (
+      !disableErrorUntilFocus &&
+      state === "error" &&
+      !hasReceivedFocus &&
+      helper
+    ) {
+      helper = "";
+      state = "normal";
+    }
 
-  return (
-    <InputContainer
-      sx={(theme) => ({
-        "& .accessoryIcon": {
-          position: "absolute",
-          right: overlayIcon || type === "password" ? 8 + 29 : 8,
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: 16,
-          height: 16,
-        },
-        flexDirection: orientation === "vertical" ? "column" : "row",
-        "& .inputLabel.verticalMode": {
-          fontSize: 14,
-          fontStyle: "normal",
-          fontWeight: 400,
-          lineHeight: "20px",
-          letterSpacing: "0.16px",
-          color: theme.colors["Color/Neutral/Text/colorTextLabel"],
-          marginBottom: paddingSizeVariants.sizeXXS,
-        },
-        ...sx,
-      })}
-      className={`inputItem inputBox Base_Normal ${className}`}
-      sizeMode={sizeMode}
-    >
-      {label !== "" && (
-        <InputLabel
-          htmlFor={id}
-          noMinWidth={noLabelMinWidth}
-          className={`inputLabel ${orientation === "vertical" ? "verticalMode" : ""}`}
-          helpTip={helpTip}
-          helpTipPlacement={helpTipPlacement}
-          orientation={orientation}
-          inputSizeMode={sizeMode}
-        >
-          {label}
-          {required ? "*" : ""}
-          {tooltip !== "" && (
-            <Box className={"tooltipContainer"}>
-              <Tooltip tooltip={tooltip} placement="top">
-                <Box className={tooltip}>
-                  <CircleHelpIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-          )}
-        </InputLabel>
-      )}
-
-      <Box className={"textBoxContainer"}>
-        <Box sx={{ position: "relative" }}>
-          {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
-          <InputBase
-            id={id}
-            fullWidth
-            type={inputBoxWrapperType}
-            helper={helper}
-            state={state}
-            className={`Base_Normal inputRebase ${state}State ${value && value !== "" ? "filled" : ""}`}
-            value={value}
-            data-index={index}
-            startIcon={startIcon}
-            overlayObject={overlayObject}
-            overlayIcon={overlayIcon}
-            originType={type}
-            sizeMode={sizeMode}
-            onFocus={(e) => {
-              setHasReceivedFocus(true);
-              if (onFocus) {
-                onFocus(e);
-              }
-            }}
-            {...props}
-          />
-          {state === "error" && (
-            <CircleAlertIcon className={"accessoryIcon errorState"} />
-          )}
-          {state === "warning" && (
-            <TriangleAlertIcon className={"accessoryIcon warningState"} />
-          )}
-          {state === "success" && (
-            <CircleCheckIcon className={"accessoryIcon successState"} />
-          )}
-          {inputBoxWrapperIcon && (
-            <Box className={"overlayAction"}>
-              <Button
-                onClick={
-                  overlayAction
-                    ? (e) => {
-                        overlayAction(e);
-                      }
-                    : () => setToggleTextInput(!toggleTextInput)
-                }
-                id={`${id}-button`}
-                type={"button"}
-                icon={inputBoxWrapperIcon}
-              />
-            </Box>
-          )}
-          {overlayObject && (
-            <Box className={"overlayAction"}>{overlayObject}</Box>
-          )}
-        </Box>
-        {helper !== undefined && (
-          <Box
-            sx={(theme) => ({
-              color: theme.colors["Color/Neutral/Text/colorTextLabel"],
-              marginTop: 4,
-              lineHeight: "16px",
-              minHeight: 16,
-            })}
-            className={`SM_Normal ${state}State`}
+    return (
+      <InputContainer
+        sx={(theme) => ({
+          "& .accessoryIcon": {
+            position: "absolute",
+            right: overlayIcon || type === "password" ? 8 + 29 : 8,
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: 16,
+            height: 16,
+          },
+          flexDirection: orientation === "vertical" ? "column" : "row",
+          "& .inputLabel.verticalMode": {
+            fontSize: 14,
+            fontStyle: "normal",
+            fontWeight: 400,
+            lineHeight: "20px",
+            letterSpacing: "0.16px",
+            color: theme.colors["Color/Neutral/Text/colorTextLabel"],
+            marginBottom: paddingSizeVariants.sizeXXS,
+          },
+          ...sx,
+        })}
+        className={`inputItem inputBox Base_Normal ${className}`}
+        sizeMode={sizeMode}
+      >
+        {label !== "" && (
+          <InputLabel
+            htmlFor={id}
+            noMinWidth={noLabelMinWidth}
+            className={`inputLabel ${orientation === "vertical" ? "verticalMode" : ""}`}
+            helpTip={helpTip}
+            helpTipPlacement={helpTipPlacement}
+            orientation={orientation}
+            inputSizeMode={sizeMode}
           >
-            {helper}
-          </Box>
+            {label}
+            {required ? "*" : ""}
+            {tooltip !== "" && (
+              <Box className={"tooltipContainer"}>
+                <Tooltip tooltip={tooltip} placement="top">
+                  <Box className={tooltip}>
+                    <CircleHelpIcon />
+                  </Box>
+                </Tooltip>
+              </Box>
+            )}
+          </InputLabel>
         )}
-        {children}
-      </Box>
-    </InputContainer>
-  );
-};
+
+        <Box className={"textBoxContainer"}>
+          <Box sx={{ position: "relative" }}>
+            {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
+            <InputBase
+              id={id}
+              fullWidth
+              type={inputBoxWrapperType}
+              helper={helper}
+              state={state}
+              className={`Base_Normal inputRebase ${state}State ${value && value !== "" ? "filled" : ""}`}
+              value={value}
+              data-index={index}
+              startIcon={startIcon}
+              overlayObject={overlayObject}
+              overlayIcon={overlayIcon}
+              originType={type}
+              sizeMode={sizeMode}
+              onFocus={(e) => {
+                setHasReceivedFocus(true);
+                if (onFocus) {
+                  onFocus(e);
+                }
+              }}
+              ref={ref as RefObject<HTMLInputElement> | null | undefined}
+              {...props}
+            />
+            {state === "error" && (
+              <CircleAlertIcon className={"accessoryIcon errorState"} />
+            )}
+            {state === "warning" && (
+              <TriangleAlertIcon className={"accessoryIcon warningState"} />
+            )}
+            {state === "success" && (
+              <CircleCheckIcon className={"accessoryIcon successState"} />
+            )}
+            {inputBoxWrapperIcon && (
+              <Box className={"overlayAction"}>
+                <Button
+                  onClick={
+                    overlayAction
+                      ? (e) => {
+                          overlayAction(e);
+                        }
+                      : () => setToggleTextInput(!toggleTextInput)
+                  }
+                  id={`${id}-button`}
+                  type={"button"}
+                  icon={inputBoxWrapperIcon}
+                />
+              </Box>
+            )}
+            {overlayObject && (
+              <Box className={"overlayAction"}>{overlayObject}</Box>
+            )}
+          </Box>
+          {helper !== undefined && (
+            <Box
+              sx={(theme) => ({
+                color: theme.colors["Color/Neutral/Text/colorTextLabel"],
+                marginTop: 4,
+                lineHeight: "16px",
+                minHeight: 16,
+              })}
+              className={`SM_Normal ${state}State`}
+            >
+              {helper}
+            </Box>
+          )}
+          {children}
+        </Box>
+      </InputContainer>
+    );
+  },
+);
 
 export default InputBox;

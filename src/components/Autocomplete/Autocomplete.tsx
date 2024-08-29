@@ -14,74 +14,17 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, Fragment, useEffect, useState } from "react";
+import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 
 import { overridePropsParse } from "../../global/utils";
-import Box from "../Box/Box";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
-import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import { InputContainerProps } from "../InputBox/InputBox.types";
-import InputLabel from "../InputLabel/InputLabel";
-import Tooltip from "../Tooltip/Tooltip";
 import { AutocompleteProps } from "./Autocomplete.types";
-
-const AutocompleteBase = styled.input(({ theme }) => {
-  const borderColor = get(theme, "inputBox.border", "#E2E2E2");
-  const borderHover = get(theme, "inputBox.hoverBorder", "#000110");
-
-  return {
-    display: "flex",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    alignItems: "center",
-    height: 38,
-    width: "100%",
-    padding: "0 35px 0 15px",
-    color: get(theme, "inputBox.color", "#07193E"),
-    fontSize: 13,
-    fontWeight: 400,
-    border: `${borderColor} 1px solid`,
-    borderRadius: 3,
-    outline: "none",
-    transitionDuration: "0.1s",
-    transitionProperty: "border",
-    backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
-    userAutocomplete: "none",
-    "&:placeholder": {
-      color: "#858585",
-      opacity: 1,
-      fontWeight: 400,
-    },
-    "&:hover": {
-      borderColor: borderHover,
-    },
-    "&:focus": {
-      borderColor: borderHover,
-    },
-    "&.disabled, &:disabled": {
-      border: get(theme, "inputBox.disabledBorder", "#494A4D"),
-      backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
-      color: get(theme, "inputBox.disabledText", "#E6EBEB"),
-      "&:placeholder": {
-        color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
-      },
-      "&:hover": {
-        borderColor: get(theme, "inputBox.disabledBorder", "#494A4D"),
-      },
-      "&:focus": {
-        borderColor: get(theme, "inputBox.disabledBorder", "#494A4D"),
-      },
-    },
-    "&.withIcon": {
-      paddingLeft: 38,
-    },
-  };
-});
+import InputBox from "../InputBox/InputBox";
 
 const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
   display: "flex",
@@ -89,44 +32,6 @@ const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
   width: "100%",
   height: 38,
   position: "relative",
-  "& .AutocompleteContainer": {
-    width: "100%",
-    flexGrow: 1,
-    position: "relative",
-    minWidth: 80,
-  },
-  "& .tooltipContainer": {
-    marginLeft: 5,
-    display: "flex",
-    alignItems: "center",
-    "& .min-icon": {
-      width: 13,
-    },
-  },
-  "& .overlayArrow": {
-    position: "absolute",
-    top: "50%",
-    transform: "translateY(-50%)",
-    marginTop: 2,
-    right: 5,
-    "& svg": {
-      width: 26,
-      height: 26,
-      color: get(theme, "inputBox.color", "#07193E"),
-    },
-  },
-  "& .iconOption": {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    marginLeft: 15,
-    height: 38,
-    "& svg": {
-      width: 16,
-      height: 16,
-    },
-  },
   ...overridePropsParse(sx, theme),
 }));
 
@@ -146,15 +51,18 @@ const Autocomplete: FC<AutocompleteProps> = ({
   placeholder = "",
   helpTip,
   helpTipPlacement,
-  displayDropArrow = true,
+  sizeMode = "large",
+  orientation = "horizontal",
+  state = "normal",
+  readOnly = false,
+  helper,
 }) => {
+  const baseInputRef = useRef(null);
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [searchBoxVal, setSearchBoxVal] = useState<string>("");
   const [valueSelected, setValueSelected] = useState<number | null>(null);
   const [filterVal, setFilterVal] = useState<string>("");
-  const [anchorEl, setAnchorEl] = React.useState<
-    (EventTarget & HTMLDivElement) | null
-  >(null);
 
   useEffect(() => {
     if (value !== "") {
@@ -169,9 +77,19 @@ const Autocomplete: FC<AutocompleteProps> = ({
     item.label.toLowerCase().includes(filterVal.toLowerCase()),
   );
 
-  const optionWithIcon =
-    valueSelected !== null &&
-    (options[valueSelected]?.icon || options[valueSelected]?.indicator);
+  const startIcon = useMemo(() => {
+    const optionWithIcon =
+      valueSelected !== null &&
+      (options[valueSelected]?.icon || options[valueSelected]?.indicator);
+
+    if (!optionWithIcon) {
+      return null;
+    }
+
+    return options[valueSelected]?.indicator
+      ? options[valueSelected]?.indicator
+      : options[valueSelected].icon;
+  }, [options, valueSelected]);
 
   return (
     <InputContainer
@@ -182,97 +100,83 @@ const Autocomplete: FC<AutocompleteProps> = ({
           setIsOpen(true);
         }
       }}
+      id={`${id}-Autocomplete`}
     >
-      {label !== "" && (
-        <InputLabel
-          htmlFor={id}
-          noMinWidth={noLabelMinWidth}
-          className={"inputLabel"}
-          helpTip={helpTip}
-          helpTipPlacement={helpTipPlacement}
-          inputSizeMode={"large"}
-        >
-          {label}
-          {required ? "*" : ""}
-          {tooltip !== "" && (
-            <Box className={"tooltipContainer"}>
-              <Tooltip tooltip={tooltip} placement="top">
-                <Box className={tooltip}>
-                  <CircleHelpIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-          )}
-        </InputLabel>
-      )}
-
-      <Box
-        id={`${id}-Autocomplete`}
-        className={"AutocompleteContainer"}
-        onClick={(e) => {
+      <InputBox
+        label={label}
+        required={required}
+        tooltip={tooltip}
+        noLabelMinWidth={noLabelMinWidth}
+        helpTip={helpTip}
+        helpTipPlacement={helpTipPlacement}
+        disabled={disabled}
+        id={id}
+        name={name}
+        value={searchBoxVal}
+        onChange={(e) => {
+          setSearchBoxVal(e.target.value);
+          setFilterVal(e.target.value);
+        }}
+        placeholder={placeholder}
+        sizeMode={sizeMode}
+        helper={helper}
+        orientation={orientation}
+        state={state}
+        readOnly={readOnly}
+        overlayIcon={isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        overlayAction={() => {
           if (!disabled) {
             setIsOpen(!isOpen);
-            setAnchorEl(e.currentTarget);
           }
         }}
-      >
-        {optionWithIcon && (
-          <Box className={"iconOption"}>
-            {options[valueSelected]?.indicator
-              ? options[valueSelected]?.indicator
-              : options[valueSelected].icon}
-          </Box>
-        )}
-        <AutocompleteBase
-          disabled={disabled}
-          id={id}
-          name={name}
-          value={searchBoxVal}
-          onChange={(e) => {
-            setSearchBoxVal(e.target.value);
-            setFilterVal(e.target.value);
+        startIcon={startIcon}
+        onClick={() => {
+          if (!disabled) {
+            setIsOpen(!isOpen);
+          }
+        }}
+        sx={{
+          ...sx,
+          "& .overlayAction > button": {
+            borderLeft: 0,
+            backgroundColor: "transparent",
+          },
+          "& .accessoryIcon": {
+            display: "none",
+          },
+        }}
+        ref={baseInputRef}
+      />
+      {isOpen && (
+        <DropdownSelector
+          id={`${id}-options-Autocomplete`}
+          options={filteredOptions}
+          selectedOption={value}
+          onSelect={(nValue, extraValue, label, id) => {
+            setSearchBoxVal(label || "");
+            setFilterVal("");
+            if (id !== undefined) {
+              setValueSelected(id);
+            }
+            onChange(nValue, extraValue);
           }}
-          placeholder={placeholder}
-          className={`${optionWithIcon ? "withIcon" : ""}`}
-        />
-        {displayDropArrow && (
-          <Box className={"overlayArrow"}>
-            <Fragment>
-              {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-            </Fragment>
-          </Box>
-        )}
-        {isOpen && (
-          <DropdownSelector
-            id={`${id}-options-Autocomplete`}
-            options={filteredOptions}
-            selectedOption={value}
-            onSelect={(nValue, extraValue, label, id) => {
-              setSearchBoxVal(label || "");
-              setFilterVal("");
-              if (id !== undefined) {
-                setValueSelected(id);
-              }
-              onChange(nValue, extraValue);
-            }}
-            hideTriggerAction={() => {
-              setIsOpen(false);
-              if (
-                (value !== "" && searchBoxVal === "") ||
-                filteredOptions.length === 0
-              ) {
-                const option = options.find((option) => option.value === value);
+          hideTriggerAction={() => {
+            setIsOpen(false);
+            if (
+              (value !== "" && searchBoxVal === "") ||
+              filteredOptions.length === 0
+            ) {
+              const option = options.find((option) => option.value === value);
 
-                setSearchBoxVal(option?.label || "");
-              }
-            }}
-            open={isOpen}
-            anchorEl={anchorEl}
-            useAnchorWidth
-            forSelectInput
-          />
-        )}
-      </Box>
+              setSearchBoxVal(option?.label || "");
+            }
+          }}
+          open={isOpen}
+          anchorEl={baseInputRef.current}
+          useAnchorWidth
+          forSelectInput
+        />
+      )}
     </InputContainer>
   );
 };
