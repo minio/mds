@@ -244,7 +244,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
                       name={name}
                       id={`option-${id}-${selector.value}`}
                       value={selector.value}
-                      defaultChecked={currentValue === selector.value}
+                      checked={currentValue === selector.value}
                       onChange={(event) => onChange(event, selector.extraValue)}
                       disabled={disableOptions || !!selector.disabled}
                     />
