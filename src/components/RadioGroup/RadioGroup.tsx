@@ -52,6 +52,7 @@ const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
           "radioGroup.radioHoverBorder",
           themeColors["Color/Brand/Primary/colorPrimaryHover"].lightMode,
         ),
+        cursor: "pointer",
       },
       "&.checked": {
         borderColor: get(
@@ -115,6 +116,7 @@ const RadioButton = styled.label<InputLabelProps>(({ sx, theme }) => ({
             "radioGroup.radioDisabledBackground",
             themeColors["Color/Neutral/Border/colorBorderSubtle"].lightMode,
           ),
+          cursor: "not-allowed",
         },
         "&.checked": {
           backgroundColor: get(
@@ -160,6 +162,9 @@ const OptionsContainer = styled.div<OptionsContainerProps>(
           "radioGroup.subLabelColor",
           themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
         ),
+      },
+      "&:hover": {
+        cursor: "pointer",
       },
       "&.disabled": {
         color: get(
@@ -244,7 +249,7 @@ const RadioGroup: FC<RadioGroupProps> = ({
                       name={name}
                       id={`option-${id}-${selector.value}`}
                       value={selector.value}
-                      defaultChecked={currentValue === selector.value}
+                      checked={currentValue === selector.value}
                       onChange={(event) => onChange(event, selector.extraValue)}
                       disabled={disableOptions || !!selector.disabled}
                     />
