@@ -20,7 +20,7 @@ import get from "lodash/get";
 import styled from "styled-components";
 
 import { lightColors, lightV2 } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
+import { breakPoints, overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
 import CircleHelpIcon from "../Icons/NewDesignIcons/CircleHelpIcon";
 import InputLabel from "../InputLabel/InputLabel";
@@ -28,23 +28,25 @@ import Tooltip from "../Tooltip/Tooltip";
 import { CodeEditorBaseProps, CodeEditorProps } from "./CodeEditor.types";
 
 const CodeEditorBase = styled.div<CodeEditorBaseProps>(
-  ({ theme, editorHeight, sx }) => ({
-    "& .editorContainer": {
-      maxHeight: editorHeight,
+  ({ theme, editorHeight, sx, horizontal }) => ({
+    display: "grid",
+    gridTemplateColumns: horizontal ? "auto 1fr" : "1fr",
+    [`@media (max-width: ${breakPoints.md}px)`]: {
+      gridTemplateColumns: "1fr",
+    },
+    "& .inputLabel": {
+      marginBottom: 10,
+    },
+    "& .editorWrapper": {
       overflow: "auto",
       border: `${get(theme, "borderColor", lightV2.borderColor)} 1px solid`,
-      borderTopLeftRadius: 4,
-      borderTopRightRadius: 4,
+      borderRadius: 4,
     },
-    "& .tooltipContainer": {
-      marginLeft: 5,
-      display: "flex",
-      alignItems: "center",
-      "& .min-icon": {
-        width: 13,
-      },
+    "& .editorContainer": {
+      overflow: "auto",
+      maxHeight: editorHeight,
     },
-    "& .mds-editor": {
+    "& .editor": {
       "&.w-tc-editor": {
         fontSize: 12,
         backgroundColor: get(
@@ -216,13 +218,10 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
         "codeEditor.helpToolsBarBG",
         lightColors.boxBackground,
       ),
-      border: `${get(theme, "borderColor", lightV2.borderColor)} 1px solid`,
-      borderTop: 0,
+      borderBottom: `${get(theme, "borderColor", lightV2.borderColor)} 1px solid`,
       padding: "2px",
       paddingRight: "5px",
       justifyContent: "flex-end",
-      borderBottomLeftRadius: 4,
-      borderBottomRightRadius: 4,
       "& button": {
         height: "26px",
         width: "26px",
@@ -248,15 +247,17 @@ const CodeMirrorWrapper: FC<CodeEditorProps> = ({
   className,
   helpTip,
   helpTipPlacement,
+  horizontal = false,
 }) => {
   return (
     <CodeEditorBase
       sx={sx}
       editorHeight={editorHeight}
       className={`codeEditor inputItem ${className}`}
+      horizontal={horizontal}
     >
       <InputLabel
-        sx={{ marginBottom: "10px", display: "flex", alignItems: "center" }}
+        className={"inputLabel"}
         helpTip={helpTip}
         helpTipPlacement={helpTipPlacement}
       >
@@ -269,19 +270,21 @@ const CodeMirrorWrapper: FC<CodeEditorProps> = ({
           </Box>
         )}
       </InputLabel>
-      <Box className={"editorContainer"}>
-        <CodeEditor
-          value={value}
-          language={mode}
-          onChange={(evn) => {
-            onChange(evn.target.value);
-          }}
-          id={"code_wrapper"}
-          padding={15}
-          className={"mds-editor"}
-        />
+      <Box className={"editorWrapper"}>
+        {helpTools && <Box className={"actionsContainer"}>{helpTools}</Box>}
+        <Box className={"editorContainer"}>
+          <CodeEditor
+            value={value}
+            language={mode}
+            onChange={(evn) => {
+              onChange(evn.target.value);
+            }}
+            id={"code_wrapper"}
+            padding={15}
+            className={"editor"}
+          />
+        </Box>
       </Box>
-      {helpTools && <Box className={"actionsContainer"}>{helpTools}</Box>}
     </CodeEditorBase>
   );
 };
