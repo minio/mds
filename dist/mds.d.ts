@@ -930,11 +930,13 @@ interface CodeEditorProps {
   sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  horizontal?: boolean;
 }
 interface CodeEditorBaseProps {
   editorHeight: string | number;
   sx?: OverrideTheme;
   className?: string;
+  horizontal?: boolean;
 }
 
 declare const CodeMirrorWrapper: FC<CodeEditorProps>;
