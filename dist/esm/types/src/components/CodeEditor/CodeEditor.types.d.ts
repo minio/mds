@@ -13,9 +13,11 @@ export interface CodeEditorProps {
   sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  horizontal?: boolean;
 }
 export interface CodeEditorBaseProps {
   editorHeight: string | number;
   sx?: OverrideTheme;
   className?: string;
+  horizontal?: boolean;
 }
