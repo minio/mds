@@ -42,6 +42,12 @@ Default.args = {
   label: "Some Code to Edit",
 };
 
+export const WithHorizontal = Template.bind({});
+WithHorizontal.args = {
+  label: "Some Code to Edit",
+  horizontal: true,
+};
+
 export const WithHelpTools = Template.bind({});
 WithHelpTools.args = {
   label: "Some Code to Edit",
