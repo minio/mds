@@ -2401,7 +2401,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-actions@npm:8.2.9, @storybook/addon-actions@npm:^8.2.9":
+"@storybook/addon-actions@npm:8.2.9":
   version: 8.2.9
   resolution: "@storybook/addon-actions@npm:8.2.9"
   dependencies:
@@ -2413,6 +2413,21 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.9
   checksum: 10c0/eff86a8bba0a794aa228117706adc20b4fc561f3b3d65c860c78a7ae0514aeed8c7ae651cc2516abdda279869b554eeadbdeaec45b6cdb6479ab807e9f018847
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-actions@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "@storybook/addon-actions@npm:8.3.1"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@types/uuid": "npm:^9.0.1"
+    dequal: "npm:^2.0.2"
+    polished: "npm:^4.2.2"
+    uuid: "npm:^9.0.0"
+  peerDependencies:
+    storybook: ^8.3.1
+  checksum: 10c0/f8b763e5133e9f01be41f351d69b5638b9f62be58ac51c100c753bd9b66d0d42242672fd062bcf5924b9186192b6e2c7f8dfd2dd5b36799d18dcc0a1ba52ef40
   languageName: node
   linkType: hard
 
@@ -8741,7 +8756,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^26.0.1"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.6"
-    "@storybook/addon-actions": "npm:^8.2.9"
+    "@storybook/addon-actions": "npm:^8.3.1"
     "@storybook/addon-essentials": "npm:^8.2.9"
     "@storybook/addon-interactions": "npm:^8.2.9"
     "@storybook/addon-links": "npm:^8.2.9"
