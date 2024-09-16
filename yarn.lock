@@ -2511,20 +2511,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^8.2.9":
-  version: 8.2.9
-  resolution: "@storybook/addon-links@npm:8.2.9"
+"@storybook/addon-links@npm:^8.3.1":
+  version: 8.3.1
+  resolution: "@storybook/addon-links@npm:8.3.1"
   dependencies:
-    "@storybook/csf": "npm:0.1.11"
+    "@storybook/csf": "npm:^0.1.11"
     "@storybook/global": "npm:^5.0.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
-    storybook: ^8.2.9
+    storybook: ^8.3.1
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 10c0/ec850cbdcbe3c9f234c25d57a184745d3dd05f97b7278420e27ef350646c1a5439f0582f669ca4bcf58435c14767f21ff27b88904ce70dc1254335219b2b5b5f
+  checksum: 10c0/c9c565e33a6e6f8ec6628f74383525ad29d764f4051ba282cdfec500784249af600a97e2ce9f15547f10a0b1cd536794a45ba20ae61767ac2d10760b9378cab8
   languageName: node
   linkType: hard
 
@@ -2734,7 +2734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/csf@npm:0.1.11":
+"@storybook/csf@npm:0.1.11, @storybook/csf@npm:^0.1.11":
   version: 0.1.11
   resolution: "@storybook/csf@npm:0.1.11"
   dependencies:
@@ -8744,7 +8744,7 @@ __metadata:
     "@storybook/addon-actions": "npm:^8.2.9"
     "@storybook/addon-essentials": "npm:^8.2.9"
     "@storybook/addon-interactions": "npm:^8.2.9"
-    "@storybook/addon-links": "npm:^8.2.9"
+    "@storybook/addon-links": "npm:^8.3.1"
     "@storybook/addon-webpack5-compiler-babel": "npm:^3.0.3"
     "@storybook/react": "npm:^8.2.9"
     "@storybook/react-webpack5": "npm:^8.2.9"
