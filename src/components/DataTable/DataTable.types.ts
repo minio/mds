@@ -43,22 +43,20 @@ export interface ItemActions<T> {
   onClick?(valueToSend: T, index?: number): any;
 }
 
-type Column<T, K extends keyof T> = {
+export type IColumns<T> = {
   label: string;
-  elementKey?: K;
   globalClass?: any;
   rowClass?: any;
   width?: number;
   headerTextAlign?: string;
   contentTextAlign?: string;
+} & ({
+  elementKey: keyof T;
+  renderFunction: (input: T[keyof T]) => React.ReactNode | string;
   enableSort?: boolean;
-  renderFunction?: (input: T[K]) => React.ReactNode | string;
-  renderFullObjectFunction?: (input: T) => React.ReactNode | string;
-};
-
-export type IColumns<T> = {
-  [K in keyof T]: Column<T, K>;
-}[keyof T];
+} | {
+  renderFullObjectFunction: (input: T) => React.ReactNode | string;
+});
 
 export interface IInfiniteScrollConfig {
   loadMoreRecords: (indexElements: {
