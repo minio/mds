@@ -984,7 +984,7 @@ declare const actionsTypes: readonly [
 ];
 type PredefinedActionTypes = (typeof actionsTypes)[number];
 interface ItemActions<T> {
-  tooltip?: string;
+  tooltip?: string | ((itemValue: T) => string);
   type: PredefinedActionTypes | React__default.ReactNode;
   isDisabled?: boolean | ((itemValue: T) => boolean);
   showLoader?: boolean | ((itemValue: T) => boolean);
