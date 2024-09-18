@@ -36,7 +36,7 @@ export const actionsTypes = [
 export type PredefinedActionTypes = (typeof actionsTypes)[number];
 
 export interface ItemActions<T> {
-  tooltip?: string;
+  tooltip?: string | ((itemValue: T) => string);
   type: PredefinedActionTypes | React.ReactNode;
   isDisabled?: boolean | ((itemValue: T) => boolean);
   showLoader?: boolean | ((itemValue: T) => boolean);

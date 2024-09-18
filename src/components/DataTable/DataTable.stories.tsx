@@ -400,7 +400,9 @@ WithItemActions.args = {
       onClick: (deleteItem: RecordType) => {
         console.log("CLOUD", deleteItem.field1);
       },
-      tooltip: "Cloud",
+      tooltip: (tooltipItem: RecordType) => {
+        return `Custom - ${tooltipItem.field1}`;
+      },
     },
   ],
   records: [
