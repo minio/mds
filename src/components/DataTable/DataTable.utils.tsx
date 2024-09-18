@@ -235,9 +235,19 @@ export const elementActions = <T,>(
       }
     }
 
+    let tooltip = "";
+
+    if (action.tooltip) {
+      if (typeof action.tooltip === "function") {
+        tooltip = action.tooltip(valueToSend);
+      } else {
+        tooltip = action.tooltip ?? "";
+      }
+    }
+
     return (
       <TableActionButton
-        tooltip={action.tooltip}
+        tooltip={tooltip}
         type={action.type}
         onClick={action.onClick}
         valueToSend={valueToSend}
