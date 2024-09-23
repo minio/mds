@@ -220,7 +220,6 @@ const GlobalStyles = createGlobalStyle`
         font-style: normal;
         font-weight: 400;
         line-height: 16px;
-        letter-spacing: 0.5px;
     }
     .SM_Strong {
         font-family: 'Geist', sans-serif;
@@ -228,15 +227,13 @@ const GlobalStyles = createGlobalStyle`
         font-style: normal;
         font-weight: 600;
         line-height: 16px;
-        letter-spacing: 0.5px;
     }
     .Base_Normal {
         font-family: 'Geist', sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 16px;
-        letter-spacing: 0.5px;
+        line-height: 20px;
     }
     .Base_Strong {
         font-family: 'Geist', sans-serif;
@@ -251,8 +248,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px;
-        letter-spacing: 0.16px;
+        line-height: 24px;
     }
     .LG_Strong {
         font-family: 'Geist', sans-serif;
@@ -265,8 +261,8 @@ const GlobalStyles = createGlobalStyle`
     .XL_Normal {
         font-family: 'Geist', sans-serif;
         font-size: 20px;
-        font-style: 400;
-        font-weight: 84;
+        font-style: normal;
+        font-weight: 400;
         line-height: 28px;
     }
     .XL_Strong {
