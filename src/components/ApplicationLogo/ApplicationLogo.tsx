@@ -44,6 +44,8 @@ import Releases from "./Logos/Releases/Releases";
 import SUBNET from "./Logos/SUBNET/SUBNET";
 import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 import VMBroker from "./Logos/VMBroker/VMBroker";
+import AIStorTag from "./Logos/AIStor/AIStorTag";
+import AIStor from "./Logos/AIStor/AIStor";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -108,6 +110,14 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <GlobalConsole inverse={!!inverse} onClick={onClick} />;
     case "enterprise":
       return <Enterprise inverse={!!inverse} onClick={onClick} />;
+    case "aistor":
+      switch (subVariant) {
+        case "simple":
+          return <AIStor inverse={!!inverse} onClick={onClick} />;
+          break;
+        default:
+          return <AIStorTag inverse={!!inverse} onClick={onClick} />;
+      }
     case "minio":
       switch (subVariant) {
         case "enterprise":
