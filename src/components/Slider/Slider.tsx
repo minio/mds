@@ -206,6 +206,7 @@ const Slider: FC<SliderProps & React.InputHTMLAttributes<HTMLInputElement>> = ({
               max={max}
               step={step}
               disabled={disabled}
+              value={value}
               {...props}
             />
             <BackBar className={`${disabled ? "disabled" : ""}`} />
