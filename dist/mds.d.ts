@@ -703,7 +703,8 @@ interface ApplicationLogoProps {
     | "missioncontrol"
     | "globalconsole"
     | "minio"
-    | "enterprise";
+    | "enterprise"
+    | "aistor";
   subVariant?:
     | "simple"
     | "AGPL"
