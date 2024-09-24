@@ -46,6 +46,7 @@ import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 import VMBroker from "./Logos/VMBroker/VMBroker";
 import AIStorTag from "./Logos/AIStor/AIStorTag";
 import AIStor from "./Logos/AIStor/AIStor";
+import AIStorHorizontal from "./Logos/AIStor/AIStorHorizontal";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -115,6 +116,8 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
         case "simple":
           return <AIStor inverse={!!inverse} onClick={onClick} />;
           break;
+        case "horizontal":
+          return <AIStorHorizontal inverse={!!inverse} onClick={onClick} />;
         default:
           return <AIStorTag inverse={!!inverse} onClick={onClick} />;
       }
