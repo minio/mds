@@ -8,11 +8,11 @@
     "lib": ["es2017"],
     "strict": true,
     "esModuleInterop": false,
-    "outDir": "dist",
+    "outDir": "dist/esm",
+    "declarationDir": "dist/esm/types",
     "rootDir": "./",
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationDir": "types"
+    "declaration": true
   },
   "exclude": [
     "dist",
