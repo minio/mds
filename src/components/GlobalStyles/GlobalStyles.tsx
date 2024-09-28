@@ -101,6 +101,7 @@ const GlobalStyles = createGlobalStyle`
     /* Main Page styling */
     
     *, *::before, *::after {
+       font-family: 'Geist', sans-serif;
        box-sizing: inherit;
        outline:0;
     }
