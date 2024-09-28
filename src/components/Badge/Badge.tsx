@@ -90,7 +90,6 @@ const BadgeBase = styled.span<BadgeConstructProps>(
       userSelect: "none",
       appearance: "none",
       maxWidth: "100%",
-      fontFamily: "'Inter', sans-serif",
       fontSize: 12,
       fontWeight: 600,
       lineHeight: 16,
