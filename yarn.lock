@@ -2872,6 +2872,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/theming@npm:^8.3.4":
+  version: 8.3.4
+  resolution: "@storybook/theming@npm:8.3.4"
+  peerDependencies:
+    storybook: ^8.3.4
+  checksum: 10c0/8dc1675bbc0109e0dbaf4d4f1f49df87dcb61c4425c064b5aceeea167f797d77b0828e85bbbf5bfacbb95c2e434454e87957c51200b5ea65b9764a5b6c6cbfe0
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:10.4.0":
   version: 10.4.0
   resolution: "@testing-library/dom@npm:10.4.0"
@@ -8328,7 +8337,7 @@ __metadata:
     "@storybook/react": "npm:^8.3.3"
     "@storybook/react-webpack5": "npm:^8.3.3"
     "@storybook/test": "npm:^8.3.3"
-    "@storybook/theming": "npm:^8.3.3"
+    "@storybook/theming": "npm:^8.3.4"
     "@testing-library/jest-dom": "npm:^6.5.0"
     "@testing-library/react": "npm:^16.0.1"
     "@types/jest": "npm:^29.5.13"
