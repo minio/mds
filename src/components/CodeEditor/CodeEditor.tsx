@@ -55,8 +55,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
           lightV2.white,
         ),
         color: get(theme, "codeEditor.textColor", lightV2.fontColor),
-        fontFamily:
-          "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+        fontFamily: "'GeistMono', monospace!important",
         minHeight: editorHeight || "initial",
         [`& code[class*="language-"] .token.cdata,
       & pre[class*="language-"] .token.cdata,
@@ -198,16 +197,19 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
       },
       "& .w-tc-editor-text, .w-tc-editor-preview": {
         minHeight: 16,
+        "& textarea, *, *::before, *::after": {
+          fontFamily: "'GeistMono', monospace!important",
+        },
       },
       "& .w-tc-editor-preview pre": {
         margin: 0,
         padding: 0,
         whiteSpace: "inherit",
-        fontFamily: "inherit",
+        fontFamily: "'GeistMono', monospace!important",
         fontSize: "inherit",
       },
       "& .w-tc-editor-preview pre code": {
-        fontFamily: "inherit",
+        fontFamily: "'GeistMono', monospace!important",
       },
     },
     "& .actionsContainer": {

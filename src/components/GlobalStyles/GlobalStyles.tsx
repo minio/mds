@@ -29,6 +29,7 @@ const GeistThinWoff2 = require("../assets/fonts/Geist/Geist-Thin.woff2");
 const GeistSemiBoldWoff2 = require("../assets/fonts/Geist/Geist-SemiBold.woff2");
 const GeistMediumWoff2 = require("../assets/fonts/Geist/Geist-Medium.woff2");
 const GeistUltraLightWoff2 = require("../assets/fonts/Geist/Geist-UltraLight.woff2");
+const GeistMonoRegularWoff2 = require("../assets/fonts/Geist/GeistMono-Regular.woff2");
 
 const GlobalStyles = createGlobalStyle`
     ${({ theme }) => {
@@ -94,6 +95,14 @@ const GlobalStyles = createGlobalStyle`
       font-family: "Geist";
       src: url(${GeistThinWoff2}) format("woff2");
       font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: "GeistMono";
+      src: url(${GeistMonoRegularWoff2}) format("woff2");
+      font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
