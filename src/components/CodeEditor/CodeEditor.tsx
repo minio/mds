@@ -197,7 +197,7 @@ const CodeEditorBase = styled.div<CodeEditorBaseProps>(
       },
       "& .w-tc-editor-text, .w-tc-editor-preview": {
         minHeight: 16,
-        "& textarea, *, *::before, *::after": {
+        "& textarea, & *, & *::before, & *::after": {
           fontFamily: "'GeistMono', monospace!important",
         },
       },
