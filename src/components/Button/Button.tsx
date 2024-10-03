@@ -169,6 +169,7 @@ const CustomButton = styled.button<
 const Button: FC<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({
+  type = "button",
   label,
   variant = "secondary",
   icon,
@@ -205,6 +206,7 @@ const Button: FC<
 
   return (
     <CustomButton
+      type={type}
       onClick={onClick}
       disabled={disabled || false}
       variant={variant || "secondary"}
