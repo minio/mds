@@ -171,6 +171,14 @@ WithMaxNotifications.args = {
   maxNotifications: 2,
 };
 
+export const PersistentNotification = Template.bind({});
+PersistentNotification.args = {
+  notificationType: "warning",
+  message: "Warning Notification",
+  children: "This is a persistent warning message.",
+  duration: 0,
+};
+
 export const ErrorWithAction = Template.bind({});
 ErrorWithAction.args = {
   notificationType: "error",

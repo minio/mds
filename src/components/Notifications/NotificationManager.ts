@@ -87,9 +87,11 @@ class NotificationManager {
 
     // Auto-remove the notification after the specified duration
     const duration = options.duration ?? this.defaultDuration;
-    setTimeout(() => {
-      this.removeNotification(id);
-    }, duration);
+    if (duration > 0) {
+      setTimeout(() => {
+        this.removeNotification(id);
+      }, duration);
+    }
   }
 
   // Remove a notification by id
