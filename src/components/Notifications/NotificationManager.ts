@@ -107,6 +107,12 @@ class NotificationManager {
       }, 300);
     }
   }
+
+  // Clear all notifications
+  public clearNotifications() {
+    this.notifications = [];
+    this.notifySubscribers();
+  }
 }
 
 export default NotificationManager.getInstance();
