@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
-
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Notifications from "./Notifications";
 import { useNotification } from "./Notifications.hooks";
 import Button from "../Button/Button";
+import { NotificationPosition, positions } from "./Notifications.types";
+import RadioGroup from "../RadioGroup/RadioGroup";
+import Box from "../Box/Box";
+import InputBox from "../InputBox/InputBox";
+import Checkbox from "../Checkbox/Checkbox";
+import { BellIcon } from "../Icons/NewDesignIcons";
 
 type DemoProps = {
   notificationType: "success" | "error" | "warning" | "information" | "neutral";
@@ -24,55 +29,107 @@ type DemoProps = {
 };
 
 const Demo: React.FC<DemoProps> = ({
-  notificationType,
+  notificationType = "success",
   message,
   children,
-  position,
-  duration,
+  position = "top-center",
+  duration = 5000,
   action,
-  maxNotifications,
 }) => {
   const notification = useNotification();
+  const [displayPosition, setDisplayPosition] = useState(position);
+  const [displayType, setDisplayType] = useState(notificationType);
+  const [displayDuration, setDisplayDuration] = useState(duration);
+  const [displayAction, setDisplayAction] = useState(action);
+
+  const defaultAction = (
+    <Button
+      id="learn-more"
+      variant="primary-ghost"
+      compact
+      onClick={() => alert("Clicked!")}
+    >
+      Learn More
+    </Button>
+  );
 
   const handleNotification = () => {
     const options = {
       children,
-      position,
-      duration,
-      action,
+      position: displayPosition,
+      duration: displayDuration,
+      action: displayAction,
     };
 
-    switch (notificationType) {
-      case "success":
-        notification.success(message, options);
-        break;
-      case "error":
-        notification.error(message, options);
-        break;
-      case "warning":
-        notification.warning(message, options);
-        break;
-      case "information":
-        notification.information(message, options);
-        break;
-      case "neutral":
-        notification.neutral(message, options);
-        break;
-      default:
-        notification.success(message, options);
-    }
+    notification[displayType](message, options);
   };
 
-  useEffect(() => {
-    return notification.clear();
-  }, [notification]);
-
   return (
-    <div style={{ margin: "10px 0" }}>
-      <button onClick={handleNotification}>
-        Show {notificationType} Notification
-      </button>
-    </div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 16,
+        alignItems: "flex-start",
+      }}
+    >
+      <RadioGroup
+        id="position"
+        name="position"
+        label="Position"
+        currentValue={displayPosition}
+        selectorOptions={positions.map((value) => ({
+          value,
+          label: value,
+        }))}
+        onChange={(e) =>
+          setDisplayPosition(e.target.value as NotificationPosition)
+        }
+      />
+
+      <RadioGroup
+        id="type"
+        name="type"
+        label="Type"
+        currentValue={displayType}
+        selectorOptions={[
+          { value: "success", label: "Success" },
+          { value: "error", label: "Error" },
+          { value: "warning", label: "Warning" },
+          { value: "information", label: "Information" },
+          { value: "neutral", label: "Neutral" },
+        ]}
+        onChange={(e) =>
+          setDisplayType(e.target.value as DemoProps["notificationType"])
+        }
+      />
+
+      <InputBox
+        id="duration"
+        type="number"
+        label="Duration (ms)"
+        tooltip="Set to 0 for no auto-dismiss"
+        value={displayDuration}
+        onChange={(e) => setDisplayDuration(Number(e.target.value))}
+      />
+
+      <Checkbox
+        id="action"
+        label="Show Action"
+        checked={!!displayAction}
+        onChange={() =>
+          setDisplayAction((prev) => (prev ? undefined : defaultAction))
+        }
+      />
+
+      <Button
+        id="show-notification"
+        onClick={handleNotification}
+        icon={<BellIcon />}
+      >
+        Show Notification
+      </Button>
+    </Box>
   );
 };
 
@@ -152,69 +209,6 @@ const Template: Story<DemoProps> = (args) => <NotificationsWrapper {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  message: "This is a notification!",
-  maxNotifications: 5,
-};
-
-export const Success = Template.bind({});
-Success.args = {
-  notificationType: "success",
-  message: "Well done!",
-  children: "This is a success message.",
-};
-
-export const WithMaxNotifications = Template.bind({});
-WithMaxNotifications.args = {
-  notificationType: "information",
-  message: "Did you know?",
-  children: "You can customize the maximum number of notifications displayed.",
-  maxNotifications: 2,
-};
-
-export const PersistentNotification = Template.bind({});
-PersistentNotification.args = {
-  notificationType: "warning",
-  message: "Warning Notification",
-  children: "This is a persistent warning message.",
-  duration: 0,
-};
-
-export const ErrorWithAction = Template.bind({});
-ErrorWithAction.args = {
-  notificationType: "error",
-  message: "Could not complete action",
-  children: "Something went wrong. Please try again.",
-  position: "bottom-right",
-  action: <Button id="retry">Retry</Button>,
-};
-
-export const ShortWarning = Template.bind({});
-ShortWarning.args = {
-  notificationType: "warning",
-  message: "Warning Notification",
-  children: "This is a warning message with a short duration.",
-  duration: 3000,
-  position: "top-left",
-};
-
-export const LongInformation = Template.bind({});
-LongInformation.args = {
-  notificationType: "information",
-  message: "Information Notification",
-  children: "This is an informative message with a long duration.",
-  duration: 15000,
-  position: "top-right",
-  action: (
-    <Button id="learn-more" variant="primary-ghost" compact>
-      Learn More
-    </Button>
-  ),
-};
-
-export const Neutral = Template.bind({});
-Neutral.args = {
-  notificationType: "neutral",
-  message: "Neutral Notification",
-  children: "This is a neutral message.",
-  position: "bottom-left",
+  message: "Heads up!",
+  children: "This is a notification message.",
 };
