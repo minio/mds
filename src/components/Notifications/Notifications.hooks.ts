@@ -27,7 +27,7 @@ export const useNotification = () => {
     [],
   );
 
-  const error = useCallback(
+  const danger = useCallback(
     (message: string, options?: NotificationOptions) => {
       NotificationManager.addNotification("danger", message, options);
     },
@@ -59,5 +59,5 @@ export const useNotification = () => {
     NotificationManager.clearNotifications();
   }, []);
 
-  return { success, error, warning, information, neutral, clear };
+  return { success, danger, warning, information, neutral, clear };
 };
