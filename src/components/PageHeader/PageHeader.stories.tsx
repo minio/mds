@@ -17,11 +17,11 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import TestIcon from "../../utils/TestIcon";
-import { Button, GlobalStyles } from "../index";
-import PageHeader from "./PageHeader";
+import PageHeader from "./";
 import { PageHeaderProps } from "./PageHeader.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Button from "../Button";
+import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/PageHeader",
@@ -31,7 +31,6 @@ export default {
 
 const Template: Story<PageHeaderProps> = (args: PageHeaderProps) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <PageHeader id={"demo-page-header"} {...args} />
   </StoryThemeProvider>
 );

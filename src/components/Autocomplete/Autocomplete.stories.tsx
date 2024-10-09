@@ -14,19 +14,19 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
+import Autocomplete from "./";
+import { AutocompleteProps } from "./Autocomplete.types";
 import { SelectOption } from "../../global/global.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import DownloadIcon from "../../icons/DownloadIcon";
+import UploadIcon from "../../icons/UploadIcon";
+import UsersIcon from "../../icons/UsersIcon";
 import TestIcon from "../../utils/TestIcon";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
-import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import Autocomplete from "./Autocomplete";
-import { AutocompleteProps } from "./Autocomplete.types";
+import FormLayout from "../FormLayout";
 
 export default {
   title: "MDS/Forms/Autocomplete",
@@ -66,7 +66,6 @@ const Template: Story<AutocompleteProps> = ({
 
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <FormLayout>
         <Autocomplete
           id={"story-Autocomplete"}

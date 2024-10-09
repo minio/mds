@@ -15,13 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { useState } from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Slider from "./Slider";
+import Slider from "./";
 import { SliderProps } from "./Slider.types";
 
 export default {
@@ -34,16 +32,13 @@ const Template: Story<SliderProps> = (args) => {
   const [value, setValue] = useState<number>(0);
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
-      <FormLayout>
-        <Slider
-          value={value}
-          onChange={(e) => {
-            setValue(e.target.value);
-          }}
-          {...args}
-        />
-      </FormLayout>
+      <Slider
+        value={value}
+        onChange={(e) => {
+          setValue(parseInt(e.target.value));
+        }}
+        {...args}
+      />
     </StoryThemeProvider>
   );
 };

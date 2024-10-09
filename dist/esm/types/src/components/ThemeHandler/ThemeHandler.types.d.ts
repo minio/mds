@@ -1,6 +1,6 @@
-import { ThemeDefinitionProps } from "../../global/global.types";
+import { Theme } from "@emotion/react";
 export interface ThemeHandlerProps {
   darkMode?: boolean;
-  customTheme?: ThemeDefinitionProps;
+  customTheme?: Theme;
   children: any;
 }

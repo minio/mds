@@ -14,13 +14,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "@storybook/client-api";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Accordion from "./Accordion";
+import Accordion from "./";
 import { AccordionProps } from "./Accordion.types";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Layout/Accordion",

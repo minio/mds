@@ -1,4 +1,3 @@
-import React from "react";
 import { IActionButton, PredefinedActionTypes } from "./DataTable.types";
 export declare const isPredefinedAction: (
   val: any,
@@ -9,5 +8,5 @@ declare const TableActionButton: <T>({
   valueToSend,
   disabled,
   tooltip,
-}: IActionButton<T>) => React.JSX.Element | null;
+}: IActionButton<T>) => import("@emotion/react/jsx-runtime").JSX.Element | null;
 export default TableActionButton;

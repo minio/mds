@@ -4,7 +4,7 @@ interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   sx?: OverrideTheme;
 }
-type ConditionalProps =
+export type ConditionalProps =
   | {
       container?: boolean;
       item?: never;

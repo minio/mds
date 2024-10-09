@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Notifications from "./Notifications";
 import { useNotification } from "./Notifications.hooks";
-import Button from "../Button/Button";
 import {
   NotificationDuration,
   NotificationOptions,
   NotificationPosition,
 } from "./Notifications.types";
-import RadioGroup from "../RadioGroup/RadioGroup";
-import Box from "../Box/Box";
-import Checkbox from "../Checkbox/Checkbox";
-import { BellIcon } from "../Icons/NewDesignIcons";
-import Select from "../Select/Select";
 import { NotificationVariant } from "../NotificationAlert/NotificationAlert.types";
+import Button from "../Button";
+import Box from "../Box";
+import RadioGroup from "../RadioGroup";
+import Select from "../Select";
+import Checkbox from "../Checkbox";
+import BellIcon from "../../icons/BellIcon";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Notifications from "./index";
 
 const positions = [
   "top-left",
@@ -132,7 +131,6 @@ const Demo: React.FC<DemoProps> = ({ message, children }) => {
 const NotificationsWrapper: React.FC<DemoProps> = (props) => {
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <Notifications maxNotifications={props.maxNotifications} />
       <Demo {...props} />
     </StoryThemeProvider>

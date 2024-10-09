@@ -15,103 +15,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useState } from "react";
-import get from "lodash/get";
-import styled from "styled-components";
+import { useTheme } from "@emotion/react";
 
-import { lightColors } from "../../global/themes";
-import Box from "../Box/Box";
+import Box from "../Box";
+import {
+  selectorButtonStyles,
+  timeSelectorContainerStyles,
+} from "./DateTime.styles";
 import { TimeSelectorProps } from "./DateTimeInput.types";
-
-const TimeSelectorContainer = styled.div(({ theme }) => ({
-  "& .timeTitle": {
-    display: "flex",
-    justifyContent: "center",
-    gap: 5,
-    borderBottom: `1px solid ${get(
-      theme,
-      "borderColor",
-      lightColors.borderColor,
-    )}`,
-    padding: "0 0 12px",
-    marginBottom: 10,
-    fontWeight: "bold",
-    fontSize: 16,
-    color: get(theme, "fontColor", lightColors.defaultFontColor),
-  },
-  "& .selectors": {
-    display: "flex",
-    width: "100%",
-    justifyContent: "space-evenly",
-    "& .columnSelector": {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      width: "100%",
-      gap: 5,
-      "& .scrollRollbar": {
-        display: "block",
-        overflowY: "auto",
-        overflowX: "hidden",
-        height: 170,
-        scrollbarWidth: "none",
-        msOverflowStyle: "none",
-        "&::-webkit-scrollbar": {
-          width: 5,
-        },
-        "&::-webkit-scrollbar-thumb": {
-          background: get(
-            theme,
-            "menu.vertical.sectionDividerColor",
-            lightColors.menuColorDivider,
-          ),
-          borderRadius: 0,
-        },
-
-        "&::-webkit-scrollbar-track": {
-          background: get(theme, "borderColor", lightColors.borderColor),
-          boxShadow: `inset 0px 0px 0px 0px ${get(
-            theme,
-            "borderColor",
-            lightColors.borderColor,
-          )}`,
-          borderRadius: 0,
-        },
-      },
-      "& .titleElement": {
-        fontSize: 10,
-        color: get(theme, "mutedText", lightColors.mutedText),
-        textAlign: "center",
-      },
-    },
-  },
-  "& .titles": {
-    display: "flex",
-    width: "100%",
-    justifyContent: "space-evenly",
-  },
-}));
-
-const SelectorButton = styled.button(({ theme }) => ({
-  cursor: "pointer",
-  display: "flex",
-  width: "100%",
-  backgroundColor: "transparent",
-  fontWeight: "bold",
-  border: 0,
-  padding: "5px 10px",
-  color: get(theme, "fontColor", lightColors.defaultFontColor),
-  "&:hover": {
-    backgroundColor: get(
-      theme,
-      "buttons.text.hover.background",
-      lightColors.hoverGrey,
-    ),
-  },
-  "&.selected": {
-    backgroundColor: get(theme, "signalColors.main", lightColors.mainBlue),
-    color: get(theme, "bgColor", lightColors.white),
-  },
-}));
 
 const TimeSelector: FC<TimeSelectorProps> = ({
   value,
@@ -120,6 +31,11 @@ const TimeSelector: FC<TimeSelectorProps> = ({
   secondsSelector = false,
   timeFormat = "24h" as "12h" | "24h",
 }) => {
+  const theme = useTheme();
+
+  const timeSelectorContainer = timeSelectorContainerStyles(theme);
+  const selectorButton = selectorButtonStyles(theme);
+
   const [selectedElements, setSelectedElements] = useState<string[]>([]);
 
   useEffect(() => {
@@ -208,14 +124,15 @@ const TimeSelector: FC<TimeSelectorProps> = ({
     className: string;
     type: "hour" | "minute" | "second" | "meridiem";
   }) => (
-    <SelectorButton
+    <button
+      css={selectorButton}
       onClick={() => {
         changeTimeAction(itemValue, type);
       }}
       className={className}
     >
       {label}
-    </SelectorButton>
+    </button>
   );
 
   const CommonElementsList = ({ type }: { type: "minute" | "second" }) => {
@@ -253,7 +170,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
   };
 
   return (
-    <TimeSelectorContainer>
+    <div css={timeSelectorContainer}>
       <Box className={"timeTitle"}>Time</Box>
       <Box className={"selectors"}>
         <Box className={"columnSelector"}>
@@ -297,7 +214,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
           </Box>
         )}
       </Box>
-    </TimeSelectorContainer>
+    </div>
   );
 };
 

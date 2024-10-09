@@ -14,14 +14,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Box from "../Box/Box";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import ExpandOptionsButton from "./ExpandOptionsButton";
+import ExpandOptionsButton from "./";
 import { ExpandOptionsButtonProps } from "./ExpandOptionsButton.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Forms/ExpandOptionsButton",

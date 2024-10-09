@@ -23,7 +23,7 @@ interface GridCommonProps extends HTMLAttributes<HTMLDivElement> {
   sx?: OverrideTheme;
 }
 
-type ConditionalProps =
+export type ConditionalProps =
   | {
       container?: boolean;
       item?: never;

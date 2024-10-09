@@ -17,14 +17,14 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import { FormLayoutProps } from "./FormLayout.types";
+import FormLayout from "./";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
-import Checkbox from "../Checkbox/Checkbox";
-import HelpBox from "../HelpBox/HelpBox";
-import { GlobalStyles } from "../index";
-import InputBox from "../InputBox/InputBox";
-import FormLayout from "./FormLayout";
-import { FormLayoutProps } from "./FormLayout.types";
+import Checkbox from "../Checkbox";
+import InputBox from "../InputBox";
+import HelpBox from "../HelpBox";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Layout/FormLayout",
@@ -48,11 +48,7 @@ Default.args = {};
 export const WithHelpBox = Template.bind({});
 WithHelpBox.args = {
   helpBox: (
-    <HelpBox
-      iconComponent={<TestIcon />}
-      title={"Help Title"}
-      help={"Help Text"}
-    />
+    <HelpBox icon={<TestIcon />} title={"Help Title"} help={"Help Text"} />
   ),
 };
 
@@ -69,11 +65,7 @@ export const NoBorder = Template.bind({});
 NoBorder.args = {
   withBorders: false,
   helpBox: (
-    <HelpBox
-      iconComponent={<TestIcon />}
-      title={"Help Title"}
-      help={"Help Text"}
-    />
+    <HelpBox icon={<TestIcon />} title={"Help Title"} help={"Help Text"} />
   ),
 };
 
@@ -82,10 +74,6 @@ NoBorderAndPadding.args = {
   withBorders: false,
   containerPadding: false,
   helpBox: (
-    <HelpBox
-      iconComponent={<TestIcon />}
-      title={"Help Title"}
-      help={"Help Text"}
-    />
+    <HelpBox icon={<TestIcon />} title={"Help Title"} help={"Help Text"} />
   ),
 };

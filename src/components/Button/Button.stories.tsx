@@ -17,11 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import TestIcon from "../../utils/TestIcon";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Button from "./Button";
 import { ButtonProps } from "./Button.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Button from "./";
+import TestIcon from "../../utils/TestIcon";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Forms/Button",

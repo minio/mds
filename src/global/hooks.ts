@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { useCallback, useEffect } from "react";
+import { useTheme as useEmotionTheme } from "@emotion/react";
 
 export const useEscapeKey = (handleAction: () => void) => {
   const handleEsc = useCallback(
@@ -75,4 +76,8 @@ export const useArrowKeys = (
       document.removeEventListener("keyup", handleArrow, false);
     };
   }, [handleArrow]);
+};
+
+export const useMDSTheme = () => {
+  return useEmotionTheme();
 };

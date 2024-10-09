@@ -17,19 +17,19 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import TestIcon from "../../utils/TestIcon";
-import Button from "../Button/Button";
-import ExpandMenu from "../ExpandMenu/ExpandMenu";
-import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DeleteIcon from "../Icons/NewDesignIcons/DeleteIcon";
-import PenIcon from "../Icons/NewDesignIcons/PenIcon";
-import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
-import RefreshCWIcon from "../Icons/NewDesignIcons/RefreshCWIcon";
-import Tooltip from "../Tooltip/Tooltip";
-import ButtonGroup from "./ButtonGroup";
 import { ButtonGroupProps } from "./ButtonGroup.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import ButtonGroup from "./";
+import Button from "../Button";
+import TestIcon from "../../utils/TestIcon";
+import DeleteIcon from "../../icons/DeleteIcon";
+import PenIcon from "../../icons/PenIcon";
+import ExpandMenu from "../ExpandMenu";
+import PlusIcon from "../../icons/PlusIcon";
+import RefreshCWIcon from "../../icons/RefreshCWIcon";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
+import Tooltip from "../Tooltip";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Forms/ButtonGroup",
@@ -60,7 +60,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
       </Button>
       <Button
         id="secondaryButton"
-        variant={"descructive"}
+        variant={"destructive"}
         icon={<DeleteIcon />}
         iconLocation={"start"}
       >
@@ -98,7 +98,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
       <Button id={"test"} icon={<TestIcon />} disabled iconLocation={"start"} />
       <Button
         id="secondaryButton"
-        variant={"descructive"}
+        variant={"destructive"}
         icon={<DeleteIcon />}
         iconLocation={"start"}
       />
@@ -132,7 +132,7 @@ const Template: Story<ButtonGroupProps> = (args) => (
       <Button id={"test"} disabled iconLocation={"start"} label={"Button"} />
       <Button
         id="secondaryButton"
-        variant={"descructive"}
+        variant={"destructive"}
         iconLocation={"start"}
         label={"Button"}
       />

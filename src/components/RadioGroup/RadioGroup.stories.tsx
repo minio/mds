@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import RadioGroup from "./RadioGroup";
+import RadioGroup from "./";
 import { RadioGroupProps } from "./RadioGroup.types";
 
 export default {
@@ -38,7 +38,6 @@ const Template: Story<RadioGroupProps> = ({
   const [selectedOption, setSelectedOption] = useState<string>("option2");
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <RadioGroup
         id={id}
         label={label}

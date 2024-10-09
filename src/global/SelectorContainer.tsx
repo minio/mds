@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, HTMLAttributes } from "react";
-import styled from "styled-components";
+import { FC, HTMLAttributes } from "react";
+import { css } from "@emotion/react";
 
-const SelectorContainerMain = styled.div(() => ({
+const selectorContainerMain = css({
   position: "fixed",
   top: 0,
   left: 0,
@@ -26,14 +26,16 @@ const SelectorContainerMain = styled.div(() => ({
   backgroundColor: "transparent",
   zIndex: 5000,
   overscrollBehavior: "contain",
-}));
+});
 
 const SelectorContainer: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   ...restProps
 }) => {
   return (
-    <SelectorContainerMain {...restProps}>{children}</SelectorContainerMain>
+    <div css={[selectorContainerMain]} {...restProps}>
+      {children}
+    </div>
   );
 };
 

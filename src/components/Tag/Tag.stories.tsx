@@ -14,14 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
-import Tag from "./Tag";
+import Tag from "./";
 import { TagProps } from "./Tag.types";
+import PlusIcon from "../../icons/PlusIcon";
 
 export default {
   title: "MDS/Layout/Tag",
@@ -39,7 +38,6 @@ const Template: Story<TagProps> = ({
 }) => {
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <Tag label={label} color={color} id={id} sx={sx} />
       &nbsp;
       <Tag label={label} color={color} id={id} onDelete={onDelete} sx={sx}>

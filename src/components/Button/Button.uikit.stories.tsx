@@ -17,15 +17,15 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import AlignCenterIcon from "../Icons/NewDesignIcons/AlignCenterIcon";
-import BriefcaseMedicalIcon from "../Icons/NewDesignIcons/BriefcaseMedicalIcon";
-import IceCreamConeIcon from "../Icons/NewDesignIcons/IceCreamConeIcon";
-import PlusIcon from "../Icons/NewDesignIcons/PlusIcon";
-import { Box, ButtonGroup } from "../index";
-import Button from "./Button";
+import Button from "./";
 import { ButtonProps } from "./Button.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box";
+import PlusIcon from "../../icons/PlusIcon";
+import AlignCenterIcon from "../../icons/AlignCenterIcon";
+import BriefcaseMedicalIcon from "../../icons/BriefcaseMedicalIcon";
+import IceCreamConeIcon from "../../icons/IceCreamConeIcon";
+import ButtonGroup from "../ButtonGroup";
 
 export default {
   title: "UI Kit/Forms & Inputs/Buttons",
@@ -40,7 +40,6 @@ export default {
 
 const Template: Story<ButtonProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <Box
       sx={{
         display: "flex",

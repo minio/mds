@@ -19,15 +19,13 @@ import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
-import Box from "../Box/Box";
-import ExpandMenu from "../ExpandMenu/ExpandMenu";
-import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import KeyRoundIcon from "../Icons/NewDesignIcons/KeyRoundIcon";
-import PencilLineIcon from "../Icons/NewDesignIcons/PencilLineIcon";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import InputBox from "./InputBox";
+import InputBox from "./";
 import { InputBoxProps } from "./InputBox.types";
+import Box from "../Box";
+import UsersIcon from "../../icons/UsersIcon";
+import KeyRoundIcon from "../../icons/KeyRoundIcon";
+import ExpandMenu from "../ExpandMenu";
+import ExpandMenuOption from "../ExpandMenu/ExpandMenuOption";
 
 export default {
   title: "MDS/Forms/InputBox",
@@ -37,7 +35,6 @@ export default {
 
 const Template: Story<InputBoxProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <Box sx={{ display: "flex", gap: 24, flexBasis: "50%" }}>
       <InputBox {...args} sizeMode={"small"} />
       <InputBox {...args} sizeMode={"large"} />

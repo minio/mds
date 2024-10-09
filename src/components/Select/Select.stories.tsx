@@ -14,19 +14,17 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
-
+import { useState } from "@storybook/addons";
 import { SelectOption } from "../../global/global.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
-import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import Select from "./Select";
+import Select from "./";
 import { SelectProps } from "./Select.types";
+import DownloadIcon from "../../icons/DownloadIcon";
+import UploadIcon from "../../icons/UploadIcon";
+import UsersIcon from "../../icons/UsersIcon";
 
 export default {
   title: "MDS/Forms/Select",
@@ -67,29 +65,26 @@ const Template: Story<SelectProps> = ({
 
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
-      <FormLayout>
-        <Select
-          id={"story-select"}
-          options={useOpts}
-          value={selectedValue}
-          onChange={(newValue, extraValue) => {
-            setSelectedValue(newValue);
+      <Select
+        id={"story-select"}
+        options={useOpts}
+        value={selectedValue}
+        onChange={(newValue, extraValue) => {
+          setSelectedValue(newValue);
 
-            console.log(extraValue);
+          console.log(extraValue);
 
-            if (extraValue) {
-              alert(`Extra Value ${JSON.stringify(extraValue)}`);
-            }
-          }}
-          label={label}
-          required={required}
-          tooltip={tooltip}
-          disabled={disabled}
-          placeholder={placeholder}
-          sx={sx}
-        />
-      </FormLayout>
+          if (extraValue) {
+            alert(`Extra Value ${JSON.stringify(extraValue)}`);
+          }
+        }}
+        label={label}
+        required={required}
+        tooltip={tooltip}
+        disabled={disabled}
+        placeholder={placeholder}
+        sx={sx}
+      />
     </StoryThemeProvider>
   );
 };

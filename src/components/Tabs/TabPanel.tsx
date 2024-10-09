@@ -16,7 +16,6 @@
 
 import React, { FC } from "react";
 
-import Box from "../Box/Box";
 import { TabPanelProps } from "./Tabs.types";
 
 const TabPanel: FC<TabPanelProps> = ({
@@ -29,7 +28,7 @@ const TabPanel: FC<TabPanelProps> = ({
     return null;
   }
 
-  return <Box id={id}>{children}</Box>;
+  return <div id={id}>{children}</div>;
 };
 
 export default TabPanel;

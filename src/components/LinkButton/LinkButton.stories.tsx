@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import LinkButton from "./LinkButton";
+import LinkButton from "./";
 import { LinkButtonProps } from "./LinkButton.types";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 
 export default {
   title: "MDS/Forms/LinkButton",
@@ -31,7 +30,6 @@ export default {
 
 const Template: Story<LinkButtonProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <span style={{ fontSize: 14 }}>
       Some Text that can be combined with an{" "}
       <LinkButton

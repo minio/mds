@@ -17,10 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import ValuePair from "./ValuePair";
 import { ValuePairProps } from "./ValuePair.types";
+import ValuePair from "./";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
   title: "MDS/Layout/ValuePair",
@@ -30,7 +29,6 @@ export default {
 
 const Template: Story<ValuePairProps> = ({ sx, direction }) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <ValuePair
       label={"State"}
       value={

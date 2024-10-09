@@ -14,15 +14,16 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import TestIcon from "../../utils/TestIcon";
-import Button from "../Button/Button";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DropdownSelector from "./DropdownSelector";
+import DropdownSelector from "./";
 import { DropdownSelectorProps } from "./DropdownSelector.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Button from "../Button";
+import TestIcon from "../../utils/TestIcon";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Forms/DropdownSelector",

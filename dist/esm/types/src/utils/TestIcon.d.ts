@@ -1,4 +1,5 @@
-import * as React from "react";
 import { SVGProps } from "react";
-declare const TestIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+declare const TestIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => import("@emotion/react/jsx-runtime").JSX.Element;
 export default TestIcon;

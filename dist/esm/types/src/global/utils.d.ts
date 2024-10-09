@@ -1,4 +1,4 @@
-import { DefaultTheme } from "styled-components";
+import { Theme } from "@emotion/react";
 import { IBytesCalc, OverrideTheme } from "./global.types";
 export declare const breakPoints: {
   xs: number;
@@ -34,10 +34,7 @@ export declare const calculateBytes: (
   showDecimals?: boolean,
   roundFloor?: boolean,
 ) => IBytesCalc;
-export declare const getThemeColors: (themeSubVar: string) => {
-  [key: string]: string;
-};
 export declare const overridePropsParse: (
   overrideValue: OverrideTheme,
-  theme: DefaultTheme,
-) => import("styled-components").CSSObject | undefined;
+  theme: Theme,
+) => import("@emotion/react").CSSObject | undefined;

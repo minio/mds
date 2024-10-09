@@ -23,6 +23,10 @@ interface IVarsCollection {
   [key: string]: IVarPropVals;
 }
 
+interface ReturnCollectionElement {
+  [key: string]: string | undefined;
+}
+
 let localVariables: Variable[] = [];
 
 // Theme constants definition
@@ -147,7 +151,9 @@ if (figma.editorType === "figma") {
             }
           });
 
-          const retItem: IVarsCollection = {};
+          const lightMode: ReturnCollectionElement = {};
+          const darkMode: ReturnCollectionElement = {};
+
           filterColors.forEach((dataProc) => {
             const lightVar = dataProc.valuesByMode[lightModeID] as
               | RGB
@@ -158,26 +164,23 @@ if (figma.editorType === "figma") {
               | RGBA
               | VariableAlias;
 
-            retItem[dataProc.name] = {
-              lightMode:
-                "type" in lightVar
-                  ? colorConsts[
-                      lookForFilteredColorID(lightVar.id, lightModeID)
-                    ]?.lightMode || ""
-                  : colorConsts[
-                      lookForFilteredColorID(dataProc.id, lightModeID)
-                    ].lightMode,
-              darkMode:
-                "type" in darkVar
-                  ? colorConsts[lookForFilteredColorID(darkVar.id, darkModeID)]
-                      ?.darkMode || ""
-                  : colorConsts[lookForFilteredColorID(dataProc.id, darkModeID)]
-                      .darkMode,
-            };
+            lightMode[dataProc.name] =
+              "type" in lightVar
+                ? colorConsts[lookForFilteredColorID(lightVar.id, lightModeID)]
+                    ?.lightMode || ""
+                : colorConsts[lookForFilteredColorID(dataProc.id, lightModeID)]
+                    .lightMode;
+
+            darkMode[dataProc.name] =
+              "type" in darkVar
+                ? colorConsts[lookForFilteredColorID(darkVar.id, darkModeID)]
+                    ?.darkMode || ""
+                : colorConsts[lookForFilteredColorID(dataProc.id, darkModeID)]
+                    .darkMode;
           });
 
           // Need to verify a way to start a download of this JSON
-          const jsonObject = JSON.stringify(retItem);
+          const jsonObject = JSON.stringify({ lightMode, darkMode });
           figma.ui.postMessage({ type: "generated-colors", data: jsonObject });
           break;
         }

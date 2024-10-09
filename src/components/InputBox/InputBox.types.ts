@@ -17,7 +17,10 @@
 import React from "react";
 
 import { OverrideTheme } from "../../global/global.types";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+
+export type InputBoxState = "normal" | "error" | "success" | "warning";
+export type InputBoxSize = "small" | "large";
+export type InputBoxOrientation = "horizontal" | "vertical";
 
 export interface InputBoxProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -36,22 +39,8 @@ export interface InputBoxProps
   required?: boolean;
   className?: string;
   helper?: string;
-  state?: "normal" | "error" | "success" | "warning";
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-  sizeMode?: "small" | "large";
-  orientation?: "horizontal" | "vertical";
+  state?: InputBoxState;
+  sizeMode?: InputBoxSize;
+  orientation?: InputBoxOrientation;
   disableErrorUntilFocus?: boolean;
-}
-
-export interface InputContainerProps {
-  children?: React.ReactNode;
-  sx?: OverrideTheme;
-  startIcon?: React.ReactNode;
-  className?: string;
-  sizeMode?: "small" | "large";
-}
-
-export interface ExtraInputProps {
-  originType?: string;
 }

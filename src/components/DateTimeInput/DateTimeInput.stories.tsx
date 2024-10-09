@@ -14,16 +14,17 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useEffect, useState } from "@storybook/addons";
 import { DateTime } from "luxon";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
 import DateTimeInput from "./DateTimeInput";
 import { DateTimeInputProps } from "./DateTimeInput.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import CalendarIcon from "../../icons/CalendarIcon";
+import GlobalStyles from "../GlobalStyles";
+import FormLayout from "../FormLayout";
 
 export default {
   title: "MDS/Forms/TimeSelector/DateTimeInput",

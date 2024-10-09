@@ -14,71 +14,24 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useEffect, useState } from "react";
+import React, { CSSProperties, FC, useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import { css, useTheme } from "@emotion/react";
 import debounce from "lodash/debounce";
-import get from "lodash/get";
 import { DateTime } from "luxon";
-import styled, { CSSObject } from "styled-components";
 
 import SelectorContainer from "../../global/SelectorContainer";
-import { lightV2 } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
-import Box from "../Box/Box";
-import CalendarIcon from "../Icons/NewDesignIcons/CalendarIcon";
-import Clock4Icon from "../Icons/NewDesignIcons/Clock4Icon";
+import CalendarIcon from "../../icons/CalendarIcon";
+import Clock4Icon from "../../icons/Clock4Icon";
+import Box from "../Box";
 import DateSelector from "./DateSelector";
 import {
-  DateTimeSelectorProps,
-  StylesOverrideProps,
-} from "./DateTimeInput.types";
+  dateTimeContainerStyles,
+  optionChangeButtonStyles,
+} from "./DateTime.styles";
+import { DateTimeSelectorProps } from "./DateTimeInput.types";
 import TimeSelector from "./TimeSelector";
-
-const globalWidth = 315;
-
-const OptionChangeButton = styled.button(({ theme }) => ({
-  height: 30,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: 10,
-  border: `2px solid ${get(theme, "borderColor", lightV2.borderColor)}`,
-  borderRadius: 4,
-  backgroundColor: get(theme, "signalColors.clear", lightV2.white),
-  color: get(theme, "signalColors.main", lightV2.switchBG),
-  fontSize: 14,
-  fontWeight: "bold",
-  "& svg": {
-    width: 12,
-    height: 12,
-  },
-  "&.selected": {
-    backgroundColor: get(theme, "signalColors.main", lightV2.switchBG),
-    color: get(theme, "bgColor", lightV2.white),
-    borderColor: get(theme, "signalColors.main", lightV2.switchBG),
-    boxShadow: `0px 3px 6px #00000029;`,
-  },
-}));
-
-const DateTimeContainer = styled.div<StylesOverrideProps>(
-  ({ theme, sx, isPortal, mode, coords }) => ({
-    position: isPortal ? "absolute" : ("relative" as const),
-    border: `1px solid ${get(theme, "borderColor", lightV2.borderColor)}`,
-    backgroundColor: get(theme, "signalColors.clear", lightV2.white),
-    width: globalWidth,
-    minHeight: mode === "all" ? 340 : 285,
-    boxShadow: `0px 0px 10px #00000029`,
-    padding: 24,
-    borderRadius: 4,
-    "& .modeBar": {
-      display: "flex",
-      gap: 16,
-      marginBottom: 18,
-    },
-    ...overridePropsParse(sx, theme),
-    ...coords,
-  }),
-);
 
 const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
   if (!anchorEl) {
@@ -91,7 +44,7 @@ const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
 
   const bounds = anchorEl.getBoundingClientRect();
 
-  const returnItem: CSSObject = {
+  const returnItem: CSSProperties = {
     top: bounds.top + bounds.height,
     left: bounds.left + bounds.width,
     transform: "translateX(-100%)",
@@ -115,10 +68,23 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
   open = false,
   sx,
 }) => {
+  const theme = useTheme();
+
+  const overrideThemes = useMemo(() => {
+    if (sx) {
+      return css({ ...overridePropsParse(sx, theme) });
+    }
+
+    return {};
+  }, [sx, theme]);
+
+  const dateTimeContainer = dateTimeContainerStyles(theme, usePortal, mode);
+  const optionChangeButton = optionChangeButtonStyles(theme);
+
   const [currentView, setCurrentView] = useState<"calendar" | "time">(
     "calendar",
   );
-  const [coords, setCoords] = useState<CSSObject | null>(null);
+  const [coords, setCoords] = useState<CSSProperties | null>(null);
 
   useEffect(() => {
     if (usePortal) {
@@ -174,24 +140,24 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
   }
 
   const picker = (
-    <DateTimeContainer
-      mode={mode}
+    <div
+      css={[dateTimeContainer, overrideThemes]}
       onClick={(e) => e.stopPropagation()}
       id={`timeSelector-${id}`}
-      isPortal={usePortal}
-      coords={coords || {}}
-      sx={sx}
+      style={coords || {}}
     >
       {mode === "all" && value && (
         <Box className={"modeBar"}>
-          <OptionChangeButton
+          <button
+            css={[optionChangeButton]}
             className={currentView === "calendar" ? "selected" : ""}
             onClick={() => setCurrentView("calendar")}
           >
             <CalendarIcon />
             <span>{value?.toFormat("dd LLL yyyy") || ""}</span>
-          </OptionChangeButton>
-          <OptionChangeButton
+          </button>
+          <button
+            css={[optionChangeButton]}
             className={currentView === "time" ? "selected" : ""}
             onClick={() => setCurrentView("time")}
           >
@@ -203,7 +169,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
                 }${timeFormat === "12h" ? " a" : ""}`,
               ) || ""}
             </span>
-          </OptionChangeButton>
+          </button>
         </Box>
       )}
       {currentView === "calendar" && (
@@ -223,7 +189,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
           completeCallback={closeSelector}
         />
       )}
-    </DateTimeContainer>
+    </div>
   );
 
   if (usePortal) {

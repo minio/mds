@@ -15,42 +15,23 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, Fragment, useMemo, useState } from "react";
+import { css, useTheme } from "@emotion/react";
 import { DateTime } from "luxon";
-import styled from "styled-components";
 
 import { useEscapeKey } from "../../global/hooks";
 import { overridePropsParse } from "../../global/utils";
-import Box from "../Box/Box";
-import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
-import InputBox from "../InputBox/InputBox";
-import { InputContainerProps } from "../InputBox/InputBox.types";
+import ChevronDownIcon from "../../icons/ChevronDownIcon";
+import ChevronUpIcon from "../../icons/ChevronUpIcon";
+import InputBox from "../InputBox";
+import { dateInputContainerStyles } from "./DateTime.styles";
 import { DateTimeInputProps } from "./DateTimeInput.types";
 import DateTimeSelector from "./DateTimeSelector";
-
-const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
-  display: "flex",
-  flexGrow: 1,
-  width: "100%",
-  position: "relative",
-  "& .dateTimeInputContainer": {
-    display: "flex",
-    gap: 10,
-    width: "100%",
-    flexGrow: 1,
-    position: "relative",
-    minWidth: 80,
-  },
-  ...overridePropsParse(sx, theme),
-}));
 
 const DateTimeInput: FC<DateTimeInputProps> = ({
   sx,
   id,
   className,
   tooltip = "",
-  helpTip,
-  helpTipPlacement,
   maxDate,
   minDate,
   label = "",
@@ -71,6 +52,16 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
   helper,
   pickerSx,
 }) => {
+  const theme = useTheme();
+
+  const overrideThemes = useMemo(() => {
+    if (sx) {
+      return css({ ...overridePropsParse(sx, theme) });
+    }
+
+    return {};
+  }, [sx, theme]);
+
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [dateInputVal, setDateInputVal] = useState<string>(
     value?.toFormat(
@@ -176,12 +167,12 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
   };
 
   return (
-    <InputContainer
-      sx={sx}
+    <div
+      css={[dateInputContainerStyles, overrideThemes]}
       id={`${id}-DateTimeInput`}
       className={`inputItem ${className}`}
     >
-      <Box className={"dateTimeInputContainer"}>
+      <div className={"dateTimeInputContainer"}>
         {editMode ? (
           <InputBox
             id={id}
@@ -199,8 +190,6 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
             sx={overrideFieldStyle}
             disabled={disabled}
             disableErrorUntilFocus={true}
-            helpTip={helpTip}
-            helpTipPlacement={helpTipPlacement}
             sizeMode={sizeMode}
             helper={helper}
             orientation={orientation}
@@ -236,8 +225,6 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
             sx={overrideFieldStyle}
             disabled={disabled}
             disableErrorUntilFocus={true}
-            helpTip={helpTip}
-            helpTipPlacement={helpTipPlacement}
             sizeMode={sizeMode}
             helper={helper}
             orientation={orientation}
@@ -255,7 +242,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
             }}
           />
         )}
-      </Box>
+      </div>
 
       <DateTimeSelector
         id={id}
@@ -282,7 +269,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
         open={isOpen}
         usePortal={true}
       />
-    </InputContainer>
+    </div>
   );
 };
 

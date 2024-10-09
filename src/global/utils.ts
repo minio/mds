@@ -14,10 +14,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { DefaultTheme } from "styled-components";
+import { Theme } from "@emotion/react";
 
-import { ColorVariant, IBytesCalc, OverrideTheme } from "./global.types";
-import { themeColors } from "./themeColors";
+import { IBytesCalc, OverrideTheme } from "./global.types";
 
 export const breakPoints = { xs: 0, sm: 576, md: 768, lg: 992, xl: 1200 };
 export const paddingSizeVariants = {
@@ -109,28 +108,9 @@ export const calculateBytes = (
   return { total: unitParsed, unit: finalUnit };
 };
 
-export const getThemeColors = (
-  themeSubVar: string,
-): { [key: string]: string } => {
-  const returnItem: { [key: string]: string } = {};
-  const suVar = themeSubVar as keyof ColorVariant;
-
-  const colorKeys = Object.keys(themeColors);
-
-  colorKeys.forEach((key) => {
-    const currItem = themeColors[key];
-
-    if (currItem[suVar]) {
-      returnItem[key] = currItem[suVar];
-    }
-  });
-
-  return returnItem;
-};
-
 export const overridePropsParse = (
   overrideValue: OverrideTheme,
-  theme: DefaultTheme,
+  theme: Theme,
 ) => {
   if (overrideValue) {
     // Override is a function, we need to evaluate

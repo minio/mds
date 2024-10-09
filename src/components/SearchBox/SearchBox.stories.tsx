@@ -17,14 +17,12 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import TestIcon from "../../utils/TestIcon";
-import Box from "../Box/Box";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import SearchBox from "./SearchBox";
 import { SearchBoxProps } from "./SearchBox.types";
+import SearchBox from "./";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Box from "../Box";
+import TestIcon from "../../utils/TestIcon";
+import UsersIcon from "../../icons/UsersIcon";
 
 export default {
   title: "MDS/Forms/SearchBox",
@@ -34,7 +32,6 @@ export default {
 
 const Template: Story<SearchBoxProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <SearchBox {...args} />
 
     <h2>In Container</h2>

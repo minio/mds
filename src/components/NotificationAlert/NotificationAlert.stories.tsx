@@ -18,8 +18,7 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import NotificationAlert from "./NotificationAlert";
+import NotificationAlert from "./";
 import { NotificationAlertPrp } from "./NotificationAlert.types";
 
 export default {
@@ -31,7 +30,6 @@ export default {
 const Template: Story<NotificationAlertPrp> = (props: NotificationAlertPrp) => {
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <NotificationAlert
         title={props.title}
         children={props.children}

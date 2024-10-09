@@ -12,6 +12,7 @@ export type BadgeColors =
   | "disabled";
 export type BadgeStyles = "minimal" | "subtle" | "bold";
 export type BadgeIcons = boolean | "dot" | ReactNode;
+export type BadgeSizes = "normal" | "small";
 export interface BadgeMainProps {
   label: string;
   id: string;
@@ -20,8 +21,16 @@ export interface BadgeConstructProps {
   color?: BadgeColors;
   badgeStyle?: BadgeStyles;
   icon?: BadgeIcons;
-  size?: "normal" | "small";
+  size?: BadgeSizes;
   isNumber?: boolean;
   sx?: OverrideTheme;
 }
+export interface BadgeElementThemeProps {
+  minimalColor: string;
+  subtleBG: string;
+  subtleLabel: string;
+  boldBG: string;
+  boldLabel: string;
+}
+export type BadgeThemeProps = Record<BadgeColors, BadgeElementThemeProps>;
 export type BadgeProps = BadgeMainProps & BadgeConstructProps;

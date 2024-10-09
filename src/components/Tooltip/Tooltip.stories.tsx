@@ -18,11 +18,10 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Button from "../Button/Button";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Grid from "../Grid/Grid";
-import Tooltip from "./Tooltip";
+import Tooltip from "./index";
 import { TooltipProps } from "./Tooltip.types";
+import Button from "../Button";
+import Grid from "../Grid";
 
 export default {
   title: "MDS/Graphics/Tooltip",
@@ -32,7 +31,6 @@ export default {
 
 const Template: Story<TooltipProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <Grid container>
       <Grid item xs={4}>
         <Tooltip {...args} />
@@ -120,6 +118,14 @@ Right.args = {
   tooltip: <span>Some tooltip Label</span>,
   placement: "right",
   children: <Button id={"testButton1"}>Enabled Button</Button>,
+};
+
+export const WithTitle = Template.bind({});
+WithTitle.args = {
+  title: "Title",
+  tooltip: <span>Some tooltip Label</span>,
+  placement: "bottom",
+  children: <span>A span block</span>,
 };
 
 export const OnDisabledElement = Template.bind({});

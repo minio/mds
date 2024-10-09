@@ -14,61 +14,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useEffect, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useTheme } from "@emotion/react";
 import debounce from "lodash/debounce";
-import get from "lodash/get";
-import styled, { CSSObject } from "styled-components";
 
 import SelectorContainer from "../../global/SelectorContainer";
-import { lightColors } from "../../global/themes";
-import { overridePropsParse } from "../../global/utils";
-import Box from "../Box/Box";
-import Checkbox from "../Checkbox/Checkbox";
-import {
-  ColumnSelectorConstructProps,
-  ColumnSelectorProps,
-  IColumns,
-} from "./DataTable.types";
-
-const SelectorBox = styled.div<ColumnSelectorConstructProps>(
-  ({ theme, sx }) => ({
-    position: "absolute",
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: get(
-      theme,
-      "dropdownSelector.backgroundColor",
-      lightColors.white,
-    ),
-    border: `1px solid ${get(theme, "borderColor", lightColors.borderColor)}`,
-    padding: "10px 10px",
-
-    minWidth: 150,
-    borderRadius: 4,
-    boxShadow:
-      "rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px",
-    "& .columnsSelectorTitle": {
-      fontWeight: "bold",
-      padding: "0 0 5px",
-      borderBottom: `1px solid ${get(
-        theme,
-        "borderColor",
-        lightColors.borderColor,
-      )}`,
-      marginBottom: 5,
-      color: get(theme, "fontColor", lightColors.defaultFontColor),
-    },
-    "& .columnsSelectorContainer": {
-      display: "flex",
-      flexDirection: "column",
-      gap: 5,
-      maxHeight: 250,
-      overflowY: "auto",
-    },
-    ...overridePropsParse(sx, theme),
-  }),
-);
+import Checkbox from "../Checkbox";
+import { selectorBoxStyles } from "./DataTable.styles";
+import { ColumnSelectorProps, IColumns } from "./DataTable.types";
 
 const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
   if (!anchorEl) {
@@ -95,7 +49,11 @@ const ColumnsSelector = <T,>({
   open,
   anchorEl = null,
 }: ColumnSelectorProps<T>): JSX.Element | null => {
-  const [coords, setCoords] = useState<CSSObject | null>(null);
+  const theme = useTheme();
+
+  const selectorStyles = selectorBoxStyles(theme);
+
+  const [coords, setCoords] = useState<CSSProperties | null>(null);
 
   useEffect(() => {
     if (open) {
@@ -142,15 +100,16 @@ const ColumnsSelector = <T,>({
 
   return createPortal(
     <SelectorContainer onClick={closeTriggerAction}>
-      <SelectorBox
-        sx={coords}
+      <div
+        css={[selectorStyles]}
+        style={coords}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
         }}
       >
-        <Box className={"columnsSelectorTitle"}>Shown Columns</Box>
-        <Box className={"columnsSelectorContainer"}>
+        <div className={"columnsSelectorTitle"}>Shown Columns</div>
+        <div className={"columnsSelectorContainer"}>
           {columns.map((column: IColumns<T>) => {
             return (
               <Checkbox
@@ -170,8 +129,8 @@ const ColumnsSelector = <T,>({
               />
             );
           })}
-        </Box>
-      </SelectorBox>
+        </div>
+      </div>
     </SelectorContainer>,
     document.body,
   );

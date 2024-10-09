@@ -26,3 +26,6 @@ export interface Notification {
   options: NotificationOptions;
   isExiting: boolean;
 }
+export interface NotificationsProps {
+  maxNotifications?: number;
+}

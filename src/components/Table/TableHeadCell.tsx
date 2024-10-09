@@ -14,41 +14,32 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
-import get from "lodash/get";
-import styled from "styled-components";
+import React, { FC, useMemo } from "react";
+import { css, useTheme } from "@emotion/react";
 
-import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { tableHeadCellMainStyles } from "./Table.styles";
 import { TableComponentsExtraProps } from "./Table.types";
-
-const TableHeadCellMain = styled.th<TableComponentsExtraProps>(
-  ({ theme, sx }) => ({
-    fontFamily: "'Geist',sans-serif",
-    fontSize: 12,
-    lineHeight: 1.43,
-    display: "table-cell",
-    verticalAlign: "inherit",
-    borderBottom: `2px solid ${get(
-      theme,
-      "borderColor",
-      lightColors.borderColor,
-    )}`,
-    textAlign: "left",
-    padding: 16,
-    fontWeight: "bold",
-    color: get(theme, "secondaryText", lightColors.mainGrey),
-    ...overridePropsParse(sx, theme),
-  }),
-);
 
 const TableHeadCell: FC<
   TableComponentsExtraProps & React.ThHTMLAttributes<HTMLTableHeaderCellElement>
 > = ({ children, sx, ...restProps }) => {
+  const theme = useTheme();
+
+  const overrideThemes = useMemo(() => {
+    if (sx) {
+      return css({ ...overridePropsParse(sx, theme) });
+    }
+
+    return {};
+  }, [sx, theme]);
+
+  const tableHead = tableHeadCellMainStyles(theme);
+
   return (
-    <TableHeadCellMain sx={sx} {...restProps}>
+    <th css={[tableHead, overrideThemes]} {...restProps}>
       {children}
-    </TableHeadCellMain>
+    </th>
   );
 };
 

@@ -1,14 +1,19 @@
 import React from "react";
 import { OverrideTheme } from "../../global/global.types";
-export interface TagMainProps {
+export type TagColors = "primary" | "secondary" | "destructive";
+export type TagSizes = "large" | "small";
+export interface TagVariantProps {
+  background: string;
+  label: string;
+  deleteColor: string;
+}
+export interface TagProps {
   label: string;
   onDelete?: (item: string) => void;
   id: string;
   icon?: React.ReactNode;
-}
-export interface TagConstructProps {
-  color?: "primary" | "secondary" | "destructive";
-  size?: "large" | "small";
+  color?: TagColors;
+  size?: TagSizes;
   sx?: OverrideTheme;
 }
-export type TagProps = TagMainProps & TagConstructProps;
+export type TagThemeVariants = Record<TagColors, TagVariantProps>;

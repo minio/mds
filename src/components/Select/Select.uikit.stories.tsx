@@ -19,12 +19,12 @@ import { Meta, Story } from "@storybook/react";
 
 import { SelectOption } from "../../global/global.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Box from "../Box/Box";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
-import UploadIcon from "../Icons/NewDesignIcons/UploadIcon";
-import Select from "./Select";
+import Select from "./";
 import { SelectProps } from "./Select.types";
+import Box from "../Box";
+import DownloadIcon from "../../icons/DownloadIcon";
+import UploadIcon from "../../icons/UploadIcon";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "UI Kit/Forms & Inputs/Select Input",

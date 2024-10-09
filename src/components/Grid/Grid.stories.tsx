@@ -17,10 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Grid from "./Grid";
+import Grid from "./";
 import { GridProps } from "./Grid.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
   title: "MDS/Layout/Grid",
@@ -30,7 +29,6 @@ export default {
 
 const Template: Story<GridProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <Grid
       container
       sx={{

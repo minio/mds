@@ -1,0 +1,3 @@
+[31m[1mUsage Error[22m[39m: Package "@storybook/addon-themes" is already listed as a regular dependency - remove the -D,-P flags or remove it from your dependencies first
+
+[1m$ [22myarn add [--json] [-F,--fixed] [-E,--exact] [-T,--tilde] [-C,--caret] [-D,--dev] [-P,--peer] [-O,--optional] [--prefer-dev] [-i,--interactive] [--cached] [--mode #0] ...

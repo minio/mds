@@ -17,10 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Checkbox from "./Checkbox";
+import Checkbox from "./";
 import { CheckboxProps } from "./Checkbox.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Forms/Checkbox",
@@ -43,7 +43,7 @@ Default.args = {
     console.log("click");
   },
   tooltip: "test",
-  checkLabel: "Yes",
+  helper: "Check this box if you want to continue",
 };
 
 export const Disabled = Template.bind({});

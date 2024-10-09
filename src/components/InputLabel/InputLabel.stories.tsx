@@ -18,20 +18,18 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import InputLabel from "./InputLabel";
+import Index from "./index";
 import { InputLabelProps } from "./InputLabel.types";
 
 export default {
   title: "MDS/Forms/InputLabel",
-  component: InputLabel,
+  component: Index,
   argTypes: {},
-} as Meta<typeof InputLabel>;
+} as Meta<typeof Index>;
 
 const Template: Story<InputLabelProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
-    <InputLabel {...args} />
+    <Index {...args} />
   </StoryThemeProvider>
 );
 
