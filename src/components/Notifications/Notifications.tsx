@@ -170,7 +170,7 @@ const Notifications: React.FC<NotificationsProps> = ({
         return (
           <NotificationContainer key={position} position={position}>
             {notifications.map((notification) => {
-              const { children, shadow } = notification.options;
+              const { children, shadow = true } = notification.options;
 
               const title = children ? notification.message : undefined;
               const content = children || notification.message;
