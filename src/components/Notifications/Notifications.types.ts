@@ -14,7 +14,10 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { NotificationVariant } from "../NotificationAlert/NotificationAlert.types";
+import {
+  NotificationAlertPrp,
+  NotificationVariant,
+} from "../NotificationAlert/NotificationAlert.types";
 
 export const positions = [
   "top-left",
@@ -27,7 +30,11 @@ export const positions = [
 
 export type NotificationPosition = (typeof positions)[number];
 
-export interface NotificationOptions {
+export interface NotificationOptions
+  extends Omit<
+    NotificationAlertPrp,
+    "children" | "title" | "variant" | "onClose"
+  > {
   children?: React.ReactNode;
   position?: NotificationPosition;
   duration?: number;
