@@ -25,7 +25,8 @@ export {
 
 /*Hooks*/
 export { useArrowKeys, useEnterKey, useEscapeKey } from "../global/hooks";
-export { useNotifications } from "./NotificationStack/hooks";
+// export { useNotifications } from "./NotificationStack/hooks";
+export { useNotification } from "./Notifications/Notifications.hooks";
 
 /*Base Components*/
 export { default as GlobalStyles } from "./GlobalStyles/GlobalStyles";
@@ -73,7 +74,8 @@ export { default as Menu } from "./Menu/Menu";
 export { default as ModalBox } from "./ModalBox/ModalBox";
 export { default as NotificationAlert } from "./NotificationAlert/NotificationAlert";
 export { default as NotificationCount } from "./NotificationCount/NotificationCount";
-export { default as NotificationStack } from "./NotificationStack/NotificationStack";
+// export { default as NotificationStack } from "./NotificationStack/NotificationStack";
+export { default as Notifications } from "./Notifications/Notifications";
 export { default as PageHeader } from "./PageHeader/PageHeader";
 export { default as PageLayout } from "./PageLayout/PageLayout";
 export { default as Pill } from "./Pill/Pill";
