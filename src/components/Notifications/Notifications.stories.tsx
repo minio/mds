@@ -6,7 +6,6 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Notifications from "./Notifications";
 import { useNotification } from "./Notifications.hooks";
 import Button from "../Button/Button";
-import NotificationManager from "./NotificationManager";
 
 type DemoProps = {
   notificationType: "success" | "error" | "warning" | "information" | "neutral";
@@ -64,6 +63,10 @@ const Demo: React.FC<DemoProps> = ({
     }
   };
 
+  useEffect(() => {
+    return notification.clear();
+  }, [notification]);
+
   return (
     <div style={{ margin: "10px 0" }}>
       <button onClick={handleNotification}>
@@ -73,11 +76,7 @@ const Demo: React.FC<DemoProps> = ({
   );
 };
 
-const NotificationDemo: React.FC<DemoProps> = (props) => {
-  useEffect(() => {
-    return NotificationManager.clearNotifications();
-  }, []);
-
+const NotificationsWrapper: React.FC<DemoProps> = (props) => {
   return (
     <StoryThemeProvider>
       <GlobalStyles />
@@ -89,7 +88,7 @@ const NotificationDemo: React.FC<DemoProps> = (props) => {
 
 export default {
   title: "MDS/Information/Notifications",
-  component: NotificationDemo,
+  component: NotificationsWrapper,
   argTypes: {
     notificationType: {
       control: {
@@ -149,7 +148,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DemoProps> = (args) => <NotificationDemo {...args} />;
+const Template: Story<DemoProps> = (args) => <NotificationsWrapper {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

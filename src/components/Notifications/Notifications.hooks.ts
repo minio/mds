@@ -55,5 +55,9 @@ export const useNotification = () => {
     [],
   );
 
-  return { success, error, warning, information, neutral };
+  const clear = useCallback(() => {
+    NotificationManager.clearNotifications();
+  }, []);
+
+  return { success, error, warning, information, neutral, clear };
 };
