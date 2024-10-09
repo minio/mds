@@ -14,15 +14,36 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { keyframes } from "styled-components";
+import {
+  NotificationAlertPrp,
+  NotificationVariant,
+} from "../NotificationAlert/NotificationAlert.types";
 
-export const notificationDrop = keyframes`0% {
-                                              opacity: 0;
-                                              transform: translateY(-20%);
-                                          }
-                                              50% {
-                                                  opacity: 1;
-                                              }
-                                              100% {
-                                                  transform: translateY(0);
-                                              }`;
+export const positions = [
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+  "top-center",
+  "bottom-center",
+] as const;
+
+export type NotificationPosition = (typeof positions)[number];
+
+export interface NotificationOptions
+  extends Omit<
+    NotificationAlertPrp,
+    "children" | "title" | "variant" | "onClose"
+  > {
+  children?: React.ReactNode;
+  position?: NotificationPosition;
+  duration?: number;
+}
+
+export interface Notification {
+  id: string;
+  variant: NotificationVariant;
+  message: string;
+  options: NotificationOptions;
+  isExiting: boolean;
+}
