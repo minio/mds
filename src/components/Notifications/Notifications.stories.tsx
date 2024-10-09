@@ -5,12 +5,19 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Notifications from "./Notifications";
 import { useNotification } from "./Notifications.hooks";
 import Button from "../Button/Button";
-import { NotificationPosition, positions } from "./Notifications.types";
+import {
+  durations,
+  NotificationDuration,
+  NotificationOptions,
+  NotificationPosition,
+  positions,
+} from "./Notifications.types";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Box from "../Box/Box";
 import InputBox from "../InputBox/InputBox";
 import Checkbox from "../Checkbox/Checkbox";
 import { BellIcon } from "../Icons/NewDesignIcons";
+import Select from "../Select/Select";
 
 type DemoProps = {
   notificationType: "success" | "error" | "warning" | "information" | "neutral";
@@ -23,7 +30,7 @@ type DemoProps = {
     | "bottom-right"
     | "top-center"
     | "bottom-center";
-  duration?: number;
+  duration?: NotificationDuration;
   action?: React.ReactNode;
   maxNotifications: number;
 };
@@ -44,17 +51,17 @@ const Demo: React.FC<DemoProps> = ({
 
   const defaultAction = (
     <Button
-      id="learn-more"
+      id="view-details"
       variant="primary-ghost"
       compact
       onClick={() => alert("Clicked!")}
     >
-      Learn More
+      View Details
     </Button>
   );
 
   const handleNotification = () => {
-    const options = {
+    const options: NotificationOptions = {
       children,
       position: displayPosition,
       duration: displayDuration,
@@ -104,13 +111,17 @@ const Demo: React.FC<DemoProps> = ({
         }
       />
 
-      <InputBox
+      <Select
         id="duration"
-        type="number"
         label="Duration (ms)"
-        tooltip="Set to 0 for no auto-dismiss"
-        value={displayDuration}
-        onChange={(e) => setDisplayDuration(Number(e.target.value))}
+        options={durations.map((value) => ({
+          value: value.toString(),
+          label: value === 0 ? "0 (No auto-dismiss)" : value.toString(),
+        }))}
+        value={displayDuration.toString()}
+        onChange={(val) =>
+          setDisplayDuration(Number(val) as NotificationDuration)
+        }
       />
 
       <Checkbox
