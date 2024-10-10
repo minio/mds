@@ -5,63 +5,59 @@ import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Notifications from "./Notifications";
 import { useNotification } from "./Notifications.hooks";
 import Button from "../Button/Button";
-import { NotificationPosition, positions } from "./Notifications.types";
+import {
+  durations,
+  NotificationDuration,
+  NotificationOptions,
+  NotificationPosition,
+  positions,
+} from "./Notifications.types";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Box from "../Box/Box";
-import InputBox from "../InputBox/InputBox";
 import Checkbox from "../Checkbox/Checkbox";
 import { BellIcon } from "../Icons/NewDesignIcons";
+import Select from "../Select/Select";
+import { NotificationVariant } from "../NotificationAlert/NotificationAlert.types";
 
 type DemoProps = {
-  notificationType: "success" | "error" | "warning" | "information" | "neutral";
   message: string;
   children?: string;
-  position:
-    | "top-left"
-    | "top-right"
-    | "bottom-left"
-    | "bottom-right"
-    | "top-center"
-    | "bottom-center";
-  duration?: number;
-  action?: React.ReactNode;
   maxNotifications: number;
 };
 
-const Demo: React.FC<DemoProps> = ({
-  notificationType = "success",
-  message,
-  children,
-  position = "top-center",
-  duration = 5000,
-  action,
-}) => {
+const Demo: React.FC<DemoProps> = ({ message, children }) => {
   const notification = useNotification();
-  const [displayPosition, setDisplayPosition] = useState(position);
-  const [displayType, setDisplayType] = useState(notificationType);
-  const [displayDuration, setDisplayDuration] = useState(duration);
-  const [displayAction, setDisplayAction] = useState(action);
+
+  const [displayPosition, setDisplayPosition] =
+    useState<NotificationPosition>("top-center");
+  const [displayVariant, setDisplayVariant] =
+    useState<NotificationVariant>("success");
+  const [displayDuration, setDisplayDuration] =
+    useState<NotificationDuration>(5000);
+  const [displayAction, setDisplayAction] = useState<
+    React.ReactNode | undefined
+  >(undefined);
 
   const defaultAction = (
     <Button
-      id="learn-more"
+      id="view-details"
       variant="primary-ghost"
       compact
       onClick={() => alert("Clicked!")}
     >
-      Learn More
+      View Details
     </Button>
   );
 
   const handleNotification = () => {
-    const options = {
+    const options: NotificationOptions = {
       children,
       position: displayPosition,
       duration: displayDuration,
       action: displayAction,
     };
 
-    notification[displayType](message, options);
+    notification[displayVariant](message, options);
   };
 
   return (
@@ -88,29 +84,33 @@ const Demo: React.FC<DemoProps> = ({
       />
 
       <RadioGroup
-        id="type"
-        name="type"
-        label="Type"
-        currentValue={displayType}
+        id="variant"
+        name="variant"
+        label="Variant"
+        currentValue={displayVariant}
         selectorOptions={[
           { value: "success", label: "Success" },
-          { value: "error", label: "Error" },
+          { value: "danger", label: "Danger" },
           { value: "warning", label: "Warning" },
           { value: "information", label: "Information" },
           { value: "neutral", label: "Neutral" },
         ]}
         onChange={(e) =>
-          setDisplayType(e.target.value as DemoProps["notificationType"])
+          setDisplayVariant(e.target.value as NotificationVariant)
         }
       />
 
-      <InputBox
+      <Select
         id="duration"
-        type="number"
         label="Duration (ms)"
-        tooltip="Set to 0 for no auto-dismiss"
-        value={displayDuration}
-        onChange={(e) => setDisplayDuration(Number(e.target.value))}
+        options={durations.map((value) => ({
+          value: value.toString(),
+          label: value === 0 ? "0 (No auto-dismiss)" : value.toString(),
+        }))}
+        value={displayDuration.toString()}
+        onChange={(val) =>
+          setDisplayDuration(Number(val) as NotificationDuration)
+        }
       />
 
       <Checkbox
@@ -147,58 +147,25 @@ export default {
   title: "MDS/Information/Notifications",
   component: NotificationsWrapper,
   argTypes: {
-    notificationType: {
-      control: {
-        type: "select",
-        options: ["success", "error", "warning", "information", "neutral"],
-      },
-      description: "Type of notification to trigger",
-      defaultValue: "success",
-    },
     message: {
       control: "text",
       description: "The main message of the notification",
-      defaultValue: "This is a notification message!",
     },
     children: {
       control: "text",
       description: "Additional content for the notification",
-      defaultValue: "This is additional content.",
-    },
-    position: {
-      control: {
-        type: "select",
-        options: [
-          "top-left",
-          "top-right",
-          "bottom-left",
-          "bottom-right",
-          "top-center",
-          "bottom-center",
-        ],
-      },
-      description: "Position of the notification",
-      defaultValue: "top-right",
-    },
-    duration: {
-      control: {
-        type: "number",
-      },
-      description: "Duration before the notification auto-dismisses (ms)",
-      defaultValue: 5000,
-    },
-    action: {
-      control: "text",
-      description: "Optional action element inside the notification",
-      defaultValue: "<a href='#'>Retry</a>",
     },
     maxNotifications: {
       control: {
         type: "number",
       },
       description: "Maximum number of notifications to display at once",
-      defaultValue: 5,
     },
+  },
+  args: {
+    message: "This is a notification message!",
+    children: "This is additional content.",
+    maxNotifications: 5,
   },
   parameters: {
     controls: { expanded: true },

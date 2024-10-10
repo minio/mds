@@ -30,6 +30,10 @@ export const positions = [
 
 export type NotificationPosition = (typeof positions)[number];
 
+export const durations = [0, 3000, 5000, 10000] as const;
+
+export type NotificationDuration = (typeof durations)[number];
+
 export interface NotificationOptions
   extends Omit<
     NotificationAlertPrp,
@@ -37,7 +41,7 @@ export interface NotificationOptions
   > {
   children?: React.ReactNode;
   position?: NotificationPosition;
-  duration?: number;
+  duration?: NotificationDuration;
 }
 
 export interface Notification {

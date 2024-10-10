@@ -169,24 +169,32 @@ const Notifications: React.FC<NotificationsProps> = ({
 
         return (
           <NotificationContainer key={position} position={position}>
-            {notifications.map((notification) => (
-              <AnimatedNotification
-                key={notification.id}
-                isExiting={notification.isExiting}
-                position={position}
-              >
-                <NotificationAlert
-                  title={notification.message}
-                  variant={notification.variant}
-                  onClose={() =>
-                    NotificationManager.removeNotification(notification.id)
-                  }
-                  {...notification.options}
+            {notifications.map((notification) => {
+              const { children, shadow = true } = notification.options;
+
+              const title = children ? notification.message : undefined;
+              const content = children || notification.message;
+
+              return (
+                <AnimatedNotification
+                  key={notification.id}
+                  isExiting={notification.isExiting}
+                  position={position}
                 >
-                  {notification.options.children}
-                </NotificationAlert>
-              </AnimatedNotification>
-            ))}
+                  <NotificationAlert
+                    title={title}
+                    variant={notification.variant}
+                    onClose={() =>
+                      NotificationManager.removeNotification(notification.id)
+                    }
+                    shadow={shadow}
+                    {...notification.options}
+                  >
+                    {content}
+                  </NotificationAlert>
+                </AnimatedNotification>
+              );
+            })}
           </NotificationContainer>
         );
       })}
