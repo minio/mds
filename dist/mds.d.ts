@@ -603,28 +603,41 @@ interface NotificationAlertConstruct {
 }
 type NotificationAlertPrp = NotificationAlertBase & NotificationAlertConstruct;
 
-interface NotificationStackProps {
-  id: number;
-  hovered: boolean;
-  duration: number;
-  timeoutId: NodeJS.Timeout | string | number | undefined;
-  notificationInfo: NotificationAlertPrp;
+declare const positions: readonly [
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+  "top-center",
+  "bottom-center",
+];
+type NotificationPosition = (typeof positions)[number];
+declare const durations: readonly [0, 3000, 5000, 10000];
+type NotificationDuration = (typeof durations)[number];
+interface NotificationOptions
+  extends Omit<
+    NotificationAlertPrp,
+    "children" | "title" | "variant" | "onClose"
+  > {
+  children?: React.ReactNode;
+  position?: NotificationPosition;
+  duration?: NotificationDuration;
 }
-interface NotificationStackConstructProps {
-  sx?: OverrideTheme;
-}
-interface NotificationStackContainerProps {
-  children: React__default.ReactNode[];
+interface Notification {
+  id: string;
+  variant: NotificationVariant;
+  message: string;
+  options: NotificationOptions;
+  isExiting: boolean;
 }
 
-declare const useNotifications: () => {
-  notifications: NotificationStackProps[];
-  addNotification: (
-    message: NotificationAlertPrp,
-    durationSeconds: 0 | 3 | 5 | 10,
-  ) => () => void;
-  removeNotification: (id: number) => void;
-  setHovered: (id: number, hovered: boolean) => void;
+declare const useNotification: () => {
+  success: (message: string, options?: NotificationOptions) => void;
+  danger: (message: string, options?: NotificationOptions) => void;
+  warning: (message: string, options?: NotificationOptions) => void;
+  information: (message: string, options?: NotificationOptions) => void;
+  neutral: (message: string, options?: NotificationOptions) => void;
+  clear: () => void;
 };
 
 declare const GlobalStyles: React$1.NamedExoticComponent<
@@ -1593,9 +1606,10 @@ declare const NotificationCount: FC<
   HTMLAttributes<HTMLSpanElement> & NotificationCountProps
 >;
 
-declare const NotificationStack: FC<
-  NotificationStackContainerProps & NotificationStackConstructProps
->;
+interface NotificationsProps {
+  maxNotifications?: number;
+}
+declare const Notifications: React__default.FC<NotificationsProps>;
 
 interface PageHeaderMainProps {
   label: React__default.ReactNode;
@@ -9069,6 +9083,7 @@ export {
   NotebookTextIcon,
   NotepadTextDashedIcon,
   NotepadTextIcon,
+  type Notification,
   NotificationAlert,
   type NotificationAlertBase,
   type NotificationAlertConstruct,
@@ -9082,12 +9097,12 @@ export {
   type NotificationCountMain,
   type NotificationCountProps,
   type NotificationCountStyleProps,
+  type NotificationDuration,
   type NotificationEmphasis,
-  NotificationStack,
-  type NotificationStackConstructProps,
-  type NotificationStackContainerProps,
-  type NotificationStackProps,
+  type NotificationOptions,
+  type NotificationPosition,
   type NotificationVariant,
+  Notifications,
   NutIcon,
   NutOffIcon,
   OctagonAlertIcon,
@@ -9732,16 +9747,18 @@ export {
   calculateBytes,
   darkColors,
   darkTheme,
+  durations,
   lightColors,
   lightTheme,
   lightV2,
   overridePropsParse,
   paddingSizeVariants,
+  positions,
   radioVariants,
   themeColors,
   themeShadows,
   useArrowKeys,
   useEnterKey,
   useEscapeKey,
-  useNotifications,
+  useNotification,
 };
