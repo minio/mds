@@ -6,11 +6,9 @@ import Notifications from "./Notifications";
 import { useNotification } from "./Notifications.hooks";
 import Button from "../Button/Button";
 import {
-  durations,
   NotificationDuration,
   NotificationOptions,
   NotificationPosition,
-  positions,
 } from "./Notifications.types";
 import RadioGroup from "../RadioGroup/RadioGroup";
 import Box from "../Box/Box";
@@ -19,24 +17,30 @@ import { BellIcon } from "../Icons/NewDesignIcons";
 import Select from "../Select/Select";
 import { NotificationVariant } from "../NotificationAlert/NotificationAlert.types";
 
-type DemoProps = {
+const positions = [
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+  "top-center",
+  "bottom-center",
+];
+
+const durations = [0, 3000, 5000, 10000];
+
+interface DemoProps {
   message: string;
   children?: string;
   maxNotifications: number;
-};
+}
 
 const Demo: React.FC<DemoProps> = ({ message, children }) => {
   const notification = useNotification();
 
-  const [displayPosition, setDisplayPosition] =
-    useState<NotificationPosition>("top-center");
-  const [displayVariant, setDisplayVariant] =
-    useState<NotificationVariant>("success");
-  const [displayDuration, setDisplayDuration] =
-    useState<NotificationDuration>(5000);
-  const [displayAction, setDisplayAction] = useState<
-    React.ReactNode | undefined
-  >(undefined);
+  const [position, setPosition] = useState<NotificationPosition>("top-center");
+  const [variant, setVariant] = useState<NotificationVariant>("success");
+  const [duration, setDuration] = useState<NotificationDuration>(5000);
+  const [action, setAction] = useState<React.ReactNode | undefined>(undefined);
 
   const defaultAction = (
     <Button
@@ -52,12 +56,12 @@ const Demo: React.FC<DemoProps> = ({ message, children }) => {
   const handleNotification = () => {
     const options: NotificationOptions = {
       children,
-      position: displayPosition,
-      duration: displayDuration,
-      action: displayAction,
+      position,
+      duration,
+      action,
     };
 
-    notification[displayVariant](message, options);
+    notification[variant](message, options);
   };
 
   return (
@@ -73,21 +77,19 @@ const Demo: React.FC<DemoProps> = ({ message, children }) => {
         id="position"
         name="position"
         label="Position"
-        currentValue={displayPosition}
+        currentValue={position}
         selectorOptions={positions.map((value) => ({
           value,
           label: value,
         }))}
-        onChange={(e) =>
-          setDisplayPosition(e.target.value as NotificationPosition)
-        }
+        onChange={(e) => setPosition(e.target.value as NotificationPosition)}
       />
 
       <RadioGroup
         id="variant"
         name="variant"
         label="Variant"
-        currentValue={displayVariant}
+        currentValue={variant}
         selectorOptions={[
           { value: "success", label: "Success" },
           { value: "danger", label: "Danger" },
@@ -95,9 +97,7 @@ const Demo: React.FC<DemoProps> = ({ message, children }) => {
           { value: "information", label: "Information" },
           { value: "neutral", label: "Neutral" },
         ]}
-        onChange={(e) =>
-          setDisplayVariant(e.target.value as NotificationVariant)
-        }
+        onChange={(e) => setVariant(e.target.value as NotificationVariant)}
       />
 
       <Select
@@ -107,19 +107,15 @@ const Demo: React.FC<DemoProps> = ({ message, children }) => {
           value: value.toString(),
           label: value === 0 ? "0 (No auto-dismiss)" : value.toString(),
         }))}
-        value={displayDuration.toString()}
-        onChange={(val) =>
-          setDisplayDuration(Number(val) as NotificationDuration)
-        }
+        value={duration.toString()}
+        onChange={(val) => setDuration(Number(val) as NotificationDuration)}
       />
 
       <Checkbox
         id="action"
         label="Show Action"
-        checked={!!displayAction}
-        onChange={() =>
-          setDisplayAction((prev) => (prev ? undefined : defaultAction))
-        }
+        checked={!!action}
+        onChange={() => setAction((prev) => (prev ? undefined : defaultAction))}
       />
 
       <Button

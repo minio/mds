@@ -19,7 +19,16 @@ import styled, { css, keyframes } from "styled-components";
 
 import NotificationAlert from "../NotificationAlert/NotificationAlert";
 import NotificationManager from "./NotificationManager";
-import { Notification, positions } from "./Notifications.types";
+import { Notification } from "./Notifications.types";
+
+const positions = [
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+  "top-center",
+  "bottom-center",
+];
 
 // Define keyframes for animations
 const slideInFromTop = keyframes`

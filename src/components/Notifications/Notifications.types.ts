@@ -19,20 +19,15 @@ import {
   NotificationVariant,
 } from "../NotificationAlert/NotificationAlert.types";
 
-export const positions = [
-  "top-left",
-  "top-right",
-  "bottom-left",
-  "bottom-right",
-  "top-center",
-  "bottom-center",
-] as const;
+export type NotificationPosition =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top-center"
+  | "bottom-center";
 
-export type NotificationPosition = (typeof positions)[number];
-
-export const durations = [0, 3000, 5000, 10000] as const;
-
-export type NotificationDuration = (typeof durations)[number];
+export type NotificationDuration = 0 | 3000 | 5000 | 10000;
 
 export interface NotificationOptions
   extends Omit<
