@@ -19,7 +19,16 @@ import styled, { css, keyframes } from "styled-components";
 
 import NotificationAlert from "../NotificationAlert/NotificationAlert";
 import NotificationManager from "./NotificationManager";
-import { Notification, positions } from "./Notifications.types";
+import { Notification } from "./Notifications.types";
+
+const positions = [
+  "top-left",
+  "top-right",
+  "bottom-left",
+  "bottom-right",
+  "top-center",
+  "bottom-center",
+];
 
 // Define keyframes for animations
 const slideInFromTop = keyframes`
@@ -89,8 +98,8 @@ const AnimatedNotification = styled.div<{
         `};
 `;
 
-const NotificationContainer = styled.div<{ position: string }>`
-  position: absolute;
+const NotificationsContainer = styled.div<{ position: string }>`
+  position: fixed;
   max-height: 100%;
   overflow: hidden;
   display: flex;
@@ -168,7 +177,7 @@ const Notifications: React.FC<NotificationsProps> = ({
         }
 
         return (
-          <NotificationContainer key={position} position={position}>
+          <NotificationsContainer key={position} position={position}>
             {notifications.map((notification) => {
               const { children, shadow = true } = notification.options;
 
@@ -195,7 +204,7 @@ const Notifications: React.FC<NotificationsProps> = ({
                 </AnimatedNotification>
               );
             })}
-          </NotificationContainer>
+          </NotificationsContainer>
         );
       })}
     </>
