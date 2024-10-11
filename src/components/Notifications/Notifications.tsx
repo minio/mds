@@ -89,8 +89,8 @@ const AnimatedNotification = styled.div<{
         `};
 `;
 
-const NotificationContainer = styled.div<{ position: string }>`
-  position: absolute;
+const NotificationsContainer = styled.div<{ position: string }>`
+  position: fixed;
   max-height: 100%;
   overflow: hidden;
   display: flex;
@@ -168,7 +168,7 @@ const Notifications: React.FC<NotificationsProps> = ({
         }
 
         return (
-          <NotificationContainer key={position} position={position}>
+          <NotificationsContainer key={position} position={position}>
             {notifications.map((notification) => {
               const { children, shadow = true } = notification.options;
 
@@ -195,7 +195,7 @@ const Notifications: React.FC<NotificationsProps> = ({
                 </AnimatedNotification>
               );
             })}
-          </NotificationContainer>
+          </NotificationsContainer>
         );
       })}
     </>
