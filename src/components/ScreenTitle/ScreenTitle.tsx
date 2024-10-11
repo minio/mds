@@ -171,8 +171,8 @@ const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
             )}
             {titleOptions && (
               <Box className={"options"}>
-                {titleOptions?.map((optionItem) => (
-                  <Box className={"optionElement"}>
+                {titleOptions?.map((optionItem, index) => (
+                  <Box className={"optionElement"} key={`option-${index}`}>
                     <Box className={"title"}>{optionItem.title}</Box>
                     <Box className={"value"}>{optionItem.value}</Box>
                   </Box>

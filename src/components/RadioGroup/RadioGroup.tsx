@@ -238,8 +238,8 @@ const RadioGroup: FC<RadioGroupProps> = ({
         {selectorOptions && (
           <Fragment>
             {selectorOptions.map((selector) => (
-              <RadioMain>
-                <RadioContainer key={`option-${id}-${selector.value}`}>
+              <RadioMain key={`option-${id}-${selector.value}`}>
+                <RadioContainer>
                   <RadioButton
                     htmlFor={`option-${id}-${selector.value}`}
                     sx={sx}

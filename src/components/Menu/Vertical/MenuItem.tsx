@@ -228,6 +228,7 @@ const MenuItem: FC<MenuItemProps> = ({
           <Box className={"subItemsBox"}>
             {children.map((child) => (
               <Tooltip
+                key={child.id}
                 tooltip={visibleTooltip ? child.name : ""}
                 placement={"right"}
               >
