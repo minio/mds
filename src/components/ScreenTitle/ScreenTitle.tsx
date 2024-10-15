@@ -43,8 +43,8 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
       display: "flex",
       alignItems:
         !subTitle && !titleOptions ? "center" : ("flex-start" as const),
+      gap: 24,
       justifyContent: "space-between",
-      padding: 8,
       width: "100%",
     },
     "& .headerBarIcon": {
@@ -54,64 +54,40 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
         height: 44,
       },
     },
-    "& .headerBarSubheader": {
-      color: get(theme, `screenTitle.subtitleColor`, lightV2.mutedText),
-      fontSize: 14,
-    },
     "& .titleColumn": {
-      height: !subTitle && !titleOptions ? "60px" : ("auto" as const),
+      height: !subTitle && !titleOptions ? "56px" : ("auto" as const),
       justifyContent: "center",
       display: "flex",
       flexFlow: "column",
       alignItems: "flex-start",
-      gap: 4 as const,
+      gap: 0,
       "& .titleElement": {
-        fontSize: 24,
-        fontWeight: 600,
-        fontStyle: "normal" as const,
-        lineHeight: "28px",
-        color: get(
-          theme,
-          `screenTitle.titleColor`,
-          themeColors["Color/Neutral/Text/colorText"].lightMode,
-        ),
+        color: theme.colors["Color/Neutral/Text/colorTextHeading"],
       },
-      "& .options": {
-        display: "flex",
-        gap: 28,
-        "& .title": {
-          fontSize: 12,
-          fontStyle: "normal",
-          fontWeight: 400,
-          lineHeight: "16px",
-          color: get(
-            theme,
-            `screenTitle.subtitleColor`,
-            themeColors["Color/Neutral/Text/colorTextTertiary"].lightMode,
-          ),
-        },
-        "& .value": {
-          fontSize: 12,
-          fontStyle: "normal",
-          fontWeight: 600,
-          lineHeight: "16px",
-          color: get(
-            theme,
-            `screenTitle.subtitleColor`,
-            themeColors["Color/Neutral/Text/colorTextLabel"].lightMode,
-          ),
-        },
+      "& .subTitle, .superTitle": {
+        color: theme.colors["Color/Neutral/Text/colorTextQuaternary"],
       },
     },
     "& .leftItems": {
+      flexGrow: 1,
       display: "flex",
-      alignItems: "flex-start" as const,
+      justifyContent: "space-between",
       gap: 16,
+      "& .titleColumn": {
+        flexGrow: "1",
+      },
+      "& .options": {
+        display: "flex",
+        alignItems: "center",
+        color: theme.colors["Color/Neutral/Text/colorTextTertiary"],
+        gap: 24,
+      },
     },
     "& .rightItems": {
       display: "flex",
       alignItems: "center",
-      gap: 10,
+      gap: 8,
+      height: "100%",
     },
     "& .optionElement": {
       display: "flex",
@@ -146,6 +122,7 @@ const ScreenTitleContainer = styled.div<ScreenTitleContainerProps>(
 
 const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
   icon,
+  superTitle = "",
   subTitle = "",
   title,
   actions,
@@ -157,29 +134,45 @@ const ScreenTitle: FC<ScreenTitleProps & HTMLAttributes<HTMLDivElement>> = ({
     <ScreenTitleContainer
       className={"screen-title"}
       sx={sx}
+      superTitle={superTitle}
       subTitle={subTitle}
       titleOptions={titleOptions}
       {...restProps}
     >
       <Box className={"stContainer"}>
         <Box className={"leftItems"}>
-          {icon ? <BoxedIcon>{icon}</BoxedIcon> : null}
+          {icon ? (
+            <BoxedIcon
+              sx={(theme) => ({
+                "& .min-icon": {
+                  color: theme.colors["Color/Brand/_minio/Raspberry"],
+                  width: 24,
+                  height: 24,
+                },
+              })}
+            >
+              {icon}
+            </BoxedIcon>
+          ) : null}
           <Box className={"titleColumn"}>
-            <Box className={"titleElement"}>{title}</Box>
-            {subTitle && (
-              <span className={"headerBarSubheader"}>{subTitle}</span>
+            {superTitle && (
+              <span className={"superTitle SM_Normal"}>{superTitle}</span>
             )}
-            {titleOptions && (
-              <Box className={"options"}>
-                {titleOptions?.map((optionItem, index) => (
-                  <Box className={"optionElement"} key={`option-${index}`}>
-                    <Box className={"title"}>{optionItem.title}</Box>
-                    <Box className={"value"}>{optionItem.value}</Box>
-                  </Box>
-                ))}
-              </Box>
+            <Box className={"titleElement Heading3"}>{title}</Box>
+            {subTitle && (
+              <span className={"subTitle SM_Normal"}>{subTitle}</span>
             )}
           </Box>
+          {titleOptions && (
+            <Box className={"options"}>
+              {titleOptions?.map((optionItem, index) => (
+                <Box className={"optionElement"} key={`option-${index}`}>
+                  <Box className={"title SM_Normal"}>{optionItem.title}</Box>
+                  <Box className={"value SM_Strong"}>{optionItem.value}</Box>
+                </Box>
+              ))}
+            </Box>
+          )}
         </Box>
         {actions && <Box className={"rightItems"}>{actions}</Box>}
       </Box>

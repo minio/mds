@@ -53,7 +53,11 @@ const IconContainer = styled.div<IBoxedIconProps>(({ theme, sx }) => ({
 }));
 
 const BoxedIcon: FC<IBoxedIconProps> = ({ sx, children }) => {
-  return <IconContainer sx={sx}>{children}</IconContainer>;
+  return (
+    <IconContainer sx={sx} className={"boxedIcon"}>
+      {children}
+    </IconContainer>
+  );
 };
 
 export default BoxedIcon;

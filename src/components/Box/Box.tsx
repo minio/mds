@@ -38,8 +38,7 @@ const BoxParent = styled.div<BoxProps & React.HTMLAttributes<HTMLDivElement>>(
         border: `${get(theme, "box.border", lightV2.disabledGrey)} 1px solid`,
         borderRadius: customBorderRadius || 16,
         padding: customBorderPadding || 24,
-        boxShadow: get(theme, "box.shadow", "none"),
-        backgroundColor: get(theme, "box.backgroundColor", lightV2.white),
+        backgroundColor: theme.colors["Color/Neutral/colorWhite"],
       };
     }
 

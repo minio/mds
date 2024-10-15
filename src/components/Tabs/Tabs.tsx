@@ -76,7 +76,7 @@ const TabsContainer = styled.div<TabsContainerProps>(
       "& .tabsPanels": {
         flexGrow: 1,
         width: "100%",
-        padding: 15,
+        padding: 24,
         border: horizontal
           ? "none"
           : `${get(
