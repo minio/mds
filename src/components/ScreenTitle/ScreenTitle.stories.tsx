@@ -42,10 +42,10 @@ const Template: Story<ScreenTitleProps> = (args: ScreenTitleProps) => (
 export const Default = Template.bind({});
 Default.args = {
   title: "Object Title",
+  superTitle: "Super Title",
   titleOptions: [
     { title: "Created", value: "Wed, Feb 28 2024 · 23:56:02" },
     { title: "Access", value: "PUBLIC" },
-    { title: "Size", value: "1,2024 MiB - 2 Objects" },
   ],
   actions: (
     <Fragment>
@@ -84,9 +84,10 @@ NoIcon.args = {
 
 export const CustomSubElement = Template.bind({});
 CustomSubElement.args = {
+  icon: <TestIcon />,
+  superTitle: "Super Title",
   title: "Object Title",
   titleOptions: [
-    { title: "Created", value: "Wed, Feb 28 2024 · 23:56:02" },
     { title: "Access", value: "PUBLIC" },
     { title: "Size", value: "1,2024 MiB - 2 Objects" },
   ],
@@ -100,21 +101,6 @@ CustomSubElement.args = {
         Button2
       </Button>
     </Fragment>
-  ),
-  icon: <TestIcon />,
-  subTitle: (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        color: "#080",
-        fontSize: 12,
-        gap: 6,
-        "& svg": { width: 12, height: 12, minWidth: 12, minHeight: 12 },
-      }}
-    >
-      <TestIcon /> <span>Online</span>
-    </Box>
   ),
 };
 

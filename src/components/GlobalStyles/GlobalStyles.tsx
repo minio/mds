@@ -282,6 +282,13 @@ const GlobalStyles = createGlobalStyle`
         font-weight: 600;
         line-height: 28px;
     }
+    .Heading3 {
+        font-family: Geist;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 38px;
+    }
     `;
     }}
 `;

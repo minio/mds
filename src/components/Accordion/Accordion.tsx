@@ -93,7 +93,7 @@ const Accordion: FC<AccordionProps> = ({
   sx,
 }) => {
   return (
-    <AccordionContainer id={id} sx={sx}>
+    <AccordionContainer id={id} sx={sx} className={"accordion"}>
       <AccordionTitleBar
         onClick={() => (!disabled ? onTitleClick() : null)}
         className={`accordionTitle ${disabled ? "disabled" : ""}`}
