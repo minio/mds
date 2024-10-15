@@ -603,17 +603,14 @@ interface NotificationAlertConstruct {
 }
 type NotificationAlertPrp = NotificationAlertBase & NotificationAlertConstruct;
 
-declare const positions: readonly [
-  "top-left",
-  "top-right",
-  "bottom-left",
-  "bottom-right",
-  "top-center",
-  "bottom-center",
-];
-type NotificationPosition = (typeof positions)[number];
-declare const durations: readonly [0, 3000, 5000, 10000];
-type NotificationDuration = (typeof durations)[number];
+type NotificationPosition =
+  | "top-left"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-right"
+  | "top-center"
+  | "bottom-center";
+type NotificationDuration = 0 | 3000 | 5000 | 10000;
 interface NotificationOptions
   extends Omit<
     NotificationAlertPrp,
@@ -1701,6 +1698,7 @@ declare const ReadBox: FC<ReadBoxProps>;
 
 interface ScreenTitleProps {
   icon: React__default.ReactNode;
+  superTitle?: React__default.ReactNode;
   subTitle?: React__default.ReactNode;
   title: string;
   actions?: React__default.ReactNode;
@@ -1708,6 +1706,7 @@ interface ScreenTitleProps {
   sx?: OverrideTheme;
 }
 interface ScreenTitleContainerProps {
+  superTitle?: React__default.ReactNode;
   subTitle?: React__default.ReactNode;
   titleOptions?: ScreenTitleOptions[];
   sx?: OverrideTheme;
@@ -1715,7 +1714,7 @@ interface ScreenTitleContainerProps {
 }
 interface ScreenTitleOptions {
   title: string;
-  value: string;
+  value?: string;
 }
 
 declare const ScreenTitle: FC<
@@ -9747,13 +9746,11 @@ export {
   calculateBytes,
   darkColors,
   darkTheme,
-  durations,
   lightColors,
   lightTheme,
   lightV2,
   overridePropsParse,
   paddingSizeVariants,
-  positions,
   radioVariants,
   themeColors,
   themeShadows,
