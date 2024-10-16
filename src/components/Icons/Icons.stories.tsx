@@ -805,6 +805,11 @@ const Template: Story = (args) => {
               BaselineIcon
             </div>
             <div className="story-icon">
+              <nvicons.BatchJobsIcon />
+              <br />
+              BatchJobsIcon
+            </div>
+            <div className="story-icon">
               <nvicons.BathIcon />
               <br />
               BathIcon
