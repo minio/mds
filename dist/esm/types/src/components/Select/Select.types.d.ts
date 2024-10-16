@@ -11,7 +11,6 @@ export interface SelectProps {
   label?: string;
   tooltip?: string;
   noLabelMinWidth?: boolean;
-  fixedLabel?: string;
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
   sx?: OverrideTheme;
