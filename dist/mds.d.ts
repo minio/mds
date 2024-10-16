@@ -2574,6 +2574,10 @@ declare const BaselineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => React$1.JSX.Element;
 
+declare const BatchJobsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => React$1.JSX.Element;
+
 declare const BathIcon: (props: SVGProps<SVGSVGElement>) => React$1.JSX.Element;
 
 declare const BatteryChargingIcon: (
@@ -8142,6 +8146,7 @@ export {
   BareMetalLinuxSiteIcon,
   type BaseLinkButtonProps,
   BaselineIcon,
+  BatchJobsIcon,
   BathIcon,
   BatteryChargingIcon,
   BatteryFullIcon,
