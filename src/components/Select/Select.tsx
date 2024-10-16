@@ -35,7 +35,6 @@ const Select: FC<SelectProps> = ({
   options,
   onChange,
   disabled = false,
-  fixedLabel = "",
   name,
   placeholder = "",
   helpTip,
@@ -54,10 +53,6 @@ const Select: FC<SelectProps> = ({
   const selectedLabel = options.find((option) => option.value === value);
 
   const displayValue = selectedLabel ? selectedLabel.label : value;
-
-  if (!selectedLabel && fixedLabel === "" && placeholder === "") {
-    console.warn("The selected value is not included in Options List");
-  }
 
   return (
     <InputBox

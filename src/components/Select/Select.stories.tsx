@@ -39,7 +39,6 @@ const Template: Story<SelectProps> = ({
   required,
   tooltip,
   disabled,
-  fixedLabel = "",
   options,
   placeholder,
   sx,
@@ -76,9 +75,6 @@ const Template: Story<SelectProps> = ({
           value={selectedValue}
           onChange={(newValue, extraValue) => {
             setSelectedValue(newValue);
-            if (fixedLabel !== "") {
-              alert(`Triggered ${newValue}`);
-            }
 
             console.log(extraValue);
 
@@ -90,7 +86,6 @@ const Template: Story<SelectProps> = ({
           required={required}
           tooltip={tooltip}
           disabled={disabled}
-          fixedLabel={fixedLabel}
           placeholder={placeholder}
           sx={sx}
         />
@@ -121,12 +116,6 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   label: "A Select box",
   disabled: true,
-};
-
-export const FixedLabel = Template.bind({});
-FixedLabel.args = {
-  fixedLabel: "Select an option to trigger an action",
-  disabled: false,
 };
 
 export const OptionsWithIcons = Template.bind({});
