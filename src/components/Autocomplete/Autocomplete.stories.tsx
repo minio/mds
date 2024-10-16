@@ -135,12 +135,6 @@ Disabled.args = {
   disabled: true,
 };
 
-export const FixedLabel = Template.bind({});
-FixedLabel.args = {
-  fixedLabel: "Autocomplete an option to trigger an action",
-  disabled: false,
-};
-
 export const OptionsWithIcons = Template.bind({});
 OptionsWithIcons.args = {
   options: [

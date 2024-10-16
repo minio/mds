@@ -23,10 +23,10 @@ import { overridePropsParse } from "../../global/utils";
 import Box from "../Box/Box";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import InputBox from "../InputBox/InputBox";
 import { InputContainerProps } from "../InputBox/InputBox.types";
 import { DateTimeInputProps } from "./DateTimeInput.types";
 import DateTimeSelector from "./DateTimeSelector";
-import InputBox from "../InputBox/InputBox";
 
 const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
   display: "flex",

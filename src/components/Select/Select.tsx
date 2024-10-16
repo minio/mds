@@ -35,7 +35,6 @@ const Select: FC<SelectProps> = ({
   options,
   onChange,
   disabled = false,
-  fixedLabel = "",
   name,
   placeholder = "",
   helpTip,
@@ -53,9 +52,7 @@ const Select: FC<SelectProps> = ({
 
   const selectedLabel = options.find((option) => option.value === value);
 
-  if (!selectedLabel && fixedLabel === "" && placeholder === "") {
-    console.warn("The selected value is not included in Options List");
-  }
+  const displayValue = selectedLabel ? selectedLabel.label : value;
 
   return (
     <InputBox
@@ -65,7 +62,7 @@ const Select: FC<SelectProps> = ({
       required={required}
       tooltip={tooltip}
       noLabelMinWidth={noLabelMinWidth}
-      value={selectedLabel?.label}
+      value={displayValue}
       sx={{
         ...sx,
         "& .overlayAction > button": {

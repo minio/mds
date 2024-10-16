@@ -18,6 +18,9 @@ import React, { FC } from "react";
 
 import ThemedLogo from "../ThemedLogo/ThemedLogo";
 import { ApplicationLogoProps } from "./ApplicationLogo.types";
+import AIStor from "./Logos/AIStor/AIStor";
+import AIStorHorizontal from "./Logos/AIStor/AIStorHorizontal";
+import AIStorTag from "./Logos/AIStor/AIStorTag";
 import Cache from "./Logos/Cache/Cache";
 import Cloud from "./Logos/Cloud/Cloud";
 import ConsoleAGPL from "./Logos/Console/ConsoleAGPL";
@@ -44,9 +47,6 @@ import Releases from "./Logos/Releases/Releases";
 import SUBNET from "./Logos/SUBNET/SUBNET";
 import SubnetOPS from "./Logos/SubnetOPS/SubnetOPS";
 import VMBroker from "./Logos/VMBroker/VMBroker";
-import AIStorTag from "./Logos/AIStor/AIStorTag";
-import AIStor from "./Logos/AIStor/AIStor";
-import AIStorHorizontal from "./Logos/AIStor/AIStorHorizontal";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,

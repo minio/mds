@@ -18,7 +18,6 @@ import React, { FC, HTMLAttributes } from "react";
 import get from "lodash/get";
 import styled from "styled-components";
 
-import { themeColors } from "../../global/themeColors";
 import { lightV2 } from "../../global/themes";
 import {
   breakPoints,
