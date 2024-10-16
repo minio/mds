@@ -15,16 +15,15 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
-import get from "lodash/get";
 import styled from "styled-components";
 
 import { overridePropsParse } from "../../global/utils";
 import DropdownSelector from "../DropdownSelector/DropdownSelector";
 import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
 import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
+import InputBox from "../InputBox/InputBox";
 import { InputContainerProps } from "../InputBox/InputBox.types";
 import { AutocompleteProps } from "./Autocomplete.types";
-import InputBox from "../InputBox/InputBox";
 
 const InputContainer = styled.div<InputContainerProps>(({ theme, sx }) => ({
   display: "flex",
