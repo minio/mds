@@ -53,6 +53,8 @@ const Select: FC<SelectProps> = ({
 
   const selectedLabel = options.find((option) => option.value === value);
 
+  const displayValue = selectedLabel ? selectedLabel.label : value;
+
   if (!selectedLabel && fixedLabel === "" && placeholder === "") {
     console.warn("The selected value is not included in Options List");
   }
@@ -65,7 +67,7 @@ const Select: FC<SelectProps> = ({
       required={required}
       tooltip={tooltip}
       noLabelMinWidth={noLabelMinWidth}
-      value={selectedLabel?.label}
+      value={displayValue}
       sx={{
         ...sx,
         "& .overlayAction > button": {
