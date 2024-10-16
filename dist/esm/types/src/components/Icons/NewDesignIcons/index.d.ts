@@ -142,6 +142,7 @@ export { default as BarChartIcon } from "./BarChartIcon";
 export { default as BarcodeIcon } from "./BarcodeIcon";
 export { default as BareMetalLinuxSiteIcon } from "./BareMetalLinuxSiteIcon";
 export { default as BaselineIcon } from "./BaselineIcon";
+export { default as BatchJobsIcon } from "./BatchJobsIcon";
 export { default as BathIcon } from "./BathIcon";
 export { default as BatteryChargingIcon } from "./BatteryChargingIcon";
 export { default as BatteryFullIcon } from "./BatteryFullIcon";
