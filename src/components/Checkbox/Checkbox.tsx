@@ -150,6 +150,7 @@ const Checkbox: FC<
   helpTip,
   helpTipPlacement,
   checked,
+  checkLabel,
   disabled,
   ...props
 }) => {
@@ -162,28 +163,18 @@ const Checkbox: FC<
         alignItems: "center",
         flexBasis: "initial",
         flexWrap: "nowrap",
+        "& .checkArea": {
+          display: "flex",
+          gap: 16,
+          alignItems: "center",
+        },
       }}
     >
-      <CheckboxItem sx={sx} onClick={(e) => e.stopPropagation()}>
-        <input
-          type={"checkbox"}
-          id={id}
-          checked={checked}
-          disabled={disabled}
-          {...props}
-        />
-        <span className={"checkbox"}>
-          <CheckIcon className={`${disabled ? "disabled" : ""} icon-overlay`} />
-        </span>
-      </CheckboxItem>
       {label !== "" && (
         <InputLabel
           htmlFor={id}
           noMinWidth
           className={`${overrideLabelClasses || ""}`}
-          sx={{
-            marginLeft: 10,
-          }}
           helpTip={helpTip}
           helpTipPlacement={helpTipPlacement}
         >
@@ -197,6 +188,23 @@ const Checkbox: FC<
           )}
         </InputLabel>
       )}
+      <CheckboxItem
+        className={"checkArea"}
+        sx={sx}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <input
+          type={"checkbox"}
+          id={id}
+          checked={checked}
+          disabled={disabled}
+          {...props}
+        />
+        <span className={"checkbox"}>
+          <CheckIcon className={`${disabled ? "disabled" : ""} icon-overlay`} />
+        </span>
+        {checkLabel && <span>{checkLabel}</span>}
+      </CheckboxItem>
     </FieldContainer>
   );
 };

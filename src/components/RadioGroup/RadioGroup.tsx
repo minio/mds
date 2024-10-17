@@ -181,13 +181,13 @@ const OptionsContainer = styled.div<OptionsContainerProps>(
 const RadioContainer = styled.div(() => ({
   display: "flex",
   alignItems: "center",
-  gap: 5,
+  gap: 16,
 }));
 
 const RadioMain = styled.div(() => ({
   "& .descriptionLabel": {
     display: "block",
-    marginLeft: 21,
+    paddingLeft: 32,
     marginTop: 4,
   },
 }));

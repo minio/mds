@@ -25,6 +25,7 @@ import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import { GlobalStyles } from "../index";
 import ScreenTitle from "./ScreenTitle";
 import { ScreenTitleProps } from "./ScreenTitle.types";
+import Badge from "../Badge/Badge";
 
 export default {
   title: "MDS/Layout/ScreenTitle",
@@ -43,8 +44,12 @@ export const Default = Template.bind({});
 Default.args = {
   title: "Object Title",
   superTitle: "Super Title",
+  titleBadges: [
+    <Badge label={"online"} id={"online-badge"} />,
+    <Badge label={"important"} color={"warning"} id={"important-badge"} />,
+  ],
   titleOptions: [
-    { title: "Created", value: "Wed, Feb 28 2024 · 23:56:02" },
+    { title: "Created", value: "Yesterday" },
     { title: "Access", value: "PUBLIC" },
   ],
   actions: (
