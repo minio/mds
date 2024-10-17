@@ -8,4 +8,5 @@ export interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   sx?: OverrideTheme;
   helpTip?: React.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  checkLabel?: string;
 }
