@@ -43,6 +43,7 @@ Default.args = {
     console.log("click");
   },
   tooltip: "test",
+  checkLabel: "Yes",
 };
 
 export const Disabled = Template.bind({});

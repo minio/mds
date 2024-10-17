@@ -49,7 +49,9 @@ const CustomLabel = styled.label<InputLabelProps>(
         display: "flex",
         alignItems: "center",
         lineHeight: lineHeightVariant,
-        minWidth: 180,
+        width: 190,
+        paddingRight: 8,
+        textWrap: "wrap",
         "&.noMinWidthLabel": {
           minWidth: "initial",
         },
