@@ -30,10 +30,10 @@ const CustomLabel = styled.label<InputLabelProps>(
     if (orientation === "horizontal" && inputSizeMode) {
       switch (inputSizeMode) {
         case "small":
-          lineHeightVariant = "28px";
+          lineHeightVariant = 1;
           break;
         case "large":
-          lineHeightVariant = "38px";
+          lineHeightVariant = 1.4;
           break;
       }
     }
