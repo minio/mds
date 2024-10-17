@@ -6,6 +6,7 @@ export interface ScreenTitleProps {
   subTitle?: React.ReactNode;
   title: string;
   actions?: React.ReactNode;
+  titleBadges?: React.ReactNode[];
   titleOptions?: ScreenTitleOptions[];
   sx?: OverrideTheme;
 }
@@ -17,6 +18,6 @@ export interface ScreenTitleContainerProps {
   bottomBorder?: boolean;
 }
 export interface ScreenTitleOptions {
-  title: string;
+  title?: string;
   value?: string;
 }

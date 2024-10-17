@@ -924,6 +924,7 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   sx?: OverrideTheme;
   helpTip?: React__default.ReactNode;
   helpTipPlacement?: CommonHelpTipPlacement;
+  checkLabel?: string;
 }
 
 declare const Checkbox: FC<
@@ -1702,6 +1703,7 @@ interface ScreenTitleProps {
   subTitle?: React__default.ReactNode;
   title: string;
   actions?: React__default.ReactNode;
+  titleBadges?: React__default.ReactNode[];
   titleOptions?: ScreenTitleOptions[];
   sx?: OverrideTheme;
 }
@@ -1713,7 +1715,7 @@ interface ScreenTitleContainerProps {
   bottomBorder?: boolean;
 }
 interface ScreenTitleOptions {
-  title: string;
+  title?: string;
   value?: string;
 }
 
