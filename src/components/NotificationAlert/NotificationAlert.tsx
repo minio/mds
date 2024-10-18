@@ -145,7 +145,7 @@ const NotificationContainer = styled.div.attrs(() => ({
             whiteSpace: "normal",
             minWidth: 0,
             display: "-webkit-box",
-            WebkitLineClamp: 2,
+            WebkitLineClamp: 1,
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
