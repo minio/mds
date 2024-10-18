@@ -167,6 +167,7 @@ const Checkbox: FC<
           display: "flex",
           gap: 16,
           alignItems: "center",
+          cursor: "pointer",
         },
       }}
     >
