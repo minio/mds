@@ -35,6 +35,7 @@ const CheckboxItem = styled.label<InputLabelProps>(({ sx, theme }) => ({
   },
   "& .checkbox": {
     position: "relative",
+    cursor: "pointer",
     display: "block",
     width: 16,
     height: 16,
