@@ -170,7 +170,7 @@ const Checkbox: FC<
         },
       }}
     >
-      {label !== "" && (
+      {label && label !== "" && (
         <InputLabel
           htmlFor={id}
           noMinWidth
