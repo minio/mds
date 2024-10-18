@@ -181,6 +181,10 @@ export const themeColors: ThemeColorItem = {
     lightMode: "#000000e0",
     darkMode: "#ffffffe0",
   },
+  "Color/Neutral/Text/colorTextContrast": {
+    lightMode: "#ffffff",
+    darkMode: "#000000",
+  },
   "Color/Base/Black": {
     lightMode: "#000000",
     darkMode: "#000000",

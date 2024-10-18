@@ -58,8 +58,8 @@ const TooltipWrapper = styled.span<HTMLAttributes<HTMLDivElement>>(
 const TooltipItem = styled.div<TooltipBuild>(({ theme, placement }) => {
   const tooltipArrowSize = "6px";
 
-  const background = get(theme, "tooltip.background", "#737373");
-  const textColor = get(theme, "tooltip.color", "#FFFFFF");
+  const background = theme.colors["Color/Neutral/Bg/colorBgContrast"];
+  const textColor = theme.colors["Color/Neutral/Text/colorTextContrast"];
 
   let placementPosition = {};
   const beforePosition = {
@@ -93,7 +93,6 @@ const TooltipItem = styled.div<TooltipBuild>(({ theme, placement }) => {
           left: `calc(${tooltipArrowSize} * -1)`,
           top: "50%",
           transform: "translateX(0) translateY(-50%)",
-          borderRightColor: background,
         },
       };
       break;
@@ -124,13 +123,19 @@ const TooltipItem = styled.div<TooltipBuild>(({ theme, placement }) => {
   return {
     position: "fixed",
     borderRadius: 4,
+    borderWidth: 1,
+    borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
     color: textColor,
     background: background,
     lineHeight: 1,
     zIndex: 10001,
     padding: 8,
+    paddingTop: 4,
+    paddingBottom: 4,
+    minWidth: 100,
     fontSize: 12,
-    boxShadow: "#00000050 0px 3px 10px",
+    boxShadow:
+      "0px 1px 2px 0px rgba(0, 0, 0, 0.08), 0px 1px 6px -1px rgba(0, 0, 0, 0.07), 0px 2px 4px 0px rgba(0, 0, 0, 0.07)",
     maxWidth: 350,
     ...placementPosition,
   };
@@ -215,7 +220,11 @@ const TooltipElement: FC<TooltipConstructProps> = ({
   }
 
   return (
-    <TooltipItem placement={calculatedPlacement} style={position}>
+    <TooltipItem
+      placement={calculatedPlacement}
+      style={position}
+      className={"SM_Normal"}
+    >
       {content}
     </TooltipItem>
   );
