@@ -77,6 +77,7 @@ const NotificationContainer = styled.div.attrs(() => ({
       "& .mainInfoContainer": {
         flexGrow: 1,
         width: "100%",
+        minWidth: 0,
       },
       "& .actionCardMode": {
         marginTop: 8,
@@ -91,6 +92,7 @@ const NotificationContainer = styled.div.attrs(() => ({
         height: 16,
         minWidth: 16,
         minHeight: 16,
+        flexShrink: 0,
       },
       "& .dismissAlert": {
         color: get(
@@ -112,28 +114,20 @@ const NotificationContainer = styled.div.attrs(() => ({
       },
       "& .alertInitLine": {
         display: "flex",
+        flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-start",
-
-        "& .content": {
-          fontSize: 14,
-          fontStyle: "normal",
-          fontWeight: 400,
-          lineHeight: "20px",
-          letterSpacing: "0.16px",
-        },
-
+        minWidth: 0,
         "& .notificationTitle": {
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
           width: "100%",
+          minWidth: 0,
           "& .fillTitleContent": {
             display: "flex",
             flex: 1,
             width: "100%",
             gap: 8,
             alignItems: designMode === "card" ? "flex-start" : "center",
+            minWidth: 0,
           },
           "& .cardTitle": {
             fontSize: 14,
@@ -146,12 +140,48 @@ const NotificationContainer = styled.div.attrs(() => ({
               "notificationAlert.titleColor",
               themeColors["Color/Neutral/Text/colorTextHeading"].lightMode,
             ),
+            wordBreak: "break-word",
+            overflowWrap: "break-word",
+            whiteSpace: "normal",
+            minWidth: 0,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
           },
+        },
+        "& .content": {
+          fontSize: 14,
+          fontStyle: "normal",
+          fontWeight: 400,
+          lineHeight: "20px",
+          letterSpacing: "0.16px",
+          wordBreak: "break-word",
+          overflowWrap: "break-word",
+          whiteSpace: "normal",
+          minWidth: 0,
+          display: "-webkit-box",
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
         },
       },
       "& .cardContent": {
+        width: "100%",
+        minWidth: 0,
         "& .content": {
           marginTop: 3,
+          wordBreak: "break-word",
+          overflowWrap: "break-word",
+          whiteSpace: "normal",
+          minWidth: 0,
+          display: "-webkit-box",
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
         },
         "& .actionCardMode": {
           lineHeight: 1,
@@ -223,13 +253,13 @@ const NotificationAlert: FC<
               )}
             </div>
           </div>
+          {designMode === "card" && (
+            <div className={"cardContent"}>
+              <div className={"content"}>{children}</div>
+              {action && <div className={"actionCardMode"}>{action}</div>}
+            </div>
+          )}
         </div>
-        {designMode === "card" && (
-          <div className={"cardContent"}>
-            <div className={"content"}>{children}</div>
-            {action && <div className={"actionCardMode"}>{action}</div>}
-          </div>
-        )}
       </div>
       {onClose && (
         <button className={"dismissAlert"} onClick={onClose}>
