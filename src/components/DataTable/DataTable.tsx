@@ -498,7 +498,6 @@ const DataTable = <T,>({
                               {onSelectAll ? (
                                 <div className={"checkAllWrapper"}>
                                   <Checkbox
-                                    label={""}
                                     onChange={onSelectAll}
                                     value="all"
                                     id={"selectAll"}
