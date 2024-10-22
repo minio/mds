@@ -78,7 +78,11 @@ const Notifications: React.FC<NotificationsProps> = ({
         return (
           <div css={[notificationsContainerStyles(position)]} key={position}>
             {notifications.map((notification) => {
-              const { children, shadow = true } = notification.options;
+              const {
+                children,
+                wrapText = true,
+                shadow = true,
+              } = notification.options;
 
               const title = children ? notification.message : undefined;
               const content = children || notification.message;
@@ -97,6 +101,7 @@ const Notifications: React.FC<NotificationsProps> = ({
                     onClose={() =>
                       NotificationManager.removeNotification(notification.id)
                     }
+                    wrapText={wrapText}
                     shadow={shadow}
                     {...notification.options}
                   >
