@@ -18,7 +18,8 @@ import React, { useEffect, useState } from "react";
 import { addons } from "@storybook/preview-api";
 import { DARK_MODE_EVENT_NAME } from "storybook-dark-mode";
 
-import ThemeHandler from "../components/ThemeHandler/ThemeHandler";
+import GlobalStyles from "../components/GlobalStyles";
+import ThemeHandler from "../components/ThemeHandler";
 
 interface IStoryThemeProvider {
   children: React.ReactNode;
@@ -33,7 +34,12 @@ const StoryThemeProvider = ({ children }: IStoryThemeProvider) => {
     channel.on(DARK_MODE_EVENT_NAME, setIsDark);
   }, []);
 
-  return <ThemeHandler darkMode={isDark}>{children}</ThemeHandler>;
+  return (
+    <ThemeHandler darkMode={isDark}>
+      <GlobalStyles />
+      {children}
+    </ThemeHandler>
+  );
 };
 
 export default StoryThemeProvider;

@@ -17,15 +17,14 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Box from "../Box/Box";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import InputBox from "../InputBox/InputBox";
-import Select from "../Select/Select";
-import Switch from "../Switch/Switch";
-import Wizard from "./Wizard";
+import Wizard from "./";
 import { WizardProps } from "./Wizard.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import FormLayout from "../FormLayout";
+import InputBox from "../InputBox";
+import SwitchCameraIcon from "../../icons/SwitchCameraIcon";
+import Select from "../Select";
+import Toggle from "../Toggle";
 
 export default {
   title: "MDS/Layout/Wizard",
@@ -33,12 +32,11 @@ export default {
   argTypes: {},
 } as Meta<typeof Wizard>;
 
-const Template: Story<WizardProps> = ({ ...props }) => {
+const Template: Story<WizardProps> = ({ wizardSteps, ...props }) => {
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <div id={"buttonsHere"}></div>
-      <Wizard {...props} />
+      <Wizard wizardSteps={wizardSteps} {...props} />
     </StoryThemeProvider>
   );
 };
@@ -55,7 +53,12 @@ Default.args = {
           <InputBox id="accessKey" label="Access Key" />
           <InputBox id="secretKey" label="Secret Key" />
           <InputBox id="targetURL" label="Target URL" />
-          <Switch id="useTLS" name="useTLS" label="Use TLS" value="yes" />
+          <SwitchCameraIcon
+            id="useTLS"
+            name="useTLS"
+            label="Use TLS"
+            value="yes"
+          />
           <InputBox id="region" label="Region" />
           <Select
             id="replication_mode"
@@ -71,7 +74,7 @@ Default.args = {
           <InputBox id="accessKey" label="Access Key" />
           <InputBox id="secretKey" label="Secret Key" />
           <InputBox id="targetURL" label="Target URL" />
-          <Switch id="useTLS" name="useTLS" label="Use TLS" value="yes" />
+          <Toggle id="useTLS" name="useTLS" label="Use TLS" value="yes" />
         </FormLayout>
       ),
       buttons: [
@@ -173,7 +176,7 @@ ModalMode.args = {
           <InputBox id="accessKey" label="Access Key" />
           <InputBox id="secretKey" label="Secret Key" />
           <InputBox id="targetURL" label="Target URL" />
-          <Switch id="useTLS" name="useTLS" label="Use TLS" value="yes" />
+          <Toggle id="useTLS" name="useTLS" label="Use TLS" value="yes" />
           <InputBox id="region" label="Region" />
           <Select
             id="replication_mode"

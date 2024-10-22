@@ -14,33 +14,30 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
-import get from "lodash/get";
-import styled from "styled-components";
+import React, { FC, useMemo } from "react";
+import { css, useTheme } from "@emotion/react";
 
-import { lightColors } from "../../global/themes";
 import { overridePropsParse } from "../../global/utils";
+import { tableRowMainStyles } from "./Table.styles";
 import { TableComponentsExtraProps } from "./Table.types";
-
-const TableRowMain = styled.tr<TableComponentsExtraProps>(({ theme, sx }) => ({
-  color: "inherit",
-  display: "table-row",
-  verticalAlign: "middle",
-  outline: 0,
-  cursor: "pointer",
-  borderLeft: 0,
-  borderRight: 0,
-  backgroundColor: get(theme, "bgColor", lightColors.white),
-  ...overridePropsParse(sx, theme),
-}));
 
 const TableRow: FC<
   TableComponentsExtraProps & React.HTMLAttributes<HTMLTableRowElement>
 > = ({ children, sx, ...restProps }) => {
+  const theme = useTheme();
+
+  const overrideThemes = useMemo(() => {
+    if (sx) {
+      return css({ ...overridePropsParse(sx, theme) });
+    }
+
+    return {};
+  }, [sx, theme]);
+
   return (
-    <TableRowMain sx={sx} {...restProps}>
+    <tr css={[tableRowMainStyles, overrideThemes]} {...restProps}>
       {children}
-    </TableRowMain>
+    </tr>
   );
 };
 

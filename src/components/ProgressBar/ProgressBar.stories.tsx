@@ -18,8 +18,7 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "./";
 import { ProgressBarProps } from "./ProgressBar.types";
 
 export default {
@@ -30,7 +29,6 @@ export default {
 
 const Template: Story<ProgressBarProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <ProgressBar {...args} />
   </StoryThemeProvider>
 );

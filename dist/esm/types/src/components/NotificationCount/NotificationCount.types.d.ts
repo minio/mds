@@ -5,6 +5,9 @@ export type NotificationBadgeTypes =
   | "success"
   | "warning"
   | "danger";
+export type NotificationCountHorizontal = "left" | "right";
+export type NotificationCountVertical = "bottom" | "top";
+export type NotificationCountShape = "circular" | "rectangular";
 export interface NotificationCountMain {
   invisible?: boolean;
   max?: number;
@@ -12,12 +15,20 @@ export interface NotificationCountMain {
   count?: number;
 }
 export interface NotificationCountConstruct {
-  horizontalPosition?: "left" | "right";
-  verticalPosition?: "bottom" | "top";
+  horizontalPosition?: NotificationCountHorizontal;
+  verticalPosition?: NotificationCountVertical;
   sx?: OverrideTheme;
   color?: NotificationBadgeTypes;
-  shape?: "circular" | "rectangular";
+  shape?: NotificationCountShape;
   dotOnly?: boolean;
 }
+export interface NotificationCountElements {
+  backgroundColor: string;
+  textColor: string;
+}
+export type NotificationCountVariants = Record<
+  NotificationBadgeTypes,
+  NotificationCountElements
+>;
 export type NotificationCountProps = NotificationCountMain &
   NotificationCountConstruct;

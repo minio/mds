@@ -17,10 +17,10 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { Button, GlobalStyles } from "../index";
-import LoginWrapper from "./LoginWrapper";
+import LoginWrapper from "./";
 import { LoginWrapperProps } from "./LoginWrapper.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import Button from "../Button";
 
 export default {
   title: "MDS/FullPage/LoginWrapper",
@@ -30,7 +30,6 @@ export default {
 
 const Template: Story<LoginWrapperProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <LoginWrapper {...args} />
   </StoryThemeProvider>
 );

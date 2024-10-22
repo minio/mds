@@ -43,5 +43,21 @@ export interface NotificationAlertConstruct {
   sx?: OverrideTheme;
 }
 
+export interface NotificationAlertThemeProps {
+  highContrastBG: string;
+  highContrastBorder: string;
+  minimalContrastBG: string;
+  minimalContrastBorder: string;
+  iconColor: string;
+  titleColor: string;
+  contentColor: string;
+  actionColor: string;
+}
+
+export type NotificationAlertProps = Record<
+  NotificationVariant,
+  NotificationAlertThemeProps
+>;
+
 export type NotificationAlertPrp = NotificationAlertBase &
   NotificationAlertConstruct;

@@ -18,7 +18,6 @@ import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import Table from "./Table";
 import { TableComponentsExtraProps } from "./Table.types";
 import TableBody from "./TableBody";
@@ -36,7 +35,6 @@ export default {
 const Template: Story<TableComponentsExtraProps> = ({}) => {
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <Table>
         <TableHead>
           <TableRow>

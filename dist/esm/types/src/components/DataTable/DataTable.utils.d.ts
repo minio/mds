@@ -1,4 +1,3 @@
-import React from "react";
 import { SortDirectionType } from "react-virtualized";
 import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
 export declare const selectWidth = 45;
@@ -15,12 +14,12 @@ export declare const generateColumnsMap: <T>(
   sortColumns: boolean | Array<keyof T> | ISortConfig,
   currentSortColumn: keyof T | undefined,
   currentSortDirection: "ASC" | "DESC" | undefined,
-) => (React.JSX.Element | null)[];
+) => (import("@emotion/react/jsx-runtime").JSX.Element | null)[];
 export declare const elementActions: <T>(
   actions: ItemActions<T>[],
   valueToSend: any,
   selected: boolean,
-) => (React.JSX.Element | null)[];
+) => import("@emotion/react/jsx-runtime").JSX.Element;
 export declare const calculateOptionsSize: (
   containerWidth: number,
   totalOptions: number,

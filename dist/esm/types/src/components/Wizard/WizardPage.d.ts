@@ -1,4 +1,3 @@
-import React from "react";
 import { WizardPageProps } from "./Wizard.types";
 declare const WizardPage: ({
   page,
@@ -6,5 +5,5 @@ declare const WizardPage: ({
   loadingStep,
   forModal,
   actionButtonsPortalID,
-}: WizardPageProps) => React.JSX.Element;
+}: WizardPageProps) => import("@emotion/react/jsx-runtime").JSX.Element;
 export default WizardPage;

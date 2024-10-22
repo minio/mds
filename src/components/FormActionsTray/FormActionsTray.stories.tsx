@@ -17,11 +17,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Button from "../Button/Button";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import FormActionsTray from "./FormActionsTray";
 import { FormActionsTrayProps } from "./FormActionsTray.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import FormActionsTray from "./";
+import Button from "../Button";
+import GlobalStyles from "../GlobalStyles";
 
 export default {
   title: "MDS/Forms/FormActionsTray",

@@ -15,30 +15,32 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { FC, SVGProps } from "react";
-import get from "lodash/get";
-import styled from "styled-components";
+import { css, useTheme } from "@emotion/react";
 
 import { LogoBaseProps } from "./LogoBase.types";
 
-const LogoBaseConstruct = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
-  let mainColor = get(props, "theme.logoLabelColor", "#000");
+const LogoBase: FC<SVGProps<any> & LogoBaseProps> = ({
+  inverse,
+  ...restProps
+}) => {
+  const theme = useTheme();
 
-  if (props.inverse) {
-    mainColor = get(props, "theme.logoLabelInverse", "#fff");
+  let mainColor = theme.colors["Color/Base/Black"];
+
+  if (inverse) {
+    mainColor = theme.colors["Color/Base/White"];
   }
 
-  return {
+  const logoStyles = css({
     "& .minioSection": {
-      fill: get(props, `theme.logoColor`, "#C51C3F"),
+      fill: theme.colors["Color/Brand/_minio/Raspberry"],
     },
     "& .minioApplicationName": {
       fill: mainColor,
     },
-  };
-});
+  });
 
-const LogoBase: FC<SVGProps<any> & LogoBaseProps> = ({ ...restProps }) => {
-  return <LogoBaseConstruct {...restProps} />;
+  return <svg css={logoStyles} {...restProps} />;
 };
 
 export default LogoBase;

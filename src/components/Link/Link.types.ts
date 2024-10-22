@@ -15,7 +15,9 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { OverrideTheme } from "../../global/global.types";
+import { LinkButtonVariant } from "../LinkButton/LinkButton.types";
 
 export interface LinkProps {
+  variant?: LinkButtonVariant;
   sx?: OverrideTheme;
 }

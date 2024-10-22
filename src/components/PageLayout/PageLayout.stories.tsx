@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import { GlobalStyles } from "../index";
-import SectionTitle from "../SectionTitle/SectionTitle";
-import PageLayout from "./PageLayout";
 import { PageLayoutProps } from "./PageLayout.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import PageLayout from "./";
+import SectionTitle from "../SectionTitle";
 
 export default {
   title: "MDS/Layout/PageLayout",
@@ -31,7 +30,6 @@ export default {
 
 const Template: Story<PageLayoutProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <PageLayout {...args}>
       <SectionTitle>Inside my Computer</SectionTitle>
       <p>

@@ -14,17 +14,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 
 import { OverrideTheme } from "../../global/global.types";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
 
 export interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   label?: string;
   tooltip?: string;
   overrideLabelClasses?: string;
   sx?: OverrideTheme;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-  checkLabel?: string;
+  helper?: string;
 }

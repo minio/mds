@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from "react";
+import React, { CSSProperties } from "react";
 import { SortDirectionType } from "react-virtualized";
 import { OverrideTheme } from "../../global/global.types";
 export declare const actionsTypes: readonly [
@@ -64,7 +64,7 @@ export interface DataTableProps<T, K extends keyof T = keyof T> {
   entityName?: string;
   selectedItems?: Array<K> | string[];
   customEmptyMessage?: string;
-  customPaperHeight?: string;
+  customPaperHeight?: CSSProperties["height"];
   noBackground?: boolean;
   columnsSelector?: boolean;
   textSelectable?: boolean;
@@ -84,13 +84,6 @@ export interface DataTableProps<T, K extends keyof T = keyof T> {
   rowHeight?: number;
   sortEnabled?: boolean | Array<K> | ISortConfig;
   sortCallBack?: (info: ITableSortInfo) => void;
-}
-export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
-  disabled?: boolean;
-  customPaperHeight?: string | number;
-  noBackground?: boolean;
-  sx?: OverrideTheme;
-  rowHeight: number;
 }
 export interface IActionButton<T> {
   tooltip?: string;

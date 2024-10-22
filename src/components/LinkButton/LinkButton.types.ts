@@ -14,18 +14,25 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import React from "react";
+
 import { OverrideTheme } from "../../global/global.types";
 
 export type LinkButtonVariant = "primary" | "neutral" | "destructive";
 
-export interface CommonLinkButtonProps {
-  isLoading?: boolean;
-  label?: any;
+export interface LinkButtonStyle {
+  default: string;
+  hover: string;
+  active: string;
+  disabled: string;
 }
 
-export interface BaseLinkButtonProps {
+export interface LinkButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  isLoading?: boolean;
+  label?: any;
   variant?: LinkButtonVariant;
   sx?: OverrideTheme;
 }
 
-export type LinkButtonProps = CommonLinkButtonProps & BaseLinkButtonProps;
+export type LinkButtonThemeVariant = Record<LinkButtonVariant, LinkButtonStyle>;

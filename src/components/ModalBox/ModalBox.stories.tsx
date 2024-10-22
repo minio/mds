@@ -14,15 +14,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
-import { Button, GlobalStyles } from "../index";
-import SectionTitle from "../SectionTitle/SectionTitle";
-import ModalBox from "./ModalBox";
 import { ModalBoxProps } from "./ModalBox.types";
+import ModalBox from "./";
+import Button from "../Button";
 
 export default {
   title: "MDS/Layout/ModalBox",
@@ -37,13 +37,11 @@ const Template: Story<ModalBoxProps> = ({
   widthLimit,
   customMaxWidth,
   backgroundOverlay,
-  iconColor,
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <div style={{ width: 150, height: 50, overflow: "hidden" }}>
         <Button
           id={"open-modal"}
@@ -63,10 +61,9 @@ const Template: Story<ModalBoxProps> = ({
           backgroundOverlay={backgroundOverlay}
           titleIcon={titleIcon}
           widthLimit={widthLimit}
-          iconColor={iconColor}
           customMaxWidth={customMaxWidth}
         >
-          <SectionTitle>Inside my Computer</SectionTitle>
+          <h1>Inside my Computer</h1>
           <p>
             My computer-- disassembled is a maze of cables, drives chips and
             ports--an array of connections, silver solderings, twisting wires.
@@ -122,20 +119,11 @@ NoWidthLimit.args = {
   widthLimit: false,
 };
 
-export const IconColorOverlay = Template.bind({});
-
-IconColorOverlay.args = {
-  title: "Test Title",
-  titleIcon: <TestIcon />,
-  iconColor: "accept",
-};
-
 export const NoOverlayBG = Template.bind({});
 
 NoOverlayBG.args = {
   title: "Test Title",
   titleIcon: <TestIcon />,
-  iconColor: "delete",
   backgroundOverlay: false,
 };
 

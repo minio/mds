@@ -1,5 +1,7 @@
 import { OverrideTheme, SelectOption } from "../../global/global.types";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+export type SelectSizeMode = "small" | "large";
+export type SelectOrientation = "horizontal" | "vertical";
+export type SelectState = "normal" | "error" | "success" | "warning";
 export interface SelectProps {
   options: SelectOption[];
   value?: string;
@@ -14,11 +16,9 @@ export interface SelectProps {
   placeholder?: string;
   onChange: (newValue: string, extraValue?: any) => void;
   sx?: OverrideTheme;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
-  sizeMode?: "small" | "large";
-  orientation?: "horizontal" | "vertical";
-  state?: "normal" | "error" | "success" | "warning";
+  sizeMode?: SelectSizeMode;
+  orientation?: SelectOrientation;
+  state?: SelectState;
   readOnly?: boolean;
   helper?: string;
 }

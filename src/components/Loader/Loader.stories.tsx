@@ -17,9 +17,8 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
+import Loader from "./";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Loader from "./Loader";
 
 export default {
   title: "MDS/Graphics/Loader",
@@ -29,7 +28,6 @@ export default {
 
 const Template: Story = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <Loader {...args} />
   </StoryThemeProvider>
 );

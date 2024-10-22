@@ -17,11 +17,11 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
+import SectionTitle from "./";
+import { SectionTitleProps } from "./SectionTitle.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
-import { Button, GlobalStyles } from "../index";
-import SectionTitle from "./SectionTitle";
-import { SectionTitleProps } from "./SectionTitle.types";
+import Button from "../Button";
 
 export default {
   title: "MDS/Layout/SectionTitle",
@@ -31,7 +31,6 @@ export default {
 
 const Template: Story<SectionTitleProps> = (args: SectionTitleProps) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <SectionTitle id={"section-title-demo"} {...args} />
   </StoryThemeProvider>
 );

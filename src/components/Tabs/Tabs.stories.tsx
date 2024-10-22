@@ -14,20 +14,20 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, Story } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
-import Badge from "../Badge/Badge";
-import Box from "../Box/Box";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import MenuIcon from "../Icons/NewDesignIcons/MenuIcon";
-import SearchIcon from "../Icons/NewDesignIcons/SearchIcon";
-import SquareTerminalIcon from "../Icons/NewDesignIcons/SquareTerminalIcon";
-import UsersIcon from "../Icons/NewDesignIcons/UsersIcon";
-import Tabs from "./Tabs";
+import Tabs from "./";
 import { TabsProps } from "./Tabs.types";
+import Box from "../Box";
+import SquareTerminalIcon from "../../icons/SquareTerminalIcon";
+import SearchIcon from "../../icons/SearchIcon";
+import MenuIcon from "../../icons/MenuIcon";
+import UsersIcon from "../../icons/UsersIcon";
+import Badge from "../Badge";
 
 export default {
   title: "MDS/Layout/Tabs",
@@ -45,7 +45,6 @@ const Template: Story<TabsProps> = ({
   options,
   optionsEndComponent,
   optionsInitialComponent,
-  horizontalBarBackground = false,
   sx,
 }) => {
   const [currentTab, setCurrentTab] = useState<string>(
@@ -54,7 +53,6 @@ const Template: Story<TabsProps> = ({
 
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <Tabs
         options={options}
         horizontal={horizontal}
@@ -67,7 +65,6 @@ const Template: Story<TabsProps> = ({
         routes={<TestComponent page={currentTab} />}
         optionsEndComponent={optionsEndComponent}
         optionsInitialComponent={optionsInitialComponent}
-        horizontalBarBackground={horizontalBarBackground}
       />
     </StoryThemeProvider>
   );
@@ -76,12 +73,50 @@ const Template: Story<TabsProps> = ({
 export const Default = Template.bind({});
 Default.args = {
   options: [
-    { content: <div>Tab1</div>, tabConfig: { label: "Tab1", id: "tab1" } },
+    {
+      content: (
+        <div>
+          <h1>Inside my Computer</h1>
+          <p>
+            My computer-- disassembled is a maze of cables, drives chips and
+            ports--an array of connections, silver solderings, twisting wires.
+          </p>
+          <p>
+            But when the satiny case is latched in place coils and cables
+            disappear. The smallest particle of matter is not an atom, but a
+            byte-- a particle of magic that combines and multiplies unseen
+            inside the blinking box.
+          </p>
+          <p>
+            Creation occurs inside my computer-- friends, family rest behind the
+            pressing of selected keys. Words and faces form; smiles and frowns
+            become feelings. Attraction becomes addiction.
+          </p>
+          <p>
+            Inside my computer merchants buy and sell-- musicians sing, artists
+            train pictures into pixels, poets recollect emotion in tranquillity.
+          </p>
+          <p>
+            Inside my computer dreams are imagined into reality-- inventions,
+            hopes, ideas are born and nurtured into happenings. Strangers share
+            a table, touch hands across the world.
+          </p>
+          <p>
+            Inside my computer the pulse of human hearts waxes and wanes as
+            people fall in and out of love.
+          </p>
+          <div style={{ textAlign: "right" }}>Karen Ruff - 2014</div>
+        </div>
+      ),
+      tabConfig: { label: "Tab1", id: "tab1" },
+    },
+    { separator: true },
     {
       content: <div>Tab2</div>,
       tabConfig: { label: "Tab2", id: "tab2" },
     },
     { content: <div>Tab3</div>, tabConfig: { label: "Tab3", id: "tab3" } },
+    { separator: true },
     {
       content: <div>Some content for Tab 4</div>,
       tabConfig: { label: "Tab4", id: "tab4" },
@@ -193,6 +228,7 @@ Horizontal.args = {
         disabled: true,
       },
     },
+    { separator: true },
     {
       content: <div>Tab3</div>,
       tabConfig: { label: "Tab3", id: "tab3", icon: <TestIcon /> },
@@ -293,43 +329,4 @@ HorizontalWithNodeObject.args = {
       <TestIcon />
     </span>
   ),
-};
-
-export const HorizontalWithBackground = Template.bind({});
-HorizontalWithBackground.args = {
-  options: [
-    {
-      content: <div>Tab1</div>,
-      tabConfig: { label: "Tab1", id: "tab1", icon: <TestIcon /> },
-    },
-    {
-      content: <div>Tab2</div>,
-      tabConfig: {
-        label: "Tab2",
-        id: "tab2",
-        icon: <TestIcon />,
-        disabled: true,
-      },
-    },
-    {
-      content: <div>Tab3</div>,
-      tabConfig: { label: "Tab3", id: "tab3", icon: <TestIcon /> },
-    },
-    {
-      content: <div>Some content for Tab 4</div>,
-      tabConfig: { label: "Tab4", id: "tab4", icon: <UsersIcon /> },
-    },
-  ],
-  horizontal: true,
-  optionsInitialComponent: (
-    <span style={{ padding: "0 15px" }}>
-      <TestIcon />
-    </span>
-  ),
-  optionsEndComponent: (
-    <span style={{ padding: "0 15px" }}>
-      <TestIcon />
-    </span>
-  ),
-  horizontalBarBackground: true,
 };

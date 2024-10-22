@@ -28,12 +28,3 @@ export interface AccordionProps {
   contentBackgroundColor?: boolean;
   sx?: OverrideTheme;
 }
-
-export interface AccordionMainProps {
-  sx?: OverrideTheme;
-}
-
-export interface AccordionContentProps {
-  expanded: boolean;
-  backgroundColor?: boolean;
-}

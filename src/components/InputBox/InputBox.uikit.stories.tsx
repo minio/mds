@@ -18,10 +18,9 @@ import React from "react";
 import { Meta, Story } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Box from "../Box/Box";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import InputBox from "./InputBox";
+import InputBox from "./";
 import { InputBoxProps } from "./InputBox.types";
+import Box from "../Box";
 
 export default {
   title: "UI Kit/Forms & Inputs/Input Text",
@@ -32,7 +31,6 @@ export default {
 const Template: Story<InputBoxProps> = (args: InputBoxProps) => {
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
       <h1>Horizontal</h1>
       <Box
         sx={{

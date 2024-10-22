@@ -17,7 +17,7 @@
 import React from "react";
 
 import { OverrideTheme } from "../../global/global.types";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+import { InputBoxState } from "../InputBox/InputBox.types";
 
 export interface FileSelectorProps {
   label: string;
@@ -32,14 +32,13 @@ export interface FileSelectorProps {
   disabled?: boolean;
   tooltip?: string;
   required?: boolean;
-  error?: string;
+  helper?: string;
   accept?: string;
   value: string;
   className?: string;
+  state?: InputBoxState;
   noLabelMinWidth?: boolean;
   sx?: OverrideTheme;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
 }
 
 export interface FileSelectorConstructorProps {

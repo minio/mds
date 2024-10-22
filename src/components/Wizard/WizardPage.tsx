@@ -16,55 +16,13 @@
 
 import React from "react";
 import { createPortal } from "react-dom";
-import get from "lodash/get";
-import styled from "styled-components";
+import { useTheme } from "@emotion/react";
 
-import Box from "../Box/Box";
-import Button from "../Button/Button";
-import Loader from "../Loader/Loader";
-import { WizardButton, WizardConstruct, WizardPageProps } from "./Wizard.types";
-
-const WizardPageMain = styled.div<WizardConstruct>(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  flex: 1,
-  "& .wizardComponent": {
-    overflowY: "auto",
-    marginBottom: 10,
-    height: "calc(100vh - 100px - 80px)",
-    minHeight: 400,
-    flex: 1,
-    width: "100%",
-  },
-  "& .wizardModal": {
-    overflowY: "auto",
-    overflowX: "hidden",
-    margin: "10px 0",
-    minHeight: 350,
-    maxHeight: "calc(100vh - 515px)",
-    padding: "15px",
-    position: "relative",
-  },
-  "& .buttonsContainer": {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start" as const,
-    padding: "10px 0",
-    borderTop: `1px solid ${get(theme, "borderColor", "#E2E2E2")}`,
-    "& button": {
-      marginLeft: 10,
-    },
-    "&.forModal": {
-      paddingBottom: 0,
-    },
-  },
-  "& .buttonInnerContainer": {
-    width: "100%",
-    display: "flex",
-    justifyContent: "flex-end",
-    marginRight: 15,
-  },
-}));
+import Box from "../Box";
+import Button from "../Button";
+import Loader from "../Loader";
+import { wizardPageMainStyles } from "./Wizard.styles";
+import { WizardButton, WizardPageProps } from "./Wizard.types";
 
 const WizardPage = ({
   page,
@@ -73,6 +31,10 @@ const WizardPage = ({
   forModal,
   actionButtonsPortalID,
 }: WizardPageProps) => {
+  const theme = useTheme();
+
+  const wizardPageStyles = wizardPageMainStyles(theme);
+
   const buttonAction = (btn: WizardButton) => {
     switch (btn.type) {
       case "next":
@@ -117,7 +79,7 @@ const WizardPage = ({
   );
 
   return (
-    <WizardPageMain>
+    <div css={wizardPageStyles}>
       <Box className={forModal ? "wizardModal" : "wizardComponent"}>
         {page.componentRender}
       </Box>
@@ -129,7 +91,7 @@ const WizardPage = ({
       {actionButtonsPortalID
         ? createPortal(buttonsBar, actionButtonsPortalID)
         : buttonsBar}
-    </WizardPageMain>
+    </div>
   );
 };
 

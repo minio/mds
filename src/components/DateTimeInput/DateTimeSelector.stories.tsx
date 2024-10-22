@@ -18,11 +18,9 @@ import React, { useState } from "react";
 import { Meta, Story } from "@storybook/react";
 import { DateTime } from "luxon";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import FormLayout from "../FormLayout/FormLayout";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
 import { DateTimeSelectorProps } from "./DateTimeInput.types";
 import DateTimeSelector from "./DateTimeSelector";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
   title: "MDS/Forms/TimeSelector/DateTimeSelector",
@@ -45,23 +43,20 @@ const Template: Story<DateTimeSelectorProps> = ({
 
   return (
     <StoryThemeProvider>
-      <GlobalStyles />
-      <FormLayout>
-        <DateTimeSelector
-          id={"story-DateTimeSelector"}
-          value={newValue}
-          onChange={(value) => {
-            setValue(value);
-          }}
-          mode={mode}
-          maxDate={maxDate}
-          minDate={minDate}
-          sx={sx}
-          usePortal={usePortal}
-          timeFormat={timeFormat}
-          secondsSelector={secondsSelector}
-        />
-      </FormLayout>
+      <DateTimeSelector
+        id={"story-DateTimeSelector"}
+        value={newValue}
+        onChange={(value) => {
+          setValue(value);
+        }}
+        mode={mode}
+        maxDate={maxDate}
+        minDate={minDate}
+        sx={sx}
+        usePortal={usePortal}
+        timeFormat={timeFormat}
+        secondsSelector={secondsSelector}
+      />
     </StoryThemeProvider>
   );
 };

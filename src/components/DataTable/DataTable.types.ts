@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { HTMLAttributes } from "react";
+import React, { CSSProperties } from "react";
 import { SortDirectionType } from "react-virtualized";
 
 import { OverrideTheme } from "../../global/global.types";
@@ -40,6 +40,7 @@ export interface ItemActions<T> {
   type: PredefinedActionTypes | React.ReactNode;
   isDisabled?: boolean | ((itemValue: T) => boolean);
   showLoader?: boolean | ((itemValue: T) => boolean);
+
   onClick?(valueToSend: T, index?: number): any;
 }
 
@@ -90,7 +91,7 @@ export interface DataTableProps<T, K extends keyof T = keyof T> {
   entityName?: string;
   selectedItems?: Array<K> | string[];
   customEmptyMessage?: string;
-  customPaperHeight?: string;
+  customPaperHeight?: CSSProperties["height"];
   noBackground?: boolean;
   columnsSelector?: boolean;
   textSelectable?: boolean;
@@ -112,14 +113,6 @@ export interface DataTableProps<T, K extends keyof T = keyof T> {
   sortCallBack?: (info: ITableSortInfo) => void;
 }
 
-export interface DataTableWrapperProps extends HTMLAttributes<HTMLDivElement> {
-  disabled?: boolean;
-  customPaperHeight?: string | number;
-  noBackground?: boolean;
-  sx?: OverrideTheme;
-  rowHeight: number;
-}
-
 export interface IActionButton<T> {
   tooltip?: string;
   type: PredefinedActionTypes | React.ReactNode;
@@ -128,6 +121,7 @@ export interface IActionButton<T> {
   selected: boolean;
   disabled: boolean;
 }
+
 export interface ColumnSelectorProps<T, K extends keyof T = keyof T> {
   open: boolean;
   closeTriggerAction: () => void;

@@ -17,10 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import { themeColors } from "../../global/themeColors";
+import GlobalStyles from "./";
+import Box from "../Box";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import Box from "../Box/Box";
-import GlobalStyles from "./GlobalStyles";
+import { darkModeColors, lightModeColors } from "../../global/themeColors";
 
 export default {
   title: "MDS/Global/Colors",
@@ -28,10 +28,9 @@ export default {
   argTypes: {},
 } as Meta<typeof GlobalStyles>;
 
-const renderItems = (variants: object, varName: string) => {
+const renderItems = (variants: object) => {
   return (
     <Box>
-      <h1>{varName}</h1>
       <Box
         sx={{
           display: "grid",
@@ -57,26 +56,18 @@ const renderItems = (variants: object, varName: string) => {
           },
         }}
       >
-        {Object.keys(variants).map((varName) => (
+        {Object.keys(variants).map((varName: any) => (
           <Box className={"item"}>
             <Box>
               <strong>{varName}</strong>
             </Box>
             <Box className={"itemColor"}>
-              <span>lightMode:</span>
+              <span>Color:</span>
               <Box
                 className={"colorElement"}
-                sx={{ backgroundColor: variants[varName].lightMode }}
+                sx={{ backgroundColor: variants[varName] }}
               />
-              <span>{variants[varName].lightMode}</span>
-            </Box>
-            <Box className={"itemColor"}>
-              <span>darkMode:</span>
-              <Box
-                className={"colorElement"}
-                sx={{ backgroundColor: variants[varName].darkMode }}
-              />
-              <span>{variants[varName].darkMode}</span>
+              <span>{variants[varName]}</span>
             </Box>
           </Box>
         ))}
@@ -91,13 +82,16 @@ const Template: Story = (args) => (
     <Box>
       <h1>Color vars Usage</h1>
       <code>
-        themeColors["varName"].lightMode <br />
-        themeColors["varName"].darkMode <br />
+        theme.colors["varName"] <br />
+        theme.colors["varName"] <br />
         <br />
-        Eg.: themeColors["Color/Neutral/Text/colorTextLabel"].lightMode
+        Eg.: theme.colors["Color/Neutral/Text/colorTextLabel"]
       </code>
     </Box>
-    {renderItems(themeColors, "themeColors")}
+    <h2>Light Colors</h2>
+    {renderItems(lightModeColors)}
+    <h2>Dark Colors</h2>
+    {renderItems(darkModeColors)}
   </StoryThemeProvider>
 );
 

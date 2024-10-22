@@ -17,11 +17,10 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import DownloadIcon from "../Icons/NewDesignIcons/DownloadIcon";
-import IconButton from "./IconButton";
+import IconButton from "./";
 import { IconButtonProps } from "./IconButton.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import DownloadIcon from "../../icons/DownloadIcon";
 
 export default {
   title: "MDS/Forms/IconButton",
@@ -31,7 +30,6 @@ export default {
 
 const Template: Story<IconButtonProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <IconButton {...args} onClick={() => alert("You clicked me!")}>
       <DownloadIcon />
     </IconButton>

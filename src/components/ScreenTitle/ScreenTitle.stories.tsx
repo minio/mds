@@ -17,15 +17,13 @@
 import React, { Fragment } from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import TestIcon from "../../utils/TestIcon";
-import Box from "../Box/Box";
-import Button from "../Button/Button";
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
-import { GlobalStyles } from "../index";
-import ScreenTitle from "./ScreenTitle";
 import { ScreenTitleProps } from "./ScreenTitle.types";
-import Badge from "../Badge/Badge";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
+import ScreenTitle from "./";
+import Badge from "../Badge";
+import ButtonGroup from "../ButtonGroup";
+import Button from "../Button";
+import TestIcon from "../../utils/TestIcon";
 
 export default {
   title: "MDS/Layout/ScreenTitle",
@@ -35,7 +33,6 @@ export default {
 
 const Template: Story<ScreenTitleProps> = (args: ScreenTitleProps) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <ScreenTitle id={"screen-title-demo"} {...args} />
   </StoryThemeProvider>
 );
@@ -80,7 +77,7 @@ NoIcon.args = {
       <Button id={"testButton2"} variant={"primary"}>
         Button2
       </Button>
-      <Button id={"testButton3"} variant={"descructive"}>
+      <Button id={"testButton3"} variant={"destructive"}>
         Button3
       </Button>
     </Fragment>
@@ -141,7 +138,7 @@ CustomStyles.args = {
       <Button id={"testButton2"} variant={"primary"}>
         Button2
       </Button>
-      <Button id={"testButton3"} variant={"descructive"}>
+      <Button id={"testButton3"} variant={"destructive"}>
         Button3
       </Button>
     </Fragment>

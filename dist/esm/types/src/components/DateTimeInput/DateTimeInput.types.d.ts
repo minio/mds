@@ -1,8 +1,7 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { DateTime } from "luxon";
-import { CSSObject } from "styled-components";
 import { OverrideTheme } from "../../global/global.types";
-import { CommonHelpTipPlacement } from "../HelpTip/HelpTip.types";
+export type DateTimeMode = "all" | "date";
 export interface DateTimeInputMain {
   className?: string;
   label?: string;
@@ -11,8 +10,6 @@ export interface DateTimeInputMain {
   disabled?: boolean;
   openPickerIcon?: "arrow" | React.ReactNode;
   displayFormat?: string;
-  helpTip?: React.ReactNode;
-  helpTipPlacement?: CommonHelpTipPlacement;
   noLabelMinWidth?: boolean;
   pickerSx?: OverrideTheme;
   sizeMode?: "small" | "large";
@@ -24,7 +21,7 @@ export interface DateTimeInputMain {
 export interface DateTimeConstruct {
   id: string;
   sx?: OverrideTheme;
-  mode?: "all" | "date";
+  mode?: DateTimeMode;
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
   minDate?: DateTime;
@@ -51,8 +48,8 @@ export interface DateSelectorProps {
 }
 export interface StylesOverrideProps {
   isPortal: boolean;
-  mode: "all" | "date";
-  coords: CSSObject;
+  mode: DateTimeMode;
+  coords: CSSProperties;
   sx?: OverrideTheme;
 }
 export type DateTimeInputProps = DateTimeInputMain &

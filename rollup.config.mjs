@@ -31,7 +31,7 @@ export default [
         targets: [{ src: "src/components/assets", dest: "dist" }],
       }),
     ],
-    external: ["react", "react-dom", "styled-components"],
+    external: ["react", "react-dom", "emotion", "emotion/react"],
   },
   {
     input: "dist/esm/types/src/index.d.ts",

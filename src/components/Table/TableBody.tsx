@@ -14,29 +14,30 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC } from "react";
-import styled from "styled-components";
+import React, { FC, useMemo } from "react";
+import { css, useTheme } from "@emotion/react";
 
 import { overridePropsParse } from "../../global/utils";
+import { tableBodyMainStyles } from "./Table.styles";
 import { TableComponentsExtraProps } from "./Table.types";
-
-const TableBodyMain = styled.tbody<TableComponentsExtraProps>(
-  ({ theme, sx }) => ({
-    display: "table-row-group",
-    width: "100%",
-    borderCollapse: "collapse",
-    borderSpacing: 0,
-    ...overridePropsParse(sx, theme),
-  }),
-);
 
 const TableBody: FC<
   TableComponentsExtraProps & React.HTMLAttributes<HTMLTableSectionElement>
 > = ({ children, sx, ...restProps }) => {
+  const theme = useTheme();
+
+  const overrideThemes = useMemo(() => {
+    if (sx) {
+      return css({ ...overridePropsParse(sx, theme) });
+    }
+
+    return {};
+  }, [sx, theme]);
+
   return (
-    <TableBodyMain sx={sx} {...restProps}>
+    <tbody css={[tableBodyMainStyles, overrideThemes]} {...restProps}>
       {children}
-    </TableBodyMain>
+    </tbody>
   );
 };
 

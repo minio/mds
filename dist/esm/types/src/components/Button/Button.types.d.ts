@@ -19,7 +19,6 @@ export interface ButtonProps {
   iconLocation?: "start" | "end";
   secondaryIcon?: ReactNode;
   fullWidth?: boolean;
-  disabled?: boolean;
   collapseOnSmall?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   children?: ReactNode | string;
@@ -28,6 +27,20 @@ export interface ButtonProps {
   sx?: OverrideTheme;
   isLoading?: boolean;
 }
+export interface ButtonStatesProps {
+  enabled: ButtonStyleProps;
+  disabled: ButtonStyleProps;
+  hover: ButtonStyleProps;
+  pressed: ButtonStyleProps;
+}
+export interface ButtonStyleProps {
+  border: string;
+  text: string;
+  background: string;
+  iconColor: string;
+  shadow?: string;
+}
 export interface ConstructProps {
   parentChildren: ReactNode | string | undefined;
 }
+export type ButtonThemeProps = Record<ButtonVariant, ButtonStatesProps>;

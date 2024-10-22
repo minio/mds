@@ -17,10 +17,9 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 
-import StoryThemeProvider from "../../utils/StoryThemeProvider";
-import GlobalStyles from "../GlobalStyles/GlobalStyles";
-import Link from "./Link";
+import Link from "./";
 import { LinkProps } from "./Link.types";
+import StoryThemeProvider from "../../utils/StoryThemeProvider";
 
 export default {
   title: "MDS/Forms/Link",
@@ -30,14 +29,12 @@ export default {
 
 const Template: Story<LinkProps> = (args) => (
   <StoryThemeProvider>
-    <GlobalStyles />
     <span style={{ fontSize: 16 }}>
       We can have a{" "}
       <Link {...args} target={"_blank"} href={"https://min.io"}>
         Link
       </Link>
       , to point to another page.
-      <Link className={"dark"}>This is a Dark Link</Link>
     </span>
   </StoryThemeProvider>
 );

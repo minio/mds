@@ -18,10 +18,11 @@ import React, { Fragment } from "react";
 import { Column, SortDirectionType } from "react-virtualized";
 import isPlainObject from "lodash/isPlainObject";
 
-import Box from "../Box/Box";
-import ChevronDownIcon from "../Icons/NewDesignIcons/ChevronDownIcon";
-import ChevronUpIcon from "../Icons/NewDesignIcons/ChevronUpIcon";
-import Loader from "../Loader/Loader";
+import ChevronDownIcon from "../../icons/ChevronDownIcon";
+import ChevronUpIcon from "../../icons/ChevronUpIcon";
+import Box from "../Box";
+import ButtonGroup from "../ButtonGroup";
+import Loader from "../Loader";
 import { IColumns, ISortConfig, ItemActions } from "./DataTable.types";
 import TableActionButton from "./TableActionButton";
 
@@ -204,59 +205,63 @@ export const elementActions = <T,>(
   valueToSend: any,
   selected: boolean,
 ) => {
-  return actions.map((action: ItemActions<T>, index: number) => {
-    if (action.type === "view") {
-      return null;
-    }
+  return (
+    <ButtonGroup>
+      {actions.map((action: ItemActions<T>, index: number) => {
+        if (action.type === "view") {
+          return null;
+        }
 
-    let disabled = false;
+        let disabled = false;
 
-    if (action.isDisabled) {
-      if (typeof action.isDisabled === "boolean") {
-        disabled = action.isDisabled;
-      } else {
-        disabled = action.isDisabled(valueToSend);
-      }
-    }
+        if (action.isDisabled) {
+          if (typeof action.isDisabled === "boolean") {
+            disabled = action.isDisabled;
+          } else {
+            disabled = action.isDisabled(valueToSend);
+          }
+        }
 
-    if (action.showLoader) {
-      if (
-        (typeof action.showLoader === "boolean" && action.showLoader) ||
-        action.showLoader(valueToSend)
-      ) {
+        if (action.showLoader) {
+          if (
+            (typeof action.showLoader === "boolean" && action.showLoader) ||
+            action.showLoader(valueToSend)
+          ) {
+            return (
+              <button className={"progress-enabled"} disabled>
+                <Loader
+                  style={{ width: 18, height: 18 }}
+                  key={`actions-loader-${action.type}-${index.toString()}`}
+                />
+              </button>
+            );
+          }
+        }
+
+        let tooltip = "";
+
+        if (action.tooltip) {
+          if (typeof action.tooltip === "function") {
+            tooltip = action.tooltip(valueToSend);
+          } else {
+            tooltip = action.tooltip ?? "";
+          }
+        }
+
         return (
-          <div className={"progress-enabled"}>
-            <Loader
-              style={{ width: 18, height: 18 }}
-              key={`actions-loader-${action.type}-${index.toString()}`}
-            />
-          </div>
+          <TableActionButton
+            tooltip={tooltip}
+            type={action.type}
+            onClick={action.onClick}
+            valueToSend={valueToSend}
+            selected={selected}
+            key={`actions-${action.type}-${index.toString()}`}
+            disabled={disabled}
+          />
         );
-      }
-    }
-
-    let tooltip = "";
-
-    if (action.tooltip) {
-      if (typeof action.tooltip === "function") {
-        tooltip = action.tooltip(valueToSend);
-      } else {
-        tooltip = action.tooltip ?? "";
-      }
-    }
-
-    return (
-      <TableActionButton
-        tooltip={tooltip}
-        type={action.type}
-        onClick={action.onClick}
-        valueToSend={valueToSend}
-        selected={selected}
-        key={`actions-${action.type}-${index.toString()}`}
-        disabled={disabled}
-      />
-    );
-  });
+      })}
+    </ButtonGroup>
+  );
 };
 
 // Function to calculate the options column width according elements inside
