@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-
 // This file is part of MinIO Design System
 // Copyright (c) 2022 MinIO, Inc.
 //
@@ -18,15 +16,15 @@
 
 import { css, Global, useTheme } from "@emotion/react";
 
-const GeistBlackWoff2 = require("../assets/fonts/Geist/Geist-Black.woff2");
-const GeistBoldWoff2 = require("../assets/fonts/Geist/Geist-Bold.woff2");
-const GeistLightWoff2 = require("../assets/fonts/Geist/Geist-Light.woff2");
-const GeistRegularWoff2 = require("../assets/fonts/Geist/Geist-Regular.woff2");
-const GeistThinWoff2 = require("../assets/fonts/Geist/Geist-Thin.woff2");
-const GeistSemiBoldWoff2 = require("../assets/fonts/Geist/Geist-SemiBold.woff2");
-const GeistMediumWoff2 = require("../assets/fonts/Geist/Geist-Medium.woff2");
-const GeistUltraLightWoff2 = require("../assets/fonts/Geist/Geist-UltraLight.woff2");
-const GeistMonoRegularWoff2 = require("../assets/fonts/Geist/GeistMono-Regular.woff2");
+import GeistBlackWoff2 from "../assets/fonts/Geist/Geist-Black.woff2";
+import GeistBoldWoff2 from "../assets/fonts/Geist/Geist-Bold.woff2";
+import GeistLightWoff2 from "../assets/fonts/Geist/Geist-Light.woff2";
+import GeistMediumWoff2 from "../assets/fonts/Geist/Geist-Medium.woff2";
+import GeistRegularWoff2 from "../assets/fonts/Geist/Geist-Regular.woff2";
+import GeistSemiBoldWoff2 from "../assets/fonts/Geist/Geist-SemiBold.woff2";
+import GeistThinWoff2 from "../assets/fonts/Geist/Geist-Thin.woff2";
+import GeistUltraLightWoff2 from "../assets/fonts/Geist/Geist-UltraLight.woff2";
+import GeistMonoRegularWoff2 from "../assets/fonts/Geist/GeistMono-Regular.woff2";
 
 const geistFonts = css([
   {
