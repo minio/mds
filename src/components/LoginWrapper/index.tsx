@@ -19,12 +19,11 @@ import { useTheme } from "@emotion/react";
 import { getGPUTier } from "detect-gpu";
 
 import ApplicationLogo from "../ApplicationLogo";
+import poster from "../assets/background/loginAnimationPoster.png";
+import bgVideo from "../assets/video/videoBG.mp4";
 import Box from "../Box";
 import { customLoginStyles } from "./LoginWrapper.styles";
 import { LoginWrapperProps } from "./LoginWrapper.types";
-
-const bgVideo = require("../assets/video/videoBG.mp4");
-const poster = require("../assets/background/loginAnimationPoster.png");
 
 const LoginWrapper: FC<LoginWrapperProps> = ({
   logoProps,
