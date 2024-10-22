@@ -35,6 +35,7 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
   emphasisMode = "subtle",
   variant = "information",
   shadow = false,
+  wrapText = false,
   isLoading,
   id,
   sx,
@@ -94,6 +95,33 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
       },
     },
   });
+
+  const wrapTextStyles = useMemo(() => {
+    if (wrapText) {
+      return css({
+        "& .alertInitLine": {
+          "& .notificationTitle": {
+            "& .cardTitle": {
+              display: "-webkit-box",
+              WebkitLineClamp: 1,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            },
+          },
+          "& .content": {
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+          },
+        },
+      });
+    } else {
+      return {};
+    }
+  }, [wrapText]);
 
   const baseStyle = css({
     display: "flex",
@@ -176,11 +204,6 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
         overflowWrap: "break-word",
         whiteSpace: "normal",
         minWidth: 0,
-        display: "-webkit-box",
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
       },
     },
     "& .cardContent": {
@@ -192,11 +215,6 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
         overflowWrap: "break-word",
         whiteSpace: "normal",
         minWidth: 0,
-        display: "-webkit-box",
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
       },
       "& .actionCardMode": {
         lineHeight: 1,
@@ -214,6 +232,7 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
         baseStyle,
         designMode === "banner" ? bannerStyle : cardStyle,
         overrideThemes,
+        wrapTextStyles,
       ]}
       className={"notification-alert"}
       id={id}
