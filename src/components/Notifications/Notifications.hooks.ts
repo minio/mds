@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import NotificationManager from "./NotificationManager";
 import { NotificationOptions } from "./Notifications.types";
@@ -59,5 +59,17 @@ export const useNotification = () => {
     NotificationManager.clearNotifications();
   }, []);
 
-  return { success, danger, warning, information, neutral, clear };
+  const notification = useMemo(
+    () => ({
+      success,
+      danger,
+      warning,
+      information,
+      neutral,
+      clear,
+    }),
+    [success, danger, warning, information, neutral, clear],
+  );
+
+  return notification;
 };
