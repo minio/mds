@@ -1,0 +1,5 @@
+import { SVGProps } from "react";
+declare const FileBadge2Icon: (
+  props: SVGProps<SVGSVGElement>,
+) => import("@emotion/react/jsx-runtime").JSX.Element;
+export default FileBadge2Icon;

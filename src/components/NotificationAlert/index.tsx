@@ -35,6 +35,7 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
   emphasisMode = "subtle",
   variant = "information",
   shadow = false,
+  wrapText = false,
   isLoading,
   id,
   sx,
@@ -91,6 +92,27 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
     "& .notificationTitle": {
       "& .fillTitleContent": {
         alignItems: "flex-start",
+      },
+    },
+  });
+
+  const wrapTextStyles = css({
+    "& .alertInitLine": {
+      "& .notificationTitle": {
+        "& .cardTitle": {
+          display: "-webkit-box",
+          WebkitLineClamp: 1,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+        },
+      },
+      "& .content": {
+        display: "-webkit-box",
+        WebkitLineClamp: 2,
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
       },
     },
   });
@@ -176,11 +198,6 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
         overflowWrap: "break-word",
         whiteSpace: "normal",
         minWidth: 0,
-        display: "-webkit-box",
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
       },
     },
     "& .cardContent": {
@@ -192,11 +209,6 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
         overflowWrap: "break-word",
         whiteSpace: "normal",
         minWidth: 0,
-        display: "-webkit-box",
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: "vertical",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
       },
       "& .actionCardMode": {
         lineHeight: 1,
@@ -213,6 +225,7 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
       css={[
         baseStyle,
         designMode === "banner" ? bannerStyle : cardStyle,
+        ...(wrapText ? [wrapTextStyles] : []),
         overrideThemes,
       ]}
       className={"notification-alert"}

@@ -6286,6 +6286,7 @@ interface NotificationAlertConstruct {
   variant?: NotificationVariant;
   shadow?: boolean;
   designMode?: AlertDesignMode;
+  wrapText?: boolean;
   sx?: OverrideTheme;
 }
 interface NotificationAlertThemeProps {

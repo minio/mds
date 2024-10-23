@@ -9,7 +9,7 @@
     "strict": true,
     "esModuleInterop": false,
     "outDir": "dist/esm",
-    "declarationDir": "dist/esm/types",
+    "declarationDir": "dist/esm",
     "rootDir": "./",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
