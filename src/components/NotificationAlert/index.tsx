@@ -96,32 +96,26 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
     },
   });
 
-  const wrapTextStyles = useMemo(() => {
-    if (wrapText) {
-      return css({
-        "& .alertInitLine": {
-          "& .notificationTitle": {
-            "& .cardTitle": {
-              display: "-webkit-box",
-              WebkitLineClamp: 1,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            },
-          },
-          "& .content": {
-            display: "-webkit-box",
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          },
+  const wrapTextStyles = css({
+    "& .alertInitLine": {
+      "& .notificationTitle": {
+        "& .cardTitle": {
+          display: "-webkit-box",
+          WebkitLineClamp: 1,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
         },
-      });
-    } else {
-      return {};
-    }
-  }, [wrapText]);
+      },
+      "& .content": {
+        display: "-webkit-box",
+        WebkitLineClamp: 2,
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+      },
+    },
+  });
 
   const baseStyle = css({
     display: "flex",
@@ -231,8 +225,8 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
       css={[
         baseStyle,
         designMode === "banner" ? bannerStyle : cardStyle,
+        ...(wrapText ? [wrapTextStyles] : []),
         overrideThemes,
-        wrapTextStyles,
       ]}
       className={"notification-alert"}
       id={id}
