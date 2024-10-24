@@ -58,7 +58,7 @@
     "@types/react-virtualized": "^9.21.30",
     "babel-loader": "^9.2.1",
     "eslint": "^9.13.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc-fb9a90fa48-20240614",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.13",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.11.0",
