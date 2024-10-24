@@ -116,7 +116,7 @@ export const notificationsContainerStyles = (position: string) => {
     flexDirection: position.startsWith("bottom") ? "column-reverse" : "column",
     padding: 16,
     gap: 8,
-    zIndex: 1000,
+    zIndex: 9999,
     pointerEvents: "none",
     ...posLocation,
   });
