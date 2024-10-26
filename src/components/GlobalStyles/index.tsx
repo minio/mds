@@ -122,9 +122,9 @@ const GlobalStyles = () => {
       },
       html: {
         boxSizing: "border-box",
-        "-webkit-text-size-adjust": "100%",
-        "-webkit-font-smoothing": "antialiased",
-        "-moz-osx-font-smoothing": "grayscale",
+        WebkitTextSizeAdjust: "100%",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
       },
       body: {
         backgroundColor: theme.colors["Color/Neutral/Bg/colorBgContainer"],
@@ -132,8 +132,8 @@ const GlobalStyles = () => {
         minHeight: "100vh",
         fontFamily: "'Geist', sans-serif",
         margin: 0,
-        "-webkit-font-smoothing": "antialiased",
-        "-moz-osx-font-smoothing": "grayscale",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
         fonWeight: 400,
         fontSize: 14,
         lineHeight: 1.5,
