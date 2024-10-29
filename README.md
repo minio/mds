@@ -15,7 +15,7 @@ You can test this package using the embedded storybook. Please follow these step
 To implement the MinIO Design System in your application, you can follow these steps:
 
 1. Install the package by running `yarn add http://github.com/minio/mds#[Version]`. Replace `[Version]` with the version you want to install.
-2. Import the required Geist & Geist Mono fonts in your application using your preferred method, Font Variants described as follows: 
+2. Import the required Geist & Geist Mono fonts in your application using your preferred method, Font Variants described as follows:
 
 ```css
   {
@@ -101,6 +101,7 @@ To implement the MinIO Design System in your application, you can follow these s
   },
 
 ```
+
 3. Create an `mds.d.ts` file in the root of your project and add the following code and import it into your tsconfig.json file:
 
 ```typescript
@@ -112,12 +113,11 @@ declare module "@emotion/react" {
   export type Theme = ThemeDefinition;
 }
 ```
+
 This is required to have the correct types for the theme object in your application.
 
 4. Import the required components in your application. For example, to import the Button component, you can use `import { Button } from 'mds'`.
 5. Use the imported component in your application.
-
-
 
 ## Build distribution files
 
