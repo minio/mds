@@ -127,7 +127,7 @@ const GlobalStyles = () => {
         MozOsxFontSmoothing: "grayscale",
       },
       body: {
-        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgContainer"],
+        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgShell"],
         color: theme.colors["Color/Neutral/Text/colorTextLabel"],
         minHeight: "100vh",
         fontFamily: "'Geist', sans-serif",
@@ -204,7 +204,7 @@ const GlobalStyles = () => {
         width: 26,
       },
       "#root": {
-        height: "100vh",
+        minHeight: "100vh",
         width: "100%",
         display: "flex",
         flexFlow: "column",
