@@ -146,7 +146,6 @@ const Inputdiv = React.forwardRef<
                 sizeMode === "small" ? inputBaseSizeSmall : {},
                 startIcon ? { paddingLeft: 35 } : {},
               ]}
-              fullWidth
               type={inputdivWrapperType}
               className={`Base_Normal inputRebase ${state}State ${value && value !== "" ? "filled" : ""}`}
               value={value}

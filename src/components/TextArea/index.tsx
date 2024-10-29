@@ -89,7 +89,6 @@ const TextArea: FC<TextAreaProps> = ({
         <textarea
           css={[baseStyles, { minHeight: 92 }]}
           id={id}
-          fullWidth
           className={`Base_Normal inputRebase ${state}State`}
           data-index={index}
           rows={5}
