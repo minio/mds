@@ -204,7 +204,7 @@ const GlobalStyles = () => {
         width: 26,
       },
       "#root": {
-        height: "100vh",
+        minHeight: "100vh",
         width: "100%",
         display: "flex",
         flexFlow: "column",
