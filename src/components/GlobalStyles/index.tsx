@@ -16,100 +16,6 @@
 
 import { css, Global, useTheme } from "@emotion/react";
 
-import GeistBlackWoff2 from "../assets/fonts/Geist/Geist-Black.woff2";
-import GeistBoldWoff2 from "../assets/fonts/Geist/Geist-Bold.woff2";
-import GeistLightWoff2 from "../assets/fonts/Geist/Geist-Light.woff2";
-import GeistMediumWoff2 from "../assets/fonts/Geist/Geist-Medium.woff2";
-import GeistRegularWoff2 from "../assets/fonts/Geist/Geist-Regular.woff2";
-import GeistSemiBoldWoff2 from "../assets/fonts/Geist/Geist-SemiBold.woff2";
-import GeistThinWoff2 from "../assets/fonts/Geist/Geist-Thin.woff2";
-import GeistUltraLightWoff2 from "../assets/fonts/Geist/Geist-UltraLight.woff2";
-import GeistMonoRegularWoff2 from "../assets/fonts/Geist/GeistMono-Regular.woff2";
-
-const geistFonts = css([
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistBoldWoff2}) format("woff2")`,
-      fontWeight: "bold",
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistMediumWoff2}) format("woff2")`,
-      fontWeight: 500,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistSemiBoldWoff2}) format("woff2")`,
-      fontWeight: 600,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistLightWoff2}) format("woff2")`,
-      fontWeight: 300,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistUltraLightWoff2}) format("woff2")`,
-      fontWeight: 200,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistBlackWoff2}) format('woff2')`,
-      fontWeight: 900,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistRegularWoff2}) format('woff2')`,
-      fontWeight: "normal",
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "Geist",
-      src: `url(${GeistThinWoff2}) format('woff2')`,
-      fontWeight: 100,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-  {
-    "@font-face": {
-      fontFamily: "GeistMono",
-      src: `url(${GeistMonoRegularWoff2}) format('woff2')`,
-      fontWeight: 400,
-      fontStyle: "normal",
-      fontDisplay: "swap",
-    },
-  },
-]);
-
 const GlobalStyles = () => {
   const theme = useTheme();
 
@@ -299,7 +205,7 @@ const GlobalStyles = () => {
       },
     });
 
-  return <Global styles={[geistFonts, globalCSS]} />;
+  return <Global styles={[globalCSS]} />;
 };
 
 export default GlobalStyles;
