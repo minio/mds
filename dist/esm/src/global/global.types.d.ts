@@ -33,6 +33,8 @@ export interface ShadowsThemeProps {
   "focusStyle-Light": string;
   "focusStyle-Dark": string;
   "contentShadow-Light": string;
+  toggleShadow: string;
+  "toggleShadow-Disabled": string;
 }
 export interface ColorThemeProps {
   "Color/Base/Royal/0": string;

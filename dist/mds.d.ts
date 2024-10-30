@@ -47,6 +47,8 @@ interface ShadowsThemeProps {
   "focusStyle-Light": string;
   "focusStyle-Dark": string;
   "contentShadow-Light": string;
+  toggleShadow: string;
+  "toggleShadow-Disabled": string;
 }
 interface ColorThemeProps {
   "Color/Base/Royal/0": string;
@@ -7120,6 +7122,16 @@ interface ModalBoxProps {
 
 declare const ModalBox: FC<ModalBoxProps>;
 
+interface OverlayProps {
+  onClose: () => void;
+  open: boolean;
+  children: React__default.ReactNode;
+  backgroundOverlay?: boolean;
+  sx?: OverrideTheme;
+}
+
+declare const Overlay: FC<OverlayProps>;
+
 declare const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>>;
 
 type NotificationBadgeTypes =
@@ -8006,6 +8018,8 @@ declare const themeShadows: {
   "focusStyle-Light": string;
   "focusStyle-Dark": string;
   "contentShadow-Light": string;
+  toggleShadow: string;
+  "toggleShadow-Disabled": string;
 };
 
 declare const lightTheme: ThemeDefinition;
@@ -9101,6 +9115,8 @@ export {
   OidcIcon,
   OptionIcon,
   OrbitIcon,
+  Overlay,
+  type OverlayProps,
   type OverrideTheme,
   Package2Icon,
   PackageCheckIcon,
