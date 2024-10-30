@@ -458,4 +458,6 @@ export declare const themeShadows: {
   "focusStyle-Light": string;
   "focusStyle-Dark": string;
   "contentShadow-Light": string;
+  toggleShadow: string;
+  "toggleShadow-Disabled": string;
 };
