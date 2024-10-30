@@ -18,26 +18,6 @@ import { css, Theme } from "@emotion/react";
 
 import { CssProperties } from "../../../styled-system/types";
 
-export const modalOverlay = (theme: Theme) =>
-  css({
-    position: "fixed" as const,
-    zIndex: 1200,
-    width: "100vw",
-    height: "100vh",
-    top: 0,
-    left: 0,
-    backgroundColor: theme.colors["Color/Neutral/Bg/colorBgOverlay"],
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    opacity: 0,
-    backdropFilter: "blur(4px)",
-    "&.active": {
-      opacity: 1,
-      transition: "opacity 0.3s",
-    },
-  });
-
 export const modalContainer = (theme: Theme, width: CssProperties["width"]) =>
   css({
     fontFamily: "'Geist', sans-serif",

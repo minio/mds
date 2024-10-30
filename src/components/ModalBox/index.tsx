@@ -14,15 +14,15 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { css, useTheme } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 
 import { useEscapeKey } from "../../global/hooks";
-import { overridePropsParse } from "../../global/utils";
 import XIcon from "../../icons/XIcon";
-import { modalContainer, modalOverlay, modalTitleBar } from "./ModalBox.styles";
+import { modalContainer, modalTitleBar } from "./ModalBox.styles";
 import { ModalBoxProps } from "./ModalBox.types";
+import Overlay from "../Overlay";
 
 const ModalBox: FC<ModalBoxProps> = ({
   onClose,
@@ -38,59 +38,36 @@ const ModalBox: FC<ModalBoxProps> = ({
   const theme = useTheme();
   useEscapeKey(onClose);
 
-  const [displayOverlay, setDisplayOverlay] = useState<boolean>(false);
-
-  const overrideThemes = useMemo(() => {
-    if (sx) {
-      return css({ ...overridePropsParse(sx, theme) });
-    }
-
-    return {};
-  }, [sx, theme]);
-
-  const overlayStyles = modalOverlay(theme);
   const containerStyles = modalContainer(
     theme,
     widthLimit ? customMaxWidth : "100%",
   );
   const titleStyles = modalTitleBar(theme);
 
-  useEffect(() => {
-    if (open) {
-      setTimeout(() => setDisplayOverlay(true), 100);
-      return;
-    }
-    setDisplayOverlay(false);
-  }, [open]);
-
   if (!open) {
     return null;
   }
 
   const modalBox = (
-    <div css={[overrideThemes]} className={"modalBoxMain"}>
-      <div
-        css={backgroundOverlay ? overlayStyles : {}}
-        className={`overlay ${displayOverlay ? "active" : ""}`}
-      >
-        <div css={containerStyles} className={"modalContainer"}>
-          <div css={titleStyles} className={"modalTitleBar"}>
-            <div className={"title"}>
-              {titleIcon}
-              {title}
-            </div>
-            <button
-              className={"closeModalButton"}
-              id={"close"}
-              onClick={onClose}
-            >
-              <XIcon />
-            </button>
+    <Overlay
+      sx={sx}
+      onClose={onClose}
+      open={open}
+      backgroundOverlay={backgroundOverlay}
+    >
+      <div css={containerStyles} className={"modalContainer"}>
+        <div css={titleStyles} className={"modalTitleBar"}>
+          <div className={"title"}>
+            {titleIcon}
+            {title}
           </div>
-          <div className={"dialogContent"}>{children}</div>
+          <button className={"closeModalButton"} id={"close"} onClick={onClose}>
+            <XIcon />
+          </button>
         </div>
+        <div className={"dialogContent"}>{children}</div>
       </div>
-    </div>
+    </Overlay>
   );
 
   return createPortal(modalBox, document.body);
