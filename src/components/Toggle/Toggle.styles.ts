@@ -44,7 +44,7 @@ export const toggleItemStyles = (theme: Theme) =>
     "& input": {
       display: "none",
       "& ~.ToggleRail": {
-        backgroundColor: theme.colors["Color/Neutral/Bg/colorBgFields"],
+        backgroundColor: theme.colors["Color/Base/Shark/0"],
         border: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
         "&:hover": {
           borderColor: theme.colors["Color/Neutral/Border/colorBorderBold"],
@@ -60,7 +60,7 @@ export const toggleItemStyles = (theme: Theme) =>
           borderRadius: "100%",
           backgroundColor:
             theme.colors["Color/Neutral/Text/colorTextLightSolid"],
-          boxShadow: theme.shadows["boxShadow-01"],
+          boxShadow: theme.shadows["toggleShadow"],
           transitionDuration: "0.1s",
         },
       },
@@ -84,6 +84,9 @@ export const toggleItemStyles = (theme: Theme) =>
         cursor: "not-allowed",
         borderColor: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
         backgroundColor: theme.colors["Color/Neutral/Bg/colorBgDisabled"],
+        "&:before": {
+          boxShadow: theme.shadows["toggleShadow-Disabled"],
+        },
       },
     },
   });
