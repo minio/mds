@@ -463,4 +463,6 @@ export const themeShadows = {
   "focusStyle-Light": "0px 0px 0px 2px rgba(43, 100, 229, 0.30)",
   "focusStyle-Dark": "0px 0px 0px 2px rgba(100, 164, 245, 0.30)",
   "contentShadow-Light": "0px 2px 2px 0px rgba(121, 135, 151, 0.15)",
+  toggleShadow: "0px 1px 1px 0px rgba(0,0,0,0.20)",
+  "toggleShadow-Disabled": "0px 1px 1px 0px rgba(0,0,0,0.05)",
 };
