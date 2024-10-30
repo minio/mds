@@ -28,6 +28,7 @@ export const horizontalTabStyles = (theme: Theme) =>
       width: "100%",
       boxShadow: "none",
       padding: 0,
+      borderRadius: 0,
       "& .optionsList": {
         position: "relative",
         flexDirection: "row",
