@@ -129,7 +129,12 @@ const Select: FC<SelectProps> = ({
           "& .accessoryIcon": {
             display: "none",
           },
-          ...overrideThemes,
+          "& input": {
+            paddingRight: 25,
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+          },
         }}
         disabled={disabled}
         disableErrorUntilFocus={true}
