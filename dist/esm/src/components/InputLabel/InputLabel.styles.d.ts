@@ -21,6 +21,7 @@ export declare const customLabelStyles: (
     textWrap: string;
     "&.noMinWidthLabel": {
       minWidth: string;
+      width: string;
     };
   };
 };
