@@ -103,6 +103,8 @@ const Inputdiv = React.forwardRef<
       state = "normal";
     }
 
+    const hasState = state !== "normal";
+
     return (
       <div
         css={[
@@ -145,6 +147,10 @@ const Inputdiv = React.forwardRef<
                 baseStyles,
                 sizeMode === "small" ? inputBaseSizeSmall : {},
                 startIcon ? { paddingLeft: 35 } : {},
+                hasState ? { paddingRight: 30 } : {},
+                hasState && (overlayObject || inputdivWrapperIcon)
+                  ? { paddingRight: 60 }
+                  : {},
               ]}
               type={inputdivWrapperType}
               className={`Base_Normal inputRebase ${state}State ${value && value !== "" ? "filled" : ""}`}
