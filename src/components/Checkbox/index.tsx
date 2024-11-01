@@ -39,6 +39,7 @@ const Checkbox: FC<
   checked,
   helper,
   disabled,
+  noLabelMinWidth,
   ...props
 }) => {
   const theme = useTheme();
@@ -73,8 +74,11 @@ const Checkbox: FC<
       {label && label !== "" && (
         <InputLabel
           htmlFor={id}
-          noMinWidth
+          noMinWidth={noLabelMinWidth}
           className={`${overrideLabelClasses || ""}`}
+          sx={{
+            alignSelf: "flex-start",
+          }}
         >
           {label}
           {tooltip && tooltip !== "" && (
