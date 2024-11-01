@@ -54,6 +54,7 @@ export const customLabelStyles = (
       textWrap: "wrap",
       "&.noMinWidthLabel": {
         minWidth: "initial",
+        width: "initial",
       },
     },
   };

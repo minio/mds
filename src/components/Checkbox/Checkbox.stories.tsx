@@ -69,3 +69,16 @@ UncheckedDisabled.args = {
   checked: false,
   disabled: true,
 };
+
+export const LabelNoMinWidth = Template.bind({});
+LabelNoMinWidth.args = {
+  label: "Click to confirm",
+  id: "checkbox",
+  onClick: () => {
+    console.log("click");
+  },
+  tooltip: "test",
+  checked: false,
+  disabled: true,
+  noLabelMinWidth: true,
+};
