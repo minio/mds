@@ -36,7 +36,7 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.25.9",
     "@babel/preset-typescript": "^7.26.0",
-    "@chromatic-com/storybook": "^3.2.1",
+    "@chromatic-com/storybook": "^3.2.2",
     "@eslint/js": "^9.13.0",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.3.0",
