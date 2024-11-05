@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { BreadcrumbsOption, BreadcrumbsProps } from "./Breadcrumbs.types";
 import Breadcrumbs from "./";
@@ -31,7 +31,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Breadcrumbs>;
 
-const Template: Story<BreadcrumbsProps> = (args) => (
+const Template: StoryFn<BreadcrumbsProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Breadcrumbs {...args} />

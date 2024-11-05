@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import IconButton from "./";
 import { IconButtonProps } from "./IconButton.types";
@@ -28,7 +28,7 @@ export default {
   argTypes: {},
 } as Meta<typeof IconButton>;
 
-const Template: Story<IconButtonProps> = (args) => (
+const Template: StoryFn<IconButtonProps> = (args) => (
   <StoryThemeProvider>
     <IconButton {...args} onClick={() => alert("You clicked me!")}>
       <DownloadIcon />

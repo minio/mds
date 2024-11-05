@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Wizard from "./";
 import { WizardProps } from "./Wizard.types";
@@ -32,7 +32,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Wizard>;
 
-const Template: Story<WizardProps> = ({ wizardSteps, ...props }) => {
+const Template: StoryFn<WizardProps> = ({ wizardSteps, ...props }) => {
   return (
     <StoryThemeProvider>
       <div id={"buttonsHere"}></div>

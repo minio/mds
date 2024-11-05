@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useEffect, useRef } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import BoxedIcon from "./";
 import { IBoxedIconProps } from "./BoxedIcon.types";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof BoxedIcon>;
 
-const Template: Story<IBoxedIconProps> = (args) => {
+const Template: StoryFn<IBoxedIconProps> = (args) => {
   return (
     <StoryThemeProvider>
       <GlobalStyles />

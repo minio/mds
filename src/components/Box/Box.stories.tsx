@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useEffect, useRef } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Box from "./";
 import { BoxProps } from "./Box.types";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Box>;
 
-const Template: Story<BoxProps> = (args) => {
+const Template: StoryFn<BoxProps> = (args) => {
   const reference = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {

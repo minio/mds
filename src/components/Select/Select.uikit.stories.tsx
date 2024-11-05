@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { SelectOption } from "../../global/global.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -65,7 +65,7 @@ const useIconOpts: SelectOption[] = [
   },
 ];
 
-const Template: Story<SelectProps> = (args: SelectProps) => {
+const Template: StoryFn<SelectProps> = (args: SelectProps) => {
   const [selectedValue, setSelectedValue] = React.useState<string | undefined>(
     undefined,
   );

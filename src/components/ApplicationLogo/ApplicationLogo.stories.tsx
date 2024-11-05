@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import ApplicationLogo from "./";
 import { ApplicationLogoProps } from "./ApplicationLogo.types";
@@ -28,7 +28,7 @@ export default {
   argTypes: {},
 } as Meta<typeof ApplicationLogo>;
 
-const Template: Story<ApplicationLogoProps> = (args) => (
+const Template: StoryFn<ApplicationLogoProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <div style={{ maxWidth: "200px" }}>

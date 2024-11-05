@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { SearchBoxProps } from "./SearchBox.types";
 import SearchBox from "./";
@@ -30,7 +30,7 @@ export default {
   argTypes: {},
 } as Meta<typeof SearchBox>;
 
-const Template: Story<SearchBoxProps> = (args) => (
+const Template: StoryFn<SearchBoxProps> = (args) => (
   <StoryThemeProvider>
     <SearchBox {...args} />
 

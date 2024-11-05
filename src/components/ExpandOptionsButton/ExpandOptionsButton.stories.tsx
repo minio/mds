@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "@storybook/addons";
 
 import ExpandOptionsButton from "./";
@@ -30,7 +30,7 @@ export default {
   argTypes: {},
 } as Meta<typeof ExpandOptionsButton>;
 
-const Template: Story<ExpandOptionsButtonProps> = (args) => {
+const Template: StoryFn<ExpandOptionsButtonProps> = (args) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const extraArgs = {

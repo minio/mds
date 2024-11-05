@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Checkbox from "./";
 import { CheckboxProps } from "./Checkbox.types";
@@ -28,7 +28,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Checkbox>;
 
-const Template: Story<CheckboxProps> = (args) => (
+const Template: StoryFn<CheckboxProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Checkbox {...args} />

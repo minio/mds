@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Loader from "./";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -26,7 +26,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Loader>;
 
-const Template: Story = (args) => (
+const Template: StoryFn = (args) => (
   <StoryThemeProvider>
     <Loader {...args} />
   </StoryThemeProvider>

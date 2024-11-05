@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import SectionTitle from "./";
 import { SectionTitleProps } from "./SectionTitle.types";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof SectionTitle>;
 
-const Template: Story<SectionTitleProps> = (args: SectionTitleProps) => (
+const Template: StoryFn<SectionTitleProps> = (args: SectionTitleProps) => (
   <StoryThemeProvider>
     <SectionTitle id={"section-title-demo"} {...args} />
   </StoryThemeProvider>

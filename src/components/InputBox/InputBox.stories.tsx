@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
@@ -33,7 +33,7 @@ export default {
   argTypes: {},
 } as Meta<typeof InputBox>;
 
-const Template: Story<InputBoxProps> = (args) => (
+const Template: StoryFn<InputBoxProps> = (args) => (
   <StoryThemeProvider>
     <Box sx={{ display: "flex", gap: 24, flexBasis: "50%" }}>
       <InputBox {...args} sizeMode={"small"} />

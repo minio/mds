@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import Index from "./index";
@@ -27,7 +27,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Index>;
 
-const Template: Story<InputLabelProps> = (args) => (
+const Template: StoryFn<InputLabelProps> = (args) => (
   <StoryThemeProvider>
     <Index {...args} />
   </StoryThemeProvider>

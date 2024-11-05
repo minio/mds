@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { FormLayoutProps } from "./FormLayout.types";
 import FormLayout from "./";
@@ -32,7 +32,7 @@ export default {
   argTypes: {},
 } as Meta<typeof FormLayout>;
 
-const Template: Story<FormLayoutProps> = (args) => (
+const Template: StoryFn<FormLayoutProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <FormLayout {...args} title={"Form Title"} icon={<TestIcon />}>

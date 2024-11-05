@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import { CodeEditorProps } from "./CodeEditor.types";
@@ -30,7 +30,7 @@ export default {
   argTypes: {},
 } as Meta<typeof CodeEditor>;
 
-const Template: Story<CodeEditorProps> = (args) => (
+const Template: StoryFn<CodeEditorProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <CodeEditor {...args} />

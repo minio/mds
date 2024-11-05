@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment, useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { ExpandMenuProps } from "./ExpandMenu.types";
 import ExpandMenuOption from "./ExpandMenuOption";
@@ -36,7 +36,7 @@ export default {
   argTypes: {},
 } as Meta<typeof ExpandMenu>;
 
-const Template: Story<ExpandMenuProps> = (args) => {
+const Template: StoryFn<ExpandMenuProps> = (args) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const extraArgs = {

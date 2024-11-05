@@ -16,7 +16,7 @@
 
 import React from "react";
 import { useState } from "@storybook/client-api";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import Accordion from "./";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Accordion>;
 
-const Template: Story<AccordionProps> = ({
+const Template: StoryFn<AccordionProps> = ({
   title,
   children,
   disabled,

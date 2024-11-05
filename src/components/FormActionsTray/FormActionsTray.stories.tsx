@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { FormActionsTrayProps } from "./FormActionsTray.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof FormActionsTray>;
 
-const Template: Story<FormActionsTrayProps> = (args) => (
+const Template: StoryFn<FormActionsTrayProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <FormActionsTray {...args}>

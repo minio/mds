@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import PageHeader from "./";
 import { PageHeaderProps } from "./PageHeader.types";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof PageHeader>;
 
-const Template: Story<PageHeaderProps> = (args: PageHeaderProps) => (
+const Template: StoryFn<PageHeaderProps> = (args: PageHeaderProps) => (
   <StoryThemeProvider>
     <PageHeader id={"demo-page-header"} {...args} />
   </StoryThemeProvider>

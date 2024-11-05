@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import DataTable from "./";
 import { DataTableProps } from "./DataTable.types";
@@ -40,7 +40,7 @@ export default {
   argTypes: {},
 } as Meta;
 
-const Template: Story<DataTableProps<RecordType>> = (args) => {
+const Template: StoryFn<DataTableProps<RecordType>> = (args) => {
   const [selected, setSelected] = useState<Array<keyof RecordType | string[]>>(
     [],
   );

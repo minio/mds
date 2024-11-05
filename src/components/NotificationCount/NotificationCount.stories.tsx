@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { NotificationCountProps } from "./NotificationCount.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof NotificationCount>;
 
-const Template: Story<NotificationCountProps> = (args) => (
+const Template: StoryFn<NotificationCountProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <NotificationCount {...args} onClick={() => alert("You clicked me!")}>

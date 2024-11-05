@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import TestIcon from "../../utils/TestIcon";
@@ -31,7 +31,7 @@ export default {
   argTypes: {},
 } as Meta<typeof CodeSnippet>;
 
-const Template: Story<CodeSnippetProps> = (args) => (
+const Template: StoryFn<CodeSnippetProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <CodeSnippet {...args}>

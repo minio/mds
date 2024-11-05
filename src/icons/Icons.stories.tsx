@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment, ReactNode, useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import * as nvicons from "./";
 import Box from "../components/Box";
@@ -63,7 +63,7 @@ const IconDisplay = ({
   );
 };
 
-const Template: Story = (args) => {
+const Template: StoryFn = (args) => {
   const [color, setColor] = useState<boolean>(false);
 
   return (
