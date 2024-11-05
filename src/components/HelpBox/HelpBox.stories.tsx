@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment, HTMLAttributes } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { HelpBoxProps } from "./HelpBox.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -28,7 +28,7 @@ export default {
   argTypes: {},
 } as Meta<typeof HelpBox>;
 
-const Template: Story<HelpBoxProps> = (
+const Template: StoryFn<HelpBoxProps> = (
   args: HelpBoxProps & HTMLAttributes<HTMLDivElement>,
 ) => (
   <StoryThemeProvider>

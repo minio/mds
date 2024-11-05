@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useNotification } from "./Notifications.hooks";
 import {
   NotificationDuration,
@@ -166,7 +166,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<DemoProps> = (args) => <NotificationsWrapper {...args} />;
+const Template: StoryFn<DemoProps> = (args) => (
+  <NotificationsWrapper {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {

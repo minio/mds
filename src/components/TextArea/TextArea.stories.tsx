@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import TextArea from "./";
 import { TextAreaProps } from "./TextArea.types";
@@ -27,7 +27,7 @@ export default {
   argTypes: {},
 } as Meta<typeof TextArea>;
 
-const Template: Story<TextAreaProps> = (args) => (
+const Template: StoryFn<TextAreaProps> = (args) => (
   <StoryThemeProvider>
     <TextArea {...args} />
   </StoryThemeProvider>

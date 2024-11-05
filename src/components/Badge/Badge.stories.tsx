@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import Badge from "./";
@@ -30,7 +30,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Badge>;
 
-const Template: Story<BadgeProps> = ({ label, id, sx, color }) => {
+const Template: StoryFn<BadgeProps> = ({ label, id, sx, color }) => {
   return (
     <StoryThemeProvider>
       <GlobalStyles />

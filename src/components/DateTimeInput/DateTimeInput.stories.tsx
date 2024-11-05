@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useEffect, useState } from "@storybook/addons";
 import { DateTime } from "luxon";
 
@@ -32,7 +32,7 @@ export default {
   argTypes: {},
 } as Meta<typeof DateTimeInput>;
 
-const Template: Story<DateTimeInputProps> = ({
+const Template: StoryFn<DateTimeInputProps> = ({
   mode,
   usePortal,
   maxDate,

@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "@storybook/addons";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -28,7 +28,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Slider>;
 
-const Template: Story<SliderProps> = (args) => {
+const Template: StoryFn<SliderProps> = (args) => {
   const [value, setValue] = useState<number>(0);
   return (
     <StoryThemeProvider>

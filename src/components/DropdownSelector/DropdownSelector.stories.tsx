@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { useState } from "@storybook/addons";
 
 import DropdownSelector from "./";
@@ -31,7 +31,7 @@ export default {
   argTypes: {},
 } as Meta<typeof DropdownSelector>;
 
-const Template: Story<DropdownSelectorProps> = (args) => {
+const Template: StoryFn<DropdownSelectorProps> = (args) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openDownloadMenu = Boolean(anchorEl);
 

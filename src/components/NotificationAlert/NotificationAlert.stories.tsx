@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
 import NotificationAlert from "./";
@@ -27,7 +27,9 @@ export default {
   argTypes: {},
 } as Meta<typeof NotificationAlert>;
 
-const Template: Story<NotificationAlertPrp> = (props: NotificationAlertPrp) => {
+const Template: StoryFn<NotificationAlertPrp> = (
+  props: NotificationAlertPrp,
+) => {
   return (
     <StoryThemeProvider>
       <NotificationAlert

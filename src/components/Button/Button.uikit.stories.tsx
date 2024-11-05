@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Button from "./";
 import { ButtonProps } from "./Button.types";
@@ -38,7 +38,7 @@ export default {
   },
 } as Meta<typeof Button>;
 
-const Template: Story<ButtonProps> = (args) => (
+const Template: StoryFn<ButtonProps> = (args) => (
   <StoryThemeProvider>
     <Box
       sx={{

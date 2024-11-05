@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import { ButtonProps } from "./Button.types";
 import StoryThemeProvider from "../../utils/StoryThemeProvider";
@@ -29,7 +29,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Button>;
 
-const Template: Story<ButtonProps> = (args) => (
+const Template: StoryFn<ButtonProps> = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Button {...args} onClick={() => alert("You clicked me!")} />

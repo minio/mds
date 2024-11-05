@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import LoginWrapper from "./";
 import { LoginWrapperProps } from "./LoginWrapper.types";
@@ -28,7 +28,7 @@ export default {
   argTypes: {},
 } as Meta<typeof LoginWrapper>;
 
-const Template: Story<LoginWrapperProps> = (args) => (
+const Template: StoryFn<LoginWrapperProps> = (args) => (
   <StoryThemeProvider>
     <LoginWrapper {...args} />
   </StoryThemeProvider>

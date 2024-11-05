@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Link from "./";
 import { LinkProps } from "./Link.types";
@@ -27,7 +27,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Link>;
 
-const Template: Story<LinkProps> = (args) => (
+const Template: StoryFn<LinkProps> = (args) => (
   <StoryThemeProvider>
     <span style={{ fontSize: 16 }}>
       We can have a{" "}

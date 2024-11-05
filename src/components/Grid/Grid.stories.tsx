@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import Grid from "./";
 import { GridProps } from "./Grid.types";
@@ -27,7 +27,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Grid>;
 
-const Template: Story<GridProps> = (args) => (
+const Template: StoryFn<GridProps> = (args) => (
   <StoryThemeProvider>
     <Grid
       container

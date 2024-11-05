@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 
 import GlobalStyles from "./";
 import Box from "../Box";
@@ -76,7 +76,7 @@ const renderItems = (variants: object) => {
   );
 };
 
-const Template: Story = (args) => (
+const Template: StoryFn = (args) => (
   <StoryThemeProvider>
     <GlobalStyles />
     <Box>
