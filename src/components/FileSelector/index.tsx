@@ -20,7 +20,6 @@ import get from "lodash/get";
 
 import { overridePropsParse } from "../../global/utils";
 import CircleHelpIcon from "../../icons/CircleHelpIcon";
-import PaperclipIcon from "../../icons/PaperclipIcon";
 import Box from "../Box";
 import IconButton from "../IconButton";
 import InputHelper from "../InputHelper";
@@ -29,6 +28,7 @@ import Tooltip from "../Tooltip";
 import { fileSelectorContainerStyles } from "./FileSelector.styles";
 import { FileSelectorProps } from "./FileSelector.types";
 import { fileProcess } from "./FileSelector.utils";
+import FileUpIcon from "../../icons/FileUpIcon";
 
 const FileSelector: FC<FileSelectorProps> = ({
   label,
@@ -122,7 +122,7 @@ const FileSelector: FC<FileSelectorProps> = ({
             size="small"
             disabled={disabled}
           >
-            <PaperclipIcon />
+            <FileUpIcon />
           </IconButton>
         </Box>
         {helper !== undefined && (
