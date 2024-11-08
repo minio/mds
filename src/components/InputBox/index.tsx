@@ -63,6 +63,7 @@ const Inputdiv = React.forwardRef<
       onFocus,
       disableErrorUntilFocus = false,
       children,
+      passwordRevealEnabled = true,
       value,
       ...props
     },
@@ -86,7 +87,7 @@ const Inputdiv = React.forwardRef<
     let inputdivWrapperIcon = overlayIcon;
     let inputdivWrapperType = type;
 
-    if (type === "password" && !overlayIcon) {
+    if (type === "password" && passwordRevealEnabled && !overlayIcon) {
       inputdivWrapperIcon = toggleTextInput ? <EyeOffIcon /> : <EyeIcon />;
       inputdivWrapperType = toggleTextInput ? "text" : "password";
     }
@@ -110,7 +111,9 @@ const Inputdiv = React.forwardRef<
         css={[
           containerStyles,
           sizeMode === "small" ? containerSizeSmall : {},
-          overlayIcon || type === "password" ? containerOverlayIcon : {},
+          overlayIcon || (type === "password" && passwordRevealEnabled)
+            ? containerOverlayIcon
+            : {},
           css({ flexDirection: orientation === "vertical" ? "column" : "row" }),
           overrideThemes,
         ]}

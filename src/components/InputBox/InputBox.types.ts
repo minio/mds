@@ -43,4 +43,5 @@ export interface InputBoxProps
   sizeMode?: InputBoxSize;
   orientation?: InputBoxOrientation;
   disableErrorUntilFocus?: boolean;
+  passwordRevealEnabled?: boolean;
 }

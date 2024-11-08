@@ -91,6 +91,15 @@ PasswordInput.args = {
   type: "password",
 };
 
+export const PasswordInputRevealDisabled = Template.bind({});
+PasswordInputRevealDisabled.args = {
+  label: "An input box",
+  required: true,
+  tooltip: "Tooltip text",
+  type: "password",
+  passwordRevealEnabled: false,
+};
+
 export const WithOverlayIcon = Template.bind({});
 WithOverlayIcon.args = {
   label: "An input box",

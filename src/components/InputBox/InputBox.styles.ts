@@ -192,6 +192,9 @@ export const containerSizeSmall = css({
 });
 
 export const containerOverlayIcon = css({
+  "& input": {
+    paddingRight: 37,
+  },
   "& .accessoryIcon": {
     right: 37,
   },
