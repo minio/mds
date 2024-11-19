@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Theme } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 
 export const expandMenuOptionStyles = (theme: Theme) => {
   return {
@@ -72,3 +72,34 @@ export const expandMenuOptionStyles = (theme: Theme) => {
     },
   };
 };
+
+export const dividerStyles = (theme: Theme) =>
+  css({
+    border: `${theme.colors["Color/Neutral/Border/colorBorderSubtle"]} 1px solid`,
+    borderTop: 0,
+    borderRight: 0,
+    borderLeft: 0,
+    width: "100%",
+  });
+
+export const expandMenuDescriptionStyles = (theme: Theme) =>
+  css({
+    width: 216,
+    display: "flex",
+    alignItems: "flex-start",
+    gap: theme.paddingSizes["sizeXS"],
+    padding: theme.paddingSizes["sizeXXS"],
+    cursor: "default",
+    userSelect: "none",
+    "& .menu-description-information": {
+      display: "flex",
+      flexDirection: "column",
+      gap: theme.paddingSizes["sizeXXXS"],
+      "& .title": {
+        color: theme.colors["Color/Neutral/Text/colorTextHeading"],
+      },
+      "& .subTitle": {
+        color: theme.colors["Color/Neutral/Text/colorTextTertiary"],
+      },
+    },
+  });

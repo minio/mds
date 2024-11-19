@@ -29,6 +29,16 @@ import FilesIcon from "../../icons/FilesIcon";
 import PencilIcon from "../../icons/PencilIcon";
 import ExpandMenu from "./";
 import GlobalStyles from "../GlobalStyles";
+import ExpandMenuDivider from "./ExpandMenuDivider";
+import LogOutIcon from "../../icons/LogOutIcon";
+import BookIcon from "../../icons/BookIcon";
+import UserIcon from "../../icons/UserIcon";
+import CircleUserIcon from "../../icons/CircleUserIcon";
+import UserCheckIcon from "../../icons/UserCheckIcon";
+import SquareUserIcon from "../../icons/SquareUserIcon";
+import BadgeCheckIcon from "../../icons/BadgeCheckIcon";
+import ExpandMenuDescription from "./ExpandMenuDescription";
+import Badge from "../Badge";
 
 export default {
   title: "MDS/Forms/ExpandMenu",
@@ -434,6 +444,96 @@ LongOptionsList.args = {
         disabled
       >
         Disabled Option
+      </ExpandMenuOption>
+    </Fragment>
+  ),
+};
+
+export const ListDividersWithInputOptions = Template.bind({});
+ListDividersWithInputOptions.args = {
+  id: "expand-button",
+  icon: <CircleUserIcon />,
+  forInputOptions: true,
+  variant: "primary-ghost",
+  children: (
+    <Fragment>
+      <ExpandMenuDescription
+        icon={<UserIcon width={16} height={16} />}
+        title={"Firstname Lastname"}
+        subTitle={"extras@domain.ext"}
+        extras={
+          <Fragment>
+            <Badge label={"Admin"} id={"admin-pill"} size={"small"} />
+          </Fragment>
+        }
+      />
+      <ExpandMenuDivider />
+      <ExpandMenuOption
+        id={"opt-2"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<CircleUserIcon />}
+      >
+        My Profile
+      </ExpandMenuOption>
+      <ExpandMenuDivider />
+      <ExpandMenuOption
+        id={"opt-3"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<UserIcon />}
+      >
+        Users
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-4 "}
+        onClick={() => {
+          console.log("click4");
+        }}
+        icon={<UserCheckIcon />}
+      >
+        Roles
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<SquareUserIcon />}
+        iconLocation={"start"}
+      >
+        Identity Providers
+      </Button>
+      <ExpandMenuOption
+        id={"opt-4 "}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<BadgeCheckIcon />}
+      >
+        License
+      </ExpandMenuOption>
+      <ExpandMenuDivider />
+      <ExpandMenuOption
+        id={"opt-5"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<BookIcon />}
+      >
+        Documentation
+      </ExpandMenuOption>
+      <ExpandMenuDivider />
+      <ExpandMenuOption
+        id={"opt-6"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<LogOutIcon />}
+      >
+        Logout
       </ExpandMenuOption>
     </Fragment>
   ),

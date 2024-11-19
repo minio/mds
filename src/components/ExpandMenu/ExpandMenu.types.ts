@@ -59,8 +59,11 @@ export interface DropdownMainProps {
   sx?: OverrideTheme;
 }
 
-export interface ExpandMenuConstructProps {
-  parentChildren: ReactNode;
+export interface ExpandMenuDescriptionProps {
+  icon?: ReactNode;
+  title?: string;
+  subTitle?: string;
+  extras?: ReactNode;
 }
 
 export type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
