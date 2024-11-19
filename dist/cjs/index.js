@@ -61975,19 +61975,24 @@ var dk = e.forwardRef(function (t, n) {
       u = d[0],
       p = d[1];
     return (
-      e.useEffect(function () {
-        Ye(void 0, void 0, void 0, function () {
-          var e;
-          return Ke(this, function (t) {
-            switch (t.label) {
-              case 0:
-                return [4, Pr()];
-              case 1:
-                return (e = t.sent()), p(!!e.gpu && e.tier >= 2), [2];
-            }
+      e.useEffect(
+        function () {
+          Ye(void 0, void 0, void 0, function () {
+            var e;
+            return Ke(this, function (t) {
+              switch (t.label) {
+                case 0:
+                  return c ? [4, Pr()] : [3, 2];
+                case 1:
+                  (e = t.sent()), p(!!e.gpu && e.tier >= 2), (t.label = 2);
+                case 2:
+                  return [2];
+              }
+            });
           });
-        });
-      }, []),
+        },
+        [c],
+      ),
       o.default.createElement(
         to,
         null,

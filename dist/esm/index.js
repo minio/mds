@@ -4195,19 +4195,24 @@ var Yr,
       p = u[0],
       m = u[1];
     return (
-      r(function () {
-        st(void 0, void 0, void 0, function () {
-          var e;
-          return lt(this, function (t) {
-            switch (t.label) {
-              case 0:
-                return [4, qr()];
-              case 1:
-                return (e = t.sent()), m(!!e.gpu && e.tier >= 2), [2];
-            }
+      r(
+        function () {
+          st(void 0, void 0, void 0, function () {
+            var e;
+            return lt(this, function (t) {
+              switch (t.label) {
+                case 0:
+                  return d ? [4, qr()] : [3, 2];
+                case 1:
+                  (e = t.sent()), m(!!e.gpu && e.tier >= 2), (t.label = 2);
+                case 2:
+                  return [2];
+              }
+            });
           });
-        });
-      }, []),
+        },
+        [d],
+      ),
       t.createElement(
         mi,
         null,
