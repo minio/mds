@@ -174,12 +174,13 @@ const LoginWrapper: FC<LoginWrapperProps> = ({
 
   useEffect(() => {
     (async () => {
-      const gpuTier = await getGPUTier();
-
-      setGPUAvailable(!!gpuTier.gpu && gpuTier.tier >= 2);
+      if (backgroundAnimation) {
+        const gpuTier = await getGPUTier();
+        setGPUAvailable(!!gpuTier.gpu && gpuTier.tier >= 2);
+      }
       return;
     })();
-  }, []);
+  }, [backgroundAnimation]);
 
   return (
     <CustomLogin>
