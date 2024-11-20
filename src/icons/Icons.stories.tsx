@@ -14,8 +14,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { Fragment, ReactNode, useState } from "react";
+import React, { Fragment, ReactNode } from "react";
 import { Meta, StoryFn } from "@storybook/react";
+import { useState } from "@storybook/addons";
 
 import * as nvicons from "./";
 import Box from "../components/Box";
@@ -7373,6 +7374,11 @@ const Template: StoryFn = (args) => {
               <nvicons.WarehouseIcon />
               <br />
               WarehouseIcon
+            </div>
+            <div className="story-icon">
+              <nvicons.WarpIcon />
+              <br />
+              WarpIcon
             </div>
             <div className="story-icon">
               <nvicons.WashingMachineIcon />
