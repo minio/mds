@@ -43,6 +43,7 @@ const LinkButton: FC<LinkButtonProps> = ({
 
   return (
     <button
+      type={"button"}
       className="LinkButton"
       css={[buttonVariant, overrideThemes]}
       {...props}

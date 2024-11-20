@@ -61,7 +61,12 @@ const ModalBox: FC<ModalBoxProps> = ({
             {titleIcon}
             {title}
           </div>
-          <button className={"closeModalButton"} id={"close"} onClick={onClose}>
+          <button
+            type={"button"}
+            className={"closeModalButton"}
+            id={"close"}
+            onClick={onClose}
+          >
             <XIcon />
           </button>
         </div>

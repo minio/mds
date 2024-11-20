@@ -256,7 +256,7 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
         </div>
       </div>
       {onClose && (
-        <button className={"dismissAlert"} onClick={onClose}>
+        <button type={"button"} className={"dismissAlert"} onClick={onClose}>
           <XIcon />
         </button>
       )}

@@ -125,6 +125,7 @@ const TimeSelector: FC<TimeSelectorProps> = ({
     type: "hour" | "minute" | "second" | "meridiem";
   }) => (
     <button
+      type={"button"}
       css={selectorButton}
       onClick={() => {
         changeTimeAction(itemValue, type);

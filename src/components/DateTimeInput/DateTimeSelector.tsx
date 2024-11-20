@@ -152,6 +152,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
             css={[optionChangeButton]}
             className={currentView === "calendar" ? "selected" : ""}
             onClick={() => setCurrentView("calendar")}
+            type={"button"}
           >
             <CalendarIcon />
             <span>{value?.toFormat("dd LLL yyyy") || ""}</span>
@@ -160,6 +161,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
             css={[optionChangeButton]}
             className={currentView === "time" ? "selected" : ""}
             onClick={() => setCurrentView("time")}
+            type={"button"}
           >
             <Clock4Icon />
             <span>
