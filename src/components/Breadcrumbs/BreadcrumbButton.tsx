@@ -114,6 +114,7 @@ const BreadcrumbButton: FC<
   return (
     <Fragment>
       <button
+        type={"button"}
         css={[breadcrumbButtonTheme]}
         onClick={onClick}
         disabled={disabled || false}

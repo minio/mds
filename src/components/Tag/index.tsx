@@ -58,7 +58,11 @@ const Tag: FC<TagProps & React.HTMLAttributes<HTMLSpanElement>> = ({
         {children}
       </span>
       {onDelete && (
-        <button className={"deleteTagButton"} onClick={() => onDelete(id)}>
+        <button
+          type={"button"}
+          className={"deleteTagButton"}
+          onClick={() => onDelete(id)}
+        >
           <XIcon />
         </button>
       )}

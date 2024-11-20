@@ -51,6 +51,7 @@ const ExpandMenuOption: FC<
   return (
     <button
       id={id}
+      type={"button"}
       className={`option-element ${variant}`}
       css={[expandMenuOptionStyles(theme), extraPadding, overrideThemes]}
       {...restProps}

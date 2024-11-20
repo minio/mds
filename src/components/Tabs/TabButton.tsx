@@ -41,6 +41,7 @@ const TabButton: FC<TabButtonProps> = ({
       onClick={() => onClick()}
       disabled={disabled}
       className={`${selected ? "selected" : ""}`}
+      type={"button"}
     >
       {icon}
       {label}
