@@ -21,6 +21,7 @@ import ChevronUpIcon from "../../icons/ChevronUpIcon";
 import Button from "../Button";
 import ExpandDropdown from "./ExpandDropdown";
 import { ExpandMenuProps } from "./ExpandMenu.types";
+import CaretFilledIcon from "../../icons/CaretFilledIcon";
 
 const ExpandMenu: FC<
   ExpandMenuProps & React.ButtonHTMLAttributes<HTMLButtonElement>
@@ -49,9 +50,19 @@ const ExpandMenu: FC<
 
   if (dropArrow) {
     secondary = expandedMenu ? (
-      <ChevronUpIcon style={{ fill: "none" }} />
+      <CaretFilledIcon
+        style={{ fill: "none", width: 8, height: 8, marginLeft: 4 }}
+      />
     ) : (
-      <ChevronDownIcon style={{ fill: "none" }} />
+      <CaretFilledIcon
+        style={{
+          fill: "none",
+          transform: "rotateZ(180deg)",
+          width: 8,
+          height: 8,
+          marginLeft: 4,
+        }}
+      />
     );
   }
 
@@ -73,6 +84,7 @@ const ExpandMenu: FC<
           setAnchorEl(e.currentTarget);
         }}
         inButtonGroup={inButtonGroup}
+        className={expandedMenu && forInputOptions ? "active" : ""}
       />
 
       {expandedMenu && (

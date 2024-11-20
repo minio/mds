@@ -58,6 +58,8 @@ export { default as DateTimeInput } from "./components/DateTimeInput/DateTimeInp
 export { default as DateTimeSelector } from "./components/DateTimeInput/DateTimeSelector";
 export { default as DropdownSelector } from "./components/DropdownSelector";
 export { default as ExpandMenu } from "./components/ExpandMenu";
+export { default as ExpandMenuDescription } from "./components/ExpandMenu/ExpandMenuDescription";
+export { default as ExpandMenuDivider } from "./components/ExpandMenu/ExpandMenuDivider";
 export { default as ExpandMenuOption } from "./components/ExpandMenu/ExpandMenuOption";
 export { default as ExpandOptionsButton } from "./components/ExpandOptionsButton";
 export { default as FileSelector } from "./components/FileSelector";
