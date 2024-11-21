@@ -53,3 +53,9 @@ export declare const expandMenuOptionStyles: (theme: Theme) => {
     marginLeft: number;
   };
 };
+export declare const dividerStyles: (
+  theme: Theme,
+) => import("@emotion/react").SerializedStyles;
+export declare const expandMenuDescriptionStyles: (
+  theme: Theme,
+) => import("@emotion/react").SerializedStyles;
