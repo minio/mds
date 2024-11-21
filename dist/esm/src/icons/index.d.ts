@@ -1457,6 +1457,7 @@ export { default as WallpaperIcon } from "./WallpaperIcon";
 export { default as WandIcon } from "./WandIcon";
 export { default as WandSparklesIcon } from "./WandSparklesIcon";
 export { default as WarehouseIcon } from "./WarehouseIcon";
+export { default as WarpIcon } from "./WarpIcon";
 export { default as WashingMachineIcon } from "./WashingMachineIcon";
 export { default as WatchIcon } from "./WatchIcon";
 export { default as WavesIcon } from "./WavesIcon";

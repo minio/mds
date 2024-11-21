@@ -6164,6 +6164,10 @@ declare const WarehouseIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => _emotion_react_jsx_runtime.JSX.Element;
 
+declare const WarpIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => _emotion_react_jsx_runtime.JSX.Element;
+
 declare const WashingMachineIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => _emotion_react_jsx_runtime.JSX.Element;
@@ -6879,14 +6883,21 @@ interface DropdownMainProps {
   forInputOptions?: boolean;
   sx?: OverrideTheme;
 }
-interface ExpandMenuConstructProps {
-  parentChildren: ReactNode;
+interface ExpandMenuDescriptionProps {
+  icon?: ReactNode;
+  title?: string;
+  subTitle?: string;
+  extras?: ReactNode;
 }
 type ExpandDropdownProps = DropdownMainProps & ExpandDropBaseProps;
 
 declare const ExpandMenu: FC<
   ExpandMenuProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
 >;
+
+declare const ExpandMenuDescription: FC<ExpandMenuDescriptionProps>;
+
+declare const ExpandMenuDivider: FC;
 
 declare const ExpandMenuOption: FC<
   ExpandMenuOptionProps & React__default.ButtonHTMLAttributes<HTMLButtonElement>
@@ -8608,7 +8619,9 @@ export {
   type ExpandDropdownProps,
   ExpandIcon,
   ExpandMenu,
-  type ExpandMenuConstructProps,
+  ExpandMenuDescription,
+  type ExpandMenuDescriptionProps,
+  ExpandMenuDivider,
   ExpandMenuOption,
   type ExpandMenuOptionProps,
   type ExpandMenuProps,
@@ -9684,6 +9697,7 @@ export {
   WandIcon,
   WandSparklesIcon,
   WarehouseIcon,
+  WarpIcon,
   WashingMachineIcon,
   WatchIcon,
   WavesIcon,
