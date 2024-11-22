@@ -29,7 +29,7 @@ export type NotificationVariant =
 
 export interface NotificationAlertBase {
   title?: string;
-  children: ReactNode;
+  children?: ReactNode;
   action?: ReactNode;
   isLoading?: boolean;
   onClose?: () => void; //If not set, we don't show the close button
