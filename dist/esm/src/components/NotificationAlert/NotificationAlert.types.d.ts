@@ -10,7 +10,7 @@ export type NotificationVariant =
   | "danger";
 export interface NotificationAlertBase {
   title?: string;
-  children: ReactNode;
+  children?: ReactNode;
   action?: ReactNode;
   isLoading?: boolean;
   onClose?: () => void;
