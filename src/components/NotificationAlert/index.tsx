@@ -26,6 +26,7 @@ import InfoIcon from "../../icons/InfoIcon";
 import XIcon from "../../icons/XIcon";
 import { getNotificationAlertStyle } from "./NotificationAlert.styles";
 import { NotificationAlertPrp } from "./NotificationAlert.types";
+import Box from "../Box";
 
 const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
   title = "",
@@ -239,8 +240,17 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
             <div className={"fillTitleContent"}>
               {designMode === "banner" ? (
                 <Fragment>
-                  <div className={"content"}>{children}</div>
-                  {action && <div>{action}</div>}
+                  {children && <div className={"content"}>{children}</div>}
+                  <Box
+                    sx={{
+                      flexGrow: 1,
+                    }}
+                  />
+                  {action && (
+                    <div className={"notifAction actionBannerMode"}>
+                      {action}
+                    </div>
+                  )}
                 </Fragment>
               ) : (
                 <div className={"cardTitle"}>{title}</div>
@@ -249,8 +259,10 @@ const Index: FC<NotificationAlertPrp & HTMLAttributes<HTMLDivElement>> = ({
           </div>
           {designMode === "card" && (
             <div className={"cardContent"}>
-              <div className={"content"}>{children}</div>
-              {action && <div className={"actionCardMode"}>{action}</div>}
+              {children && <div className={"content"}>{children}</div>}
+              {action && (
+                <div className={"notifAction actionCardMode"}>{action}</div>
+              )}
             </div>
           )}
         </div>
