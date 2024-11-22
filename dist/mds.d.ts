@@ -6282,7 +6282,7 @@ type NotificationVariant =
   | "danger";
 interface NotificationAlertBase {
   title?: string;
-  children: ReactNode;
+  children?: ReactNode;
   action?: ReactNode;
   isLoading?: boolean;
   onClose?: () => void;
