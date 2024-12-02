@@ -46,7 +46,7 @@
     "@storybook/addon-interactions": "^8.4.5",
     "@storybook/addon-links": "^8.4.5",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.3",
-    "@storybook/react": "^8.4.5",
+    "@storybook/react": "^8.4.6",
     "@storybook/react-webpack5": "^8.4.5",
     "@storybook/theming": "^8.4.5",
     "@testing-library/jest-dom": "^6.6.3",
