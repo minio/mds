@@ -449,6 +449,373 @@ LongOptionsList.args = {
   ),
 };
 
+export const ExpandMenuWithLabel = Template.bind({});
+ExpandMenuWithLabel.args = {
+  id: "expand-button",
+  icon: <TestIcon />,
+  label: "Options",
+  children: (
+    <Fragment>
+      <ExpandMenuOption
+        id={"opt-1"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<PencilLineIcon />}
+      >
+        Option 1
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-2"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<Fragment />}
+      >
+        Option 2
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-3"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<PencilLineIcon />}
+      >
+        Display Object Versions
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-4 "}
+        onClick={() => {
+          console.log("click4");
+        }}
+        className={"danger"}
+        icon={<DeleteIcon />}
+      >
+        Option 4
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<TestIcon />}
+        iconLocation={"start"}
+      >
+        Mixed Button
+      </Button>
+      <ExpandMenuOption
+        id={"opt-4 "}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<DeleteIcon />}
+        disabled
+      >
+        Disabled Option
+      </ExpandMenuOption>
+
+      <ExpandMenuOption
+        id={"opt-5"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<PencilLineIcon />}
+      >
+        Option 5
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-6"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<Fragment />}
+      >
+        Option 6
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-7"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<IceCreamConeIcon />}
+      >
+        Display Object Versions
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-8"}
+        onClick={() => {
+          console.log("click4");
+        }}
+        className={"danger"}
+        icon={<DeleteIcon />}
+      >
+        Option 8
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<TestIcon />}
+        iconLocation={"start"}
+      >
+        Mixed Button
+      </Button>
+      <ExpandMenuOption
+        id={"opt-9"}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<DeleteIcon />}
+        disabled
+      >
+        Disabled Option
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-5"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<PencilIcon />}
+      >
+        Option 5
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-6"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<Fragment />}
+      >
+        Option 6
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-7"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<IceCreamConeIcon />}
+      >
+        Display Object Versions
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-8"}
+        onClick={() => {
+          console.log("click4");
+        }}
+        className={"danger"}
+        icon={<DeleteIcon />}
+      >
+        Option 8
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<TestIcon />}
+        iconLocation={"start"}
+      >
+        Mixed Button
+      </Button>
+      <ExpandMenuOption
+        id={"opt-9"}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<DeleteIcon />}
+        disabled
+      >
+        Disabled Option
+      </ExpandMenuOption>
+    </Fragment>
+  ),
+};
+
+export const CompactButton = Template.bind({});
+CompactButton.args = {
+  id: "expand-button",
+  icon: <TestIcon />,
+  label: "Options",
+  compact: true,
+  children: (
+    <Fragment>
+      <ExpandMenuOption
+        id={"opt-1"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<PencilLineIcon />}
+      >
+        Option 1
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-2"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<Fragment />}
+      >
+        Option 2
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-3"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<PencilLineIcon />}
+      >
+        Display Object Versions
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-4 "}
+        onClick={() => {
+          console.log("click4");
+        }}
+        className={"danger"}
+        icon={<DeleteIcon />}
+      >
+        Option 4
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<TestIcon />}
+        iconLocation={"start"}
+      >
+        Mixed Button
+      </Button>
+      <ExpandMenuOption
+        id={"opt-4 "}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<DeleteIcon />}
+        disabled
+      >
+        Disabled Option
+      </ExpandMenuOption>
+
+      <ExpandMenuOption
+        id={"opt-5"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<PencilLineIcon />}
+      >
+        Option 5
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-6"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<Fragment />}
+      >
+        Option 6
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-7"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<IceCreamConeIcon />}
+      >
+        Display Object Versions
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-8"}
+        onClick={() => {
+          console.log("click4");
+        }}
+        className={"danger"}
+        icon={<DeleteIcon />}
+      >
+        Option 8
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<TestIcon />}
+        iconLocation={"start"}
+      >
+        Mixed Button
+      </Button>
+      <ExpandMenuOption
+        id={"opt-9"}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<DeleteIcon />}
+        disabled
+      >
+        Disabled Option
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-5"}
+        onClick={() => {
+          console.log("click1");
+        }}
+        icon={<PencilIcon />}
+      >
+        Option 5
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-6"}
+        onClick={() => {
+          console.log("click2");
+        }}
+        icon={<Fragment />}
+      >
+        Option 6
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-7"}
+        onClick={() => {
+          console.log("click3");
+        }}
+        icon={<IceCreamConeIcon />}
+      >
+        Display Object Versions
+      </ExpandMenuOption>
+      <ExpandMenuOption
+        id={"opt-8"}
+        onClick={() => {
+          console.log("click4");
+        }}
+        className={"danger"}
+        icon={<DeleteIcon />}
+      >
+        Option 8
+      </ExpandMenuOption>
+      <Button
+        id={"test-button"}
+        onClick={() => {
+          console.log("Mixed");
+        }}
+        icon={<TestIcon />}
+        iconLocation={"start"}
+      >
+        Mixed Button
+      </Button>
+      <ExpandMenuOption
+        id={"opt-9"}
+        onClick={() => {
+          console.log("click5");
+        }}
+        icon={<DeleteIcon />}
+        disabled
+      >
+        Disabled Option
+      </ExpandMenuOption>
+    </Fragment>
+  ),
+};
+
 export const ListDividersWithInputOptions = Template.bind({});
 ListDividersWithInputOptions.args = {
   id: "expand-button",
