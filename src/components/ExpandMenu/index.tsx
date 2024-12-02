@@ -51,18 +51,13 @@ const ExpandMenu: FC<
   if (dropArrow) {
     secondary = expandedMenu ? (
       <CaretFilledIcon
-        style={{ fill: "none", width: 8, height: 8, marginLeft: 4 }}
-      />
-    ) : (
-      <CaretFilledIcon
         style={{
           fill: "none",
           transform: "rotateZ(180deg)",
-          width: 8,
-          height: 8,
-          marginLeft: 4,
         }}
       />
+    ) : (
+      <CaretFilledIcon style={{ fill: "none" }} />
     );
   }
 

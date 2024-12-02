@@ -93,18 +93,6 @@ const Button: FC<
     padding: paddingValue,
     "& .button-label": {
       whiteSpace: fullWidth ? "normal" : "nowrap",
-      marginRight:
-        !hasLabel || !icon
-          ? 0
-          : label !== "" && iconLocation === "end"
-            ? "4px"
-            : 0,
-      marginLeft:
-        !hasLabel || !icon
-          ? 0
-          : label !== "" && iconLocation === "start"
-            ? "4px"
-            : 0,
     },
   });
 
@@ -138,7 +126,7 @@ const Button: FC<
     >
       <Fragment>
         {icon && iconLocation === "start" && iconToPlace}
-        {(children || label?.trim() !== "") && (
+        {hasLabel && (
           <span className={"button-label"}>
             {children}
             {children && label ? " " : ""}

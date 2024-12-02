@@ -328,6 +328,8 @@ export const buttonCSS = (
     borderStyle: "solid",
     color: btnStyles.enabled.text,
     boxShadow: btnStyles.enabled.shadow,
+    boxSizing: "border-box",
+    gap: 4,
     "& .buttonIcon": {
       display: "flex",
       height: 16,
