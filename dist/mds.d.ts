@@ -4468,6 +4468,10 @@ declare const PlayIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => _emotion_react_jsx_runtime.JSX.Element;
 
+declare const PlotSeriesIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => _emotion_react_jsx_runtime.JSX.Element;
+
 declare const Plug2Icon: (
   props: SVGProps<SVGSVGElement>,
 ) => _emotion_react_jsx_runtime.JSX.Element;
@@ -9214,6 +9218,7 @@ export {
   PlaneLandingIcon,
   PlaneTakeoffIcon,
   PlayIcon,
+  PlotSeriesIcon,
   Plug2Icon,
   PlugIcon,
   PlugZap2Icon,
