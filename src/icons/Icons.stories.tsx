@@ -5256,6 +5256,11 @@ const Template: StoryFn = (args) => {
               PlayIcon
             </div>
             <div className="story-icon">
+              <nvicons.PlotSeriesIcon />
+              <br />
+              PlotSeriesIcon
+            </div>
+            <div className="story-icon">
               <nvicons.Plug2Icon />
               <br />
               Plug2Icon

@@ -1049,6 +1049,7 @@ export { default as PlaneIcon } from "./PlaneIcon";
 export { default as PlaneLandingIcon } from "./PlaneLandingIcon";
 export { default as PlaneTakeoffIcon } from "./PlaneTakeoffIcon";
 export { default as PlayIcon } from "./PlayIcon";
+export { default as PlotSeriesIcon } from "./PlotSeriesIcon";
 export { default as Plug2Icon } from "./Plug2Icon";
 export { default as PlugIcon } from "./PlugIcon";
 export { default as PlugZap2Icon } from "./PlugZap2Icon";
