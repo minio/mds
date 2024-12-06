@@ -820,8 +820,10 @@ export const ListDividersWithInputOptions = Template.bind({});
 ListDividersWithInputOptions.args = {
   id: "expand-button",
   icon: <CircleUserIcon />,
-  forInputOptions: true,
-  variant: "primary-ghost",
+  menuTopSpacing: false,
+  variant: "secondary-ghost",
+  openVariant: "primary-ghost",
+  openFeedback: true,
   children: (
     <Fragment>
       <ExpandMenuDescription
