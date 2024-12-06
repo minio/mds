@@ -5351,6 +5351,11 @@ const Template: StoryFn = (args) => {
               ProjectorIcon
             </div>
             <div className="story-icon">
+              <nvicons.PromptObjectIcon />
+              <br />
+              PromptObjectIcon
+            </div>
+            <div className="story-icon">
               <nvicons.ProportionsIcon />
               <br />
               ProportionsIcon
