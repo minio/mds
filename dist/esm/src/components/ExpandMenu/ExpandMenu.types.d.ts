@@ -6,6 +6,7 @@ export interface ExpandMenuProps {
   name?: string;
   label?: string;
   variant?: ButtonVariant;
+  openVariant?: ButtonVariant;
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
@@ -13,7 +14,8 @@ export interface ExpandMenuProps {
   compact?: boolean;
   dropArrow?: boolean;
   inButtonGroup?: boolean;
-  forInputOptions?: boolean;
+  menuTopSpacing?: boolean;
+  openFeedback?: boolean;
   sx?: OverrideTheme;
 }
 export interface ExpandMenuOptionProps {
