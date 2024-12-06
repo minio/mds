@@ -1052,6 +1052,7 @@ export { default as PowerOffIcon } from "./PowerOffIcon";
 export { default as PresentationIcon } from "./PresentationIcon";
 export { default as PrinterIcon } from "./PrinterIcon";
 export { default as ProjectorIcon } from "./ProjectorIcon";
+export { default as PromptObjectIcon } from "./PromptObjectIcon";
 export { default as ProportionsIcon } from "./ProportionsIcon";
 export { default as PuzzleIcon } from "./PuzzleIcon";
 export { default as PyramidIcon } from "./PyramidIcon";

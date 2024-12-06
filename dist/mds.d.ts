@@ -4544,6 +4544,10 @@ declare const ProjectorIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => _emotion_react_jsx_runtime.JSX.Element;
 
+declare const PromptObjectIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => _emotion_react_jsx_runtime.JSX.Element;
+
 declare const ProportionsIcon: (
   props: SVGProps<SVGSVGElement>,
 ) => _emotion_react_jsx_runtime.JSX.Element;
@@ -6856,6 +6860,7 @@ interface ExpandMenuProps {
   name?: string;
   label?: string;
   variant?: ButtonVariant;
+  openVariant?: ButtonVariant;
   icon?: ReactNode;
   iconLocation?: "start" | "end";
   children?: ReactNode | string;
@@ -6863,7 +6868,8 @@ interface ExpandMenuProps {
   compact?: boolean;
   dropArrow?: boolean;
   inButtonGroup?: boolean;
-  forInputOptions?: boolean;
+  menuTopSpacing?: boolean;
+  openFeedback?: boolean;
   sx?: OverrideTheme;
 }
 interface ExpandMenuOptionProps {
@@ -9241,6 +9247,7 @@ export {
   type ProgressBarProps,
   type ProgressState,
   ProjectorIcon,
+  PromptObjectIcon,
   ProportionsIcon,
   PuzzleIcon,
   PyramidIcon,
