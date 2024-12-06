@@ -38,7 +38,9 @@ const ExpandMenu: FC<
   disabled,
   dropArrow = true,
   compact = false,
-  forInputOptions = false,
+  menuTopSpacing = false,
+  openFeedback = false,
+  openVariant,
   inButtonGroup,
 }) => {
   const [expandedMenu, setExpandedMenu] = useState<boolean>(false);
@@ -68,7 +70,7 @@ const ExpandMenu: FC<
         icon={icon}
         iconLocation={iconLocation}
         secondaryIcon={secondary}
-        variant={variant}
+        variant={openVariant && expandedMenu ? openVariant : variant}
         name={name}
         sx={sx}
         label={label}
@@ -79,7 +81,7 @@ const ExpandMenu: FC<
           setAnchorEl(e.currentTarget);
         }}
         inButtonGroup={inButtonGroup}
-        className={expandedMenu && forInputOptions ? "active" : ""}
+        className={expandedMenu && openFeedback ? "active" : ""}
       />
 
       {expandedMenu && (
@@ -90,7 +92,7 @@ const ExpandMenu: FC<
           }}
           anchorOrigin={dropMenuPosition}
           anchorEl={anchorEl}
-          forInputOptions={forInputOptions}
+          forInputOptions={!menuTopSpacing}
         >
           {children}
         </ExpandDropdown>
