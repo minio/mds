@@ -80,6 +80,7 @@ export const dividerStyles = (theme: Theme) =>
     borderRight: 0,
     borderLeft: 0,
     width: "100%",
+    margin: `7px 0`,
   });
 
 export const expandMenuDescriptionStyles = (theme: Theme) =>
