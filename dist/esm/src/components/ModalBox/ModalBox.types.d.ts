@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { OverrideTheme } from "../../global/global.types";
 export interface ModalBoxProps {
   onClose: () => void;
@@ -9,5 +9,6 @@ export interface ModalBoxProps {
   titleIcon?: React.ReactNode;
   backgroundOverlay?: boolean;
   customMaxWidth?: number | string;
+  customContentPadding?: CSSProperties["padding"];
   sx?: OverrideTheme;
 }

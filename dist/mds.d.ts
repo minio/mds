@@ -7140,6 +7140,7 @@ interface ModalBoxProps {
   titleIcon?: React__default.ReactNode;
   backgroundOverlay?: boolean;
   customMaxWidth?: number | string;
+  customContentPadding?: CSSProperties["padding"];
   sx?: OverrideTheme;
 }
 
