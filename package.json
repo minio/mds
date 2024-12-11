@@ -1,6 +1,6 @@
 {
   "name": "mds",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "description": "A MinIO Components Library",
   "homepage": ".",
   "license": "AGPL-3.0-or-later",

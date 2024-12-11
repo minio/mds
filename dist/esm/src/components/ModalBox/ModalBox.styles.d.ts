@@ -3,6 +3,7 @@ import { CssProperties } from "../../../styled-system/types";
 export declare const modalContainer: (
   theme: Theme,
   width: CssProperties["width"],
+  padding: CssProperties["padding"],
 ) => import("@emotion/react").SerializedStyles;
 export declare const modalTitleBar: (
   theme: Theme,

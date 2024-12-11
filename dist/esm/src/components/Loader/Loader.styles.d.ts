@@ -1,15 +1,70 @@
 import { Theme } from "@emotion/react";
-export declare const animation1: import("@emotion/react").Keyframes;
-export declare const animation2: import("@emotion/react").Keyframes;
-export declare const animation3: import("@emotion/react").Keyframes;
-export declare const animation4: import("@emotion/react").Keyframes;
-export declare const animation5: import("@emotion/react").Keyframes;
-export declare const animation6: import("@emotion/react").Keyframes;
-export declare const animation7: import("@emotion/react").Keyframes;
-export declare const animation8: import("@emotion/react").Keyframes;
-export declare const animation9: import("@emotion/react").Keyframes;
-export declare const animation10: import("@emotion/react").Keyframes;
-export declare const animation11: import("@emotion/react").Keyframes;
+export declare const animation1: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation2: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation3: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation4: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation5: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation6: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation7: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation8: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation9: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation10: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
+export declare const animation11: {
+  name: string;
+  styles: string;
+  anim: 1;
+  toString: () => string;
+} & string;
 export declare const animationFrameStyles: (theme: Theme) => {
   width: number;
   height: number;
