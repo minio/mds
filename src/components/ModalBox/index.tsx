@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { createPortal } from "react-dom";
 import { useTheme } from "@emotion/react";
 
@@ -33,6 +33,7 @@ const ModalBox: FC<ModalBoxProps> = ({
   titleIcon,
   backgroundOverlay = true,
   customMaxWidth = 750,
+  customContentPadding = 24,
   sx,
 }) => {
   const theme = useTheme();
@@ -41,6 +42,7 @@ const ModalBox: FC<ModalBoxProps> = ({
   const containerStyles = modalContainer(
     theme,
     widthLimit ? customMaxWidth : "100%",
+    customContentPadding,
   );
   const titleStyles = modalTitleBar(theme);
 

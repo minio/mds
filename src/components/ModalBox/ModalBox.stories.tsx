@@ -37,6 +37,7 @@ const Template: StoryFn<ModalBoxProps> = ({
   widthLimit,
   customMaxWidth,
   backgroundOverlay,
+  customContentPadding,
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -62,6 +63,7 @@ const Template: StoryFn<ModalBoxProps> = ({
           titleIcon={titleIcon}
           widthLimit={widthLimit}
           customMaxWidth={customMaxWidth}
+          customContentPadding={customContentPadding}
         >
           <h1>Inside my Computer</h1>
           <p>
@@ -125,6 +127,15 @@ NoOverlayBG.args = {
   title: "Test Title",
   titleIcon: <TestIcon />,
   backgroundOverlay: false,
+};
+
+export const CustomPadding = Template.bind({});
+
+CustomPadding.args = {
+  title: "Test Title",
+  titleIcon: <TestIcon />,
+  backgroundOverlay: false,
+  customContentPadding: 0,
 };
 
 export const CustomMaxWidth = Template.bind({});
