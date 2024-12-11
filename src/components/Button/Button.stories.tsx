@@ -38,11 +38,8 @@ const Template: StoryFn<ButtonProps> = (args) => (
       Content
     </Button>{" "}
     -- CHILDREN BUTTON
-    <Button
-      id={"random_btn2"}
-      label={"Content"}
-      variant={args.variant}
-    /> -- LABEL BUTTON
+    <Button id={"random_btn2"} label={"Content"} variant={args.variant} /> --
+    LABEL BUTTON
     <Button id={"random_btn1"} icon={<TestIcon />} variant={args.variant}>
       Content
     </Button>{" "}

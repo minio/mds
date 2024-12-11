@@ -18,7 +18,11 @@ import { css, Theme } from "@emotion/react";
 
 import { CssProperties } from "../../../styled-system/types";
 
-export const modalContainer = (theme: Theme, width: CssProperties["width"]) =>
+export const modalContainer = (
+  theme: Theme,
+  width: CssProperties["width"],
+  padding: CssProperties["padding"],
+) =>
   css({
     fontFamily: "'Geist', sans-serif",
     color: theme.colors["Color/Neutral/Text/colorTextLabel"],
@@ -31,7 +35,7 @@ export const modalContainer = (theme: Theme, width: CssProperties["width"]) =>
     boxSizing: "border-box",
     "& .dialogContent": {
       boxSizing: "border-box",
-      padding: 24,
+      padding: padding,
       maxHeight: "calc(100vh - 150px)",
       overflowY: "auto",
     },
