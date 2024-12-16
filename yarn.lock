@@ -8315,7 +8315,7 @@ __metadata:
     remark-gfm: "npm:^4.0.0"
     rollup: "npm:^4.28.1"
     rollup-plugin-dts: "npm:^6.1.1"
-    rollup-plugin-import-css: "npm:^3.5.7"
+    rollup-plugin-import-css: "npm:^3.5.8"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-rebase: "npm:^4.1.1"
     rollup-plugin-terser: "npm:^7.0.2"
@@ -10220,14 +10220,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-import-css@npm:^3.5.7":
-  version: 3.5.7
-  resolution: "rollup-plugin-import-css@npm:3.5.7"
+"rollup-plugin-import-css@npm:^3.5.8":
+  version: 3.5.8
+  resolution: "rollup-plugin-import-css@npm:3.5.8"
   dependencies:
     "@rollup/pluginutils": "npm:^5.1.3"
   peerDependencies:
     rollup: ^2.x.x || ^3.x.x || ^4.x.x
-  checksum: 10c0/a6669ef3b8708d3204fc102bfa35de4eefd56401de459f5b26710ff9fc1248b5e247b09aa95a58a4b66d1eaec37a952e24648258f36479e328d13b4385851cfb
+  checksum: 10c0/cdd773fd25a184c86180a771cf0f5e228e47d2bd7c0f7976aad9e7ce72e84835efa608bdd8cb984ba9507038ed9454e89a67c435b207dbeae0ccc36b4ad2a02a
   languageName: node
   linkType: hard
 
