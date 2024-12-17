@@ -36,6 +36,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
   onClickOption,
   markCurrentItem = false,
   children,
+  pathActions,
 }) => {
   const theme = useTheme();
 
@@ -120,6 +121,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
           }}
         />
       )}
+      {pathActions && <Box>{pathActions}</Box>}
       <Box className={"breadcrumbsList"}>
         {hasCollapsedOpts ? (
           <Fragment>

@@ -25,6 +25,7 @@ export interface BreadcrumbsProps {
   displayLastItems?: false | number;
   onClickOption?: (to?: string) => void;
   children?: React.ReactNode;
+  pathActions?: React.ReactNode;
   markCurrentItem?: boolean;
 }
 

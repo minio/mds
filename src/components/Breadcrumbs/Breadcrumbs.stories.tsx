@@ -24,6 +24,10 @@ import HomeIcon from "../../icons/HomeIcon";
 import TestIcon from "../../utils/TestIcon";
 import EyeIcon from "../../icons/EyeIcon";
 import GlobalStyles from "../GlobalStyles";
+import ButtonGroup from "../ButtonGroup";
+import Button from "../Button";
+import CopyIcon from "../../icons/CopyIcon";
+import FolderPlusIcon from "../../icons/FolderPlusIcon";
 
 export default {
   title: "MDS/Layout/Breadcrumbs",
@@ -167,4 +171,22 @@ WithSubMenus.args = {
   onClickOption: (to: string) => {
     console.log(`CLICKED OPTION`, to);
   },
+};
+
+export const WithPathActions = Template.bind({});
+WithPathActions.args = {
+  options: subMenuOptions,
+  markCurrentItem: true,
+  onClickOption: (to: string) => {
+    console.log(`CLICKED OPTION`, to);
+  },
+  goBackFunction: () => {
+    alert("Go back!");
+  },
+  pathActions: (
+    <ButtonGroup>
+      <Button id={"button-1"} icon={<FolderPlusIcon />} />
+      <Button id={"button-2"} icon={<CopyIcon />} />
+    </ButtonGroup>
+  ),
 };

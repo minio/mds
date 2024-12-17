@@ -26,12 +26,12 @@ export const breadcrumbsTheme = (theme: Theme) => ({
   display: "flex",
   alignItems: "center",
   marginRight: 10,
+  gap: 8,
   "& .breadcrumbsList": {
     display: "flex",
     flexWrap: "nowrap",
     flexGrow: 1,
     textAlign: "left" as const,
-    marginLeft: 15,
     marginRight: 10,
     overflow: "hidden",
     userSelect: "none",
