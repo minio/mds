@@ -9,12 +9,12 @@ export declare const breadcrumbsTheme: (theme: Theme) => {
   display: string;
   alignItems: string;
   marginRight: number;
+  gap: number;
   "& .breadcrumbsList": {
     display: string;
     flexWrap: string;
     flexGrow: number;
     textAlign: "left";
-    marginLeft: number;
     marginRight: number;
     overflow: string;
     userSelect: string;
