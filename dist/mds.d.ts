@@ -6512,6 +6512,7 @@ interface BreadcrumbsProps {
   displayLastItems?: false | number;
   onClickOption?: (to?: string) => void;
   children?: React__default.ReactNode;
+  pathActions?: React__default.ReactNode;
   markCurrentItem?: boolean;
 }
 interface BreadcrumbsOption {
