@@ -51,6 +51,7 @@ export interface DateTimeConstruct {
 
 export interface DateTimeSelectorMain {
   open?: boolean;
+  saveLabel?: string;
   anchorEl?: (EventTarget & HTMLElement) | null;
   onClose?: () => void;
 }
@@ -58,7 +59,7 @@ export interface DateTimeSelectorMain {
 export interface TimeSelectorProps {
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
-  completeCallback?: () => void;
+  validitySignal?: (valid: boolean) => void;
   timeFormat?: "12h" | "24h";
   secondsSelector: boolean;
 }
@@ -68,13 +69,6 @@ export interface DateSelectorProps {
   maxDate?: DateTime;
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
-}
-
-export interface StylesOverrideProps {
-  isPortal: boolean;
-  mode: DateTimeMode;
-  coords: CSSProperties;
-  sx?: OverrideTheme;
 }
 
 export type DateTimeInputProps = DateTimeInputMain &

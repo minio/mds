@@ -18,201 +18,181 @@ import React, { FC, useEffect, useState } from "react";
 import { useTheme } from "@emotion/react";
 
 import Box from "../Box";
-import {
-  selectorButtonStyles,
-  timeSelectorContainerStyles,
-} from "./DateTime.styles";
+import { timeSelectorContainerStyles } from "./DateTime.styles";
 import { TimeSelectorProps } from "./DateTimeInput.types";
+import { Button, ButtonGroup, InputBox } from "../../index";
+import { DateTime } from "luxon";
 
 const TimeSelector: FC<TimeSelectorProps> = ({
   value,
   onChange,
-  completeCallback,
+  validitySignal,
   secondsSelector = false,
   timeFormat = "24h" as "12h" | "24h",
 }) => {
   const theme = useTheme();
 
   const timeSelectorContainer = timeSelectorContainerStyles(theme);
-  const selectorButton = selectorButtonStyles(theme);
 
-  const [selectedElements, setSelectedElements] = useState<string[]>([]);
+  const [currentHour, setCurrentHour] = useState<string>(
+    value?.toFormat(timeFormat === "12h" ? "hh" : "HH") || "00",
+  );
+  const [currentMinute, setCurrentMinute] = useState<string>(
+    value?.toFormat("mm") || "00",
+  );
+  const [currentSecond, setCurrentSecond] = useState<string>(
+    value?.toFormat("ss") || "00",
+  );
+  const [meridiem, setMeridiem] = useState<"am" | "pm">(
+    (value?.hour || 0) >= 12 ? "pm" : "am",
+  );
 
   useEffect(() => {
-    let itemsCount = timeFormat === "12h" ? 3 : 2;
+    const validHour =
+      currentHour.length === 2 &&
+      parseInt(currentHour) >= 0 &&
+      parseInt(currentHour) <= (timeFormat === "12h" ? 12 : 23);
+    const validMinute =
+      currentMinute.length === 2 &&
+      parseInt(currentMinute) >= 0 &&
+      parseInt(currentMinute) <= 59;
+    const validSecond =
+      !secondsSelector ||
+      (currentSecond.length === 2 &&
+        parseInt(currentSecond) >= 0 &&
+        parseInt(currentSecond) <= 59);
 
-    if (secondsSelector) {
-      itemsCount += 1;
+    if (validHour && validMinute && validSecond) {
+      let hour = parseInt(currentHour);
+      let minute = parseInt(currentMinute);
+      let second = parseInt(currentSecond);
+
+      if (timeFormat === "12h") {
+        if (meridiem === "am" && hour === 12) {
+          hour = 0;
+        } else if (meridiem === "pm" && hour < 12) {
+          hour += 12;
+        }
+      }
+
+      const newDate = DateTime.fromObject({
+        year: value?.year,
+        month: value?.month,
+        day: value?.day,
+        hour,
+        minute,
+        second,
+      });
+
+      onChange(newDate);
+
+      if (validitySignal) {
+        validitySignal(true);
+      }
+
+      return;
     }
 
-    if (selectedElements.length >= itemsCount && completeCallback) {
-      completeCallback();
+    if (validitySignal) {
+      validitySignal(false);
     }
-  }, [selectedElements, timeFormat, completeCallback, secondsSelector]);
+  }, [currentHour, currentMinute, currentSecond, meridiem]);
 
   if (!value) {
     return null;
   }
 
-  const changeTimeAction = (
-    newValue: number,
-    type: "minute" | "second" | "hour" | "meridiem",
-  ) => {
-    let changeValue = value;
-    const currentMeridiem = value?.hour >= 12 ? "PM" : "AM";
-
-    switch (type) {
-      case "minute":
-        changeValue = changeValue.set({ minute: newValue });
-        break;
-      case "second":
-        changeValue = changeValue.set({ second: newValue });
-        break;
-      case "hour": {
-        let nvValue = newValue;
-
-        if (
-          currentMeridiem === "AM" &&
-          timeFormat === "12h" &&
-          newValue === 12
-        ) {
-          nvValue = 0;
-        } else if (
-          currentMeridiem === "PM" &&
-          timeFormat === "12h" &&
-          newValue <= 12
-        ) {
-          nvValue = newValue + 12;
-        }
-
-        changeValue =
-          timeFormat === "12h"
-            ? changeValue.set({ hour: nvValue })
-            : changeValue.set({ hour: nvValue });
-        break;
-      }
-      case "meridiem": {
-        let hour = changeValue.hour;
-
-        if (newValue === 0 && currentMeridiem === "PM" && hour >= 12) {
-          // Set AM
-          hour -= 12;
-        } else if (newValue === 1 && currentMeridiem === "AM" && hour < 12) {
-          // Set PM
-          hour += 12;
-        }
-        changeValue = changeValue.set({ hour });
-        break;
-      }
-    }
-
-    if (!selectedElements.includes(type)) {
-      setSelectedElements([...selectedElements, type]);
-    }
-
-    onChange(changeValue);
-  };
-
-  const ActiveSelectionButton = ({
-    label,
-    type,
-    className,
-    itemValue,
-  }: {
-    label: string;
-    itemValue: number;
-    className: string;
-    type: "hour" | "minute" | "second" | "meridiem";
-  }) => (
-    <button
-      type={"button"}
-      css={selectorButton}
-      onClick={() => {
-        changeTimeAction(itemValue, type);
-      }}
-      className={className}
-    >
-      {label}
-    </button>
-  );
-
-  const CommonElementsList = ({ type }: { type: "minute" | "second" }) => {
-    return Array.from(Array(60).keys()).map((val) => {
-      const selectedValue = type === "minute" ? value?.minute : value?.second;
-      return (
-        <ActiveSelectionButton
-          key={`${type}-${val}`}
-          itemValue={val}
-          className={selectedValue === val ? "selected" : ""}
-          label={`${val}`.padStart(2, "0")}
-          type={type}
-        />
-      );
-    });
-  };
-
-  const HourElementsList = () => {
-    return Array.from(Array(timeFormat === "12h" ? 12 : 24).keys()).map(
-      (val) => {
-        const valUse = timeFormat === "12h" ? val + 1 : val;
-        const valSelected = value?.toFormat(timeFormat === "12h" ? "h" : "H");
-
-        return (
-          <ActiveSelectionButton
-            key={`hour-${val}`}
-            itemValue={valUse}
-            className={valSelected === `${valUse}` ? "selected" : ""}
-            label={`${valUse}`.padStart(2, "0")}
-            type={"hour"}
-          />
-        );
-      },
-    );
-  };
-
   return (
     <div css={timeSelectorContainer}>
-      <Box className={"timeTitle"}>Time</Box>
       <Box className={"selectors"}>
-        <Box className={"columnSelector"}>
-          <span className="titleElement">Hour</span>
-          <Box className={"scrollRollbar"}>
-            <HourElementsList />
-          </Box>
-        </Box>
-        <Box className={"columnSelector"}>
-          <span className="titleElement">Minute</span>
-          <Box className={"scrollRollbar"}>
-            <CommonElementsList type={"minute"} />
-          </Box>
-        </Box>
-
+        <InputBox
+          id={"hour-selector"}
+          label={"Hour"}
+          sizeMode={"small"}
+          orientation={"vertical"}
+          sx={{ width: 25 }}
+          pattern={"[0-9]*"}
+          value={currentHour}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            if (e.target.validity.valid && e.target.value.length <= 2) {
+              setCurrentHour(e.target.value);
+            }
+          }}
+          state={
+            currentHour.length < 2 ||
+            (timeFormat === "24h" && parseInt(currentHour) > 23) ||
+            (timeFormat === "12h" && parseInt(currentHour) > 12)
+              ? "error"
+              : "normal"
+          }
+        />
+        <Box className={"timeDiv"}>:</Box>
+        <InputBox
+          id={"minutes-selector"}
+          label={"Minutes"}
+          sizeMode={"small"}
+          orientation={"vertical"}
+          sx={{ width: 25 }}
+          pattern={"[0-9]*"}
+          value={currentMinute}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            if (e.target.validity.valid && e.target.value.length <= 2) {
+              setCurrentMinute(e.target.value);
+            }
+          }}
+          state={
+            currentMinute.length < 2 || parseInt(currentMinute) > 59
+              ? "error"
+              : "normal"
+          }
+        />
         {secondsSelector && (
-          <Box className={"columnSelector"}>
-            <span className="titleElement">Second</span>
-            <Box className={"scrollRollbar"}>
-              <CommonElementsList type={"second"} />
-            </Box>
-          </Box>
+          <>
+            <Box className={"timeDiv"}>:</Box>
+            <InputBox
+              id={"minutes-selector"}
+              label={"Seconds"}
+              sizeMode={"small"}
+              orientation={"vertical"}
+              sx={{ width: 25 }}
+              pattern={"[0-9]*"}
+              value={currentSecond}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                if (e.target.validity.valid && e.target.value.length <= 2) {
+                  setCurrentSecond(e.target.value);
+                }
+              }}
+              state={
+                currentSecond.length < 2 || parseInt(currentSecond) > 59
+                  ? "error"
+                  : "normal"
+              }
+            />
+          </>
         )}
+      </Box>
+      <Box className={"timeContainer"}>
         {timeFormat === "12h" && (
-          <Box className={"columnSelector"}>
-            <span className="titleElement">&nbsp;</span>
-            <Box className={"scrollRollbar"}>
-              <ActiveSelectionButton
-                itemValue={0}
-                className={value?.hour < 12 ? "selected" : ""}
-                label={"AM"}
-                type={"meridiem"}
-              />
-              <ActiveSelectionButton
-                itemValue={1}
-                className={value?.hour >= 12 ? "selected" : ""}
-                label={"PM"}
-                type={"meridiem"}
-              />
-            </Box>
-          </Box>
+          <ButtonGroup
+            sx={{
+              width: "100%",
+            }}
+          >
+            <Button
+              id={"meridiemAM"}
+              className={meridiem == "am" ? "selected" : ""}
+              label={"AM"}
+              onClick={() => setMeridiem("am")}
+              sx={{ width: "100%" }}
+            />
+            <Button
+              id={"meridiemPM"}
+              className={meridiem == "pm" ? "selected" : ""}
+              label={"PM"}
+              onClick={() => setMeridiem("pm")}
+              sx={{ width: "100%" }}
+            />
+          </ButtonGroup>
         )}
       </Box>
     </div>

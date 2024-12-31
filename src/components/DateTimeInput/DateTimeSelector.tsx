@@ -22,16 +22,11 @@ import { DateTime } from "luxon";
 
 import SelectorContainer from "../../global/SelectorContainer";
 import { overridePropsParse } from "../../global/utils";
-import CalendarIcon from "../../icons/CalendarIcon";
-import Clock4Icon from "../../icons/Clock4Icon";
-import Box from "../Box";
 import DateSelector from "./DateSelector";
-import {
-  dateTimeContainerStyles,
-  optionChangeButtonStyles,
-} from "./DateTime.styles";
+import { dateTimeContainerStyles, saveDateButtons } from "./DateTime.styles";
 import { DateTimeSelectorProps } from "./DateTimeInput.types";
 import TimeSelector from "./TimeSelector";
+import { Button } from "../../index";
 
 const calcElementPosition = (anchorEl: (EventTarget & HTMLElement) | null) => {
   if (!anchorEl) {
@@ -66,6 +61,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
   timeFormat = "24h",
   onClose,
   open = false,
+  saveLabel = "Save",
   sx,
 }) => {
   const theme = useTheme();
@@ -79,12 +75,13 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
   }, [sx, theme]);
 
   const dateTimeContainer = dateTimeContainerStyles(theme, usePortal, mode);
-  const optionChangeButton = optionChangeButtonStyles(theme);
+  const saveButtonsContainer = saveDateButtons(theme);
 
-  const [currentView, setCurrentView] = useState<"calendar" | "time">(
-    "calendar",
-  );
   const [coords, setCoords] = useState<CSSProperties | null>(null);
+  const [valid, setValid] = useState<boolean>(true);
+  const [originalDate, setOriginalDate] = useState<DateTime>(
+    value || DateTime.now(),
+  );
 
   useEffect(() => {
     if (usePortal) {
@@ -118,20 +115,27 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
     }
   }, [anchorEl, onClose, usePortal]);
 
-  const calendarChange = (value: DateTime | null) => {
-    onChange(value);
-
-    if (mode === "all") {
-      setCurrentView("time");
-    }
-    if (mode === "date" && onClose) {
+  const closeSelector = () => {
+    setOriginalDate(value || DateTime.now());
+    if (onClose) {
       onClose();
     }
   };
 
-  const closeSelector = () => {
-    if (onClose) {
-      onClose();
+  const cancelSelector = () => {
+    onChange(originalDate);
+    closeSelector();
+  };
+
+  const dateSelectorChange = (newDate: DateTime | null) => {
+    if (newDate) {
+      const newValue = (value || DateTime.now()).set({
+        year: newDate.year,
+        month: newDate.month,
+        day: newDate.day,
+      });
+
+      onChange(newValue);
     }
   };
 
@@ -146,51 +150,34 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
       id={`timeSelector-${id}`}
       style={coords || {}}
     >
-      {mode === "all" && value && (
-        <Box className={"modeBar"}>
-          <button
-            css={[optionChangeButton]}
-            className={currentView === "calendar" ? "selected" : ""}
-            onClick={() => setCurrentView("calendar")}
-            type={"button"}
-          >
-            <CalendarIcon />
-            <span>{value?.toFormat("dd LLL yyyy") || ""}</span>
-          </button>
-          <button
-            css={[optionChangeButton]}
-            className={currentView === "time" ? "selected" : ""}
-            onClick={() => setCurrentView("time")}
-            type={"button"}
-          >
-            <Clock4Icon />
-            <span>
-              {value?.toFormat(
-                `${timeFormat === "24h" ? "HH" : "hh"}:mm${
-                  secondsSelector ? ":ss" : ""
-                }${timeFormat === "12h" ? " a" : ""}`,
-              ) || ""}
-            </span>
-          </button>
-        </Box>
-      )}
-      {currentView === "calendar" && (
-        <DateSelector
-          minDate={minDate}
-          maxDate={maxDate}
-          value={value}
-          onChange={calendarChange}
-        />
-      )}
-      {currentView === "time" && (
+      <DateSelector
+        minDate={minDate}
+        maxDate={maxDate}
+        value={value}
+        onChange={dateSelectorChange}
+      />
+      {mode === "all" && (
         <TimeSelector
           secondsSelector={secondsSelector}
           timeFormat={timeFormat}
           value={value}
           onChange={onChange}
-          completeCallback={closeSelector}
+          validitySignal={(isValid) => setValid(isValid)}
         />
       )}
+      <div css={[saveButtonsContainer]}>
+        <Button id={"cancel-date-picker"} onClick={cancelSelector}>
+          Cancel
+        </Button>
+        <Button
+          id={"save-date-picker"}
+          variant={"primary"}
+          disabled={!valid}
+          onClick={closeSelector}
+        >
+          {saveLabel}
+        </Button>
+      </div>
     </div>
   );
 

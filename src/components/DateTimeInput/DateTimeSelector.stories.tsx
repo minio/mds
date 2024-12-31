@@ -14,8 +14,9 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { useState } from "react";
+import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
+import { useState } from "@storybook/addons";
 import { DateTime } from "luxon";
 
 import { DateTimeSelectorProps } from "./DateTimeInput.types";

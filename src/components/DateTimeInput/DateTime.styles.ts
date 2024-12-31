@@ -22,11 +22,11 @@ const globalWidth = 315;
 
 export const dateSelectorContainerStyles = (theme: Theme) =>
   css({
+    padding: 24,
     "& .react-calendar__navigation": {
       display: "flex",
       justifyContent: "space-between",
       gap: 5,
-      borderBottom: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
       padding: "0 0 12px",
       marginBottom: 10,
       "& button": {
@@ -67,15 +67,17 @@ export const dateSelectorContainerStyles = (theme: Theme) =>
       },
     },
     "& .react-calendar__month-view__weekdays__weekday": {
-      fontSize: 10,
-      color: theme.colors["Color/Neutral/Text/colorTextSecondary"],
+      fontSize: 12,
+      color: theme.colors["Color/Neutral/Text/colorTextDescription"],
       textAlign: "center",
+      fontWeight: 600,
       "& abbr": {
         textDecoration: "none",
+        textTransform: "uppercase",
       },
     },
     "& .react-calendar__month-view__weekdays": {
-      marginBottom: 5,
+      marginBottom: theme.paddingSizes.sizeSM,
       userSelect: "none",
     },
     "& .react-calendar__month-view__days": {
@@ -93,7 +95,10 @@ export const dateSelectorContainerStyles = (theme: Theme) =>
         fontWeight: "bold",
         backgroundColor: "transparent",
         border: 0,
-        color: theme.colors["Color/Brand/Primary/colorPrimaryText"],
+        color: theme.colors["Color/Neutral/Text/colorTextHeading"],
+        "&.react-calendar__month-view__days__day--neighboringMonth": {
+          color: theme.colors["Color/Neutral/Text/colorTextDisabled"],
+        },
         "&:not(.react-calendar__tile--active):hover": {
           backgroundColor: theme.colors["Color/Brand/Control/colorBgHover"],
           color: theme.colors["Color/Neutral/Text/colorTextLabel"],
@@ -189,7 +194,6 @@ export const dateTimeContainerStyles = (
   width: globalWidth,
   minHeight: mode === "all" ? 290 : 285,
   boxShadow: theme.shadows["boxShadow-02"],
-  padding: 24,
   borderRadius: 4,
   "& .modeBar": {
     display: "flex",
@@ -200,77 +204,32 @@ export const dateTimeContainerStyles = (
 
 export const timeSelectorContainerStyles = (theme: Theme) =>
   css({
-    "& .timeTitle": {
-      display: "flex",
-      justifyContent: "center",
-      gap: 5,
-      borderBottom: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
-      padding: "0 0 12px",
-      marginBottom: 10,
-      fontWeight: "bold",
-      fontSize: 16,
-      color: theme.colors["Color/Brand/Primary/colorPrimaryText"],
+    borderTop: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
+    padding: `${theme.paddingSizes.sizeSM}px ${theme.paddingSizes.size}px`,
+    "& .timeContainer": {
+      marginTop: theme.paddingSizes.size,
     },
     "& .selectors": {
       display: "flex",
       width: "100%",
-      justifyContent: "space-evenly",
-      "& .columnSelector": {
+      gap: 12,
+      justifyContent: "space-between",
+      "& .timeDiv": {
         display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-        gap: 5,
-        "& .scrollRollbar": {
-          display: "block",
-          overflowY: "auto",
-          overflowX: "hidden",
-          height: 170,
-          scrollbarWidth: "none",
-          msOverflowStyle: "none",
-          "&::-webkit-scrollbar": {
-            width: 5,
-          },
-          "&::-webkit-scrollbar-thumb": {
-            background: theme.colors["Color/Brand/Primary/colorPrimaryText"],
-            borderRadius: 0,
-          },
-
-          "&::-webkit-scrollbar-track": {
-            background: theme.colors["Color/Neutral/Border/colorBorderSubtle"],
-            boxShadow: `inset ${theme.shadows["boxShadow-04"]}`,
-            borderRadius: 0,
-          },
-        },
-        "& .titleElement": {
-          fontSize: 10,
-          color: theme.colors["Color/Neutral/Text/colorTextSecondary"],
-          textAlign: "center",
-        },
+        justifyContent: "center",
+        alignItems: "flex-end",
+        color: theme.colors["Color/Neutral/Text/colorTextSecondary"],
+        fontSize: 14,
+        lineHeight: "28px",
       },
-    },
-    "& .titles": {
-      display: "flex",
-      width: "100%",
-      justifyContent: "space-evenly",
     },
   });
 
-export const selectorButtonStyles = (theme: Theme) =>
+export const saveDateButtons = (theme: Theme) =>
   css({
-    cursor: "pointer",
     display: "flex",
-    width: "100%",
-    backgroundColor: "transparent",
-    fontWeight: "bold",
-    border: 0,
-    padding: "5px 10px",
-    color: theme.colors["Color/Brand/Primary/colorPrimaryText"],
-    "&:hover": {
-      backgroundColor: theme.colors["Color/Brand/Neutral/colorPrimaryBgHover"],
-    },
-    "&.selected": {
-      backgroundColor: theme.colors["Color/Brand/Primary/colorPrimary"],
-      color: theme.colors["Color/Neutral/Text/colorTextLightSolid"],
-    },
+    justifyContent: "flex-end",
+    gap: 16,
+    borderTop: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
+    padding: `${theme.paddingSizes.sizeSM}px ${theme.paddingSizes.size}px`,
   });
