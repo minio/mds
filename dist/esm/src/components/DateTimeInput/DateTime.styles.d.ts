@@ -18,7 +18,6 @@ export declare const dateTimeContainerStyles: (
   width: number;
   minHeight: number;
   boxShadow: string;
-  padding: number;
   borderRadius: number;
   "& .modeBar": {
     display: string;
@@ -29,6 +28,6 @@ export declare const dateTimeContainerStyles: (
 export declare const timeSelectorContainerStyles: (
   theme: Theme,
 ) => import("@emotion/react").SerializedStyles;
-export declare const selectorButtonStyles: (
+export declare const saveDateButtons: (
   theme: Theme,
 ) => import("@emotion/react").SerializedStyles;

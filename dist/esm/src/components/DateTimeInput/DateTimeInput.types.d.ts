@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { DateTime } from "luxon";
 import { OverrideTheme } from "../../global/global.types";
 export type DateTimeMode = "all" | "date";
@@ -30,13 +30,14 @@ export interface DateTimeConstruct {
 }
 export interface DateTimeSelectorMain {
   open?: boolean;
+  saveLabel?: string;
   anchorEl?: (EventTarget & HTMLElement) | null;
   onClose?: () => void;
 }
 export interface TimeSelectorProps {
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
-  completeCallback?: () => void;
+  validitySignal?: (valid: boolean) => void;
   timeFormat?: "12h" | "24h";
   secondsSelector: boolean;
 }
@@ -45,12 +46,6 @@ export interface DateSelectorProps {
   maxDate?: DateTime;
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
-}
-export interface StylesOverrideProps {
-  isPortal: boolean;
-  mode: DateTimeMode;
-  coords: CSSProperties;
-  sx?: OverrideTheme;
 }
 export type DateTimeInputProps = DateTimeInputMain &
   DateTimeConstruct &

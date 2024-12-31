@@ -6606,6 +6606,7 @@ interface CheckboxProps extends HTMLAttributes<HTMLInputElement> {
   tooltip?: string;
   overrideLabelClasses?: string;
   noLabelMinWidth?: boolean;
+  auxLabel?: string;
   sx?: OverrideTheme;
   helper?: string;
 }
@@ -6803,13 +6804,14 @@ interface DateTimeConstruct {
 }
 interface DateTimeSelectorMain {
   open?: boolean;
+  saveLabel?: string;
   anchorEl?: (EventTarget & HTMLElement) | null;
   onClose?: () => void;
 }
 interface TimeSelectorProps {
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
-  completeCallback?: () => void;
+  validitySignal?: (valid: boolean) => void;
   timeFormat?: "12h" | "24h";
   secondsSelector: boolean;
 }
@@ -6818,12 +6820,6 @@ interface DateSelectorProps {
   maxDate?: DateTime;
   value: DateTime | null;
   onChange: (value: DateTime | null) => void;
-}
-interface StylesOverrideProps {
-  isPortal: boolean;
-  mode: DateTimeMode;
-  coords: CSSProperties;
-  sx?: OverrideTheme;
 }
 type DateTimeInputProps = DateTimeInputMain &
   DateTimeConstruct &
@@ -7142,10 +7138,18 @@ interface ModalBoxProps {
   backgroundOverlay?: boolean;
   customMaxWidth?: number | string;
   customContentPadding?: CSSProperties["padding"];
+  modalActions?: React__default.ReactNode;
+  customMaxHeight?: CSSProperties["maxHeight"];
   sx?: OverrideTheme;
+}
+interface ModalBoxActionsProps {
+  children: React__default.ReactNode;
+  stretch?: boolean;
 }
 
 declare const ModalBox: FC<ModalBoxProps>;
+
+declare const ModalBoxActions: FC<ModalBoxActionsProps>;
 
 interface OverlayProps {
   onClose: () => void;
@@ -9066,6 +9070,8 @@ export {
   MinimizeIcon,
   MinusIcon,
   ModalBox,
+  ModalBoxActions,
+  type ModalBoxActionsProps,
   type ModalBoxProps,
   MonitorCheckIcon,
   MonitorDotIcon,
@@ -9518,7 +9524,6 @@ export {
   StretchHorizontalIcon,
   StretchVerticalIcon,
   StrikethroughIcon,
-  type StylesOverrideProps,
   SubscriptIcon,
   SummaryIcon,
   SunDimIcon,

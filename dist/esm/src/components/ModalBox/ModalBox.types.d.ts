@@ -10,5 +10,11 @@ export interface ModalBoxProps {
   backgroundOverlay?: boolean;
   customMaxWidth?: number | string;
   customContentPadding?: CSSProperties["padding"];
+  modalActions?: React.ReactNode;
+  customMaxHeight?: CSSProperties["maxHeight"];
   sx?: OverrideTheme;
+}
+export interface ModalBoxActionsProps {
+  children: React.ReactNode;
+  stretch?: boolean;
 }
