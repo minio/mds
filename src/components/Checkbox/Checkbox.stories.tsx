@@ -82,3 +82,13 @@ LabelNoMinWidth.args = {
   disabled: true,
   noLabelMinWidth: true,
 };
+
+export const AuxLabel = Template.bind({});
+AuxLabel.args = {
+  label: "Do you want to continue?",
+  id: "checkbox",
+  onClick: () => {
+    console.log("click");
+  },
+  auxLabel: "Yes",
+};

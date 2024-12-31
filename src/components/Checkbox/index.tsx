@@ -24,7 +24,7 @@ import CircleHelpIcon from "../../icons/CircleHelpIcon";
 import InputHelper from "../InputHelper";
 import InputLabel from "../InputLabel";
 import Tooltip from "../Tooltip";
-import { checkboxStyles } from "./Checkbox.styles";
+import { checkboxStyles, checkContainer } from "./Checkbox.styles";
 import { CheckboxProps } from "./Checkbox.types";
 
 const Checkbox: FC<
@@ -40,6 +40,7 @@ const Checkbox: FC<
   helper,
   disabled,
   noLabelMinWidth,
+  auxLabel,
   ...props
 }) => {
   const theme = useTheme();
@@ -53,6 +54,7 @@ const Checkbox: FC<
   }, [sx, theme]);
 
   const checkboxTheme = checkboxStyles(theme);
+  const checkboxContainer = checkContainer(theme);
 
   return (
     <FieldContainer
@@ -90,22 +92,27 @@ const Checkbox: FC<
           )}
         </InputLabel>
       )}
-      <label
-        css={[checkboxTheme, overrideThemes]}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <input
-          type={"checkbox"}
-          id={id}
-          checked={checked}
-          disabled={disabled}
-          {...props}
-        />
-        <span className={"checkbox"}>
-          <CheckIcon className={`${disabled ? "disabled" : ""} icon-overlay`} />
-        </span>
-        {helper !== undefined && <InputHelper>{helper}</InputHelper>}
-      </label>
+      <div css={checkboxContainer}>
+        <label
+          css={[checkboxTheme, overrideThemes]}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <input
+            type={"checkbox"}
+            id={id}
+            checked={checked}
+            disabled={disabled}
+            {...props}
+          />
+          <span className={"checkbox"}>
+            <CheckIcon
+              className={`${disabled ? "disabled" : ""} icon-overlay`}
+            />
+          </span>
+          {helper !== undefined && <InputHelper>{helper}</InputHelper>}
+        </label>
+        {auxLabel && <InputLabel htmlFor={id}>{auxLabel}</InputLabel>}
+      </div>
     </FieldContainer>
   );
 };
