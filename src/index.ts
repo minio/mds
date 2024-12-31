@@ -76,6 +76,7 @@ export { default as Loader } from "./components/Loader";
 export { default as LoginWrapper } from "./components/LoginWrapper";
 export { default as MDSCacheProvider } from "./components/MDSCacheProvider";
 export { default as ModalBox } from "./components/ModalBox";
+export { default as ModalBoxActions } from "./components/ModalBox/ModalBoxActions";
 export { default as Overlay } from "./components/Overlay";
 export { default as NotificationAlert } from "./components/NotificationAlert";
 export { default as NotificationCount } from "./components/NotificationCount";

@@ -22,6 +22,7 @@ export const modalContainer = (
   theme: Theme,
   width: CssProperties["width"],
   padding: CssProperties["padding"],
+  customMaxHeight: CssProperties["maxHeight"],
 ) =>
   css({
     fontFamily: "'Geist', sans-serif",
@@ -33,11 +34,17 @@ export const modalContainer = (
     borderRadius: 12,
     boxShadow: theme.shadows["boxShadow-04"],
     boxSizing: "border-box",
+    overflow: "hidden",
     "& .dialogContent": {
       boxSizing: "border-box",
       padding: padding,
-      maxHeight: "calc(100vh - 150px)",
+      maxHeight: customMaxHeight,
       overflowY: "auto",
+    },
+    "& .dialogActions": {
+      boxSizing: "border-box",
+      padding: `${theme.paddingSizes.sizeLG}px ${theme.paddingSizes.size}px`,
+      borderTop: `1px solid ${theme.colors["Color/Neutral/Border/colorBorderSubtle"]}`,
     },
   });
 
@@ -96,3 +103,22 @@ export const modalTitleBar = (theme: Theme) =>
       },
     },
   });
+
+export const actionsBasics = css({
+  display: "flex",
+  justifyContent: "flex-end",
+  gap: 16,
+  "& .tertiary": {
+    display: "flex",
+    flexGrow: 1,
+    justifyContent: "flex-start",
+  },
+});
+
+export const actionsStretch = css({
+  justifyContent: "flex-start",
+  "& > button": {
+    width: "100%",
+    flexGrow: 1,
+  },
+});
