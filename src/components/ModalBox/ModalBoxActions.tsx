@@ -1,5 +1,5 @@
 // This file is part of MinIO Design System
-// Copyright (c) 2023 MinIO, Inc.
+// Copyright (c) 2024 MinIO, Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as published by
@@ -14,26 +14,14 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { CSSProperties } from "react";
+import { FC } from "react";
+import { ModalBoxActionsProps } from "./ModalBox.types";
+import { actionsBasics, actionsStretch } from "./ModalBox.styles";
 
-import { OverrideTheme } from "../../global/global.types";
+const ModalBoxActions: FC<ModalBoxActionsProps> = ({ stretch, children }) => {
+  return (
+    <div css={[actionsBasics, stretch ? actionsStretch : {}]}>{children}</div>
+  );
+};
 
-export interface ModalBoxProps {
-  onClose: () => void;
-  open: boolean;
-  title: React.ReactNode;
-  children: React.ReactNode;
-  widthLimit?: boolean;
-  titleIcon?: React.ReactNode;
-  backgroundOverlay?: boolean;
-  customMaxWidth?: number | string;
-  customContentPadding?: CSSProperties["padding"];
-  modalActions?: React.ReactNode;
-  customMaxHeight?: CSSProperties["maxHeight"];
-  sx?: OverrideTheme;
-}
-
-export interface ModalBoxActionsProps {
-  children: React.ReactNode;
-  stretch?: boolean;
-}
+export default ModalBoxActions;

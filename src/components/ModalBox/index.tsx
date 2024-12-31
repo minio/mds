@@ -34,6 +34,8 @@ const ModalBox: FC<ModalBoxProps> = ({
   backgroundOverlay = true,
   customMaxWidth = 750,
   customContentPadding = 24,
+  customMaxHeight = "calc(100vh - 150px)",
+  modalActions,
   sx,
 }) => {
   const theme = useTheme();
@@ -43,6 +45,7 @@ const ModalBox: FC<ModalBoxProps> = ({
     theme,
     widthLimit ? customMaxWidth : "100%",
     customContentPadding,
+    customMaxHeight,
   );
   const titleStyles = modalTitleBar(theme);
 
@@ -73,6 +76,7 @@ const ModalBox: FC<ModalBoxProps> = ({
           </button>
         </div>
         <div className={"dialogContent"}>{children}</div>
+        {modalActions && <div className={"dialogActions"}>{modalActions}</div>}
       </div>
     </Overlay>
   );

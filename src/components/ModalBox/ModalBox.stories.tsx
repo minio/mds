@@ -23,6 +23,7 @@ import TestIcon from "../../utils/TestIcon";
 import { ModalBoxProps } from "./ModalBox.types";
 import ModalBox from "./";
 import Button from "../Button";
+import ModalBoxActions from "./ModalBoxActions";
 
 export default {
   title: "MDS/Layout/ModalBox",
@@ -38,6 +39,8 @@ const Template: StoryFn<ModalBoxProps> = ({
   customMaxWidth,
   backgroundOverlay,
   customContentPadding,
+  customMaxHeight,
+  modalActions,
 }) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
 
@@ -64,7 +67,99 @@ const Template: StoryFn<ModalBoxProps> = ({
           widthLimit={widthLimit}
           customMaxWidth={customMaxWidth}
           customContentPadding={customContentPadding}
+          customMaxHeight={customMaxHeight}
+          modalActions={modalActions}
         >
+          <h1>Inside my Computer</h1>
+          <p>
+            My computer-- disassembled is a maze of cables, drives chips and
+            ports--an array of connections, silver solderings, twisting wires.
+          </p>
+          <p>
+            But when the satiny case is latched in place coils and cables
+            disappear. The smallest particle of matter is not an atom, but a
+            byte-- a particle of magic that combines and multiplies unseen
+            inside the blinking box.
+          </p>
+          <p>
+            Creation occurs inside my computer-- friends, family rest behind the
+            pressing of selected keys. Words and faces form; smiles and frowns
+            become feelings. Attraction becomes addiction.
+          </p>
+          <p>
+            Inside my computer merchants buy and sell-- musicians sing, artists
+            train pictures into pixels, poets recollect emotion in tranquillity.
+          </p>
+          <p>
+            Inside my computer dreams are imagined into reality-- inventions,
+            hopes, ideas are born and nurtured into happenings. Strangers share
+            a table, touch hands across the world.
+          </p>
+          <p>
+            Inside my computer the pulse of human hearts waxes and wanes as
+            people fall in and out of love.
+          </p>
+          <div style={{ textAlign: "right" }}>Karen Ruff - 2014</div>
+          <h1>Inside my Computer</h1>
+          <p>
+            My computer-- disassembled is a maze of cables, drives chips and
+            ports--an array of connections, silver solderings, twisting wires.
+          </p>
+          <p>
+            But when the satiny case is latched in place coils and cables
+            disappear. The smallest particle of matter is not an atom, but a
+            byte-- a particle of magic that combines and multiplies unseen
+            inside the blinking box.
+          </p>
+          <p>
+            Creation occurs inside my computer-- friends, family rest behind the
+            pressing of selected keys. Words and faces form; smiles and frowns
+            become feelings. Attraction becomes addiction.
+          </p>
+          <p>
+            Inside my computer merchants buy and sell-- musicians sing, artists
+            train pictures into pixels, poets recollect emotion in tranquillity.
+          </p>
+          <p>
+            Inside my computer dreams are imagined into reality-- inventions,
+            hopes, ideas are born and nurtured into happenings. Strangers share
+            a table, touch hands across the world.
+          </p>
+          <p>
+            Inside my computer the pulse of human hearts waxes and wanes as
+            people fall in and out of love.
+          </p>
+          <div style={{ textAlign: "right" }}>Karen Ruff - 2014</div>
+          <h1>Inside my Computer</h1>
+          <p>
+            My computer-- disassembled is a maze of cables, drives chips and
+            ports--an array of connections, silver solderings, twisting wires.
+          </p>
+          <p>
+            But when the satiny case is latched in place coils and cables
+            disappear. The smallest particle of matter is not an atom, but a
+            byte-- a particle of magic that combines and multiplies unseen
+            inside the blinking box.
+          </p>
+          <p>
+            Creation occurs inside my computer-- friends, family rest behind the
+            pressing of selected keys. Words and faces form; smiles and frowns
+            become feelings. Attraction becomes addiction.
+          </p>
+          <p>
+            Inside my computer merchants buy and sell-- musicians sing, artists
+            train pictures into pixels, poets recollect emotion in tranquillity.
+          </p>
+          <p>
+            Inside my computer dreams are imagined into reality-- inventions,
+            hopes, ideas are born and nurtured into happenings. Strangers share
+            a table, touch hands across the world.
+          </p>
+          <p>
+            Inside my computer the pulse of human hearts waxes and wanes as
+            people fall in and out of love.
+          </p>
+          <div style={{ textAlign: "right" }}>Karen Ruff - 2014</div>
           <h1>Inside my Computer</h1>
           <p>
             My computer-- disassembled is a maze of cables, drives chips and
@@ -144,4 +239,68 @@ CustomMaxWidth.args = {
   title: "Test Title",
   titleIcon: <TestIcon />,
   customMaxWidth: 250,
+};
+
+export const CustomMaxHeight = Template.bind({});
+
+CustomMaxHeight.args = {
+  title: "Test Title",
+  titleIcon: <TestIcon />,
+  customMaxHeight: "280px",
+};
+
+export const CustomMaxHeightWithActions = Template.bind({});
+
+CustomMaxHeightWithActions.args = {
+  title: "Test Title",
+  titleIcon: <TestIcon />,
+  customMaxHeight: "280px",
+  modalActions: (
+    <ModalBoxActions>
+      <div className={"tertiary"}>
+        <Button id={"back"} variant={"primary-ghost"}>
+          Back
+        </Button>
+      </div>
+      <Button id={"cancel"}>Cancel</Button>
+      <Button id={"submit"} variant={"primary"}>
+        Submit
+      </Button>
+    </ModalBoxActions>
+  ),
+};
+
+export const ActionsBar = Template.bind({});
+
+ActionsBar.args = {
+  title: "Test Title",
+  titleIcon: <TestIcon />,
+  modalActions: (
+    <ModalBoxActions>
+      <div className={"tertiary"}>
+        <Button id={"back"} variant={"primary-ghost"}>
+          Back
+        </Button>
+      </div>
+      <Button id={"cancel"}>Cancel</Button>
+      <Button id={"submit"} variant={"primary"}>
+        Submit
+      </Button>
+    </ModalBoxActions>
+  ),
+};
+
+export const ActionsBarStretch = Template.bind({});
+
+ActionsBarStretch.args = {
+  title: "Test Title",
+  titleIcon: <TestIcon />,
+  modalActions: (
+    <ModalBoxActions stretch>
+      <Button id={"cancel"}>Cancel</Button>
+      <Button id={"submit"} variant={"primary"}>
+        Submit
+      </Button>
+    </ModalBoxActions>
+  ),
 };
