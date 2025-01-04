@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { CSSProperties } from "react";
+import React from "react";
 import { DateTime } from "luxon";
 
 import { OverrideTheme } from "../../global/global.types";
@@ -36,6 +36,8 @@ export interface DateTimeInputMain {
   state?: "normal" | "error" | "success" | "warning";
   readOnly?: boolean;
   helper?: string;
+  saveLabel?: string;
+  onAcceptDate?: () => void;
 }
 
 export interface DateTimeConstruct {
@@ -54,6 +56,7 @@ export interface DateTimeSelectorMain {
   saveLabel?: string;
   anchorEl?: (EventTarget & HTMLElement) | null;
   onClose?: () => void;
+  onAcceptDate?: () => void;
 }
 
 export interface TimeSelectorProps {

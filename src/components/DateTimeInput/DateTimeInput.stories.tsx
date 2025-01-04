@@ -44,6 +44,8 @@ const Template: StoryFn<DateTimeInputProps> = ({
   tooltip,
   openPickerIcon,
   displayFormat,
+  onAcceptDate,
+  saveLabel,
 }) => {
   const [newValue, setValue] = useState<DateTime>(DateTime.now());
 
@@ -72,6 +74,8 @@ const Template: StoryFn<DateTimeInputProps> = ({
           tooltip={tooltip}
           openPickerIcon={openPickerIcon}
           displayFormat={displayFormat}
+          saveLabel={saveLabel}
+          onAcceptDate={onAcceptDate}
         />
         <DateTimeInput
           id={"story-DateTimeInput"}
@@ -91,6 +95,8 @@ const Template: StoryFn<DateTimeInputProps> = ({
           openPickerIcon={openPickerIcon}
           displayFormat={displayFormat}
           sizeMode={"small"}
+          saveLabel={saveLabel}
+          onAcceptDate={onAcceptDate}
         />
       </FormLayout>
     </StoryThemeProvider>
@@ -170,4 +176,30 @@ DateOnly.args = {
   label: "Select a Date",
   tooltip: "Please select a date to complete",
   mode: "date",
+};
+
+export const CustomSaveLabel = Template.bind({});
+CustomSaveLabel.args = {
+  id: "DateTimeInput",
+  usePortal: false,
+  timeFormat: "12h",
+  secondsSelector: true,
+  label: "Select a Date",
+  tooltip: "Please select a date to complete",
+  mode: "date",
+  saveLabel: "Set This Date",
+};
+
+export const OnAcceptDateAction = Template.bind({});
+OnAcceptDateAction.args = {
+  id: "DateTimeInput",
+  usePortal: false,
+  timeFormat: "12h",
+  secondsSelector: true,
+  label: "Select a Date",
+  tooltip: "Please select a date to complete",
+  mode: "date",
+  onAcceptDate: () => {
+    alert("Accepted Date");
+  },
 };
