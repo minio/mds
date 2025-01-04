@@ -51,6 +51,8 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
   readOnly = false,
   helper,
   pickerSx,
+  onAcceptDate,
+  saveLabel,
 }) => {
   const theme = useTheme();
 
@@ -268,6 +270,8 @@ const DateTimeInput: FC<DateTimeInputProps> = ({
         anchorEl={anchorEl}
         open={isOpen}
         usePortal={true}
+        saveLabel={saveLabel}
+        onAcceptDate={onAcceptDate}
       />
     </div>
   );

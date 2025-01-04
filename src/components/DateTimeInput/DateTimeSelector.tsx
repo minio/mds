@@ -62,6 +62,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
   onClose,
   open = false,
   saveLabel = "Save",
+  onAcceptDate,
   sx,
 }) => {
   const theme = useTheme();
@@ -115,16 +116,20 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
     }
   }, [anchorEl, onClose, usePortal]);
 
-  const closeSelector = () => {
+  const closeSelector = (exAccept: boolean = true) => {
     setOriginalDate(value || DateTime.now());
     if (onClose) {
       onClose();
+    }
+
+    if (onAcceptDate && exAccept) {
+      onAcceptDate();
     }
   };
 
   const cancelSelector = () => {
     onChange(originalDate);
-    closeSelector();
+    closeSelector(false);
   };
 
   const dateSelectorChange = (newDate: DateTime | null) => {
@@ -173,7 +178,7 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
           id={"save-date-picker"}
           variant={"primary"}
           disabled={!valid}
-          onClick={closeSelector}
+          onClick={() => closeSelector(true)}
         >
           {saveLabel}
         </Button>
@@ -183,7 +188,9 @@ const DateTimeSelector: FC<DateTimeSelectorProps> = ({
 
   if (usePortal) {
     return createPortal(
-      <SelectorContainer onClick={closeSelector}>{picker}</SelectorContainer>,
+      <SelectorContainer onClick={() => closeSelector(true)}>
+        {picker}
+      </SelectorContainer>,
       document.body,
     );
   }
