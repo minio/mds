@@ -17,6 +17,8 @@ export interface DateTimeInputMain {
   state?: "normal" | "error" | "success" | "warning";
   readOnly?: boolean;
   helper?: string;
+  saveLabel?: string;
+  onAcceptDate?: () => void;
 }
 export interface DateTimeConstruct {
   id: string;
@@ -33,6 +35,7 @@ export interface DateTimeSelectorMain {
   saveLabel?: string;
   anchorEl?: (EventTarget & HTMLElement) | null;
   onClose?: () => void;
+  onAcceptDate?: () => void;
 }
 export interface TimeSelectorProps {
   value: DateTime | null;

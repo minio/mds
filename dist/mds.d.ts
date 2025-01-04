@@ -6791,6 +6791,8 @@ interface DateTimeInputMain {
   state?: "normal" | "error" | "success" | "warning";
   readOnly?: boolean;
   helper?: string;
+  saveLabel?: string;
+  onAcceptDate?: () => void;
 }
 interface DateTimeConstruct {
   id: string;
@@ -6807,6 +6809,7 @@ interface DateTimeSelectorMain {
   saveLabel?: string;
   anchorEl?: (EventTarget & HTMLElement) | null;
   onClose?: () => void;
+  onAcceptDate?: () => void;
 }
 interface TimeSelectorProps {
   value: DateTime | null;
