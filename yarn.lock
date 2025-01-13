@@ -5285,12 +5285,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-gpu@npm:^5.0.63":
-  version: 5.0.63
-  resolution: "detect-gpu@npm:5.0.63"
+"detect-gpu@npm:^5.0.64":
+  version: 5.0.64
+  resolution: "detect-gpu@npm:5.0.64"
   dependencies:
     webgl-constants: "npm:^1.1.1"
-  checksum: 10c0/f4e8a19ca07c04af9d2a5e6ece28a8afe7214aa0e35d4c8c9caa8af5a06e82183b6f35a45434a8e3291d8bd07b605e541af0fe4fec21aeb530176103b6ff022d
+  checksum: 10c0/d8f946fb49c4e21daf6329220ee0c8a83fd9708f82b838e5f62689979eb0389fbd885097fcdfdb43e3a3983b6aff43fa5f8f79dc5ed0492566c27ea7a63db82e
   languageName: node
   linkType: hard
 
@@ -8297,7 +8297,7 @@ __metadata:
     "@types/react-virtualized": "npm:^9.22.0"
     "@uiw/react-textarea-code-editor": "npm:^3.1.0"
     babel-loader: "npm:^9.2.1"
-    detect-gpu: "npm:^5.0.63"
+    detect-gpu: "npm:^5.0.64"
     eslint: "npm:^9.17.0"
     eslint-plugin-react-hooks: "npm:^5.1.0"
     eslint-plugin-react-refresh: "npm:^0.4.16"
