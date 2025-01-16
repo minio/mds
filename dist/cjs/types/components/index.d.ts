@@ -33,6 +33,7 @@ export { default as RadioGroup } from "./RadioGroup/RadioGroup";
 export { default as ReadBox } from "./ReadBox/ReadBox";
 export { default as CommentBox } from "./CommentBox/CommentBox";
 export { default as Menu } from "./Menu/Menu";
+export { default as MenuItem } from "./Menu/Vertical/MenuItem";
 export { default as ExpandOptionsButton } from "./ExpandOptionsButton/ExpandOptionsButton";
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as CodeEditor } from "./CodeEditor/CodeEditor";
