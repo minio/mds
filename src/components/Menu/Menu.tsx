@@ -47,12 +47,6 @@ const Menu: FC<MenuProps> = ({
     return <HorizontalMenu {...props} />;
   }
 
-  if (!!props.middleComponent) {
-    console.warn(
-      "Middle component is set, this cannot be rendered in Vertical Menu",
-    );
-  }
-
   return <VerticalMenu {...props} />;
 };
 
