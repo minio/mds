@@ -27,6 +27,7 @@ import MenuSectionHeader from "./MenuSectionHeader";
 import LogoutIcon from "../../Icons/LogoutIcon";
 import Tooltip from "../../Tooltip/Tooltip";
 import MinIOTierIconXs from "../../Icons/MinIOTierIconXs";
+import MenuDivider from "../Common/MenuDivider";
 
 const VerticalMenuDrawer = styled.div<MenuConstructProps>(({ theme, sx }) => {
   return {
@@ -209,6 +210,7 @@ const VerticalMenu: FC<MenuProps> = ({
   collapseAction,
   currentPath,
   endComponent,
+  middleComponent,
   sx,
 }) => {
   let currTitle = "";
@@ -235,6 +237,7 @@ const VerticalMenu: FC<MenuProps> = ({
           </Box>
         </Box>
         <Box className={"menuItems"}>
+          {middleComponent}
           {options &&
             options.map((option) => {
               let extraItem = null;
@@ -281,7 +284,7 @@ const VerticalMenu: FC<MenuProps> = ({
           {signOutAction && (
             <Box sx={{ marginTop: "auto" }}>
               {endComponent}
-              <MenuSectionHeader label={""} />
+              <MenuDivider />
               <MenuItem
                 id="sign-out"
                 group={"common"}

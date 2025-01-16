@@ -26,6 +26,7 @@ import ChatIcon from "../Icons/ChatIcon";
 import LambdaNotificationsIcon from "../Icons/LambdaNotificationsIcon";
 import Button from "../Button/Button";
 import Box from "../Box/Box";
+import MenuItem from "./Vertical/MenuItem";
 
 export default {
   title: "MDS/Layout/Menu",
@@ -33,7 +34,12 @@ export default {
   argTypes: {},
 } as Meta<typeof Menu>;
 
-const Template: Story<MenuProps> = ({ options, horizontal, endComponent }) => {
+const Template: Story<MenuProps> = ({
+  options,
+  horizontal,
+  endComponent,
+  middleComponent,
+}) => {
   const [menuCollapsed, setMenuCollapsed] = useState<boolean>(false);
 
   return (
@@ -57,6 +63,7 @@ const Template: Story<MenuProps> = ({ options, horizontal, endComponent }) => {
         horizontal={horizontal}
         currentPath={"/testPath1"}
         endComponent={endComponent}
+        middleComponent={middleComponent}
       />
     </StoryThemeProvider>
   );
@@ -228,14 +235,87 @@ HorizontalNoOptions.args = {
 export const EndComponent = Template.bind({});
 
 EndComponent.args = {
+  options: [
+    {
+      icon: <ChatIcon />,
+      path: "/testPath1",
+      name: "Test 1",
+      group: "Group 1",
+      id: "test1",
+      onClick: (path) => {
+        console.log("Custom Click Action", path);
+      },
+    },
+    {
+      icon: <LambdaNotificationsIcon />,
+      name: "Test 5",
+      group: "Group 2",
+      id: "test5",
+      children: [
+        {
+          icon: <TestIcon />,
+          path: "/testPath1",
+          name: "Sublevel 1",
+          group: "Group 2",
+          id: "testl1",
+        },
+        {
+          icon: <TestIcon />,
+          path: "/subPath2",
+          name: "Sublevel 2",
+          group: "Group 2",
+          id: "testl2",
+        },
+        {
+          icon: <TestIcon />,
+          path: "/subPath3",
+          name: "Sublevel 3",
+          group: "Group 2",
+          id: "testl3",
+        },
+      ],
+    },
+  ],
   endComponent: (
-    <Box sx={{ display: "flex", justifyContent: "center" }}>
-      <Button
-        id={"randon-button"}
+    <>
+      <MenuItem
+        name={"Menu Element"}
         icon={<TestIcon />}
         onClick={() => alert("Extra!")}
       />
-    </Box>
+      <MenuItem
+        name={"Menu Element 2"}
+        icon={<TestIcon />}
+        onClick={() => alert("Extra!")}
+      />
+    </>
+  ),
+};
+
+export const VerticalMiddleComponent = Template.bind({});
+
+VerticalMiddleComponent.args = {
+  middleComponent: (
+    <>
+      <a href={"https://min.io"}>External Link</a>
+      <a href={"https://min.io"}>External Link</a>
+      <a href={"https://min.io"}>External Link</a>
+      <a href={"https://min.io"}>External Link</a>
+    </>
+  ),
+  endComponent: (
+    <>
+      <MenuItem
+        name={"Menu Element"}
+        icon={<TestIcon />}
+        onClick={() => alert("Extra!")}
+      />
+      <MenuItem
+        name={"Menu Element 2"}
+        icon={<TestIcon />}
+        onClick={() => alert("Extra!")}
+      />
+    </>
   ),
 };
 

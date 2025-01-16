@@ -170,7 +170,7 @@ const GlobalStyles = createGlobalStyle`
     hr {
         border-top: 0;
         border-left: 0;
-        borderR-right: 0;
+        border-right: 0;
         border-color: ${get(theme, "borderColor", lightColors.borderColor)};
         background-color: transparent;
     }
