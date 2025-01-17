@@ -62191,11 +62191,7 @@ var uk = e.forwardRef(function (t, n) {
         ? o.default.createElement(fu, je({}, l))
         : a
           ? o.default.createElement(Qd, je({}, l))
-          : (l.middleComponent &&
-              console.warn(
-                "Middle component is set, this cannot be rendered in Vertical Menu",
-              ),
-            o.default.createElement(uu, je({}, l)))
+          : o.default.createElement(uu, je({}, l))
     );
   }),
   (exports.MenuCollapsedIcon = function (e) {
@@ -62255,6 +62251,7 @@ var uk = e.forwardRef(function (t, n) {
       ),
     );
   }),
+  (exports.MenuDivider = cu),
   (exports.MenuExpandedIcon = function (e) {
     return i.createElement(
       "svg",
@@ -62304,6 +62301,7 @@ var uk = e.forwardRef(function (t, n) {
     );
   }),
   (exports.MenuItem = ou),
+  (exports.MenuSectionHeader = lu),
   (exports.MetadataIcon = function (e) {
     return i.createElement(
       "svg",
