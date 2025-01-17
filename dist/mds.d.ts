@@ -1052,7 +1052,11 @@ interface SubItemsBoxProps {
 
 declare const Menu: FC<MenuProps>;
 
+declare const MenuDivider: FC;
+
 declare const MenuItem: FC<MenuItemProps>;
+
+declare const MenuSectionHeader: FC<SectionHeaderProps>;
 
 interface ExpandOptionsButtonProps {
   label: string;
@@ -2770,10 +2774,12 @@ export {
   Menu,
   MenuCollapsedIcon,
   MenuConstructProps,
+  MenuDivider,
   MenuCollapsedIcon$1 as MenuExpandedIcon,
   MenuItem,
   MenuItemProps,
   MenuProps,
+  MenuSectionHeader,
   MetadataIcon,
   MetricsMenuIcon,
   MinIOTierIcon,

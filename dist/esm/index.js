@@ -26565,11 +26565,7 @@ var Um = pt(function (e, t, n) {
         ? t.createElement(vf, it({}, l))
         : i
           ? t.createElement(tf, it({}, l))
-          : (l.middleComponent &&
-              console.warn(
-                "Middle component is set, this cannot be rendered in Vertical Menu",
-              ),
-            t.createElement(ff, it({}, l)))
+          : t.createElement(ff, it({}, l))
     );
   },
   yf = p.button(function (e) {
@@ -67334,8 +67330,10 @@ export {
   sh as MainContainer,
   Tf as Menu,
   JD as MenuCollapsedIcon,
+  mf as MenuDivider,
   KD as MenuExpandedIcon,
   cf as MenuItem,
+  uf as MenuSectionHeader,
   ul as MetadataIcon,
   eP as MetricsMenuIcon,
   Zo as MinIOTierIcon,
