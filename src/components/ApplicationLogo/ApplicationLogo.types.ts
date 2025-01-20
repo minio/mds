@@ -37,7 +37,8 @@ export interface ApplicationLogoProps {
     | "missioncontrol"
     | "globalconsole"
     | "minio"
-    | "enterprise";
+    | "enterprise"
+    | "aistor";
   subVariant?:
     | "simple"
     | "AGPL"
@@ -45,7 +46,8 @@ export interface ApplicationLogoProps {
     | "enterprise"
     | "new"
     | "enterpriseos"
-    | "enterpriseosvertical";
+    | "enterpriseosvertical"
+    |"horizontal";
   inverse?: boolean;
   onClick?: React.MouseEventHandler<any> | undefined;
 }

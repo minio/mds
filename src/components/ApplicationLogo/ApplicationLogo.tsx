@@ -43,6 +43,9 @@ import Enterprise from "./Logos/Enterprise/Enterprise";
 import MinIOEnterprise from "./Logos/MinIO/MinIOEnterprise";
 import MinIOEnterpriseOS from "./Logos/MinIO/MinIOEnterpriseOS";
 import MinIOEnterpriseOSVertical from "./Logos/MinIO/MinIOEnterpriseOSVertical";
+import AIStor from "./Logos/AIStor/AIStor";
+import AIStorHorizontal from "./Logos/AIStor/AIStorHorizontal";
+import AIStorTag from "./Logos/AIStor/AIStorTag";
 
 const ApplicationLogo: FC<ApplicationLogoProps> = ({
   applicationName,
@@ -107,6 +110,16 @@ const ApplicationLogo: FC<ApplicationLogoProps> = ({
       return <GlobalConsole inverse={!!inverse} onClick={onClick} />;
     case "enterprise":
       return <Enterprise inverse={!!inverse} onClick={onClick} />;
+    case "aistor":
+      switch (subVariant) {
+        case "simple":
+          return <AIStor inverse={!!inverse} onClick={onClick} />;
+          break;
+        case "horizontal":
+          return <AIStorHorizontal inverse={!!inverse} onClick={onClick} />;
+        default:
+          return <AIStorTag inverse={!!inverse} onClick={onClick} />;
+      }
     case "minio":
       switch (subVariant) {
         case "enterprise":
