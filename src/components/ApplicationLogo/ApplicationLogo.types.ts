@@ -47,7 +47,7 @@ export interface ApplicationLogoProps {
     | "new"
     | "enterpriseos"
     | "enterpriseosvertical"
-    |"horizontal";
+    | "horizontal";
   inverse?: boolean;
   onClick?: React.MouseEventHandler<any> | undefined;
 }
