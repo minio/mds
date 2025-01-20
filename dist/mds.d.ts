@@ -419,7 +419,8 @@ interface ApplicationLogoProps {
     | "missioncontrol"
     | "globalconsole"
     | "minio"
-    | "enterprise";
+    | "enterprise"
+    | "aistor";
   subVariant?:
     | "simple"
     | "AGPL"
@@ -427,7 +428,8 @@ interface ApplicationLogoProps {
     | "enterprise"
     | "new"
     | "enterpriseos"
-    | "enterpriseosvertical";
+    | "enterpriseosvertical"
+    | "horizontal";
   inverse?: boolean;
   onClick?: React__default.MouseEventHandler<any> | undefined;
 }
