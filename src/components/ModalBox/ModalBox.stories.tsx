@@ -146,3 +146,15 @@ CustomMaxWidth.args = {
   titleIcon: <TestIcon />,
   customMaxWidth: 250,
 };
+
+export const CustomStyles = Template.bind({});
+
+CustomStyles.args = {
+  title: "Test Title",
+  titleIcon: <TestIcon />,
+  sx: {
+    "& .dialogContent": {
+      backgroundColor: "red",
+    },
+  },
+};

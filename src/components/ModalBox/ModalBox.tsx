@@ -24,7 +24,14 @@ import Box from "../Box/Box";
 import AlertCloseIcon from "../Icons/AlertCloseIcon";
 
 const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
-  ({ theme, backgroundOverlay, widthLimit, iconColor, customMaxWidth }) => ({
+  ({
+    theme,
+    backgroundOverlay,
+    widthLimit,
+    iconColor,
+    customMaxWidth,
+    sx,
+  }) => ({
     "& .overlay": {
       position: "fixed",
       zIndex: 1200,
@@ -100,6 +107,7 @@ const ModalBoxContainer = styled.div<ModalBoxContainerProps>(
       maxHeight: "calc(100vh - 150px)",
       overflowY: "auto",
     },
+    ...sx,
   }),
 );
 
