@@ -28,4 +28,7 @@ module.exports = {
     options: {},
   },
   docs: {},
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
+  },
 };
