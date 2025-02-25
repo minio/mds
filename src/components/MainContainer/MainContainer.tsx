@@ -70,7 +70,7 @@ const MainContainer: FC<MainContainerProps> = ({
       mobileModeAuto={mobileModeAuto}
       sx={sx}
     >
-      {menu && cloneElement(menu, { mobileModeAuto })}
+      {menu && cloneElement(menu)}
       <CustomMain horizontal={horizontal} className={"mainPage"}>
         {children}
       </CustomMain>
