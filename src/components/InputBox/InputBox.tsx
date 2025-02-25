@@ -17,11 +17,7 @@
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
-import {
-  ExtraInputProps,
-  InputBoxProps,
-  InputContainerProps,
-} from "./InputBox.types";
+import { InputBoxElement, InputContainerProps } from "./InputBox.types";
 import HelpIcon from "../Icons/HelpIcon";
 import Tooltip from "../Tooltip/Tooltip";
 import IconButton from "../IconButton/IconButton";
@@ -30,54 +26,55 @@ import VisibilityOffIcon from "../Icons/VisibilityOffIcon";
 import VisibilityOnIcon from "../Icons/VisibilityOnIcon";
 import Box from "../Box/Box";
 
-const InputBase = styled.input<InputBoxProps & ExtraInputProps>(
-  ({ theme, error, startIcon, overlayIcon, overlayObject, originType }) => {
-    let borderColor = get(theme, "inputBox.border", "#E2E2E2");
-    let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
+const InputBase = styled.input<InputBoxElement>((props) => {
+  const { theme, error, startIcon, overlayIcon, overlayObject, type } = props;
 
-    if (error && error !== "") {
-      borderColor = get(theme, "inputBox.error", "#C51B3F");
-      borderHover = get(theme, "inputBox.error", "#C51B3F");
-    }
+  let borderColor = get(theme, "inputBox.border", "#E2E2E2");
+  let borderHover = get(theme, "inputBox.hoverBorder", "#000110");
 
-    return {
-      height: 38,
-      width: "100%",
-      paddingTop: 0,
-      paddingRight:
-        !!overlayIcon || !!overlayObject || originType === "password" ? 35 : 15,
-      paddingLeft: !!startIcon ? 35 : 15,
-      paddingBottom: 0,
-      color: get(theme, "inputBox.color", "#07193E"),
-      fontSize: 13,
-      fontWeight: 600,
-      border: `${borderColor} 1px solid`,
-      borderRadius: 3,
-      outline: "none",
-      transitionDuration: "0.1s",
-      backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
+  if (error && error !== "") {
+    borderColor = get(theme, "inputBox.error", "#C51B3F");
+    borderHover = get(theme, "inputBox.error", "#C51B3F");
+  }
+
+  return {
+    height: 38,
+    width: "100%",
+    paddingTop: 0,
+    paddingRight:
+      // @ts-ignore
+      !!overlayIcon || !!overlayObject || type === "password" ? 35 : 15,
+    paddingLeft: !!startIcon ? 35 : 15,
+    paddingBottom: 0,
+    color: get(theme, "inputBox.color", "#07193E"),
+    fontSize: 13,
+    fontWeight: 600,
+    border: `${borderColor} 1px solid`,
+    borderRadius: 3,
+    outline: "none",
+    transitionDuration: "0.1s",
+    backgroundColor: get(theme, "inputBox.backgroundColor", "#fff"),
+    "&:placeholder": {
+      color: get(theme, "inputBox.placeholderColor", "#858585"),
+      opacity: 1,
+      fontWeight: 400,
+    },
+    "&:hover": {
+      borderColor: borderHover,
+    },
+    "&:focus": {
+      borderColor: borderHover,
+    },
+    "&:disabled": {
+      border: get(theme, "inputBox.disabledBorder", "#494A4D"),
+      backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
+      color: get(theme, "inputBox.disabledText", "#E6EBEB"),
       "&:placeholder": {
-        color: get(theme, "inputBox.placeholderColor", "#858585"),
-        opacity: 1,
-        fontWeight: 400,
+        color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
       },
-      "&:hover": {
-        borderColor: borderHover,
-      },
-      "&:focus": {
-        borderColor: borderHover,
-      },
-      "&:disabled": {
-        border: get(theme, "inputBox.disabledBorder", "#494A4D"),
-        backgroundColor: get(theme, "inputBox.disabledBackground", "#B4B4B4"),
-        color: get(theme, "inputBox.disabledText", "#E6EBEB"),
-        "&:placeholder": {
-          color: get(theme, "inputBox.disabledPlaceholder", "#E6EBEB"),
-        },
-      },
-    };
-  },
-);
+    },
+  };
+});
 
 const InputContainer = styled.div<InputContainerProps>(
   ({ theme, error, sx }) => ({
@@ -125,7 +122,7 @@ const InputContainer = styled.div<InputContainerProps>(
   }),
 );
 
-const InputBox: FC<InputBoxProps> = ({
+const InputBox: FC<InputBoxElement> = ({
   id,
   tooltip = "",
   index,

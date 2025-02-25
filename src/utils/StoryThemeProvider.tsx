@@ -33,11 +33,7 @@ const StoryThemeProvider = ({ children }: IStoryThemeProvider) => {
     channel.on(DARK_MODE_EVENT_NAME, setIsDark);
   }, []);
 
-  return (
-      <ThemeHandler darkMode={isDark}>
-        {children}
-      </ThemeHandler>
-  );
+  return <ThemeHandler darkMode={isDark}>{children}</ThemeHandler>;
 };
 
 export default StoryThemeProvider;
