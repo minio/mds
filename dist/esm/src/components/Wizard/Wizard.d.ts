@@ -1,4 +1,3 @@
-import React from "react";
 import { WizardProps } from "./Wizard.types";
 declare const GenericWizard: ({
   wizardSteps,
@@ -6,5 +5,5 @@ declare const GenericWizard: ({
   forModal,
   linearMode,
   sx,
-}: WizardProps) => React.JSX.Element | null;
+}: WizardProps) => import("react/jsx-runtime").JSX.Element | null;
 export default GenericWizard;

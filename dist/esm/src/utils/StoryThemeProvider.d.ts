@@ -4,5 +4,5 @@ interface IStoryThemeProvider {
 }
 declare const StoryThemeProvider: ({
   children,
-}: IStoryThemeProvider) => React.JSX.Element;
+}: IStoryThemeProvider) => import("react/jsx-runtime").JSX.Element;
 export default StoryThemeProvider;

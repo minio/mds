@@ -1,5 +1,5 @@
-import React, { SVGProps } from "react";
+import { SVGProps } from "react";
 declare const SuccessIcon: (
   props: SVGProps<SVGSVGElement>,
-) => React.JSX.Element;
+) => import("react/jsx-runtime").JSX.Element;
 export default SuccessIcon;
