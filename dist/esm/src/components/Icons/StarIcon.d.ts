@@ -1,4 +1,5 @@
-import * as React from "react";
 import { SVGProps } from "react";
-declare const StarIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+declare const StarIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => import("react/jsx-runtime").JSX.Element;
 export default StarIcon;

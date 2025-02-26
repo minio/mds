@@ -1,4 +1,5 @@
-import * as React from "react";
 import { SVGProps } from "react";
-declare const ToolsIcon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element;
+declare const ToolsIcon: (
+  props: SVGProps<SVGSVGElement>,
+) => import("react/jsx-runtime").JSX.Element;
 export default ToolsIcon;

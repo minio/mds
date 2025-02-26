@@ -1,5 +1,5 @@
-import React, { SVGProps } from "react";
+import { SVGProps } from "react";
 declare const ArrowRightLink: (
   props: SVGProps<SVGSVGElement>,
-) => React.JSX.Element;
+) => import("react/jsx-runtime").JSX.Element;
 export default ArrowRightLink;

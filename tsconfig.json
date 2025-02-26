@@ -1,19 +1,18 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "jsx": "react",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationDir": "dist/esm",
-    "outDir": "dist/esm",
-    "sourceMap": true,
-    "rootDir": "./",
+    "target": "es2018",
+    "module": "esnext",
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    "emitDeclarationOnly": true,
+    "noEmitOnError": true,
+    "lib": ["es2017"],
+    "strict": true,
+    "esModuleInterop": false,
+    "outDir": "dist/esm",
+    "declarationDir": "dist/esm",
+    "rootDir": "./",
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "declaration": true
   },
   "exclude": [
     "dist",

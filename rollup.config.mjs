@@ -18,6 +18,7 @@ export default [
         sourcemap: true,
       },
     ],
+    makeAbsoluteExternalsRelative: true,
     plugins: [
       peerDepsExternal(),
       resolve({
