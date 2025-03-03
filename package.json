@@ -42,7 +42,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
-    "@types/lodash": "^4.17.15",
+    "@types/lodash": "^4.17.16",
     "@types/luxon": "^3.4.2",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
