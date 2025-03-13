@@ -234,3 +234,4 @@ export { default as ShuffleIcon } from "./ShuffleIcon";
 export { default as LanguageIcon } from "./LanguageIcon";
 export { default as EventBusyIcon } from "./EventBusyIcon";
 export { default as ExpandLeftCaret } from "./ExpandLeftCaret";
+export { default as TrashOffIcon } from "./TrashOffIcon";
