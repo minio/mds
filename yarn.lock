@@ -2843,11 +2843,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/core@npm:8.6.4":
-  version: 8.6.4
-  resolution: "@storybook/core@npm:8.6.4"
+"@storybook/core@npm:8.6.9":
+  version: 8.6.9
+  resolution: "@storybook/core@npm:8.6.9"
   dependencies:
-    "@storybook/theming": "npm:8.6.4"
+    "@storybook/theming": "npm:8.6.9"
     better-opn: "npm:^3.0.2"
     browser-assert: "npm:^1.2.1"
     esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0"
@@ -2863,7 +2863,7 @@ __metadata:
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/6cafc0010006041faef1bc23c78aec7ffea475c4c0a5e64d9bbba0b49d5facae80b52d553ba6ba9723684358ee5e72c9cbc7a47e1a48fd1d172de2863a5d3845
+  checksum: 10c0/b0950bca923c01cf81b5705ed500ba210cd012cab75e7b05a56f973b38e5d4985bd373511219d9d6a3538cead8608ebe716f3a40195c1493c39eeec9a049b680
   languageName: node
   linkType: hard
 
@@ -3066,6 +3066,15 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: 10c0/4d69b36a1167679aa0cac0e7ef0ec76b69df31dbd4286ed04d01638deac14a02791124ae855e809f5cda57f130816b20a9a665db67e0e33026206c30dd26f10c
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:8.6.9":
+  version: 8.6.9
+  resolution: "@storybook/theming@npm:8.6.9"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10c0/628faef6d65c9b1da7725b55d5bcbab9ad76d28aca586873d95f9c60979501d4d9e9788804c9355761aa813d5b8e1d33a65256bacce681b5374d58d2ed6183a0
   languageName: node
   linkType: hard
 
@@ -7830,7 +7839,7 @@ __metadata:
     rollup-plugin-import-file: "npm:^1.0.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
-    storybook: "npm:^8.6.4"
+    storybook: "npm:^8.6.9"
     storybook-dark-mode: "npm:4.0.2"
     styled-components: "npm:^5.3.11"
     ts-jest: "npm:^29.2.6"
@@ -10056,11 +10065,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^8.6.4":
-  version: 8.6.4
-  resolution: "storybook@npm:8.6.4"
+"storybook@npm:^8.6.9":
+  version: 8.6.9
+  resolution: "storybook@npm:8.6.9"
   dependencies:
-    "@storybook/core": "npm:8.6.4"
+    "@storybook/core": "npm:8.6.9"
   peerDependencies:
     prettier: ^2 || ^3
   peerDependenciesMeta:
@@ -10070,7 +10079,7 @@ __metadata:
     getstorybook: ./bin/index.cjs
     sb: ./bin/index.cjs
     storybook: ./bin/index.cjs
-  checksum: 10c0/8a0f01274fa079b6e3563df19568933a13ca3b45981d8d5fa66376d12da4f926cca0e9c79a071930527610fbd0cb71a5346ff487bf331ff7a029058a26c3932f
+  checksum: 10c0/f1c91ba8c0dfcc8465ee3656e19c4e48adf7ae6f0e5515422e4ee430a1da5aff43313b0ef42e2eb1121b9a26e7e39488a97b12a48f05945cc15527f416b07895
   languageName: node
   linkType: hard
 
