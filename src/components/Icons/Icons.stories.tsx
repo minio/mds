@@ -1179,6 +1179,12 @@ const Template: Story = (args) => {
             </div>
 
             <div className="story-icon">
+              <cicons.TrashOffIcon />
+              <br />
+              TrashOffIcon
+            </div>
+
+            <div className="story-icon">
               <cicons.UploadFile />
               <br />
               UploadFile
