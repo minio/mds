@@ -21,9 +21,11 @@ import { LogoBaseProps } from "./LogoBase.types";
 
 const LogoBase = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
   let mainColor = get(props, "theme.logoLabelColor", "#000");
+  let contrast = get(props, "theme.logoContrast", "#fff");
 
   if (props.inverse) {
     mainColor = get(props, "theme.logoLabelInverse", "#fff");
+    contrast = get(props, "theme.logoContrastInverse", "#000");
   }
 
   return {
@@ -32,6 +34,9 @@ const LogoBase = styled.svg<SVGProps<any> & LogoBaseProps>((props) => {
     },
     "& .minioApplicationName": {
       fill: mainColor,
+    },
+    "& .contrast": {
+      fill: contrast,
     },
   };
 });
