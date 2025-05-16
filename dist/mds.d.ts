@@ -298,6 +298,8 @@ interface ThemeDefinitionProps {
   logoColor: string;
   logoLabelColor: string;
   logoLabelInverse: string;
+  logoContrast: string;
+  logoContrastInverse: string;
   loaderColor: string;
   linkColor?: string;
   boxBackground: string;
