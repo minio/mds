@@ -3963,10 +3963,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wojtekmaj/date-utils@npm:^1.1.3":
-  version: 1.5.1
-  resolution: "@wojtekmaj/date-utils@npm:1.5.1"
-  checksum: 10c0/7c213cca5ab6b84ef61b9aea2b9fb8a04bf4c9764b28a97ffc4ee46a3e81560532a74d106a6f8aeef4792e1aaa6ea3dfd3c4a639dddbea560eb3f33cd62b8d7d
+"@wojtekmaj/date-utils@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@wojtekmaj/date-utils@npm:2.0.2"
+  checksum: 10c0/6a55542cf1d5d9477b0267b1df040b1ff2edef36e6622a99e2cbd9c3830f87415f767dc969e796e02bdd722c29a901e4826ba0a3ad123afb4fac8f105d08064f
   languageName: node
   linkType: hard
 
@@ -6081,12 +6081,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-user-locale@npm:^2.2.1":
-  version: 2.3.2
-  resolution: "get-user-locale@npm:2.3.2"
+"get-user-locale@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "get-user-locale@npm:3.0.0"
   dependencies:
-    mem: "npm:^8.0.0"
-  checksum: 10c0/2796b3fc3782b1f4826f31e899642cf72eeb23e296e1cf55280aab5caf7a25f4b906491ee1508a001519d6a410902ccf8fa8edaa895b7aee5dfd422ffe5523b9
+    memoize: "npm:^10.0.0"
+  checksum: 10c0/71d352b4d1f011cadc2736cb2194f8196e657447448a7eae187ed00f25d83efe1914a44ff22db80fbd1abee8728def436663aff161a4aff09e7044883c0a25ea
   languageName: node
   linkType: hard
 
@@ -7743,15 +7743,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"map-age-cleaner@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "map-age-cleaner@npm:0.1.3"
-  dependencies:
-    p-defer: "npm:^1.0.0"
-  checksum: 10c0/7495236c7b0950956c144fd8b4bc6399d4e78072a8840a4232fe1c4faccbb5eb5d842e5c0a56a60afc36d723f315c1c672325ca03c1b328650f7fcc478f385fd
-  languageName: node
-  linkType: hard
-
 "map-or-similar@npm:^1.5.0":
   version: 1.5.0
   resolution: "map-or-similar@npm:1.5.0"
@@ -7965,7 +7956,7 @@ __metadata:
     luxon: "npm:^3.6.1"
     prettier: "npm:^3.5.3"
     react: "npm:^18.3.1"
-    react-calendar: "npm:^5.1.0"
+    react-calendar: "npm:^6.0.0"
     react-dom: "npm:^18.3.1"
     react-virtualized: "npm:^9.22.6"
     remark-gfm: "npm:^4.0.1"
@@ -7985,22 +7976,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"mem@npm:^8.0.0":
-  version: 8.1.1
-  resolution: "mem@npm:8.1.1"
-  dependencies:
-    map-age-cleaner: "npm:^0.1.3"
-    mimic-fn: "npm:^3.1.0"
-  checksum: 10c0/5829c404d024c1accaf76ebacbc7eae9b59e5ce5722d184aa24e8387a8097a499f6aa7e181021003c51eb87b2dcdc9a2270050c58753cce761de206643cba91c
-  languageName: node
-  linkType: hard
-
 "memfs@npm:^3.4.1, memfs@npm:^3.4.12":
   version: 3.6.0
   resolution: "memfs@npm:3.6.0"
   dependencies:
     fs-monkey: "npm:^1.0.4"
   checksum: 10c0/af567f9038bbb5bbacf100b35d5839e90a89f882d191d8a1c7002faeb224c6cfcebd0e97c0150e9af8be95ec7b5b75a52af56fcd109d0bc18807c1f4e004f053
+  languageName: node
+  linkType: hard
+
+"memoize@npm:^10.0.0":
+  version: 10.1.0
+  resolution: "memoize@npm:10.1.0"
+  dependencies:
+    mimic-function: "npm:^5.0.1"
+  checksum: 10c0/6cf71f673b89778b05cd1131f573ba858627daa8fec60f2197328386acf7ab184a89e52527abbd5a605b5ccf5ee12dc0cb96efb651d9a30dcfcc89e9baacc84d
   languageName: node
   linkType: hard
 
@@ -8389,10 +8379,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mimic-fn@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "mimic-fn@npm:3.1.0"
-  checksum: 10c0/a07cdd8ed6490c2dff5b11f889b245d9556b80f5a653a552a651d17cff5a2d156e632d235106c2369f00cccef4071704589574cf3601bc1b1400a1f620dff067
+"mimic-function@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "mimic-function@npm:5.0.1"
+  checksum: 10c0/f3d9464dd1816ecf6bdf2aec6ba32c0728022039d992f178237d8e289b48764fee4131319e72eedd4f7f094e22ded0af836c3187a7edc4595d28dd74368fd81d
   languageName: node
   linkType: hard
 
@@ -8719,13 +8709,6 @@ __metadata:
     is-docker: "npm:^2.1.1"
     is-wsl: "npm:^2.2.0"
   checksum: 10c0/bb6b3a58401dacdb0aad14360626faf3fb7fba4b77816b373495988b724fb48941cad80c1b65d62bb31a17609b2cd91c41a181602caea597ca80dfbcc27e84c9
-  languageName: node
-  linkType: hard
-
-"p-defer@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "p-defer@npm:1.0.0"
-  checksum: 10c0/ed603c3790e74b061ac2cb07eb6e65802cf58dce0fbee646c113a7b71edb711101329ad38f99e462bd2e343a74f6e9366b496a35f1d766c187084d3109900487
   languageName: node
   linkType: hard
 
@@ -9245,13 +9228,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-calendar@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "react-calendar@npm:5.1.0"
+"react-calendar@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "react-calendar@npm:6.0.0"
   dependencies:
-    "@wojtekmaj/date-utils": "npm:^1.1.3"
+    "@wojtekmaj/date-utils": "npm:^2.0.2"
     clsx: "npm:^2.0.0"
-    get-user-locale: "npm:^2.2.1"
+    get-user-locale: "npm:^3.0.0"
     warning: "npm:^4.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -9260,7 +9243,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/27673f639c5d6296342a2a888436b31a5d602faeaae01be83b2beb98ff568b0a3d1514f5cc50fcacf3ac50b9c0b9d2fb423b0c001a8f5f1a22816671409e2616
+  checksum: 10c0/4c79d7a7d757eb35fb85c3c8f48ce36f2565d9889c1c67392ecb8cb031e46894fb320c5771d9e7293333230d2776b9b5250a5828833c3c1cb67eb41394fb3bc2
   languageName: node
   linkType: hard
 
