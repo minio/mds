@@ -3126,6 +3126,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/react-dom-shim@npm:9.0.6":
+  version: 9.0.6
+  resolution: "@storybook/react-dom-shim@npm:9.0.6"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^9.0.6
+  checksum: 10c0/e3437cf14cdd425e1a6514535016c53fb560d9da6a55743ea44a21ff13a2d8351f9d8cc181ea7ecda55646507c27c654bdfd91c3470df20c9703faa271f9a7aa
+  languageName: node
+  linkType: hard
+
 "@storybook/react-webpack5@npm:^8.6.12":
   version: 8.6.12
   resolution: "@storybook/react-webpack5@npm:8.6.12"
@@ -3145,7 +3156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:8.6.12, @storybook/react@npm:^8.6.12":
+"@storybook/react@npm:8.6.12":
   version: 8.6.12
   resolution: "@storybook/react@npm:8.6.12"
   dependencies:
@@ -3167,6 +3178,24 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/62d44f6c310577520d1c400cf80001c53d3db995dca6845e1b4e749422705e80825d337d1ba42c196453b2b5d66aa6d402127037546cf9f51afed5fce095e152
+  languageName: node
+  linkType: hard
+
+"@storybook/react@npm:^9.0.6":
+  version: 9.0.6
+  resolution: "@storybook/react@npm:9.0.6"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/react-dom-shim": "npm:9.0.6"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    storybook: ^9.0.6
+    typescript: ">= 4.9.x"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/0fe38890e6d7cc1bbe25349f1299077e2d28b564a910aedf0e0d2f1c3c63fb0582c7eea22f0368c6c412418a93867051d0e56ef18b23eeb04c409419087c6131
   languageName: node
   linkType: hard
 
@@ -7944,7 +7973,7 @@ __metadata:
     "@storybook/addon-interactions": "npm:^8.6.12"
     "@storybook/addon-links": "npm:^8.6.14"
     "@storybook/addon-webpack5-compiler-babel": "npm:^3.0.6"
-    "@storybook/react": "npm:^8.6.12"
+    "@storybook/react": "npm:^9.0.6"
     "@storybook/react-webpack5": "npm:^8.6.12"
     "@storybook/test": "npm:^8.6.14"
     "@testing-library/jest-dom": "npm:^6.6.3"
