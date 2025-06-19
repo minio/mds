@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import React, { FC, useState } from "react";
+import React, { FC, useState, RefObject } from "react";
 import styled from "styled-components";
 import get from "lodash/get";
 import { InputBoxElement, InputContainerProps } from "./InputBox.types";
@@ -122,108 +122,114 @@ const InputContainer = styled.div<InputContainerProps>(
   }),
 );
 
-const InputBox: FC<InputBoxElement> = ({
-  id,
-  tooltip = "",
-  index,
-  type,
-  overlayIcon,
-  noLabelMinWidth,
-  overlayId,
-  overlayAction,
-  overlayObject,
-  label = "",
-  required,
-  startIcon,
-  className,
-  error,
-  sx,
-  helpTip,
-  helpTipPlacement,
-  ...props
-}) => {
-  const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
+const InputBox = React.forwardRef<HTMLInputElement, InputBoxElement>(
+  (
+    {
+      id,
+      tooltip = "",
+      index,
+      type,
+      overlayIcon,
+      noLabelMinWidth,
+      overlayId,
+      overlayAction,
+      overlayObject,
+      label = "",
+      required,
+      startIcon,
+      className,
+      error,
+      sx,
+      helpTip,
+      helpTipPlacement,
+      ...props
+    },
+    ref,
+  ) => {
+    const [toggleTextInput, setToggleTextInput] = useState<boolean>(false);
 
-  let inputBoxWrapperIcon = overlayIcon;
-  let inputBoxWrapperType = type;
+    let inputBoxWrapperIcon = overlayIcon;
+    let inputBoxWrapperType = type;
 
-  if (type === "password" && !overlayIcon) {
-    inputBoxWrapperIcon = toggleTextInput ? (
-      <VisibilityOffIcon />
-    ) : (
-      <VisibilityOnIcon />
-    );
-    inputBoxWrapperType = toggleTextInput ? "text" : "password";
-  }
+    if (type === "password" && !overlayIcon) {
+      inputBoxWrapperIcon = toggleTextInput ? (
+        <VisibilityOffIcon />
+      ) : (
+        <VisibilityOnIcon />
+      );
+      inputBoxWrapperType = toggleTextInput ? "text" : "password";
+    }
 
-  return (
-    <InputContainer
-      error={!!error && error !== ""}
-      sx={sx}
-      className={`inputItem ${className}`}
-    >
-      {label !== "" && (
-        <InputLabel
-          htmlFor={id}
-          noMinWidth={noLabelMinWidth}
-          className={"inputLabel"}
-          helpTip={helpTip}
-          helpTipPlacement={helpTipPlacement}
-        >
-          {label}
-          {required ? "*" : ""}
-          {tooltip !== "" && (
-            <Box className={"tooltipContainer"}>
-              <Tooltip tooltip={tooltip} placement="top">
-                <Box className={tooltip}>
-                  <HelpIcon />
-                </Box>
-              </Tooltip>
+    return (
+      <InputContainer
+        error={!!error && error !== ""}
+        sx={sx}
+        className={`inputItem ${className}`}
+      >
+        {label !== "" && (
+          <InputLabel
+            htmlFor={id}
+            noMinWidth={noLabelMinWidth}
+            className={"inputLabel"}
+            helpTip={helpTip}
+            helpTipPlacement={helpTipPlacement}
+          >
+            {label}
+            {required ? "*" : ""}
+            {tooltip !== "" && (
+              <Box className={"tooltipContainer"}>
+                <Tooltip tooltip={tooltip} placement="top">
+                  <Box className={tooltip}>
+                    <HelpIcon />
+                  </Box>
+                </Tooltip>
+              </Box>
+            )}
+          </InputLabel>
+        )}
+
+        <Box className={"textBoxContainer"}>
+          {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
+          <InputBase
+            id={id}
+            fullWidth
+            type={inputBoxWrapperType}
+            error={error}
+            className={"inputRebase"}
+            data-index={index}
+            startIcon={startIcon}
+            overlayObject={overlayObject}
+            overlayIcon={overlayIcon}
+            originType={type}
+            ref={ref as RefObject<HTMLInputElement> | null | undefined}
+            {...props}
+          />
+          {inputBoxWrapperIcon && (
+            <Box className={"overlayAction"}>
+              <IconButton
+                onClick={
+                  overlayAction
+                    ? () => {
+                        overlayAction();
+                      }
+                    : () => setToggleTextInput(!toggleTextInput)
+                }
+                id={overlayId}
+                size={"25px"}
+                type={"button"}
+              >
+                {inputBoxWrapperIcon}
+              </IconButton>
             </Box>
           )}
-        </InputLabel>
-      )}
-
-      <Box className={"textBoxContainer"}>
-        {startIcon && <Box className={"startOverlayIcon"}>{startIcon}</Box>}
-        <InputBase
-          id={id}
-          fullWidth
-          type={inputBoxWrapperType}
-          error={error}
-          className={"inputRebase"}
-          data-index={index}
-          startIcon={startIcon}
-          overlayObject={overlayObject}
-          overlayIcon={overlayIcon}
-          originType={type}
-          {...props}
-        />
-        {inputBoxWrapperIcon && (
-          <Box className={"overlayAction"}>
-            <IconButton
-              onClick={
-                overlayAction
-                  ? () => {
-                      overlayAction();
-                    }
-                  : () => setToggleTextInput(!toggleTextInput)
-              }
-              id={overlayId}
-              size={"25px"}
-              type={"button"}
-            >
-              {inputBoxWrapperIcon}
-            </IconButton>
-          </Box>
-        )}
-        {overlayObject && (
-          <Box className={"overlayAction"}>{overlayObject}</Box>
-        )}
-        {error !== "" && <Box className={"errorText"}>{error}</Box>}
-      </Box>
-    </InputContainer>
-  );
-};
+          {overlayObject && (
+            <Box className={"overlayAction"}>{overlayObject}</Box>
+          )}
+          {error !== "" && <Box className={"errorText"}>{error}</Box>}
+        </Box>
+      </InputContainer>
+    );
+  },
+);
 
 export default InputBox;
