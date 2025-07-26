@@ -779,7 +779,11 @@ interface InputContainerProps {
 type InputBoxElement = InputBoxProps &
   React$1.InputHTMLAttributes<HTMLInputElement>;
 
-declare const InputBox$1: FC<InputBoxElement>;
+declare const InputBox$1: React$1.ForwardRefExoticComponent<
+  InputBoxProps &
+    React$1.InputHTMLAttributes<HTMLInputElement> &
+    React$1.RefAttributes<HTMLInputElement>
+>;
 
 interface BreadcrumbsProps {
   sx?: CSSObject;
