@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react-webpack5";
 
 import ExpandOptionsButton from "./ExpandOptionsButton";
 import { ExpandOptionsButtonProps } from "./ExpandOptionsButton.types";

@@ -1,4 +1,4 @@
-import { themes } from "@storybook/theming";
+import { themes } from "storybook/theming";
 import { darkColors, lightColors } from "../src/global/themes";
 
 export const parameters = {

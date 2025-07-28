@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react-webpack5";
 
 import Snackbar from "./Snackbar";
 import { SnackbarProps } from "./Snackbar.types";

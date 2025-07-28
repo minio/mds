@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import React, { Fragment } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react-webpack5";
 
 import SizeChart from "./SizeChart";
 import { SizeChartProps } from "./SizeChart.types";
