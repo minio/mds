@@ -15,7 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { useState } from "react";
-import { Meta, Story } from "@storybook/react";
+import { Meta, Story } from "@storybook/react-webpack5";
 
 import Autocomplete from "./Autocomplete";
 import { AutocompleteProps } from "./Autocomplete.types";
